@@ -1,0 +1,28 @@
+:host {
+  display: inline-flex;
+}
+
+span {
+  padding: 1px 5px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 3px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  outline: 0;
+}
+
+button:active {
+  color: #fff;
+  background-color: #333;
+}
+
+button,
+span {
+  margin: 0 2px;
+}
