@@ -3,7 +3,7 @@ on:
   # a pull request.
   push:
     branches:
-      - master
+      - main
   pull_request:
       types: [opened, synchronize, reopened]
 name: Main Workflow
@@ -16,7 +16,7 @@ jobs:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: sonarsource/sonarcloud-github-action@main
       env:
         GITHUB_TOKEN: a8b9ae95a4d2a84df222b9c7a4f298033b2ffedd
         SONAR_TOKEN: a8b9ae95a4d2a84df222b9c7a4f298033b2ffedd
