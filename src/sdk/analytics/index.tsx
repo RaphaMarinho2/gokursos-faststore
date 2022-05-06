@@ -3,9 +3,9 @@ import { useAnalyticsEvent } from '@faststore/sdk'
 
 import storeConfig from '../../../store.config'
 
-if (typeof window !== 'undefined') {
-  window.dataLayer = window.dataLayer ?? []
-}
+// if (typeof window !== 'undefined') {
+//   window.dataLayer = window.dataLayer ?? []
+// }
 
 export const AnalyticsHandler = () => {
   useAnalyticsEvent((event: AnalyticsEvent) => {
@@ -14,8 +14,8 @@ export const AnalyticsHandler = () => {
     // which could lead do inaccurate and old data being sent with events
     //
     // source: https://developers.google.com/tag-manager/ecommerce-ga4?hl=pt-br#clearing_the_ecommerce_object
-    window.dataLayer.push({ ecommerce: null })
-    window.dataLayer.push({ event: event.name, ecommerce: event.params })
+    // window.dataLayer.push({ ecommerce: null })
+    // window.dataLayer.push({ event: event.name, ecommerce: event.params })
 
     import(`./platform/${storeConfig.platform}`).then(
       ({ default: sendEvent }) => {

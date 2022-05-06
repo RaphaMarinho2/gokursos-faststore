@@ -42,3 +42,14 @@
     url("../fonts/lato-v20-latin-900.ttf") format("truetype"),
     url("../fonts/lato-v20-latin-900.svg#Lato") format("svg"); /* Legacy iOS */
 }
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+font-family: 'Montserrat-Semibold';
+src: url(fonts/Montserrat-SemiBold.ttf);
+font-weight: 600;
+}

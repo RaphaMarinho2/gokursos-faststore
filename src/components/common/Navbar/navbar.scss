@@ -2,6 +2,7 @@
 
 .navbar {
   padding: 0;
+  background-color: var(--fs-color-header-0);
   border-bottom: var(--fs-border-width-default) solid var(--fs-color-neutral-2);
   box-shadow: 0 var(--fs-spacing-0) var(--fs-spacing-3) rgb(0 0 0 / 5%);
 
@@ -13,6 +14,12 @@
       display: none;
     }
   }
+}
+
+.nav-section {
+  display: flex;
+  align-content: center;
+  background: #ffffff;
 }
 
 .navbar__row {
@@ -57,6 +64,10 @@
     [data-fs-button-signin-link] {
       display: inline-flex;
     }
+  }
+
+  button .botao-menu-mobile {
+    background: red;
   }
 
   [data-store-search-input] {
@@ -128,7 +139,6 @@
 }
 
 .navbar__logo {
-  width: 11rem;
   height: 2.375rem;
   min-height: 2.375rem;
   padding: 0;
@@ -136,10 +146,6 @@
   img {
     width: 100%;
     height: 100%;
-  }
-
-  @include media("<tablet") {
-    margin-right: var(--fs-spacing-5);
   }
 }
 
@@ -182,13 +188,16 @@
   a {
     display: block;
     width: 100%;
+    font-size: 14px;
+    font-weight: 400px;
+
+    // font-family: "Montserrat";
   }
 
   @include media(">=notebook") {
     ul {
       display: flex;
       column-gap: var(--fs-spacing-3);
-      padding-top: var(--fs-spacing-1);
     }
 
     a {
