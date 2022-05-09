@@ -13,7 +13,7 @@ import { mark } from 'src/sdk/tests/mark'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
-import Teste from 'src/components/icons/teste'
+import MenuMobile from 'src/components/icons/menu-mobile'
 
 interface NavLinksProps {
   onClickLink?: AnchorHTMLAttributes<HTMLAnchorElement>['onClick']
@@ -83,7 +83,7 @@ function Navbar() {
               <ButtonIcon
                 data-fs-button-menu
                 aria-label="Open Menu"
-                icon={<Teste />}
+                icon={<MenuMobile />}
                 onClick={() => setShowMenu(true)}
                 className="botao-menu-mobile"
               />
