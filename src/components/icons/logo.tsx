@@ -5,7 +5,7 @@ import { Link } from '@faststore/ui'
 const Logo: FC = () => (
   <Link
     href="/"
-    data-vivara-link
+    data-gokursos-link
     aria-label="gokursos-logo-image"
     title="gokursos"
   >

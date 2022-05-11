@@ -178,12 +178,7 @@
     background-color: transparent;
     border: var(--fs-button-border-width) solid var(--fs-button-primary-border-color);
 
-    &:hover {
-      color: var(--fs-button-primary-text-color-hover);
-      background-color: var(--fs-button-primary-bkg-color-hover);
-      border-color: var(--fs-button-primary-border-color-hover);
-      box-shadow: var(--fs-button-primary-shadow-hover);
-    }
+
 
     &:focus, &:focus-visible {
       color: var(--fs-button-primary-text-color-hover);
@@ -201,12 +196,7 @@
       background-color: transparent;
       border: var(--fs-button-border-width) solid var(--fs-button-primary-inverse-border-color);
 
-      &:hover {
-        color: var(--fs-button-primary-inverse-text-color-hover);
-        background-color: var(--fs-button-primary-inverse-bkg-color-hover);
-        border-color: var(--fs-button-primary-inverse-border-color-hover);
-        box-shadow: var(--fs-button-primary-inverse-shadow-hover);
-      }
+
 
       &:focus, &:focus-visible {
         color: var(--fs-button-primary-inverse-text-color-hover);
@@ -275,13 +265,6 @@
     border: var(--fs-button-border-width) solid var(--fs-button-tertiary-border-color);
 
     // font-family: "Montserrat";
-
-    &:hover {
-      color: var(--fs-button-tertiary-text-color-hover);
-      background-color: var(--fs-button-tertiary-bkg-color-hover);
-      border-color: var(--fs-button-tertiary-border-color-hover);
-      box-shadow: var(--fs-button-tertiary-shadow-hover);
-    }
 
     &:focus, &:focus-visible {
       color: var(--fs-button-tertiary-text-color-hover);

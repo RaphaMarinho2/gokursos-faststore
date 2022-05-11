@@ -66,10 +66,6 @@
     }
   }
 
-  button .botao-menu-mobile {
-    background: red;
-  }
-
   [data-store-search-input] {
     display: none;
     transition: flex 0.3s ease-in;
@@ -190,6 +186,7 @@
     width: 100%;
     font-size: 14px;
     font-weight: 400px;
+    color: #000000;
 
     // font-family: "Montserrat";
   }
