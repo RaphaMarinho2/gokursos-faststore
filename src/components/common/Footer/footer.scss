@@ -1,11 +1,8 @@
 @import "src/styles/scaffold";
 
 .footer {
-  background-color: var(--fs-color-neutral-bkg);
-
-  .incentives {
-    padding-top: 0;
-  }
+  background-color: #FFFFFF;
+  padding-bottom: 36px;
 
   content-visibility: auto;
   contain-intrinsic-size: rem(860px);
@@ -29,19 +26,14 @@
     grid-template-columns: repeat(12, 1fr);
     column-gap: var(--fs-grid-gap-3);
   }
-
-  &::before {
-    width: 100%;
-    content: "";
-    border-top: 1px solid var(--fs-border-color-light);
-
-    @include media(">=notebook") {
-      grid-column: span 12;
-    }
-  }
 }
 
 .footer__section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 3;
+
   @include media(">=notebook") {
     row-gap: var(--fs-spacing-7);
     padding-bottom: var(--fs-spacing-7);
@@ -112,21 +104,19 @@
 }
 
 .footer__social {
+  grid-row: 3;
   display: flex;
   flex-direction: column;
-
-  @include media("<notebook") {
-    padding: var(--fs-spacing-4) 0 var(--fs-spacing-3);
-  }
 
   @include media(">=notebook") {
     grid-column: 11 / span 2;
   }
 
   .text__title-mini {
-    text-align: center;
+    display: none;
 
     @include media(">=notebook") {
+      display: block;
       text-align: left;
     }
   }
@@ -148,11 +138,27 @@
       min-width: var(--fs-control-tap-size);
       min-height: var(--fs-control-tap-size);
       padding: var(--fs-spacing-1);
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
     }
   }
 }
 
 .footer__copyright {
+  grid-row: 2;
+
+  p {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+    color: #666666;
+    text-align: center;
+  }
+
   p + p {
     margin: var(--fs-spacing-2) auto;
   }
@@ -167,8 +173,101 @@
 }
 
 .footer__links {
+  grid-row: 1;
+
+  .accordion[data-store-accordion] {
+    [data-store-button] {
+      color: #004E98;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      line-height: 24px;
+      font-size: 14px;
+
+      &[aria-expanded="true"] {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 21px;
+      }
+    }
+
+    .formasdepagamento {
+      [data-store-list] {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          padding: 0 10px 16px 6px;
+
+          &:last-child {
+            padding-left: 30px;
+          }
+
+          .subitem-wrapper {
+            display: flex;
+            align-items: center;
+
+            li {
+              padding: 0 16px 16px 0;
+            }
+          }
+        }
+      }
+    }
+
+    .tecnologiaedesenvolvimento {
+      [data-store-list] {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          padding: 0 14px 0 0;
+
+          &:not(:first-child) {
+            padding: 0 130px 16px 6px;
+          }
+
+          .subitem-wrapper {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+
+  [data-fs-link-variant=footer] {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #666666;
+    padding: 0;
+
+    &:visited {
+      color: #666666;
+    }
+  }
+
   [data-store-list] {
     margin-bottom: var(--fs-spacing-2);
+
+    li {
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 400;
+      color: #666666;
+      padding: 0 0 16px;
+
+      p {
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        line-height: 13px;
+        font-weight: 400;
+        color: #555555;
+        padding: 0 0 7px;
+      }
+    }
   }
 
   [data-store-link] {

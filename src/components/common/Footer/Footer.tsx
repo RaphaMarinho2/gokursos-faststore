@@ -51,10 +51,8 @@ function Footer() {
             </li>
           </UIList>
         </section>
-      </div>
 
-      <div className="footer__note layout__content">
-        <div className="footer__copyright / text__legend">
+        <section className="footer__copyright">
           <p>
             Em caso de divergência de preços no site, é válido o valor do
             Carrinho de Compras | Imagens dos produtos são meramente
@@ -64,7 +62,7 @@ function Footer() {
             www.gokursos.com | CNPJ:41.421.527/0001-77- 2021 Todos os direitos
             reservados
           </p>
-        </div>
+        </section>
       </div>
     </footer>
   )
