@@ -283,12 +283,19 @@ function FooterLinks() {
 
       <div className="hidden-mobile">
         <div className="footer__links-columns">
-          {links.map((section) => (
-            <nav key={section.title}>
-              <p className="text__title-mini">{section.title}</p>
-              <LinksList items={section.items} />
-            </nav>
-          ))}
+          {links.map((section) => {
+            const parsedTitle = section.title
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f\ ]/g, '')
+              .toLowerCase()
+
+            return (
+              <nav key={section.title} className={parsedTitle}>
+                <p className="text__title-mini">{section.title}</p>
+                <LinksList items={section.items} />
+              </nav>
+            )
+          })}
         </div>
       </div>
     </section>
