@@ -184,11 +184,10 @@
   a {
     display: block;
     width: 100%;
+    font-family: Montserrat, sans-serif;
     font-size: 14px;
     font-weight: 400px;
     color: #000000;
-
-    // font-family: "Montserrat";
   }
 
   @include media(">=notebook") {
