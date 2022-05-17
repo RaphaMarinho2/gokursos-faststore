@@ -1,0 +1,12 @@
+{
+  "ci": {
+    "assert": {
+      "assertions": {
+        "largest-contentful-paint": ["error", { "minScore": 0.9 }],
+        "first-contentful-paint": ["error", { "minScore": 0.9 }],
+        "interactive": ["error", { "minScore": 0.77 }],
+        "cumulative-layout-shift": ["error", { "minScore": 0.99 }]
+      }
+    }
+  }
+}
