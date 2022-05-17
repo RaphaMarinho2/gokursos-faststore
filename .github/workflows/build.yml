@@ -23,6 +23,7 @@ jobs:
       with:
           args: >
             -Dsonar.projectKey=ACCT-global_gokursos-faststore
+            -Dsonar.organization=acct-global-github
             -Dsonar.pullrequest.key=${{ github.event.number }}
             -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
             -Dsonar.pullrequest.base=${{ github.BASE_REF }}
