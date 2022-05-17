@@ -19,7 +19,7 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: "ebbfb2943f0cf54c9c9eb746e5da3366bd01ab5e"
+        SONAR_TOKEN: ebbfb2943f0cf54c9c9eb746e5da3366bd01ab5e
       with:
           args: >
             -Dsonar.projectKey=ACCT-global_gokursos-faststore
