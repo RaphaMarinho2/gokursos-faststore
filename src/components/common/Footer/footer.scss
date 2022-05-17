@@ -289,7 +289,7 @@
       padding: 0 0 16px;
 
       @include media(">=notebook") {
-        padding: 0 8px 16px;
+        padding-bottom: 16px;
       }
 
       p {
