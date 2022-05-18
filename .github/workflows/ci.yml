@@ -1,0 +1,50 @@
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+name: CI Workflow
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=ACCT-global_gokursos-faststore
+            -Dsonar.organization=acct-global-github
+            -Dsonar.pullrequest.key=${{ github.event.number }}
+            -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
+            -Dsonar.pullrequest.base=${{ github.BASE_REF }}
+            -Dsonar.pullrequest.github.repository=${{ github.repository }}
+            -Dsonar.scm.provider=git
+
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Build
+        run: |
+          yarn
+          yarn build
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: './lighthouserc.json'
