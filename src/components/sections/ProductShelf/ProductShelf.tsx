@@ -1,6 +1,7 @@
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
+import AgnosticProductCard from 'src/components/product/AgnosticProductCard/AgnosticProductCard'
 
 import ProductCard from '../../product/ProductCard'
 import Section from '../Section'
@@ -15,7 +16,7 @@ function ClkBtn() {
 }
 
 function ProductBtnBuyInPage() {
-  return <button onClick={ClkBtn}>Click me</button>
+  return <button onClick={ClkBtn}>Quero começar</button>
 }
 
 function ProductShelf({
@@ -46,6 +47,7 @@ function ProductShelf({
                   index={idx + 1}
                   ButtonBuy={ProductBtnBuyInPage()}
                 />
+                {/* <AgnosticProductCard product={product.node} loading="eager" /> */}
               </li>
             ))}
           </ul>
