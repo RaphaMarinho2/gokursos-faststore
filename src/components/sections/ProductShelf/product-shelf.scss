@@ -23,12 +23,6 @@
 [data-fs-product-shelf-items] {
   display: flex;
   align-items: stretch;
-  overflow-x: scroll;
-
-  li {
-    width: 100%;
-    &:first-child { margin-left: var(--fs-product-shelf-first-item-margin-left); }
-  }
 
   @include media(">=tablet") {
     column-gap: var(--fs-product-shelf-items-gap);

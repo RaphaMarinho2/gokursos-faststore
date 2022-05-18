@@ -42,9 +42,7 @@ main,
 .layout__content {
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--fs-grid-breakpoint-notebook);
-  padding-right: var(--fs-grid-padding);
-  padding-left: var(--fs-grid-padding);
+  max-width: var(--fs-grid-breakpoint-desktop);
   margin-right: auto;
   margin-left: auto;
 }

@@ -1,6 +1,7 @@
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
+import Carousel from '@acctglobal/carousel-universal-test'
 
 import ProductCard from '../../product/ProductCard'
 import Section from '../Section'
@@ -38,17 +39,18 @@ function ProductShelf({
       <h2 className="text__title-section layout__content">{title}</h2>
       <div data-fs-product-shelf>
         <ProductShelfSkeleton loading={products === undefined}>
-          <ul data-fs-product-shelf-items className="layout__content">
-            {products?.edges.map((product, idx) => (
-              <li key={`${product.node.id}`}>
+          <div data-fs-product-shelf-items className="layout__content">
+            <Carousel qtyItems={5} arrow={{ isVisible: true }}>
+              {products?.edges.map((product, idx) => (
                 <ProductCard
+                  key={idx}
                   product={product.node}
                   index={idx + 1}
                   ButtonBuy={ProductBtnBuyInPage()}
                 />
-              </li>
-            ))}
-          </ul>
+              ))}
+            </Carousel>
+          </div>
         </ProductShelfSkeleton>
       </div>
     </Section>
