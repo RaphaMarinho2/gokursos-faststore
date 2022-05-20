@@ -79,6 +79,7 @@ function Page(props: Props) {
       <IncentivesHeader incentives={IncentivesMock} />
 
       <ProductShelf
+        cardsQuantity={2}
         first={ITEMS_PER_SECTION}
         selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
         title="Most Wanted"
@@ -96,11 +97,11 @@ function Page(props: Props) {
         actionLabel="Call to action"
       />
 
-      <ProductShelf
+      {/* <ProductShelf
         first={ITEMS_PER_SECTION}
         selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
         title="Deals & Promotions"
-      />
+      /> */}
     </>
   )
 }

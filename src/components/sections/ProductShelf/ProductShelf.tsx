@@ -1,4 +1,3 @@
-import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import Carousel from '@acctglobal/carousel-universal-test'
@@ -8,6 +7,7 @@ import Section from '../Section'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element
+  cardsQuantity: number
   withDivisor?: boolean
 }
 
@@ -20,6 +20,7 @@ function ProductBtnBuyInPage() {
 }
 
 function ProductShelf({
+  cardsQuantity,
   title,
   withDivisor = false,
   ...variables
@@ -37,21 +38,24 @@ function ProductShelf({
       className={`layout__section ${withDivisor ? 'section__divisor' : ''}`}
     >
       <h2 className="text__title-section layout__content">{title}</h2>
-      <div data-fs-product-shelf>
-        <ProductShelfSkeleton loading={products === undefined}>
-          <div data-fs-product-shelf-items className="layout__content">
-            <Carousel qtyItems={5} arrow={{ isVisible: true }}>
-              {products?.edges.map((product, idx) => (
-                <ProductCard
-                  key={idx}
-                  product={product.node}
-                  index={idx + 1}
-                  ButtonBuy={ProductBtnBuyInPage()}
-                />
-              ))}
-            </Carousel>
-          </div>
-        </ProductShelfSkeleton>
+      <div data-fs-product-shelf-items>
+        <Carousel
+          qtyItems={cardsQuantity}
+          arrow={{
+            isVisible: true,
+            iconColor: '#004E98',
+          }}
+        >
+          {products?.edges.map((product, idx) => (
+            <div key={idx} style={{ width: '100%' }}>
+              <ProductCard
+                product={product.node}
+                index={idx + 1}
+                ButtonBuy={ProductBtnBuyInPage()}
+              />
+            </div>
+          ))}
+        </Carousel>
       </div>
     </Section>
   )

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@acctglobal/carousel-universal-test@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@acctglobal/carousel-universal-test/-/carousel-universal-test-0.5.0.tgz#9562771205e40a37d86f506ea5f1ac14ddc72e84"
-  integrity sha512-7SLynmq9mPwkRY7mnYdqm32DPl1geJJW2EIOrS3UpfxTwZ/MVmXSTKAcO1zSZgDkIPSwsP50LDbtdXMnlxYnig==
+"@acctglobal/carousel-universal-test@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@acctglobal/carousel-universal-test/-/carousel-universal-test-0.4.0.tgz#1cfb36b6373cd96e3deea0d84f9d2133810a13b7"
+  integrity sha512-tmFErZZckDxmW64S9Q5iSghI8nsXq4V76Rpufdg0e+vYdxJtRLNDhwl/1xxvjKwX/tTmpqterYNV719+uo2qSA==
 
 "@ampproject/remapping@^2.1.0":
   version "2.1.2"

@@ -104,6 +104,7 @@ function Page(props: Props) {
       <ProductDetails product={product} />
 
       <ProductShelf
+        cardsQuantity={4}
         first={ITEMS_PER_SECTION}
         term={product.brand.name}
         title="You might also like"
@@ -111,6 +112,7 @@ function Page(props: Props) {
       />
 
       <ProductShelf
+        cardsQuantity={4}
         first={ITEMS_PER_SECTION}
         term={product.brand.name}
         title="You might also like"

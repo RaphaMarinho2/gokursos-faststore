@@ -8,6 +8,7 @@
   --fs-product-card-padding                  : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-1);
   --fs-product-card-gap                      : var(--fs-grid-gap-2);
   --fs-product-card-min-width                : 14rem;
+  --fs-product-card-max-width                : 250px;
 
   --fs-product-card-shadow                   : none;
   --fs-product-card-shadow-hover             : var(--fs-shadow-hover);
@@ -52,6 +53,7 @@
   grid-template-rows: minmax(0, max-content);
   grid-auto-flow: row;
   min-width: var(--fs-product-card-min-width);
+  max-width: var(--fs-product-card-max-width);
   height: 100%;
   padding: var(--fs-product-card-padding);
   background-color: var(--fs-product-card-bkg-color);
