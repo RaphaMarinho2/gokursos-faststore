@@ -4,7 +4,7 @@ import { GatsbySeo, JsonLd } from 'gatsby-plugin-next-seo'
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
-import ProductShelf from 'src/components/sections/ProductShelf'
+import ProductShelf from 'src/components/product/ProductShelf'
 import ProductTiles from 'src/components/sections/ProductTiles'
 import { mark } from 'src/sdk/tests/mark'
 import { ITEMS_PER_SECTION } from 'src/constants'
@@ -79,7 +79,7 @@ function Page(props: Props) {
       <IncentivesHeader incentives={IncentivesMock} />
 
       <ProductShelf
-        cardsQuantity={2}
+        cardsQuantity={5}
         first={ITEMS_PER_SECTION}
         selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
         title="Most Wanted"

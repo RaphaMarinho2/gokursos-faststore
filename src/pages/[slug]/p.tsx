@@ -7,7 +7,6 @@ import {
   ProductJsonLd,
 } from 'gatsby-plugin-next-seo'
 import ProductDetails from 'src/components/sections/ProductDetails'
-import ProductShelf from 'src/components/sections/ProductShelf'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type {
@@ -15,10 +14,8 @@ import type {
   ServerProductPageQueryQuery,
   ProductPageQueryQueryVariables,
 } from '@generated/graphql'
-import { ITEMS_PER_SECTION } from 'src/constants'
-import { useBuyButton } from 'src/sdk/cart/useBuyButton'
-
 import 'src/styles/pages/pdp.scss'
+import PDPProductShelf from 'src/components/sections/PDPProductShelf'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
@@ -103,21 +100,7 @@ function Page(props: Props) {
 
       <ProductDetails product={product} />
 
-      <ProductShelf
-        cardsQuantity={4}
-        first={ITEMS_PER_SECTION}
-        term={product.brand.name}
-        title="You might also like"
-        withDivisor
-      />
-
-      <ProductShelf
-        cardsQuantity={4}
-        first={ITEMS_PER_SECTION}
-        term={product.brand.name}
-        title="You might also like"
-        withDivisor
-      />
+      <PDPProductShelf product={product} />
     </>
   )
 }
