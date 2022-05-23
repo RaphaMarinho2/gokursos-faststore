@@ -13,6 +13,14 @@
     margin-left: calc(-1 * var(--fs-spacing-1));
     overflow-x: hidden;
 
+    .breadcrump-item {
+      color: #555;
+    }
+
+    .last-child {
+      text-decoration: underline;
+    }
+
     [data-breadcrumb-list-item] {
       display: inline-flex;
       align-items: center;
