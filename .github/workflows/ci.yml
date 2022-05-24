@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-name: CI Workflow
+name: CI Workflow 
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
