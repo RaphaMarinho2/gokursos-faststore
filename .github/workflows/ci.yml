@@ -6,7 +6,7 @@ on:
 
 name: CI Workflow 
 jobs:
-  sonarcloud:
+  sonarcloud: 
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
