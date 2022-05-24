@@ -28,7 +28,7 @@ jobs:
             -Dsonar.scm.provider=git
 
   lighthouse:
-    runs-on: self-hosted-runner
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repository
