@@ -1,6 +1,14 @@
 @import "src/styles/scaffold";
 
-.product-details { margin-top: var(--fs-spacing-3); }
+.product-details {
+  margin-top: var(--fs-spacing-3);
+  font-family: Montserrat, sans-serif;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
 
 .product-details__body {
   display: flex;
@@ -85,7 +93,7 @@
   @include media(">=tablet") {
     grid-row: 2 / span 3;
     grid-column: 8 / span 5;
-    padding: var(--fs-spacing-5);
+    padding: var(--fs-spacing-3);
     border: 1px solid var(--fs-border-color-light);
     border-top: 0;
     border-radius: 0 0 var(--fs-border-radius-default) var(--fs-border-radius-default);

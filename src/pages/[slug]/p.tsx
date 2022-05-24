@@ -16,7 +16,6 @@ import type {
   ProductPageQueryQueryVariables,
 } from '@generated/graphql'
 import { ITEMS_PER_SECTION } from 'src/constants'
-import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 
 import 'src/styles/pages/pdp.scss'
 
