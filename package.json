@@ -5,6 +5,7 @@
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
+    "commit": "cz",
     "generate": "graphql-codegen",
     "build": "yarn partytown && gatsby build",
     "develop": "yarn partytown && gatsby develop",
@@ -58,6 +59,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
     "@cypress/code-coverage": "^3.9.10",
     "@graphql-codegen/cli": "^2.2.1",
     "@graphql-codegen/typescript": "^2.2.4",
@@ -80,9 +83,11 @@
     "axe-core": "^4.3.3",
     "babel-loader": "^8.2.4",
     "babel-plugin-remove-graphql-queries": "^4.11.1",
+    "commitizen": "^4.2.4",
     "cypress": "6.6.0",
     "cypress-axe": "^0.13.0",
     "cypress-wait-until": "^1.7.2",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.22.0",
     "eslint-config-vtex-react": "^7.0.0",
@@ -118,5 +123,10 @@
     "*.scss": [
       "stylelint --fix"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
