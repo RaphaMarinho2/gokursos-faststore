@@ -1,7 +1,7 @@
 {
-  "name": "gatsby.store",
+  "name": "gokursos.store",
   "private": true,
-  "version": "0.221.0",
+  "version": "0.0.0",
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
@@ -25,6 +25,7 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@acctglobal/carousel-universal-test": "1.1.0",
     "@builder.io/partytown": "^0.5.1",
     "@envelop/core": "^1.2.0",
     "@envelop/graphql-jit": "^1.1.1",
