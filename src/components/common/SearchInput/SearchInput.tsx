@@ -56,7 +56,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
             data-testid={buttonTestId}
           />
         }
-        placeholder="Search everything at the store"
+        placeholder="O que você quer aprender?"
         onSubmit={handleSearch}
         {...props}
       />

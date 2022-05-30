@@ -9,3 +9,14 @@ font-family: 'Montserrat-Semibold';
 src: url(fonts/Montserrat-SemiBold.ttf);
 font-weight: 600;
 }
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+font-family: 'Montserrat-Semibold';
+src: url(fonts/Montserrat-SemiBold.ttf);
+font-weight: 600;
+}
