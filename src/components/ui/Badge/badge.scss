@@ -12,8 +12,9 @@
 
   --fs-badge-bkg-color                    : var(--fs-color-neutral-bkg);
 
-  --fs-badge-text-color                   : var(--fs-color-text);
-  --fs-badge-text-size                    : var(--fs-text-size-tiny);
+  --fs-badge-text-color                   :
+    #ffffff
+    --fs-badge-text-size                    : var(--fs-text-size-tiny);
   --fs-badge-text-weight                  : var(--fs-text-weight-bold);
 
   --fs-badge-transition-function          : var(--fs-transition-function);
@@ -51,15 +52,15 @@
   --fs-badge-danger-border-color          : var(--fs-color-danger-bkg);
 
   // Discount
-  --fs-badge-discount-low-bkg-color       : var(--fs-badge-success-bkg-color);
+  --fs-badge-discount-low-bkg-color       : #ff3452;
   --fs-badge-discount-low-text-color      : var(--fs-badge-success-text-color);
   --fs-badge-discount-low-border-color    : var(--fs-badge-success-border-color);
 
-  --fs-badge-discount-medium-bkg-color    : var(--fs-badge-warning-bkg-color);
+  --fs-badge-discount-medium-bkg-color    : #ff3452;
   --fs-badge-discount-medium-text-color   : var(--fs-badge-warning-text-color);
   --fs-badge-discount-medium-border-color : var(--fs-badge-warning-border-color);
 
-  --fs-badge-discount-high-bkg-color      : var(--fs-badge-danger-bkg-color);
+  --fs-badge-discount-high-bkg-color      : #ff3452;
   --fs-badge-discount-high-text-color     : var(--fs-badge-danger-text-color);
   --fs-badge-discount-high-border-color   : var(--fs-badge-danger-border-color);
 
