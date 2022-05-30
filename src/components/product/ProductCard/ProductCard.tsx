@@ -98,11 +98,7 @@ function ProductCard({
           </div>
         </div>
 
-        {outOfStock ? (
-          <Badge>Out of stock</Badge>
-        ) : (
-          <DiscountBadge listPrice={listPrice} spotPrice={spotPrice} />
-        )}
+        {outOfStock && <Badge>Out of stock</Badge>}
         {!!ButtonBuy && (
           <UICardActions data-fs-product-card-actions>
             {ButtonBuy}

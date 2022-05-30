@@ -20,3 +20,13 @@ font-family: 'Montserrat-Semibold';
 src: url(fonts/Montserrat-SemiBold.ttf);
 font-weight: 600;
 }
+
+@font-face {
+  font-weight: 500;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-display: fallback;
+  src:
+    url("../fonts/Montserrat.ttf") format("truetype"),
+
+}
