@@ -1,12 +1,14 @@
 on:
+  push:
+    branches: [develop]
   pull_request:
     types: [opened, synchronize, reopened]
 
-name: CI Workflow
+name: CI Workflow 
 jobs:
-  sonarcloud:
+  sonarcloud: 
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -26,7 +28,7 @@ jobs:
             -Dsonar.scm.provider=git
 
   lighthouse:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repository
@@ -37,10 +39,9 @@ jobs:
         with:
           node-version: 14.x
 
-      - uses: c-hive/gha-yarn-cache@v1
-
       - name: Build
         run: |
+          npm install --global yarn
           yarn
           yarn build
 
