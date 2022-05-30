@@ -3,88 +3,19 @@ import { List as UIList } from '@faststore/ui'
 import Link from 'src/components/ui/Link'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 
-const links = [
-  {
-    title: 'Our company',
-    items: [
-      {
-        href: '/',
-        name: 'About Us',
-      },
-      {
-        href: '/',
-        name: 'Our Blog',
-      },
-      {
-        href: '/',
-        name: 'Stores',
-      },
-      {
-        href: '/',
-        name: 'Work With Us',
-      },
-    ],
-  },
-  {
-    title: 'Orders & Purchases',
-    items: [
-      {
-        href: '/',
-        name: 'Check Order Status',
-      },
-      {
-        href: '/',
-        name: 'Returns and Exchanges',
-      },
-      {
-        href: '/',
-        name: 'Product Recall',
-      },
-      {
-        href: '/',
-        name: 'Gift Cards',
-      },
-    ],
-  },
-  {
-    title: 'Support & Services',
-    items: [
-      {
-        href: '/',
-        name: 'Support Center',
-      },
-      {
-        href: '/',
-        name: 'Schedule a Service',
-      },
-      {
-        href: '/',
-        name: 'Contact Us',
-      },
-    ],
-  },
-  {
-    title: 'Partnerships',
-    items: [
-      {
-        href: '/',
-        name: 'Affiliate Program',
-      },
-      {
-        href: '/',
-        name: 'Advertise with US',
-      },
-      {
-        href: '/',
-        name: 'Market Place',
-      },
-    ],
-  },
-]
+import links from './data/links'
+
+type SubItem = {
+  href: string | null
+  name: string
+  icon?: JSX.Element | null
+}
 
 type LinkItem = {
-  href: string
+  href: string | null
   name: string
+  icon?: JSX.Element | null
+  subItems?: SubItem[]
 }
 
 interface LinksListProps {
@@ -95,11 +26,42 @@ function LinksList({ items }: LinksListProps) {
   return (
     <UIList>
       {items.map((item) => (
-        <li key={item.name}>
-          <Link variant="footer" to={item.href}>
-            {item.name}
-          </Link>
-        </li>
+        <>
+          {item.subItems ? (
+            <li key={item.name}>
+              <p>{item.name}</p>
+              <div className="subitem-wrapper">
+                {item.subItems.map((subItem) => (
+                  <>
+                    {subItem.icon === null ? (
+                      <li key={subItem.name}>
+                        {subItem.href !== null ? (
+                          <Link variant="footer" to={subItem.href}>
+                            {subItem.name}
+                          </Link>
+                        ) : (
+                          <p>{subItem.name}</p>
+                        )}
+                      </li>
+                    ) : (
+                      <li key={subItem.name}>{subItem.icon}</li>
+                    )}
+                  </>
+                ))}
+              </div>
+            </li>
+          ) : (
+            <li key={item.name}>
+              {item.href !== null ? (
+                <Link variant="footer" to={item.href}>
+                  {item.icon === null ? <>{item.name}</> : <>{item.icon}</>}
+                </Link>
+              ) : (
+                <>{item.icon === null ? <>{item.name}</> : <>{item.icon}</>}</>
+              )}
+            </li>
+          )}
+        </>
       ))}
     </UIList>
   )
@@ -123,26 +85,41 @@ function FooterLinks() {
     <section className="footer__links">
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
-          {links.map((section, index) => (
-            <AccordionItem
-              key={section.title}
-              isExpanded={indicesExpanded.has(index)}
-              buttonLabel={section.title}
-            >
-              <LinksList items={section.items} />
-            </AccordionItem>
-          ))}
+          {links.map((section, index) => {
+            const parsedTitle = section.title
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f ]/g, '')
+              .toLowerCase()
+
+            return (
+              <AccordionItem
+                key={section.title}
+                isExpanded={indicesExpanded.has(index)}
+                buttonLabel={section.title}
+                className={parsedTitle}
+              >
+                <LinksList items={section.items} />
+              </AccordionItem>
+            )
+          })}
         </Accordion>
       </div>
 
       <div className="hidden-mobile">
         <div className="footer__links-columns">
-          {links.map((section) => (
-            <nav key={section.title}>
-              <p className="text__title-mini">{section.title}</p>
-              <LinksList items={section.items} />
-            </nav>
-          ))}
+          {links.map((section) => {
+            const parsedTitle = section.title
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f ]/g, '')
+              .toLowerCase()
+
+            return (
+              <nav key={section.title} className={parsedTitle}>
+                <p className="text__title-mini">{section.title}</p>
+                <LinksList items={section.items} />
+              </nav>
+            )
+          })}
         </div>
       </div>
     </section>

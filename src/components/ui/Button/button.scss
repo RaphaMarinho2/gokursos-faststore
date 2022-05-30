@@ -7,7 +7,7 @@
 
   // Default properties
   --fs-button-padding                              : calc(var(--fs-spacing-1) - (var(--fs-button-border-width) * 2)) var(--fs-spacing-3);
-  --fs-button-height                               : var(--fs-control-tap-size);
+  --fs-button-height                               : 40px;
   --fs-button-gap                                  : var(--fs-spacing-2);
 
   --fs-button-shadow                               : none;
@@ -94,15 +94,15 @@
   --fs-button-tertiary-inverse-shadow-hover        : var(--fs-button-shadow-hover);
 
   // Buy (Main CTA)
-  --fs-button-buy-text-color                       : var(--fs-color-action-text);
-  --fs-button-buy-text-color-hover                 : var(--fs-color-action-text);
-  --fs-button-buy-text-color-active                : var(--fs-color-action-text);
-  --fs-button-buy-bkg-color                        : var(--fs-color-action-bkg);
-  --fs-button-buy-bkg-color-hover                  : var(--fs-color-action-bkg-hover);
-  --fs-button-buy-bkg-color-active                 : var(--fs-color-action-bkg-active);
-  --fs-button-buy-border-color                     : var(--fs-button-action-text-color);
-  --fs-button-buy-border-color-hover               : var(--fs-button-action-border-color);
-  --fs-button-buy-border-color-active              : var(--fs-button-action-border-color-hover);
+  --fs-button-buy-text-color                       : rgb(255 52 82);
+  --fs-button-buy-text-color-hover                 : rgb(255 52 82);
+  --fs-button-buy-text-color-active                : rgb(255 52 82);
+  --fs-button-buy-bkg-color                        : rgb(255 255 255);
+  --fs-button-buy-bkg-color-hover                  : rgb(255 255 255);
+  --fs-button-buy-bkg-color-active                 : rgb(255 255 255);
+  --fs-button-buy-border-color                     : rgb(255 153 168);
+  --fs-button-buy-border-color-hover               : rgb(255 52 82);
+  --fs-button-buy-border-color-active              : rgb(255 52 82);
   --fs-button-buy-shadow-hover                     : var(--fs-button-shadow-hover);
 
   --fs-button-disabled-bkg-color                   : var(--fs-color-disabled-bkg);

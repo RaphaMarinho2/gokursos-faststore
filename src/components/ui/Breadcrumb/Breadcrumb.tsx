@@ -10,6 +10,7 @@ import Link from 'src/components/ui/Link'
 import type { BreadcrumbProps as UIBreadcrumbProps } from '@faststore/ui'
 import Icon from 'src/components/ui/Icon'
 import { navigate } from 'gatsby'
+import IconHome from 'src/components/icons/IconHome'
 
 type ItemElement = {
   item: string
@@ -43,15 +44,21 @@ function BaseBreadcrumb({
       className={isDesktop ? 'hidden-mobile' : 'display-mobile'}
     >
       <Link aria-label="Go to homepage" to="/">
-        <Icon name="House" width={18} height={18} weight="bold" />
+        <IconHome />
       </Link>
 
       {!collapseBreadcrumb &&
         breadcrumbList.map(({ item, name }, index) => {
-          return breadcrumbList.length === index + 1 ? (
-            <span key={String(index)}>{name}</span>
+          return breadcrumbList.length !== index + 1 ? (
+            <Link className="breadcrump-item" to={item} key={String(index)}>
+              {name}
+            </Link>
           ) : (
-            <Link to={item} key={String(index)}>
+            <Link
+              className="breadcrump-item last-child"
+              to={item}
+              key={String(index)}
+            >
               {name}
             </Link>
           )
