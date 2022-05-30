@@ -22,6 +22,15 @@ const gatsbyConfig: GatsbyConfig = {
   },
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `src/images`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

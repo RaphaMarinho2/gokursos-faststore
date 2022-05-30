@@ -7,7 +7,7 @@
 
   // Default properties
   --fs-button-padding                              : calc(var(--fs-spacing-1) - (var(--fs-button-border-width) * 2)) var(--fs-spacing-3);
-  --fs-button-height                               : var(--fs-control-tap-size);
+  --fs-button-height                               : 40px;
   --fs-button-gap                                  : var(--fs-spacing-2);
 
   --fs-button-shadow                               : none;
@@ -94,15 +94,15 @@
   --fs-button-tertiary-inverse-shadow-hover        : var(--fs-button-shadow-hover);
 
   // Buy (Main CTA)
-  --fs-button-buy-text-color                       : var(--fs-color-action-text);
-  --fs-button-buy-text-color-hover                 : var(--fs-color-action-text);
-  --fs-button-buy-text-color-active                : var(--fs-color-action-text);
-  --fs-button-buy-bkg-color                        : var(--fs-color-action-bkg);
-  --fs-button-buy-bkg-color-hover                  : var(--fs-color-action-bkg-hover);
-  --fs-button-buy-bkg-color-active                 : var(--fs-color-action-bkg-active);
-  --fs-button-buy-border-color                     : var(--fs-button-action-text-color);
-  --fs-button-buy-border-color-hover               : var(--fs-button-action-border-color);
-  --fs-button-buy-border-color-active              : var(--fs-button-action-border-color-hover);
+  --fs-button-buy-text-color                       : rgb(255 52 82);
+  --fs-button-buy-text-color-hover                 : rgb(255 52 82);
+  --fs-button-buy-text-color-active                : rgb(255 52 82);
+  --fs-button-buy-bkg-color                        : rgb(255 255 255);
+  --fs-button-buy-bkg-color-hover                  : rgb(255 255 255);
+  --fs-button-buy-bkg-color-active                 : rgb(255 255 255);
+  --fs-button-buy-border-color                     : rgb(255 153 168);
+  --fs-button-buy-border-color-hover               : rgb(255 52 82);
+  --fs-button-buy-border-color-active              : rgb(255 52 82);
   --fs-button-buy-shadow-hover                     : var(--fs-button-shadow-hover);
 
   --fs-button-disabled-bkg-color                   : var(--fs-color-disabled-bkg);
@@ -175,49 +175,13 @@
 
   &[data-fs-button-variant="primary"] {
     color: var(--fs-button-primary-text-color);
-    background-color: var(--fs-button-primary-bkg-color);
+    background-color: transparent;
     border: var(--fs-button-border-width) solid var(--fs-button-primary-border-color);
-
-    &:hover {
-      color: var(--fs-button-primary-text-color-hover);
-      background-color: var(--fs-button-primary-bkg-color-hover);
-      border-color: var(--fs-button-primary-border-color-hover);
-      box-shadow: var(--fs-button-primary-shadow-hover);
-    }
-
-    &:focus, &:focus-visible {
-      color: var(--fs-button-primary-text-color-hover);
-      background-color: var(--fs-button-primary-bkg-color-hover);
-    }
-
-    &:active {
-      color: var(--fs-button-primary-text-color-active);
-      background-color: var(--fs-button-primary-bkg-color-active);
-      border-color: var(--fs-button-primary-border-color-active);
-    }
 
     &[data-fs-button-inverse="true"] {
       color: var(--fs-button-primary-inverse-text-color);
-      background-color: var(--fs-button-primary-inverse-bkg-color);
+      background-color: transparent;
       border: var(--fs-button-border-width) solid var(--fs-button-primary-inverse-border-color);
-
-      &:hover {
-        color: var(--fs-button-primary-inverse-text-color-hover);
-        background-color: var(--fs-button-primary-inverse-bkg-color-hover);
-        border-color: var(--fs-button-primary-inverse-border-color-hover);
-        box-shadow: var(--fs-button-primary-inverse-shadow-hover);
-      }
-
-      &:focus, &:focus-visible {
-        color: var(--fs-button-primary-inverse-text-color-hover);
-        background-color: var(--fs-button-primary-inverse-bkg-color-hover);
-      }
-
-      &:active {
-        color: var(--fs-button-primary-inverse-text-color-active);
-        background-color: var(--fs-button-primary-inverse-bkg-color-active);
-        border-color: var(--fs-button-primary-inverse-border-color-active);
-      }
     }
   }
 
@@ -231,17 +195,6 @@
       background-color: var(--fs-button-secondary-bkg-color-hover);
       border-color: var(--fs-button-secondary-border-color-hover);
       box-shadow: var(--fs-button-secondary-shadow-hover);
-    }
-
-    &:focus, &:focus-visible {
-      color: var(--fs-button-secondary-text-color-hover);
-      background-color: var(--fs-button-secondary-bkg-color-hover);
-    }
-
-    &:active {
-      color: var(--fs-button-secondary-text-color-active);
-      background-color: var(--fs-button-secondary-bkg-color-active);
-      border-color: var(--fs-button-secondary-border-color-active);
     }
 
     &[data-fs-button-inverse="true"] {
@@ -270,27 +223,10 @@
   }
 
   &[data-fs-button-variant="tertiary"] {
-    color: var(--fs-button-tertiary-text-color);
+    font-family: Montserrat, sans-serif;
+    color: #ffffff;
     background-color: var(--fs-button-tertiary-bkg-color);
     border: var(--fs-button-border-width) solid var(--fs-button-tertiary-border-color);
-
-    &:hover {
-      color: var(--fs-button-tertiary-text-color-hover);
-      background-color: var(--fs-button-tertiary-bkg-color-hover);
-      border-color: var(--fs-button-tertiary-border-color-hover);
-      box-shadow: var(--fs-button-tertiary-shadow-hover);
-    }
-
-    &:focus, &:focus-visible {
-      color: var(--fs-button-tertiary-text-color-hover);
-      background-color: var(--fs-button-tertiary-bkg-color-hover);
-    }
-
-    &:active {
-      color: var(--fs-button-tertiary-text-color-active);
-      background-color: var(--fs-button-tertiary-bkg-color-active);
-      border-color: var(--fs-button-tertiary-border-color-active);
-    }
 
     &[data-fs-button-inverse="true"] {
       color: var(--fs-button-tertiary-inverse-text-color);
@@ -302,17 +238,6 @@
         background-color: var(--fs-button-tertiary-inverse-bkg-color-hover);
         border-color: var(--fs-button-tertiary-inverse-border-color-hover);
         box-shadow: var(--fs-button-tertiary-inverse-shadow-hover);
-      }
-
-      &:focus, &:focus-visible {
-        color: var(--fs-button-tertiary-inverse-text-color-hover);
-        background-color: var(--fs-button-tertiary-inverse-bkg-color-hover);
-      }
-
-      &:active {
-        color: var(--fs-button-tertiary-inverse-text-color-active);
-        background-color: var(--fs-button-tertiary-inverse-bkg-color-active);
-        border-color: var(--fs-button-tertiary-inverse-border-color-active);
       }
     }
   }

@@ -1,6 +1,6 @@
-import Icon from 'src/components/ui/Icon'
 import usePersonQuery from 'src/sdk/person/usePersonQuery'
 import { ButtonLink } from 'src/components/ui/Button'
+import User from 'src/components/icons/user'
 
 const ButtonSignIn = () => {
   const person = usePersonQuery()
@@ -12,8 +12,8 @@ const ButtonSignIn = () => {
       className="text__title-mini signin-link"
       variant="tertiary"
     >
-      <Icon name="User" width={18} height={18} weight="bold" />
-      <span>{person?.id ? 'My Account' : 'Sign In'}</span>
+      <User />
+      <span>{person?.id ? 'My Account' : 'Entre ou cadastre-se'}</span>
     </ButtonLink>
   )
 }

@@ -36,56 +36,50 @@
       justify-content: center;
     }
 
-    li {
-      &:not(:last-child) {
-        border-right: 1px solid var(--fs-border-color-light);
+    [data-store-incentive] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      p, span {
+        font-size: var(--fs-text-size-1);
       }
-    }
-  }
 
-  [data-store-incentive] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+      p {
+        font-weight: var(--fs-text-weight-bold);
+        line-height: 1.42;
+      }
 
-    p, span {
-      font-size: var(--fs-text-size-1);
-    }
-
-    p {
-      font-weight: var(--fs-text-weight-bold);
-      line-height: 1.42;
-    }
-
-    span {
-      display: block;
-      line-height: 1.14;
-      white-space: nowrap;
-    }
-
-    [data-incentive-content] {
-      text-align: center;
-    }
-
-    @include media("<notebook") {
-      row-gap: var(--fs-spacing-0);
-    }
-
-    @include media(">=notebook") {
-      flex-direction: row;
-      padding: 0 var(--fs-spacing-5);
+      span {
+        display: block;
+        line-height: 1.14;
+        white-space: nowrap;
+      }
 
       [data-incentive-content] {
-        margin-left: var(--fs-spacing-2);
-        text-align: left;
+        text-align: center;
+      }
+
+      @include media("<notebook") {
+        row-gap: var(--fs-spacing-0);
+      }
+
+      @include media(">=notebook") {
+        flex-direction: row;
+        padding: 0 var(--fs-spacing-5);
+
+        [data-incentive-content] {
+          margin-left: var(--fs-spacing-2);
+          text-align: left;
+        }
       }
     }
-  }
 
-  &.incentives--colored {
-    padding-top: var(--fs-spacing-4);
-    padding-bottom: var(--fs-spacing-4);
-    background-color: var(--fs-color-primary-bkg-light);
+    &.incentives--colored {
+      padding-top: var(--fs-spacing-4);
+      padding-bottom: var(--fs-spacing-4);
+      background-color: var(--fs-color-primary-bkg-light);
+    }
   }
 }
