@@ -13,6 +13,7 @@ import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 
 import 'src/styles/pages/homepage.scss'
+import CommonQuestions from 'src/components/sections/CommonQuestions'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -97,11 +98,7 @@ function Page(props: Props) {
         actionLabel="Call to action"
       />
 
-      {/* <ProductShelf
-        first={ITEMS_PER_SECTION}
-        selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
-        title="Deals & Promotions"
-      /> */}
+      <CommonQuestions />
     </>
   )
 }
