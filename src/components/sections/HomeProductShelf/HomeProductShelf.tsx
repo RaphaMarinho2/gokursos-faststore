@@ -1,4 +1,3 @@
-import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import ProductShelf from 'src/components/product/ProductShelf'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { ITEMS_PER_SECTION } from 'src/constants'
