@@ -22,8 +22,6 @@ function Page(props: Props) {
     location: { pathname, host },
   } = props
 
-  console.log(allContentfulCommonQuestions)
-
   const { locale } = useSession()
 
   const title = site?.siteMetadata?.title ?? ''
