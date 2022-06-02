@@ -1,4 +1,5 @@
 import { join, resolve } from 'path'
+import 'dotenv/config'
 
 import dotenv from 'dotenv'
 import type { GatsbyConfig } from 'gatsby'
@@ -24,6 +25,13 @@ const gatsbyConfig: GatsbyConfig = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_CDAPI_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

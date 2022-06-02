@@ -19,9 +19,11 @@ export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site },
+    data: { site, contentfulCommonQuestions },
     location: { pathname, host },
   } = props
+
+  console.log(contentfulCommonQuestions)
 
   const { locale } = useSession()
 
@@ -110,6 +112,12 @@ export const querySSG = graphql`
         title
         description
         titleTemplate
+      }
+    }
+    contentfulCommonQuestions {
+      question
+      answer {
+        raw
       }
     }
   }
