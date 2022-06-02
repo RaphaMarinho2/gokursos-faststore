@@ -1,0 +1,96 @@
+.topbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2px;
+  margin: auto;
+  background: #fff;
+
+  @include media(">=notebook") {
+    max-width: 990px;
+  }
+}
+
+.leiaja-logo-link {
+  display: none;
+
+  @include media(">=notebook") {
+    display: block;
+    width: 100%;
+    max-width: 71px;
+  }
+}
+
+.topbar-categories-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  overflow: scroll;
+  background: #fff;
+
+  @include media(">=notebook") {
+    justify-content: center;
+    overflow: hidden;
+  }
+}
+
+.topbar-category-item {
+  width: fit-content;
+  padding: 5px 1px;
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #555555;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0;
+  border-radius: 0;
+
+  @media screen and (min-width: 640px) {
+    width: 100%;
+  }
+
+  @include media(">=notebook") {
+    width: fit-content;
+    padding: 5px 7px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.topbar-category-divider {
+  width: 1px;
+  height: 27px;
+  background: #dddddd;
+}
+
+.topbar-search {
+  display: none;
+
+  @include media(">=notebook") {
+    display: flex;
+    max-height: 27px;
+
+    input {
+      width: 155px;
+      color: #555555;
+      border: 1px solid #dddddd;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+    }
+
+    .submit-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 57px;
+      height: 27px;
+      min-height: 27px;
+      background: #dddddd;
+      border-radius: 0 4px 4px 0;
+    }
+  }
+}
