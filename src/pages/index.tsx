@@ -11,7 +11,6 @@ import { ITEMS_PER_SECTION } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
-
 import 'src/styles/pages/homepage.scss'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 
@@ -19,11 +18,9 @@ export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site, contentfulCommonQuestions },
+    data: { site, allContentfulCommonQuestions },
     location: { pathname, host },
   } = props
-
-  console.log(contentfulCommonQuestions)
 
   const { locale } = useSession()
 
@@ -100,7 +97,7 @@ function Page(props: Props) {
         actionLabel="Call to action"
       />
 
-      <CommonQuestions />
+      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
 }
@@ -114,10 +111,12 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    contentfulCommonQuestions {
-      question
-      answer {
-        raw
+    allContentfulCommonQuestions {
+      nodes {
+        question
+        answer {
+          answer
+        }
       }
     }
   }
