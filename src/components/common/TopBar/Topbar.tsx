@@ -3,8 +3,13 @@ import { useRef, useState } from 'react'
 import LeiaJaLogo from 'src/components/icons/LeiaJa'
 import SearchIcon from 'src/components/icons/SearchIcon'
 
-const Topbar = () => {
+const handleSubmit = () => {
   const searchButton = document.getElementById('submit-button')
+
+  searchButton?.click()
+}
+
+const Topbar = () => {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const [inputValue, setInputValue] = useState('')
 
@@ -12,12 +17,6 @@ const Topbar = () => {
     if (searchInputRef.current?.value === undefined) return
 
     setInputValue(`${searchInputRef.current?.value}`)
-  }
-
-  const handleSubmit = () => {
-    if (searchButton !== null) {
-      searchButton.click()
-    }
   }
 
   return (
