@@ -4,6 +4,7 @@ import LeiaJaLogo from 'src/components/icons/LeiaJa'
 import SearchIcon from 'src/components/icons/SearchIcon'
 
 const Topbar = () => {
+  const searchButton = document.getElementById('submit-button')
   const searchInputRef = useRef<HTMLInputElement>(null)
   const [inputValue, setInputValue] = useState('')
 
@@ -11,6 +12,12 @@ const Topbar = () => {
     if (searchInputRef.current?.value === undefined) return
 
     setInputValue(`${searchInputRef.current?.value}`)
+  }
+
+  const handleSubmit = () => {
+    if (searchButton !== null) {
+      searchButton.click()
+    }
   }
 
   return (
@@ -76,7 +83,7 @@ const Topbar = () => {
         </Link>
         <div className="topbar-category-divider" />
       </div>
-      <form className="topbar-search">
+      <form className="topbar-search" onSubmit={handleSubmit}>
         <input
           type="text"
           ref={searchInputRef}
@@ -92,6 +99,7 @@ const Topbar = () => {
                 )}`
               : 'https://www.leiaja.com/search/site'
           }
+          id="submit-button"
           className="submit-button"
           target="_blank"
         >
