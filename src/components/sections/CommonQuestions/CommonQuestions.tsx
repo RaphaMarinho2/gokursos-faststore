@@ -25,6 +25,10 @@ const columnDivider = (nodes: CommonQuestions['nodes']) => {
 }
 
 const CommonQuestions = ({ nodes }: CommonQuestions) => {
+  if (!nodes || nodes.length < 1) {
+    return <></>
+  }
+
   const { firstColumn, secondColumn } = columnDivider(nodes)
 
   return (

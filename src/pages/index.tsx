@@ -18,12 +18,9 @@ export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data,
     data: { site, allContentfulCommonQuestions },
     location: { pathname, host },
   } = props
-
-  console.log(data)
 
   const { locale } = useSession()
 
