@@ -1,3 +1,0 @@
-[context.deploy-preview.environment]
-  CONTENTFUL_SPACE_ID = "ssnp6xp9ltyj"
-  CONTENTFUL_CDAPI_TOKEN = "kAv3_uZ26JhbsBcquC5NuUd71eqlB-HdKVL4tT0aQQ8"
