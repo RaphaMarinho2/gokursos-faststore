@@ -298,6 +298,205 @@ export type ContentfulAssetSortInput = {
   order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+export type ContentfulBestCourses = ContentfulEntry & ContentfulReference & Node & {
+  children: Array<Node>;
+  contentful_id: Scalars['String'];
+  id: Scalars['ID'];
+  internal: Internal;
+  node_locale: Scalars['String'];
+  parent: Maybe<Node>;
+};
+
+export type ContentfulBestCoursesConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulBestCoursesEdge>;
+  group: Array<ContentfulBestCoursesGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulBestCourses>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulBestCoursesConnectionDistinctArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+
+export type ContentfulBestCoursesConnectionGroupArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulBestCoursesConnectionMaxArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+
+export type ContentfulBestCoursesConnectionMinArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+
+export type ContentfulBestCoursesConnectionSumArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+export type ContentfulBestCoursesEdge = {
+  next: Maybe<ContentfulBestCourses>;
+  node: ContentfulBestCourses;
+  previous: Maybe<ContentfulBestCourses>;
+};
+
+export type ContentfulBestCoursesFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id';
+
+export type ContentfulBestCoursesFilterInput = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+export type ContentfulBestCoursesGroupConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulBestCoursesEdge>;
+  field: Scalars['String'];
+  fieldValue: Maybe<Scalars['String']>;
+  group: Array<ContentfulBestCoursesGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulBestCourses>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulBestCoursesGroupConnectionDistinctArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+
+export type ContentfulBestCoursesGroupConnectionGroupArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulBestCoursesGroupConnectionMaxArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+
+export type ContentfulBestCoursesGroupConnectionMinArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+
+export type ContentfulBestCoursesGroupConnectionSumArgs = {
+  field: ContentfulBestCoursesFieldsEnum;
+};
+
+export type ContentfulBestCoursesSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulBestCoursesFieldsEnum>>>;
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
 export type ContentfulCommonQuestions = ContentfulEntry & ContentfulReference & Node & {
   answer: Maybe<ContentfulCommonQuestionsAnswerTextNode>;
   /** Returns the first child node of type contentfulCommonQuestionsAnswerTextNode or null if there are no children of given type on this node */
@@ -1118,9 +1317,805 @@ export type ContentfulImageCropFocus =
   | 'TOP_LEFT'
   | 'TOP_RIGHT';
 
+export type ContentfulInfoproducers = ContentfulEntry & ContentfulReference & Node & {
+  children: Array<Node>;
+  contentful_id: Scalars['String'];
+  id: Scalars['ID'];
+  internal: Internal;
+  node_locale: Scalars['String'];
+  parent: Maybe<Node>;
+};
+
+export type ContentfulInfoproducersConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulInfoproducersEdge>;
+  group: Array<ContentfulInfoproducersGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulInfoproducers>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulInfoproducersConnectionDistinctArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+
+export type ContentfulInfoproducersConnectionGroupArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulInfoproducersConnectionMaxArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+
+export type ContentfulInfoproducersConnectionMinArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+
+export type ContentfulInfoproducersConnectionSumArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+export type ContentfulInfoproducersEdge = {
+  next: Maybe<ContentfulInfoproducers>;
+  node: ContentfulInfoproducers;
+  previous: Maybe<ContentfulInfoproducers>;
+};
+
+export type ContentfulInfoproducersFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id';
+
+export type ContentfulInfoproducersFilterInput = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+export type ContentfulInfoproducersGroupConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulInfoproducersEdge>;
+  field: Scalars['String'];
+  fieldValue: Maybe<Scalars['String']>;
+  group: Array<ContentfulInfoproducersGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulInfoproducers>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulInfoproducersGroupConnectionDistinctArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+
+export type ContentfulInfoproducersGroupConnectionGroupArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulInfoproducersGroupConnectionMaxArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+
+export type ContentfulInfoproducersGroupConnectionMinArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+
+export type ContentfulInfoproducersGroupConnectionSumArgs = {
+  field: ContentfulInfoproducersFieldsEnum;
+};
+
+export type ContentfulInfoproducersSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulInfoproducersFieldsEnum>>>;
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
+export type ContentfulMainBanner = ContentfulEntry & ContentfulReference & Node & {
+  children: Array<Node>;
+  contentful_id: Scalars['String'];
+  id: Scalars['ID'];
+  internal: Internal;
+  node_locale: Scalars['String'];
+  parent: Maybe<Node>;
+};
+
+export type ContentfulMainBannerConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulMainBannerEdge>;
+  group: Array<ContentfulMainBannerGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulMainBanner>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulMainBannerConnectionDistinctArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+
+export type ContentfulMainBannerConnectionGroupArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulMainBannerConnectionMaxArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+
+export type ContentfulMainBannerConnectionMinArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+
+export type ContentfulMainBannerConnectionSumArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+export type ContentfulMainBannerEdge = {
+  next: Maybe<ContentfulMainBanner>;
+  node: ContentfulMainBanner;
+  previous: Maybe<ContentfulMainBanner>;
+};
+
+export type ContentfulMainBannerFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id';
+
+export type ContentfulMainBannerFilterInput = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+export type ContentfulMainBannerGroupConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulMainBannerEdge>;
+  field: Scalars['String'];
+  fieldValue: Maybe<Scalars['String']>;
+  group: Array<ContentfulMainBannerGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulMainBanner>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulMainBannerGroupConnectionDistinctArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+
+export type ContentfulMainBannerGroupConnectionGroupArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulMainBannerGroupConnectionMaxArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+
+export type ContentfulMainBannerGroupConnectionMinArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+
+export type ContentfulMainBannerGroupConnectionSumArgs = {
+  field: ContentfulMainBannerFieldsEnum;
+};
+
+export type ContentfulMainBannerSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulMainBannerFieldsEnum>>>;
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
+export type ContentfulPartners = ContentfulEntry & ContentfulReference & Node & {
+  children: Array<Node>;
+  contentful_id: Scalars['String'];
+  id: Scalars['ID'];
+  internal: Internal;
+  node_locale: Scalars['String'];
+  parent: Maybe<Node>;
+};
+
+export type ContentfulPartnersConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulPartnersEdge>;
+  group: Array<ContentfulPartnersGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulPartners>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulPartnersConnectionDistinctArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+
+export type ContentfulPartnersConnectionGroupArgs = {
+  field: ContentfulPartnersFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulPartnersConnectionMaxArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+
+export type ContentfulPartnersConnectionMinArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+
+export type ContentfulPartnersConnectionSumArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+export type ContentfulPartnersEdge = {
+  next: Maybe<ContentfulPartners>;
+  node: ContentfulPartners;
+  previous: Maybe<ContentfulPartners>;
+};
+
+export type ContentfulPartnersFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id';
+
+export type ContentfulPartnersFilterInput = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+export type ContentfulPartnersGroupConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulPartnersEdge>;
+  field: Scalars['String'];
+  fieldValue: Maybe<Scalars['String']>;
+  group: Array<ContentfulPartnersGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulPartners>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulPartnersGroupConnectionDistinctArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+
+export type ContentfulPartnersGroupConnectionGroupArgs = {
+  field: ContentfulPartnersFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulPartnersGroupConnectionMaxArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+
+export type ContentfulPartnersGroupConnectionMinArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+
+export type ContentfulPartnersGroupConnectionSumArgs = {
+  field: ContentfulPartnersFieldsEnum;
+};
+
+export type ContentfulPartnersSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulPartnersFieldsEnum>>>;
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
 export type ContentfulReference = {
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
+};
+
+export type ContentfulVideoSection = ContentfulEntry & ContentfulReference & Node & {
+  children: Array<Node>;
+  contentful_id: Scalars['String'];
+  id: Scalars['ID'];
+  internal: Internal;
+  node_locale: Scalars['String'];
+  parent: Maybe<Node>;
+};
+
+export type ContentfulVideoSectionConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulVideoSectionEdge>;
+  group: Array<ContentfulVideoSectionGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulVideoSection>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulVideoSectionConnectionDistinctArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+
+export type ContentfulVideoSectionConnectionGroupArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulVideoSectionConnectionMaxArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+
+export type ContentfulVideoSectionConnectionMinArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+
+export type ContentfulVideoSectionConnectionSumArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+export type ContentfulVideoSectionEdge = {
+  next: Maybe<ContentfulVideoSection>;
+  node: ContentfulVideoSection;
+  previous: Maybe<ContentfulVideoSection>;
+};
+
+export type ContentfulVideoSectionFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id';
+
+export type ContentfulVideoSectionFilterInput = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+export type ContentfulVideoSectionGroupConnection = {
+  distinct: Array<Scalars['String']>;
+  edges: Array<ContentfulVideoSectionEdge>;
+  field: Scalars['String'];
+  fieldValue: Maybe<Scalars['String']>;
+  group: Array<ContentfulVideoSectionGroupConnection>;
+  max: Maybe<Scalars['Float']>;
+  min: Maybe<Scalars['Float']>;
+  nodes: Array<ContentfulVideoSection>;
+  pageInfo: PageInfo;
+  sum: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type ContentfulVideoSectionGroupConnectionDistinctArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+
+export type ContentfulVideoSectionGroupConnectionGroupArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ContentfulVideoSectionGroupConnectionMaxArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+
+export type ContentfulVideoSectionGroupConnectionMinArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+
+export type ContentfulVideoSectionGroupConnectionSumArgs = {
+  field: ContentfulVideoSectionFieldsEnum;
+};
+
+export type ContentfulVideoSectionSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulVideoSectionFieldsEnum>>>;
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
 export type DateQueryOperatorInput = {
@@ -2048,10 +3043,15 @@ export type Query = {
   /** All collections query. */
   allCollections: StoreCollectionConnection;
   allContentfulAsset: ContentfulAssetConnection;
+  allContentfulBestCourses: ContentfulBestCoursesConnection;
   allContentfulCommonQuestions: ContentfulCommonQuestionsConnection;
   allContentfulCommonQuestionsAnswerTextNode: ContentfulCommonQuestionsAnswerTextNodeConnection;
   allContentfulContentType: ContentfulContentTypeConnection;
   allContentfulEntry: ContentfulEntryConnection;
+  allContentfulInfoproducers: ContentfulInfoproducersConnection;
+  allContentfulMainBanner: ContentfulMainBannerConnection;
+  allContentfulPartners: ContentfulPartnersConnection;
+  allContentfulVideoSection: ContentfulVideoSectionConnection;
   allDirectory: DirectoryConnection;
   allFile: FileConnection;
   /** All products query. */
@@ -2064,10 +3064,15 @@ export type Query = {
   /** Collection query. */
   collection: StoreCollection;
   contentfulAsset: Maybe<ContentfulAsset>;
+  contentfulBestCourses: Maybe<ContentfulBestCourses>;
   contentfulCommonQuestions: Maybe<ContentfulCommonQuestions>;
   contentfulCommonQuestionsAnswerTextNode: Maybe<ContentfulCommonQuestionsAnswerTextNode>;
   contentfulContentType: Maybe<ContentfulContentType>;
   contentfulEntry: Maybe<ContentfulEntry>;
+  contentfulInfoproducers: Maybe<ContentfulInfoproducers>;
+  contentfulMainBanner: Maybe<ContentfulMainBanner>;
+  contentfulPartners: Maybe<ContentfulPartners>;
+  contentfulVideoSection: Maybe<ContentfulVideoSection>;
   directory: Maybe<Directory>;
   file: Maybe<File>;
   /** Person query. */
@@ -2095,6 +3100,14 @@ export type QueryAllContentfulAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ContentfulAssetSortInput>;
+};
+
+
+export type QueryAllContentfulBestCoursesArgs = {
+  filter: InputMaybe<ContentfulBestCoursesFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ContentfulBestCoursesSortInput>;
 };
 
 
@@ -2127,6 +3140,38 @@ export type QueryAllContentfulEntryArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ContentfulEntrySortInput>;
+};
+
+
+export type QueryAllContentfulInfoproducersArgs = {
+  filter: InputMaybe<ContentfulInfoproducersFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ContentfulInfoproducersSortInput>;
+};
+
+
+export type QueryAllContentfulMainBannerArgs = {
+  filter: InputMaybe<ContentfulMainBannerFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ContentfulMainBannerSortInput>;
+};
+
+
+export type QueryAllContentfulPartnersArgs = {
+  filter: InputMaybe<ContentfulPartnersFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ContentfulPartnersSortInput>;
+};
+
+
+export type QueryAllContentfulVideoSectionArgs = {
+  filter: InputMaybe<ContentfulVideoSectionFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ContentfulVideoSectionSortInput>;
 };
 
 
@@ -2215,6 +3260,16 @@ export type QueryContentfulAssetArgs = {
 };
 
 
+export type QueryContentfulBestCoursesArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
 export type QueryContentfulCommonQuestionsArgs = {
   answer: InputMaybe<ContentfulCommonQuestionsAnswerTextNodeFilterInput>;
   childContentfulCommonQuestionsAnswerTextNode: InputMaybe<ContentfulCommonQuestionsAnswerTextNodeFilterInput>;
@@ -2256,6 +3311,46 @@ export type QueryContentfulContentTypeArgs = {
 
 
 export type QueryContentfulEntryArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+export type QueryContentfulInfoproducersArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+export type QueryContentfulMainBannerArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+export type QueryContentfulPartnersArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+export type QueryContentfulVideoSectionArgs = {
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;

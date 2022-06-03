@@ -111,7 +111,7 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    allContentfulCommonQuestions {
+    allContentfulCommonQuestions(sort: { order: ASC, fields: createdAt }) {
       nodes {
         question
         answer {
