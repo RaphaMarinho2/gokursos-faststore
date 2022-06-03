@@ -113,7 +113,7 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    allContentfulCommonQuestions {
+    allContentfulCommonQuestions(preview: true) {
       nodes {
         question
         answer {
