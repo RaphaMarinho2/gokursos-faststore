@@ -29,7 +29,7 @@ const gatsbyConfig: GatsbyConfig = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `ssnp6xp9ltyj`,
-        accessToken: `kAv3_uZ26JhbsBcquC5NuUd71eqlB-HdKVL3tT0aQQ8`,
+        accessToken: `kAv3_uZ26JhbsBcquC5NuUd71eqlB-HdKVL4tT0aQQ8`,
       },
     },
     {
