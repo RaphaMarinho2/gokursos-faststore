@@ -67,7 +67,7 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-      {/* <Hero
+      <Hero
         title="New Products Available"
         subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
         linkText="See all"
@@ -95,7 +95,7 @@ function Page(props: Props) {
         title="Receive our news and promotions in advance. Enjoy and get 10% off on your first purchase."
         actionPath="/"
         actionLabel="Call to action"
-      /> */}
+      />
 
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
