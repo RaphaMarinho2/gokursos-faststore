@@ -22,8 +22,6 @@ function Page(props: Props) {
     location: { pathname, host },
   } = props
 
-  console.log(allContentfulCommonQuestions)
-
   const { locale } = useSession()
 
   const title = site?.siteMetadata?.title ?? ''
@@ -113,7 +111,7 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    allContentfulCommonQuestions(preview: true) {
+    allContentfulCommonQuestions {
       nodes {
         question
         answer {
