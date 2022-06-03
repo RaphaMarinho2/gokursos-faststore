@@ -28,8 +28,8 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_CDAPI_TOKEN,
+        spaceId: `ssnp6xp9ltyj`,
+        accessToken: `kAv3_uZ26JhbsBcquC5NuUd71eqlB-HdKVL4tT0aQQ8`,
       },
     },
     {
