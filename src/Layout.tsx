@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react'
-import Alert from 'src/components/common/Alert'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
@@ -10,6 +9,7 @@ import type { PropsWithChildren } from 'react'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 
 import 'src/styles/pages/layout.scss'
+import Topbar from './components/common/TopBar'
 
 const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
 
@@ -21,9 +21,7 @@ function Layout({ children }: PropsWithChildren<unknown>) {
   return (
     <>
       <div id="layout">
-        <Alert>
-          Get 10% off today:&nbsp;<span>NEW10</span>
-        </Alert>
+        <Topbar />
 
         <Navbar />
 
