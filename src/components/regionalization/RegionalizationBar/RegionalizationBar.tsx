@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import Button from 'src/components/ui/Button'
-import Icon from 'src/components/ui/Icon'
+import MenuCategoria from 'src/components/icons/Menu-categoria'
 
 interface RegionalizationBarProps extends HTMLAttributes<HTMLDivElement> {
   content?: string
@@ -18,16 +18,15 @@ export default function RegionalizationBar({
   return (
     <div data-fs-regionalization-bar className={classes} {...otherProps}>
       <Button onClick={() => setIsRegionalizationModalOpen(true)}>
-        <Icon name="MapPin" width={24} height={24} />
+        <MenuCategoria />
         {content ? (
           <>
             <span>{content}</span>
             <span>Edit</span>
           </>
         ) : (
-          <span>Set your location</span>
+          <span>Categorias</span>
         )}
-        <Icon name="CaretRight" width={24} height={24} />
       </Button>
     </div>
   )

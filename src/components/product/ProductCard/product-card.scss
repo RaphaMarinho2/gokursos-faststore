@@ -115,11 +115,23 @@
 [data-fs-product-card-actions] {
   display: flex;
   align-items: end;
+  button {
+    width: 99%;
+    height: 40px;
+
+    background: transparent;
+    border: 1px solid #FF3452;
+    border-radius: 4px;
+
+    font-size: var(--fs-text-size-base);
+    font-weight: 600;
+    color: #FF3452;
+  }
 }
 
 [data-fs-product-card-title] {
   font-size: var(--fs-product-card-text-title-size);
-  font-weight: var(--fs-product-card-text-title-weight);
+  font-weight: 600;
   line-height: 1.25;
   color: var(--fs-product-card-text-title-color);
 
@@ -127,8 +139,10 @@
 }
 
 [data-fs-product-card-prices] {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-content: center;
+  margin: 1rem 0;
 
   [data-variant="spot"] {
     font-size: var(--fs-product-card-text-price-size);

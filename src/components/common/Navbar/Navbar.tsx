@@ -7,12 +7,13 @@ import Icon from 'src/components/ui/Icon'
 import { ButtonIcon, ButtonSignIn } from 'src/components/ui/Button'
 import RegionalizationButton from 'src/components/regionalization/RegionalizationButton'
 import Link from 'src/components/ui/Link'
-import Logo from 'src/components/ui/Logo'
+import Logo from 'src/components/icons/logo'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
+import MenuMobile from 'src/components/icons/menu-mobile'
 
 interface NavLinksProps {
   onClickLink?: AnchorHTMLAttributes<HTMLAnchorElement>['onClick']
@@ -20,19 +21,19 @@ interface NavLinksProps {
 
 const collections = [
   {
-    name: 'Office',
+    name: 'Planos de assinatura',
     href: '/office',
   },
   {
-    name: 'Home Appliances',
+    name: 'Para empresas',
     href: '/kitchen---home-appliances',
   },
   {
-    name: 'Computer and Software',
+    name: 'Seja um parceiro',
     href: '/computer---software',
   },
   {
-    name: 'Technology',
+    name: 'Blog',
     href: '/technology',
   },
 ]
@@ -82,8 +83,9 @@ function Navbar() {
               <ButtonIcon
                 data-fs-button-menu
                 aria-label="Open Menu"
-                icon={<Icon name="List" width={32} height={32} />}
+                icon={<MenuMobile />}
                 onClick={() => setShowMenu(true)}
+                className="botao-menu-mobile"
               />
               <LinkGatsby
                 to="/"
@@ -119,7 +121,11 @@ function Navbar() {
             <CartToggle />
           </div>
         </section>
-        <NavLinks />
+      </div>
+      <div className="nav-section">
+        <div className="navbar__menu layout__content">
+          <NavLinks />
+        </div>
       </div>
 
       <SlideOver
@@ -147,6 +153,7 @@ function Navbar() {
               onClick={onModalClose}
             />
           </header>
+
           <div className="navlinks">
             <NavLinks onClickLink={handleCloseSlideOver} />
             <div className="navlinks__signin">
