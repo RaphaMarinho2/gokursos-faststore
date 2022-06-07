@@ -63,10 +63,15 @@
       border: 0;
 
       [data-accordion-title-text] {
-        text-align: left;
+        max-width: 300px;
         font-size: 12px;
         font-weight: 600;
-        color: #004e98;
+        color: #004E98;
+        text-align: left;
+
+        @media (min-width: 550px) {
+          max-width: 100%;
+        }
 
         @include media(">=notebook") {
           font-size: 14px;
