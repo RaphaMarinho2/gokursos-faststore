@@ -16,10 +16,23 @@
   }
 }
 
+.search-expanded {
+  background: #fff;
+}
+
 .nav-section {
   display: flex;
-  align-content: center;
+  align-items: center;
+  height: 48px;
   background: #ffffff;
+
+  @include media("<notebook") {
+    display: none;
+  }
+}
+
+.navbar__menu {
+  display: flex;
 }
 
 .navbar__row {
@@ -90,6 +103,7 @@
       [data-store-icon] {
         margin-right: 0;
         line-height: 0;
+        color: #ffffff;
 
         svg {
           width: var(--fs-spacing-5);
@@ -107,30 +121,34 @@
       margin-right: 0.625rem;
       margin-left: var(--fs-spacing-9);
 
+      :focus-within {
+        outline: none;
+      }
+
       [data-store-input] {
-        width: calc(100% - var(--fs-spacing-7));
+        width: calc(100% - var(--fs-spacing-9));
+        height: 100%;
       }
 
       [data-store-icon] {
-        margin-right: 0;
+        color: #555555;
       }
     }
 
     [data-fs-button-icon] {
       margin-right: -4.063rem;
+      color: #555555;
       transition: margin 0.3s ease-in;
     }
   }
 }
 
 .navbar__header {
-  padding-top: var(--fs-spacing-1);
-  padding-bottom: var(--fs-spacing-2);
+  padding: var(--fs-spacing-1) 16px var(--fs-spacing-2);
   overflow: hidden;
 
   @include media(">=notebook") {
-    padding-top: var(--fs-spacing-1);
-    padding-bottom: var(--fs-spacing-1);
+    padding: var(--fs-spacing-1) 8px;
   }
 }
 
@@ -146,19 +164,7 @@
 }
 
 .navbar__modal-body {
-  padding: var(--fs-spacing-3);
-}
-
-.navbar__modal-header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: var(--fs-spacing-2);
-
-  [data-fs-button-icon] {
-    margin-right: calc(-1 * var(--fs-spacing-1));
-  }
+  padding: 0;
 }
 
 .navlinks {
@@ -172,6 +178,19 @@
 
       @include media(">=notebook") { display: none; }
     }
+  }
+}
+
+.login-message__bold {
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 7px;
+  color: #fff;
+
+  @include media(">=notebook") {
+    font-size: 14px;
+    line-height: 18px;
   }
 }
 
