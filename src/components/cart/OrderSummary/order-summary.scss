@@ -6,10 +6,26 @@
     justify-content: space-between;
     line-height: 1.5;
 
-    &[data-order-summary-discount] { color: var(--fs-color-success-text); }
+    &[data-order-summary-discount] {
+      font-size: 14px;
+      font-weight: 400;
+      color: #1ec66c;
+    }
 
     &:last-of-type {
       margin-bottom: var(--fs-spacing-2);
     }
   }
+}
+
+.text__title-subsection {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666666;
+}
+
+.text__subtotal {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
 }

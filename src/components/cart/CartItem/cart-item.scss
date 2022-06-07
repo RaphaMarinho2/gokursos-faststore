@@ -36,6 +36,7 @@
 
   [data-cart-item-prices] {
     display: flex;
+    flex-direction: column;
     align-items: baseline;
   }
 

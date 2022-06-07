@@ -14,10 +14,10 @@ function EmptyCart({ onDismiss }: Props) {
     <EmptyState>
       <header data-empty-cart-title>
         <Icon name="ShoppingCart" width={56} height={56} weight="thin" />
-        <p>Your Cart is empty</p>
+        <p>Seu carrinho está vazio.</p>
       </header>
       <Button onClick={onDismiss} variant="secondary">
-        Start Shopping
+        continuar comprando
       </Button>
     </EmptyState>
   )
