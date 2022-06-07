@@ -1,0 +1,730 @@
+{
+  "items": [
+    {
+      "label": "Cursos",
+      "link": "",
+      "blueText": false,
+      "submenu": [
+        {
+          "label": "Exatas",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Engenharia",
+              "link": "/exatas/engenharia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Matemática",
+              "link": "/exatas/matematica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Estatística",
+              "link": "/exatas/estatistica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Física",
+              "link": "/exatas/fisica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Química",
+              "link": "/exatas/quimica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Análise de Dados",
+              "link": "/exatas/analise-de-dados",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/exatas",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Humanas",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Literatura",
+              "link": "/humanas/literatura",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Direito",
+              "link": "/humanas/direito",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Antropologia",
+              "link": "/humanas/antropologia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Filosofia",
+              "link": "/humanas/filosofia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Pedagogia",
+              "link": "/humanas/pedagogia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Política",
+              "link": "/humanas/politica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Português",
+              "link": "/humanas/portugues",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Didática",
+              "link": "/humanas/didatica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Geografia",
+              "link": "/humanas/geografia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Pesquisa Científica",
+              "link": "/humanas/pesquisa-cientifica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "História",
+              "link": "/humanas/historia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/humanas",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Saúde",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Psicologia",
+              "link": "/saude/psicologia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Nutrição",
+              "link": "/saude/nutricao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Biologia",
+              "link": "/saude/biologia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Genética",
+              "link": "/saude/genetica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Anatomia",
+              "link": "/saude/anatomia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Enfermagem",
+              "link": "/saude/enfermagem",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Fisioterapia",
+              "link": "/saude/fisioterapia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Patologias",
+              "link": "/saude/patologias",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Odontologia",
+              "link": "/saude/odontologia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Farmacologia e Cosméticos",
+              "link": "/saude/farmacologia-e-cosmeticos",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Estética",
+              "link": "/saude/estetica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Educação Física",
+              "link": "/saude/educacao-fisica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Sanitarismo",
+              "link": "/saude/sanitarismo",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Veterinária",
+              "link": "/saude/veterinaria",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Saúde",
+              "link": "/saude/saude",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Dermatologia",
+              "link": "/saude/dermatologia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/saude",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Negócios",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Empreendedorismo",
+              "link": "/negocios/empreendedorismo",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Administração",
+              "link": "/negocios/administracao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Contabilidade",
+              "link": "/negocios/contabilidade",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Economia",
+              "link": "/negocios/economia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Gestão",
+              "link": "/negocios/gestao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Recursos Humanos",
+              "link": "/negocios/recursos-humanos",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Carreiras",
+              "link": "/negocios/carreiras",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Negócios",
+              "link": "/negocios/negocios",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Finanças",
+              "link": "/negocios/financas",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/negocios",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Tecnologia",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Bancos de Dados",
+              "link": "/tecnologia/bancos-de-dados",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Sistemas Operacionais",
+              "link": "/tecnologia/sistemas-operacionais",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Qualidade de Software",
+              "link": "/tecnologia/qualidade-de-software",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Desenvolvimento Web",
+              "link": "/tecnologia/desenvolvimento-web",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Desenvolvimento Mobile",
+              "link": "/tecnologia/desenvolvimento-mobile",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Linguagens de Programação",
+              "link": "/tecnologia/linguagens-de-programacao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Redes e Infraestrutura",
+              "link": "/tecnologia/redes-e-infraestrutura",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Inteligência Artificial",
+              "link": "/tecnologia/inteligencia-artificial",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Segurança da Informação",
+              "link": "/tecnologia/seguranca-da-informacao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Jogos Digitais",
+              "link": "/tecnologia/jogos-digitais",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Engenharia de Software",
+              "link": "/tecnologia/engenharia-de-software",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Data Science",
+              "link": "/tecnologia/data-science",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Robótica",
+              "link": "/tecnologia/robotica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Inovação",
+              "link": "/tecnologia/inovacao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "UI e UX Design",
+              "link": "/tecnologia/ui-e-ux-design",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/tecnologia",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Preparatórios",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "ENEM",
+              "link": "/preparatorios/enem",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/preparatorios",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Comunicação",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Oratória",
+              "link": "/comunicacao/oratoria",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Marketing",
+              "link": "/comunicacao/marketing",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Audiovisual",
+              "link": "/comunicacao/audiovisual",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Línguas e Idiomas",
+              "link": "/comunicacao/linguas-e-idiomas",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Arte e Design",
+              "link": "/comunicacao/arte-e-design",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Marketing Digital",
+              "link": "/comunicacao/marketing-digital",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Branding",
+              "link": "/comunicacao/branding",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Cinema",
+              "link": "/comunicacao/cinema",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Fotografia",
+              "link": "/comunicacao/fotografia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Publicidade e Propaganda",
+              "link": "/comunicacao/publicidade-e-propaganda",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Jornalismo",
+              "link": "/comunicacao/jornalismo",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/comunicacao",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Gastronomia",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Doces",
+              "link": "/gastronomia/doces",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Culinárias Regionais",
+              "link": "/gastronomia/culinarias-regionais",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Culinária Dietética",
+              "link": "/gastronomia/culinaria-dietetica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Técnicas de Gastronomia",
+              "link": "/gastronomia/tecnicas-de-gastronomia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Panificação",
+              "link": "/gastronomia/panificacao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/gastronomia",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Outros",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Mecânica",
+              "link": "/outros/mecanica",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Moda",
+              "link": "/outros/moda",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Arquitetura",
+              "link": "/outros/arquitetura",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Aviação",
+              "link": "/outros/aviacao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Gestão Hospitalar",
+              "link": "/outros/gestao-hospitalar",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Gestão Esportiva",
+              "link": "/outros/gestao-esportiva",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Segurança do Trabalho",
+              "link": "/outros/seguranca-do-trabalho",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Artesanato",
+              "link": "/outros/artesanato",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/outros",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "DUCE",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "Exatas",
+              "link": "/duce/exatas",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Humanas",
+              "link": "/duce/humanas",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Negócios",
+              "link": "/duce/negocios",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Comunicação",
+              "link": "/duce/comunicacao",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Saúde",
+              "link": "/duce/saude",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Tecnologia",
+              "link": "/duce/tecnologia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Gastronomia",
+              "link": "/duce/gastronomia",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "Ver todos",
+              "link": "/duce",
+              "submenu": [],
+              "blueText": true
+            }
+          ]
+        },
+        {
+          "label": "Pós-Graduação",
+          "link": "",
+          "blueText": false,
+          "submenu": [
+            {
+              "label": "UNAMA",
+              "link": "/pos-graduacao-unama",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "UNINABUCO",
+              "link": "/pos-graduacao-uninabuco",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "UNICARIOCA",
+              "link": "/pos-graduacao-unicarioca",
+              "submenu": [],
+              "blueText": false
+            },
+            {
+              "label": "DUCE PÓS-GRADUAÇÃO",
+              "link": "/pos-graduacao--duce-",
+              "submenu": [],
+              "blueText": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Planos de assinatura",
+      "link": "/planos",
+      "blueText": false,
+      "submenu": []
+    },
+    {
+      "label": "Para empresas",
+      "link": "/para-empresas",
+      "blueText": false,
+      "submenu": []
+    },
+    {
+      "label": "Seja um parceiro",
+      "link": "/seja-um-parceiro",
+      "blueText": false,
+      "submenu": []
+    },
+    {
+      "label": "Blog",
+      "link": "https://blog.gokursos.com/",
+      "blueText": false,
+      "submenu": []
+    }
+  ]
+}
