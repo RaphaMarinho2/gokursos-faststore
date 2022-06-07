@@ -17,6 +17,7 @@
     border-bottom: 1px solid #DDDDDD;
     font-weight: 600;
     color: #004e98;
+    font-family: Montserrat, sans-serif;
 
     @include media(">=notebook") {
       border: 0;
@@ -68,6 +69,7 @@
         font-weight: 600;
         color: #004E98;
         text-align: left;
+        font-family: Montserrat, sans-serif;
 
         @media (min-width: 550px) {
           max-width: 100%;
@@ -82,6 +84,7 @@
     [data-accordion-content] {
       margin-top: 1rem;
       font-size: 12px;
+      font-family: Montserrat, sans-serif;
       color: #666666;
     }
   }
