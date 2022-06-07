@@ -1,7 +1,7 @@
 import { Link } from '@faststore/ui'
 import { useRef, useState } from 'react'
 import LeiaJaLogo from 'src/components/icons/LeiaJa'
-import SearchIcon from 'src/components/icons/SearchIcon'
+import SearchTopBarIcon from 'src/components/icons/SearchTopBar'
 
 const handleSubmit = () => {
   const searchButton = document.getElementById('submit-button')
@@ -103,7 +103,7 @@ const Topbar = () => {
             className="submit-button"
             target="_blank"
           >
-            <SearchIcon />
+            <SearchTopBarIcon />
           </Link>
         </form>
       </div>

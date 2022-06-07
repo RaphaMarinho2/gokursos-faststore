@@ -1,18 +1,55 @@
-import type { FC } from 'react'
+import type { SVGProps } from 'react'
 
-const SearchIcon: FC = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="17"
-    height="17"
-    viewBox="0 0 17 17"
-    fill="none"
-  >
-    <path
-      d="M7.18149 13.9702C8.6759 13.9699 10.1272 13.4696 11.3044 12.5491L15.0056 16.25L16.196 15.0596L12.4949 11.3586C13.416 10.1814 13.9166 8.7298 13.9169 7.23509C13.9169 3.52153 10.8952 0.5 7.18149 0.5C3.46773 0.5 0.446045 3.52153 0.446045 7.23509C0.446045 10.9486 3.46773 13.9702 7.18149 13.9702ZM7.18149 2.18377C9.96744 2.18377 12.2331 4.44929 12.2331 7.23509C12.2331 10.0209 9.96744 12.2864 7.18149 12.2864C4.39554 12.2864 2.12991 10.0209 2.12991 7.23509C2.12991 4.44929 4.39554 2.18377 7.18149 2.18377Z"
-      fill="white"
-    />
-  </svg>
-)
+type IconWeight = 'thin' | 'light' | 'regular' | 'bold'
+
+const mapWeightToValue: Record<IconWeight, number> = {
+  bold: 24,
+  regular: 16,
+  light: 12,
+  thin: 8,
+}
+
+interface Props extends SVGProps<SVGSVGElement> {
+  /**
+   * Symbol id from element to render. Take a look at `/static/icons.svg`.
+   *
+   * Example: <Icon name="Bell" />
+   */
+  name: string
+  /**
+   * SVG weight.
+   *
+   * @default 'regular'
+   */
+  weight?: IconWeight
+}
+
+function SearchIcon({ name, weight = 'regular', ...otherProps }: Props) {
+  return (
+    <svg
+      {...otherProps}
+      strokeWidth={mapWeightToValue[weight]}
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="13.75" cy="13.75" r="8.75" stroke="#004E98" strokeWidth="2" />
+      <path
+        d="M13.75 10C13.2575 10 12.7699 10.097 12.3149 10.2855C11.86 10.4739 11.4466 10.7501 11.0983 11.0983C10.7501 11.4466 10.4739 11.86 10.2855 12.3149C10.097 12.7699 10 13.2575 10 13.75"
+        stroke="#004E98"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M25 25L21.25 21.25"
+        stroke="#004E98"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
 
 export default SearchIcon
