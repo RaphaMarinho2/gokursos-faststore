@@ -11,13 +11,17 @@
   }
 
   &__title {
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
     font-size: 14px;
+    border-bottom: 1px solid #DDDDDD;
     font-weight: 600;
     color: #004e98;
 
     @include media(">=notebook") {
+      border: 0;
       padding-bottom: 2rem;
+      margin: 0;
       font-size: 24px;
     }
   }
@@ -59,7 +63,7 @@
       border: 0;
 
       [data-accordion-title-text] {
-        margin-right: 1rem;
+        text-align: left;
         font-size: 12px;
         font-weight: 600;
         color: #004e98;
