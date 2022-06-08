@@ -8,6 +8,7 @@ export type Variant =
   | 'tertiary'
   | 'remover'
   | 'finalizarCompra'
+  | 'continuarComprando'
 export type Size = 'small' | 'regular'
 export type IconPosition = 'left' | 'right'
 
