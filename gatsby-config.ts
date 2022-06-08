@@ -8,6 +8,13 @@ import config from './store.config'
 
 dotenv.config({ path: 'vtex.env' })
 
+console.log('spaceId', process.env.GATSBY_CONTENTFUL_SPACE_ID)
+console.log('token', process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN)
+console.info('spaceId', process.env.GATSBY_CONTENTFUL_SPACE_ID)
+console.info('token', process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN)
+console.info('env', process.env)
+console.log('env', process.env)
+
 const gatsbyConfig: GatsbyConfig = {
   jsxRuntime: 'automatic',
   siteMetadata: {
