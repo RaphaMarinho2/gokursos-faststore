@@ -22,6 +22,11 @@ function Page(props: Props) {
     location: { pathname, host },
   } = props
 
+  console.log('spaceId', process.env.GATSBY_CONTENTFUL_SPACE_ID)
+  console.log('token', process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN)
+  console.info('spaceId', process.env.GATSBY_CONTENTFUL_SPACE_ID)
+  console.info('token', process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN)
+
   const { locale } = useSession()
 
   const title = site?.siteMetadata?.title ?? ''
