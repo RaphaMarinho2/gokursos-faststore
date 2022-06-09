@@ -6,7 +6,7 @@ import type { GatsbyConfig } from 'gatsby'
 
 import config from './store.config'
 
-dotenv.config({ path: 'vtex.env' })
+dotenv.config()
 
 const gatsbyConfig: GatsbyConfig = {
   jsxRuntime: 'automatic',
