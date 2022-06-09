@@ -20,7 +20,7 @@
   min-height: var(--fs-product-shelf-min-height);
 }
 
-.product-shelf-container{
+.product-shelf-container {
   width: 100%;
 
   @include media(">=tablet") {
@@ -29,16 +29,14 @@
   }
 }
 
-.product-shelf-title{
-  font-size: 20px;
+.product-shelf-title {
   margin-bottom: 0.5rem;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .carousel-content {
   div {
-    align-items: center;
-
     .carousel-container {
       overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
@@ -63,6 +61,3 @@
     }
   }
 }
-
-
-

@@ -15,7 +15,7 @@ function ClkBtn() {
 }
 
 function ProductBtnBuyInPage() {
-  return <button onClick={ClkBtn}>Click me</button>
+  return <button onClick={ClkBtn}>Quero começar</button>
 }
 
 function ProductShelf({
