@@ -11,14 +11,14 @@ import { ITEMS_PER_SECTION } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
-
 import 'src/styles/pages/homepage.scss'
+import CommonQuestions from 'src/components/sections/CommonQuestions'
 
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site },
+    data: { site, allContentfulCommonQuestions },
     location: { pathname, host },
   } = props
 
@@ -97,11 +97,7 @@ function Page(props: Props) {
         actionLabel="Call to action"
       />
 
-      {/* <ProductShelf
-        first={ITEMS_PER_SECTION}
-        selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
-        title="Deals & Promotions"
-      /> */}
+      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
 }
@@ -113,6 +109,14 @@ export const querySSG = graphql`
         title
         description
         titleTemplate
+      }
+    }
+    allContentfulCommonQuestions(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        question
+        answer {
+          answer
+        }
       }
     }
   }
