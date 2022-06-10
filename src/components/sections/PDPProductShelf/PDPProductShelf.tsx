@@ -12,9 +12,9 @@ interface Props {
 }
 
 const PDPProductShelf = ({ product }: Props) => {
-  const { isMobile } = useWindowDimensions()
+  const { isMobile, isTablet } = useWindowDimensions()
 
-  const shelfItemQuantity = isMobile ? 2 : 4
+  const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
 
   return (
     <Section className="layout__content pdp-shelf-container">

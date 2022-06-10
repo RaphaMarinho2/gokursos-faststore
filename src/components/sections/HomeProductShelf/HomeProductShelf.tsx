@@ -7,9 +7,9 @@ import Section from '../Section'
 import './home-product-shelf.scss'
 
 const HomeProductShelf = () => {
-  const { isMobile } = useWindowDimensions()
+  const { isMobile, isTablet } = useWindowDimensions()
 
-  const shelfItemQuantity = isMobile ? 2 : 5
+  const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
 
   return (
     <Section className="layout__content home-shelf-container">

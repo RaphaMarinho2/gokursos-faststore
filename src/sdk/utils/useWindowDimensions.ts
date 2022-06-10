@@ -4,18 +4,21 @@ export default function useWindowDimensions() {
   const hasWindow = typeof window !== 'undefined'
   // See breakpoints on styles/theme.scss
   const notebookBreakpoint = '1280'
+  const tabletBreakpoint = '768'
 
   const getWindowDimensions = useCallback(() => {
     const width = hasWindow ? window.innerWidth : null
     const height = hasWindow ? window.innerHeight : null
-    const isMobile = width ? width < parseInt(notebookBreakpoint, 10) : null
+    const isMobile = width ? width < parseInt(tabletBreakpoint, 10) : null
+    const isTablet = width ? width < parseInt(notebookBreakpoint, 10) : null
 
     return {
       width,
       height,
       isMobile,
+      isTablet,
     }
-  }, [hasWindow, notebookBreakpoint])
+  }, [hasWindow, notebookBreakpoint, tabletBreakpoint])
 
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()

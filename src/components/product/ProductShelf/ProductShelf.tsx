@@ -19,7 +19,7 @@ function ProductBtnBuyInPage() {
 }
 
 function ProductShelf({
-  cardsQuantity = 5,
+  cardsQuantity,
   title,
   withDivisor = false,
   ...variables
