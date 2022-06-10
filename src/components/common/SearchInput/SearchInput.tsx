@@ -6,13 +6,14 @@ import {
 import { SearchInput as UISearchInput } from '@faststore/ui'
 import { navigate } from 'gatsby'
 import { forwardRef } from 'react'
-import Icon from 'src/components/ui/Icon'
 import useSearchHistory from 'src/sdk/search/useSearchHistory'
 import type { SearchEvent } from '@faststore/sdk'
 import type {
   SearchInputProps as UISearchInputProps,
   SearchInputRef,
 } from '@faststore/ui'
+import SearchIcon from 'src/components/icons/SearchIcon'
+import Icon from 'src/components/ui/Icon'
 
 declare type SearchInputProps = {
   onSearchClick?: () => void
@@ -50,11 +51,21 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
       <UISearchInput
         ref={ref}
         icon={
-          <Icon
-            name="MagnifyingGlass"
-            onClick={onSearchClick}
-            data-testid={buttonTestId}
-          />
+          <>
+            <SearchIcon
+              className="search-icon-desktop"
+              name="searchIcon"
+              onClick={onSearchClick}
+              data-testid={buttonTestId}
+            />
+            <div className="search-icon-mobile">
+              <Icon
+                name="MagnifyingGlass"
+                onClick={onSearchClick}
+                data-testid={buttonTestId}
+              />
+            </div>
+          </>
         }
         placeholder="O que você quer aprender?"
         onSubmit={handleSearch}

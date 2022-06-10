@@ -189,11 +189,11 @@
   color: var(--fs-badge-info-text-color);
 
   [data-fs-badge-wrapper] {
-    background-color: var(--fs-badge-info-bkg-color);
+    background-color: #ff3452;
     border-color: var(--fs-badge-info-border-color);
 
     &::after {
-      background-color: var(--fs-badge-info-bkg-color);
+      background-color: #ff3452;
     }
   }
 }

@@ -13,7 +13,9 @@ const ButtonSignIn = () => {
       variant="tertiary"
     >
       <User />
-      <span>{person?.id ? 'My Account' : 'Entre ou cadastre-se'}</span>
+      <span className="login-message__bold">
+        {person?.id ? 'My Account' : 'Entre ou Cadastre-se'}
+      </span>
     </ButtonLink>
   )
 }

@@ -1,12 +1,12 @@
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
-import { Carousel } from '@acctglobal/carousel-universal-test'
+import Carousel from '@acctglobal/carousel-universal'
 
 import ProductCard from '../ProductCard'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element
-  cardsQuantity: number
+  cardsQuantity?: number
   withDivisor?: boolean
 }
 
@@ -15,11 +15,11 @@ function ClkBtn() {
 }
 
 function ProductBtnBuyInPage() {
-  return <button onClick={ClkBtn}>Click me</button>
+  return <button onClick={ClkBtn}>Quero começar</button>
 }
 
 function ProductShelf({
-  cardsQuantity,
+  cardsQuantity = 5,
   title,
   withDivisor = false,
   ...variables

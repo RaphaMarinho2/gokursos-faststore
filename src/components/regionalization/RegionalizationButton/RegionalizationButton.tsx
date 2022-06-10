@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import Button from 'src/components/ui/Button'
-import MenuCategoria from 'src/components/icons/Menu-categoria'
+import MenuCategoria from 'src/components/icons/MenuCategoria'
 
 interface RegionalizationButtonProps extends HTMLAttributes<HTMLDivElement> {
   content?: string

@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-const MenuMobile: FC = () => (
+const MenuMobileIcon: FC = () => (
   <svg
     width="18"
     height="15"
@@ -12,4 +12,4 @@ const MenuMobile: FC = () => (
   </svg>
 )
 
-export default MenuMobile
+export default MenuMobileIcon
