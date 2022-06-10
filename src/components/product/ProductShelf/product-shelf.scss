@@ -20,7 +20,7 @@
   min-height: var(--fs-product-shelf-min-height);
 }
 
-.product-shelf-container{
+.product-shelf-container {
   width: 100%;
 
   @include media(">=tablet") {
@@ -29,9 +29,9 @@
   }
 }
 
-.product-shelf-title{
-  font-size: 20px;
+.product-shelf-title {
   margin-bottom: 0.5rem;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -43,26 +43,43 @@
       overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
       .container-item {
-        display: flex;
-        justify-content: center;
+        padding: 0 5px;
+
+        @include media(">=phonemid") {
+          padding: 0 12px;
+        }
+
+        @include media(">=notebook") {
+          padding: 0 18px;
+        }
+      }
+
+      article {
+        min-width: 130px;
         padding: 0;
+        border: 0;
+
+        h3 {
+          min-height: 40px;
+        }
+
+        div {
+          min-width: 130px;
+        }
       }
     }
+  }
 
-    .carousel-arrow-button-prev, .carousel-arrow-button-next {
-      z-index: 2;
-      margin-top: -5%;
-    }
+  .carousel-arrow-button-prev, .carousel-arrow-button-next {
+    z-index: 2;
+    margin-top: -5%;
+  }
 
-    .carousel-arrow-button-prev {
-      margin-right: -40px;
-    }
+  .carousel-arrow-button-prev {
+    margin-right: -40px;
+  }
 
-    .carousel-arrow-button-next {
-      margin-left: -40px;
-    }
+  .carousel-arrow-button-next {
+    margin-left: -40px;
   }
 }
-
-
-
