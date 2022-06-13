@@ -45,7 +45,7 @@ function ProductShelf({
         qtyItems={cardsQuantity}
       >
         {products?.edges.map((product, idx) => (
-          <div key={idx}>
+          <div key={idx} className="product-shelf__content">
             <ProductCard
               product={product.node}
               index={idx + 1}
