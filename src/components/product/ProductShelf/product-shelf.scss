@@ -43,14 +43,18 @@
       overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
       .container-item {
-        padding: 0 5px;
+        padding-left: 2px;
 
-        @include media(">=phonemid") {
-          padding: 0 12px;
-        }
+        .product-shelf__content {
+          padding: 0 3px;
 
-        @include media(">=notebook") {
-          padding: 0 18px;
+          @include media(">=phonemid") {
+            padding: 0 10px;
+          }
+
+          @include media(">=notebook") {
+            padding: 0 14px;
+          }
         }
       }
 
