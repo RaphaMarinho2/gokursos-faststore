@@ -36,6 +36,12 @@
 }
 
 .carousel-content {
+  padding: 0 16px;
+
+  @include media(">=notebook") {
+    padding: 0 24px;
+  }
+
   div {
     .carousel-container {
       overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
@@ -57,7 +63,7 @@
       }
 
       article {
-        min-width: 130px;
+        min-width: 100px;
         padding: 0;
         border: 0;
 
@@ -66,22 +72,39 @@
         }
 
         div {
-          min-width: 130px;
+          min-width: 100px;
         }
       }
     }
   }
 
   .carousel-arrow-button-prev, .carousel-arrow-button-next {
+    position: absolute;
+    top: 35%;
     z-index: 2;
-    margin-top: -5%;
   }
 
   .carousel-arrow-button-prev {
-    margin-right: -40px;
+    left: 8px;
+
+    @include media(">=phonemid") {
+      left: 16px;
+    }
+
+    @include media(">=notebook") {
+      left: 24px;
+    }
   }
 
   .carousel-arrow-button-next {
-    margin-left: -40px;
+    right: 8px;
+
+    @include media(">=phonemid") {
+      right: 16px;
+    }
+
+    @include media(">=notebook") {
+      right: 24px;
+    }
   }
 }
