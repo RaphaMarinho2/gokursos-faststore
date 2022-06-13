@@ -35,12 +35,14 @@ function ProductShelf({
   const styleArrowMobile = {
     height: 30,
     margin: 0,
+    padding: 0,
     width: 28,
   }
 
   const styleArrowDesktop = {
     height: 34,
     margin: 0,
+    padding: 0,
     width: 32,
   }
 

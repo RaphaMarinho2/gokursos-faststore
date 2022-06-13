@@ -36,6 +36,7 @@
 }
 
 .carousel-content {
+  position: relative;
   padding: 0 16px;
 
   @include media(">=notebook") {
@@ -80,7 +81,7 @@
 
   .carousel-arrow-button-prev, .carousel-arrow-button-next {
     position: absolute;
-    top: 35%;
+    top: 20%;
     z-index: 2;
   }
 
