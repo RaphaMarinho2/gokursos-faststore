@@ -1,4 +1,4 @@
-import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
+import productsQuery from 'src/mocks/productsQuery.json'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import Carousel from '@acctglobal/carousel-universal'
 
@@ -24,7 +24,7 @@ function ProductShelf({
   withDivisor = false,
   ...variables
 }: ProductShelfProps) {
-  const products = useProductsQuery(variables)
+  const { products } = productsQuery.data.search
 
   if (products?.edges.length === 0) {
     return null
