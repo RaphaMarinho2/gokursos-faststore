@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import Button from 'src/components/ui/Button'
-import Icon from 'src/components/ui/Icon'
+import MenuCategoria from 'src/components/icons/MenuCategoria'
 
 interface RegionalizationButtonProps extends HTMLAttributes<HTMLDivElement> {
   content?: string
@@ -20,7 +20,7 @@ export default function RegionalizationButton({
       <Button
         variant="tertiary"
         size="small"
-        icon={<Icon name="MapPin" width={24} height={24} />}
+        icon={<MenuCategoria />}
         iconPosition="left"
         onClick={() => setIsRegionalizationModalOpen(true)}
       >
@@ -29,7 +29,7 @@ export default function RegionalizationButton({
             <span>{content}</span>
           </>
         ) : (
-          <span>Set your location</span>
+          <span>Categorias</span>
         )}
       </Button>
     </div>

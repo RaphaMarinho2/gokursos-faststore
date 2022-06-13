@@ -41,6 +41,7 @@ main,
 
 .layout__content {
   box-sizing: border-box;
+  display: flex;
   width: 100%;
   max-width: var(--fs-grid-breakpoint-desktop);
   margin-right: auto;

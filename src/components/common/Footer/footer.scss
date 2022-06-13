@@ -1,9 +1,8 @@
 @import "src/styles/scaffold";
 
 .footer {
-  background-color: #FFFFFF;
-  padding-bottom: 36px;
-
+  padding: 0 16px 36px;
+  background-color: #ffffff;
   content-visibility: auto;
   contain-intrinsic-size: rem(860px);
 
@@ -13,23 +12,23 @@
 }
 
 .text__title-mini {
+  padding-bottom: 18px;
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #004E98;
-  padding-bottom: 18px;
+  color: #004e98;
 }
 
 .footer__section {
   position: relative;
   display: grid;
-  grid-template-columns: 1;
   grid-template-rows: 3;
+  grid-template-columns: 1;
 
   @include media(">=notebook") {
-    grid-template-columns: 4fr 1fr;
     grid-template-rows: 3fr 1fr;
+    grid-template-columns: 4fr 1fr;
   }
 }
 
@@ -70,13 +69,13 @@
 }
 
 .footer__social {
-  grid-row: 3;
   display: flex;
   flex-direction: column;
+  grid-row: 3;
 
   @include media(">=notebook") {
-    grid-column: 2 / span 1;
     grid-row: 1;
+    grid-column: 2 / span 1;
     padding-left: 65px;
   }
 
@@ -130,17 +129,17 @@
 
   p {
     font-family: Montserrat, sans-serif;
-    font-weight: 400;
     font-size: 8px;
+    font-weight: 400;
     line-height: 10px;
     color: #666666;
     text-align: center;
 
     @include media(">=notebook") {
-      font-size: 16px;
-      line-height: 21px;
       max-width: 780px;
       margin: auto;
+      font-size: 16px;
+      line-height: 21px;
     }
   }
 
@@ -153,9 +152,9 @@
   }
 
   @include media(">=notebook") {
-    grid-column: 1 / span 5;
     grid-row: 2;
-    border-top: 1px solid #DDDDDD;
+    grid-column: 1 / span 5;
+    border-top: 1px solid #dddddd;
   }
 }
 
@@ -181,7 +180,7 @@
         padding: 0 10px 16px 0;
 
         @include media(">=notebook") {
-            padding-left: 6px;
+          padding-left: 6px;
         }
 
         &:last-child {
@@ -244,11 +243,11 @@
 
   .accordion[data-store-accordion] {
     [data-store-button] {
-      color: #004E98;
       font-family: Montserrat, sans-serif;
+      font-size: 14px;
       font-weight: 700;
       line-height: 24px;
-      font-size: 14px;
+      color: #004e98;
 
       &[aria-expanded="true"] {
         font-size: 16px;
@@ -258,13 +257,13 @@
     }
   }
 
-  [data-fs-link-variant=footer] {
+  [data-fs-link-variant="footer"] {
+    padding: 0;
     font-family: Montserrat, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
     color: #666666;
-    padding: 0;
 
     &:visited {
       color: #666666;
@@ -281,24 +280,24 @@
     }
 
     li {
+      padding: 0 0 16px;
       font-family: Montserrat, sans-serif;
       font-size: 14px;
-      line-height: 18px;
       font-weight: 400;
+      line-height: 18px;
       color: #666666;
-      padding: 0 0 16px;
 
       @include media(">=notebook") {
         padding-bottom: 16px;
       }
 
       p {
+        padding: 0 0 7px;
         font-family: Montserrat, sans-serif;
         font-size: 10px;
-        line-height: 13px;
         font-weight: 400;
+        line-height: 13px;
         color: #555555;
-        padding: 0 0 7px;
       }
 
       .subitem-wrapper {
@@ -335,9 +334,9 @@
 }
 
 .footer__links-columns {
+  display: flex;
   grid-row: 1;
   grid-column: 1 / span 4;
-  display: flex;
-  justify-content: space-between;
   gap: 60px;
+  justify-content: space-between;
 }

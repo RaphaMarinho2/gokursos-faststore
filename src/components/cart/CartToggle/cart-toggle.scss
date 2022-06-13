@@ -19,7 +19,7 @@
     font-weight: var(--fs-text-weight-bold);
     color: var(--fs-color-text-inverse);
     content: attr(data-items);
-    background: var(--fs-color-primary-bkg);
+    background: #ff3452;
     border-radius: var(--fs-border-radius-pill);
   }
 }

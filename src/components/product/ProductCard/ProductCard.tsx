@@ -6,7 +6,7 @@ import {
 } from '@faststore/ui'
 import { graphql, Link } from 'gatsby'
 import { memo } from 'react'
-import { Badge, DiscountBadge } from 'src/components/ui/Badge'
+import { Badge } from 'src/components/ui/Badge'
 import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
@@ -98,11 +98,7 @@ function ProductCard({
           </div>
         </div>
 
-        {outOfStock ? (
-          <Badge>Out of stock</Badge>
-        ) : (
-          <DiscountBadge listPrice={listPrice} spotPrice={spotPrice} />
-        )}
+        {outOfStock && <Badge>Out of stock</Badge>}
         {!!ButtonBuy && (
           <UICardActions data-fs-product-card-actions>
             {ButtonBuy}

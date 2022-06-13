@@ -9,7 +9,7 @@
   min-height: 50vh;
   padding: 0 var(--fs-spacing-8);
   margin: var(--fs-spacing-3) 0;
-  background-color: var(--fs-color-neutral-bkg);
+  background-color: #ffffff;
   border-radius: var(--fs-border-radius-default);
 
   @include media(">=notebook") {

@@ -11,12 +11,13 @@ import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
+import CommonQuestions from 'src/components/sections/CommonQuestions'
 
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site },
+    data: { site, allContentfulCommonQuestions },
     location: { pathname, host },
   } = props
 
@@ -89,6 +90,8 @@ function Page(props: Props) {
         actionPath="/"
         actionLabel="Call to action"
       />
+
+      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
 }
@@ -100,6 +103,14 @@ export const querySSG = graphql`
         title
         description
         titleTemplate
+      }
+    }
+    allContentfulCommonQuestions(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        question
+        answer {
+          answer
+        }
       }
     }
   }

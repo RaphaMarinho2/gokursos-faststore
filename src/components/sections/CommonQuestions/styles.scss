@@ -1,0 +1,91 @@
+@import "src/styles/scaffold";
+
+.common-questions {
+  width: 100%;
+  padding: 1rem;
+
+  @include media(">=notebook") {
+    min-height: 418px;
+    padding: 2.5rem;
+    background-color: #f5f5f5;
+  }
+
+  &__title {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #004e98;
+    border-bottom: 1px solid #dddddd;
+
+    @include media(">=notebook") {
+      padding-bottom: 2rem;
+      margin: 0;
+      font-size: 24px;
+      border: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include media(">=notebook") {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  &__row {
+    flex: 1;
+  }
+
+  [data-accordion-container] {
+    width: 100%;
+    padding: 13px 8px;
+    margin-bottom: 0.2rem;
+    background-color: #f5f5f5;
+
+    @include media(">=notebook") {
+      padding: 1.5rem 1rem;
+      margin-bottom: 0.3rem;
+      background-color: #ffffff;
+    }
+
+    [data-accordion-title] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0;
+      cursor: pointer;
+      background-color: transparent;
+      border: 0;
+
+      [data-accordion-title-text] {
+        max-width: 250px;
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #004e98;
+        text-align: left;
+
+        @media (min-width: 550px) {
+          max-width: 100%;
+        }
+
+        @include media(">=notebook") {
+          font-size: 14px;
+        }
+      }
+    }
+
+    [data-accordion-content] {
+      margin-top: 1rem;
+      font-family: Montserrat, sans-serif;
+      font-size: 12px;
+      color: #666666;
+    }
+  }
+}
