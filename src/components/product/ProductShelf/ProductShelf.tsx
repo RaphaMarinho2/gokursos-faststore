@@ -1,6 +1,7 @@
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import Carousel from '@acctglobal/carousel-universal'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 import ProductCard from '../ProductCard'
 
@@ -24,11 +25,26 @@ function ProductShelf({
   withDivisor = false,
   ...variables
 }: ProductShelfProps) {
+  const { isTablet } = useWindowDimensions()
   const products = useProductsQuery(variables)
 
   if (products?.edges.length === 0) {
     return null
   }
+
+  const styleArrowMobile = {
+    height: 30,
+    margin: 0,
+    width: 28,
+  }
+
+  const styleArrowDesktop = {
+    height: 34,
+    margin: 0,
+    width: 32,
+  }
+
+  const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
 
   return (
     <div
@@ -41,6 +57,7 @@ function ProductShelf({
         arrow={{
           isVisible: true,
           iconColor: '#004E98',
+          style: sizeArrowCarousel,
         }}
         qtyItems={cardsQuantity}
       >
