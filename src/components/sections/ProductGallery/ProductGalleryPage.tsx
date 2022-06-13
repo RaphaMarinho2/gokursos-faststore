@@ -2,9 +2,10 @@ import { useSearch } from '@faststore/sdk'
 import ProductGrid from 'src/components/product/ProductGrid'
 import Sentinel from 'src/sdk/search/Sentinel'
 import type { ProductsQueryQuery } from '@generated/graphql'
+import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
 
 import ProductTiles from '../ProductTiles'
-import { useProducts } from './usePageProducts'
+// import { useProducts } from './usePageProducts'
 
 /* If showSponsoredProducts is true, a ProductTiles will be displayed in between two blocks of ProductGrid on the page 0 */
 interface Props {
@@ -17,10 +18,13 @@ interface Props {
 function GalleryPage({
   page,
   title,
-  fallbackData,
+  // fallbackData,
   showSponsoredProducts = true,
 }: Props) {
-  const products = useProducts(page, fallbackData)
+  // const products = useProducts(page, fallbackData)
+
+  const products = productGalleryQuery?.data?.search?.products?.edges
+
   const { itemsPerPage } = useSearch()
 
   if (products == null) {

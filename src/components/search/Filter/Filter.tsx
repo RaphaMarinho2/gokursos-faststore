@@ -3,14 +3,14 @@ import { graphql } from 'gatsby'
 import Button, { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
-import type { Filter_FacetsFragment } from '@generated/graphql'
+// import type { Filter_FacetsFragment } from '@generated/graphql'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 
 import Facets from './Facets'
 import { useFilter } from './useFilter'
 
 interface Props {
-  facets: Filter_FacetsFragment[]
+  facets: any
   /*
    * Control whether the filter modal is open. (mobile only)
    */

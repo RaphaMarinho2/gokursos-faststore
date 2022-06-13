@@ -9,12 +9,13 @@ import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
+import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
-import { useDelayedFacets } from './useDelayedFacets'
-import { useGalleryQuery } from './useGalleryQuery'
-import { useProductsPrefetch } from './usePageProducts'
+// import { useDelayedFacets } from './useDelayedFacets'
+// import { useGalleryQuery } from './useGalleryQuery'
+// import { useProductsPrefetch } from './usePageProducts'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
@@ -28,13 +29,19 @@ function ProductGallery({ title, searchTerm }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
-  const { data } = useGalleryQuery()
-  const facets = useDelayedFacets(data)
+  // const { data } = useGalleryQuery()
+
+  const { data } = productGalleryQuery // REPLACE QUERY WITH MOCK FILE
+
+  // const facets = useDelayedFacets(data)
+
+  const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
+
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
 
-  useProductsPrefetch(prev ? prev.cursor : null)
-  useProductsPrefetch(next ? next.cursor : null)
+  // useProductsPrefetch(prev ? prev.cursor : null)
+  // useProductsPrefetch(next ? next.cursor : null)
 
   if (data && totalCount === 0) {
     return (

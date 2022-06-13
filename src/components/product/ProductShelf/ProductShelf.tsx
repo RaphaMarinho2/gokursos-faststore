@@ -22,7 +22,6 @@ function ProductShelf({
   cardsQuantity = 5,
   title,
   withDivisor = false,
-  ...variables
 }: ProductShelfProps) {
   const { products } = productsQuery.data.search
 
