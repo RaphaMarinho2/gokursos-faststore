@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - LeiaJa top bar component.
 - Menu component.
 - SearchBar component.
+- Video Section component.
 
 ### Fixed
 
