@@ -6,10 +6,47 @@
     justify-content: space-between;
     line-height: 1.5;
 
-    &[data-order-summary-discount] { color: var(--fs-color-success-text); }
+    &[data-order-summary-discount] {
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #41a201;
+
+      @include media(">=notebook") {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
 
     &:last-of-type {
       margin-bottom: var(--fs-spacing-2);
     }
+  }
+}
+
+.text__title-subsection {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #666666;
+
+  @include media(">=notebook") {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+.text__subtotal {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #666666;
+
+  @include media(">=notebook") {
+    font-size: 16px;
+    line-height: 21px;
   }
 }

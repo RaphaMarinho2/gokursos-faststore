@@ -20,13 +20,13 @@ function OrderSummary({
 
   return (
     <List className="order-summary" data-order-summary>
-      <li>
-        <span>Subtotal ({numberOfItems} products)</span>
+      <li className="text__subtotal">
+        <span>Subtotal ({numberOfItems} produtos)</span>
         <span>{useFormattedPrice(subTotal)}</span>
       </li>
       {discount > 0 && (
         <li data-order-summary-discount>
-          <span>Discount</span>
+          <span>Desconto</span>
           <span>-{formattedDiscount}</span>
         </li>
       )}
