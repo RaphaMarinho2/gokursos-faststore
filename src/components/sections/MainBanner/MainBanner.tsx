@@ -5,6 +5,9 @@ import {
   BannerContent,
   Button,
 } from '@faststore/ui'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+
+import './main-banner.scss'
 
 type MainBannerProps = {
   nodes: Array<{
@@ -24,6 +27,8 @@ type MainBannerProps = {
 }
 
 const MainBanner = ({ nodes }: MainBannerProps) => {
+  const { isTablet } = useWindowDimensions()
+
   return (
     <>
       <Carousel
@@ -37,7 +42,13 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
           <div key={idx}>
             <Banner variant="horizontal">
               <BannerImage>
-                <img alt="" src={banner.imageMobile.url} width="100%" />
+                <img
+                  alt=""
+                  src={
+                    isTablet ? banner.imageMobile.url : banner.imageDesktop.url
+                  }
+                  width="100%"
+                />
               </BannerImage>
               <BannerContent>
                 <div>
