@@ -17,6 +17,8 @@ import EmptyGallery from './EmptyGallery'
 // import { useGalleryQuery } from './useGalleryQuery'
 // import { useProductsPrefetch } from './usePageProducts'
 
+import './product-gallery.scss'
+
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
