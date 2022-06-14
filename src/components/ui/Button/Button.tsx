@@ -1,10 +1,15 @@
 import { Button as UIButton, Icon as UIIcon } from '@faststore/ui'
 import type { ReactNode } from 'react'
 import type { ButtonProps } from '@faststore/ui'
-
 import './button.scss'
 
-export type Variant = 'primary' | 'secondary' | 'tertiary'
+export type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'remover'
+  | 'finalizarCompra'
+  | 'continuarComprando'
 export type Size = 'small' | 'regular'
 export type IconPosition = 'left' | 'right'
 

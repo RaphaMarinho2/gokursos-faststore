@@ -340,8 +340,17 @@
   &[data-fs-button-variant="remover"] {
     padding: 0;
     font-family: Montserrat, sans-serif;
-    color: red;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #ff3452;
+    text-decoration: underline;
     background-color: #ffffff;
+
+    @include media(">=notebook") {
+      font-size: 16px;
+      line-height: 21px;
+    }
 
     &[data-fs-button-inverse="true"] {
       color: var(--fs-button-tertiary-inverse-text-color);
@@ -360,16 +369,40 @@
   }
 
   &[data-fs-button-variant="finalizarCompra"] {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
     color: #ffffff;
     background-color: #ff3452;
     border:
       var(--fs-button-border-width) solid
       var(--fs-button-primary-border-color);
 
+    @include media(">=notebook") {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
     &[data-fs-button-inverse="true"] {
       border:
         var(--fs-button-border-width) solid
         var(--fs-button-primary-inverse-border-color);
+    }
+  }
+
+  &[data-fs-button-variant="continuarComprando"] {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #ff3452;
+    text-decoration: underline;
+    background-color: transparent;
+
+    @include media(">=notebook") {
+      font-size: 16px;
+      line-height: 21px;
     }
   }
 

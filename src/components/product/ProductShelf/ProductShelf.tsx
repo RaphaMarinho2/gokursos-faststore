@@ -1,6 +1,7 @@
 import productsQuery from 'src/mocks/productsQuery.json'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import Carousel from '@acctglobal/carousel-universal'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 import ProductCard from '../ProductCard'
 
@@ -19,15 +20,32 @@ function ProductBtnBuyInPage() {
 }
 
 function ProductShelf({
-  cardsQuantity = 5,
+  cardsQuantity,
   title,
   withDivisor = false,
 }: ProductShelfProps) {
+  const { isTablet } = useWindowDimensions()
   const { products } = productsQuery.data.search
 
   if (products?.edges.length === 0) {
     return null
   }
+
+  const styleArrowMobile = {
+    height: 30,
+    margin: 0,
+    padding: 0,
+    width: 28,
+  }
+
+  const styleArrowDesktop = {
+    height: 34,
+    margin: 0,
+    padding: 0,
+    width: 32,
+  }
+
+  const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
 
   return (
     <div
@@ -40,11 +58,12 @@ function ProductShelf({
         arrow={{
           isVisible: true,
           iconColor: '#004E98',
+          style: sizeArrowCarousel,
         }}
         qtyItems={cardsQuantity}
       >
         {products?.edges.map((product, idx) => (
-          <div key={idx}>
+          <div key={idx} className="product-shelf__content">
             <ProductCard
               product={product.node}
               index={idx + 1}
