@@ -13,15 +13,9 @@ function Page() {
 
   const title = collection?.seo.title ?? ''
 
-  const [href, setHref] = useState<string>(
-    'https://deploy-preview-26--gokursos.netlify.app/tecnologia/'
+  const maybeState = parseSearchState(
+    new URL('https://deploy-preview-26--gokursos.netlify.app/tecnologia/')
   )
-
-  useEffect(() => {
-    setHref(window.location.href)
-  }, [])
-
-  const maybeState = parseSearchState(new URL(href))
 
   const searchParams = {
     page: maybeState?.page,
