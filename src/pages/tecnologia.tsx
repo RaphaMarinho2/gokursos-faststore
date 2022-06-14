@@ -12,9 +12,9 @@ function Page() {
 
   const title = collection?.seo.title ?? ''
 
-  const maybeState = parseSearchState(
-    new URL('https://localhost:8000/tecnologia')
-  )
+  const { href } = window.location
+
+  const maybeState = parseSearchState(new URL(href))
 
   const searchParams = {
     page: maybeState?.page,
