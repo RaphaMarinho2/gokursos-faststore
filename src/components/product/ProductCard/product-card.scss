@@ -90,12 +90,31 @@
   grid-template-rows: 1fr auto;
   padding: var(--fs-product-card-content-padding);
 
+  &:hover {
+    [data-fs-product-card-actions] {
+      button {
+        color: #fff;
+        background: #ff3452;
+      }
+    }
+  }
+
   a[href] {
     min-height: 100%;
     padding: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #000;
     color: var(--fs-product-card-text-title-color);
     text-decoration: none;
     outline: none;
+
+    @include media(">=notebook") {
+      font-size: 16px;
+      line-height: 21px;
+    }
 
     &::after {
       position: absolute;
@@ -115,17 +134,16 @@
 [data-fs-product-card-actions] {
   display: flex;
   align-items: end;
+
   button {
     width: 99%;
     height: 40px;
-
-    background: transparent;
-    border: 1px solid #FF3452;
-    border-radius: 4px;
-
     font-size: var(--fs-text-size-base);
     font-weight: 600;
-    color: #FF3452;
+    color: #ff3452;
+    background: transparent;
+    border: 1px solid #ff3452;
+    border-radius: 4px;
   }
 }
 
@@ -141,17 +159,23 @@
 [data-fs-product-card-prices] {
   display: flex;
   flex-direction: column;
-  align-content: center;
   margin: 1rem 0;
+  text-align: left;
 
   [data-variant="spot"] {
-    font-size: var(--fs-product-card-text-price-size);
-    color: var(--fs-product-card-text-price-color);
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #000;
   }
 
   [data-variant="listing"] {
-    font-size: var(--fs-product-card-text-price-listing-size);
-    color: var(--fs-product-card-text-price-listing-color);
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #666666;
   }
 }
 

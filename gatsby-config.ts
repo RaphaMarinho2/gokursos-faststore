@@ -1,11 +1,12 @@
 import { join, resolve } from 'path'
+import 'dotenv/config'
 
 import dotenv from 'dotenv'
 import type { GatsbyConfig } from 'gatsby'
 
 import config from './store.config'
 
-dotenv.config({ path: 'vtex.env' })
+dotenv.config()
 
 const gatsbyConfig: GatsbyConfig = {
   jsxRuntime: 'automatic',
@@ -24,6 +25,13 @@ const gatsbyConfig: GatsbyConfig = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+        accessToken: process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -20,7 +20,7 @@
   min-height: var(--fs-product-shelf-min-height);
 }
 
-.product-shelf-container{
+.product-shelf-container {
   width: 100%;
 
   @include media(">=tablet") {
@@ -29,40 +29,83 @@
   }
 }
 
-.product-shelf-title{
-  font-size: 20px;
+.product-shelf-title {
   margin-bottom: 0.5rem;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .carousel-content {
-  div {
-    align-items: center;
+  position: relative;
+  padding: 0 16px;
 
+  @include media(">=notebook") {
+    padding: 0 24px;
+  }
+
+  div {
     .carousel-container {
       overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
       .container-item {
-        display: flex;
-        justify-content: center;
+        padding-left: 2px;
+
+        .product-shelf__content {
+          padding: 0 3px;
+
+          @include media(">=phonemid") {
+            padding: 0 10px;
+          }
+
+          @include media(">=notebook") {
+            padding: 0 14px;
+          }
+        }
+      }
+
+      article {
+        min-width: 100px;
         padding: 0;
+        border: 0;
+
+        h3 {
+          min-height: 40px;
+        }
+
+        div {
+          min-width: 100px;
+        }
       }
     }
+  }
 
-    .carousel-arrow-button-prev, .carousel-arrow-button-next {
-      z-index: 2;
-      margin-top: -5%;
+  .carousel-arrow-button-prev, .carousel-arrow-button-next {
+    position: absolute;
+    top: 20%;
+    z-index: 2;
+  }
+
+  .carousel-arrow-button-prev {
+    left: 8px;
+
+    @include media(">=phonemid") {
+      left: 16px;
     }
 
-    .carousel-arrow-button-prev {
-      margin-right: -40px;
+    @include media(">=notebook") {
+      left: 24px;
+    }
+  }
+
+  .carousel-arrow-button-next {
+    right: 8px;
+
+    @include media(">=phonemid") {
+      right: 16px;
     }
 
-    .carousel-arrow-button-next {
-      margin-left: -40px;
+    @include media(">=notebook") {
+      right: 24px;
     }
   }
 }
-
-
-

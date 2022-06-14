@@ -4,21 +4,20 @@ import { GatsbySeo, JsonLd } from 'gatsby-plugin-next-seo'
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
-import ProductShelf from 'src/components/product/ProductShelf'
 import ProductTiles from 'src/components/sections/ProductTiles'
 import { mark } from 'src/sdk/tests/mark'
-import { ITEMS_PER_SECTION } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
-
 import 'src/styles/pages/homepage.scss'
+import HomeProductShelf from 'src/components/sections/HomeProductShelf'
+import CommonQuestions from 'src/components/sections/CommonQuestions'
 
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site },
+    data: { site, allContentfulCommonQuestions },
     location: { pathname, host },
   } = props
 
@@ -78,12 +77,7 @@ function Page(props: Props) {
 
       <IncentivesHeader incentives={IncentivesMock} />
 
-      <ProductShelf
-        cardsQuantity={5}
-        first={ITEMS_PER_SECTION}
-        selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
-        title="Most Wanted"
-      />
+      <HomeProductShelf />
 
       <ProductTiles
         first={3}
@@ -97,11 +91,7 @@ function Page(props: Props) {
         actionLabel="Call to action"
       />
 
-      {/* <ProductShelf
-        first={ITEMS_PER_SECTION}
-        selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
-        title="Deals & Promotions"
-      /> */}
+      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
 }
@@ -113,6 +103,14 @@ export const querySSG = graphql`
         title
         description
         titleTemplate
+      }
+    }
+    allContentfulCommonQuestions(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        question
+        answer {
+          answer
+        }
       }
     }
   }
