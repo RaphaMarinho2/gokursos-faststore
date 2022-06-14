@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import type { HTMLAttributes } from 'react'
+import './tiles.scss'
 
 export interface TileProps extends HTMLAttributes<HTMLLIElement> {
   /**

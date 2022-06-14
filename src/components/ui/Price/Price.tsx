@@ -3,6 +3,7 @@ import { memo } from 'react'
 import type { PriceProps } from '@faststore/ui'
 
 import SROnly from '../SROnly'
+import './price.scss'
 
 type Props = PriceProps & {
   /**
