@@ -3,7 +3,7 @@ import {
   Banner,
   BannerImage,
   BannerContent,
-  BannerLink,
+  Button,
 } from '@faststore/ui'
 
 type MainBannerProps = {
@@ -33,23 +33,34 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
           property: 'transform',
         }}
       >
-        <Banner>
-          <BannerImage>
-            <img alt="" src={nodes[0].imageDesktop.url} width="100%" />
-          </BannerImage>
-          <BannerContent>
-            <div>
-              <h3>Get to know our new release</h3>
-              <p>
-                Your one-stop shop for making this summer season the best of
-                all.
-              </p>
-            </div>
-            <BannerLink>
-              <a href="/">Shop now</a>
-            </BannerLink>
-          </BannerContent>
-        </Banner>
+        {nodes.map((banner, idx) => (
+          <div key={idx}>
+            <Banner variant="horizontal">
+              <BannerImage>
+                <img alt="" src={banner.imageMobile.url} width="100%" />
+              </BannerImage>
+              <BannerContent>
+                <div>
+                  <h3>{banner.title}</h3>
+                  <p>{banner.subtitle}</p>
+                </div>
+
+                <Button
+                  style={{
+                    background: banner.buttonColor,
+                  }}
+                >
+                  <a
+                    href={banner.slug}
+                    style={{ color: banner.buttonTextColor }}
+                  >
+                    {banner.buttonLabel}
+                  </a>
+                </Button>
+              </BannerContent>
+            </Banner>
+          </div>
+        ))}
       </Carousel>
     </>
   )
