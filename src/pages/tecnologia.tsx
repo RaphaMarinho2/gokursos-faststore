@@ -13,7 +13,9 @@ function Page() {
 
   const title = collection?.seo.title ?? ''
 
-  const [href, setHref] = useState<string>('http://localhost:8000/tecnologia')
+  const [href, setHref] = useState<string>(
+    'https://deploy-preview-26--gokursos.netlify.app/tecnologia/'
+  )
 
   useEffect(() => {
     setHref(window.location.href)
