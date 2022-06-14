@@ -1,0 +1,59 @@
+[data-store-carousel] {
+  position: relative;
+  padding: 0 16px;
+  margin: 24px 0;
+}
+
+[data-store-icon-button] {
+  position: absolute;
+  top: 30%;
+  width: 28px;
+  height: 30px;
+  background: #fff;
+  border-radius: 100px;
+  box-shadow: 2px 1px 15px rgb(0 0 0 / 15%);
+}
+
+[data-arrow="left"] {
+  left: 8px;
+}
+
+[data-arrow="right"] {
+  right: 8px;
+}
+
+[data-store-icon] {
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #004e98;
+  }
+}
+
+[data-carousel-controls] {
+  [data-store-button] {
+    padding: 0;
+    border: 0;
+  }
+}
+
+[data-banner-content] {
+  [data-store-button] {
+    min-width: 145px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 4px;
+
+    a {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      text-decoration: none;
+    }
+  }
+}
+
+[data-carousel-bullets] {
+  display: flex;
+  justify-content: center;
+}
