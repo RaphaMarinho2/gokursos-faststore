@@ -21,7 +21,7 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
     return null
   }
 
-  // const videoUrl = nodes[0]?.video?.file?.url
+  const videoUrl = nodes[0]?.video?.file?.url
 
   const [{ buttonUrl, buttonText, title, content }] = nodes
 
@@ -30,9 +30,9 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
       <div className="vd-section-content">
         <div className="vd-section-video-container">
           <div className="vd-section-video-mold" />
-          {/* {videoUrl && (
+          {videoUrl && (
             <video className="vd-section-video" src={videoUrl} controls />
-          )} */}
+          )}
         </div>
         <h2 className="vd-section-title">{title}</h2>
         <div className="vd-section-description">
