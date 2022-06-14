@@ -22,6 +22,19 @@
   [data-cart-item-summary] {
     flex-direction: column;
     grid-column: 2 / span 4;
+
+    .text__body {
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 18px;
+      color: #000;
+
+      @include media(">=notebook") {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
   }
 
   [data-cart-item-title] {
@@ -36,12 +49,68 @@
 
   [data-cart-item-prices] {
     display: flex;
+    flex-direction: column;
     align-items: baseline;
+
+    [data-store-price] {
+      &[data-variant="listing"] {
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #666666;
+
+        @include media(">=notebook") {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      &[data-variant="spot"] {
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+        color: #000;
+
+        @include media(">=notebook") {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+    }
   }
 
   [data-card-actions] {
     display: flex;
     justify-content: space-between;
     margin-top: var(--fs-spacing-3);
+
+    [data-fs-quantity-selector] {
+      [data-quantity-selector-input] {
+        height: 30px;
+        background: #fff;
+        border: 1px solid #cacbcc;
+        border-radius: 4px;
+
+        @include media(">=notebook") {
+          height: 44px;
+        }
+
+        &:focus-visible {
+          border: 1px solid #cacbcc;
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+      [data-quantity-selector-button] {
+        height: 30px;
+
+        @include media(">=notebook") {
+          height: 44px;
+        }
+      }
+    }
   }
 }
