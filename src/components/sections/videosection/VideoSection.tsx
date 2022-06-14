@@ -5,19 +5,23 @@ type VideoSectionType = {
   nodes: Array<{
     video: {
       file: {
-        filename: string
-        url: string
-      }
-    }
-    buttonUrl: string
-    buttonText: string
-    content: string
-    title: string
+        fileName: string | null
+        url: string | null
+      } | null
+    } | null
+    buttonUrl: string | null
+    buttonText: string | null
+    content: string | null
+    title: string | null
   }>
 }
 
 const VideoSection = ({ nodes }: VideoSectionType) => {
-  const videoUrl = nodes[0].video.file.url
+  if (!nodes || nodes.length < 1) {
+    return null
+  }
+
+  const videoUrl = nodes[0]?.video?.file?.url
   const linkDoBotao = nodes[0].buttonUrl
   const text = nodes[0].content
   const textoDoBotao = nodes[0].buttonText
@@ -28,16 +32,20 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
       <div className="vd-section-content">
         <div className="vd-section-video-container">
           <div className="vd-section-video-mold" />
-          <video className="vd-section-video" src={videoUrl} controls />
+          {videoUrl && (
+            <video className="vd-section-video" src={videoUrl} controls />
+          )}
         </div>
         <h2 className="vd-section-title">{titulo}</h2>
         <div className="vd-section-description">
           <p>{text}</p>
         </div>
         <div className="vd-section-button">
-          <a href={linkDoBotao}>
-            <button>{textoDoBotao}</button>
-          </a>
+          {linkDoBotao && (
+            <a href={linkDoBotao}>
+              <button>{textoDoBotao}</button>
+            </a>
+          )}
         </div>
       </div>
     </div>
