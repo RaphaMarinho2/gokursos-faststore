@@ -6,6 +6,7 @@ import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
 
 import ProductTiles from '../ProductTiles'
 // import { useProducts } from './usePageProducts'
+import './product-gallery.scss'
 
 /* If showSponsoredProducts is true, a ProductTiles will be displayed in between two blocks of ProductGrid on the page 0 */
 interface Props {

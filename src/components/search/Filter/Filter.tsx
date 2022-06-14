@@ -8,6 +8,7 @@ import { useModal } from 'src/sdk/ui/modal/Provider'
 
 import Facets from './Facets'
 import { useFilter } from './useFilter'
+import './filter.scss'
 
 interface Props {
   facets: any
