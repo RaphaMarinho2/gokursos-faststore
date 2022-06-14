@@ -6,7 +6,6 @@ import { mark } from 'src/sdk/tests/mark'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
-import { useEffect, useState } from 'react'
 
 function Page() {
   const collection = ServerCollectionPageQuery
@@ -26,22 +25,20 @@ function Page() {
   }
 
   return (
-    <>
-      <SearchProvider
-        onChange={applySearchState}
-        itemsPerPage={ITEMS_PER_PAGE}
-        {...searchParams}
-      >
-        <Breadcrumb
-          breadcrumbList={collection?.breadcrumbList.itemListElement}
-          name={title}
-        />
+    <SearchProvider
+      onChange={applySearchState}
+      itemsPerPage={ITEMS_PER_PAGE}
+      {...searchParams}
+    >
+      <Breadcrumb
+        breadcrumbList={collection?.breadcrumbList.itemListElement}
+        name={title}
+      />
 
-        <ProductGallery title={title} />
+      <ProductGallery title={title} />
 
-        <ScrollToTopButton />
-      </SearchProvider>
-    </>
+      <ScrollToTopButton />
+    </SearchProvider>
   )
 }
 
