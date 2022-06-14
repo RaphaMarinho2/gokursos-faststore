@@ -22,10 +22,8 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
   }
 
   const videoUrl = nodes[0]?.video?.file?.url
-  const linkDoBotao = nodes[0].buttonUrl
-  const text = nodes[0].content
-  const textoDoBotao = nodes[0].buttonText
-  const titulo = nodes[0].title
+
+  const [{ buttonUrl, buttonText, title, content }] = nodes
 
   return (
     <div className="vd-section-container">
@@ -36,14 +34,14 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
             <video className="vd-section-video" src={videoUrl} controls />
           )}
         </div>
-        <h2 className="vd-section-title">{titulo}</h2>
+        <h2 className="vd-section-title">{title}</h2>
         <div className="vd-section-description">
-          <p>{text}</p>
+          <p>{content}</p>
         </div>
         <div className="vd-section-button">
-          {linkDoBotao && (
-            <a href={linkDoBotao}>
-              <button>{textoDoBotao}</button>
+          {buttonUrl && (
+            <a href={buttonUrl}>
+              <button>{buttonText}</button>
             </a>
           )}
         </div>
