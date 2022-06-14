@@ -6,13 +6,18 @@ import { mark } from 'src/sdk/tests/mark'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
+import { useEffect, useState } from 'react'
 
 function Page() {
   const collection = ServerCollectionPageQuery
 
   const title = collection?.seo.title ?? ''
 
-  const { href } = window.location
+  const [href, setHref] = useState<string>('http://localhost:8000/tecnologia')
+
+  useEffect(() => {
+    setHref(window.location.href)
+  }, [])
 
   const maybeState = parseSearchState(new URL(href))
 
