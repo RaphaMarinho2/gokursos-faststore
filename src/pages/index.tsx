@@ -13,12 +13,13 @@ import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 import 'src/styles/pages/homepage.scss'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
+import MainBanner from 'src/components/sections/MainBanner'
 
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site, allContentfulCommonQuestions },
+    data: { site, allContentfulCommonQuestions, allContentfulMainBanner },
     location: { pathname, host },
   } = props
 
@@ -26,6 +27,9 @@ function Page(props: Props) {
 
   const title = site?.siteMetadata?.title ?? ''
   const siteUrl = `https://${host}${pathname}`
+
+  // eslint-disable-next-line no-console
+  console.log(allContentfulMainBanner)
 
   return (
     <>
@@ -67,6 +71,9 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
+
+      <MainBanner nodes={allContentfulMainBanner.nodes} />
+
       <Hero
         title="New Products Available"
         subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
@@ -117,6 +124,22 @@ export const querySSG = graphql`
         answer {
           answer
         }
+      }
+    }
+    allContentfulMainBanner {
+      nodes {
+        title
+        subtitle
+        imageDesktop {
+          url
+        }
+        imageMobile {
+          url
+        }
+        slug
+        buttonLabel
+        buttonColor
+        buttonTextColor
       }
     }
   }

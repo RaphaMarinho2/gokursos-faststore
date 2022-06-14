@@ -5945,6 +5945,22 @@ export type HomePageQueryQuery = {
       answer: { answer: string | null } | null
     }>
   }
+  allContentfulMainBanner: {
+    nodes: Array<{
+      title: string
+      subtitle: string | undefined
+      imageDesktop: {
+        url: string | undefined
+      }
+      imageMobile: {
+        url: string | undefined
+      }
+      slug: string
+      buttonLabel: string | undefined
+      buttonColor: string | undefined
+      buttonTextColor: string | undefined
+    }>
+  }
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>
