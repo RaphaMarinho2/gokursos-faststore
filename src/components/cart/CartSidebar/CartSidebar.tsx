@@ -1,5 +1,4 @@
 import { List } from '@faststore/ui'
-import Alert from 'src/components/ui/Alert'
 import { Badge } from 'src/components/ui/Badge'
 import Button, { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -33,7 +32,7 @@ function CartSidebar() {
     >
       <header data-testid="cart-sidebar">
         <div className="cart-sidebar__title">
-          <p className="text__lead">Your Cart</p>
+          <p className="text__lead">Meu carrinho</p>
           <Badge variant="info">{totalItems}</Badge>
         </div>
         <ButtonIcon
@@ -43,9 +42,6 @@ function CartSidebar() {
           onClick={onModalClose}
         />
       </header>
-      <Alert icon={<Icon name="Truck" width={24} height={24} />}>
-        Free shipping starts at $300
-      </Alert>
 
       {isEmpty ? (
         <EmptyCart onDismiss={onModalClose} />
@@ -65,17 +61,8 @@ function CartSidebar() {
               total={total}
               numberOfItems={totalItems}
               checkoutButton={
-                <Button
-                  variant="primary"
-                  icon={
-                    !isValidating && (
-                      <Icon name="ArrowRight" width={18} height={18} />
-                    )
-                  }
-                  iconPosition="right"
-                  {...btnProps}
-                >
-                  {isValidating ? 'Loading...' : 'Checkout'}
+                <Button variant="finalizarCompra" {...btnProps}>
+                  {isValidating ? 'Carregando...' : 'Finalizar compra'}
                 </Button>
               }
             />
