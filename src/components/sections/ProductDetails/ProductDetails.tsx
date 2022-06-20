@@ -34,19 +34,19 @@ function ProductDetails({ product: staleProduct }: Props) {
   }
 
   const {
-    product: {
-      id,
-      sku,
-      gtin,
-      name: variantName,
-      brand,
-      isVariantOf,
-      image: productImages,
-      offers: {
-        offers: [{ price, listPrice, seller }],
-      },
+    id,
+    sku,
+    gtin,
+    name: variantName,
+    brand,
+    isVariantOf,
+    description,
+    image: productImages,
+    offers: {
+      lowPrice,
+      offers: [{ price, listPrice, seller }],
     },
-  } = data
+  } = staleProduct
 
   const buyProps = useBuyButton({
     id,
@@ -100,29 +100,16 @@ function ProductDetails({ product: staleProduct }: Props) {
   return (
     <Section className="product-details layout__content layout__section column">
       <Breadcrumb
-        breadcrumbList={[
-          {
-            item: '/',
-            name: 'Exatas',
-            position: 1,
-          },
-          {
-            item: '/',
-            name: 'Matemática',
-            position: 2,
-          },
-        ]}
+        breadcrumbList={staleProduct.breadcrumbList.itemListElement}
       />
 
       <section className="product-details__body">
         <header className="product-details__title">
           <ProductTitle
-            title={
-              <h1 className="text__title-product">
-                Matemática: Resolução de problemas e modelagem
-              </h1>
+            title={<h1 className="text__title-product">{variantName}</h1>}
+            label={
+              <DiscountBadge listPrice={listPrice} spotPrice={lowPrice} big />
             }
-            label={<DiscountBadge listPrice={199.9} spotPrice={99.95} big />}
           />
         </header>
 
@@ -142,19 +129,19 @@ function ProductDetails({ product: staleProduct }: Props) {
           <section className="product-details__values">
             <div className="product-details__prices">
               <Price
-                value={199.9}
+                value={listPrice}
                 formatter={useFormattedPrice}
                 testId="list-price"
-                data-value={199.9}
+                data-value={listPrice}
                 variant="listing"
                 classes="text__legend"
                 SRText="Original price:"
               />
               <Price
-                value={99.95}
+                value={lowPrice}
                 formatter={useFormattedPrice}
                 testId="price"
-                data-value={99.95}
+                data-value={lowPrice}
                 variant="spot"
                 classes="text__lead"
                 SRText="Sale Price:"
@@ -188,13 +175,8 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <section className="product-details__content">
           <article className="product-details__description">
-            <h2 className="text__title-subsection">Descrição</h2>
-            <p className="text__body">
-              Lorem Ipsum has been the industry standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also.
-            </p>
+            <h2 className="text__title-subsection">Description</h2>
+            <p className="text__body">{description}</p>
           </article>
         </section>
       </section>

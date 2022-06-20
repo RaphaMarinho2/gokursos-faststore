@@ -2,6 +2,7 @@ import { Children, forwardRef } from 'react'
 import type { HTMLAttributes, ReactElement } from 'react'
 
 import Tile from './Tile'
+import './tiles.scss'
 
 export interface TilesProps extends HTMLAttributes<HTMLUListElement> {
   /**

@@ -9,8 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **GM-47** - Minicart component.
 - **GM-82** - Video Section component.
+
+### Fixed
+
+## [0.3.0] - 2022-06-15
+
+### Added
+
+- **GM-47** - Minicart component.
+- **GM-74** - Home Product Shelf component.
 
 ### Fixed
 
