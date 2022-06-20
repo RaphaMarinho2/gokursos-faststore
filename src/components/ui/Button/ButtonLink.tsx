@@ -1,6 +1,7 @@
 import { Icon as UIIcon, Link as UILink } from '@faststore/ui'
 import { Link as GatsbyLink } from 'gatsby'
 import { useRef } from 'react'
+import './button.scss'
 import type { LinkProps } from '@faststore/ui'
 import type { FocusEvent } from 'react'
 

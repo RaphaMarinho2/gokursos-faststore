@@ -1,0 +1,52 @@
+{
+  "data": {
+    "product": {
+      "id": "99988212",
+      "sku": "99988212",
+      "name": "Administração de Marketing",
+      "gtin": "1503",
+      "description": "O marketing é uma área da administração que está direta e indiretamente relacionada ao aumento de vendas por parte das empresas e consequentemente o aumento de sua rentabilidade. Neste curso o cursista terá a oportunidade de aprofundar seus conhecimentos sobre o conceito e os principais fundamentos do marketing e sua evolução. Em função da relação com a rentabilidade e consequente sobrevivência das organizações, a área de marketing vem sendo estudada com mais frequência e o fundamento desses estudos está no fato de as empresas poderem criar estratégias que permita um melhor posicionamento da empresa frente ao mercado. O curso online Administração de Marketing aborda conceitos básicos da administração e sua evolução, da organização de empresa e dos diversos tipos de organização. Fundamentos da administração: planejamento, organização, direção e controle. Ambiente das empresas. Missão e visão da empresa e seus objetivos e metas. Conhecimentos necessários sobre planejamento estratégico. Princípios e o sistema de marketing. Macro e microambiente de marketing, gestão de marketing nas organizações e o marketing mix para produtos e serviço. Esse curso é voltado para profissionais, estudantes e demais interessados em aprofundar seus conhecimentos nas áreas de Administração e Marketing. O conteúdo do curso ficará disponível por até 90 dias após a compra.",
+      "isVariantOf": {
+        "productGroupID": "99995945",
+        "name": "Administração de Marketing"
+      },
+      "image": [
+        {
+          "url": "https://gokursosgatsby.vtexassets.com/arquivos/administracao-de-marketing.jpg",
+          "alternateName": "Administração de Marketing"
+        }
+      ],
+      "brand": {
+        "name": "administração"
+      },
+      "offers": {
+        "lowPrice": 29.9,
+        "priceCurrency": "BRL",
+        "offers": [
+          {
+            "availability": "https://schema.org/InStock",
+            "price": 29.9,
+            "listPrice": 120,
+            "seller": {
+              "identifier": "1"
+            }
+          }
+        ]
+      },
+      "breadcrumbList": {
+        "itemListElement": [
+          {
+            "item": "/administracao/",
+            "name": "Administração",
+            "position": 1
+          },
+          {
+            "item": "/administracao-de-marketing/p",
+            "name": "Administração de Marketing",
+            "position": 2
+          }
+        ]
+      }
+    }
+  }
+}
