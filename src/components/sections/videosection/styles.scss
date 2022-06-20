@@ -1,0 +1,119 @@
+.vd-section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 411px;
+  background-color: #014c98;
+
+  .vd-section-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 1600px;
+    padding: 35px;
+    color: #f4f4f6;
+
+    .vd-section-video-container {
+      position: relative;
+      z-index: 1;
+      grid-row: 3/ 4;
+      max-width: 725px;
+      max-height: 155px;
+      margin-bottom: 16px;
+      background-color: black;
+
+      .vd-section-video-mold {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        z-index: -1;
+        width: 35%;
+        height: 60%;
+        content: "";
+        background-color: white;
+      }
+
+      .vd-section-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #232a34;
+      }
+    }
+
+    .vd-section-title {
+      padding-bottom: 5px;
+      padding-left: 0;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .vd-section-description {
+      padding-bottom: 16px;
+      padding-left: 0;
+      font-size: 0.75rem;
+    }
+
+    .vd-section-button {
+      padding-left: 0;
+
+      button {
+        width: 100%;
+        height: 40px;
+        font-size: 0.875rem;
+        color: #004e98;
+        background: white;
+        border: none;
+        transition: all 0.2s ease-in-out;
+
+        :hover {
+          background: #eee;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    min-height: 437px;
+
+    .vd-section-content {
+      grid-template-columns: 1fr 1fr;
+
+      .vd-section-video-container {
+        grid-row: 1/ 4;
+        min-height: 305px;
+        max-height: 410px;
+        margin-bottom: 40px;
+
+        .vd-section-video-mold {
+          top: -24px;
+          right: -24px;
+          width: 80%;
+          height: 75%;
+        }
+      }
+
+      .vd-section-title {
+        padding-left: 75px;
+        font-size: 1.5rem;
+      }
+
+      .vd-section-description {
+        padding-left: 75px;
+        font-size: 1rem;
+      }
+
+      .vd-section-button {
+        padding-left: 75px;
+        font-size: 1rem;
+
+        button {
+          width: 50%;
+          height: 48px;
+        }
+      }
+    }
+  }
+}

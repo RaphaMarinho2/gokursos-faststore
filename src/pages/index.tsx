@@ -12,12 +12,13 @@ import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
+import VideoSection from 'src/components/sections/videosection'
 
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site, allContentfulCommonQuestions },
+    data: { site, allContentfulCommonQuestions, allContentfulVideoSection },
     location: { pathname, host },
   } = props
 
@@ -90,7 +91,7 @@ function Page(props: Props) {
         actionPath="/"
         actionLabel="Call to action"
       />
-
+      <VideoSection nodes={allContentfulVideoSection.nodes} />
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
@@ -111,6 +112,20 @@ export const querySSG = graphql`
         answer {
           answer
         }
+      }
+    }
+    allContentfulVideoSection {
+      nodes {
+        video {
+          file {
+            fileName
+            url
+          }
+        }
+        buttonText
+        buttonUrl
+        content
+        title
       }
     }
   }
