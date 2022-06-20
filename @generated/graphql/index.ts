@@ -6928,6 +6928,12 @@ export type HomePageQueryQuery = {
       } | null
     }>
   }
+  allContentfulBannerMedium: {
+    nodes: Array<{
+      link: string | null
+      imagemBannerMedium: { url: string | null } | null
+    }>
+  }
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>
