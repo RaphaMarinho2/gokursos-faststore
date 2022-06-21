@@ -1,59 +1,131 @@
-[data-store-carousel] {
+@import "src/styles/scaffold";
+
+.main-banner {
   position: relative;
-  padding: 0 16px;
+  width: 100%;
+  padding: 0 1rem;
   margin: 24px 0;
-}
 
-[data-store-icon-button] {
-  position: absolute;
-  top: 30%;
-  width: 28px;
-  height: 30px;
-  background: #fff;
-  border-radius: 100px;
-  box-shadow: 2px 1px 15px rgb(0 0 0 / 15%);
-}
-
-[data-arrow="left"] {
-  left: 8px;
-}
-
-[data-arrow="right"] {
-  right: 8px;
-}
-
-[data-store-icon] {
-  svg {
-    width: 20px;
-    height: 20px;
-    color: #004e98;
+  @include media(">=notebook") {
+    padding: 0 40px;
   }
-}
 
-[data-carousel-controls] {
-  [data-store-button] {
-    padding: 0;
-    border: 0;
-  }
-}
+  .carousel-content {
+    .bullets-container {
+      margin-top: 16px;
 
-[data-banner-content] {
-  [data-store-button] {
-    min-width: 145px;
-    padding: 11px 20px;
-    border: 0;
-    border-radius: 4px;
+      .active {
+        width: 31px !important; /* stylelint-disable-line declaration-no-important */
+      }
+    }
 
-    a {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 18px;
-      text-decoration: none;
+    .carousel-arrow-button-prev,
+    .carousel-arrow-button-next {
+      position: absolute;
+      top: 40%;
+      z-index: 2;
+    }
+
+    .carousel-arrow-button-prev {
+      left: 8px;
+
+      @include media(">=notebook") {
+        left: 24px;
+      }
+    }
+
+    .carousel-arrow-button-next {
+      right: 8px;
+
+      @include media(">=notebook") {
+        right: 24px;
+      }
+    }
+
+    .carousel-container {
+      overflow-x: hidden !important; /* stylelint-disable-line declaration-no-important */
+
+      [data-store-banner] {
+        position: relative;
+
+        [data-banner-content] {
+          position: absolute;
+          top: 10%;
+          left: 37px;
+          color: #fff;
+
+          @include media(">=phonemid") {
+            top: 15%;
+          }
+
+          @include media(">=tablet") {
+            top: 30%;
+          }
+
+          @include media(">=notebook") {
+            top: 20%;
+            left: 110px;
+          }
+
+          .main-banner__title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 36px;
+
+            @include media(">=notebook") {
+              font-size: 32px;
+              line-height: 48px;
+            }
+          }
+
+          .main-banner__subtitle {
+            width: 145px;
+            height: 54px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+
+            @include media(">=tablet") {
+              width: 200px;
+            }
+
+            @include media(">=notebook") {
+              width: 407px;
+              height: 60px;
+              font-size: 20px;
+              line-height: 30px;
+            }
+          }
+
+          [data-store-link] {
+            [data-store-button] {
+              min-width: 145px;
+              max-width: 155px;
+              padding: 10px 20px;
+              margin-top: 16px;
+              border: 0;
+              border-radius: 4px;
+
+              @include media(">=notebook") {
+                min-width: 188px;
+                max-width: 200px;
+                padding: 8px 35px;
+              }
+
+              .main-banner__button-label {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 18px;
+
+                @include media(">=notebook") {
+                  font-size: 16px;
+                  line-height: 24px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
-}
-
-[data-carousel-bullets] {
-  display: flex;
-  justify-content: center;
 }
