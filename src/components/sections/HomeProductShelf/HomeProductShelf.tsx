@@ -8,7 +8,7 @@ import './home-product-shelf.scss'
 
 interface ShelfProps {
   title: string
-  pretitle: string | null
+  pretitle?: string
 }
 
 const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {

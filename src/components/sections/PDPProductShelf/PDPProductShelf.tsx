@@ -9,7 +9,7 @@ import './pdp-product-shelf.scss'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
-  pretitle: string | null
+  pretitle?: string
   title: string
 }
 
