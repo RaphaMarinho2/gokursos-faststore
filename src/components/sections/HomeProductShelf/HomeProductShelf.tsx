@@ -6,7 +6,12 @@ import Section from '../Section'
 
 import './home-product-shelf.scss'
 
-const HomeProductShelf = () => {
+interface ShelfProps {
+  title: string
+  pretitle: string | null
+}
+
+const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -16,7 +21,8 @@ const HomeProductShelf = () => {
       <ProductShelf
         cardsQuantity={shelfItemQuantity}
         first={ITEMS_PER_SECTION}
-        title="Cursos relacionados"
+        title={title}
+        pretitle={pretitle}
         withDivisor
       />
     </Section>
