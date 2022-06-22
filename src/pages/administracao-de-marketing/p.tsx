@@ -54,7 +54,7 @@ function Page() {
 
       <ProductDetails product={product} />
 
-      <PDPProductShelf product={product} />
+      <PDPProductShelf pretitle="" title="" product={product} />
     </>
   )
 }
