@@ -1,10 +1,8 @@
 import { useSession } from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo, JsonLd } from 'gatsby-plugin-next-seo'
-import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
-import ProductTiles from 'src/components/sections/ProductTiles'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
@@ -13,12 +11,20 @@ import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
+import BannerMedium from 'src/components/sections/BannerMedium'
+import VideoSection from 'src/components/sections/videosection'
 
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
   const {
-    data: { site, allContentfulCommonQuestions, allContentfulMainBanner },
+    data: {
+      site,
+      allContentfulCommonQuestions,
+      allContentfulVideoSection,
+      allContentfulBannerMedium,
+      allContentfulMainBanner,
+    },
     location: { pathname, host },
   } = props
 
@@ -83,18 +89,8 @@ function Page(props: Props) {
 
       <HomeProductShelf />
 
-      <ProductTiles
-        first={3}
-        selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
-        title="Just Arrived"
-      />
-
-      <BannerText
-        title="Receive our news and promotions in advance. Enjoy and get 10% off on your first purchase."
-        actionPath="/"
-        actionLabel="Call to action"
-      />
-
+      <VideoSection nodes={allContentfulVideoSection.nodes} />
+      <BannerMedium nodes={allContentfulBannerMedium.nodes} />
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
@@ -131,6 +127,28 @@ export const querySSG = graphql`
         buttonLabel
         buttonColor
         buttonTextColor
+      }
+    }
+    allContentfulVideoSection {
+      nodes {
+        video {
+          file {
+            fileName
+            url
+          }
+        }
+        buttonText
+        buttonUrl
+        content
+        title
+      }
+    }
+    allContentfulBannerMedium {
+      nodes {
+        link
+        imagemBannerMedium {
+          url
+        }
       }
     }
   }

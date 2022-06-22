@@ -6546,6 +6546,23 @@ export type HomePageQueryQuery = {
       imageMobile: { url: string | null } | null
     }>
   }
+  allContentfulVideoSection: {
+    nodes: Array<{
+      buttonText: string | null
+      buttonUrl: string | null
+      content: string | null
+      title: string | null
+      video: {
+        file: { fileName: string | null; url: string | null } | null
+      } | null
+    }>
+  }
+  allContentfulBannerMedium: {
+    nodes: Array<{
+      link: string | null
+      imagemBannerMedium: { url: string | null } | null
+    }>
+  }
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>

@@ -1,0 +1,346 @@
+{
+  "data": {
+    "search": {
+      "products": {
+        "pageInfo": {
+          "totalCount": 8
+        },
+        "edges": [
+          {
+            "node": {
+              "id": "99988213",
+              "slug": "curso-online-de-sistema-de-armazenagem-wms",
+              "sku": "99988213",
+              "brand": {
+                "brandName": "qualidade de software",
+                "name": "qualidade de software"
+              },
+              "name": "Curso Online de Sistema de Armazenagem WMS",
+              "gtin": "1504",
+              "isVariantOf": {
+                "productGroupID": "99995946",
+                "name": "Curso Online de Sistema de Armazenagem WMS"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/curso-online-de-sistema-de-armazenagem-wms.jpg",
+                  "alternateName": "Curso Online de Sistema de Armazenagem WMS"
+                }
+              ],
+              "offers": {
+                "lowPrice": 49.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 49.9,
+                    "listPrice": 100,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988212",
+              "slug": "administracao-de-marketing",
+              "sku": "99988212",
+              "brand": {
+                "brandName": "administração",
+                "name": "administração"
+              },
+              "name": "Administração de Marketing",
+              "gtin": "1503",
+              "isVariantOf": {
+                "productGroupID": "99995945",
+                "name": "Administração de Marketing"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/administracao-de-marketing.jpg",
+                  "alternateName": "Administração de Marketing"
+                }
+              ],
+              "offers": {
+                "lowPrice": 29.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 29.9,
+                    "listPrice": 120,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988211",
+              "slug": "cuidados-ergonomicos-para-o-massoterapeuta",
+              "sku": "99988211",
+              "brand": {
+                "brandName": "estética",
+                "name": "estética"
+              },
+              "name": "Cuidados Ergonômicos para o Massoterapeuta",
+              "gtin": "1502",
+              "isVariantOf": {
+                "productGroupID": "99995944",
+                "name": "Cuidados Ergonômicos para o Massoterapeuta"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/cuidados-ergonomicos-para-o-massoterapeuta.jpg",
+                  "alternateName": "Cuidados Ergonômicos para o Massoterapeuta"
+                }
+              ],
+              "offers": {
+                "lowPrice": 99.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 99.9,
+                    "listPrice": 99.9,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988214",
+              "slug": "boas-praticas-na-manipulacao-de-alimentos",
+              "sku": "99988214",
+              "brand": {
+                "brandName": "nutrição",
+                "name": "nutrição"
+              },
+              "name": "Boas Práticas na Manipulação de Alimentos",
+              "gtin": "1505",
+              "isVariantOf": {
+                "productGroupID": "99995947",
+                "name": "Boas Práticas na Manipulação de Alimentos"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/boas-praticas-na-manipulacao-de-alimentos.jpg",
+                  "alternateName": "Boas Práticas na Manipulação de Alimentos"
+                }
+              ],
+              "offers": {
+                "lowPrice": 34.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 34.9,
+                    "listPrice": 70,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988210",
+              "slug": "neurofisiologia",
+              "sku": "99988210",
+              "brand": {
+                "brandName": "anatomia",
+                "name": "anatomia"
+              },
+              "name": "Neurofisiologia",
+              "gtin": "1501",
+              "isVariantOf": {
+                "productGroupID": "99995943",
+                "name": "Neurofisiologia"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/neurofisiologia.jpg",
+                  "alternateName": "Neurofisiologia"
+                }
+              ],
+              "offers": {
+                "lowPrice": 99.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 99.9,
+                    "listPrice": 400,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988210",
+              "slug": "mediacao-de-conflitos",
+              "sku": "99988210",
+              "brand": {
+                "brandName": "direito",
+                "name": "direito"
+              },
+              "name": "Mediação de Conflitos",
+              "gtin": "1501",
+              "isVariantOf": {
+                "productGroupID": "99995943",
+                "name": "Mediação de Conflitos"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/mediacao-de-conflitos.jpg",
+                  "alternateName": "Mediação de Conflitos"
+                }
+              ],
+              "offers": {
+                "lowPrice": 19.97,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 19.97,
+                    "listPrice": 50,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988210",
+              "slug": "ciencia-economica--dilema-fundamental",
+              "sku": "99988210",
+              "brand": {
+                "brandName": "economia",
+                "name": "economia"
+              },
+              "name": "Ciência Econômica: Dilema Fundamental",
+              "gtin": "1501",
+              "isVariantOf": {
+                "productGroupID": "99995943",
+                "name": "Ciência Econômica: Dilema Fundamental"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/ciencia-economica--dilema-fundamental.jpg",
+                  "alternateName": "Ciência Econômica: Dilema Fundamental"
+                }
+              ],
+              "offers": {
+                "lowPrice": 69.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 69.9,
+                    "listPrice": 69.9,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988210",
+              "slug": "historia-do-cinema",
+              "sku": "99988210",
+              "brand": {
+                "brandName": "cinema",
+                "name": "cinema"
+              },
+              "name": "História do Cinema",
+              "gtin": "1501",
+              "isVariantOf": {
+                "productGroupID": "99995943",
+                "name": "História do Cinema"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/historia-do-cinema.jpg",
+                  "alternateName": "História do Cinema"
+                }
+              ],
+              "offers": {
+                "lowPrice": 249.99,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 249.99,
+                    "listPrice": 450,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "99988210",
+              "slug": "brigadeiros-gourmet",
+              "sku": "99988210",
+              "brand": {
+                "brandName": "doces",
+                "name": "doces"
+              },
+              "name": "Brigadeiros Gourmet",
+              "gtin": "1501",
+              "isVariantOf": {
+                "productGroupID": "99995943",
+                "name": "Brigadeiros Gourmet"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/brigadeiros-gourmet.jpg",
+                  "alternateName": "Brigadeiros Gourmet"
+                }
+              ],
+              "offers": {
+                "lowPrice": 49.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 49.9,
+                    "listPrice": 100,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

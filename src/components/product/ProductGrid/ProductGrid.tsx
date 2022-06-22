@@ -2,6 +2,7 @@ import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
 import ProductCard from '../ProductCard'
+import './product-grid.scss'
 
 interface Props {
   products: Array<{ node: ProductSummary_ProductFragment }>

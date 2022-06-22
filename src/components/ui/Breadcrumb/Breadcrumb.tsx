@@ -12,6 +12,8 @@ import Icon from 'src/components/ui/Icon'
 import { navigate } from 'gatsby'
 import IconHome from 'src/components/icons/IconHome'
 
+import './breadcrumb.scss'
+
 type ItemElement = {
   item: string
   name: string
