@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-71** - Best Courses component.
 - **GM-82** - Video Section component.
 - **GM-81** - BannerMedium component.
 
