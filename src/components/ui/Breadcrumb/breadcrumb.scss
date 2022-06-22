@@ -75,14 +75,19 @@
     [data-breadcrumb-divider] {
       height: var(--fs-spacing-3);
       margin: var(--fs-spacing-1);
-      border-left: var(--fs-border-width-default) solid var(--fs-border-color-light);
+      border-left: var(--fs-border-width-default) solid #555555;
     }
 
     [data-store-link] {
       padding: 0;
 
       &:visited {
-        color: var(--fs-color-link);
+        line-height: 130%;
+        color: #555555;
+      }
+
+      &:hover {
+        opacity: .9;
       }
     }
 
