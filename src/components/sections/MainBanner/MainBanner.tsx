@@ -21,6 +21,12 @@ type MainBannerProps = {
   }>
 }
 
+/**
+ *
+ * @description Main Banner component with carousel.
+ * @version 1.0.0
+ * @since 0.2.0
+ */
 const MainBanner = ({ nodes }: MainBannerProps) => {
   const { isTablet } = useWindowDimensions()
 

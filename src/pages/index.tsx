@@ -27,9 +27,6 @@ function Page(props: Props) {
   const title = site?.siteMetadata?.title ?? ''
   const siteUrl = `https://${host}${pathname}`
 
-  // eslint-disable-next-line no-console
-  console.log(allContentfulMainBanner)
-
   return (
     <>
       {/* SEO */}
