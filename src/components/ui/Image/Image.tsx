@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 
 import { useImage } from './useImage'
 import type { ImageOptions } from './useImage'
+import './image.scss'
 
 interface Props extends ImageOptions {
   preload?: boolean
