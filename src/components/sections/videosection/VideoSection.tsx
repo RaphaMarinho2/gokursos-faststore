@@ -32,7 +32,12 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
         <div className="vd-section-video-container">
           <div className="vd-section-video-mold" />
           {videoUrl && (
-            <video className="vd-section-video" src={videoUrl} controls />
+            <video
+              className="vd-section-video"
+              src={videoUrl}
+              controls
+              playsInline
+            />
           )}
         </div>
         <h2 className="vd-section-title">{title}</h2>
