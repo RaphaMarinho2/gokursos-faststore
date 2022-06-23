@@ -82,10 +82,22 @@ function Page(props: Props) {
 
       <IncentivesHeader incentives={IncentivesMock} />
 
-      <HomeProductShelf />
+      <HomeProductShelf pretitle="" title="Mais vendidos" />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
+
+      <HomeProductShelf
+        pretitle="Confira os cursos"
+        title="Lançados recentemente"
+      />
+
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
+
+      <HomeProductShelf
+        pretitle="Disciplina Universitária"
+        title="Em caratér especial"
+      />
+
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
