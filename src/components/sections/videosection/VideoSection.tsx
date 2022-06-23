@@ -13,6 +13,7 @@ type VideoSectionType = {
     buttonText: string | null
     content: string | null
     title: string | null
+    miniText: string | null
   }>
 }
 
@@ -23,7 +24,7 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
 
   const videoUrl = nodes[0]?.video?.file?.url
 
-  const [{ buttonUrl, buttonText, title, content }] = nodes
+  const [{ buttonUrl, buttonText, title, content, miniText }] = nodes
 
   return (
     <div className="vd-section-container">
@@ -37,6 +38,7 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
         <h2 className="vd-section-title">{title}</h2>
         <div className="vd-section-description">
           <p>{content}</p>
+          <p>{miniText}</p>
         </div>
         <div className="vd-section-button">
           {buttonUrl && (

@@ -130,6 +130,7 @@ export const querySSG = graphql`
         buttonUrl
         content
         title
+        miniText
       }
     }
     allContentfulBannerMedium {
