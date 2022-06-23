@@ -85,18 +85,20 @@ function Page(props: Props) {
       <HomeProductShelf pretitle="" title="Mais vendidos" />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
-      <BannerMedium nodes={allContentfulBannerMedium.nodes} />
-      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
 
       <HomeProductShelf
         pretitle="Confira os cursos"
-        title="Laçados recentemente"
+        title="Lançados recentemente"
       />
+
+      <BannerMedium nodes={allContentfulBannerMedium.nodes} />
 
       <HomeProductShelf
         pretitle="Disciplina Universitária"
         title="Em caratér especial"
       />
+
+      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
 }
