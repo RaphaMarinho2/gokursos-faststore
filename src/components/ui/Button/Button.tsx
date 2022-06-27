@@ -1,6 +1,7 @@
 import { Button as UIButton, Icon as UIIcon } from '@faststore/ui'
 import type { ReactNode } from 'react'
 import type { ButtonProps } from '@faststore/ui'
+import './button.scss'
 
 export type Variant =
   | 'primary'
