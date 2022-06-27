@@ -79,14 +79,14 @@
           }
 
           .main-banner__subtitle {
-            width: 145px;
+            width: 205px;
             height: 54px;
             font-size: 14px;
             font-weight: 500;
             line-height: 18px;
 
             @include media(">=tablet") {
-              width: 200px;
+              width: 275px;
             }
 
             @include media(">=notebook") {
