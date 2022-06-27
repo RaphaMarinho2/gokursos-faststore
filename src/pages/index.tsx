@@ -9,6 +9,7 @@ import type { HomePageQueryQuery } from '@generated/graphql'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
+import BlockDesktop from 'src/components/sections/ShelfWithFilter'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
@@ -81,6 +82,38 @@ function Page(props: Props) {
       />
 
       <IncentivesHeader incentives={IncentivesMock} />
+
+      <BlockDesktop
+        navigattionTabs={[
+          {
+            tabLabel: 'Geral',
+          },
+          {
+            tabLabel: 'Exatas',
+          },
+          {
+            tabLabel: 'Humanas',
+          },
+          {
+            tabLabel: 'Saúde',
+          },
+          {
+            tabLabel: 'Negócios',
+          },
+          {
+            tabLabel: 'Tecnologia',
+          },
+          {
+            tabLabel: 'Preparatórios',
+          },
+          {
+            tabLabel: 'Comunicação',
+          },
+          {
+            tabLabel: 'Gastronomia',
+          },
+        ]}
+      />
 
       <HomeProductShelf />
 

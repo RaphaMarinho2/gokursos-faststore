@@ -1,0 +1,42 @@
+.navigattionTabs-container {
+  .section-top {
+    overflow: hidden;
+  }
+}
+
+.navigattionTabs-list {
+  ul {
+    button {
+      padding: 10px 48px;
+      color: #ff3452;
+      background: #fff;
+      border: 2px solid #ff3452;
+      border-radius: 10px;
+    }
+
+    .navigattionTabs-btn-active {
+      color: #fff;
+      background: #ff3452;
+    }
+
+    li:not(:last-of-type) {
+      padding-right: 16px;
+    }
+
+    li {
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+    }
+  }
+}
+
+.scrollmenu {
+  box-sizing: content-box;
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
