@@ -34,18 +34,18 @@ const Carousel = ({
   qtyItems,
   gapItems,
   navigationAutomatic = false,
-  timeoutNavigationAutomatic = 3500,
+  timeoutNavigationAutomatic = 5000,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   let [bulletsQtd, setBulletsQtd] = useState<number>(0)
   const [buttonFocus, setButtonFocus] = useState<number>(0)
   let [itemWidth, setItemWidth] = useState<number>(0)
-  const [testeNavigation, setTesteNavigation] = useState<number>(0)
   const [pause, setPause] = useState(true)
+  const [testeNavigation, setTesteNavigation] = useState<number>(0)
   const [numericBullet, setNumericBullet] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const refitem = useRef<HTMLDivElement | null>(null)
-  const timeoutRef = React.useRef(null)
+  const timeoutRef = useRef(null)
 
   const style = {
     bullets: {
@@ -63,6 +63,7 @@ const Carousel = ({
       const totalScroll = containerRef.current.scrollWidth
       const currentScroll = containerRef.current.scrollLeft
       const { offsetWidth } = containerRef.current
+
       const totalItems = Math.ceil(totalScroll / offsetWidth)
       const currentItem =
         Math.round(currentScroll / (totalScroll / totalItems) - 0.3) + 1
@@ -110,7 +111,7 @@ const Carousel = ({
       bulletsQtd = Math.ceil((widthScroll - divWidth) / itemWidth)
 
       if (qtyItems) {
-        setBulletsQtd(Math.ceil(arrayChildren.length - qtyItems))
+        setBulletsQtd(arrayChildren.length - qtyItems)
       } else {
         setBulletsQtd(bulletsQtd)
       }
@@ -161,6 +162,7 @@ const Carousel = ({
           setTesteNavigation((prevIndex: number) =>
             prevIndex === bulletsQtd ? 0 : prevIndex + 1
           )
+
           setButtonFocus(testeNavigation + 1)
         }, timeoutNavigationAutomatic)
         bulletsNavigation(testeNavigation)
