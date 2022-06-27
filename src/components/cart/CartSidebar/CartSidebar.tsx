@@ -38,7 +38,7 @@ function CartSidebar() {
         <ButtonIcon
           data-testid="cart-sidebar-button-close"
           aria-label="Close Cart"
-          icon={<Icon name="X" width={32} height={32} />}
+          icon={<Icon name="X" width={19} height={19} />}
           onClick={onModalClose}
         />
       </header>

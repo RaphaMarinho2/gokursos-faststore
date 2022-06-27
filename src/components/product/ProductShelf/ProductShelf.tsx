@@ -9,6 +9,7 @@ interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element
   cardsQuantity?: number
   withDivisor?: boolean
+  pretitle?: string
 }
 
 function ClkBtn() {
@@ -22,6 +23,7 @@ function ProductBtnBuyInPage() {
 function ProductShelf({
   cardsQuantity,
   title,
+  pretitle,
   withDivisor = false,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
@@ -53,6 +55,7 @@ function ProductShelf({
         withDivisor ? 'section__divisor' : ''
       }`}
     >
+      {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
       <h2 className="product-shelf-title">{title}</h2>
       <Carousel
         arrow={{

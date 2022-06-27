@@ -30,6 +30,21 @@
       font-weight: 700;
       line-height: 30px;
       color: #000;
+
+      @include media(">=notebook") {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+
+    [data-fs-badge] {
+      width: 28px;
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 

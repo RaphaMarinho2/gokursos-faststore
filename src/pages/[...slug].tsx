@@ -126,6 +126,7 @@ function Page(props: Props) {
         first={ITEMS_PER_SECTION}
         sort="score_desc"
         title="You might also like"
+        pretitle=""
         withDivisor
       />
 
