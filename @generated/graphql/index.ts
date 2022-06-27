@@ -7531,6 +7531,18 @@ export type HomePageQueryQuery = {
       answer: { answer: string | null } | null
     }>
   }
+  allContentfulMainBanner: {
+    nodes: Array<{
+      title: string | null
+      subtitle: string | null
+      slug: string | null
+      buttonLabel: string | null
+      buttonColor: string | null
+      buttonTextColor: string | null
+      imageDesktop: { url: string | null } | null
+      imageMobile: { url: string | null } | null
+    }>
+  }
   allContentfulVideoSection: {
     nodes: Array<{
       buttonText: string | null
