@@ -6551,6 +6551,13 @@ export type HomePageQueryQuery = {
       imagemBannerMedium: { url: string | null } | null
     }>
   }
+  allContentfulBestCourses: {
+    nodes: Array<{
+      name: string | null
+      slug: string | null
+      image: { url: string | null } | null
+    }>
+  }
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>

@@ -12,6 +12,7 @@ import HomeProductShelf from 'src/components/sections/HomeProductShelf'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
+import BestCourses from 'src/components/sections/BestCourses'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -22,6 +23,7 @@ function Page(props: Props) {
       allContentfulCommonQuestions,
       allContentfulVideoSection,
       allContentfulBannerMedium,
+      allContentfulBestCourses,
     },
     location: { pathname, host },
   } = props
@@ -71,6 +73,13 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
+
+      <BestCourses
+        title="Principais"
+        subtitle="Categorias de Cursos"
+        nodes={allContentfulBestCourses.nodes}
+      />
+
       <Hero
         title="New Products Available"
         subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
@@ -126,6 +135,15 @@ export const querySSG = graphql`
       nodes {
         link
         imagemBannerMedium {
+          url
+        }
+      }
+    }
+    allContentfulBestCourses {
+      nodes {
+        name
+        slug
+        image {
           url
         }
       }
