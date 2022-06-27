@@ -49,6 +49,8 @@ function ProductShelf({
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
 
+  console.info('Shelf')
+
   return (
     <div
       className={`product-shelf-container layout__section ${

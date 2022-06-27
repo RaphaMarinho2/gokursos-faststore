@@ -13,7 +13,7 @@ import Section from '../Section'
 import { useTabs, TabPanel } from './tabRules'
 import { TabSwitch } from './TabSwitch'
 
-import './buttonsCss.scss'
+import './shelfCss.scss'
 
 type NavigationTabsProps = {
   tabLabel: string
@@ -36,8 +36,6 @@ function BlockDesktop({ navigattionTabs }: Props) {
 
   const [tabs] = useState(allTabs)
   const [selectedTab, setSelectedTab] = useTabs(tabs)
-
-  console.info('vai vir O MENU:w', selectedTab)
 
   return (
     <Section className="navigattionTabs-container section">
@@ -71,11 +69,10 @@ function BlockDesktop({ navigattionTabs }: Props) {
           >
             <TabPanel hidden={selectedTab !== item.tabLabel}>
               <article className="block">
-                <Section className="layout__content home-shelf-container">
+                <Section className="layout__content home-shelf-container navigattionTabs-content">
                   <ProductShelf
                     cardsQuantity={shelfItemQuantity}
                     first={ITEMS_PER_SECTION}
-                    title={navigattionTabs[index].tabLabel}
                   />
                 </Section>
               </article>

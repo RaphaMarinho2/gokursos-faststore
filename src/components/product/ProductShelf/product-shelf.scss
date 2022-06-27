@@ -33,19 +33,35 @@
   margin-bottom: 0.5rem;
   font-size: 20px;
   font-weight: 700;
+
+  @include media("<=tablet") {
+    padding-left: 16px;
+  }
 }
 
 .product-shelf-pretitle {
   font-size: 14px;
   color: #ff3452;
+
+  @include media("<=tablet") {
+    padding-left: 16px;
+  }
 }
 
 .carousel-content {
   position: relative;
-  padding: 0 16px;
+  padding: 0 34px;
 
   @include media(">=notebook") {
     padding: 0;
+  }
+
+  @media screen and (max-width: 375px) {
+    padding: 0 30px;
+  }
+
+  @media screen and (max-width: 350px) {
+    padding: 0 20px;
   }
 
   div {
