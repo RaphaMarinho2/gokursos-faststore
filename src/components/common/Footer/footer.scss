@@ -25,6 +25,11 @@
   display: grid;
   grid-template-rows: 3;
   grid-template-columns: 1;
+  padding-left: 10px;
+
+  @include media(">=phonemid") {
+    padding-left: 26px;
+  }
 
   @include media(">=notebook") {
     grid-template-rows: 3fr 1fr;

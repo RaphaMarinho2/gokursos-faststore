@@ -1,12 +1,9 @@
 import { useSession } from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo, JsonLd } from 'gatsby-plugin-next-seo'
-import Hero from 'src/components/sections/Hero'
-import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
-import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
@@ -76,21 +73,22 @@ function Page(props: Props) {
 
       <MainBanner nodes={allContentfulMainBanner.nodes} />
 
-      <Hero
-        title="New Products Available"
-        subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
-        linkText="See all"
-        link="/"
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
-      />
-
-      <IncentivesHeader incentives={IncentivesMock} />
-
-      <HomeProductShelf />
+      <HomeProductShelf pretitle="" title="Mais vendidos" />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
+
+      <HomeProductShelf
+        pretitle="Confira os cursos"
+        title="Lançados recentemente"
+      />
+
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
+
+      <HomeProductShelf
+        pretitle="Disciplina Universitária"
+        title="Em caratér especial"
+      />
+
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )

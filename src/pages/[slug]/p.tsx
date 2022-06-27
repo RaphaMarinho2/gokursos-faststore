@@ -100,7 +100,11 @@ function Page(props: Props) {
 
       <ProductDetails product={product} />
 
-      <PDPProductShelf product={product} />
+      <PDPProductShelf
+        pretitle=""
+        title="Cursos relacionados"
+        product={product}
+      />
     </>
   )
 }
