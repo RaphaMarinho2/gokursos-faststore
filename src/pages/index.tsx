@@ -11,6 +11,7 @@ import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
+import selectedTabs from 'src/mocks/bestSellerList.json'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -74,39 +75,7 @@ function Page(props: Props) {
 
       <MainBanner nodes={allContentfulMainBanner.nodes} />
 
-      <BlockDesktop
-        navigattionTabs={[
-          {
-            tabLabel: 'Geral',
-          },
-          {
-            tabLabel: 'Exatas',
-          },
-          {
-            tabLabel: 'Humanas',
-          },
-          {
-            tabLabel: 'Saúde',
-          },
-          {
-            tabLabel: 'Negócios',
-          },
-          {
-            tabLabel: 'Tecnologia',
-          },
-          {
-            tabLabel: 'Preparatórios',
-          },
-          {
-            tabLabel: 'Comunicação',
-          },
-          {
-            tabLabel: 'Gastronomia',
-          },
-        ]}
-      />
-
-      <HomeProductShelf pretitle="" title="Mais vendidos" />
+      <BlockDesktop navigattionTabs={selectedTabs.data} />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
 
