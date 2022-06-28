@@ -10,9 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-32** - Main Banner component.
 
-### Added
-
 ### Fixed
+
+- **GM-267** - Video section styles.
 
 ## [0.5.0] - 2022-06-23
 
