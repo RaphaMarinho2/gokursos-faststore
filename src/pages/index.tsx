@@ -12,7 +12,7 @@ import HomeProductShelf from 'src/components/sections/HomeProductShelf'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
-
+import PersonShelf from 'src/components/sections/PersonShelf'
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
@@ -22,6 +22,8 @@ function Page(props: Props) {
       allContentfulCommonQuestions,
       allContentfulVideoSection,
       allContentfulBannerMedium,
+      allContentfulPersons,
+      allContentfulParceiros
     },
     location: { pathname, host },
   } = props
@@ -86,6 +88,10 @@ function Page(props: Props) {
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
+
+      <PersonShelf nodes={allContentfulParceiros.nodes} />
+
+      <PersonShelf nodes={allContentfulPersons.nodes} />
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
@@ -126,6 +132,22 @@ export const querySSG = graphql`
       nodes {
         link
         imagemBannerMedium {
+          url
+        }
+      }
+    }
+    allContentfulPersons {
+      nodes {
+        name
+        curso
+        imagem {
+          url
+        }
+      }
+    }
+    allContentfulParceiros {
+      nodes {
+        imagem {
           url
         }
       }
