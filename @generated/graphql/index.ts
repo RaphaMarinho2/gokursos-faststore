@@ -1818,6 +1818,521 @@ export type ContentfulEntrySortInput = {
   order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
 }
 
+export type ContentfulFrequentQuestions = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    answer: Maybe<ContentfulFrequentQuestionsAnswerTextNode>
+    /** Returns the first child node of type contentfulFrequentQuestionsAnswerTextNode or null if there are no children of given type on this node */
+    childContentfulFrequentQuestionsAnswerTextNode: Maybe<ContentfulFrequentQuestionsAnswerTextNode>
+    /** Returns the first child node of type contentfulFrequentQuestionsQuestionTextNode or null if there are no children of given type on this node */
+    childContentfulFrequentQuestionsQuestionTextNode: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
+    children: Array<Node>
+    /** Returns all children nodes filtered by type contentfulFrequentQuestionsAnswerTextNode */
+    childrenContentfulFrequentQuestionsAnswerTextNode: Maybe<
+      Array<Maybe<ContentfulFrequentQuestionsAnswerTextNode>>
+    >
+    /** Returns all children nodes filtered by type contentfulFrequentQuestionsQuestionTextNode */
+    childrenContentfulFrequentQuestionsQuestionTextNode: Maybe<
+      Array<Maybe<ContentfulFrequentQuestionsQuestionTextNode>>
+    >
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    question: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
+    spaceId: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulFrequentQuestionsSys>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulFrequentQuestionsCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulFrequentQuestionsUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulFrequentQuestionsConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulFrequentQuestionsEdge>
+  group: Array<ContentfulFrequentQuestionsGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulFrequentQuestions>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulFrequentQuestionsConnectionDistinctArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsConnectionGroupArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulFrequentQuestionsConnectionMaxArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsConnectionMinArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsConnectionSumArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsEdge = {
+  next: Maybe<ContentfulFrequentQuestions>
+  node: ContentfulFrequentQuestions
+  previous: Maybe<ContentfulFrequentQuestions>
+}
+
+export type ContentfulFrequentQuestionsFieldsEnum =
+  | 'answer___answer'
+  | 'answer___children'
+  | 'answer___children___children'
+  | 'answer___children___children___children'
+  | 'answer___children___children___id'
+  | 'answer___children___id'
+  | 'answer___children___internal___content'
+  | 'answer___children___internal___contentDigest'
+  | 'answer___children___internal___description'
+  | 'answer___children___internal___fieldOwners'
+  | 'answer___children___internal___ignoreType'
+  | 'answer___children___internal___mediaType'
+  | 'answer___children___internal___owner'
+  | 'answer___children___internal___type'
+  | 'answer___children___parent___children'
+  | 'answer___children___parent___id'
+  | 'answer___id'
+  | 'answer___internal___content'
+  | 'answer___internal___contentDigest'
+  | 'answer___internal___description'
+  | 'answer___internal___fieldOwners'
+  | 'answer___internal___ignoreType'
+  | 'answer___internal___mediaType'
+  | 'answer___internal___owner'
+  | 'answer___internal___type'
+  | 'answer___parent___children'
+  | 'answer___parent___children___children'
+  | 'answer___parent___children___id'
+  | 'answer___parent___id'
+  | 'answer___parent___internal___content'
+  | 'answer___parent___internal___contentDigest'
+  | 'answer___parent___internal___description'
+  | 'answer___parent___internal___fieldOwners'
+  | 'answer___parent___internal___ignoreType'
+  | 'answer___parent___internal___mediaType'
+  | 'answer___parent___internal___owner'
+  | 'answer___parent___internal___type'
+  | 'answer___parent___parent___children'
+  | 'answer___parent___parent___id'
+  | 'answer___sys___type'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___answer'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___children___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___children___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___content'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___contentDigest'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___description'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___fieldOwners'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___ignoreType'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___mediaType'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___owner'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___internal___type'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___parent___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___children___parent___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___content'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___contentDigest'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___description'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___fieldOwners'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___ignoreType'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___mediaType'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___owner'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___internal___type'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___children___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___children___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___content'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___contentDigest'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___description'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___fieldOwners'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___ignoreType'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___mediaType'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___owner'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___internal___type'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___parent___children'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___parent___parent___id'
+  | 'childContentfulFrequentQuestionsAnswerTextNode___sys___type'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___children___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___children___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___content'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___contentDigest'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___description'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___fieldOwners'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___ignoreType'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___mediaType'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___owner'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___internal___type'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___parent___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___children___parent___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___content'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___contentDigest'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___description'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___fieldOwners'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___ignoreType'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___mediaType'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___owner'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___internal___type'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___children___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___children___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___content'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___contentDigest'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___description'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___fieldOwners'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___ignoreType'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___mediaType'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___owner'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___internal___type'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___parent___children'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___parent___parent___id'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___question'
+  | 'childContentfulFrequentQuestionsQuestionTextNode___sys___type'
+  | 'children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___answer'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___children___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___children___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___content'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___contentDigest'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___description'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___ignoreType'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___mediaType'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___owner'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___internal___type'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___parent___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___children___parent___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___content'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___contentDigest'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___description'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___fieldOwners'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___ignoreType'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___mediaType'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___owner'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___internal___type'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___children___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___children___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___content'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___description'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___mediaType'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___owner'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___internal___type'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___parent___children'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___parent___parent___id'
+  | 'childrenContentfulFrequentQuestionsAnswerTextNode___sys___type'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___children___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___children___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___content'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___contentDigest'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___description'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___ignoreType'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___mediaType'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___owner'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___internal___type'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___parent___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___children___parent___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___content'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___contentDigest'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___description'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___fieldOwners'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___ignoreType'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___mediaType'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___owner'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___internal___type'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___children___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___children___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___content'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___description'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___mediaType'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___owner'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___internal___type'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___parent___children'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___parent___parent___id'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___question'
+  | 'childrenContentfulFrequentQuestionsQuestionTextNode___sys___type'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'question___children'
+  | 'question___children___children'
+  | 'question___children___children___children'
+  | 'question___children___children___id'
+  | 'question___children___id'
+  | 'question___children___internal___content'
+  | 'question___children___internal___contentDigest'
+  | 'question___children___internal___description'
+  | 'question___children___internal___fieldOwners'
+  | 'question___children___internal___ignoreType'
+  | 'question___children___internal___mediaType'
+  | 'question___children___internal___owner'
+  | 'question___children___internal___type'
+  | 'question___children___parent___children'
+  | 'question___children___parent___id'
+  | 'question___id'
+  | 'question___internal___content'
+  | 'question___internal___contentDigest'
+  | 'question___internal___description'
+  | 'question___internal___fieldOwners'
+  | 'question___internal___ignoreType'
+  | 'question___internal___mediaType'
+  | 'question___internal___owner'
+  | 'question___internal___type'
+  | 'question___parent___children'
+  | 'question___parent___children___children'
+  | 'question___parent___children___id'
+  | 'question___parent___id'
+  | 'question___parent___internal___content'
+  | 'question___parent___internal___contentDigest'
+  | 'question___parent___internal___description'
+  | 'question___parent___internal___fieldOwners'
+  | 'question___parent___internal___ignoreType'
+  | 'question___parent___internal___mediaType'
+  | 'question___parent___internal___owner'
+  | 'question___parent___internal___type'
+  | 'question___parent___parent___children'
+  | 'question___parent___parent___id'
+  | 'question___question'
+  | 'question___sys___type'
+  | 'spaceId'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'updatedAt'
+
+export type ContentfulFrequentQuestionsFilterInput = {
+  answer: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterInput>
+  childContentfulFrequentQuestionsAnswerTextNode: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterInput>
+  childContentfulFrequentQuestionsQuestionTextNode: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterInput>
+  children: InputMaybe<NodeFilterListInput>
+  childrenContentfulFrequentQuestionsAnswerTextNode: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterListInput>
+  childrenContentfulFrequentQuestionsQuestionTextNode: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  question: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulFrequentQuestionsSysFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulFrequentQuestionsGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulFrequentQuestionsEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulFrequentQuestionsGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulFrequentQuestions>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulFrequentQuestionsGroupConnectionDistinctArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsGroupConnectionGroupArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulFrequentQuestionsGroupConnectionMaxArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsGroupConnectionMinArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsGroupConnectionSumArgs = {
+  field: ContentfulFrequentQuestionsFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulFrequentQuestionsFieldsEnum>>>
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulFrequentQuestionsSys = {
+  contentType: Maybe<ContentfulFrequentQuestionsSysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulFrequentQuestionsSysContentType = {
+  sys: Maybe<ContentfulFrequentQuestionsSysContentTypeSys>
+}
+
+export type ContentfulFrequentQuestionsSysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulFrequentQuestionsSysContentTypeSysFilterInput>
+}
+
+export type ContentfulFrequentQuestionsSysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulFrequentQuestionsSysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulFrequentQuestionsSysFilterInput = {
+  contentType: InputMaybe<ContentfulFrequentQuestionsSysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulImageCropFocus =
   | 'BOTTOM'
   | 'BOTTOM_LEFT'
@@ -2825,6 +3340,7 @@ export type ContentfulVideoSection = ContentfulEntry &
     createdAt: Maybe<Scalars['Date']>
     id: Scalars['ID']
     internal: Internal
+    miniText: Maybe<Scalars['String']>
     node_locale: Scalars['String']
     parent: Maybe<Node>
     spaceId: Maybe<Scalars['String']>
@@ -2943,6 +3459,7 @@ export type ContentfulVideoSectionFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
+  | 'miniText'
   | 'node_locale'
   | 'parent___children'
   | 'parent___children___children'
@@ -3066,6 +3583,7 @@ export type ContentfulVideoSectionFilterInput = {
   createdAt: InputMaybe<DateQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
+  miniText: InputMaybe<StringQueryOperatorInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
   parent: InputMaybe<NodeFilterInput>
   spaceId: InputMaybe<StringQueryOperatorInput>
@@ -4041,6 +4559,9 @@ export type Query = {
   allContentfulCommonQuestionsAnswerTextNode: ContentfulCommonQuestionsAnswerTextNodeConnection
   allContentfulContentType: ContentfulContentTypeConnection
   allContentfulEntry: ContentfulEntryConnection
+  allContentfulFrequentQuestions: ContentfulFrequentQuestionsConnection
+  allContentfulFrequentQuestionsAnswerTextNode: ContentfulFrequentQuestionsAnswerTextNodeConnection
+  allContentfulFrequentQuestionsQuestionTextNode: ContentfulFrequentQuestionsQuestionTextNodeConnection
   allContentfulInfoproducers: ContentfulInfoproducersConnection
   allContentfulMainBanner: ContentfulMainBannerConnection
   allContentfulPartners: ContentfulPartnersConnection
@@ -4064,6 +4585,9 @@ export type Query = {
   contentfulCommonQuestionsAnswerTextNode: Maybe<ContentfulCommonQuestionsAnswerTextNode>
   contentfulContentType: Maybe<ContentfulContentType>
   contentfulEntry: Maybe<ContentfulEntry>
+  contentfulFrequentQuestions: Maybe<ContentfulFrequentQuestions>
+  contentfulFrequentQuestionsAnswerTextNode: Maybe<ContentfulFrequentQuestionsAnswerTextNode>
+  contentfulFrequentQuestionsQuestionTextNode: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
   contentfulInfoproducers: Maybe<ContentfulInfoproducers>
   contentfulMainBanner: Maybe<ContentfulMainBanner>
   contentfulPartners: Maybe<ContentfulPartners>
@@ -4136,6 +4660,27 @@ export type QueryAllContentfulEntryArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulEntrySortInput>
+}
+
+export type QueryAllContentfulFrequentQuestionsArgs = {
+  filter: InputMaybe<ContentfulFrequentQuestionsFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulFrequentQuestionsSortInput>
+}
+
+export type QueryAllContentfulFrequentQuestionsAnswerTextNodeArgs = {
+  filter: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeSortInput>
+}
+
+export type QueryAllContentfulFrequentQuestionsQuestionTextNodeArgs = {
+  filter: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeSortInput>
 }
 
 export type QueryAllContentfulInfoproducersArgs = {
@@ -4336,6 +4881,43 @@ export type QueryContentfulEntryArgs = {
   parent: InputMaybe<NodeFilterInput>
 }
 
+export type QueryContentfulFrequentQuestionsArgs = {
+  answer: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterInput>
+  childContentfulFrequentQuestionsAnswerTextNode: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterInput>
+  childContentfulFrequentQuestionsQuestionTextNode: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterInput>
+  children: InputMaybe<NodeFilterListInput>
+  childrenContentfulFrequentQuestionsAnswerTextNode: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterListInput>
+  childrenContentfulFrequentQuestionsQuestionTextNode: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  question: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulFrequentQuestionsSysFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type QueryContentfulFrequentQuestionsAnswerTextNodeArgs = {
+  answer: InputMaybe<StringQueryOperatorInput>
+  children: InputMaybe<NodeFilterListInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  parent: InputMaybe<NodeFilterInput>
+  sys: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeSysFilterInput>
+}
+
+export type QueryContentfulFrequentQuestionsQuestionTextNodeArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  parent: InputMaybe<NodeFilterInput>
+  question: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeSysFilterInput>
+}
+
 export type QueryContentfulInfoproducersArgs = {
   children: InputMaybe<NodeFilterListInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
@@ -4393,6 +4975,7 @@ export type QueryContentfulVideoSectionArgs = {
   createdAt: InputMaybe<DateQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
+  miniText: InputMaybe<StringQueryOperatorInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
   parent: InputMaybe<NodeFilterInput>
   spaceId: InputMaybe<StringQueryOperatorInput>
@@ -6330,6 +6913,420 @@ export type ContentfulCommonQuestionsAnswerTextNodeSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulFrequentQuestionsAnswerTextNode = Node & {
+  answer: Maybe<Scalars['String']>
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  parent: Maybe<Node>
+  sys: Maybe<ContentfulFrequentQuestionsAnswerTextNodeSys>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulFrequentQuestionsAnswerTextNodeEdge>
+  group: Array<ContentfulFrequentQuestionsAnswerTextNodeGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulFrequentQuestionsAnswerTextNode>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeConnectionDistinctArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeConnectionGroupArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeConnectionMaxArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeConnectionMinArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeConnectionSumArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeEdge = {
+  next: Maybe<ContentfulFrequentQuestionsAnswerTextNode>
+  node: ContentfulFrequentQuestionsAnswerTextNode
+  previous: Maybe<ContentfulFrequentQuestionsAnswerTextNode>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum =
+  | 'answer'
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'sys___type'
+
+export type ContentfulFrequentQuestionsAnswerTextNodeFilterInput = {
+  answer: InputMaybe<StringQueryOperatorInput>
+  children: InputMaybe<NodeFilterListInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  parent: InputMaybe<NodeFilterInput>
+  sys: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeSysFilterInput>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeFilterListInput = {
+  elemMatch: InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFilterInput>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulFrequentQuestionsAnswerTextNodeEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulFrequentQuestionsAnswerTextNodeGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulFrequentQuestionsAnswerTextNode>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeGroupConnectionDistinctArgs =
+  {
+    field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+  }
+
+export type ContentfulFrequentQuestionsAnswerTextNodeGroupConnectionGroupArgs =
+  {
+    field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+    limit: InputMaybe<Scalars['Int']>
+    skip: InputMaybe<Scalars['Int']>
+  }
+
+export type ContentfulFrequentQuestionsAnswerTextNodeGroupConnectionMaxArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeGroupConnectionMinArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeGroupConnectionSumArgs = {
+  field: ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeSortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulFrequentQuestionsAnswerTextNodeFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeSys = {
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulFrequentQuestionsAnswerTextNodeSysFilterInput = {
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNode = Node & {
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  parent: Maybe<Node>
+  question: Maybe<Scalars['String']>
+  sys: Maybe<ContentfulFrequentQuestionsQuestionTextNodeSys>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulFrequentQuestionsQuestionTextNodeEdge>
+  group: Array<ContentfulFrequentQuestionsQuestionTextNodeGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulFrequentQuestionsQuestionTextNode>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeConnectionDistinctArgs =
+  {
+    field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+  }
+
+export type ContentfulFrequentQuestionsQuestionTextNodeConnectionGroupArgs = {
+  field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeConnectionMaxArgs = {
+  field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeConnectionMinArgs = {
+  field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeConnectionSumArgs = {
+  field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeEdge = {
+  next: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
+  node: ContentfulFrequentQuestionsQuestionTextNode
+  previous: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'question'
+  | 'sys___type'
+
+export type ContentfulFrequentQuestionsQuestionTextNodeFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  parent: InputMaybe<NodeFilterInput>
+  question: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeSysFilterInput>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeFilterListInput = {
+  elemMatch: InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFilterInput>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulFrequentQuestionsQuestionTextNodeEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulFrequentQuestionsQuestionTextNodeGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulFrequentQuestionsQuestionTextNode>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeGroupConnectionDistinctArgs =
+  {
+    field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+  }
+
+export type ContentfulFrequentQuestionsQuestionTextNodeGroupConnectionGroupArgs =
+  {
+    field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+    limit: InputMaybe<Scalars['Int']>
+    skip: InputMaybe<Scalars['Int']>
+  }
+
+export type ContentfulFrequentQuestionsQuestionTextNodeGroupConnectionMaxArgs =
+  {
+    field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+  }
+
+export type ContentfulFrequentQuestionsQuestionTextNodeGroupConnectionMinArgs =
+  {
+    field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+  }
+
+export type ContentfulFrequentQuestionsQuestionTextNodeGroupConnectionSumArgs =
+  {
+    field: ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum
+  }
+
+export type ContentfulFrequentQuestionsQuestionTextNodeSortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulFrequentQuestionsQuestionTextNodeFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeSys = {
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulFrequentQuestionsQuestionTextNodeSysFilterInput = {
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ProductSummary_ProductFragment = {
   slug: string
   sku: string
@@ -6532,6 +7529,18 @@ export type HomePageQueryQuery = {
     nodes: Array<{
       question: string | null
       answer: { answer: string | null } | null
+    }>
+  }
+  allContentfulMainBanner: {
+    nodes: Array<{
+      title: string | null
+      subtitle: string | null
+      slug: string | null
+      buttonLabel: string | null
+      buttonColor: string | null
+      buttonTextColor: string | null
+      imageDesktop: { url: string | null } | null
+      imageMobile: { url: string | null } | null
     }>
   }
   allContentfulVideoSection: {

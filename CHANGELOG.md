@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+
+- **GM-32** - Main Banner component.
+
+### Added
+
+### Fixed
+
+## [0.5.0] - 2022-06-23
 
 ### Added
 
@@ -17,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-262** - BannerMedium component alignment.
 - **GM-268** - SearchBar component style.
+- **GM-257** - Minicart styles.
 
 ## [0.4.0] - 2022-06-22
 

@@ -7,6 +7,7 @@
     line-height: 1.5;
 
     &[data-order-summary-discount] {
+      padding-bottom: 12px;
       font-family: Montserrat, sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -14,6 +15,7 @@
       color: #41a201;
 
       @include media(">=notebook") {
+        padding-bottom: 16px;
         font-size: 16px;
         line-height: 21px;
       }
@@ -26,6 +28,7 @@
 }
 
 .text__title-subsection {
+  padding-bottom: 12px;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -33,12 +36,14 @@
   color: #666666;
 
   @include media(">=notebook") {
+    padding-bottom: 16px;
     font-size: 16px;
     line-height: 21px;
   }
 }
 
 .text__subtotal {
+  padding-bottom: 12px;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -46,6 +51,7 @@
   color: #666666;
 
   @include media(">=notebook") {
+    padding-bottom: 16px;
     font-size: 16px;
     line-height: 21px;
   }
