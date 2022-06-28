@@ -75,7 +75,11 @@ function Page(props: Props) {
 
       <MainBanner nodes={allContentfulMainBanner.nodes} />
 
-      <BlockDesktop navigattionTabs={selectedTabs.data} />
+      <BlockDesktop
+        title="Vendidos"
+        pretitle="Mais"
+        navigattionTabs={selectedTabs.data}
+      />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
 
@@ -88,7 +92,7 @@ function Page(props: Props) {
 
       <HomeProductShelf
         pretitle="Disciplina Universitária"
-        title="Em caratér especial"
+        title="Em caráter especial"
       />
 
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />

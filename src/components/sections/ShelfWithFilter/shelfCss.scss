@@ -4,29 +4,58 @@
   .section-top {
     overflow: hidden;
   }
+
+  .section__divisor {
+    padding-top: 10px;
+    padding-left: 0;
+  }
+
+  .product-shelf-title {
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .product-shelf-pretitle {
+    font-size: 14px;
+    color: #ff3452;
+  }
+
+  .product-shelf-pretitle,
+  .product-shelf-title {
+    margin-left: 16px;
+
+    @include media(">=notebook") {
+      margin-left: 72px;
+    }
+  }
 }
 
 .navigattionTabs-list {
   margin-left: 16px;
 
   @include media(">=notebook") {
-    margin-left: 0;
+    margin-right: 38px;
+    margin-left: 58px;
   }
 
   ul {
     padding-bottom: 16px;
 
     button {
+      display: flex;
+      justify-content: center;
       min-width: 91px;
-      padding: 10px 48px;
       padding: 10px;
+      font-weight: 600;
       color: #ff3452;
       background: #fff;
       border: 2px solid #ff3452;
       border-radius: 10px;
 
       @include media(">=notebook") {
-        padding: 10px 48px;
+        width: 140px;
+        padding: 10px 0;
       }
     }
 

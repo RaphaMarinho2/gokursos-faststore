@@ -21,9 +21,11 @@ type NavigationTabsProps = {
 
 type Props = {
   navigattionTabs: NavigationTabsProps[]
+  title?: string
+  pretitle?: string
 }
 
-function BlockDesktop({ navigattionTabs }: Props) {
+function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -39,8 +41,9 @@ function BlockDesktop({ navigattionTabs }: Props) {
 
   return (
     <Section className="navigattionTabs-container section">
-      <div className="navigattionTabs-subtitle--border" />
-      <div className="section-top layout__content">
+      {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
+      {title && <h2 className="product-shelf-title">{title}</h2>}
+      <div className="section-top layout__content section__divisor">
         <div className="navigattionTabs-list scrollmenu">
           <List variant="unordered">
             {tabs.map((tab: string, index: number) => {
