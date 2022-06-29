@@ -13,6 +13,7 @@ import CommonQuestions from 'src/components/sections/CommonQuestions'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
 import PersonShelf from 'src/components/sections/PersonShelf'
+
 export type Props = PageProps<HomePageQueryQuery>
 
 function Page(props: Props) {
@@ -23,7 +24,7 @@ function Page(props: Props) {
       allContentfulVideoSection,
       allContentfulBannerMedium,
       allContentfulPersons,
-      allContentfulParceiros
+      allContentfulParceiros,
     },
     location: { pathname, host },
   } = props
@@ -89,9 +90,19 @@ function Page(props: Props) {
       <VideoSection nodes={allContentfulVideoSection.nodes} />
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
 
-      <PersonShelf nodes={allContentfulParceiros.nodes} />
+      <PersonShelf
+        nodes={allContentfulParceiros.nodes}
+        withDivisor
+        classNameShelf="partner"
+        qtyMobile={1}
+        qtyDesk={4}
+      />
 
-      <PersonShelf nodes={allContentfulPersons.nodes} />
+      <PersonShelf
+        nodes={allContentfulPersons.nodes}
+        classNameShelf="teachers"
+        qtyMobile={2}
+      />
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )

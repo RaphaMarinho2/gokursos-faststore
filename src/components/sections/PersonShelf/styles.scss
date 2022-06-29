@@ -1,3 +1,54 @@
-h1 {
-    color: red;
+@import "src/styles/scaffold";
+
+.component-shelf-container {
+  width: 100%;
+
+  &.teachers {
+    .carousel-content {
+      .carousel-arrow-button-prev,
+      .carousel-arrow-button-next {
+        top: calc(50% - 45px);
+      }
+    }
+  }
+
+  .carousel-content {
+    .carousel-arrow-button-prev,
+    .carousel-arrow-button-next {
+      top: calc(50% - 32px);
+    }
+  }
+
+  @include media(">=tablet") {
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin: 2rem auto;
+  }
+
+  .carousel-container {
+    padding: 0 16px;
+  }
+
+  .component-shelf__content {
+    padding-right: 32px;
+
+    h3 {
+      padding-top: 15px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    }
+
+    p {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%;
+      color: #555555;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 }
