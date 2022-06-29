@@ -28,7 +28,6 @@ function ProductCard({
   index,
   variant = 'default',
   bordered = false,
-  aspectRatio = 1,
   ButtonBuy,
   ...otherProps
 }: ProductCardProps) {
@@ -54,8 +53,6 @@ function ProductCard({
         <img
           src={img}
           alt={name}
-          width={360}
-          height={360 / aspectRatio}
           sizes="(max-width: 768px) 25vw, 30vw"
           loading="lazy"
         />

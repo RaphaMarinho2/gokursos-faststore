@@ -80,6 +80,8 @@
     position: relative;
     display: flex;
     justify-content: center;
+    width: 232px;
+    height: 202px;
     overflow: hidden;
     border-radius: var(--fs-product-card-img-radius);
   }
@@ -148,6 +150,7 @@
 }
 
 [data-fs-product-card-title] {
+  min-height: 50px !important;  /* stylelint-disable-line declaration-no-important */
   font-size: var(--fs-product-card-text-title-size);
   font-weight: 600;
   line-height: 1.25;
@@ -156,9 +159,25 @@
   @include truncate-title(var(--fs-product-card-text-max-lines));
 }
 
+[data-fs-product-card-category] {
+  min-height: 24px;
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 13px;
+  color: #666666;
+
+  @include media(">=notebook") {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
 [data-fs-product-card-prices] {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-height: 40px;
   margin: 1rem 0;
   text-align: left;
 
