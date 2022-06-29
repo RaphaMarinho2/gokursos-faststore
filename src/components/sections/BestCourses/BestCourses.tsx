@@ -30,7 +30,7 @@ const BestCourses = ({ title, subtitle, nodes }: BestCoursesProps) => {
   const nodesModified = nodes as unknown as BestCoursesModifyProps
 
   return (
-    <section className="best-courses">
+    <section className="best-courses layout__content">
       {title && subtitle && (
         <>
           <h2 className="best-courses__title">{title}</h2>

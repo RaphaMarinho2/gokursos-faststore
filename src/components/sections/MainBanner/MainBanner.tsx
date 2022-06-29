@@ -31,7 +31,7 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
   const { isTablet } = useWindowDimensions()
 
   return (
-    <div className="main-banner">
+    <div className="main-banner layout__content">
       <Carousel
         navigationAutomatic
         timeoutNavigationAutomatic={5000}
