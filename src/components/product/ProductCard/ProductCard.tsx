@@ -31,12 +31,10 @@ function ProductCard({
   ButtonBuy,
   ...otherProps
 }: ProductCardProps) {
-  const {
-    Name: name,
-    Price: { BasePrice: spotPrice, ListPrice: listPrice },
-    ProductImageURL: img,
-  } = product
+  const { Name: name, ProductImageURL: img } = product
 
+  const spotPrice = product.Price?.BasePrice
+  const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
@@ -49,14 +47,16 @@ function ProductCard({
       data-fs-product-card-actionabled={!!ButtonBuy}
       {...otherProps}
     >
-      <UICardImage>
-        <img
-          src={img}
-          alt={name}
-          sizes="(max-width: 768px) 25vw, 30vw"
-          loading="lazy"
-        />
-      </UICardImage>
+      {img !== '' && (
+        <UICardImage>
+          <img
+            src={img}
+            alt={name}
+            sizes="(max-width: 768px) 25vw, 30vw"
+            loading="lazy"
+          />
+        </UICardImage>
+      )}
 
       <UICardContent data-fs-product-card-content>
         <div data-fs-product-card-heading>
@@ -66,29 +66,31 @@ function ProductCard({
               {name}
             </Link>
           </h3>
-          <div data-fs-product-card-prices>
-            {listPrice && listPrice > spotPrice && (
-              <Price
-                value={listPrice}
-                formatter={useFormattedPrice}
-                testId="list-price"
-                data-value={listPrice}
-                variant="listing"
-                classes="text__legend"
-                SRText="Original price:"
-              />
-            )}
+          {spotPrice && (
+            <div data-fs-product-card-prices>
+              {listPrice && listPrice > spotPrice && (
+                <Price
+                  value={listPrice}
+                  formatter={useFormattedPrice}
+                  testId="list-price"
+                  data-value={listPrice}
+                  variant="listing"
+                  classes="text__legend"
+                  SRText="Original price:"
+                />
+              )}
 
-            <Price
-              value={spotPrice}
-              formatter={useFormattedPrice}
-              testId="price"
-              data-value={spotPrice}
-              variant="spot"
-              classes="text__body"
-              SRText="Sale Price:"
-            />
-          </div>
+              <Price
+                value={spotPrice}
+                formatter={useFormattedPrice}
+                testId="price"
+                data-value={spotPrice}
+                variant="spot"
+                classes="text__body"
+                SRText="Sale Price:"
+              />
+            </div>
+          )}
         </div>
 
         {!!ButtonBuy && (

@@ -12,6 +12,7 @@ import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
 import selectedTabs from 'src/mocks/bestSellerList.json'
+import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -83,7 +84,7 @@ function Page(props: Props) {
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
 
-      <HomeProductShelf
+      <NewReleasesShelf
         pretitle="Confira os cursos"
         title="Lançados recentemente"
       />
