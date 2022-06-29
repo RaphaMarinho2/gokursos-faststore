@@ -27,7 +27,7 @@ interface BestCoursesModifyProps {
 }
 
 const BestCourses = ({ title, subtitle, nodes }: BestCoursesProps) => {
-  const nodesModify = nodes as unknown as BestCoursesModifyProps
+  const nodesModified = nodes as unknown as BestCoursesModifyProps
 
   return (
     <section className="best-courses">
@@ -39,7 +39,7 @@ const BestCourses = ({ title, subtitle, nodes }: BestCoursesProps) => {
       )}
       <div className="best-courses__content">
         <BubbleLinks
-          bubbleLinks={nodesModify.map((category) => {
+          bubbleLinks={nodesModified.map((category) => {
             return {
               name: category.name,
               link: category.slug,
