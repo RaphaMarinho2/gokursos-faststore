@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-
+- **GM-89** - Product Shelf with menu selector.
 - **GM-32** - Main Banner component.
 
 ### Fixed
