@@ -6,11 +6,13 @@ import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
 import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
+import BlockDesktop from 'src/components/sections/ShelfWithFilter'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
 import BestCourses from 'src/components/sections/BestCourses'
+import selectedTabs from 'src/mocks/bestSellerList.json'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -83,6 +85,12 @@ function Page(props: Props) {
 
       <HomeProductShelf pretitle="" title="Mais vendidos" />
 
+      <BlockDesktop
+        title="Vendidos"
+        pretitle="Mais"
+        navigattionTabs={selectedTabs.data}
+      />
+
       <VideoSection nodes={allContentfulVideoSection.nodes} />
 
       <HomeProductShelf
@@ -94,7 +102,7 @@ function Page(props: Props) {
 
       <HomeProductShelf
         pretitle="Disciplina Universitária"
-        title="Em caratér especial"
+        title="Em caráter especial"
       />
 
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
@@ -158,7 +166,7 @@ export const querySSG = graphql`
         }
       }
     }
-    allContentfulBestCourses {
+    allContentfulBestCourses(sort: { order: ASC, fields: createdAt }) {
       nodes {
         name
         slug

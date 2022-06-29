@@ -3026,10 +3026,10 @@ export type ContentfulParceiros = ContentfulEntry & ContentfulReference & Node &
   contentful_id: Scalars['String'];
   createdAt: Maybe<Scalars['Date']>;
   id: Scalars['ID'];
+  imagem: Maybe<ContentfulAsset>;
   internal: Internal;
   node_locale: Scalars['String'];
   parent: Maybe<Node>;
-  partnerImage: Maybe<ContentfulAsset>;
   spaceId: Maybe<Scalars['String']>;
   sys: Maybe<ContentfulParceirosSys>;
   updatedAt: Maybe<Scalars['Date']>;
@@ -3139,6 +3139,71 @@ export type ContentfulParceirosFieldsEnum =
   | 'contentful_id'
   | 'createdAt'
   | 'id'
+  | 'imagem___children'
+  | 'imagem___children___children'
+  | 'imagem___children___children___children'
+  | 'imagem___children___children___id'
+  | 'imagem___children___id'
+  | 'imagem___children___internal___content'
+  | 'imagem___children___internal___contentDigest'
+  | 'imagem___children___internal___description'
+  | 'imagem___children___internal___fieldOwners'
+  | 'imagem___children___internal___ignoreType'
+  | 'imagem___children___internal___mediaType'
+  | 'imagem___children___internal___owner'
+  | 'imagem___children___internal___type'
+  | 'imagem___children___parent___children'
+  | 'imagem___children___parent___id'
+  | 'imagem___contentful_id'
+  | 'imagem___createdAt'
+  | 'imagem___description'
+  | 'imagem___file___contentType'
+  | 'imagem___file___details___size'
+  | 'imagem___file___fileName'
+  | 'imagem___file___url'
+  | 'imagem___filename'
+  | 'imagem___filesize'
+  | 'imagem___gatsbyImage'
+  | 'imagem___gatsbyImageData'
+  | 'imagem___height'
+  | 'imagem___id'
+  | 'imagem___internal___content'
+  | 'imagem___internal___contentDigest'
+  | 'imagem___internal___description'
+  | 'imagem___internal___fieldOwners'
+  | 'imagem___internal___ignoreType'
+  | 'imagem___internal___mediaType'
+  | 'imagem___internal___owner'
+  | 'imagem___internal___type'
+  | 'imagem___mimeType'
+  | 'imagem___node_locale'
+  | 'imagem___parent___children'
+  | 'imagem___parent___children___children'
+  | 'imagem___parent___children___id'
+  | 'imagem___parent___id'
+  | 'imagem___parent___internal___content'
+  | 'imagem___parent___internal___contentDigest'
+  | 'imagem___parent___internal___description'
+  | 'imagem___parent___internal___fieldOwners'
+  | 'imagem___parent___internal___ignoreType'
+  | 'imagem___parent___internal___mediaType'
+  | 'imagem___parent___internal___owner'
+  | 'imagem___parent___internal___type'
+  | 'imagem___parent___parent___children'
+  | 'imagem___parent___parent___id'
+  | 'imagem___placeholderUrl'
+  | 'imagem___publicUrl'
+  | 'imagem___resize___height'
+  | 'imagem___resize___src'
+  | 'imagem___resize___width'
+  | 'imagem___size'
+  | 'imagem___spaceId'
+  | 'imagem___sys___revision'
+  | 'imagem___sys___type'
+  | 'imagem___title'
+  | 'imagem___updatedAt'
+  | 'imagem___url'
+  | 'imagem___width'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -3186,71 +3251,6 @@ export type ContentfulParceirosFieldsEnum =
   | 'parent___parent___internal___type'
   | 'parent___parent___parent___children'
   | 'parent___parent___parent___id'
-  | 'partnerImage___children'
-  | 'partnerImage___children___children'
-  | 'partnerImage___children___children___children'
-  | 'partnerImage___children___children___id'
-  | 'partnerImage___children___id'
-  | 'partnerImage___children___internal___content'
-  | 'partnerImage___children___internal___contentDigest'
-  | 'partnerImage___children___internal___description'
-  | 'partnerImage___children___internal___fieldOwners'
-  | 'partnerImage___children___internal___ignoreType'
-  | 'partnerImage___children___internal___mediaType'
-  | 'partnerImage___children___internal___owner'
-  | 'partnerImage___children___internal___type'
-  | 'partnerImage___children___parent___children'
-  | 'partnerImage___children___parent___id'
-  | 'partnerImage___contentful_id'
-  | 'partnerImage___createdAt'
-  | 'partnerImage___description'
-  | 'partnerImage___file___contentType'
-  | 'partnerImage___file___details___size'
-  | 'partnerImage___file___fileName'
-  | 'partnerImage___file___url'
-  | 'partnerImage___filename'
-  | 'partnerImage___filesize'
-  | 'partnerImage___gatsbyImage'
-  | 'partnerImage___gatsbyImageData'
-  | 'partnerImage___height'
-  | 'partnerImage___id'
-  | 'partnerImage___internal___content'
-  | 'partnerImage___internal___contentDigest'
-  | 'partnerImage___internal___description'
-  | 'partnerImage___internal___fieldOwners'
-  | 'partnerImage___internal___ignoreType'
-  | 'partnerImage___internal___mediaType'
-  | 'partnerImage___internal___owner'
-  | 'partnerImage___internal___type'
-  | 'partnerImage___mimeType'
-  | 'partnerImage___node_locale'
-  | 'partnerImage___parent___children'
-  | 'partnerImage___parent___children___children'
-  | 'partnerImage___parent___children___id'
-  | 'partnerImage___parent___id'
-  | 'partnerImage___parent___internal___content'
-  | 'partnerImage___parent___internal___contentDigest'
-  | 'partnerImage___parent___internal___description'
-  | 'partnerImage___parent___internal___fieldOwners'
-  | 'partnerImage___parent___internal___ignoreType'
-  | 'partnerImage___parent___internal___mediaType'
-  | 'partnerImage___parent___internal___owner'
-  | 'partnerImage___parent___internal___type'
-  | 'partnerImage___parent___parent___children'
-  | 'partnerImage___parent___parent___id'
-  | 'partnerImage___placeholderUrl'
-  | 'partnerImage___publicUrl'
-  | 'partnerImage___resize___height'
-  | 'partnerImage___resize___src'
-  | 'partnerImage___resize___width'
-  | 'partnerImage___size'
-  | 'partnerImage___spaceId'
-  | 'partnerImage___sys___revision'
-  | 'partnerImage___sys___type'
-  | 'partnerImage___title'
-  | 'partnerImage___updatedAt'
-  | 'partnerImage___url'
-  | 'partnerImage___width'
   | 'spaceId'
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___linkType'
@@ -3264,10 +3264,10 @@ export type ContentfulParceirosFilterInput = {
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
+  imagem: InputMaybe<ContentfulAssetFilterInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  partnerImage: InputMaybe<ContentfulAssetFilterInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulParceirosSysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -5821,10 +5821,10 @@ export type QueryContentfulParceirosArgs = {
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
+  imagem: InputMaybe<ContentfulAssetFilterInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  partnerImage: InputMaybe<ContentfulAssetFilterInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulParceirosSysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
