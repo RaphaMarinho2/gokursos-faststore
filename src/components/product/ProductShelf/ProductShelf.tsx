@@ -1,5 +1,7 @@
-import productsQuery from 'src/mocks/productsQuery.json'
-import type { ProductsQueryQueryVariables } from '@generated/graphql'
+import type {
+  ProductsQueryQueryVariables,
+  ProductSummary_ProductFragment,
+} from '@generated/graphql'
 import Carousel from '@acctglobal/carousel-universal'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
@@ -10,6 +12,7 @@ interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   cardsQuantity?: number
   withDivisor?: boolean
   pretitle?: string
+  products?: any
 }
 
 function ClkBtn() {
@@ -25,11 +28,11 @@ function ProductShelf({
   title,
   pretitle,
   withDivisor = false,
+  products,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
-  const { products } = productsQuery.data.search
 
-  if (products?.edges.length === 0) {
+  if (products?.length === 0) {
     return null
   }
 
@@ -65,15 +68,17 @@ function ProductShelf({
         }}
         qtyItems={cardsQuantity}
       >
-        {products?.edges.map((product, idx) => (
-          <div key={idx} className="product-shelf__content">
-            <ProductCard
-              product={product.node}
-              index={idx + 1}
-              ButtonBuy={ProductBtnBuyInPage()}
-            />
-          </div>
-        ))}
+        {products?.map(
+          (product: ProductSummary_ProductFragment, idx: number) => (
+            <div key={idx} className="product-shelf__content">
+              <ProductCard
+                product={product}
+                index={idx + 1}
+                ButtonBuy={ProductBtnBuyInPage()}
+              />
+            </div>
+          )
+        )}
       </Carousel>
     </div>
   )

@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import ProductShelf from 'src/components/product/ProductShelf'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { ITEMS_PER_SECTION } from 'src/constants'
@@ -12,6 +14,14 @@ interface ShelfProps {
 }
 
 const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
+  const [products, setProducts] = useState<any>()
+
+  useEffect(() => {
+    axios
+      .get('/api/getTopSellers')
+      .then(({ data: { value } }) => setProducts(value))
+  }, [])
+
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -24,6 +34,7 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
         title={title}
         pretitle={pretitle}
         withDivisor
+        products={products}
       />
     </Section>
   )
