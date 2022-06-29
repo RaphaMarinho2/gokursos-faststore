@@ -2942,6 +2942,326 @@ export type ContentfulMainBannerSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulParceiros = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    imagem: Maybe<ContentfulAsset>
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    spaceId: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulParceirosSys>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulParceirosCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulParceirosUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulParceirosConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulParceirosEdge>
+  group: Array<ContentfulParceirosGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulParceiros>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulParceirosConnectionDistinctArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosConnectionGroupArgs = {
+  field: ContentfulParceirosFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulParceirosConnectionMaxArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosConnectionMinArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosConnectionSumArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosEdge = {
+  next: Maybe<ContentfulParceiros>
+  node: ContentfulParceiros
+  previous: Maybe<ContentfulParceiros>
+}
+
+export type ContentfulParceirosFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'imagem___children'
+  | 'imagem___children___children'
+  | 'imagem___children___children___children'
+  | 'imagem___children___children___id'
+  | 'imagem___children___id'
+  | 'imagem___children___internal___content'
+  | 'imagem___children___internal___contentDigest'
+  | 'imagem___children___internal___description'
+  | 'imagem___children___internal___fieldOwners'
+  | 'imagem___children___internal___ignoreType'
+  | 'imagem___children___internal___mediaType'
+  | 'imagem___children___internal___owner'
+  | 'imagem___children___internal___type'
+  | 'imagem___children___parent___children'
+  | 'imagem___children___parent___id'
+  | 'imagem___contentful_id'
+  | 'imagem___createdAt'
+  | 'imagem___description'
+  | 'imagem___file___contentType'
+  | 'imagem___file___details___size'
+  | 'imagem___file___fileName'
+  | 'imagem___file___url'
+  | 'imagem___filename'
+  | 'imagem___filesize'
+  | 'imagem___gatsbyImage'
+  | 'imagem___gatsbyImageData'
+  | 'imagem___height'
+  | 'imagem___id'
+  | 'imagem___internal___content'
+  | 'imagem___internal___contentDigest'
+  | 'imagem___internal___description'
+  | 'imagem___internal___fieldOwners'
+  | 'imagem___internal___ignoreType'
+  | 'imagem___internal___mediaType'
+  | 'imagem___internal___owner'
+  | 'imagem___internal___type'
+  | 'imagem___mimeType'
+  | 'imagem___node_locale'
+  | 'imagem___parent___children'
+  | 'imagem___parent___children___children'
+  | 'imagem___parent___children___id'
+  | 'imagem___parent___id'
+  | 'imagem___parent___internal___content'
+  | 'imagem___parent___internal___contentDigest'
+  | 'imagem___parent___internal___description'
+  | 'imagem___parent___internal___fieldOwners'
+  | 'imagem___parent___internal___ignoreType'
+  | 'imagem___parent___internal___mediaType'
+  | 'imagem___parent___internal___owner'
+  | 'imagem___parent___internal___type'
+  | 'imagem___parent___parent___children'
+  | 'imagem___parent___parent___id'
+  | 'imagem___placeholderUrl'
+  | 'imagem___publicUrl'
+  | 'imagem___resize___height'
+  | 'imagem___resize___src'
+  | 'imagem___resize___width'
+  | 'imagem___size'
+  | 'imagem___spaceId'
+  | 'imagem___sys___revision'
+  | 'imagem___sys___type'
+  | 'imagem___title'
+  | 'imagem___updatedAt'
+  | 'imagem___url'
+  | 'imagem___width'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'spaceId'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'updatedAt'
+
+export type ContentfulParceirosFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  imagem: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulParceirosSysFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulParceirosGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulParceirosEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulParceirosGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulParceiros>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulParceirosGroupConnectionDistinctArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosGroupConnectionGroupArgs = {
+  field: ContentfulParceirosFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulParceirosGroupConnectionMaxArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosGroupConnectionMinArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosGroupConnectionSumArgs = {
+  field: ContentfulParceirosFieldsEnum
+}
+
+export type ContentfulParceirosSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulParceirosFieldsEnum>>>
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulParceirosSys = {
+  contentType: Maybe<ContentfulParceirosSysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulParceirosSysContentType = {
+  sys: Maybe<ContentfulParceirosSysContentTypeSys>
+}
+
+export type ContentfulParceirosSysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulParceirosSysContentTypeSysFilterInput>
+}
+
+export type ContentfulParceirosSysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulParceirosSysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulParceirosSysFilterInput = {
+  contentType: InputMaybe<ContentfulParceirosSysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulPartners = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -3137,9 +3457,9 @@ export type ContentfulPersons = ContentfulEntry &
   ContentfulReference &
   Node & {
     children: Array<Node>
-    class: Maybe<Scalars['String']>
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
+    curso: Maybe<Scalars['String']>
     id: Scalars['ID']
     imagem: Maybe<ContentfulAsset>
     internal: Internal
@@ -3245,9 +3565,9 @@ export type ContentfulPersonsFieldsEnum =
   | 'children___parent___internal___type'
   | 'children___parent___parent___children'
   | 'children___parent___parent___id'
-  | 'class'
   | 'contentful_id'
   | 'createdAt'
+  | 'curso'
   | 'id'
   | 'imagem___children'
   | 'imagem___children___children'
@@ -3372,9 +3692,9 @@ export type ContentfulPersonsFieldsEnum =
 
 export type ContentfulPersonsFilterInput = {
   children: InputMaybe<NodeFilterListInput>
-  class: InputMaybe<StringQueryOperatorInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  curso: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   imagem: InputMaybe<ContentfulAssetFilterInput>
   internal: InputMaybe<InternalFilterInput>
@@ -4890,6 +5210,7 @@ export type Query = {
   allContentfulFrequentQuestionsQuestionTextNode: ContentfulFrequentQuestionsQuestionTextNodeConnection
   allContentfulInfoproducers: ContentfulInfoproducersConnection
   allContentfulMainBanner: ContentfulMainBannerConnection
+  allContentfulParceiros: ContentfulParceirosConnection
   allContentfulPartners: ContentfulPartnersConnection
   allContentfulPersons: ContentfulPersonsConnection
   allContentfulTeste: ContentfulTesteConnection
@@ -4917,6 +5238,7 @@ export type Query = {
   contentfulFrequentQuestionsQuestionTextNode: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
   contentfulInfoproducers: Maybe<ContentfulInfoproducers>
   contentfulMainBanner: Maybe<ContentfulMainBanner>
+  contentfulParceiros: Maybe<ContentfulParceiros>
   contentfulPartners: Maybe<ContentfulPartners>
   contentfulPersons: Maybe<ContentfulPersons>
   contentfulTeste: Maybe<ContentfulTeste>
@@ -5023,6 +5345,13 @@ export type QueryAllContentfulMainBannerArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulMainBannerSortInput>
+}
+
+export type QueryAllContentfulParceirosArgs = {
+  filter: InputMaybe<ContentfulParceirosFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulParceirosSortInput>
 }
 
 export type QueryAllContentfulPartnersArgs = {
@@ -5283,6 +5612,20 @@ export type QueryContentfulMainBannerArgs = {
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
+export type QueryContentfulParceirosArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  imagem: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulParceirosSysFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
 export type QueryContentfulPartnersArgs = {
   children: InputMaybe<NodeFilterListInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
@@ -5294,9 +5637,9 @@ export type QueryContentfulPartnersArgs = {
 
 export type QueryContentfulPersonsArgs = {
   children: InputMaybe<NodeFilterListInput>
-  class: InputMaybe<StringQueryOperatorInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  curso: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   imagem: InputMaybe<ContentfulAssetFilterInput>
   internal: InputMaybe<InternalFilterInput>
