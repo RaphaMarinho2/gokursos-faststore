@@ -5,13 +5,13 @@
   // Design Tokens for Product Shelf
   // --------------------------------------------------------
 
-  --fs-product-shelf-min-height             : 21.06rem;
+  --fs-product-shelf-min-height: 21.06rem;
 
-  --fs-product-shelf-items-gap              : var(--fs-grid-gap-1);
-  --fs-product-shelf-items-padding-top      : 0;
-  --fs-product-shelf-items-padding-bottom   : var(--fs-spacing-3);
+  --fs-product-shelf-items-gap: var(--fs-grid-gap-1);
+  --fs-product-shelf-items-padding-top: 0;
+  --fs-product-shelf-items-padding-bottom: var(--fs-spacing-3);
 
-  --fs-product-shelf-first-item-margin-left : calc(-1 * var(--fs-spacing-1));
+  --fs-product-shelf-first-item-margin-left: calc(-1 * var(--fs-spacing-1));
 
   // --------------------------------------------------------
   // Structural Styles
@@ -27,86 +27,103 @@
     max-width: var(--fs-grid-breakpoint-desktop);
     margin: 2rem auto;
   }
-}
 
-.product-shelf-title {
-  margin-bottom: 0.5rem;
-  font-size: 20px;
-  font-weight: 700;
-}
+  .product-shelf-title {
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    font-weight: 700;
 
-.product-shelf-pretitle {
-  font-size: 14px;
-  color: #ff3452;
-}
-
-.carousel-content {
-  position: relative;
-  padding: 0 16px;
-
-  @include media(">=notebook") {
-    padding: 0;
+    @include media("<=tablet") {
+      padding-left: 16px;
+    }
   }
 
-  div {
-    .carousel-container {
-      overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
+  .product-shelf-pretitle {
+    font-size: 14px;
+    color: #ff3452;
 
-      .container-item {
-        padding-left: 2px;
+    @include media("<=tablet") {
+      padding-left: 16px;
+    }
+  }
+
+  .carousel-content {
+    position: relative;
+    padding: 0 34px;
+
+    @include media(">=notebook") {
+      padding: 0 24px;
+    }
+
+    @media screen and (max-width: 375px) {
+      padding: 0 30px;
+    }
+
+    @media screen and (max-width: 350px) {
+      padding: 0 20px;
+    }
+
+    div {
+      .carousel-container {
+        overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
         .product-shelf__content {
           padding: 0 3px;
 
           @include media(">=phonemid") {
-            padding: 0;
+            padding: 0 10px;
+          }
+
+          @include media(">=notebook") {
+            padding: 0 14px;
+          }
+        }
+
+        article {
+          min-width: 100px;
+          padding: 0;
+          border: 0;
+
+          h3 {
+            min-height: 40px;
+          }
+
+          div {
+            min-width: 100px;
           }
         }
       }
+    }
 
-      article {
-        min-width: 100px;
-        padding: 0;
-        border: 0;
+    .carousel-arrow-button-prev,
+    .carousel-arrow-button-next {
+      position: absolute;
+      top: 20%;
+      z-index: 2;
+    }
 
-        h3 {
-          min-height: 40px;
-        }
+    .carousel-arrow-button-prev {
+      left: 8px;
 
-        div {
-          min-width: 100px;
-        }
+      @include media(">=phonemid") {
+        left: 16px;
+      }
+
+      @include media(">=notebook") {
+        left: 24px;
       }
     }
-  }
 
-  .carousel-arrow-button-prev, .carousel-arrow-button-next {
-    position: absolute;
-    top: 20%;
-    z-index: 2;
-  }
+    .carousel-arrow-button-next {
+      right: 8px;
 
-  .carousel-arrow-button-prev {
-    left: 8px;
+      @include media(">=phonemid") {
+        right: 16px;
+      }
 
-    @include media(">=phonemid") {
-      left: 16px;
-    }
-
-    @include media(">=notebook") {
-      left: -16px;
-    }
-  }
-
-  .carousel-arrow-button-next {
-    right: 8px;
-
-    @include media(">=phonemid") {
-      right: 16px;
-    }
-
-    @include media(">=notebook") {
-      right: 16px;
+      @include media(">=notebook") {
+        right: 24px;
+      }
     }
   }
 }
