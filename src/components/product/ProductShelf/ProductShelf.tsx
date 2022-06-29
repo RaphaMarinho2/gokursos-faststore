@@ -6,7 +6,7 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductCard from '../ProductCard'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
-  title: string | JSX.Element
+  title?: string | JSX.Element
   cardsQuantity?: number
   withDivisor?: boolean
   pretitle?: string
