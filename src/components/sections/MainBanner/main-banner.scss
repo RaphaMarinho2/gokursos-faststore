@@ -1,16 +1,18 @@
 @import "src/styles/scaffold";
 
 .main-banner {
-  position: relative;
-  width: 100%;
-  padding: 0 1rem;
-  margin: 24px 0;
+  display: block;
+  width: calc(100% - 32px);
+  margin-top: 24px;
+  margin-bottom: 24px;
 
   @include media(">=notebook") {
-    padding: 0 40px;
+    width: calc(100% - 80px);
   }
 
   .carousel-content {
+    position: relative;
+
     .bullets-container {
       margin-top: 16px;
 
@@ -27,18 +29,18 @@
     }
 
     .carousel-arrow-button-prev {
-      left: 8px;
+      left: -12px;
 
       @include media(">=notebook") {
-        left: 24px;
+        left: -16px;
       }
     }
 
     .carousel-arrow-button-next {
-      right: 8px;
+      right: -12px;
 
       @include media(">=notebook") {
-        right: 24px;
+        right: -16px;
       }
     }
 

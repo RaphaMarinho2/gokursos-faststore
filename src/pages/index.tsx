@@ -11,6 +11,7 @@ import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
+import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
 
 export type Props = PageProps<HomePageQueryQuery>
@@ -22,6 +23,7 @@ function Page(props: Props) {
       allContentfulCommonQuestions,
       allContentfulVideoSection,
       allContentfulBannerMedium,
+      allContentfulBestCourses,
       allContentfulMainBanner,
     },
     location: { pathname, host },
@@ -74,6 +76,14 @@ function Page(props: Props) {
       */}
 
       <MainBanner nodes={allContentfulMainBanner.nodes} />
+
+      <BestCourses
+        title="Principais"
+        subtitle="Categorias de Cursos"
+        nodes={allContentfulBestCourses.nodes}
+      />
+
+      <HomeProductShelf pretitle="" title="Mais vendidos" />
 
       <BlockDesktop
         title="Vendidos"
@@ -152,6 +162,15 @@ export const querySSG = graphql`
       nodes {
         link
         imagemBannerMedium {
+          url
+        }
+      }
+    }
+    allContentfulBestCourses(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        name
+        slug
+        image {
           url
         }
       }

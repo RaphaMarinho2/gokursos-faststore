@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@acctglobal/bubblelinks@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@acctglobal/bubblelinks/-/bubblelinks-1.0.1.tgz#4160d5abbf686f5ae5b7085aecc34311ec69d649"
+  integrity sha512-DaqMoBImiiJndjj9/o0SchH8YhywKY6RYAdfmaZjthUWRiQ/SZ2hz7t27bxwcf5Z1CJnm2y3JtkNPrkHg9zE4Q==
+
 "@acctglobal/carousel-universal@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@acctglobal/carousel-universal/-/carousel-universal-1.2.0.tgz#d0d89b6d81f1bb8a4b0fef45195f652e810c58c8"
