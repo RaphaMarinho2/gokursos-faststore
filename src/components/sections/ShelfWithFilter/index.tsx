@@ -6,8 +6,10 @@
 import { ITEMS_PER_SECTION } from 'src/constants'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { List } from '@faststore/ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductShelf from 'src/components/product/ProductShelf'
+import axios from 'axios'
+import departments from 'src/mocks/departments.json'
 
 import Section from '../Section'
 import { useTabs, TabPanel } from './tabRules'
@@ -38,6 +40,27 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const [tabs] = useState(allTabs)
   const [selectedTab, setSelectedTab] = useTabs(tabs)
+
+  const [products, setProducts] = useState<any>()
+
+  useEffect(() => {
+    const selectedDepartment = departments.value.filter(
+      (department) => department.Name === selectedTab
+    )
+
+    const departmentId =
+      selectedDepartment !== []
+        ? JSON.stringify(selectedDepartment[0]?._id)
+        : null
+
+    axios
+      .get('/api/getTopSellers', {
+        params: {
+          departmentId,
+        },
+      })
+      .then(({ data: { value } }) => setProducts(value))
+  }, [selectedTab])
 
   return (
     <Section className="navigattionTabs-container section">
@@ -76,6 +99,7 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
                   <ProductShelf
                     cardsQuantity={shelfItemQuantity}
                     first={ITEMS_PER_SECTION}
+                    products={products}
                   />
                 </Section>
               </article>
