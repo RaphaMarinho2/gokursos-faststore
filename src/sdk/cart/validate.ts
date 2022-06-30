@@ -6,7 +6,6 @@ import type {
   CartItemFragment,
   CartMessageFragment,
 } from '@generated/graphql'
-import type { IStoreOffer } from '@faststore/api'
 
 import { request } from '../graphql/request'
 
@@ -68,7 +67,7 @@ export const getItemId = (
   item: Pick<CartItem, 'itemOffered' | 'seller' | 'price'>
 ) => `${item.itemOffered.sku}:${item.seller.identifier}:${item.price}`
 
-export const validateCart = async (cart: Cart): Promise<Cart | null> => {
+export const validateCart = async (cart: any): Promise<Cart | null> => {
   const { validateCart: validated = null } = await request<
     ValidateCartMutationMutation,
     ValidateCartMutationMutationVariables
@@ -77,13 +76,7 @@ export const validateCart = async (cart: Cart): Promise<Cart | null> => {
       order: {
         orderNumber: cart.id,
         acceptedOffer: cart.items.map(
-          ({
-            price,
-            listPrice,
-            seller,
-            quantity,
-            itemOffered,
-          }): IStoreOffer => ({
+          ({ price, listPrice, seller, quantity, itemOffered }: any) => ({
             price,
             listPrice,
             seller,
