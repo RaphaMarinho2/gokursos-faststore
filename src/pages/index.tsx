@@ -111,6 +111,8 @@ function Page(props: Props) {
         qtyDesk={4}
         title="Confiam na GoKursos"
         pretitle="Grandes Parceiros"
+        navigationAutomatic
+        timeoutNavigationAutomatic={5000}
       />
 
       <PersonShelf
@@ -121,6 +123,7 @@ function Page(props: Props) {
         title="Com quem"
         pretitle="Você irá aprender"
       />
+
       <HomeProductShelf
         pretitle="Disciplina Universitária"
         title="Em caráter especial"

@@ -1,5 +1,5 @@
 import './styles.scss'
-import Carousel from '@acctglobal/carousel-universal'
+import Carousel from 'src/components/common/Carousel'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 type PersonShelfType = {
@@ -17,6 +17,8 @@ type PersonShelfType = {
   qtyDesk?: number
   title?: string
   pretitle?: string
+  navigationAutomatic?: boolean
+  timeoutNavigationAutomatic?: number
 }
 
 const PersonShelf = ({
@@ -28,11 +30,16 @@ const PersonShelf = ({
   qtyDesk,
   title,
   pretitle,
+  navigationAutomatic,
+  timeoutNavigationAutomatic,
 }: PersonShelfType) => {
   const { isMobile, isTablet } = useWindowDimensions()
   const mobileShelfQty = qtyMobile ?? 2
   const tabletShelfQty = qtyTablet ?? 4
   const deskShelfQty = qtyDesk ?? 5
+  const autoPlay = !!navigationAutomatic
+
+  console.info('autoPlay?', autoPlay)
 
   const shelfItemQuantity = isMobile
     ? mobileShelfQty
@@ -65,6 +72,8 @@ const PersonShelf = ({
       {pretitle && <h4 className="pretitle">{pretitle}</h4>}
       {title && <h3 className="title">{title}</h3>}
       <Carousel
+        navigationAutomatic={autoPlay}
+        timeoutNavigationAutomatic={timeoutNavigationAutomatic}
         arrow={{
           isVisible: true,
           iconColor: '#004E98',
