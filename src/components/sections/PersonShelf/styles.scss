@@ -3,19 +3,20 @@
 .component-shelf-container {
   width: 100%;
 
-  .title{
-    font-weight: 600;
-    font-size: 16px;
-    color: #000;
+  .title {
     margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
   }
 
   .pretitle {
     font-size: 14px;
-    color: #FF3452;
+    color: #ff3452;
   }
 
-  .title, .pretitle {
+  .title,
+  .pretitle {
     padding-left: 24px;
   }
 
@@ -24,28 +25,29 @@
       .carousel-arrow-button-prev,
       .carousel-arrow-button-next {
         top: calc(50% - 15px);
+
         @include media(">=tablet") {
-            top: calc(50% - 45px);
+          top: calc(50% - 45px);
         }
       }
     }
 
     img {
-        height: 246px;
-        object-fit: cover;
+      height: 246px;
+      object-fit: cover;
     }
 
     .component-shelf__content {
-        position: relative;
+      position: relative;
     }
   }
 
   &.partner {
     @media screen and (max-width: 767px) {
-        img {
-            height: 128px;
-            object-fit: cover;
-        }
+      img {
+        height: 128px;
+        object-fit: cover;
+      }
     }
   }
 
@@ -62,57 +64,75 @@
   }
 
   .carousel-container {
-        >div {
-            .component-shelf__content {
-                padding: 0 8px;
-            }
-            @include media(">=tablet") {
-                .component-shelf__content {
-                    padding: 0 12px;
-                }
-            }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    >div {
+      .component-shelf__content {
+        padding: 0 8px;
+      }
+
+      @include media(">=tablet") {
+        .component-shelf__content {
+          padding: 0 12px;
         }
+      }
+    }
   }
 
   .component-shelf__content {
-    h3,p {
-        position: absolute;
-        z-index: 999;
-        left: 20px;
+    h3,
+    p {
+      position: absolute;
+      left: 15px;
+      z-index: 999;
+
+      @media screen and (min-width: 380px) {
+        font-size: 20px;
+      }
     }
 
     h3 {
-      font-size: 16px;
+      bottom: 58px;
+      font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 150%;
       color: #fff;
-      bottom: 58px;
 
       @include media(">=tablet") {
         color: #000;
       }
+
+      @media screen and (min-width: 380px) {
+        font-size: 16px;
+      }
     }
 
     p {
-      font-size: 12px;
-      font-style: normal;
-      color: #f5f5f5;
       bottom: 30px;
-
+      font-size: 10px;
+      font-style: normal;
       font-weight: 400;
+      color: #f5f5f5;
 
       @include media(">=tablet") {
-        color: #555555;
         font-weight: normal;
         font-weight: 700;
+        color: #555555;
+      }
+
+      @media screen and (min-width: 380px) {
+        font-size: 12px;
       }
     }
 
     @include media(">=tablet") {
-        h3,p {
-            position: unset
-        }
+      h3,
+      p {
+        position: unset;
+      }
     }
   }
 
