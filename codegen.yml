@@ -2,6 +2,7 @@ overwrite: true
 schema: http://localhost:8000/__graphql
 documents:
   - ./src/**/*.{ts,tsx}
+  - ./api/**/*.{ts,tsx}
 config:
 generates:
   ./@generated/graphql/index.ts:
