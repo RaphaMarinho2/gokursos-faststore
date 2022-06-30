@@ -96,6 +96,8 @@ function Page(props: Props) {
         classNameShelf="partner"
         qtyMobile={1}
         qtyDesk={4}
+        title="Confiam na GoKursos"
+        pretitle="Grandes Parceiros"
       />
 
       <PersonShelf
@@ -103,6 +105,8 @@ function Page(props: Props) {
         classNameShelf="teachers"
         qtyMobile={2}
         qtyDesk ={5}
+        title="Com quem"
+        pretitle="Você irá aprender"
       />
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>

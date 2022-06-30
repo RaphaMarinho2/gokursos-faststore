@@ -3,6 +3,22 @@
 .component-shelf-container {
   width: 100%;
 
+  .title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 8px;
+  }
+
+  .pretitle {
+    font-size: 14px;
+    color: #FF3452;
+  }
+
+  .title, .pretitle {
+    padding-left: 24px;
+  }
+
   &.teachers {
     .carousel-content {
       .carousel-arrow-button-prev,
@@ -21,6 +37,13 @@
 
     .component-shelf__content {
         position: relative;
+    }
+  }
+
+  &.partner {
+    img {
+        height: 128px;
+        object-fit: cover;
     }
   }
 

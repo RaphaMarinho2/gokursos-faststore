@@ -15,6 +15,8 @@ type PersonShelfType = {
   qtyMobile?: number
   qtyTablet?: number
   qtyDesk?: number
+  title?: string
+  pretitle?: string
 }
 
 const PersonShelf = ({
@@ -24,6 +26,8 @@ const PersonShelf = ({
   qtyMobile,
   qtyTablet,
   qtyDesk,
+  title,
+  pretitle,
 }: PersonShelfType) => {
   const { isMobile, isTablet } = useWindowDimensions()
   const mobileShelfQty = qtyMobile ?? 2
@@ -58,6 +62,8 @@ const PersonShelf = ({
       ${classNameShelf ?? ''} 
       ${withDivisor ? 'section__divisor' : ''}`}
     >
+      {pretitle && <h4 className="pretitle">{pretitle}</h4>}
+      {title && <h3 className="title">{title}</h3>}
       <Carousel
         arrow={{
           isVisible: true,
