@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+
+- **GM-71** - Best Courses component.
+### Fixed
+
+## [0.6.0] - 2022-06-29
+
+### Added
+- **GM-89** - Product Shelf with menu selector.
+- **GM-32** - Main Banner component.
+
+### Fixed
+
+- **GM-267** - Video section styles.
+- **GM-294** - Fix shelf title typo.
+
+## [0.5.0] - 2022-06-23
+
+### Added
+
+- **GM-87** - Product showcase home.
+- **GM-90** - DUCE Product Showcase component.
+- **GM-94** - Breadcrumb component style.
+
+### Fixed
+
+- **GM-262** - BannerMedium component alignment.
+- **GM-268** - SearchBar component style.
+- **GM-257** - Minicart styles.
+
+## [0.4.0] - 2022-06-22
 
 ### Added
 

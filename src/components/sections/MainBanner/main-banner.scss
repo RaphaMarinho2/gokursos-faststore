@@ -1,0 +1,133 @@
+@import "src/styles/scaffold";
+
+.main-banner {
+  display: block;
+  width: calc(100% - 32px);
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  @include media(">=notebook") {
+    width: calc(100% - 80px);
+  }
+
+  .carousel-content {
+    position: relative;
+
+    .bullets-container {
+      margin-top: 16px;
+
+      .active {
+        width: 31px !important; /* stylelint-disable-line declaration-no-important */
+      }
+    }
+
+    .carousel-arrow-button-prev,
+    .carousel-arrow-button-next {
+      position: absolute;
+      top: 40%;
+      z-index: 2;
+    }
+
+    .carousel-arrow-button-prev {
+      left: -12px;
+
+      @include media(">=notebook") {
+        left: -16px;
+      }
+    }
+
+    .carousel-arrow-button-next {
+      right: -12px;
+
+      @include media(">=notebook") {
+        right: -16px;
+      }
+    }
+
+    .carousel-container {
+      overflow-x: hidden !important; /* stylelint-disable-line declaration-no-important */
+
+      [data-store-banner] {
+        position: relative;
+
+        [data-banner-content] {
+          position: absolute;
+          top: 10%;
+          left: 37px;
+          color: #fff;
+
+          @include media(">=phonemid") {
+            top: 15%;
+          }
+
+          @include media(">=tablet") {
+            top: 30%;
+          }
+
+          @include media(">=notebook") {
+            top: 20%;
+            left: 110px;
+          }
+
+          .main-banner__title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 36px;
+
+            @include media(">=notebook") {
+              font-size: 32px;
+              line-height: 48px;
+            }
+          }
+
+          .main-banner__subtitle {
+            width: 205px;
+            height: 54px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+
+            @include media(">=tablet") {
+              width: 275px;
+            }
+
+            @include media(">=notebook") {
+              width: 407px;
+              height: 60px;
+              font-size: 20px;
+              line-height: 30px;
+            }
+          }
+
+          [data-store-link] {
+            [data-store-button] {
+              min-width: 145px;
+              max-width: 155px;
+              padding: 10px 20px;
+              margin-top: 16px;
+              border: 0;
+              border-radius: 4px;
+
+              @include media(">=notebook") {
+                min-width: 188px;
+                max-width: 200px;
+                padding: 8px 35px;
+              }
+
+              .main-banner__button-label {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 18px;
+
+                @include media(">=notebook") {
+                  font-size: 16px;
+                  line-height: 24px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

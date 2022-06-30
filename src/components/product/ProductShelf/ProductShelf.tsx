@@ -6,9 +6,10 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductCard from '../ProductCard'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
-  title: string | JSX.Element
+  title?: string | JSX.Element
   cardsQuantity?: number
   withDivisor?: boolean
+  pretitle?: string
 }
 
 function ClkBtn() {
@@ -22,6 +23,7 @@ function ProductBtnBuyInPage() {
 function ProductShelf({
   cardsQuantity,
   title,
+  pretitle,
   withDivisor = false,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
@@ -47,12 +49,15 @@ function ProductShelf({
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
 
+  console.info('Shelf')
+
   return (
     <div
       className={`product-shelf-container layout__section ${
         withDivisor ? 'section__divisor' : ''
       }`}
     >
+      {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
       <h2 className="product-shelf-title">{title}</h2>
       <Carousel
         arrow={{

@@ -9,9 +9,11 @@ import './pdp-product-shelf.scss'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
+  pretitle?: string
+  title: string
 }
 
-const PDPProductShelf = ({ product }: Props) => {
+const PDPProductShelf = ({ product, title, pretitle }: Props) => {
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -22,7 +24,8 @@ const PDPProductShelf = ({ product }: Props) => {
         cardsQuantity={shelfItemQuantity}
         first={ITEMS_PER_SECTION}
         term={product.brand.name}
-        title="Cursos relacionados"
+        title={title}
+        pretitle={pretitle}
         withDivisor
       />
     </Section>

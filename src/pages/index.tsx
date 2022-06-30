@@ -1,18 +1,19 @@
 import { useSession } from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo, JsonLd } from 'gatsby-plugin-next-seo'
-import Hero from 'src/components/sections/Hero'
-import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
-import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
 import 'src/styles/pages/homepage.scss'
 import HomeProductShelf from 'src/components/sections/HomeProductShelf'
+import BlockDesktop from 'src/components/sections/ShelfWithFilter'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
+import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
 import PersonShelf from 'src/components/sections/PersonShelf'
+import BestCourses from 'src/components/sections/BestCourses'
+import selectedTabs from 'src/mocks/bestSellerList.json'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -25,6 +26,8 @@ function Page(props: Props) {
       allContentfulBannerMedium,
       allContentfulPersons,
       allContentfulParceiros,
+      allContentfulBestCourses,
+      allContentfulMainBanner,
     },
     location: { pathname, host },
   } = props
@@ -74,20 +77,30 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-      <Hero
-        title="New Products Available"
-        subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
-        linkText="See all"
-        link="/"
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
+
+      <MainBanner nodes={allContentfulMainBanner.nodes} />
+
+      <BestCourses
+        title="Principais"
+        subtitle="Categorias de Cursos"
+        nodes={allContentfulBestCourses.nodes}
       />
 
-      <IncentivesHeader incentives={IncentivesMock} />
+      <HomeProductShelf pretitle="" title="Mais vendidos" />
 
-      <HomeProductShelf />
+      <BlockDesktop
+        title="Vendidos"
+        pretitle="Mais"
+        navigattionTabs={selectedTabs.data}
+      />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
+
+      <HomeProductShelf
+        pretitle="Confira os cursos"
+        title="Lançados recentemente"
+      />
+
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
 
       <PersonShelf
@@ -104,10 +117,15 @@ function Page(props: Props) {
         nodes={allContentfulPersons.nodes}
         classNameShelf="teachers"
         qtyMobile={2}
-        qtyDesk ={5}
+        qtyDesk={5}
         title="Com quem"
         pretitle="Você irá aprender"
       />
+      <HomeProductShelf
+        pretitle="Disciplina Universitária"
+        title="Em caráter especial"
+      />
+
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
   )
@@ -130,6 +148,22 @@ export const querySSG = graphql`
         }
       }
     }
+    allContentfulMainBanner {
+      nodes {
+        title
+        subtitle
+        imageDesktop {
+          url
+        }
+        imageMobile {
+          url
+        }
+        slug
+        buttonLabel
+        buttonColor
+        buttonTextColor
+      }
+    }
     allContentfulVideoSection {
       nodes {
         video {
@@ -142,6 +176,7 @@ export const querySSG = graphql`
         buttonUrl
         content
         title
+        miniText
       }
     }
     allContentfulBannerMedium {
@@ -164,6 +199,15 @@ export const querySSG = graphql`
     allContentfulParceiros {
       nodes {
         imagem {
+          url
+        }
+      }
+    }
+    allContentfulBestCourses(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        name
+        slug
+        image {
           url
         }
       }
