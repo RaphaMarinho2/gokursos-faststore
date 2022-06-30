@@ -7,8 +7,20 @@
     .carousel-content {
       .carousel-arrow-button-prev,
       .carousel-arrow-button-next {
-        top: calc(50% - 45px);
+        top: calc(50% - 15px);
+        @include media(">=tablet") {
+            top: calc(50% - 45px);
+        }
       }
+    }
+
+    img {
+        height: 246px;
+        object-fit: cover;
+    }
+
+    .component-shelf__content {
+        position: relative;
     }
   }
 
@@ -25,11 +37,23 @@
   }
 
   .carousel-container {
-    padding: 0 16px;
+        >div {
+            .component-shelf__content {
+                padding: 0 8px;
+            }
+            @include media(">=tablet") {
+                .component-shelf__content {
+                    padding: 0 16px;
+                }
+            }
+        }
   }
 
   .component-shelf__content {
-    padding-right: 32px;
+    h3,p {
+        position: absolute;
+        z-index: 999;
+    }
 
     h3 {
       padding-top: 15px;
@@ -37,14 +61,33 @@
       font-style: normal;
       font-weight: 600;
       line-height: 150%;
+      color: #fff;
+      bottom: 58px;
+
+      @include media(">=tablet") {
+        color: #000;
+      }
     }
 
     p {
       font-size: 12px;
       font-style: normal;
-      font-weight: 700;
-      line-height: 130%;
-      color: #555555;
+      color: #f5f5f5;
+      bottom: 30px;
+
+      font-weight: 400;
+
+      @include media(">=tablet") {
+        color: #555555;
+        font-weight: normal;
+        font-weight: 700;
+      }
+    }
+
+    @include media(">=tablet") {
+        h3,p {
+            position: unset
+        }
     }
   }
 

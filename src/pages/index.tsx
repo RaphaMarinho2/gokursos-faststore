@@ -102,6 +102,7 @@ function Page(props: Props) {
         nodes={allContentfulPersons.nodes}
         classNameShelf="teachers"
         qtyMobile={2}
+        qtyDesk ={5}
       />
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>

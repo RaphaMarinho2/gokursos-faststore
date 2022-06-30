@@ -65,6 +65,7 @@ const PersonShelf = ({
           style: sizeArrowCarousel,
         }}
         qtyItems={shelfItemQuantity}
+        gapItems={0}
       >
         {nodes.map((node, index) => {
           const { name, curso, imagem } = node
