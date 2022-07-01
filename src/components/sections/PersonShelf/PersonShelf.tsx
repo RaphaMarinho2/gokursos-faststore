@@ -85,7 +85,7 @@ const PersonShelf = ({
 
           return (
             <div key={index} className="component-shelf__content">
-              {imagem?.url && name && <img src={imagem?.url} alt={name} />}
+              {imagem?.url && <img src={imagem?.url} alt={name ?? ''} />}
               <h3>{name}</h3>
               <p>{curso}</p>
             </div>
