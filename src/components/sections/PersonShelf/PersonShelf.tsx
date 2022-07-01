@@ -39,8 +39,6 @@ const PersonShelf = ({
   const deskShelfQty = qtyDesk ?? 5
   const autoPlay = !!navigationAutomatic
 
-  console.info('autoPlay?', autoPlay)
-
   const shelfItemQuantity = isMobile
     ? mobileShelfQty
     : isTablet
