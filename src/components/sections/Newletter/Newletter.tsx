@@ -14,7 +14,7 @@ const Newletter = ({ nodes }: NewletterType) => {
   // eslint-disable-next-line prefer-destructuring
   const subtitulo = nodes[nodes.length - 1].subtitulo
   const { politica } = nodes[nodes.length - 1]
-  const buttonNewletter = <button>Cadrastrar</button>
+  const buttonNewletter = <button>Cadastrar</button>
   const { isMobile } = useWindowDimensions()
 
   return (
