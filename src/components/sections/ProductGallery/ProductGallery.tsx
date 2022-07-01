@@ -81,7 +81,12 @@ function ProductGallery({ title, searchTerm }: Props) {
 
         <div className="product-listing__results-count" data-count={totalCount}>
           <SkeletonElement shimmer type="text" loading={!data}>
-            <h2 data-testid="total-product-count">{totalCount} Results</h2>
+            <h2 data-testid="total-product-count">
+              <span>Mostrando</span>
+              <span>
+                {totalCount} de {totalCount} produtos
+              </span>
+            </h2>
           </SkeletonElement>
         </div>
 
