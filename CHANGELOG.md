@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
+- **GM-48** - Quantity in category page.
 - **GM-15** - Created Banner Category component.
 - **GM-71** - Best Courses component.
 ### Fixed
