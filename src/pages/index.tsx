@@ -11,6 +11,7 @@ import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
+import PersonShelf from 'src/components/sections/PersonShelf'
 import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
 import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
@@ -24,6 +25,8 @@ function Page(props: Props) {
       allContentfulCommonQuestions,
       allContentfulVideoSection,
       allContentfulBannerMedium,
+      allContentfulPersons,
+      allContentfulParceiros,
       allContentfulBestCourses,
       allContentfulMainBanner,
     },
@@ -99,6 +102,27 @@ function Page(props: Props) {
 
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
 
+      <PersonShelf
+        nodes={allContentfulParceiros.nodes}
+        withDivisor
+        classNameShelf="partner"
+        qtyMobile={1}
+        qtyDesk={4}
+        title="Confiam na GoKursos"
+        pretitle="Grandes Parceiros"
+        navigationAutomatic
+        timeoutNavigationAutomatic={5000}
+      />
+
+      <PersonShelf
+        nodes={allContentfulPersons.nodes}
+        classNameShelf="teachers"
+        qtyMobile={2}
+        qtyDesk={5}
+        title="Com quem"
+        pretitle="Você irá aprender"
+      />
+
       <HomeProductShelf
         pretitle="Disciplina Universitária"
         title="Em caráter especial"
@@ -161,6 +185,22 @@ export const querySSG = graphql`
       nodes {
         link
         imagemBannerMedium {
+          url
+        }
+      }
+    }
+    allContentfulPersons {
+      nodes {
+        name
+        curso
+        imagem {
+          url
+        }
+      }
+    }
+    allContentfulParceiros {
+      nodes {
+        imagem {
           url
         }
       }
