@@ -4,11 +4,11 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 type PersonShelfType = {
   nodes: Array<{
-    name?: string
-    curso?: string
+    name?: string | null
+    curso?: string | null
     imagem: {
-      url: string
-    }
+      url: string | null
+    } | null
   }>
   withDivisor?: boolean
   classNameShelf?: string
@@ -63,8 +63,8 @@ const PersonShelf = ({
 
   return (
     <div
-      className={`component-shelf-container layout__section 
-      ${classNameShelf ?? ''} 
+      className={`component-shelf-container layout__section
+      ${classNameShelf ?? ''}
       ${withDivisor ? 'section__divisor' : ''}`}
     >
       {pretitle && <h4 className="pretitle">{pretitle}</h4>}
@@ -85,7 +85,7 @@ const PersonShelf = ({
 
           return (
             <div key={index} className="component-shelf__content">
-              <img src={imagem?.url} alt={name} />
+              {imagem?.url && name && <img src={imagem?.url} alt={name} />}
               <h3>{name}</h3>
               <p>{curso}</p>
             </div>

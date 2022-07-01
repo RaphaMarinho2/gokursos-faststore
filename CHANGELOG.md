@@ -9,12 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **GM-84** - Agnostic component for simple shelfs[with who you will learn].
 - **GM-83** - Agnostic component for simple shelfs[partners who trust in us].
+- **GM-15** - Created Banner Category component.
 - **GM-71** - Best Courses component.
 ### Fixed
 
 ## [0.6.0] - 2022-06-29
 
 ### Added
+
 - **GM-89** - Product Shelf with menu selector.
 - **GM-32** - Main Banner component.
 
