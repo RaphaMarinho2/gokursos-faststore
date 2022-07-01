@@ -84,8 +84,6 @@ function Page(props: Props) {
         nodes={allContentfulBestCourses.nodes}
       />
 
-      <HomeProductShelf pretitle="" title="Mais vendidos" />
-
       <BlockDesktop
         title="Vendidos"
         pretitle="Mais"
