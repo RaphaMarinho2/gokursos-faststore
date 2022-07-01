@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-
+- **GM-84** - Agnostic component for simple shelfs[with who you will learn].
+- **GM-83** - Agnostic component for simple shelfs[partners who trust in us].
 - **GM-15** - Created Banner Category component.
 - **GM-71** - Best Courses component.
 ### Fixed
