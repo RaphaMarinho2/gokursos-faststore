@@ -32,7 +32,7 @@ const Newletter = ({ nodes }: NewletterType) => {
                 <input type="text" placeholder="Digite seu nome" />
               </div>
               <div className="formulario-itens">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">E-mail</label>
                 <input type="text" placeholder="Digite seu e-mail" />
               </div>
               {!isMobile && buttonNewletter}
