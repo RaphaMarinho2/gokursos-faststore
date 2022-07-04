@@ -4,9 +4,10 @@ import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
 import { useUI } from 'src/sdk/ui'
 import type { PropsWithChildren } from 'react'
-
 import 'src/styles/pages/layout.scss'
+
 import Topbar from './components/common/TopBar'
+import Newletter from './components/sections/Newletter'
 
 const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
 
@@ -21,6 +22,8 @@ function Layout({ children }: PropsWithChildren<unknown>) {
         <Navbar />
 
         <main>{children}</main>
+
+        <Newletter />
 
         <Footer />
 
