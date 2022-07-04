@@ -70,6 +70,14 @@
     min-height: var(--fs-spacing-5);
   }
 
+  [data-testid="open-filter-button"] {
+    display: none;
+
+    @media screen and (min-width: 425px) {
+      display: block;
+    }
+  }
+
   @include media(">=notebook") {
     grid-column: 6 / span 7;
     justify-content: flex-end;
@@ -90,7 +98,7 @@
 .product-listing__results-count {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   order: 2;
   min-height: rem(45px);
   padding: var(--fs-spacing-2) var(--fs-spacing-3);
@@ -107,6 +115,27 @@
 
   [data-element-variant="text"] {
     min-width: rem(130px);
+  }
+
+  h2 {
+    position: relative;
+    display: flex;
+
+    span {
+      font-size: 16px;
+      line-height: 24px;
+
+      &:first-of-type {
+        width: 92px;
+        color: #666666;
+      }
+
+      &:last-of-type {
+        display: block;
+        width: 210px;
+        font-weight: 600;
+      }
+    }
   }
 }
 

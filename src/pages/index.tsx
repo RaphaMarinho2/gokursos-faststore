@@ -11,6 +11,8 @@ import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
+import PersonShelf from 'src/components/sections/PersonShelf'
+import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
 
 export type Props = PageProps<HomePageQueryQuery>
@@ -22,6 +24,9 @@ function Page(props: Props) {
       allContentfulCommonQuestions,
       allContentfulVideoSection,
       allContentfulBannerMedium,
+      allContentfulPersons,
+      allContentfulParceiros,
+      allContentfulBestCourses,
       allContentfulMainBanner,
     },
     location: { pathname, host },
@@ -75,6 +80,14 @@ function Page(props: Props) {
 
       <MainBanner nodes={allContentfulMainBanner.nodes} />
 
+      <BestCourses
+        title="Principais"
+        subtitle="Categorias de Cursos"
+        nodes={allContentfulBestCourses.nodes}
+      />
+
+      <HomeProductShelf pretitle="" title="Mais vendidos" />
+
       <BlockDesktop
         title="Vendidos"
         pretitle="Mais"
@@ -89,6 +102,27 @@ function Page(props: Props) {
       />
 
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
+
+      <PersonShelf
+        nodes={allContentfulParceiros.nodes}
+        withDivisor
+        classNameShelf="partner"
+        qtyMobile={1}
+        qtyDesk={4}
+        title="Confiam na GoKursos"
+        pretitle="Grandes Parceiros"
+        navigationAutomatic
+        timeoutNavigationAutomatic={5000}
+      />
+
+      <PersonShelf
+        nodes={allContentfulPersons.nodes}
+        classNameShelf="teachers"
+        qtyMobile={2}
+        qtyDesk={5}
+        title="Com quem"
+        pretitle="Você irá aprender"
+      />
 
       <HomeProductShelf
         pretitle="Disciplina Universitária"
@@ -152,6 +186,31 @@ export const querySSG = graphql`
       nodes {
         link
         imagemBannerMedium {
+          url
+        }
+      }
+    }
+    allContentfulPersons {
+      nodes {
+        name
+        curso
+        imagem {
+          url
+        }
+      }
+    }
+    allContentfulParceiros {
+      nodes {
+        imagem {
+          url
+        }
+      }
+    }
+    allContentfulBestCourses(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        name
+        slug
+        image {
           url
         }
       }

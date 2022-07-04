@@ -6,8 +6,17 @@ import { mark } from 'src/sdk/tests/mark'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
+import BannerCategory from 'src/components/sections/BannerCategory'
+import type { PageProps } from 'gatsby'
+import { graphql } from 'gatsby'
+import type { DepartmentPageQueryQuery } from '@generated/graphql'
 
-function Page() {
+export type Props = PageProps<DepartmentPageQueryQuery>
+function Page(props: Props) {
+  const {
+    data: { allContentfulBannerDepartmentCategory },
+  } = props
+
   const collection = ServerCollectionPageQuery
 
   const title = collection?.seo.title ?? ''
@@ -35,12 +44,38 @@ function Page() {
         name={title}
       />
 
+      <BannerCategory nodes={allContentfulBannerDepartmentCategory.nodes} />
+
       <ProductGallery title={title} />
 
       <ScrollToTopButton />
     </SearchProvider>
   )
 }
+
+export const querySSG = graphql`
+  query DepartmentPageQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        titleTemplate
+      }
+    }
+    allContentfulBannerDepartmentCategory {
+      nodes {
+        title
+        subtitle
+        imageDesktop {
+          url
+        }
+        imageMobile {
+          url
+        }
+      }
+    }
+  }
+`
 
 Page.displayName = 'Page'
 export default mark(Page)

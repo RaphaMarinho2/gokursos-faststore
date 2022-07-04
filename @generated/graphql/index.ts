@@ -390,6 +390,401 @@ export type ContentfulAssetSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulBannerDepartmentCategory = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    imageDesktop: Maybe<ContentfulAsset>
+    imageMobile: Maybe<ContentfulAsset>
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    spaceId: Maybe<Scalars['String']>
+    subtitle: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulBannerDepartmentCategorySys>
+    title: Maybe<Scalars['String']>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulBannerDepartmentCategoryCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulBannerDepartmentCategoryUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulBannerDepartmentCategoryConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBannerDepartmentCategoryEdge>
+  group: Array<ContentfulBannerDepartmentCategoryGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBannerDepartmentCategory>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBannerDepartmentCategoryConnectionDistinctArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryConnectionGroupArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBannerDepartmentCategoryConnectionMaxArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryConnectionMinArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryConnectionSumArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryEdge = {
+  next: Maybe<ContentfulBannerDepartmentCategory>
+  node: ContentfulBannerDepartmentCategory
+  previous: Maybe<ContentfulBannerDepartmentCategory>
+}
+
+export type ContentfulBannerDepartmentCategoryFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'imageDesktop___children'
+  | 'imageDesktop___children___children'
+  | 'imageDesktop___children___children___children'
+  | 'imageDesktop___children___children___id'
+  | 'imageDesktop___children___id'
+  | 'imageDesktop___children___internal___content'
+  | 'imageDesktop___children___internal___contentDigest'
+  | 'imageDesktop___children___internal___description'
+  | 'imageDesktop___children___internal___fieldOwners'
+  | 'imageDesktop___children___internal___ignoreType'
+  | 'imageDesktop___children___internal___mediaType'
+  | 'imageDesktop___children___internal___owner'
+  | 'imageDesktop___children___internal___type'
+  | 'imageDesktop___children___parent___children'
+  | 'imageDesktop___children___parent___id'
+  | 'imageDesktop___contentful_id'
+  | 'imageDesktop___createdAt'
+  | 'imageDesktop___description'
+  | 'imageDesktop___file___contentType'
+  | 'imageDesktop___file___details___size'
+  | 'imageDesktop___file___fileName'
+  | 'imageDesktop___file___url'
+  | 'imageDesktop___filename'
+  | 'imageDesktop___filesize'
+  | 'imageDesktop___gatsbyImage'
+  | 'imageDesktop___gatsbyImageData'
+  | 'imageDesktop___height'
+  | 'imageDesktop___id'
+  | 'imageDesktop___internal___content'
+  | 'imageDesktop___internal___contentDigest'
+  | 'imageDesktop___internal___description'
+  | 'imageDesktop___internal___fieldOwners'
+  | 'imageDesktop___internal___ignoreType'
+  | 'imageDesktop___internal___mediaType'
+  | 'imageDesktop___internal___owner'
+  | 'imageDesktop___internal___type'
+  | 'imageDesktop___mimeType'
+  | 'imageDesktop___node_locale'
+  | 'imageDesktop___parent___children'
+  | 'imageDesktop___parent___children___children'
+  | 'imageDesktop___parent___children___id'
+  | 'imageDesktop___parent___id'
+  | 'imageDesktop___parent___internal___content'
+  | 'imageDesktop___parent___internal___contentDigest'
+  | 'imageDesktop___parent___internal___description'
+  | 'imageDesktop___parent___internal___fieldOwners'
+  | 'imageDesktop___parent___internal___ignoreType'
+  | 'imageDesktop___parent___internal___mediaType'
+  | 'imageDesktop___parent___internal___owner'
+  | 'imageDesktop___parent___internal___type'
+  | 'imageDesktop___parent___parent___children'
+  | 'imageDesktop___parent___parent___id'
+  | 'imageDesktop___placeholderUrl'
+  | 'imageDesktop___publicUrl'
+  | 'imageDesktop___resize___height'
+  | 'imageDesktop___resize___src'
+  | 'imageDesktop___resize___width'
+  | 'imageDesktop___size'
+  | 'imageDesktop___spaceId'
+  | 'imageDesktop___sys___revision'
+  | 'imageDesktop___sys___type'
+  | 'imageDesktop___title'
+  | 'imageDesktop___updatedAt'
+  | 'imageDesktop___url'
+  | 'imageDesktop___width'
+  | 'imageMobile___children'
+  | 'imageMobile___children___children'
+  | 'imageMobile___children___children___children'
+  | 'imageMobile___children___children___id'
+  | 'imageMobile___children___id'
+  | 'imageMobile___children___internal___content'
+  | 'imageMobile___children___internal___contentDigest'
+  | 'imageMobile___children___internal___description'
+  | 'imageMobile___children___internal___fieldOwners'
+  | 'imageMobile___children___internal___ignoreType'
+  | 'imageMobile___children___internal___mediaType'
+  | 'imageMobile___children___internal___owner'
+  | 'imageMobile___children___internal___type'
+  | 'imageMobile___children___parent___children'
+  | 'imageMobile___children___parent___id'
+  | 'imageMobile___contentful_id'
+  | 'imageMobile___createdAt'
+  | 'imageMobile___description'
+  | 'imageMobile___file___contentType'
+  | 'imageMobile___file___details___size'
+  | 'imageMobile___file___fileName'
+  | 'imageMobile___file___url'
+  | 'imageMobile___filename'
+  | 'imageMobile___filesize'
+  | 'imageMobile___gatsbyImage'
+  | 'imageMobile___gatsbyImageData'
+  | 'imageMobile___height'
+  | 'imageMobile___id'
+  | 'imageMobile___internal___content'
+  | 'imageMobile___internal___contentDigest'
+  | 'imageMobile___internal___description'
+  | 'imageMobile___internal___fieldOwners'
+  | 'imageMobile___internal___ignoreType'
+  | 'imageMobile___internal___mediaType'
+  | 'imageMobile___internal___owner'
+  | 'imageMobile___internal___type'
+  | 'imageMobile___mimeType'
+  | 'imageMobile___node_locale'
+  | 'imageMobile___parent___children'
+  | 'imageMobile___parent___children___children'
+  | 'imageMobile___parent___children___id'
+  | 'imageMobile___parent___id'
+  | 'imageMobile___parent___internal___content'
+  | 'imageMobile___parent___internal___contentDigest'
+  | 'imageMobile___parent___internal___description'
+  | 'imageMobile___parent___internal___fieldOwners'
+  | 'imageMobile___parent___internal___ignoreType'
+  | 'imageMobile___parent___internal___mediaType'
+  | 'imageMobile___parent___internal___owner'
+  | 'imageMobile___parent___internal___type'
+  | 'imageMobile___parent___parent___children'
+  | 'imageMobile___parent___parent___id'
+  | 'imageMobile___placeholderUrl'
+  | 'imageMobile___publicUrl'
+  | 'imageMobile___resize___height'
+  | 'imageMobile___resize___src'
+  | 'imageMobile___resize___width'
+  | 'imageMobile___size'
+  | 'imageMobile___spaceId'
+  | 'imageMobile___sys___revision'
+  | 'imageMobile___sys___type'
+  | 'imageMobile___title'
+  | 'imageMobile___updatedAt'
+  | 'imageMobile___url'
+  | 'imageMobile___width'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'spaceId'
+  | 'subtitle'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'title'
+  | 'updatedAt'
+
+export type ContentfulBannerDepartmentCategoryFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  imageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  imageMobile: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulBannerDepartmentCategorySysFilterInput>
+  title: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulBannerDepartmentCategoryGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBannerDepartmentCategoryEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulBannerDepartmentCategoryGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBannerDepartmentCategory>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBannerDepartmentCategoryGroupConnectionDistinctArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryGroupConnectionGroupArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBannerDepartmentCategoryGroupConnectionMaxArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryGroupConnectionMinArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategoryGroupConnectionSumArgs = {
+  field: ContentfulBannerDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulBannerDepartmentCategorySortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulBannerDepartmentCategoryFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulBannerDepartmentCategorySys = {
+  contentType: Maybe<ContentfulBannerDepartmentCategorySysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBannerDepartmentCategorySysContentType = {
+  sys: Maybe<ContentfulBannerDepartmentCategorySysContentTypeSys>
+}
+
+export type ContentfulBannerDepartmentCategorySysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulBannerDepartmentCategorySysContentTypeSysFilterInput>
+}
+
+export type ContentfulBannerDepartmentCategorySysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBannerDepartmentCategorySysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulBannerDepartmentCategorySysFilterInput = {
+  contentType: InputMaybe<ContentfulBannerDepartmentCategorySysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulBannerMedium = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -2942,6 +3337,268 @@ export type ContentfulMainBannerSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulNewsletter = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    politica: Maybe<Scalars['String']>
+    spaceId: Maybe<Scalars['String']>
+    subtitulo: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulNewsletterSys>
+    titulo: Maybe<Scalars['String']>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulNewsletterCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulNewsletterUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulNewsletterConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulNewsletterEdge>
+  group: Array<ContentfulNewsletterGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulNewsletter>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulNewsletterConnectionDistinctArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterConnectionGroupArgs = {
+  field: ContentfulNewsletterFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulNewsletterConnectionMaxArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterConnectionMinArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterConnectionSumArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterEdge = {
+  next: Maybe<ContentfulNewsletter>
+  node: ContentfulNewsletter
+  previous: Maybe<ContentfulNewsletter>
+}
+
+export type ContentfulNewsletterFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'politica'
+  | 'spaceId'
+  | 'subtitulo'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'titulo'
+  | 'updatedAt'
+
+export type ContentfulNewsletterFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  politica: InputMaybe<StringQueryOperatorInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitulo: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulNewsletterSysFilterInput>
+  titulo: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulNewsletterGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulNewsletterEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulNewsletterGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulNewsletter>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulNewsletterGroupConnectionDistinctArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterGroupConnectionGroupArgs = {
+  field: ContentfulNewsletterFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulNewsletterGroupConnectionMaxArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterGroupConnectionMinArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterGroupConnectionSumArgs = {
+  field: ContentfulNewsletterFieldsEnum
+}
+
+export type ContentfulNewsletterSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulNewsletterFieldsEnum>>>
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulNewsletterSys = {
+  contentType: Maybe<ContentfulNewsletterSysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulNewsletterSysContentType = {
+  sys: Maybe<ContentfulNewsletterSysContentTypeSys>
+}
+
+export type ContentfulNewsletterSysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulNewsletterSysContentTypeSysFilterInput>
+}
+
+export type ContentfulNewsletterSysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulNewsletterSysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulNewsletterSysFilterInput = {
+  contentType: InputMaybe<ContentfulNewsletterSysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulParceiros = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -5199,6 +5856,7 @@ export type Query = {
   /** All collections query. */
   allCollections: StoreCollectionConnection
   allContentfulAsset: ContentfulAssetConnection
+  allContentfulBannerDepartmentCategory: ContentfulBannerDepartmentCategoryConnection
   allContentfulBannerMedium: ContentfulBannerMediumConnection
   allContentfulBestCourses: ContentfulBestCoursesConnection
   allContentfulCommonQuestions: ContentfulCommonQuestionsConnection
@@ -5210,6 +5868,7 @@ export type Query = {
   allContentfulFrequentQuestionsQuestionTextNode: ContentfulFrequentQuestionsQuestionTextNodeConnection
   allContentfulInfoproducers: ContentfulInfoproducersConnection
   allContentfulMainBanner: ContentfulMainBannerConnection
+  allContentfulNewsletter: ContentfulNewsletterConnection
   allContentfulParceiros: ContentfulParceirosConnection
   allContentfulPartners: ContentfulPartnersConnection
   allContentfulPersons: ContentfulPersonsConnection
@@ -5227,6 +5886,7 @@ export type Query = {
   /** Collection query. */
   collection: StoreCollection
   contentfulAsset: Maybe<ContentfulAsset>
+  contentfulBannerDepartmentCategory: Maybe<ContentfulBannerDepartmentCategory>
   contentfulBannerMedium: Maybe<ContentfulBannerMedium>
   contentfulBestCourses: Maybe<ContentfulBestCourses>
   contentfulCommonQuestions: Maybe<ContentfulCommonQuestions>
@@ -5238,6 +5898,7 @@ export type Query = {
   contentfulFrequentQuestionsQuestionTextNode: Maybe<ContentfulFrequentQuestionsQuestionTextNode>
   contentfulInfoproducers: Maybe<ContentfulInfoproducers>
   contentfulMainBanner: Maybe<ContentfulMainBanner>
+  contentfulNewsletter: Maybe<ContentfulNewsletter>
   contentfulParceiros: Maybe<ContentfulParceiros>
   contentfulPartners: Maybe<ContentfulPartners>
   contentfulPersons: Maybe<ContentfulPersons>
@@ -5268,6 +5929,13 @@ export type QueryAllContentfulAssetArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulAssetSortInput>
+}
+
+export type QueryAllContentfulBannerDepartmentCategoryArgs = {
+  filter: InputMaybe<ContentfulBannerDepartmentCategoryFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulBannerDepartmentCategorySortInput>
 }
 
 export type QueryAllContentfulBannerMediumArgs = {
@@ -5345,6 +6013,13 @@ export type QueryAllContentfulMainBannerArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulMainBannerSortInput>
+}
+
+export type QueryAllContentfulNewsletterArgs = {
+  filter: InputMaybe<ContentfulNewsletterFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulNewsletterSortInput>
 }
 
 export type QueryAllContentfulParceirosArgs = {
@@ -5466,6 +6141,23 @@ export type QueryContentfulAssetArgs = {
   updatedAt: InputMaybe<DateQueryOperatorInput>
   url: InputMaybe<StringQueryOperatorInput>
   width: InputMaybe<IntQueryOperatorInput>
+}
+
+export type QueryContentfulBannerDepartmentCategoryArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  imageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  imageMobile: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulBannerDepartmentCategorySysFilterInput>
+  title: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
 export type QueryContentfulBannerMediumArgs = {
@@ -5609,6 +6301,22 @@ export type QueryContentfulMainBannerArgs = {
   subtitle: InputMaybe<StringQueryOperatorInput>
   sys: InputMaybe<ContentfulMainBannerSysFilterInput>
   title: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type QueryContentfulNewsletterArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  politica: InputMaybe<StringQueryOperatorInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitulo: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulNewsletterSysFilterInput>
+  titulo: InputMaybe<StringQueryOperatorInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
@@ -8062,6 +8770,20 @@ export type Filter_FacetsFragment = {
   }>
 }
 
+export type AllContentfulNewsletterQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type AllContentfulNewsletterQuery = {
+  allContentfulNewsletter: {
+    nodes: Array<{
+      subtitulo: string | null
+      titulo: string | null
+      politica: string | null
+    }>
+  }
+}
+
 export type ProductDetailsFragment_ProductFragment = {
   sku: string
   name: string
@@ -8255,6 +8977,23 @@ export type HomePageQueryQuery = {
       imagemBannerMedium: { url: string | null } | null
     }>
   }
+  allContentfulPersons: {
+    nodes: Array<{
+      name: string | null
+      curso: string | null
+      imagem: { url: string | null } | null
+    }>
+  }
+  allContentfulParceiros: {
+    nodes: Array<{ imagem: { url: string | null } | null }>
+  }
+  allContentfulBestCourses: {
+    nodes: Array<{
+      name: string | null
+      slug: string | null
+      image: { url: string | null } | null
+    }>
+  }
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>
@@ -8267,6 +9006,26 @@ export type SearchPageQueryQuery = {
       description: string | null
     } | null
   } | null
+}
+
+export type DepartmentPageQueryQueryVariables = Exact<{ [key: string]: never }>
+
+export type DepartmentPageQueryQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulBannerDepartmentCategory: {
+    nodes: Array<{
+      title: string | null
+      subtitle: string | null
+      imageDesktop: { url: string | null } | null
+      imageMobile: { url: string | null } | null
+    }>
+  }
 }
 
 export type ValidateCartMutationMutationVariables = Exact<{
