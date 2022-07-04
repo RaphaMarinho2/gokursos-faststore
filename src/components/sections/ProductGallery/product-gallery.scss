@@ -174,4 +174,18 @@
       width: fit-content;
     }
   }
+
+  [data-testid="show-more"] {
+    padding: 11px 47px;
+    font-size: 14px;
+    color: #666666;
+    border: 1px solid #dddddd;
+
+    &:hover {
+      color: #fff;
+      color: #fff;
+      background-color: #666666;
+      border: 1px solid #666666;
+    }
+  }
 }
