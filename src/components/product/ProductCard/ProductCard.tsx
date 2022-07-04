@@ -45,8 +45,6 @@ function ProductCard({
     },
   } = product
 
-  console.info('ProductCard', ButtonBuy)
-
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
   const outOfStock = availability !== 'https://schema.org/InStock'
 
