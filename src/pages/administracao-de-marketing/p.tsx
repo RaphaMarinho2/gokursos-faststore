@@ -21,6 +21,8 @@ export type Props = PageProps<
 function Page() {
   const { product } = browserProductQuery.data
 
+  const departmentName = 'Negócios'
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -54,7 +56,11 @@ function Page() {
 
       <ProductDetails product={product} />
 
-      <PDPProductShelf pretitle="" title="" product={product} />
+      <PDPProductShelf
+        pretitle=""
+        title={`Mais vendidos de ${departmentName}`}
+        departmentName={departmentName}
+      />
     </>
   )
 }

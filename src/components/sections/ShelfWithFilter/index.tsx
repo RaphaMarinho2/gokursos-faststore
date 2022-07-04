@@ -1,8 +1,3 @@
-// import { useState } from 'react'
-
-// import { Link } from 'gatsby'
-// import { Image } from 'src/components/ui/Image'
-
 import { ITEMS_PER_SECTION } from 'src/constants'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { List } from '@faststore/ui'
