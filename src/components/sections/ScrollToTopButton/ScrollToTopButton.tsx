@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Icon from 'src/components/ui/Icon'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { Button } from '@faststore/ui'
 
 import type { UIButtonProps } from '../../ui/Button'
-
 import './scroll-to-top-button.scss'
+import { useScroll } from './utils/useScroll'
 
 interface ScrollToTopButtonProps {
   iconMobile?: UIButtonProps['icon']
@@ -18,16 +18,6 @@ function ScrollToTopButton({
 }: ScrollToTopButtonProps) {
   const [visibleTop, setVisibleTop] = useState(false)
   const { isTablet } = useWindowDimensions()
-
-  function useScroll(callback: () => void): void {
-    useEffect(() => {
-      window?.addEventListener('scroll', callback)
-
-      return () => {
-        window?.removeEventListener('scroll', callback)
-      }
-    }, [callback])
-  }
 
   useScroll(() => {
     const topPage = function checkIsPageTop() {
