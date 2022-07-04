@@ -5,7 +5,7 @@ import { Button } from '@faststore/ui'
 
 import type { UIButtonProps } from '../../ui/Button'
 import './scroll-to-top-button.scss'
-import { useScroll } from './utils/useScroll'
+import { useScroll } from './hooks/useScroll'
 
 interface ScrollToTopButtonProps {
   iconMobile?: UIButtonProps['icon']
