@@ -89,6 +89,7 @@ const gatsbyConfig: GatsbyConfig = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: resolve('./src'),
+        api: resolve('./api'),
         '@generated': resolve('./@generated'),
       },
     },
