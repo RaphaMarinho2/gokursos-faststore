@@ -8770,6 +8770,20 @@ export type Filter_FacetsFragment = {
   }>
 }
 
+export type AllContentfulNewsletterQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type AllContentfulNewsletterQuery = {
+  allContentfulNewsletter: {
+    nodes: Array<{
+      subtitulo: string | null
+      titulo: string | null
+      politica: string | null
+    }>
+  }
+}
+
 export type ProductDetailsFragment_ProductFragment = {
   sku: string
   name: string
