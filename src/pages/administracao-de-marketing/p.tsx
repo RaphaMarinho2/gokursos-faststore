@@ -59,7 +59,7 @@ function Page() {
       <PDPProductShelf
         pretitle=""
         title={`Mais vendidos de ${departmentName}`}
-        departmentName={departmentName}
+        productDepartment={departmentName}
       />
     </>
   )

@@ -4,17 +4,17 @@ import { ITEMS_PER_SECTION } from 'src/constants'
 import './pdp-product-shelf.scss'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import departments from 'src/mocks/departments.json'
+import { slugify } from 'src/sdk/utils/slugify'
 
 import Section from '../Section'
 
 interface Props {
   pretitle?: string
   title: string
-  departmentName?: string
+  productDepartment?: string
 }
 
-const PDPProductShelf = ({ title, pretitle, departmentName }: Props) => {
+const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -22,23 +22,19 @@ const PDPProductShelf = ({ title, pretitle, departmentName }: Props) => {
   const [products, setProducts] = useState<any>()
 
   useEffect(() => {
-    const productDepartment = departments.value.filter(
-      (department) => department.Name === departmentName
-    )
-
-    const departmentId =
-      productDepartment !== []
-        ? JSON.stringify(productDepartment[0]?._id)
+    const departmentName =
+      productDepartment && productDepartment !== undefined
+        ? slugify(productDepartment).toLowerCase()
         : null
 
     axios
       .get('/api/getTopSellers', {
         params: {
-          departmentId,
+          departmentName,
         },
       })
       .then(({ data: { value } }) => setProducts(value))
-  }, [departmentName])
+  }, [productDepartment])
 
   return (
     <Section className="layout__content pdp-shelf-container">

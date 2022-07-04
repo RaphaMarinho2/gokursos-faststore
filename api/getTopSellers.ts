@@ -5,12 +5,12 @@ export default async function getTopSellers(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
-  const { departmentId } = req.query
+  const { departmentName } = req.query
 
   try {
     const filterParam =
-      departmentId !== undefined
-        ? `Department/_id eq '${departmentId}' and `
+      departmentName !== undefined
+        ? `Department/Slug eq '${departmentName}' and `
         : ''
 
     const { data } = await axios.get(

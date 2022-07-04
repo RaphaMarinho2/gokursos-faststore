@@ -4,7 +4,7 @@ import { List } from '@faststore/ui'
 import { useEffect, useState } from 'react'
 import ProductShelf from 'src/components/product/ProductShelf'
 import axios from 'axios'
-import departments from 'src/mocks/departments.json'
+import { slugify } from 'src/sdk/utils/slugify'
 
 import Section from '../Section'
 import { useTabs, TabPanel } from './tabRules'
@@ -39,19 +39,17 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
   const [products, setProducts] = useState<any>()
 
   useEffect(() => {
-    const selectedDepartment = departments.value.filter(
-      (department) => department.Name === selectedTab
-    )
-
-    const departmentId =
-      selectedDepartment !== []
-        ? JSON.stringify(selectedDepartment[0]?._id)
+    const departmentName =
+      selectedTab &&
+      selectedTab !== undefined &&
+      slugify(selectedTab) !== 'Geral'
+        ? slugify(selectedTab).toLowerCase()
         : null
 
     axios
       .get('/api/getTopSellers', {
         params: {
-          departmentId,
+          departmentName,
         },
       })
       .then(({ data: { value } }) => setProducts(value))
