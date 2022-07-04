@@ -1,19 +1,20 @@
 import './styles.scss'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { graphql, StaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 
 type NewletterType = {
-  allContentfulNewsletter: {
-    nodes: Array<{
-      titulo: string | null
-      politica: string | null
-      subtitulo: string | null
-    }>
+  data: {
+    allContentfulNewsletter: {
+      nodes: Array<{
+        titulo: string | null
+        politica: string | null
+        subtitulo: string | null
+      }>
+    }
   }
 }
 
-const Newsletter = ({ allContentfulNewsletter }: NewletterType) => {
+const Newsletter = ({ data: { allContentfulNewsletter } }: NewletterType) => {
   const { titulo, politica, subtitulo } =
     allContentfulNewsletter.nodes[allContentfulNewsletter.nodes.length - 1]
 
@@ -49,7 +50,7 @@ const Newsletter = ({ allContentfulNewsletter }: NewletterType) => {
   )
 }
 
-const Newletter = (props: any) => {
+const Newletter = () => {
   return (
     <StaticQuery
       query={graphql`
@@ -64,23 +65,10 @@ const Newletter = (props: any) => {
         }
       `}
       render={(allContentfulNewsletter) => (
-        <Newsletter
-          allContentfulNewsletter={allContentfulNewsletter}
-          {...props}
-        />
+        <Newsletter data={allContentfulNewsletter} />
       )}
     />
   )
-}
-
-Newsletter.propTypes = {
-  allContentfulNewsletter: PropTypes.shape({
-    nodes: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      politica: PropTypes.string.isRequired,
-      subtitulo: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
 }
 
 export default Newletter
