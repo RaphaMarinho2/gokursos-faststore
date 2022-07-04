@@ -1,44 +1,54 @@
+import { useEffect, useState } from 'react'
 import Icon from 'src/components/ui/Icon'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import { Button } from '@faststore/ui'
 
-import Button from '../../ui/Button'
-import Section from '../Section'
 import type { UIButtonProps } from '../../ui/Button'
+
 import './scroll-to-top-button.scss'
 
 interface ScrollToTopButtonProps {
-  /**
-   * Button copy.
-   * @default 'Scroll to top'
-   */
-  text?: string
-  /**
-   * Button's icon.
-   * @default <Icon name="CaretUp" width={16} height={16} weight="bold" />
-   */
-  icon?: UIButtonProps['icon']
-  /**
-   * Button icon's position.
-   * @default 'left'
-   */
-  iconPosition?: UIButtonProps['iconPosition']
+  iconMobile?: UIButtonProps['icon']
+  iconDesktop?: UIButtonProps['icon']
 }
 
 function ScrollToTopButton({
-  text = 'Scroll to top',
-  icon = <Icon name="CaretUp" width={16} height={16} weight="bold" />,
-  iconPosition = 'left',
+  iconMobile = <Icon name="CaretUp" width={12} height={12} weight="bold" />,
+  iconDesktop = <Icon name="CaretUp" width={20} height={20} weight="bold" />,
 }: ScrollToTopButtonProps) {
+  const [visibleTop, setVisibleTop] = useState(false)
+  const { isTablet } = useWindowDimensions()
+
+  function useScroll(callback: () => void): void {
+    useEffect(() => {
+      window?.addEventListener('scroll', callback)
+
+      return () => {
+        window?.removeEventListener('scroll', callback)
+      }
+    }, [callback])
+  }
+
+  useScroll(() => {
+    const topPage = function checkIsPageTop() {
+      return window.scrollY === 0
+    }
+
+    setVisibleTop(topPage)
+  })
+
   return (
-    <Section className="scroll-to-top-button">
-      <Button
-        variant="secondary"
-        icon={icon}
-        iconPosition={iconPosition}
-        onClick={() => window.scrollTo(0, 0)}
+    <section className="scroll-to-top-button layout__content">
+      <div
+        className={`scroll-to-top-button__content ${
+          visibleTop ? 'visible-top' : 'hidden-top'
+        }`}
       >
-        {text}
-      </Button>
-    </Section>
+        <Button onClick={() => window.scrollTo(0, 0)}>
+          {isTablet ? iconMobile : iconDesktop}
+        </Button>
+      </div>
+    </section>
   )
 }
 
