@@ -1,19 +1,22 @@
 import './styles.scss'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import { graphql, StaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 
 type NewletterType = {
-  nodes: Array<{
-    titulo: string | null
-    politica: string | null
-    subtitulo: string | null
-  }>
+  allContentfulNewsletter: {
+    nodes: Array<{
+      titulo: string | null
+      politica: string | null
+      subtitulo: string | null
+    }>
+  }
 }
 
-const Newletter = ({ nodes }: NewletterType) => {
-  const { titulo } = nodes[nodes.length - 1]
-  // eslint-disable-next-line prefer-destructuring
-  const subtitulo = nodes[nodes.length - 1].subtitulo
-  const { politica } = nodes[nodes.length - 1]
+const Newsletter = ({ allContentfulNewsletter }: NewletterType) => {
+  const { titulo, politica, subtitulo } =
+    allContentfulNewsletter.nodes[allContentfulNewsletter.nodes.length - 1]
+
   const buttonNewletter = <button>Cadastrar</button>
   const { isMobile } = useWindowDimensions()
 
@@ -44,6 +47,40 @@ const Newletter = ({ nodes }: NewletterType) => {
       )}
     </div>
   )
+}
+
+const Newletter = (props: any) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query allContentfulNewsletter {
+          allContentfulNewsletter {
+            nodes {
+              subtitulo
+              titulo
+              politica
+            }
+          }
+        }
+      `}
+      render={(allContentfulNewsletter) => (
+        <Newsletter
+          allContentfulNewsletter={allContentfulNewsletter}
+          {...props}
+        />
+      )}
+    />
+  )
+}
+
+Newsletter.propTypes = {
+  allContentfulNewsletter: PropTypes.shape({
+    nodes: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      politica: PropTypes.string.isRequired,
+      subtitulo: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default Newletter

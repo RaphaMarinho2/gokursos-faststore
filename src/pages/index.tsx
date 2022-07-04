@@ -13,7 +13,6 @@ import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
 import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
-import Newletter from 'src/components/sections/Newletter'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -26,7 +25,6 @@ function Page(props: Props) {
       allContentfulBannerMedium,
       allContentfulBestCourses,
       allContentfulMainBanner,
-      allContentfulNewsletter,
     },
     location: { pathname, host },
   } = props
@@ -108,7 +106,6 @@ function Page(props: Props) {
       />
 
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
-      <Newletter nodes={allContentfulNewsletter.nodes} />
     </>
   )
 }
@@ -176,13 +173,6 @@ export const querySSG = graphql`
         image {
           url
         }
-      }
-    }
-    allContentfulNewsletter {
-      nodes {
-        subtitulo
-        titulo
-        politica
       }
     }
   }
