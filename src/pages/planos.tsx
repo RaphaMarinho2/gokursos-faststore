@@ -2,12 +2,20 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanosQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
+import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 
 export type Props = PageProps<PlanosQuery>
 function Page(props: Props) {
-  console.info(props)
+  const {
+    data: { allContentfulPlanosTextoSimples },
+  } = props
 
-  return <h1>Testando</h1>
+  return (
+    <SimpleText
+      textReceived={allContentfulPlanosTextoSimples}
+      className="text-banner-bottom"
+    />
+  )
 }
 
 export const querySSG = graphql`
@@ -19,15 +27,10 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    allContentfulBannerDepartmentCategory {
+    allContentfulPlanosTextoSimples {
       nodes {
-        title
-        subtitle
-        imageDesktop {
-          url
-        }
-        imageMobile {
-          url
+        text {
+          text
         }
       }
     }
