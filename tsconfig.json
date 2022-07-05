@@ -13,6 +13,7 @@
     "allowJs": true,
     "paths": {
       "src/*": ["src/*"],
+      "api/*": ["api/*"],
       "@generated/*": ["@generated/*"]
     },
     "forceConsistentCasingInFileNames": true
