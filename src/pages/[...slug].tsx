@@ -98,6 +98,11 @@ export const getServerData = async (props: Props) => {
   try {
     const data = await axios
       .get('/api/getDepartmentOrCategory', {
+        proxy: {
+          protocol: '',
+          host: '',
+          port: 8000,
+        },
         params: {
           departmentName,
           categoryName,
