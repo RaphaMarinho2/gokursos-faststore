@@ -103,7 +103,6 @@ export const getServerData = async (props: Props) => {
           host: 'localhost',
           port: 8000,
         },
-        url: 'http://localhost:8000',
         params: {
           departmentName,
           categoryName,
