@@ -21,6 +21,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "api/**/*.ts",
+    "api/**/*.tsx",
     "gatsby-*.ts",
     "gatsby-*.tsx",
     "@generated/**/*.ts"

@@ -1,6 +1,6 @@
 import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 
-import { execute } from '../server'
+import { execute } from './server'
 
 const parseRequest = (req: GatsbyFunctionRequest) => {
   const { operationName, variables, query } =

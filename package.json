@@ -20,7 +20,9 @@
     "postinstall": "is-ci || husky install",
     "partytown": "partytown copylib ./public/~partytown",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "setup:dev": "mv ./api ./src && echo export { execute } from '../server'> ./src/api/server.ts || move ./api ./src && echo export { execute } from '../server'> ./src/api/server.ts",
+    "setup:prod": "mv ./src/api ./ && echo export { execute } from '../src/server'> ./api/server.ts || move ./src/api ./ && echo export { execute } from '../src/server'> ./api/server.ts"
   },
   "engines": {
     "node": ">=14"
