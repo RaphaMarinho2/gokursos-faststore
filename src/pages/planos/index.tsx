@@ -2,6 +2,7 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanosQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
+import Section from 'src/components/sections/Section'
 import BenefitsPlans from 'src/components/sections/BenefitsPlans'
 
 export type Props = PageProps<PlanosQuery>
@@ -11,10 +12,12 @@ function Page(props: Props) {
   } = props
 
   return (
-    <BenefitsPlans
-      title="Vantagens de fazer um plano de assinatura"
-      nodes={allContentfulBenefitsPlans.nodes}
-    />
+    <Section>
+      <BenefitsPlans
+        title="Vantagens de fazer um plano de assinatura"
+        nodes={allContentfulBenefitsPlans.nodes}
+      />
+    </Section>
   )
 }
 
