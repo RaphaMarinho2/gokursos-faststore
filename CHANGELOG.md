@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-49** - Show more products - product gallery.
 ### Added
 
+### Fixed
+
+## [0.7.0] - 2022-07-04
+
+### Added
+
 - **GM-48** - Quantity in category page.
 - **GM-84** - Agnostic component for simple shelfs[with who you will learn].
 - **GM-83** - Agnostic component for simple shelfs[partners who trust in us].
