@@ -1,0 +1,235 @@
+@import "src/styles/scaffold";
+
+.container {
+  display: flex;
+  flex-flow: column-reverse wrap;
+  margin: 45px;
+
+  .component-CardPlanos__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 414px;
+    padding: 0 16px;
+    margin-bottom: 36px;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow:
+      -2px 0 15px rgb(0 0 0 / 10%),
+      2px 2px 15px rgb(0 0 0 / 10%);
+
+    .titulo-linha {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .border {
+      width: 40px;
+      border-bottom: 1px solid #004e98;
+    }
+
+    .titulo-planos {
+      margin-top: 24px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      color: #004e98;
+    }
+
+    .preco {
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      color: #004e98;
+    }
+
+    .texto {
+      margin-bottom: 40px;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      color: #555555;
+      text-align: center;
+    }
+
+    .botoes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .saiba-mais {
+        margin-bottom: 29px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%;
+        color: #ff3452;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .texto-botao {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 40px;
+        padding: 10px 20px;
+        margin-bottom: 40px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+        color: #ffffff;
+        background: #ff3452;
+        border: none;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .promocao {
+    background: #004e98;
+
+    .titulo-planos {
+      color: #ffffff;
+    }
+
+    .border {
+      width: 40px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    .preco {
+      color: #ffffff;
+    }
+
+    .texto {
+      color: #ffffff;
+    }
+
+    .saiba-mais {
+      color: #ffffff;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    flex-flow: row-reverse wrap-reverse;
+    justify-content: center;
+
+    .component-CardPlanos__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 432px;
+      height: 526px;
+      padding: 0 24px;
+      margin: 0 16px 40px;
+      background: #ffffff;
+      border-radius: 4px;
+      box-shadow:
+        -2px 0 15px rgb(0 0 0 / 10%),
+        2px 2px 15px rgb(0 0 0 / 10%);
+
+      .titulo-planos {
+        margin-top: 35px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        color: #004e98;
+      }
+
+      .preco {
+        margin-bottom: 16px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        color: #004e98;
+      }
+
+      .texto {
+        margin-bottom: 40px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        color: #555555;
+      }
+
+      .botoes {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .saiba-mais {
+          margin-bottom: 29px;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 130%;
+          color: #ff3452;
+        }
+
+        .texto-botao {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 40px;
+          padding: 10px 20px;
+          margin-bottom: 40px;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
+          color: #ffffff;
+          background: #ff3452;
+          border: none;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .promocao {
+      background: #004e98;
+
+      .titulo-planos {
+        color: #ffffff;
+      }
+
+      .border {
+        width: 40px;
+        border-bottom: 1px solid #ffffff;
+      }
+
+      .preco {
+        color: #ffffff;
+      }
+
+      .texto {
+        color: #ffffff;
+      }
+
+      .saiba-mais {
+        color: #ffffff;
+      }
+    }
+  }
+}
