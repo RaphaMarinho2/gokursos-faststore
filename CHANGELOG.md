@@ -10,8 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-121** - Created Benefits Plans component.
-
+- **GM-95** - Created ScrollToTopButton component.
 ### Fixed
+
+- **GM-49** - Show more products - product gallery.
 
 ## [0.7.0] - 2022-07-04
 
