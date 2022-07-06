@@ -11366,14 +11366,98 @@ export type PlanosQuery = {
       titleTemplate: string | null
     } | null
   } | null
-  allContentfulBannerDepartmentCategory: {
-    nodes: Array<{
-      title: string | null
-      subtitle: string | null
-      imageDesktop: { url: string | null } | null
-      imageMobile: { url: string | null } | null
-    }>
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
   }
+}
+
+export type PlanoBasicoQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoBasicoQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoComunicacaoTecnologiaQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type PlanoComunicacaoTecnologiaQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoEspecialQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoEspecialQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoNegocioQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoNegocioQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoSaudeQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoSaudeQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoTecnologiaQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoTecnologiaQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
