@@ -84,6 +84,11 @@
     height: 156px;
     overflow: hidden;
     border-radius: var(--fs-product-card-img-radius);
+
+    @include media(">=notebook") {
+      width: 232px;
+      height: 202px;
+    }
   }
 }
 
