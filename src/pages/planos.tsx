@@ -32,6 +32,7 @@ export const querySSG = graphql`
         promocao
         preco
         saibaMais
+        slug
       }
     }
   }

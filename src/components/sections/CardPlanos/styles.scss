@@ -6,6 +6,7 @@
   margin: 45px;
 
   .component-CardPlanos__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,9 +16,7 @@
     margin-bottom: 36px;
     background: #ffffff;
     border-radius: 4px;
-    box-shadow:
-      -2px 0 15px rgb(0 0 0 / 10%),
-      2px 2px 15px rgb(0 0 0 / 10%);
+    box-shadow: -2px 0 15px rgb(0 0 0 / 10%), 2px 2px 15px rgb(0 0 0 / 10%);
 
     .titulo-linha {
       display: flex;
@@ -104,6 +103,23 @@
       color: #ffffff;
     }
 
+    .tag {
+      position: absolute;
+      top: -12px;
+      display: flex;
+      align-items: center;
+      height: 23.09px;
+      padding: 9px 5px;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%;
+      color: #ffffff;
+      text-align: center;
+      background: #ff3452;
+      border-radius: 13px;
+    }
+
     .border {
       width: 40px;
       border-bottom: 1px solid #ffffff;
@@ -130,6 +146,7 @@
     justify-content: center;
 
     .component-CardPlanos__content {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -140,9 +157,7 @@
       margin: 0 16px 40px;
       background: #ffffff;
       border-radius: 4px;
-      box-shadow:
-        -2px 0 15px rgb(0 0 0 / 10%),
-        2px 2px 15px rgb(0 0 0 / 10%);
+      box-shadow: -2px 0 15px rgb(0 0 0 / 10%), 2px 2px 15px rgb(0 0 0 / 10%);
 
       .titulo-planos {
         margin-top: 35px;
@@ -225,6 +240,21 @@
 
       .texto {
         color: #ffffff;
+      }
+
+      .tag {
+        position: absolute;
+        top: -17px;
+        display: flex;
+        align-items: center;
+        height: 34px;
+        padding: 8px 19px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+        color: #ffffff;
+        text-align: center;
       }
 
       .saiba-mais {
