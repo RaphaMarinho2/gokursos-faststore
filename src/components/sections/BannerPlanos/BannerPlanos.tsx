@@ -44,7 +44,7 @@ const BannerPlanos = ({ nodes }: BannerPlanosDeAssinaturaProps) => {
             <BannerImage>
               <img
                 className="banner-planos__image"
-                alt=""
+                alt={banner.title}
                 src={
                   isTablet ? banner.imageMobile?.url : banner.imageDesktop?.url
                 }
