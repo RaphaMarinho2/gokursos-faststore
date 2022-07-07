@@ -3,14 +3,20 @@ import { graphql } from 'gatsby'
 import type { PlanosQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import CardPlanos from 'src/components/sections/CardPlanos'
+import BannerPlanos from 'src/components/sections/BannerPlanos'
 
 export type Props = PageProps<PlanosQuery>
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanos },
+    data: { allContentfulPlanos, allContentfulBannerPlanosDeAssinatura },
   } = props
 
-  return <CardPlanos nodes={allContentfulPlanos.nodes} />
+  return (
+    <>
+      <BannerPlanos nodes={allContentfulBannerPlanosDeAssinatura.nodes} />
+      <CardPlanos nodes={allContentfulPlanos.nodes} />
+    </>
+  )
 }
 
 export const querySSG = graphql`
@@ -32,6 +38,18 @@ export const querySSG = graphql`
         promocao
         preco
         saibaMais
+      }
+    }
+    allContentfulBannerPlanosDeAssinatura {
+      nodes {
+        subtitle
+        title
+        imageMobile {
+          url
+        }
+        imageDesktop {
+          url
+        }
       }
     }
   }
