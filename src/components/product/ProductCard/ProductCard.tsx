@@ -66,31 +66,33 @@ function ProductCard({
               {name}
             </Link>
           </h3>
-          {spotPrice && (
-            <div data-fs-product-card-prices>
-              {listPrice && listPrice > spotPrice && (
-                <Price
-                  value={listPrice}
-                  formatter={useFormattedPrice}
-                  testId="list-price"
-                  data-value={listPrice}
-                  variant="listing"
-                  classes="text__legend"
-                  SRText="Original price:"
-                />
-              )}
 
-              <Price
-                value={spotPrice}
-                formatter={useFormattedPrice}
-                testId="price"
-                data-value={spotPrice}
-                variant="spot"
-                classes="text__body"
-                SRText="Sale Price:"
-              />
-            </div>
-          )}
+          <div data-fs-product-card-prices>
+            {spotPrice && (
+              <>
+                {listPrice && listPrice > spotPrice && (
+                  <Price
+                    value={listPrice}
+                    formatter={useFormattedPrice}
+                    testId="list-price"
+                    data-value={listPrice}
+                    variant="listing"
+                    classes="text__legend"
+                    SRText="Original price:"
+                  />
+                )}
+                <Price
+                  value={spotPrice}
+                  formatter={useFormattedPrice}
+                  testId="price"
+                  data-value={spotPrice}
+                  variant="spot"
+                  classes="text__body"
+                  SRText="Sale Price:"
+                />
+              </>
+            )}
+          </div>
         </div>
 
         {!!ButtonBuy && (

@@ -80,8 +80,8 @@
     position: relative;
     display: flex;
     justify-content: center;
-    width: 232px;
-    height: 202px;
+    width: 156px;
+    height: 156px;
     overflow: hidden;
     border-radius: var(--fs-product-card-img-radius);
   }
@@ -150,7 +150,6 @@
 }
 
 [data-fs-product-card-title] {
-  min-height: 65px !important;  /* stylelint-disable-line declaration-no-important */
   font-size: var(--fs-product-card-text-title-size);
   font-weight: 600;
   line-height: 1.25;
