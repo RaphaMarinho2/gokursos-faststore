@@ -16,6 +16,7 @@ export type Props = PageProps<DepartmentPageQueryQuery>
 function Page(props: Props) {
   const {
     data: { allContentfulBannerDepartmentCategory },
+    serverData,
   } = props
 
   // const {
@@ -24,8 +25,6 @@ function Page(props: Props) {
   //   location: { host },
   //   slug,
   // } = props
-
-  // console.log('props', props)
 
   const collection = ServerCollectionPageQuery
 
@@ -56,7 +55,7 @@ function Page(props: Props) {
 
       <BannerCategory nodes={allContentfulBannerDepartmentCategory.nodes} />
 
-      <ProductGallery title={title} />
+      <ProductGallery products={serverData} title={title} />
 
       <ScrollToTopButton />
     </SearchProvider>

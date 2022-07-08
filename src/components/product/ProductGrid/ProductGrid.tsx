@@ -1,11 +1,10 @@
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
-import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
 import ProductCard from '../ProductCard'
 import './product-grid.scss'
 
 interface Props {
-  products: Array<{ node: ProductSummary_ProductFragment }>
+  products?: any
   page: number
   pageSize: number
 }
@@ -14,8 +13,8 @@ function ProductGrid({ products, page, pageSize }: Props) {
   return (
     <ProductGridSkeleton loading={products.length === 0}>
       <ul className="product-grid">
-        {products.map(({ node: product }, idx) => (
-          <li key={`${product.id}`}>
+        {products.map((product: any, idx: number) => (
+          <li key={idx}>
             <ProductCard
               product={product}
               index={pageSize * page + idx + 1}

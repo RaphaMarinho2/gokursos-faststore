@@ -9,15 +9,15 @@ import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
-import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
 // import { useDelayedFacets } from './useDelayedFacets'
 // import { useGalleryQuery } from './useGalleryQuery'
-// import { useProductsPrefetch } from './usePageProducts'
-
+import { useProductsPrefetch } from './usePageProducts'
 import './product-gallery.scss'
+import { useGalleryQuery } from './useGalleryQuery'
+import { useDelayedFacets } from './useDelayedFacets'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
@@ -25,25 +25,26 @@ const GalleryPageSkeleton = <ProductGridSkeleton loading />
 interface Props {
   title: string
   searchTerm?: string
+  products?: any
 }
 
-function ProductGallery({ title, searchTerm }: Props) {
+function ProductGallery({ title, searchTerm, products }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
-  // const { data } = useGalleryQuery()
+  const { data } = useGalleryQuery()
 
-  const { data } = productGalleryQuery // REPLACE QUERY WITH MOCK FILE
+  // const { data } = productGalleryQuery // REPLACE QUERY WITH MOCK FILE
 
-  // const facets = useDelayedFacets(data)
+  const facets = useDelayedFacets(data)
 
-  const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
+  // const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
 
-  // useProductsPrefetch(prev ? prev.cursor : null)
-  // useProductsPrefetch(next ? next.cursor : null)
+  useProductsPrefetch(prev ? prev.cursor : null)
+  useProductsPrefetch(next ? next.cursor : null)
 
   if (data && totalCount === 0) {
     return (
@@ -143,6 +144,7 @@ function ProductGallery({ title, searchTerm }: Props) {
                   fallbackData={page === searchState.page ? data : undefined}
                   page={page}
                   title={title}
+                  products={products}
                 />
               ))}
             </Suspense>

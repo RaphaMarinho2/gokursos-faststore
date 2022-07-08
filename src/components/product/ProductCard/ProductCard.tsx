@@ -4,21 +4,18 @@ import {
   CardContent as UICardContent,
   CardImage as UICardImage,
 } from '@faststore/ui'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { memo } from 'react'
-import { Badge } from 'src/components/ui/Badge'
-import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
 import type { ReactNode } from 'react'
-import type { ProductSummary_ProductFragment } from '@generated/graphql'
 import './product-card.scss'
 
 type Variant = 'wide' | 'default'
 
 export interface ProductCardProps {
-  product: ProductSummary_ProductFragment
+  product?: any
   index: number
   bordered?: boolean
   variant?: Variant
@@ -31,22 +28,16 @@ function ProductCard({
   index,
   variant = 'default',
   bordered = false,
-  aspectRatio = 1,
   ButtonBuy,
   ...otherProps
 }: ProductCardProps) {
-  const {
-    sku,
-    isVariantOf: { name },
-    image: [img],
-    offers: {
-      lowPrice: spotPrice,
-      offers: [{ listPrice, availability }],
-    },
-  } = product
+  const { Name: name, ProductImageURL: img } = product
+
+  const spotPrice = product.Price?.BasePrice
+  const listPrice = product.Price?.ListPrice
+  const categoryName = product.Category?.Name
 
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
-  const outOfStock = availability !== 'https://schema.org/InStock'
 
   return (
     <UICard
@@ -54,50 +45,56 @@ function ProductCard({
       data-fs-product-card-variant={variant}
       data-fs-product-card-bordered={bordered}
       data-fs-product-card-actionabled={!!ButtonBuy}
-      data-fs-product-card-sku={sku}
       {...otherProps}
     >
-      <UICardImage>
-        <Image
-          src={img.url}
-          alt={img.alternateName}
-          width={360}
-          height={360 / aspectRatio}
-          sizes="(max-width: 768px) 25vw, 30vw"
-          loading="lazy"
-        />
-      </UICardImage>
+      {img !== '' && (
+        <UICardImage>
+          <img
+            src={img}
+            alt={name}
+            sizes="(max-width: 768px) 25vw, 30vw"
+            loading="lazy"
+          />
+        </UICardImage>
+      )}
 
       <UICardContent data-fs-product-card-content>
         <div data-fs-product-card-heading>
+          <h4 data-fs-product-card-category>{categoryName}</h4>
           <h3 data-fs-product-card-title>
             <Link {...linkProps} title={name}>
               {name}
             </Link>
           </h3>
+
           <div data-fs-product-card-prices>
-            <Price
-              value={listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={listPrice}
-              variant="listing"
-              classes="text__legend"
-              SRText="Original price:"
-            />
-            <Price
-              value={spotPrice}
-              formatter={useFormattedPrice}
-              testId="price"
-              data-value={spotPrice}
-              variant="spot"
-              classes="text__body"
-              SRText="Sale Price:"
-            />
+            {spotPrice && (
+              <>
+                {listPrice && listPrice > spotPrice && (
+                  <Price
+                    value={listPrice}
+                    formatter={useFormattedPrice}
+                    testId="list-price"
+                    data-value={listPrice}
+                    variant="listing"
+                    classes="text__legend"
+                    SRText="Original price:"
+                  />
+                )}
+                <Price
+                  value={spotPrice}
+                  formatter={useFormattedPrice}
+                  testId="price"
+                  data-value={spotPrice}
+                  variant="spot"
+                  classes="text__body"
+                  SRText="Sale Price:"
+                />
+              </>
+            )}
           </div>
         </div>
 
-        {outOfStock && <Badge>Out of stock</Badge>}
         {!!ButtonBuy && (
           <UICardActions data-fs-product-card-actions>
             {ButtonBuy}
@@ -107,45 +104,5 @@ function ProductCard({
     </UICard>
   )
 }
-
-export const fragment = graphql`
-  fragment ProductSummary_product on StoreProduct {
-    id: productID
-    slug
-    sku
-    brand {
-      brandName: name
-    }
-    name
-    gtin
-
-    isVariantOf {
-      productGroupID
-      name
-    }
-
-    image {
-      url
-      alternateName
-    }
-
-    brand {
-      name
-    }
-
-    offers {
-      lowPrice
-      offers {
-        availability
-        price
-        listPrice
-        quantity
-        seller {
-          identifier
-        }
-      }
-    }
-  }
-`
 
 export default memo(ProductCard)

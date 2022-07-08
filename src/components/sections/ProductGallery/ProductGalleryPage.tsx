@@ -1,10 +1,6 @@
 import { useSearch } from '@faststore/sdk'
 import ProductGrid from 'src/components/product/ProductGrid'
-import Sentinel from 'src/sdk/search/Sentinel'
 import type { ProductsQueryQuery } from '@generated/graphql'
-import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
-
-import ProductTiles from '../ProductTiles'
 // import { useProducts } from './usePageProducts'
 import './product-gallery.scss'
 
@@ -14,70 +10,44 @@ interface Props {
   fallbackData?: ProductsQueryQuery
   title: string
   showSponsoredProducts?: boolean
+  products?: any
 }
 
 function GalleryPage({
   page,
-  title,
+  // title,
   // fallbackData,
-  showSponsoredProducts = true,
+  // showSponsoredProducts = true,
+  products,
 }: Props) {
   // const products = useProducts(page, fallbackData)
 
-  const products = productGalleryQuery?.data?.search?.products?.edges
+  // const products = productGalleryQuery?.data?.search?.products?.edges
 
   const { itemsPerPage } = useSearch()
 
-  if (products == null) {
+  if (!products.length) {
     return null
   }
 
-  const productsSponsored = showSponsoredProducts
-    ? products.slice(0, 2)
-    : undefined
+  // const productsSponsored = showSponsoredProducts
+  //   ? products.slice(0, 2)
+  //   : undefined
 
-  const middleItemIndex = Math.ceil(itemsPerPage / 2)
+  // const middleItemIndex = Math.ceil(itemsPerPage / 2)
 
-  const shouldDisplaySponsoredProducts =
-    page === 0 && productsSponsored && productsSponsored.length > 1
+  // const shouldDisplaySponsoredProducts =
+  //   page === 0 && productsSponsored && productsSponsored.length > 1
 
   return (
     <>
-      <Sentinel
+      {/* <Sentinel
         products={products}
         page={page}
         pageSize={itemsPerPage}
         title={title}
-      />
-      {shouldDisplaySponsoredProducts ? (
-        <>
-          <ProductGrid
-            products={products.slice(0, middleItemIndex)}
-            page={page}
-            pageSize={middleItemIndex}
-          />
-          <div className="product-listing__results-sponsored">
-            <h3>Sponsored</h3>
-            {/*
-              TODO: Refactor this bit of code
-
-              Sections should be self contained and should not import other sections.
-              We should remove/refactor this section from here
-            */}
-            <ProductTiles
-              selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
-              title=""
-            />
-          </div>
-          <ProductGrid
-            products={products.slice(middleItemIndex, itemsPerPage)}
-            page={page}
-            pageSize={middleItemIndex}
-          />
-        </>
-      ) : (
-        <ProductGrid products={products} page={page} pageSize={itemsPerPage} />
-      )}
+      /> */}
+      <ProductGrid products={products} page={page} pageSize={itemsPerPage} />
     </>
   )
 }
