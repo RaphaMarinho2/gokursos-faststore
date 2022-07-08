@@ -1,24 +1,20 @@
 import { useSearch } from '@faststore/sdk'
 import ProductGrid from 'src/components/product/ProductGrid'
-import Sentinel from 'src/sdk/search/Sentinel'
-import type { ProductsQueryQuery } from '@generated/graphql'
 import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
 
-import ProductTiles from '../ProductTiles'
 // import { useProducts } from './usePageProducts'
 import './product-gallery.scss'
 
 /* If showSponsoredProducts is true, a ProductTiles will be displayed in between two blocks of ProductGrid on the page 0 */
 interface Props {
   page: number
-  fallbackData?: ProductsQueryQuery
+  fallbackData?: any
   title: string
   showSponsoredProducts?: boolean
 }
 
 function GalleryPage({
   page,
-  title,
   // fallbackData,
   showSponsoredProducts = true,
 }: Props) {
@@ -43,12 +39,12 @@ function GalleryPage({
 
   return (
     <>
-      <Sentinel
+      {/* <Sentinel
         products={products}
         page={page}
         pageSize={itemsPerPage}
         title={title}
-      />
+      /> */}
       {shouldDisplaySponsoredProducts ? (
         <>
           <ProductGrid
@@ -64,10 +60,6 @@ function GalleryPage({
               Sections should be self contained and should not import other sections.
               We should remove/refactor this section from here
             */}
-            <ProductTiles
-              selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
-              title=""
-            />
           </div>
           <ProductGrid
             products={products.slice(middleItemIndex, itemsPerPage)}

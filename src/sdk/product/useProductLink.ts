@@ -1,14 +1,13 @@
 import { useCallback } from 'react'
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import { useLocation } from '@reach/router'
-import type { ProductSummary_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, SelectItemEvent } from '@faststore/sdk'
 
 import type { AnalyticsItem, SearchSelectItemEvent } from '../analytics/types'
 
 export type ProductLinkOptions = {
   index: number
-  product: ProductSummary_ProductFragment
+  product: any
   selectedOffer: number
 }
 

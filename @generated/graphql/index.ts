@@ -6073,6 +6073,264 @@ export type ContentfulReference = {
   id: Scalars['ID']
 }
 
+export type ContentfulSignaturePageSubtitle = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    spaceId: Maybe<Scalars['String']>
+    subtitle: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulSignaturePageSubtitleSys>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulSignaturePageSubtitleCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulSignaturePageSubtitleUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulSignaturePageSubtitleConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulSignaturePageSubtitleEdge>
+  group: Array<ContentfulSignaturePageSubtitleGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulSignaturePageSubtitle>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulSignaturePageSubtitleConnectionDistinctArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleConnectionGroupArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulSignaturePageSubtitleConnectionMaxArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleConnectionMinArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleConnectionSumArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleEdge = {
+  next: Maybe<ContentfulSignaturePageSubtitle>
+  node: ContentfulSignaturePageSubtitle
+  previous: Maybe<ContentfulSignaturePageSubtitle>
+}
+
+export type ContentfulSignaturePageSubtitleFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'spaceId'
+  | 'subtitle'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'updatedAt'
+
+export type ContentfulSignaturePageSubtitleFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulSignaturePageSubtitleSysFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulSignaturePageSubtitleGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulSignaturePageSubtitleEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulSignaturePageSubtitleGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulSignaturePageSubtitle>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulSignaturePageSubtitleGroupConnectionDistinctArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleGroupConnectionGroupArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulSignaturePageSubtitleGroupConnectionMaxArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleGroupConnectionMinArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleGroupConnectionSumArgs = {
+  field: ContentfulSignaturePageSubtitleFieldsEnum
+}
+
+export type ContentfulSignaturePageSubtitleSortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulSignaturePageSubtitleFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulSignaturePageSubtitleSys = {
+  contentType: Maybe<ContentfulSignaturePageSubtitleSysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulSignaturePageSubtitleSysContentType = {
+  sys: Maybe<ContentfulSignaturePageSubtitleSysContentTypeSys>
+}
+
+export type ContentfulSignaturePageSubtitleSysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulSignaturePageSubtitleSysContentTypeSysFilterInput>
+}
+
+export type ContentfulSignaturePageSubtitleSysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulSignaturePageSubtitleSysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulSignaturePageSubtitleSysFilterInput = {
+  contentType: InputMaybe<ContentfulSignaturePageSubtitleSysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulTeste = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -7511,6 +7769,7 @@ export type Query = {
   allContentfulPlanosTextoSimples: ContentfulPlanosTextoSimplesConnection
   allContentfulPlanosTextoSimplesTextTextNode: ContentfulPlanosTextoSimplesTextTextNodeConnection
   allContentfulPlanosTextoTextNode: ContentfulPlanosTextoTextNodeConnection
+  allContentfulSignaturePageSubtitle: ContentfulSignaturePageSubtitleConnection
   allContentfulTeste: ContentfulTesteConnection
   allContentfulVideoSection: ContentfulVideoSectionConnection
   allDirectory: DirectoryConnection
@@ -7548,6 +7807,7 @@ export type Query = {
   contentfulPlanosTextoSimples: Maybe<ContentfulPlanosTextoSimples>
   contentfulPlanosTextoSimplesTextTextNode: Maybe<ContentfulPlanosTextoSimplesTextTextNode>
   contentfulPlanosTextoTextNode: Maybe<ContentfulPlanosTextoTextNode>
+  contentfulSignaturePageSubtitle: Maybe<ContentfulSignaturePageSubtitle>
   contentfulTeste: Maybe<ContentfulTeste>
   contentfulVideoSection: Maybe<ContentfulVideoSection>
   directory: Maybe<Directory>
@@ -7736,6 +7996,13 @@ export type QueryAllContentfulPlanosTextoTextNodeArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulPlanosTextoTextNodeSortInput>
+}
+
+export type QueryAllContentfulSignaturePageSubtitleArgs = {
+  filter: InputMaybe<ContentfulSignaturePageSubtitleFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulSignaturePageSubtitleSortInput>
 }
 
 export type QueryAllContentfulTesteArgs = {
@@ -8151,6 +8418,20 @@ export type QueryContentfulPlanosTextoTextNodeArgs = {
   parent: InputMaybe<NodeFilterInput>
   sys: InputMaybe<ContentfulPlanosTextoTextNodeSysFilterInput>
   texto: InputMaybe<StringQueryOperatorInput>
+}
+
+export type QueryContentfulSignaturePageSubtitleArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulSignaturePageSubtitleSysFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
 export type QueryContentfulTesteArgs = {
@@ -11131,27 +11412,6 @@ export type ContentfulPlanosTextoTextNodeSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
-export type ProductSummary_ProductFragment = {
-  slug: string
-  sku: string
-  name: string
-  gtin: string
-  id: string
-  brand: { name: string; brandName: string }
-  isVariantOf: { productGroupID: string; name: string }
-  image: Array<{ url: string; alternateName: string }>
-  offers: {
-    lowPrice: number
-    offers: Array<{
-      availability: string
-      price: number
-      listPrice: number
-      quantity: number
-      seller: { identifier: string }
-    }>
-  }
-}
-
 export type UpdateSessionMutationMutationVariables = Exact<{
   session: IStoreSession
 }>
@@ -11206,55 +11466,6 @@ export type ProductDetailsFragment_ProductFragment = {
   }
   breadcrumbList: {
     itemListElement: Array<{ item: string; name: string; position: number }>
-  }
-}
-
-export type ProductGalleryQueryQueryVariables = Exact<{
-  first: Scalars['Int']
-  after: Scalars['String']
-  sort: StoreSort
-  term: Scalars['String']
-  selectedFacets: Array<IStoreSelectedFacet> | IStoreSelectedFacet
-}>
-
-export type ProductGalleryQueryQuery = {
-  search: {
-    products: {
-      pageInfo: { totalCount: number }
-      edges: Array<{
-        node: {
-          slug: string
-          sku: string
-          name: string
-          gtin: string
-          id: string
-          brand: { name: string; brandName: string }
-          isVariantOf: { productGroupID: string; name: string }
-          image: Array<{ url: string; alternateName: string }>
-          offers: {
-            lowPrice: number
-            offers: Array<{
-              availability: string
-              price: number
-              listPrice: number
-              quantity: number
-              seller: { identifier: string }
-            }>
-          }
-        }
-      }>
-    }
-    facets: Array<{
-      key: string
-      label: string
-      type: StoreFacetType
-      values: Array<{
-        label: string
-        value: string
-        selected: boolean
-        quantity: number
-      }>
-    }>
   }
 }
 
@@ -11408,6 +11619,23 @@ export type PlanosQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulBannerPlanosDeAssinatura: {
+    nodes: Array<{
+      subtitle: string | null
+      title: string | null
+      imageMobile: { url: string | null } | null
+      imageDesktop: { url: string | null } | null
+    }>
+  }
+  allContentfulBenefitsPlans: {
+    nodes: Array<{
+      image: { url: string | null } | null
+      text: { text: string | null } | null
+    }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
   allContentfulPlanos: {
     nodes: Array<{
       textoBotao: string | null
@@ -11418,6 +11646,98 @@ export type PlanosQuery = {
       slug: string | null
       texto: { texto: string | null } | null
     }>
+  }
+}
+
+export type PlanoBasicoQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoBasicoQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoComunicacaoTecnologiaQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type PlanoComunicacaoTecnologiaQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoEspecialQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoEspecialQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoNegocioQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoNegocioQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoSaudeQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoSaudeQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoTecnologiaQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoTecnologiaQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
   }
 }
 
@@ -11533,44 +11853,6 @@ export type BrowserProductQueryQuery = {
     }
     breadcrumbList: {
       itemListElement: Array<{ item: string; name: string; position: number }>
-    }
-  }
-}
-
-export type ProductsQueryQueryVariables = Exact<{
-  first: Scalars['Int']
-  after: InputMaybe<Scalars['String']>
-  sort: StoreSort
-  term: Scalars['String']
-  selectedFacets: Array<IStoreSelectedFacet> | IStoreSelectedFacet
-}>
-
-export type ProductsQueryQuery = {
-  search: {
-    products: {
-      pageInfo: { totalCount: number }
-      edges: Array<{
-        node: {
-          slug: string
-          sku: string
-          name: string
-          gtin: string
-          id: string
-          brand: { name: string; brandName: string }
-          isVariantOf: { productGroupID: string; name: string }
-          image: Array<{ url: string; alternateName: string }>
-          offers: {
-            lowPrice: number
-            offers: Array<{
-              availability: string
-              price: number
-              listPrice: number
-              quantity: number
-              seller: { identifier: string }
-            }>
-          }
-        }
-      }>
     }
   }
 }

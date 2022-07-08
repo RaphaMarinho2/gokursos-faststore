@@ -1,13 +1,9 @@
-// import { useState } from 'react'
-
-// import { Link } from 'gatsby'
-// import { Image } from 'src/components/ui/Image'
-
-import { ITEMS_PER_SECTION } from 'src/constants'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { List } from '@faststore/ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductShelf from 'src/components/product/ProductShelf'
+import axios from 'axios'
+import { slugify } from 'src/sdk/utils/slugify'
 
 import Section from '../Section'
 import { useTabs, TabPanel } from './tabRules'
@@ -38,6 +34,25 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const [tabs] = useState(allTabs)
   const [selectedTab, setSelectedTab] = useTabs(tabs)
+
+  const [products, setProducts] = useState<any>()
+
+  useEffect(() => {
+    const departmentName =
+      selectedTab &&
+      selectedTab !== undefined &&
+      slugify(selectedTab) !== 'Geral'
+        ? slugify(selectedTab).toLowerCase()
+        : null
+
+    axios
+      .get('/api/getTopSellers', {
+        params: {
+          departmentName,
+        },
+      })
+      .then(({ data: { value } }) => setProducts(value))
+  }, [selectedTab])
 
   return (
     <Section className="navigattionTabs-container section">
@@ -75,7 +90,7 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
                 <Section className="layout__content home-shelf-container navigattionTabs-content">
                   <ProductShelf
                     cardsQuantity={shelfItemQuantity}
-                    first={ITEMS_PER_SECTION}
+                    products={products}
                   />
                 </Section>
               </article>

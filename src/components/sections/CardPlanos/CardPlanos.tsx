@@ -7,7 +7,7 @@ type PlanosType = {
     preco?: string | null
     saibaMais?: string | null
     promocao?: boolean | null
-    slug?: boolean | null
+    slug?: string | null
     texto: {
       texto: string | null
     } | null
@@ -42,7 +42,7 @@ const CardPlanos = ({ nodes }: PlanosType) => {
               <h3 className="preco">{preco}</h3>
               <p>/mês</p>
             </div>
-            <p className="texto">{texto.texto}</p>
+            <p className="texto">{texto?.texto}</p>
             <div className="botoes">
               <a href={`/planos${slug}`} className="saiba-mais">
                 {saibaMais}
