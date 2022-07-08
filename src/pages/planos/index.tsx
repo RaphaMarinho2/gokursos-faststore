@@ -5,15 +5,21 @@ import { mark } from 'src/sdk/tests/mark'
 import Section from 'src/components/sections/Section'
 import BenefitsPlans from 'src/components/sections/BenefitsPlans'
 import SimpleText from 'src/components/sections/SimpleText/SimpleText'
+import BannerPlanos from 'src/components/sections/BannerPlanos'
 
 export type Props = PageProps<PlanosQuery>
 function Page(props: Props) {
   const {
-    data: { allContentfulBenefitsPlans, allContentfulPlanosTextoSimples },
+    data: {
+      allContentfulBenefitsPlans,
+      allContentfulPlanosTextoSimples,
+      allContentfulBannerPlanosDeAssinatura,
+    },
   } = props
 
   return (
     <Section>
+      <BannerPlanos nodes={allContentfulBannerPlanosDeAssinatura.nodes} />
       <SimpleText
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
@@ -33,6 +39,18 @@ export const querySSG = graphql`
         title
         description
         titleTemplate
+      }
+    }
+    allContentfulBannerPlanosDeAssinatura {
+      nodes {
+        subtitle
+        title
+        imageMobile {
+          url
+        }
+        imageDesktop {
+          url
+        }
       }
     }
     allContentfulBenefitsPlans(sort: { order: ASC, fields: createdAt }) {

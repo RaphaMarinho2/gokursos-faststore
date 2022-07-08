@@ -11689,6 +11689,14 @@ export type PlanosQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulBannerPlanosDeAssinatura: {
+    nodes: Array<{
+      subtitle: string | null
+      title: string | null
+      imageMobile: { url: string | null } | null
+      imageDesktop: { url: string | null } | null
+    }>
+  }
   allContentfulBenefitsPlans: {
     nodes: Array<{
       image: { url: string | null } | null
