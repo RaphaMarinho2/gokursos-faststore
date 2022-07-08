@@ -38,7 +38,10 @@ const CardPlanos = ({ nodes }: PlanosType) => {
               <h2 className="titulo-planos">{titulo}</h2>
               <div className="border" />
             </div>
-            <h3 className="preco">{preco}</h3>
+            <div className="preco-mes">
+              <h3 className="preco">{preco}</h3>
+              <p>/mes</p>
+            </div>
             <p className="texto">{texto.texto}</p>
             <div className="botoes">
               <a href={`/planos${slug}`} className="saiba-mais">
