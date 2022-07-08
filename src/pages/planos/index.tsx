@@ -6,6 +6,7 @@ import Section from 'src/components/sections/Section'
 import BenefitsPlans from 'src/components/sections/BenefitsPlans'
 import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import BannerPlanos from 'src/components/sections/BannerPlanos'
+import CardPlanos from 'src/components/sections/CardPlanos/CardPlanos'
 
 export type Props = PageProps<PlanosQuery>
 function Page(props: Props) {
@@ -14,6 +15,7 @@ function Page(props: Props) {
       allContentfulBenefitsPlans,
       allContentfulPlanosTextoSimples,
       allContentfulBannerPlanosDeAssinatura,
+      allContentfulPlanos,
     },
   } = props
 
@@ -28,6 +30,7 @@ function Page(props: Props) {
         title="Vantagens de fazer um plano de assinatura"
         nodes={allContentfulBenefitsPlans.nodes}
       />
+      <CardPlanos nodes={allContentfulPlanos.nodes} />
     </Section>
   )
 }
@@ -68,6 +71,19 @@ export const querySSG = graphql`
         text {
           text
         }
+      }
+    }
+    allContentfulPlanos {
+      nodes {
+        texto {
+          texto
+        }
+        textoBotao
+        titulo
+        promocao
+        preco
+        saibaMais
+        slug
       }
     }
   }

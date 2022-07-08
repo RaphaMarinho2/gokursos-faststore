@@ -1,4 +1,3 @@
-import { ITEMS_PER_SECTION } from 'src/constants'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { List } from '@faststore/ui'
 import { useEffect, useState } from 'react'
@@ -91,7 +90,6 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
                 <Section className="layout__content home-shelf-container navigattionTabs-content">
                   <ProductShelf
                     cardsQuantity={shelfItemQuantity}
-                    first={ITEMS_PER_SECTION}
                     products={products}
                   />
                 </Section>

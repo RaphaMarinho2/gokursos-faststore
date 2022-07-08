@@ -1,13 +1,9 @@
-import type {
-  ProductsQueryQueryVariables,
-  ProductSummary_ProductFragment,
-} from '@generated/graphql'
 import Carousel from '@acctglobal/carousel-universal'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 import ProductCard from '../ProductCard'
 
-interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
+interface ProductShelfProps {
   title?: string | JSX.Element
   cardsQuantity?: number
   withDivisor?: boolean
@@ -68,17 +64,15 @@ function ProductShelf({
         }}
         qtyItems={cardsQuantity}
       >
-        {products?.map(
-          (product: ProductSummary_ProductFragment, idx: number) => (
-            <div key={idx} className="product-shelf__content">
-              <ProductCard
-                product={product}
-                index={idx + 1}
-                ButtonBuy={ProductBtnBuyInPage()}
-              />
-            </div>
-          )
-        )}
+        {products?.map((product: any, idx: number) => (
+          <div key={idx} className="product-shelf__content">
+            <ProductCard
+              product={product}
+              index={idx + 1}
+              ButtonBuy={ProductBtnBuyInPage()}
+            />
+          </div>
+        ))}
       </Carousel>
     </div>
   )

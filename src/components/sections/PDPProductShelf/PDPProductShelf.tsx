@@ -1,6 +1,5 @@
 import ProductShelf from 'src/components/product/ProductShelf'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
-import { ITEMS_PER_SECTION } from 'src/constants'
 import './pdp-product-shelf.scss'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -41,7 +40,6 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
       <ProductShelf
         products={products}
         cardsQuantity={shelfItemQuantity}
-        first={ITEMS_PER_SECTION}
         title={title}
         pretitle={pretitle}
         withDivisor

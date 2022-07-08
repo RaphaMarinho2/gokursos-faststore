@@ -11412,27 +11412,6 @@ export type ContentfulPlanosTextoTextNodeSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
-export type ProductSummary_ProductFragment = {
-  slug: string
-  sku: string
-  name: string
-  gtin: string
-  id: string
-  brand: { name: string; brandName: string }
-  isVariantOf: { productGroupID: string; name: string }
-  image: Array<{ url: string; alternateName: string }>
-  offers: {
-    lowPrice: number
-    offers: Array<{
-      availability: string
-      price: number
-      listPrice: number
-      quantity: number
-      seller: { identifier: string }
-    }>
-  }
-}
-
 export type UpdateSessionMutationMutationVariables = Exact<{
   session: IStoreSession
 }>
@@ -11487,55 +11466,6 @@ export type ProductDetailsFragment_ProductFragment = {
   }
   breadcrumbList: {
     itemListElement: Array<{ item: string; name: string; position: number }>
-  }
-}
-
-export type ProductGalleryQueryQueryVariables = Exact<{
-  first: Scalars['Int']
-  after: Scalars['String']
-  sort: StoreSort
-  term: Scalars['String']
-  selectedFacets: Array<IStoreSelectedFacet> | IStoreSelectedFacet
-}>
-
-export type ProductGalleryQueryQuery = {
-  search: {
-    products: {
-      pageInfo: { totalCount: number }
-      edges: Array<{
-        node: {
-          slug: string
-          sku: string
-          name: string
-          gtin: string
-          id: string
-          brand: { name: string; brandName: string }
-          isVariantOf: { productGroupID: string; name: string }
-          image: Array<{ url: string; alternateName: string }>
-          offers: {
-            lowPrice: number
-            offers: Array<{
-              availability: string
-              price: number
-              listPrice: number
-              quantity: number
-              seller: { identifier: string }
-            }>
-          }
-        }
-      }>
-    }
-    facets: Array<{
-      key: string
-      label: string
-      type: StoreFacetType
-      values: Array<{
-        label: string
-        value: string
-        selected: boolean
-        quantity: number
-      }>
-    }>
   }
 }
 
@@ -11705,6 +11635,17 @@ export type PlanosQuery = {
   }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
+  }
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      promocao: boolean | null
+      preco: string | null
+      saibaMais: string | null
+      slug: string | null
+      texto: { texto: string | null } | null
+    }>
   }
 }
 
@@ -11912,44 +11853,6 @@ export type BrowserProductQueryQuery = {
     }
     breadcrumbList: {
       itemListElement: Array<{ item: string; name: string; position: number }>
-    }
-  }
-}
-
-export type ProductsQueryQueryVariables = Exact<{
-  first: Scalars['Int']
-  after: InputMaybe<Scalars['String']>
-  sort: StoreSort
-  term: Scalars['String']
-  selectedFacets: Array<IStoreSelectedFacet> | IStoreSelectedFacet
-}>
-
-export type ProductsQueryQuery = {
-  search: {
-    products: {
-      pageInfo: { totalCount: number }
-      edges: Array<{
-        node: {
-          slug: string
-          sku: string
-          name: string
-          gtin: string
-          id: string
-          brand: { name: string; brandName: string }
-          isVariantOf: { productGroupID: string; name: string }
-          image: Array<{ url: string; alternateName: string }>
-          offers: {
-            lowPrice: number
-            offers: Array<{
-              availability: string
-              price: number
-              listPrice: number
-              quantity: number
-              seller: { identifier: string }
-            }>
-          }
-        }
-      }>
     }
   }
 }

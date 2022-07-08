@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductShelf from 'src/components/product/ProductShelf'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
-import { ITEMS_PER_SECTION } from 'src/constants'
 
 import Section from '../Section'
 
@@ -28,7 +27,6 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
     <Section className="layout__content home-shelf-container">
       <ProductShelf
         cardsQuantity={shelfItemQuantity}
-        first={ITEMS_PER_SECTION}
         title={title}
         pretitle={pretitle}
         withDivisor
