@@ -36,6 +36,7 @@ function Page(props: Props) {
 
   return (
     <Section>
+      <h1>Plano Basico</h1>
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
       <SimpleText
         textReceived={allContentfulPlanosTextoSimples}

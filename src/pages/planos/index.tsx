@@ -2,13 +2,14 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanosQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Section from 'src/components/sections/Section'
+import BenefitsPlans from 'src/components/sections/BenefitsPlans'
+import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 
 export type Props = PageProps<PlanosQuery>
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples },
+    data: { allContentfulBenefitsPlans, allContentfulPlanosTextoSimples },
   } = props
 
   return (
@@ -16,6 +17,10 @@ function Page(props: Props) {
       <SimpleText
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
+      />
+      <BenefitsPlans
+        title="Vantagens de fazer um plano de assinatura"
+        nodes={allContentfulBenefitsPlans.nodes}
       />
     </Section>
   )
@@ -28,6 +33,16 @@ export const querySSG = graphql`
         title
         description
         titleTemplate
+      }
+    }
+    allContentfulBenefitsPlans(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        image {
+          url
+        }
+        text {
+          text
+        }
       }
     }
     allContentfulPlanosTextoSimples {
