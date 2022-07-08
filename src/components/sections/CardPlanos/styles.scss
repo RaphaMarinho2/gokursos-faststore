@@ -30,6 +30,7 @@
     }
 
     .titulo-planos {
+      height: 48px;
       margin-top: 24px;
       margin-bottom: 10px;
       font-size: 16px;
@@ -67,7 +68,7 @@
     }
 
     .texto {
-      margin-bottom: 40px;
+      height: 94px;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
@@ -143,6 +144,12 @@
       border-bottom: 1px solid #ffffff;
     }
 
+    .preco-mes {
+      p {
+        color: #ffffff;
+      }
+    }
+
     .preco {
       color: #ffffff;
     }
@@ -177,6 +184,8 @@
       box-shadow: -2px 0 15px rgb(0 0 0 / 10%), 2px 2px 15px rgb(0 0 0 / 10%);
 
       .titulo-planos {
+        display: flex;
+        height: 60px;
         margin-top: 35px;
         font-size: 20px;
         font-style: normal;
@@ -190,7 +199,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-top: 64px;
+        margin-top: 24px;
 
         p {
           margin-bottom: 16px;
@@ -212,8 +221,7 @@
       }
 
       .texto {
-        height: 140px;
-        margin-bottom: 31px;
+        height: 144px;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
@@ -270,6 +278,12 @@
 
       .preco {
         color: #ffffff;
+      }
+
+      .preco-mes {
+        p {
+          color: #ffffff;
+        }
       }
 
       .texto {

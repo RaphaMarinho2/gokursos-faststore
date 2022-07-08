@@ -40,7 +40,7 @@ const CardPlanos = ({ nodes }: PlanosType) => {
             </div>
             <div className="preco-mes">
               <h3 className="preco">{preco}</h3>
-              <p>/mes</p>
+              <p>/mês</p>
             </div>
             <p className="texto">{texto.texto}</p>
             <div className="botoes">
