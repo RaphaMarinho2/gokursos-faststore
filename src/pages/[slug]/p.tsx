@@ -15,7 +15,7 @@ import type {
   ProductPageQueryQueryVariables,
 } from '@generated/graphql'
 import 'src/styles/pages/pdp.scss'
-import PDPProductShelf from 'src/components/sections/PDPProductShelf'
+// import PDPProductShelf from 'src/components/sections/PDPProductShelf'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
@@ -100,11 +100,11 @@ function Page(props: Props) {
 
       <ProductDetails product={product} />
 
-      <PDPProductShelf
+      {/* <PDPProductShelf
         pretitle=""
         title="Cursos relacionados"
         product={product}
-      />
+      /> */}
     </>
   )
 }

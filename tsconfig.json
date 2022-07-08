@@ -13,6 +13,7 @@
     "allowJs": true,
     "paths": {
       "src/*": ["src/*"],
+      "api/*": ["api/*"],
       "@generated/*": ["@generated/*"]
     },
     "forceConsistentCasingInFileNames": true
@@ -20,6 +21,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "api/**/*.ts",
+    "api/**/*.tsx",
     "gatsby-*.ts",
     "gatsby-*.tsx",
     "@generated/**/*.ts"
