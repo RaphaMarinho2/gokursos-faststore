@@ -8,8 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - **GM-297** - Agnostic component for simple text [page plans bottom text].
+- **GM-95** - Created ScrollToTopButton component.
+
 ### Fixed
+
+- **GM-49** - Show more products - product gallery.
+
+## [0.7.1] - 2022-07-06
+
+### Added
+
+### Fixed
+- Removed duplicated TopSellers shelf from home
 
 ## [0.7.0] - 2022-07-04
 
