@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Fixed
+
+## [0.8.0] - 2022-07-11
+
+### Added
+
 - **GM-121** - Created Benefits Plans component.
 - **GM-297** - Agnostic component for simple text [page plans bottom text].
 - **GM-95** - Created ScrollToTopButton component.
