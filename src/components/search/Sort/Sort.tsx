@@ -8,7 +8,7 @@ function Sort() {
     state: { sort },
   } = useSearch()
 
-  const { isMobile } = useWindowDimensions()
+  const { isTablet } = useWindowDimensions()
 
   const OptionsMap = {
     price_desc: 'Maior Preço',
@@ -18,7 +18,7 @@ function Sort() {
     name_desc: 'Z-A',
     release_desc: 'Lançamento',
     discount_desc: 'Desconto',
-    score_desc: isMobile ? 'Ordenar por' : 'Selecione',
+    score_desc: isTablet ? 'Ordenar por' : 'Selecione',
   }
 
   const keys = Object.keys(OptionsMap) as Array<keyof typeof OptionsMap>
@@ -27,6 +27,7 @@ function Sort() {
     <Select
       id="sort-select"
       className="sort / text__title-mini-alt"
+      labelText={!isTablet ? 'Ordenar por' : ''}
       options={OptionsMap}
       onChange={(e) => {
         setSort(keys[e.target.selectedIndex])
