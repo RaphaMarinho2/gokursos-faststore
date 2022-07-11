@@ -1,7 +1,7 @@
 {
   "name": "gokursos.store",
   "private": true,
-  "version": "0.7.1",
+  "version": "0.8.0",
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
@@ -20,7 +20,9 @@
     "postinstall": "is-ci || husky install",
     "partytown": "partytown copylib ./public/~partytown",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "setup:dev": "mv ./api ./src && echo export { execute } from '../server'> ./src/api/server.ts || move ./api ./src && echo export { execute } from '../server'> ./src/api/server.ts",
+    "setup:prod": "mv ./src/api ./ && echo export { execute } from '../src/server'> ./api/server.ts || move ./src/api ./ && echo export { execute } from '../src/server'> ./api/server.ts"
   },
   "engines": {
     "node": ">=14"
@@ -37,6 +39,7 @@
     "@faststore/sdk": "^1.8.40",
     "@faststore/ui": "^1.8.40",
     "@vtex/graphql-utils": "^1.8.40",
+    "axios": "^0.27.2",
     "gatsby": "^4.14.1",
     "gatsby-plugin-gatsby-cloud": "^4.14.0",
     "gatsby-plugin-image": "^2.14.0",

@@ -6,10 +6,9 @@ import { useMemo } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import Hero from 'src/components/sections/Hero'
 import ProductGallery from 'src/components/sections/ProductGallery'
-import ProductShelf from 'src/components/product/ProductShelf'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import Icon from 'src/components/ui/Icon'
-import { ITEMS_PER_PAGE, ITEMS_PER_SECTION } from 'src/constants'
+import { ITEMS_PER_PAGE } from 'src/constants'
 import { applySearchState } from 'src/sdk/search/state'
 import { mark } from 'src/sdk/tests/mark'
 import type {
@@ -121,14 +120,6 @@ function Page(props: Props) {
       />
 
       <ProductGallery title={title} />
-
-      <ProductShelf
-        first={ITEMS_PER_SECTION}
-        sort="score_desc"
-        title="You might also like"
-        pretitle=""
-        withDivisor
-      />
 
       <ScrollToTopButton />
     </SearchProvider>

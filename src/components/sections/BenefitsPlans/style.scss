@@ -1,0 +1,93 @@
+@import "src/styles/scaffold";
+
+.benefits-plans {
+  display: block;
+  width: calc(100% - 32px);
+
+  @include media(">=notebook") {
+    width: calc(100% - 80px);
+  }
+
+  .benefits-plans__title {
+    margin-bottom: 22px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #555;
+    text-align: center;
+
+    @include media(">=notebook") {
+      margin-bottom: 32px;
+      line-height: 30px;
+    }
+  }
+
+  .benefits-plans__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 343px;
+    margin: 0 auto;
+
+    @include media(">=tablet") {
+      flex-wrap: nowrap;
+      justify-content: center;
+      max-width: none;
+    }
+
+    .benefits-plans__container-item {
+      display: flex;
+      margin: 0 auto 40px;
+
+      @include media(">=tablet") {
+        margin: 0 14px 40px;
+      }
+
+      @include media(">=notebook") {
+        margin: 0 24px 80px;
+      }
+
+      .benefits-plans__container-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        max-height: 32px;
+        background-color: #e5f1fe;
+        border-radius: 4px;
+
+        @include media(">=notebook") {
+          min-width: 48px;
+          max-height: 48px;
+        }
+
+        .benefits-plans__image {
+          max-width: 19px;
+
+          @include media(">=notebook") {
+            max-width: none;
+          }
+        }
+      }
+
+      .benefits-plans__text {
+        max-width: 100px;
+        margin-left: 8px;
+        overflow-x: hidden;
+        font-size: 12px;
+        line-height: 16px;
+        color: #555;
+
+        @include media(">=phonemid") {
+          max-width: 116px;
+        }
+
+        @include media(">=notebook") {
+          max-width: 232px;
+          margin-left: 16px;
+          font-size: 16px;
+          line-height: 21px;
+        }
+      }
+    }
+  }
+}
