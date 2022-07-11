@@ -18,6 +18,7 @@ function ProductGrid({ products, page, pageSize }: Props) {
             <ProductCard
               product={product}
               index={pageSize * page + idx + 1}
+              ButtonBuy={<button>Quero começar</button>}
               bordered
             />
           </li>

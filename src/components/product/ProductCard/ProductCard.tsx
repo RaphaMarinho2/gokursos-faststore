@@ -47,7 +47,7 @@ function ProductCard({
       data-fs-product-card-actionabled={!!ButtonBuy}
       {...otherProps}
     >
-      {img !== '' && (
+      {img !== '' ? (
         <UICardImage>
           <img
             src={img}
@@ -56,6 +56,8 @@ function ProductCard({
             loading="lazy"
           />
         </UICardImage>
+      ) : (
+        <div className="product-image__skeleton" />
       )}
 
       <UICardContent data-fs-product-card-content>

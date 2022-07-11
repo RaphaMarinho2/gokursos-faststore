@@ -12,8 +12,6 @@ import { mark } from 'src/sdk/tests/mark'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
-// import { useDelayedFacets } from './useDelayedFacets'
-// import { useGalleryQuery } from './useGalleryQuery'
 import { useProductsPrefetch } from './usePageProducts'
 import './product-gallery.scss'
 import { useGalleryQuery } from './useGalleryQuery'
@@ -34,11 +32,7 @@ function ProductGallery({ title, searchTerm, products }: Props) {
 
   const { data } = useGalleryQuery()
 
-  // const { data } = productGalleryQuery // REPLACE QUERY WITH MOCK FILE
-
   const facets = useDelayedFacets(data)
-
-  // const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)

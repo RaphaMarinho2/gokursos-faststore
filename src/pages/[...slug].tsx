@@ -19,13 +19,6 @@ function Page(props: Props) {
     serverData,
   } = props
 
-  // const {
-  //   data: { site },
-  //   serverData: { collection },
-  //   location: { host },
-  //   slug,
-  // } = props
-
   const collection = ServerCollectionPageQuery
 
   const title = collection?.seo.title ?? ''

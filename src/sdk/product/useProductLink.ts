@@ -1,14 +1,13 @@
 import { useCallback } from 'react'
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import { useLocation } from '@reach/router'
-import type { ProductSummary_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, SelectItemEvent } from '@faststore/sdk'
 
 import type { AnalyticsItem, SearchSelectItemEvent } from '../analytics/types'
 
 export type ProductLinkOptions = {
   index: number
-  product: ProductSummary_ProductFragment
+  product?: any
   selectedOffer: number
 }
 
@@ -17,7 +16,12 @@ export const useProductLink = ({
   product,
   selectedOffer,
 }: ProductLinkOptions) => {
-  const { slug } = product
+  const { ProductURL } = product
+
+  const slug = ProductURL
+    ? ProductURL.replace('https://www.gokursos.com/', '')
+    : ''
+
   const { href } = useLocation()
   const {
     currency: { code },
@@ -62,7 +66,7 @@ export const useProductLink = ({
   }, [code, product, index, selectedOffer, href])
 
   return {
-    to: `/${slug}/p`,
+    to: `/${slug}`,
     onClick,
     'data-testid': 'product-link',
   }
