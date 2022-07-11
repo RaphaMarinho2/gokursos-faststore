@@ -14,6 +14,7 @@ import VideoSection from 'src/components/sections/videosection'
 import PersonShelf from 'src/components/sections/PersonShelf'
 import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
+import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -86,8 +87,6 @@ function Page(props: Props) {
         nodes={allContentfulBestCourses.nodes}
       />
 
-      <HomeProductShelf pretitle="" title="Mais vendidos" />
-
       <BlockDesktop
         title="Vendidos"
         pretitle="Mais"
@@ -96,7 +95,7 @@ function Page(props: Props) {
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
 
-      <HomeProductShelf
+      <NewReleasesShelf
         pretitle="Confira os cursos"
         title="Lançados recentemente"
       />

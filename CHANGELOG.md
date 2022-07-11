@@ -11,6 +11,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [0.8.0] - 2022-07-11
+
+### Added
+
+- **GM-121** - Created Benefits Plans component.
+- **GM-297** - Agnostic component for simple text [page plans bottom text].
+- **GM-95** - Created ScrollToTopButton component.
+- **GM-119** - Created Banner component on plans page.
+- **GM-299** - Added product integration to home and product page shelves.
+
+### Fixed
+
+- **GM-49** - Show more products - product gallery.
+
+## [0.7.1] - 2022-07-06
+
+### Added
+
+### Fixed
+- Removed duplicated TopSellers shelf from home
+
 ## [0.7.0] - 2022-07-04
 
 ### Added

@@ -203,4 +203,22 @@
       width: fit-content;
     }
   }
+
+  [data-testid="show-more"] {
+    padding: 11px 47px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #666666;
+    border: 1px solid #dddddd;
+
+    &:hover {
+      color: #fff;
+      background-color: #666666;
+      border: 1px solid #666666;
+    }
+
+    @include media(">=notebook") {
+      margin-top: 13px;
+    }
+  }
 }

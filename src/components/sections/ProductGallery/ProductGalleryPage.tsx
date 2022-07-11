@@ -1,12 +1,11 @@
 import { useSearch } from '@faststore/sdk'
 import ProductGrid from 'src/components/product/ProductGrid'
-import type { ProductsQueryQuery } from '@generated/graphql'
 import './product-gallery.scss'
 
 /* If showSponsoredProducts is true, a ProductTiles will be displayed in between two blocks of ProductGrid on the page 0 */
 interface Props {
   page: number
-  fallbackData?: ProductsQueryQuery
+  fallbackData?: any
   title: string
   showSponsoredProducts?: boolean
   products?: any

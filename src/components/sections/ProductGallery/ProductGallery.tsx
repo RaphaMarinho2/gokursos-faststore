@@ -161,7 +161,7 @@ function ProductGallery({ title, searchTerm, products }: Props) {
                 rel="next"
                 variant="secondary"
               >
-                Load more products
+                CARREGAR MAIS
               </ButtonLink>
             </div>
           )}

@@ -33,7 +33,45 @@ export const query = gql`
         }
         edges {
           node {
-            ...ProductSummary_product
+            id: productID
+            sku
+            name
+            gtin
+            description
+
+            isVariantOf {
+              productGroupID
+              name
+            }
+
+            image {
+              url
+              alternateName
+            }
+
+            brand {
+              name
+            }
+
+            offers {
+              lowPrice
+              offers {
+                availability
+                price
+                listPrice
+                seller {
+                  identifier
+                }
+              }
+            }
+
+            breadcrumbList {
+              itemListElement {
+                item
+                name
+                position
+              }
+            }
           }
         }
       }
