@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-121** - Created Benefits Plans component.
 - **GM-297** - Agnostic component for simple text [page plans bottom text].
 - **GM-95** - Created ScrollToTopButton component.
+- **GM-119** - Created Banner component on plans page.
+- **GM-299** - Added product integration to home and product page shelves.
 
 ### Fixed
 
