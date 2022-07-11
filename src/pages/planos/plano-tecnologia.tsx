@@ -40,7 +40,7 @@ function Page(props: Props) {
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
       <ExplanationPlan
         nodes={allContentfulPlanos.nodes.filter(
-          (node) => node.slug === 'plano-tecnologia'
+          (node) => node.slug === '/plano-tecnologia'
         )}
       />
       <Subtitle nodes={allContentfulSignaturePageSubtitle.nodes} />
