@@ -79,14 +79,12 @@ export const querySSG = graphql`
         titulo
         preco
         slug
-      }
-    }
-    allContentfulPlanos {
-      nodes {
-        textoBotao
-        titulo
-        preco
-        slug
+        bannerImageMobile {
+          url
+        }
+        bannerImageDesktop {
+          url
+        }
       }
     }
     allContentfulBannerPlanosDeAssinatura {

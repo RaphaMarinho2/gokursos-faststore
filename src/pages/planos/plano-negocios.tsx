@@ -75,10 +75,10 @@ export const querySSG = graphql`
         titulo
         preco
         slug
-        bannerImageDesktop {
+        bannerImageMobile {
           url
         }
-        bannerImageMobile {
+        bannerImageDesktop {
           url
         }
       }
