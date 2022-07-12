@@ -13,6 +13,9 @@ interface BuyBoxProps {
     bannerImageDesktop: {
       url: string | null
     } | null
+    compartilhar: {
+      url: string | null
+    } | null
   }>
 }
 
@@ -31,6 +34,9 @@ interface BuyBoxModifiedProps {
     bannerImageDesktop: {
       url: string
     }
+    compartilhar: {
+      url: string
+    }
   }>
 }
 
@@ -47,6 +53,7 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
           textoBotao,
           bannerImageDesktop,
           bannerImageMobile,
+          compartilhar,
         } = node
 
         return (
@@ -59,7 +66,11 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
             <div key={index} className="component-Buybox__content">
               <div className="titulo-compartilhar">
                 <h2 className="titulo-planos">{titulo}</h2>
-                <p>t</p>
+                <img
+                  className="banner-planos__image"
+                  alt={titulo}
+                  src={compartilhar?.url}
+                />
               </div>
               <h3 className="preco">{preco}</h3>
               <div className="botao">

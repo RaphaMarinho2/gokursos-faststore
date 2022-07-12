@@ -5294,6 +5294,7 @@ export type ContentfulPlanos = ContentfulEntry &
     childrenContentfulPlanosTextoTextNode: Maybe<
       Array<Maybe<ContentfulPlanosTextoTextNode>>
     >
+    compartilhar: Maybe<ContentfulAsset>
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
     id: Scalars['ID']
@@ -5617,6 +5618,71 @@ export type ContentfulPlanosFieldsEnum =
   | 'children___parent___internal___type'
   | 'children___parent___parent___children'
   | 'children___parent___parent___id'
+  | 'compartilhar___children'
+  | 'compartilhar___children___children'
+  | 'compartilhar___children___children___children'
+  | 'compartilhar___children___children___id'
+  | 'compartilhar___children___id'
+  | 'compartilhar___children___internal___content'
+  | 'compartilhar___children___internal___contentDigest'
+  | 'compartilhar___children___internal___description'
+  | 'compartilhar___children___internal___fieldOwners'
+  | 'compartilhar___children___internal___ignoreType'
+  | 'compartilhar___children___internal___mediaType'
+  | 'compartilhar___children___internal___owner'
+  | 'compartilhar___children___internal___type'
+  | 'compartilhar___children___parent___children'
+  | 'compartilhar___children___parent___id'
+  | 'compartilhar___contentful_id'
+  | 'compartilhar___createdAt'
+  | 'compartilhar___description'
+  | 'compartilhar___file___contentType'
+  | 'compartilhar___file___details___size'
+  | 'compartilhar___file___fileName'
+  | 'compartilhar___file___url'
+  | 'compartilhar___filename'
+  | 'compartilhar___filesize'
+  | 'compartilhar___gatsbyImage'
+  | 'compartilhar___gatsbyImageData'
+  | 'compartilhar___height'
+  | 'compartilhar___id'
+  | 'compartilhar___internal___content'
+  | 'compartilhar___internal___contentDigest'
+  | 'compartilhar___internal___description'
+  | 'compartilhar___internal___fieldOwners'
+  | 'compartilhar___internal___ignoreType'
+  | 'compartilhar___internal___mediaType'
+  | 'compartilhar___internal___owner'
+  | 'compartilhar___internal___type'
+  | 'compartilhar___mimeType'
+  | 'compartilhar___node_locale'
+  | 'compartilhar___parent___children'
+  | 'compartilhar___parent___children___children'
+  | 'compartilhar___parent___children___id'
+  | 'compartilhar___parent___id'
+  | 'compartilhar___parent___internal___content'
+  | 'compartilhar___parent___internal___contentDigest'
+  | 'compartilhar___parent___internal___description'
+  | 'compartilhar___parent___internal___fieldOwners'
+  | 'compartilhar___parent___internal___ignoreType'
+  | 'compartilhar___parent___internal___mediaType'
+  | 'compartilhar___parent___internal___owner'
+  | 'compartilhar___parent___internal___type'
+  | 'compartilhar___parent___parent___children'
+  | 'compartilhar___parent___parent___id'
+  | 'compartilhar___placeholderUrl'
+  | 'compartilhar___publicUrl'
+  | 'compartilhar___resize___height'
+  | 'compartilhar___resize___src'
+  | 'compartilhar___resize___width'
+  | 'compartilhar___size'
+  | 'compartilhar___spaceId'
+  | 'compartilhar___sys___revision'
+  | 'compartilhar___sys___type'
+  | 'compartilhar___title'
+  | 'compartilhar___updatedAt'
+  | 'compartilhar___url'
+  | 'compartilhar___width'
   | 'contentful_id'
   | 'createdAt'
   | 'id'
@@ -5727,6 +5793,7 @@ export type ContentfulPlanosFilterInput = {
   childContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterInput>
   children: InputMaybe<NodeFilterListInput>
   childrenContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterListInput>
+  compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
@@ -8504,6 +8571,7 @@ export type QueryContentfulPlanosArgs = {
   childContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterInput>
   children: InputMaybe<NodeFilterListInput>
   childrenContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterListInput>
+  compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
@@ -11806,6 +11874,7 @@ export type PlanoBasicoQuery = {
       slug: string | null
       bannerImageMobile: { url: string | null } | null
       bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
     }>
   }
   allContentfulBannerPlanosDeAssinatura: {
@@ -11841,6 +11910,7 @@ export type PlanoComunicacaoTecnologiaQuery = {
       slug: string | null
       bannerImageMobile: { url: string | null } | null
       bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
     }>
   }
 }
@@ -11866,6 +11936,7 @@ export type PlanoEspecialQuery = {
       slug: string | null
       bannerImageMobile: { url: string | null } | null
       bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
     }>
   }
 }
@@ -11891,6 +11962,7 @@ export type PlanoNegocioQuery = {
       slug: string | null
       bannerImageMobile: { url: string | null } | null
       bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
     }>
   }
 }
@@ -11916,6 +11988,7 @@ export type PlanoSaudeQuery = {
       slug: string | null
       bannerImageMobile: { url: string | null } | null
       bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
     }>
   }
 }
@@ -11941,6 +12014,7 @@ export type PlanoTecnologiaQuery = {
       slug: string | null
       bannerImageMobile: { url: string | null } | null
       bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
     }>
   }
 }

@@ -85,6 +85,9 @@ export const querySSG = graphql`
         bannerImageDesktop {
           url
         }
+        compartilhar {
+          url
+        }
       }
     }
     allContentfulBannerPlanosDeAssinatura {
