@@ -5,6 +5,7 @@ import { mark } from 'src/sdk/tests/mark'
 import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import Section from 'src/components/sections/Section'
+import BuyBox from 'src/components/sections/BuyBox/BuyBox'
 
 type ItemListType = {
   item: string
@@ -16,7 +17,7 @@ export type Props = PageProps<PlanoNegocioQuery>
 
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples },
+    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
 
   const itemListElement: ItemListType[] = [
@@ -42,6 +43,11 @@ function Page(props: Props) {
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
       />
+      <BuyBox
+        nodes={allContentfulPlanos.nodes.filter(
+          (node) => node.slug === '/plano-negocios'
+        )}
+      />
     </Section>
   )
 }
@@ -55,10 +61,25 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
+
     allContentfulPlanosTextoSimples {
       nodes {
         text {
           text
+        }
+      }
+    }
+    allContentfulPlanos {
+      nodes {
+        textoBotao
+        titulo
+        preco
+        slug
+        bannerImageDesktop {
+          url
+        }
+        bannerImageMobile {
+          url
         }
       }
     }

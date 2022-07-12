@@ -1,0 +1,146 @@
+@import "src/styles/scaffold";
+
+.container-BuyBox {
+  display: flex;
+  flex-direction: column;
+
+  .component-Buybox__content {
+    display: flex;
+    flex-direction: column;
+    width: 271px;
+    height: 160px;
+    background: rgb(255 255 255 / 20%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: 8px;
+    backdrop-filter: blur(35px);
+
+    .titulo-compartilhar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .titulo-planos {
+      height: 48px;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      color: #ffffff;
+    }
+
+    .preco {
+      margin-bottom: 16px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      color: #ffffff;
+    }
+
+    .botao {
+      margin: 0 16px;
+    }
+
+    .texto-botao {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 40px;
+      padding: 10px 20px;
+      margin-bottom: 40px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+      color: #ffffff;
+      background: #ff3452;
+      border: none;
+      border-radius: 4px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container-BuyBox {
+    display: flex;
+    flex-direction: row;
+
+    .component-Buybox__content {
+      display: flex;
+      flex-direction: column;
+      width: 271px;
+      height: 160px;
+      background: red;
+      border: 1px solid rgb(255 255 255 / 20%);
+      border-radius: 8px;
+      backdrop-filter: blur(35px);
+
+      .titulo-compartilhar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+        margin: 0 16px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        color: #ffffff;
+      }
+
+      .titulo-planos {
+        height: 48px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        color: #ffffff;
+      }
+
+      .preco {
+        margin-top: 10px;
+        margin-left: 16px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        color: #ffffff;
+      }
+
+      .texto {
+        height: 94px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        color: #555555;
+        text-align: center;
+      }
+
+      .texto-botao {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 40px;
+        padding: 10px 20px;
+        margin-bottom: 40px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+        color: #ffffff;
+        background: #ff3452;
+        border: none;
+        border-radius: 4px;
+      }
+    }
+  }
+}
