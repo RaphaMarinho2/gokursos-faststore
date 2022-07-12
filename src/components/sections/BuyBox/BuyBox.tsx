@@ -1,26 +1,46 @@
 import './styles.scss'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
-type BuyBoxType = {
+interface BuyBoxProps {
   nodes: Array<{
-    textoBotao?: string | null
-    titulo?: string | null
-    preco?: string | null
-    bannerImageDesktop: {
+    textoBotao: string | null
+    titulo: string | null
+    preco: string | null
+    slug: string | null
+    bannerImageMobile: {
       url: string | null
     } | null
-    bannerImageMobile: {
+    bannerImageDesktop: {
       url: string | null
     } | null
   }>
 }
 
-const BuyBox = ({ nodes }: BuyBoxType) => {
+interface BuyBoxModifiedProps {
+  map(
+    arg0: (node: any, index: number) => JSX.Element
+  ): import('react').ReactNode
+  nodes: Array<{
+    textoBotao: string | null
+    titulo: string
+    preco: string | null
+    slug: string | null
+    bannerImageMobile: {
+      url: string
+    }
+    bannerImageDesktop: {
+      url: string
+    }
+  }>
+}
+
+const BuyBox = ({ nodes }: BuyBoxProps) => {
   const { isTablet } = useWindowDimensions()
+  const nodesModifiedProps = nodes as unknown as BuyBoxModifiedProps
 
   return (
-    <div className="container-BuyBox">
-      {nodes.map((node, index) => {
+    <div className="buy-box__container layout__content">
+      {nodesModifiedProps.map((node, index) => {
         const {
           titulo,
           preco,
@@ -30,7 +50,7 @@ const BuyBox = ({ nodes }: BuyBoxType) => {
         } = node
 
         return (
-          <div key={index} className="imagem-buy-box">
+          <div key={index} className="buy-box__content">
             <img
               className="banner-planos__image"
               alt={titulo}
