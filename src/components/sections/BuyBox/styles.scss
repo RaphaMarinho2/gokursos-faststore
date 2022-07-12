@@ -1,18 +1,25 @@
 @import "src/styles/scaffold";
 
-.container-BuyBox {
+.buy-box__container {
   display: flex;
   flex-direction: column;
 
-  .component-Buybox__content {
-    display: flex;
-    flex-direction: column;
-    width: 271px;
-    height: 160px;
-    background: rgb(255 255 255 / 20%);
-    border: 1px solid rgb(255 255 255 / 20%);
-    border-radius: 8px;
-    backdrop-filter: blur(35px);
+  .buy-box__content {
+    position: relative;
+
+    .component-Buybox__content {
+      position: absolute;
+      top: 10%;
+      left: 156px;
+      display: flex;
+      flex-direction: column;
+      width: 430px;
+      height: 220px;
+      background: rgb(255 255 255 / 20%);
+      border: 1px solid rgb(255 255 255 / 20%);
+      border-radius: 8px;
+      backdrop-filter: blur(35px);
+    }
 
     .titulo-compartilhar {
       display: flex;
@@ -66,7 +73,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .container-BuyBox {
+  .buy-box__container {
     display: flex;
     flex-direction: row;
 
