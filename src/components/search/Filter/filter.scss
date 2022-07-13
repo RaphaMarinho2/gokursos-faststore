@@ -20,10 +20,8 @@
         margin-bottom: var(--fs-spacing-3);
       }
     }
-
-    @include media(">=notebook") {
-      border: 1px solid var(--fs-border-color-light);
-      border-radius: var(--fs-border-radius-default);
+    [data-accordion-item] {
+      border-bottom: 1px solid #CACBCC;
     }
   }
 
@@ -113,3 +111,22 @@
     }
   }
 }
+
+
+.hidden-mobile {
+  &:last-of-type {
+    .filter {
+      .text{
+        &__title-mini-alt {
+            display: none;
+        }
+      }
+      &__item {
+        display: block;
+      }
+    }
+  }
+}
+
+
+

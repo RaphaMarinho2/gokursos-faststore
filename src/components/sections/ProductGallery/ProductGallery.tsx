@@ -10,6 +10,7 @@ import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
+import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -38,6 +39,10 @@ function ProductGallery({ title, searchTerm }: Props) {
   // const facets = useDelayedFacets(data)
 
   const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
+
+
+
+  const teste2 = productGalleryQuery2.data?.search?.facets
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -74,6 +79,13 @@ function ProductGallery({ title, searchTerm }: Props) {
             <Filter
               isOpen={isFilterOpen}
               facets={facets}
+              onDismiss={() => setIsFilterOpen(false)}
+            />
+          </FilterSkeleton>
+          <FilterSkeleton loading={facets?.length === 0}>
+            <Filter
+              isOpen={isFilterOpen}
+              facets={teste2}
               onDismiss={() => setIsFilterOpen(false)}
             />
           </FilterSkeleton>
