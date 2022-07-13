@@ -6,7 +6,9 @@ import {
   AccordionButton as UIAccordionButton,
 } from '@faststore/ui'
 import type { AccordionItemProps } from '@faststore/ui'
-import Icon from 'src/components/ui/Icon'
+import { ButtonIcon } from 'src/components/ui/Button'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
 
 interface Props extends AccordionItemProps {
   /**
@@ -46,17 +48,20 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
           data-testid={`${testId}-button-icon`}
           component={
             <>
-              <Icon
+              <ButtonIcon
                 data-icon={isExpanded ? 'expanded' : true}
-                name="MinusCircle"
-                width={24}
-                height={24}
+                data-fs-button-menu
+                icon={<AccordionUp />}
+                aria-label="Abrir menu"
+                className="btn-drawer-menu"
               />
-              <Icon
+
+              <ButtonIcon
                 data-icon={isExpanded ? true : 'collapsed'}
-                name="PlusCircle"
-                width={24}
-                height={24}
+                data-fs-button-menu
+                icon={<AccordionDown />}
+                aria-label="Abrir menu"
+                className="btn-drawer-menu"
               />
             </>
           }
