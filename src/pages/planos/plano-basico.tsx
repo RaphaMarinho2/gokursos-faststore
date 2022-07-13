@@ -12,6 +12,8 @@ import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import ProductGallery from 'src/components/sections/ProductGallery'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
 
 const useSearchParams = ({ href }: Location) => {
   const [params, setParams] = useState<SearchState | null>(null)
@@ -37,6 +39,11 @@ function Page(props: Props) {
   const {
     data: { allContentfulPlanosTextoSimples },
   } = props
+
+  const svgIcons = {
+    svg1: <AccordionUp />,
+    svg2: <AccordionDown />,
+  }
 
   const searchParams = useSearchParams(props.location)
 
@@ -71,7 +78,7 @@ function Page(props: Props) {
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
       />
-      <ProductGallery title={title} />
+      <ProductGallery title={title} forceSvg={svgIcons} />
 
       <ScrollToTopButton />
     </SearchProvider>

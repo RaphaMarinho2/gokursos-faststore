@@ -23,12 +23,17 @@ import './product-gallery.scss'
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
+type ForceSvg = {
+  svg1?: JSX.Element
+  svg2?: JSX.Element
+}
 interface Props {
   title: string
   searchTerm?: string
+  forceSvg?: ForceSvg
 }
 
-function ProductGallery({ title, searchTerm }: Props) {
+function ProductGallery({ title, searchTerm, forceSvg }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
@@ -40,9 +45,7 @@ function ProductGallery({ title, searchTerm }: Props) {
 
   const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
 
-
-
-  const teste2 = productGalleryQuery2.data?.search?.facets
+  const facetsWithPrice = productGalleryQuery2.data?.search?.facets
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -80,13 +83,15 @@ function ProductGallery({ title, searchTerm }: Props) {
               isOpen={isFilterOpen}
               facets={facets}
               onDismiss={() => setIsFilterOpen(false)}
+              forceSvg={forceSvg && forceSvg}
             />
           </FilterSkeleton>
-          <FilterSkeleton loading={facets?.length === 0}>
+          <FilterSkeleton loading={facetsWithPrice?.length === 0}>
             <Filter
               isOpen={isFilterOpen}
-              facets={teste2}
+              facets={facetsWithPrice}
               onDismiss={() => setIsFilterOpen(false)}
+              forceSvg={forceSvg && forceSvg}
             />
           </FilterSkeleton>
         </div>

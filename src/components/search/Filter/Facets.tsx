@@ -2,12 +2,16 @@ import { Label as UILabel, List as UIList } from '@faststore/ui'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 import { Badge } from 'src/components/ui/Badge'
 import Checkbox from 'src/components/ui/Checkbox'
-
 import MultiRangeSlider from 'src/components/sections/MulRangeSlider'
 import type {
   IStoreSelectedFacet,
   Filter_FacetsFragment,
 } from '@generated/graphql'
+
+type ForceSvg = {
+  svg1?: JSX.Element
+  svg2?: JSX.Element
+}
 
 interface FacetsProps {
   testId: string
@@ -15,6 +19,7 @@ interface FacetsProps {
   indicesExpanded: Set<number>
   onFacetChange: (item: IStoreSelectedFacet) => void
   onAccordionChange: (index: number) => void
+  forceSvg?: ForceSvg
 }
 
 const priceByApi = {
@@ -28,6 +33,7 @@ function Facets({
   indicesExpanded,
   onFacetChange,
   onAccordionChange,
+  forceSvg,
 }: FacetsProps) {
   return (
     <div className="filter" data-store-filter data-testid={testId}>
@@ -47,6 +53,7 @@ function Facets({
                   testId={`${testId}-accordion`}
                   isExpanded={indicesExpanded.has(index)}
                   buttonLabel={label}
+                  forceSvg={forceSvg}
                 >
                   <UIList>
                     {values.map((item) => {
@@ -90,6 +97,7 @@ function Facets({
                   testId={`${testId}-accordion`}
                   isExpanded={indicesExpanded.has(index)}
                   buttonLabel={label}
+                  forceSvg={forceSvg}
                 >
                   <UIList>
                     {values.map((item) => {
