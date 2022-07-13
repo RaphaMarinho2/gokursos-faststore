@@ -21,6 +21,10 @@
       backdrop-filter: blur(35px);
     }
 
+    .banner-planos__image {
+      width: 100%;
+    }
+
     .titulo-compartilhar {
       display: flex;
       flex-direction: row;
@@ -88,7 +92,7 @@
 
       .component-Buybox__content {
         position: absolute;
-        top: 10%;
+        top: 35px;
         left: 156px;
         display: flex;
         flex-direction: column;

@@ -66,11 +66,7 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
             <div key={index} className="component-Buybox__content">
               <div className="titulo-compartilhar">
                 <h2 className="titulo-planos">{titulo}</h2>
-                <img
-                  className="banner-planos__image"
-                  alt={titulo}
-                  src={compartilhar?.url}
-                />
+                <img alt={titulo} src={compartilhar?.url} />
               </div>
               <h3 className="preco">{preco}</h3>
               <div className="botao">
