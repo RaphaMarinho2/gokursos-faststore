@@ -26,6 +26,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      height: 48px;
       margin: 20px 16px 0;
       font-size: 16px;
       font-style: normal;
@@ -43,7 +44,7 @@
     }
 
     .preco {
-      margin-top: 21px;
+      margin-top: 8px;
       margin-left: 16px;
       font-size: 16px;
       font-style: normal;
@@ -88,7 +89,7 @@
       .component-Buybox__content {
         position: absolute;
         top: 10%;
-        left: 16px;
+        left: 156px;
         display: flex;
         flex-direction: column;
         width: 432px;
@@ -103,6 +104,7 @@
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
+          height: 72px;
           margin: 20px 16px 0;
           font-size: 16px;
           font-style: normal;
@@ -112,7 +114,7 @@
         }
 
         .titulo-planos {
-          font-size: 16px;
+          font-size: 24px;
           font-style: normal;
           font-weight: 700;
           line-height: 150%;
@@ -120,9 +122,9 @@
         }
 
         .preco {
-          margin-top: 70px;
+          margin-top: 25px;
           margin-left: 16px;
-          font-size: 16px;
+          font-size: 24px;
           font-style: normal;
           font-weight: 700;
           line-height: 150%;

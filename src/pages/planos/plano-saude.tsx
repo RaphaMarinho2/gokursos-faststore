@@ -37,15 +37,15 @@ function Page(props: Props) {
 
   return (
     <Section>
-      <Breadcrumb breadcrumbList={itemListElement} name={title} />
-      <SimpleText
-        textReceived={allContentfulPlanosTextoSimples}
-        className="text-banner-bottom"
-      />
       <BuyBox
         nodes={allContentfulPlanos.nodes.filter(
           (node) => node.slug === '/plano-saude'
         )}
+      />
+      <Breadcrumb breadcrumbList={itemListElement} name={title} />
+      <SimpleText
+        textReceived={allContentfulPlanosTextoSimples}
+        className="text-banner-bottom"
       />
     </Section>
   )

@@ -6,7 +6,6 @@ import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import Section from 'src/components/sections/Section'
 import BuyBox from 'src/components/sections/BuyBox/BuyBox'
-import BannerPlanos from 'src/components/sections/BannerPlanos'
 
 type ItemListType = {
   item: string
@@ -18,11 +17,7 @@ export type Props = PageProps<PlanoBasicoQuery>
 
 function Page(props: Props) {
   const {
-    data: {
-      allContentfulPlanosTextoSimples,
-      allContentfulPlanos,
-      allContentfulBannerPlanosDeAssinatura,
-    },
+    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
 
   const itemListElement: ItemListType[] = [
@@ -42,16 +37,15 @@ function Page(props: Props) {
 
   return (
     <Section>
-      <BannerPlanos nodes={allContentfulBannerPlanosDeAssinatura.nodes} />
-      <Breadcrumb breadcrumbList={itemListElement} name={title} />
-      <SimpleText
-        textReceived={allContentfulPlanosTextoSimples}
-        className="text-banner-bottom"
-      />
       <BuyBox
         nodes={allContentfulPlanos.nodes.filter(
           (node) => node.slug === '/plano-basico'
         )}
+      />
+      <Breadcrumb breadcrumbList={itemListElement} name={title} />
+      <SimpleText
+        textReceived={allContentfulPlanosTextoSimples}
+        className="text-banner-bottom"
       />
     </Section>
   )
@@ -86,18 +80,6 @@ export const querySSG = graphql`
           url
         }
         compartilhar {
-          url
-        }
-      }
-    }
-    allContentfulBannerPlanosDeAssinatura {
-      nodes {
-        subtitle
-        title
-        imageMobile {
-          url
-        }
-        imageDesktop {
           url
         }
       }
