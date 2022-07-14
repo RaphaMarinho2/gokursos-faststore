@@ -53,7 +53,7 @@ function Facets({
                   testId={`${testId}-accordion`}
                   isExpanded={indicesExpanded.has(index)}
                   buttonLabel={label}
-                  forceSvg={forceSvg}
+                  forceSvg={forceSvg && forceSvg}
                 >
                   <UIList>
                     {values.map((item) => {

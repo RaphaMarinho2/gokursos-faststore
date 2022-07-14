@@ -20,19 +20,24 @@
         margin-bottom: var(--fs-spacing-3);
       }
     }
+
     [data-accordion-item] {
-      border-bottom: 1px solid #CACBCC;
+      border-bottom: 1px solid #cacbcc;
     }
   }
 
   [data-accordion-item] [data-store-button] {
-    font-size: var(--fs-text-size-3);
-    font-weight: var(--fs-text-weight-regular);
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.5;
+    color: #000000;
 
     @include media(">=notebook") {
-      font-size: var(--fs-text-size-2);
       line-height: 1.25;
+    }
+
+    &[aria-expanded="true"] {
+      font-weight: 600;
     }
 
     [data-store-icon] [data-icon] {
@@ -112,21 +117,18 @@
   }
 }
 
-
 .hidden-mobile {
   &:last-of-type {
     .filter {
-      .text{
+      .text {
         &__title-mini-alt {
-            display: none;
+          display: none;
         }
       }
+
       &__item {
         display: block;
       }
     }
   }
 }
-
-
-
