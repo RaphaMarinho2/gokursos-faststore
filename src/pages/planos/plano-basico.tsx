@@ -55,6 +55,8 @@ function Page(props: Props) {
 
   const title = 'Conheça os planos GoKursos'
 
+  const galleryTitle = 'Cursos incluídos nesse plano'
+
   if (!searchParams) {
     return null
   }
@@ -71,7 +73,7 @@ function Page(props: Props) {
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
       />
-      <ProductGallery title={title} />
+      <ProductGallery title={title} galleryTitle={galleryTitle} />
 
       <ScrollToTopButton />
     </SearchProvider>
