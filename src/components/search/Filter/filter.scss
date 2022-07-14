@@ -40,7 +40,7 @@
       font-weight: 600;
 
       ~ [data-accordion-panel] {
-        display: inline-block;
+        min-height: 45px;
       }
     }
 
