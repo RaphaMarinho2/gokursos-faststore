@@ -38,6 +38,10 @@
 
     &[aria-expanded="true"] {
       font-weight: 600;
+
+      ~ [data-accordion-panel] {
+        display: inline-block;
+      }
     }
 
     [data-store-icon] [data-icon] {
