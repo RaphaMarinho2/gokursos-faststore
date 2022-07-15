@@ -6,7 +6,7 @@ import Section from 'src/components/sections/Section'
 import BannerPlanos from 'src/components/sections/BannerPlanos'
 import BenefitsPlans from 'src/components/sections/BenefitsPlans'
 
-export type Props = PageProps<ParaEmpresasQuery>
+type Props = PageProps<ParaEmpresasQuery>
 function Page(props: Props) {
   const {
     data: {
@@ -19,7 +19,8 @@ function Page(props: Props) {
     <Section>
       <BannerPlanos nodes={allContentfulBannerPlanosParaEmpresas.nodes} />
       <BenefitsPlans
-        title="Vantagens de fazer um plano de assinatura"
+        title="Vantagens dos nossos planos empresariais"
+        subtitle="Investir na capacitação da sua equipe é a melhor forma de manter sua empresa conectada com o futuro! O GoKursos para empresas oferece:"
         nodes={allContentfulBenefitsPlansForCompany.nodes}
       />
     </Section>
