@@ -10,16 +10,16 @@
 
     [data-banner-content] {
       position: absolute;
-      top: 5%;
+      top: 1%;
       left: 16px;
       color: #fff;
 
       @include media(">=phonemid") {
-        top: 10%;
+        top: 1%;
       }
 
       @include media(">=tablet") {
-        top: 30%;
+        top: 1%;
       }
 
       @include media(">=notebook") {
