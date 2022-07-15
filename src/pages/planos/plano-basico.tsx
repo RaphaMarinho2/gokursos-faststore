@@ -13,6 +13,14 @@ import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import ProductGallery from 'src/components/sections/ProductGallery'
 
+export type Props = PageProps<PlanoBasicoQuery>
+
+type ItemListType = {
+  item: string
+  name: string
+  position: number
+}
+
 const useSearchParams = ({ href }: Location) => {
   const [params, setParams] = useState<SearchState | null>(null)
 
@@ -25,17 +33,9 @@ const useSearchParams = ({ href }: Location) => {
   return params
 }
 
-type ItemListType = {
-  item: string
-  name: string
-  position: number
-}
-
-export type Props = PageProps<PlanoBasicoQuery>
-
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples },
+    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
 
   const searchParams = useSearchParams(props.location)
@@ -55,11 +55,12 @@ function Page(props: Props) {
 
   const title = 'Conheça os planos GoKursos'
 
-  const galleryTitle = 'Cursos incluídos nesse plano'
-
   if (!searchParams) {
     return null
   }
+
+  const { galleryTitle } =
+    allContentfulPlanos.nodes[allContentfulPlanos.nodes.length - 1]
 
   return (
     <SearchProvider
@@ -94,6 +95,11 @@ export const querySSG = graphql`
         text {
           text
         }
+      }
+    }
+    allContentfulPlanos {
+      nodes {
+        galleryTitle
       }
     }
   }

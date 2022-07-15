@@ -1,10 +1,18 @@
+import { useState, useEffect } from 'react'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanoEspecialQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import Section from 'src/components/sections/Section'
+import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
+import type { SearchState } from '@faststore/sdk'
+import { SearchProvider, parseSearchState } from '@faststore/sdk'
+import { applySearchState } from 'src/sdk/search/state'
+import { ITEMS_PER_PAGE } from 'src/constants'
+import ProductGallery from 'src/components/sections/ProductGallery'
+
+export type Props = PageProps<PlanoEspecialQuery>
 
 type ItemListType = {
   item: string
@@ -12,12 +20,24 @@ type ItemListType = {
   position: number
 }
 
-export type Props = PageProps<PlanoEspecialQuery>
+const useSearchParams = ({ href }: Location) => {
+  const [params, setParams] = useState<SearchState | null>(null)
+
+  useEffect(() => {
+    const url = new URL(href)
+
+    setParams(parseSearchState(url))
+  }, [href])
+
+  return params
+}
 
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples },
+    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
+
+  const searchParams = useSearchParams(props.location)
 
   const itemListElement: ItemListType[] = [
     {
@@ -34,15 +54,29 @@ function Page(props: Props) {
 
   const title = 'Conheça os planos GoKursos'
 
+  if (!searchParams) {
+    return null
+  }
+
+  const { galleryTitle } =
+    allContentfulPlanos.nodes[allContentfulPlanos.nodes.length - 1]
+
   return (
-    <Section>
-      <h1>Plano Basico</h1>
+    <SearchProvider
+      onChange={applySearchState}
+      itemsPerPage={ITEMS_PER_PAGE}
+      {...searchParams}
+    >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
+
       <SimpleText
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
       />
-    </Section>
+      <ProductGallery title={title} galleryTitle={galleryTitle} />
+
+      <ScrollToTopButton />
+    </SearchProvider>
   )
 }
 
@@ -60,6 +94,11 @@ export const querySSG = graphql`
         text {
           text
         }
+      }
+    }
+    allContentfulPlanos {
+      nodes {
+        galleryTitle
       }
     }
   }

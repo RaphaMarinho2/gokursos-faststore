@@ -23,7 +23,7 @@ const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
 interface Props {
-  galleryTitle?: string
+  galleryTitle?: string | null
   title: string
   searchTerm?: string
 }
