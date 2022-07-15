@@ -72,6 +72,7 @@ function Page(props: Props) {
       <SimpleText
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
+        withDivisorBottom
       />
       <ProductGallery title={title} galleryTitle={galleryTitle} />
 
