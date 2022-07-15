@@ -1503,6 +1503,401 @@ export type ContentfulBannerPlanosDeAssinaturaSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulBannerPlanosParaEmpresas = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    imageDesktop: Maybe<ContentfulAsset>
+    imageMobile: Maybe<ContentfulAsset>
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    spaceId: Maybe<Scalars['String']>
+    subtitle: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulBannerPlanosParaEmpresasSys>
+    title: Maybe<Scalars['String']>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulBannerPlanosParaEmpresasCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulBannerPlanosParaEmpresasUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulBannerPlanosParaEmpresasConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBannerPlanosParaEmpresasEdge>
+  group: Array<ContentfulBannerPlanosParaEmpresasGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBannerPlanosParaEmpresas>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBannerPlanosParaEmpresasConnectionDistinctArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasConnectionGroupArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBannerPlanosParaEmpresasConnectionMaxArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasConnectionMinArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasConnectionSumArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasEdge = {
+  next: Maybe<ContentfulBannerPlanosParaEmpresas>
+  node: ContentfulBannerPlanosParaEmpresas
+  previous: Maybe<ContentfulBannerPlanosParaEmpresas>
+}
+
+export type ContentfulBannerPlanosParaEmpresasFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'imageDesktop___children'
+  | 'imageDesktop___children___children'
+  | 'imageDesktop___children___children___children'
+  | 'imageDesktop___children___children___id'
+  | 'imageDesktop___children___id'
+  | 'imageDesktop___children___internal___content'
+  | 'imageDesktop___children___internal___contentDigest'
+  | 'imageDesktop___children___internal___description'
+  | 'imageDesktop___children___internal___fieldOwners'
+  | 'imageDesktop___children___internal___ignoreType'
+  | 'imageDesktop___children___internal___mediaType'
+  | 'imageDesktop___children___internal___owner'
+  | 'imageDesktop___children___internal___type'
+  | 'imageDesktop___children___parent___children'
+  | 'imageDesktop___children___parent___id'
+  | 'imageDesktop___contentful_id'
+  | 'imageDesktop___createdAt'
+  | 'imageDesktop___description'
+  | 'imageDesktop___file___contentType'
+  | 'imageDesktop___file___details___size'
+  | 'imageDesktop___file___fileName'
+  | 'imageDesktop___file___url'
+  | 'imageDesktop___filename'
+  | 'imageDesktop___filesize'
+  | 'imageDesktop___gatsbyImage'
+  | 'imageDesktop___gatsbyImageData'
+  | 'imageDesktop___height'
+  | 'imageDesktop___id'
+  | 'imageDesktop___internal___content'
+  | 'imageDesktop___internal___contentDigest'
+  | 'imageDesktop___internal___description'
+  | 'imageDesktop___internal___fieldOwners'
+  | 'imageDesktop___internal___ignoreType'
+  | 'imageDesktop___internal___mediaType'
+  | 'imageDesktop___internal___owner'
+  | 'imageDesktop___internal___type'
+  | 'imageDesktop___mimeType'
+  | 'imageDesktop___node_locale'
+  | 'imageDesktop___parent___children'
+  | 'imageDesktop___parent___children___children'
+  | 'imageDesktop___parent___children___id'
+  | 'imageDesktop___parent___id'
+  | 'imageDesktop___parent___internal___content'
+  | 'imageDesktop___parent___internal___contentDigest'
+  | 'imageDesktop___parent___internal___description'
+  | 'imageDesktop___parent___internal___fieldOwners'
+  | 'imageDesktop___parent___internal___ignoreType'
+  | 'imageDesktop___parent___internal___mediaType'
+  | 'imageDesktop___parent___internal___owner'
+  | 'imageDesktop___parent___internal___type'
+  | 'imageDesktop___parent___parent___children'
+  | 'imageDesktop___parent___parent___id'
+  | 'imageDesktop___placeholderUrl'
+  | 'imageDesktop___publicUrl'
+  | 'imageDesktop___resize___height'
+  | 'imageDesktop___resize___src'
+  | 'imageDesktop___resize___width'
+  | 'imageDesktop___size'
+  | 'imageDesktop___spaceId'
+  | 'imageDesktop___sys___revision'
+  | 'imageDesktop___sys___type'
+  | 'imageDesktop___title'
+  | 'imageDesktop___updatedAt'
+  | 'imageDesktop___url'
+  | 'imageDesktop___width'
+  | 'imageMobile___children'
+  | 'imageMobile___children___children'
+  | 'imageMobile___children___children___children'
+  | 'imageMobile___children___children___id'
+  | 'imageMobile___children___id'
+  | 'imageMobile___children___internal___content'
+  | 'imageMobile___children___internal___contentDigest'
+  | 'imageMobile___children___internal___description'
+  | 'imageMobile___children___internal___fieldOwners'
+  | 'imageMobile___children___internal___ignoreType'
+  | 'imageMobile___children___internal___mediaType'
+  | 'imageMobile___children___internal___owner'
+  | 'imageMobile___children___internal___type'
+  | 'imageMobile___children___parent___children'
+  | 'imageMobile___children___parent___id'
+  | 'imageMobile___contentful_id'
+  | 'imageMobile___createdAt'
+  | 'imageMobile___description'
+  | 'imageMobile___file___contentType'
+  | 'imageMobile___file___details___size'
+  | 'imageMobile___file___fileName'
+  | 'imageMobile___file___url'
+  | 'imageMobile___filename'
+  | 'imageMobile___filesize'
+  | 'imageMobile___gatsbyImage'
+  | 'imageMobile___gatsbyImageData'
+  | 'imageMobile___height'
+  | 'imageMobile___id'
+  | 'imageMobile___internal___content'
+  | 'imageMobile___internal___contentDigest'
+  | 'imageMobile___internal___description'
+  | 'imageMobile___internal___fieldOwners'
+  | 'imageMobile___internal___ignoreType'
+  | 'imageMobile___internal___mediaType'
+  | 'imageMobile___internal___owner'
+  | 'imageMobile___internal___type'
+  | 'imageMobile___mimeType'
+  | 'imageMobile___node_locale'
+  | 'imageMobile___parent___children'
+  | 'imageMobile___parent___children___children'
+  | 'imageMobile___parent___children___id'
+  | 'imageMobile___parent___id'
+  | 'imageMobile___parent___internal___content'
+  | 'imageMobile___parent___internal___contentDigest'
+  | 'imageMobile___parent___internal___description'
+  | 'imageMobile___parent___internal___fieldOwners'
+  | 'imageMobile___parent___internal___ignoreType'
+  | 'imageMobile___parent___internal___mediaType'
+  | 'imageMobile___parent___internal___owner'
+  | 'imageMobile___parent___internal___type'
+  | 'imageMobile___parent___parent___children'
+  | 'imageMobile___parent___parent___id'
+  | 'imageMobile___placeholderUrl'
+  | 'imageMobile___publicUrl'
+  | 'imageMobile___resize___height'
+  | 'imageMobile___resize___src'
+  | 'imageMobile___resize___width'
+  | 'imageMobile___size'
+  | 'imageMobile___spaceId'
+  | 'imageMobile___sys___revision'
+  | 'imageMobile___sys___type'
+  | 'imageMobile___title'
+  | 'imageMobile___updatedAt'
+  | 'imageMobile___url'
+  | 'imageMobile___width'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'spaceId'
+  | 'subtitle'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'title'
+  | 'updatedAt'
+
+export type ContentfulBannerPlanosParaEmpresasFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  imageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  imageMobile: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulBannerPlanosParaEmpresasSysFilterInput>
+  title: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulBannerPlanosParaEmpresasGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBannerPlanosParaEmpresasEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulBannerPlanosParaEmpresasGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBannerPlanosParaEmpresas>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBannerPlanosParaEmpresasGroupConnectionDistinctArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasGroupConnectionGroupArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBannerPlanosParaEmpresasGroupConnectionMaxArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasGroupConnectionMinArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasGroupConnectionSumArgs = {
+  field: ContentfulBannerPlanosParaEmpresasFieldsEnum
+}
+
+export type ContentfulBannerPlanosParaEmpresasSortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulBannerPlanosParaEmpresasFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulBannerPlanosParaEmpresasSys = {
+  contentType: Maybe<ContentfulBannerPlanosParaEmpresasSysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBannerPlanosParaEmpresasSysContentType = {
+  sys: Maybe<ContentfulBannerPlanosParaEmpresasSysContentTypeSys>
+}
+
+export type ContentfulBannerPlanosParaEmpresasSysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulBannerPlanosParaEmpresasSysContentTypeSysFilterInput>
+}
+
+export type ContentfulBannerPlanosParaEmpresasSysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBannerPlanosParaEmpresasSysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulBannerPlanosParaEmpresasSysFilterInput = {
+  contentType: InputMaybe<ContentfulBannerPlanosParaEmpresasSysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulBenefitsPlans = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -1879,6 +2274,459 @@ export type ContentfulBenefitsPlansFilterInput = {
   sys: InputMaybe<ContentfulBenefitsPlansSysFilterInput>
   text: InputMaybe<ContentfulBenefitsPlansTextTextNodeFilterInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulBenefitsPlansForCompany = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    /** Returns the first child node of type contentfulBenefitsPlansForCompanyTextTextNode or null if there are no children of given type on this node */
+    childContentfulBenefitsPlansForCompanyTextTextNode: Maybe<ContentfulBenefitsPlansForCompanyTextTextNode>
+    children: Array<Node>
+    /** Returns all children nodes filtered by type contentfulBenefitsPlansForCompanyTextTextNode */
+    childrenContentfulBenefitsPlansForCompanyTextTextNode: Maybe<
+      Array<Maybe<ContentfulBenefitsPlansForCompanyTextTextNode>>
+    >
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    image: Maybe<ContentfulAsset>
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    spaceId: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulBenefitsPlansForCompanySys>
+    text: Maybe<ContentfulBenefitsPlansForCompanyTextTextNode>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulBenefitsPlansForCompanyCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulBenefitsPlansForCompanyUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulBenefitsPlansForCompanyConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBenefitsPlansForCompanyEdge>
+  group: Array<ContentfulBenefitsPlansForCompanyGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBenefitsPlansForCompany>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBenefitsPlansForCompanyConnectionDistinctArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyConnectionGroupArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBenefitsPlansForCompanyConnectionMaxArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyConnectionMinArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyConnectionSumArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyEdge = {
+  next: Maybe<ContentfulBenefitsPlansForCompany>
+  node: ContentfulBenefitsPlansForCompany
+  previous: Maybe<ContentfulBenefitsPlansForCompany>
+}
+
+export type ContentfulBenefitsPlansForCompanyFieldsEnum =
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___children___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___children___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___content'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___contentDigest'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___description'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___fieldOwners'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___ignoreType'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___mediaType'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___owner'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___internal___type'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___parent___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___children___parent___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___content'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___contentDigest'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___description'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___fieldOwners'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___ignoreType'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___mediaType'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___owner'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___internal___type'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___children___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___children___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___content'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___contentDigest'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___description'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___fieldOwners'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___ignoreType'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___mediaType'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___owner'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___type'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___parent___children'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___parent___parent___id'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___sys___type'
+  | 'childContentfulBenefitsPlansForCompanyTextTextNode___text'
+  | 'children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___children___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___children___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___content'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___contentDigest'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___description'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___ignoreType'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___mediaType'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___owner'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___internal___type'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___parent___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___children___parent___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___content'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___contentDigest'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___description'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___fieldOwners'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___ignoreType'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___mediaType'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___owner'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___internal___type'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___children___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___children___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___content'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___description'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___mediaType'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___owner'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___internal___type'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___parent___children'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___parent___parent___id'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___sys___type'
+  | 'childrenContentfulBenefitsPlansForCompanyTextTextNode___text'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'image___children'
+  | 'image___children___children'
+  | 'image___children___children___children'
+  | 'image___children___children___id'
+  | 'image___children___id'
+  | 'image___children___internal___content'
+  | 'image___children___internal___contentDigest'
+  | 'image___children___internal___description'
+  | 'image___children___internal___fieldOwners'
+  | 'image___children___internal___ignoreType'
+  | 'image___children___internal___mediaType'
+  | 'image___children___internal___owner'
+  | 'image___children___internal___type'
+  | 'image___children___parent___children'
+  | 'image___children___parent___id'
+  | 'image___contentful_id'
+  | 'image___createdAt'
+  | 'image___description'
+  | 'image___file___contentType'
+  | 'image___file___details___size'
+  | 'image___file___fileName'
+  | 'image___file___url'
+  | 'image___filename'
+  | 'image___filesize'
+  | 'image___gatsbyImage'
+  | 'image___gatsbyImageData'
+  | 'image___height'
+  | 'image___id'
+  | 'image___internal___content'
+  | 'image___internal___contentDigest'
+  | 'image___internal___description'
+  | 'image___internal___fieldOwners'
+  | 'image___internal___ignoreType'
+  | 'image___internal___mediaType'
+  | 'image___internal___owner'
+  | 'image___internal___type'
+  | 'image___mimeType'
+  | 'image___node_locale'
+  | 'image___parent___children'
+  | 'image___parent___children___children'
+  | 'image___parent___children___id'
+  | 'image___parent___id'
+  | 'image___parent___internal___content'
+  | 'image___parent___internal___contentDigest'
+  | 'image___parent___internal___description'
+  | 'image___parent___internal___fieldOwners'
+  | 'image___parent___internal___ignoreType'
+  | 'image___parent___internal___mediaType'
+  | 'image___parent___internal___owner'
+  | 'image___parent___internal___type'
+  | 'image___parent___parent___children'
+  | 'image___parent___parent___id'
+  | 'image___placeholderUrl'
+  | 'image___publicUrl'
+  | 'image___resize___height'
+  | 'image___resize___src'
+  | 'image___resize___width'
+  | 'image___size'
+  | 'image___spaceId'
+  | 'image___sys___revision'
+  | 'image___sys___type'
+  | 'image___title'
+  | 'image___updatedAt'
+  | 'image___url'
+  | 'image___width'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'spaceId'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'text___children'
+  | 'text___children___children'
+  | 'text___children___children___children'
+  | 'text___children___children___id'
+  | 'text___children___id'
+  | 'text___children___internal___content'
+  | 'text___children___internal___contentDigest'
+  | 'text___children___internal___description'
+  | 'text___children___internal___fieldOwners'
+  | 'text___children___internal___ignoreType'
+  | 'text___children___internal___mediaType'
+  | 'text___children___internal___owner'
+  | 'text___children___internal___type'
+  | 'text___children___parent___children'
+  | 'text___children___parent___id'
+  | 'text___id'
+  | 'text___internal___content'
+  | 'text___internal___contentDigest'
+  | 'text___internal___description'
+  | 'text___internal___fieldOwners'
+  | 'text___internal___ignoreType'
+  | 'text___internal___mediaType'
+  | 'text___internal___owner'
+  | 'text___internal___type'
+  | 'text___parent___children'
+  | 'text___parent___children___children'
+  | 'text___parent___children___id'
+  | 'text___parent___id'
+  | 'text___parent___internal___content'
+  | 'text___parent___internal___contentDigest'
+  | 'text___parent___internal___description'
+  | 'text___parent___internal___fieldOwners'
+  | 'text___parent___internal___ignoreType'
+  | 'text___parent___internal___mediaType'
+  | 'text___parent___internal___owner'
+  | 'text___parent___internal___type'
+  | 'text___parent___parent___children'
+  | 'text___parent___parent___id'
+  | 'text___sys___type'
+  | 'text___text'
+  | 'updatedAt'
+
+export type ContentfulBenefitsPlansForCompanyFilterInput = {
+  childContentfulBenefitsPlansForCompanyTextTextNode: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput>
+  children: InputMaybe<NodeFilterListInput>
+  childrenContentfulBenefitsPlansForCompanyTextTextNode: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  image: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulBenefitsPlansForCompanySysFilterInput>
+  text: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulBenefitsPlansForCompanyGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBenefitsPlansForCompanyEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulBenefitsPlansForCompanyGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBenefitsPlansForCompany>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBenefitsPlansForCompanyGroupConnectionDistinctArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyGroupConnectionGroupArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBenefitsPlansForCompanyGroupConnectionMaxArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyGroupConnectionMinArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyGroupConnectionSumArgs = {
+  field: ContentfulBenefitsPlansForCompanyFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanySortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulBenefitsPlansForCompanyFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulBenefitsPlansForCompanySys = {
+  contentType: Maybe<ContentfulBenefitsPlansForCompanySysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBenefitsPlansForCompanySysContentType = {
+  sys: Maybe<ContentfulBenefitsPlansForCompanySysContentTypeSys>
+}
+
+export type ContentfulBenefitsPlansForCompanySysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulBenefitsPlansForCompanySysContentTypeSysFilterInput>
+}
+
+export type ContentfulBenefitsPlansForCompanySysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBenefitsPlansForCompanySysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulBenefitsPlansForCompanySysFilterInput = {
+  contentType: InputMaybe<ContentfulBenefitsPlansForCompanySysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
 }
 
 export type ContentfulBenefitsPlansGroupConnection = {
@@ -5285,6 +6133,8 @@ export type ContentfulPersonsSysFilterInput = {
 export type ContentfulPlanos = ContentfulEntry &
   ContentfulReference &
   Node & {
+    bannerImageDesktop: Maybe<ContentfulAsset>
+    bannerImageMobile: Maybe<ContentfulAsset>
     /** Returns the first child node of type contentfulPlanosTextoTextNode or null if there are no children of given type on this node */
     childContentfulPlanosTextoTextNode: Maybe<ContentfulPlanosTextoTextNode>
     children: Array<Node>
@@ -5292,8 +6142,10 @@ export type ContentfulPlanos = ContentfulEntry &
     childrenContentfulPlanosTextoTextNode: Maybe<
       Array<Maybe<ContentfulPlanosTextoTextNode>>
     >
+    compartilhar: Maybe<ContentfulAsset>
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
+    galleryTitle: Maybe<Scalars['String']>
     id: Scalars['ID']
     internal: Internal
     node_locale: Scalars['String']
@@ -5365,6 +6217,136 @@ export type ContentfulPlanosEdge = {
 }
 
 export type ContentfulPlanosFieldsEnum =
+  | 'bannerImageDesktop___children'
+  | 'bannerImageDesktop___children___children'
+  | 'bannerImageDesktop___children___children___children'
+  | 'bannerImageDesktop___children___children___id'
+  | 'bannerImageDesktop___children___id'
+  | 'bannerImageDesktop___children___internal___content'
+  | 'bannerImageDesktop___children___internal___contentDigest'
+  | 'bannerImageDesktop___children___internal___description'
+  | 'bannerImageDesktop___children___internal___fieldOwners'
+  | 'bannerImageDesktop___children___internal___ignoreType'
+  | 'bannerImageDesktop___children___internal___mediaType'
+  | 'bannerImageDesktop___children___internal___owner'
+  | 'bannerImageDesktop___children___internal___type'
+  | 'bannerImageDesktop___children___parent___children'
+  | 'bannerImageDesktop___children___parent___id'
+  | 'bannerImageDesktop___contentful_id'
+  | 'bannerImageDesktop___createdAt'
+  | 'bannerImageDesktop___description'
+  | 'bannerImageDesktop___file___contentType'
+  | 'bannerImageDesktop___file___details___size'
+  | 'bannerImageDesktop___file___fileName'
+  | 'bannerImageDesktop___file___url'
+  | 'bannerImageDesktop___filename'
+  | 'bannerImageDesktop___filesize'
+  | 'bannerImageDesktop___gatsbyImage'
+  | 'bannerImageDesktop___gatsbyImageData'
+  | 'bannerImageDesktop___height'
+  | 'bannerImageDesktop___id'
+  | 'bannerImageDesktop___internal___content'
+  | 'bannerImageDesktop___internal___contentDigest'
+  | 'bannerImageDesktop___internal___description'
+  | 'bannerImageDesktop___internal___fieldOwners'
+  | 'bannerImageDesktop___internal___ignoreType'
+  | 'bannerImageDesktop___internal___mediaType'
+  | 'bannerImageDesktop___internal___owner'
+  | 'bannerImageDesktop___internal___type'
+  | 'bannerImageDesktop___mimeType'
+  | 'bannerImageDesktop___node_locale'
+  | 'bannerImageDesktop___parent___children'
+  | 'bannerImageDesktop___parent___children___children'
+  | 'bannerImageDesktop___parent___children___id'
+  | 'bannerImageDesktop___parent___id'
+  | 'bannerImageDesktop___parent___internal___content'
+  | 'bannerImageDesktop___parent___internal___contentDigest'
+  | 'bannerImageDesktop___parent___internal___description'
+  | 'bannerImageDesktop___parent___internal___fieldOwners'
+  | 'bannerImageDesktop___parent___internal___ignoreType'
+  | 'bannerImageDesktop___parent___internal___mediaType'
+  | 'bannerImageDesktop___parent___internal___owner'
+  | 'bannerImageDesktop___parent___internal___type'
+  | 'bannerImageDesktop___parent___parent___children'
+  | 'bannerImageDesktop___parent___parent___id'
+  | 'bannerImageDesktop___placeholderUrl'
+  | 'bannerImageDesktop___publicUrl'
+  | 'bannerImageDesktop___resize___height'
+  | 'bannerImageDesktop___resize___src'
+  | 'bannerImageDesktop___resize___width'
+  | 'bannerImageDesktop___size'
+  | 'bannerImageDesktop___spaceId'
+  | 'bannerImageDesktop___sys___revision'
+  | 'bannerImageDesktop___sys___type'
+  | 'bannerImageDesktop___title'
+  | 'bannerImageDesktop___updatedAt'
+  | 'bannerImageDesktop___url'
+  | 'bannerImageDesktop___width'
+  | 'bannerImageMobile___children'
+  | 'bannerImageMobile___children___children'
+  | 'bannerImageMobile___children___children___children'
+  | 'bannerImageMobile___children___children___id'
+  | 'bannerImageMobile___children___id'
+  | 'bannerImageMobile___children___internal___content'
+  | 'bannerImageMobile___children___internal___contentDigest'
+  | 'bannerImageMobile___children___internal___description'
+  | 'bannerImageMobile___children___internal___fieldOwners'
+  | 'bannerImageMobile___children___internal___ignoreType'
+  | 'bannerImageMobile___children___internal___mediaType'
+  | 'bannerImageMobile___children___internal___owner'
+  | 'bannerImageMobile___children___internal___type'
+  | 'bannerImageMobile___children___parent___children'
+  | 'bannerImageMobile___children___parent___id'
+  | 'bannerImageMobile___contentful_id'
+  | 'bannerImageMobile___createdAt'
+  | 'bannerImageMobile___description'
+  | 'bannerImageMobile___file___contentType'
+  | 'bannerImageMobile___file___details___size'
+  | 'bannerImageMobile___file___fileName'
+  | 'bannerImageMobile___file___url'
+  | 'bannerImageMobile___filename'
+  | 'bannerImageMobile___filesize'
+  | 'bannerImageMobile___gatsbyImage'
+  | 'bannerImageMobile___gatsbyImageData'
+  | 'bannerImageMobile___height'
+  | 'bannerImageMobile___id'
+  | 'bannerImageMobile___internal___content'
+  | 'bannerImageMobile___internal___contentDigest'
+  | 'bannerImageMobile___internal___description'
+  | 'bannerImageMobile___internal___fieldOwners'
+  | 'bannerImageMobile___internal___ignoreType'
+  | 'bannerImageMobile___internal___mediaType'
+  | 'bannerImageMobile___internal___owner'
+  | 'bannerImageMobile___internal___type'
+  | 'bannerImageMobile___mimeType'
+  | 'bannerImageMobile___node_locale'
+  | 'bannerImageMobile___parent___children'
+  | 'bannerImageMobile___parent___children___children'
+  | 'bannerImageMobile___parent___children___id'
+  | 'bannerImageMobile___parent___id'
+  | 'bannerImageMobile___parent___internal___content'
+  | 'bannerImageMobile___parent___internal___contentDigest'
+  | 'bannerImageMobile___parent___internal___description'
+  | 'bannerImageMobile___parent___internal___fieldOwners'
+  | 'bannerImageMobile___parent___internal___ignoreType'
+  | 'bannerImageMobile___parent___internal___mediaType'
+  | 'bannerImageMobile___parent___internal___owner'
+  | 'bannerImageMobile___parent___internal___type'
+  | 'bannerImageMobile___parent___parent___children'
+  | 'bannerImageMobile___parent___parent___id'
+  | 'bannerImageMobile___placeholderUrl'
+  | 'bannerImageMobile___publicUrl'
+  | 'bannerImageMobile___resize___height'
+  | 'bannerImageMobile___resize___src'
+  | 'bannerImageMobile___resize___width'
+  | 'bannerImageMobile___size'
+  | 'bannerImageMobile___spaceId'
+  | 'bannerImageMobile___sys___revision'
+  | 'bannerImageMobile___sys___type'
+  | 'bannerImageMobile___title'
+  | 'bannerImageMobile___updatedAt'
+  | 'bannerImageMobile___url'
+  | 'bannerImageMobile___width'
   | 'childContentfulPlanosTextoTextNode___children'
   | 'childContentfulPlanosTextoTextNode___children___children'
   | 'childContentfulPlanosTextoTextNode___children___children___children'
@@ -5485,8 +6467,74 @@ export type ContentfulPlanosFieldsEnum =
   | 'children___parent___internal___type'
   | 'children___parent___parent___children'
   | 'children___parent___parent___id'
+  | 'compartilhar___children'
+  | 'compartilhar___children___children'
+  | 'compartilhar___children___children___children'
+  | 'compartilhar___children___children___id'
+  | 'compartilhar___children___id'
+  | 'compartilhar___children___internal___content'
+  | 'compartilhar___children___internal___contentDigest'
+  | 'compartilhar___children___internal___description'
+  | 'compartilhar___children___internal___fieldOwners'
+  | 'compartilhar___children___internal___ignoreType'
+  | 'compartilhar___children___internal___mediaType'
+  | 'compartilhar___children___internal___owner'
+  | 'compartilhar___children___internal___type'
+  | 'compartilhar___children___parent___children'
+  | 'compartilhar___children___parent___id'
+  | 'compartilhar___contentful_id'
+  | 'compartilhar___createdAt'
+  | 'compartilhar___description'
+  | 'compartilhar___file___contentType'
+  | 'compartilhar___file___details___size'
+  | 'compartilhar___file___fileName'
+  | 'compartilhar___file___url'
+  | 'compartilhar___filename'
+  | 'compartilhar___filesize'
+  | 'compartilhar___gatsbyImage'
+  | 'compartilhar___gatsbyImageData'
+  | 'compartilhar___height'
+  | 'compartilhar___id'
+  | 'compartilhar___internal___content'
+  | 'compartilhar___internal___contentDigest'
+  | 'compartilhar___internal___description'
+  | 'compartilhar___internal___fieldOwners'
+  | 'compartilhar___internal___ignoreType'
+  | 'compartilhar___internal___mediaType'
+  | 'compartilhar___internal___owner'
+  | 'compartilhar___internal___type'
+  | 'compartilhar___mimeType'
+  | 'compartilhar___node_locale'
+  | 'compartilhar___parent___children'
+  | 'compartilhar___parent___children___children'
+  | 'compartilhar___parent___children___id'
+  | 'compartilhar___parent___id'
+  | 'compartilhar___parent___internal___content'
+  | 'compartilhar___parent___internal___contentDigest'
+  | 'compartilhar___parent___internal___description'
+  | 'compartilhar___parent___internal___fieldOwners'
+  | 'compartilhar___parent___internal___ignoreType'
+  | 'compartilhar___parent___internal___mediaType'
+  | 'compartilhar___parent___internal___owner'
+  | 'compartilhar___parent___internal___type'
+  | 'compartilhar___parent___parent___children'
+  | 'compartilhar___parent___parent___id'
+  | 'compartilhar___placeholderUrl'
+  | 'compartilhar___publicUrl'
+  | 'compartilhar___resize___height'
+  | 'compartilhar___resize___src'
+  | 'compartilhar___resize___width'
+  | 'compartilhar___size'
+  | 'compartilhar___spaceId'
+  | 'compartilhar___sys___revision'
+  | 'compartilhar___sys___type'
+  | 'compartilhar___title'
+  | 'compartilhar___updatedAt'
+  | 'compartilhar___url'
+  | 'compartilhar___width'
   | 'contentful_id'
   | 'createdAt'
+  | 'galleryTitle'
   | 'id'
   | 'internal___content'
   | 'internal___contentDigest'
@@ -5590,11 +6638,15 @@ export type ContentfulPlanosFieldsEnum =
   | 'updatedAt'
 
 export type ContentfulPlanosFilterInput = {
+  bannerImageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  bannerImageMobile: InputMaybe<ContentfulAssetFilterInput>
   childContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterInput>
   children: InputMaybe<NodeFilterListInput>
   childrenContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterListInput>
+  compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  galleryTitle: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
@@ -7749,7 +8801,10 @@ export type Query = {
   allContentfulBannerDepartmentCategory: ContentfulBannerDepartmentCategoryConnection
   allContentfulBannerMedium: ContentfulBannerMediumConnection
   allContentfulBannerPlanosDeAssinatura: ContentfulBannerPlanosDeAssinaturaConnection
+  allContentfulBannerPlanosParaEmpresas: ContentfulBannerPlanosParaEmpresasConnection
   allContentfulBenefitsPlans: ContentfulBenefitsPlansConnection
+  allContentfulBenefitsPlansForCompany: ContentfulBenefitsPlansForCompanyConnection
+  allContentfulBenefitsPlansForCompanyTextTextNode: ContentfulBenefitsPlansForCompanyTextTextNodeConnection
   allContentfulBenefitsPlansTextTextNode: ContentfulBenefitsPlansTextTextNodeConnection
   allContentfulBestCourses: ContentfulBestCoursesConnection
   allContentfulCommonQuestions: ContentfulCommonQuestionsConnection
@@ -7787,7 +8842,10 @@ export type Query = {
   contentfulBannerDepartmentCategory: Maybe<ContentfulBannerDepartmentCategory>
   contentfulBannerMedium: Maybe<ContentfulBannerMedium>
   contentfulBannerPlanosDeAssinatura: Maybe<ContentfulBannerPlanosDeAssinatura>
+  contentfulBannerPlanosParaEmpresas: Maybe<ContentfulBannerPlanosParaEmpresas>
   contentfulBenefitsPlans: Maybe<ContentfulBenefitsPlans>
+  contentfulBenefitsPlansForCompany: Maybe<ContentfulBenefitsPlansForCompany>
+  contentfulBenefitsPlansForCompanyTextTextNode: Maybe<ContentfulBenefitsPlansForCompanyTextTextNode>
   contentfulBenefitsPlansTextTextNode: Maybe<ContentfulBenefitsPlansTextTextNode>
   contentfulBestCourses: Maybe<ContentfulBestCourses>
   contentfulCommonQuestions: Maybe<ContentfulCommonQuestions>
@@ -7858,11 +8916,32 @@ export type QueryAllContentfulBannerPlanosDeAssinaturaArgs = {
   sort: InputMaybe<ContentfulBannerPlanosDeAssinaturaSortInput>
 }
 
+export type QueryAllContentfulBannerPlanosParaEmpresasArgs = {
+  filter: InputMaybe<ContentfulBannerPlanosParaEmpresasFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulBannerPlanosParaEmpresasSortInput>
+}
+
 export type QueryAllContentfulBenefitsPlansArgs = {
   filter: InputMaybe<ContentfulBenefitsPlansFilterInput>
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulBenefitsPlansSortInput>
+}
+
+export type QueryAllContentfulBenefitsPlansForCompanyArgs = {
+  filter: InputMaybe<ContentfulBenefitsPlansForCompanyFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulBenefitsPlansForCompanySortInput>
+}
+
+export type QueryAllContentfulBenefitsPlansForCompanyTextTextNodeArgs = {
+  filter: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeSortInput>
 }
 
 export type QueryAllContentfulBenefitsPlansTextTextNodeArgs = {
@@ -8154,6 +9233,23 @@ export type QueryContentfulBannerPlanosDeAssinaturaArgs = {
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
+export type QueryContentfulBannerPlanosParaEmpresasArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  imageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  imageMobile: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulBannerPlanosParaEmpresasSysFilterInput>
+  title: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
 export type QueryContentfulBenefitsPlansArgs = {
   childContentfulBenefitsPlansTextTextNode: InputMaybe<ContentfulBenefitsPlansTextTextNodeFilterInput>
   children: InputMaybe<NodeFilterListInput>
@@ -8169,6 +9265,32 @@ export type QueryContentfulBenefitsPlansArgs = {
   sys: InputMaybe<ContentfulBenefitsPlansSysFilterInput>
   text: InputMaybe<ContentfulBenefitsPlansTextTextNodeFilterInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type QueryContentfulBenefitsPlansForCompanyArgs = {
+  childContentfulBenefitsPlansForCompanyTextTextNode: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput>
+  children: InputMaybe<NodeFilterListInput>
+  childrenContentfulBenefitsPlansForCompanyTextTextNode: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  image: InputMaybe<ContentfulAssetFilterInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulBenefitsPlansForCompanySysFilterInput>
+  text: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type QueryContentfulBenefitsPlansForCompanyTextTextNodeArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  parent: InputMaybe<NodeFilterInput>
+  sys: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeSysFilterInput>
+  text: InputMaybe<StringQueryOperatorInput>
 }
 
 export type QueryContentfulBenefitsPlansTextTextNodeArgs = {
@@ -8365,11 +9487,15 @@ export type QueryContentfulPersonsArgs = {
 }
 
 export type QueryContentfulPlanosArgs = {
+  bannerImageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  bannerImageMobile: InputMaybe<ContentfulAssetFilterInput>
   childContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterInput>
   children: InputMaybe<NodeFilterListInput>
   childrenContentfulPlanosTextoTextNode: InputMaybe<ContentfulPlanosTextoTextNodeFilterListInput>
+  compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  galleryTitle: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
@@ -10186,6 +11312,215 @@ export type StringQueryOperatorInput = {
   regex: InputMaybe<Scalars['String']>
 }
 
+export type ContentfulBenefitsPlansForCompanyTextTextNode = Node & {
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  parent: Maybe<Node>
+  sys: Maybe<ContentfulBenefitsPlansForCompanyTextTextNodeSys>
+  text: Maybe<Scalars['String']>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBenefitsPlansForCompanyTextTextNodeEdge>
+  group: Array<ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBenefitsPlansForCompanyTextTextNode>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeConnectionDistinctArgs =
+  {
+    field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+  }
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeConnectionGroupArgs = {
+  field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeConnectionMaxArgs = {
+  field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeConnectionMinArgs = {
+  field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeConnectionSumArgs = {
+  field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeEdge = {
+  next: Maybe<ContentfulBenefitsPlansForCompanyTextTextNode>
+  node: ContentfulBenefitsPlansForCompanyTextTextNode
+  previous: Maybe<ContentfulBenefitsPlansForCompanyTextTextNode>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'sys___type'
+  | 'text'
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  parent: InputMaybe<NodeFilterInput>
+  sys: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeSysFilterInput>
+  text: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeFilterListInput = {
+  elemMatch: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterInput>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulBenefitsPlansForCompanyTextTextNodeEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulBenefitsPlansForCompanyTextTextNode>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnectionDistinctArgs =
+  {
+    field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+  }
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnectionGroupArgs =
+  {
+    field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+    limit: InputMaybe<Scalars['Int']>
+    skip: InputMaybe<Scalars['Int']>
+  }
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnectionMaxArgs =
+  {
+    field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+  }
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnectionMinArgs =
+  {
+    field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+  }
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeGroupConnectionSumArgs =
+  {
+    field: ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum
+  }
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeSortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeSys = {
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulBenefitsPlansForCompanyTextTextNodeSysFilterInput = {
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulBenefitsPlansTextTextNode = Node & {
   children: Array<Node>
   id: Scalars['ID']
@@ -11605,6 +12940,32 @@ export type HomePageQueryQuery = {
       name: string | null
       slug: string | null
       image: { url: string | null } | null
+    }>
+  }
+}
+
+export type ParaEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type ParaEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulBannerPlanosParaEmpresas: {
+    nodes: Array<{
+      subtitle: string | null
+      title: string | null
+      imageMobile: { url: string | null } | null
+      imageDesktop: { url: string | null } | null
+    }>
+  }
+  allContentfulBenefitsPlansForCompany: {
+    nodes: Array<{
+      image: { url: string | null } | null
+      text: { text: string | null } | null
     }>
   }
 }
