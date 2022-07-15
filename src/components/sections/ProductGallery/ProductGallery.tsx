@@ -23,11 +23,12 @@ const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
 interface Props {
+  galleryTitle?: string | null
   title: string
   searchTerm?: string
 }
 
-function ProductGallery({ title, searchTerm }: Props) {
+function ProductGallery({ title, searchTerm, galleryTitle }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
@@ -67,6 +68,12 @@ function ProductGallery({ title, searchTerm }: Props) {
             Showing results for: <span>{searchTerm}</span>
           </h1>
         </header>
+      )}
+
+      {galleryTitle && (
+        <div className="product-listing__content-grid layout__content">
+          <h1 className="gallery-title">{galleryTitle}</h1>
+        </div>
       )}
       <div className="product-listing__content-grid layout__content">
         <div className="product-listing__filters">
