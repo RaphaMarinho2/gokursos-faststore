@@ -93,16 +93,14 @@ export const useFilter = (allFacets: Filter_FacetsFragment[]) => {
 
   const facets = useMemo(
     () =>
-      allFacets
-        .filter((facet) => facet.type === 'BOOLEAN')
-        .map((facet) => ({
-          ...facet,
-          values: facet.values.map(({ value, ...rest }) => ({
-            ...rest,
-            value,
-            selected: Boolean(selectedMap.get(facet.key)?.has(value)),
-          })),
+      allFacets.map((facet) => ({
+        ...facet,
+        values: facet.values.map(({ value, ...rest }) => ({
+          ...rest,
+          value,
+          selected: Boolean(selectedMap.get(facet.key)?.has(value)),
         })),
+      })),
     [allFacets, selectedMap]
   )
 

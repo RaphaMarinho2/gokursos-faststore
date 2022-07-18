@@ -10,6 +10,11 @@ import Facets from './Facets'
 import { useFilter } from './useFilter'
 import './filter.scss'
 
+type ForceSvg = {
+  svg1?: JSX.Element
+  svg2?: JSX.Element
+}
+
 interface Props {
   facets: any
   /*
@@ -26,6 +31,8 @@ interface Props {
    * testing-library, and jest).
    */
   testId?: string
+
+  forceSvg?: ForceSvg
 }
 
 function Filter({
@@ -33,6 +40,7 @@ function Filter({
   onDismiss,
   isOpen = false,
   testId = 'store-filter',
+  forceSvg,
 }: Props) {
   const {
     setFacets,
@@ -42,6 +50,8 @@ function Filter({
 
   const { onModalClose } = useModal()
   const { facets, selected, expanded, dispatch } = useFilter(allFacets)
+
+  console.info('Filter', forceSvg)
 
   return (
     <>
@@ -54,6 +64,7 @@ function Filter({
           onAccordionChange={(index) =>
             dispatch({ type: 'toggleExpanded', payload: index })
           }
+          forceSvg={forceSvg ?? undefined}
         />
       </div>
 
