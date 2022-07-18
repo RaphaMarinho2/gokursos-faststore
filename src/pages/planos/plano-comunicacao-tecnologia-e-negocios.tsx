@@ -3,8 +3,8 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanoComunicacaoTecnologiaQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
+import ExplanationPlan from 'src/components/sections/ExplanationPlan'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import type { SearchState } from '@faststore/sdk'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
@@ -36,7 +36,7 @@ const useSearchParams = ({ href }: Location) => {
 
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
+    data: { allContentfulPlanos },
   } = props
 
   const searchParams = useSearchParams(props.location)
@@ -75,12 +75,12 @@ function Page(props: Props) {
       {...searchParams}
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
-
-      <SimpleText
-        textReceived={allContentfulPlanosTextoSimples}
-        className="text-banner-bottom"
-        withDivisorBottom
+      <ExplanationPlan
+        nodes={allContentfulPlanos.nodes.filter(
+          (node) => node.slug === '/plano-comunicacao-tecnologia-e-negocios'
+        )}
       />
+
       <ProductGallery
         title={title}
         forceSvg={svgIcons}
@@ -101,16 +101,25 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
+    allContentfulPlanos(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        galleryTitle
+        texto {
+          texto
+        }
+        slug
+      }
+    }
+    allContentfulSignaturePageSubtitle {
+      nodes {
+        subtitle
+      }
+    }
     allContentfulPlanosTextoSimples {
       nodes {
         text {
           text
         }
-      }
-    }
-    allContentfulPlanos {
-      nodes {
-        galleryTitle
       }
     }
   }

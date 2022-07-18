@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-16** - Component Mult Range Slider.
 - **GM-114** - Page plans Gallery filter.
 
+- **GM-113** - ExplanationPlan and Subtitle component.
 ### Fixed
 
 ## [0.8.0] - 2022-07-11
