@@ -1491,36 +1491,12 @@
       "facets": [
         {
           "key": "brand",
-          "label": "Categoria",
-          "type": "BOOLEAN",
+          "label": "Faixa de Preço:",
+          "type": "RANGE",
           "values": [
             {
               "label": "qualidade de software",
               "value": "qualidade de software",
-              "selected": false,
-              "quantity": 1
-            },
-            {
-              "label": "administração",
-              "value": "administração",
-              "selected": false,
-              "quantity": 1
-            },
-            {
-              "label": "estética",
-              "value": "estética",
-              "selected": false,
-              "quantity": 1
-            },
-            {
-              "label": "nutrição",
-              "value": "nutrição",
-              "selected": false,
-              "quantity": 1
-            },
-            {
-              "label": "anatomia",
-              "value": "anatomia",
               "selected": false,
               "quantity": 1
             }

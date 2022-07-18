@@ -1,11 +1,20 @@
+import { useState, useEffect } from 'react'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanoEspecialQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import Section from 'src/components/sections/Section'
 import ExplanationPlan from 'src/components/sections/ExplanationPlan'
-import Subtitle from 'src/components/common/Subtitle'
+import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
+import type { SearchState } from '@faststore/sdk'
+import { SearchProvider, parseSearchState } from '@faststore/sdk'
+import { applySearchState } from 'src/sdk/search/state'
+import { ITEMS_PER_PAGE } from 'src/constants'
+import ProductGallery from 'src/components/sections/ProductGallery'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
+
+export type Props = PageProps<PlanoEspecialQuery>
 
 type ItemListType = {
   item: string
@@ -13,12 +22,24 @@ type ItemListType = {
   position: number
 }
 
-export type Props = PageProps<PlanoEspecialQuery>
+const useSearchParams = ({ href }: Location) => {
+  const [params, setParams] = useState<SearchState | null>(null)
+
+  useEffect(() => {
+    const url = new URL(href)
+
+    setParams(parseSearchState(url))
+  }, [href])
+
+  return params
+}
 
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanos, allContentfulSignaturePageSubtitle },
+    data: { allContentfulPlanos },
   } = props
+
+  const searchParams = useSearchParams(props.location)
 
   const itemListElement: ItemListType[] = [
     {
@@ -35,16 +56,39 @@ function Page(props: Props) {
 
   const title = 'Conheça os planos GoKursos'
 
+  const svgIcons = {
+    svg1: <AccordionUp />,
+    svg2: <AccordionDown />,
+  }
+
+  if (!searchParams) {
+    return null
+  }
+
+  const { galleryTitle } =
+    allContentfulPlanos.nodes[allContentfulPlanos.nodes.length - 1]
+
   return (
-    <Section>
+    <SearchProvider
+      onChange={applySearchState}
+      itemsPerPage={ITEMS_PER_PAGE}
+      {...searchParams}
+    >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
       <ExplanationPlan
         nodes={allContentfulPlanos.nodes.filter(
           (node) => node.slug === '/plano-especial'
         )}
       />
-      <Subtitle nodes={allContentfulSignaturePageSubtitle.nodes} />
-    </Section>
+
+      <ProductGallery
+        title={title}
+        forceSvg={svgIcons}
+        galleryTitle={galleryTitle}
+      />
+
+      <ScrollToTopButton />
+    </SearchProvider>
   )
 }
 
@@ -59,6 +103,7 @@ export const querySSG = graphql`
     }
     allContentfulPlanos(sort: { order: ASC, fields: createdAt }) {
       nodes {
+        galleryTitle
         texto {
           texto
         }
@@ -68,6 +113,13 @@ export const querySSG = graphql`
     allContentfulSignaturePageSubtitle {
       nodes {
         subtitle
+      }
+    }
+    allContentfulPlanosTextoSimples {
+      nodes {
+        text {
+          text
+        }
       }
     }
   }

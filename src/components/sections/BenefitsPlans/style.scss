@@ -22,6 +22,29 @@
     }
   }
 
+  .benefits-plans__subtitle {
+    margin-right: auto;
+    margin-bottom: 25px;
+    margin-left: auto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: #666666;
+    text-align: center;
+
+    @include media(">=notebook") {
+      display: flex;
+      justify-content: center;
+      max-width: 664px;
+      margin-bottom: 48px;
+      font-size: 16px;
+      line-height: 150%;
+      color: #666666;
+      text-align: center;
+    }
+  }
+
   .benefits-plans__container {
     display: flex;
     flex-wrap: wrap;

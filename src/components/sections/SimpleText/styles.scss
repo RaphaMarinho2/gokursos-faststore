@@ -2,7 +2,7 @@
 
 .gokursos__simple-text {
   &.text-banner-bottom {
-    padding: 40px 16px 45px;
+    padding: 40px 16px 32px;
 
     @include media(">=notebook") {
       display: flex;
@@ -29,6 +29,16 @@
         font-weight: 600;
         line-height: 30px;
       }
+    }
+  }
+
+  ~ .section__divisor {
+    display: none;
+    width: 100%;
+    padding: 0;
+
+    @include media(">=notebook") {
+      display: block;
     }
   }
 }

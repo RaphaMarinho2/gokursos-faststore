@@ -2,6 +2,7 @@ import './style.scss'
 
 interface BenefitsPlansProps {
   title?: string
+  subtitle?: string
   className?: string
   nodes: Array<{
     image: {
@@ -18,6 +19,7 @@ interface BenefitsPlansModifiedProps {
     arg0: (benefits: any, index: number) => JSX.Element
   ): import('react').ReactNode
   title?: string
+  subtitle: string
   className?: string
   nodes: Array<{
     image: {
@@ -29,7 +31,12 @@ interface BenefitsPlansModifiedProps {
   }>
 }
 
-const BenefitsPlans = ({ title, nodes, className }: BenefitsPlansProps) => {
+const BenefitsPlans = ({
+  title,
+  nodes,
+  className,
+  subtitle,
+}: BenefitsPlansProps) => {
   const nodesModified = nodes as unknown as BenefitsPlansModifiedProps
 
   return (
@@ -43,6 +50,13 @@ const BenefitsPlans = ({ title, nodes, className }: BenefitsPlansProps) => {
       >
         {title}
       </h2>
+      <h3
+        className={`benefits-plans__subtitle${
+          className ? `--${className}` : ''
+        }`}
+      >
+        {subtitle}
+      </h3>
       <div
         className={`benefits-plans__container${
           className ? `--${className}` : ''
