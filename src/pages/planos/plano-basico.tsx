@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
-// import { useSession } from '@faststore/sdk'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanoBasicoQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import type { SearchState } from '@faststore/sdk'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import ProductGallery from 'src/components/sections/ProductGallery'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
+import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 
 export type Props = PageProps<PlanoBasicoQuery>
 
@@ -38,8 +39,6 @@ function Page(props: Props) {
     data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
 
-  const searchParams = useSearchParams(props.location)
-
   const itemListElement: ItemListType[] = [
     {
       item: '/planos',
@@ -54,6 +53,13 @@ function Page(props: Props) {
   ]
 
   const title = 'Conheça os planos GoKursos'
+
+  const svgIcons = {
+    svg1: <AccordionUp />,
+    svg2: <AccordionDown />,
+  }
+
+  const searchParams = useSearchParams(props.location)
 
   if (!searchParams) {
     return null
@@ -75,7 +81,12 @@ function Page(props: Props) {
         className="text-banner-bottom"
         withDivisorBottom
       />
-      <ProductGallery title={title} galleryTitle={galleryTitle} />
+
+      <ProductGallery
+        title={title}
+        forceSvg={svgIcons}
+        galleryTitle={galleryTitle}
+      />
 
       <ScrollToTopButton />
     </SearchProvider>

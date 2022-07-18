@@ -10,6 +10,7 @@ import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import productGalleryQuery from 'src/mocks/productGalleryQuery.json'
+import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -22,13 +23,18 @@ import './product-gallery.scss'
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
+type ForceSvg = {
+  svg1?: JSX.Element
+  svg2?: JSX.Element
+}
 interface Props {
   galleryTitle?: string | null
   title: string
   searchTerm?: string
+  forceSvg?: ForceSvg
 }
 
-function ProductGallery({ title, searchTerm, galleryTitle }: Props) {
+function ProductGallery({ title, searchTerm, galleryTitle, forceSvg }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
@@ -39,6 +45,8 @@ function ProductGallery({ title, searchTerm, galleryTitle }: Props) {
   // const facets = useDelayedFacets(data)
 
   const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
+
+  const facetsWithPrice = productGalleryQuery2.data?.search?.facets
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -82,6 +90,15 @@ function ProductGallery({ title, searchTerm, galleryTitle }: Props) {
               isOpen={isFilterOpen}
               facets={facets}
               onDismiss={() => setIsFilterOpen(false)}
+              forceSvg={forceSvg && forceSvg}
+            />
+          </FilterSkeleton>
+          <FilterSkeleton loading={facetsWithPrice?.length === 0}>
+            <Filter
+              isOpen={isFilterOpen}
+              facets={facetsWithPrice}
+              onDismiss={() => setIsFilterOpen(false)}
+              forceSvg={forceSvg && forceSvg}
             />
           </FilterSkeleton>
         </div>

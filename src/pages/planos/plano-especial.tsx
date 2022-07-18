@@ -11,6 +11,8 @@ import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import ProductGallery from 'src/components/sections/ProductGallery'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
 
 export type Props = PageProps<PlanoEspecialQuery>
 
@@ -54,6 +56,11 @@ function Page(props: Props) {
 
   const title = 'Conheça os planos GoKursos'
 
+  const svgIcons = {
+    svg1: <AccordionUp />,
+    svg2: <AccordionDown />,
+  }
+
   if (!searchParams) {
     return null
   }
@@ -74,8 +81,11 @@ function Page(props: Props) {
         className="text-banner-bottom"
         withDivisorBottom
       />
-
-      <ProductGallery title={title} galleryTitle={galleryTitle} />
+      <ProductGallery
+        title={title}
+        forceSvg={svgIcons}
+        galleryTitle={galleryTitle}
+      />
 
       <ScrollToTopButton />
     </SearchProvider>

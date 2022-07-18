@@ -5,8 +5,14 @@ import {
   AccordionPanel as UIAccordionPanel,
   AccordionButton as UIAccordionButton,
 } from '@faststore/ui'
-import type { AccordionItemProps } from '@faststore/ui'
 import Icon from 'src/components/ui/Icon'
+import type { AccordionItemProps } from '@faststore/ui'
+import { ButtonIcon } from 'src/components/ui/Button'
+
+type ForceSvg = {
+  svg1?: JSX.Element
+  svg2?: JSX.Element
+}
 
 interface Props extends AccordionItemProps {
   /**
@@ -17,6 +23,8 @@ interface Props extends AccordionItemProps {
    * Label for Accordion button
    */
   buttonLabel?: string
+
+  forceSvg?: ForceSvg
 }
 
 const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
@@ -25,6 +33,7 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
     isExpanded,
     index = 0,
     buttonLabel = '',
+    forceSvg,
     testId = 'store-accordion-item',
     ...otherProps
   },
@@ -42,25 +51,52 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
         data-testid={`${testId}-button`}
       >
         {buttonLabel}
-        <UIIcon
-          data-testid={`${testId}-button-icon`}
-          component={
-            <>
-              <Icon
-                data-icon={isExpanded ? 'expanded' : true}
-                name="MinusCircle"
-                width={24}
-                height={24}
-              />
-              <Icon
-                data-icon={isExpanded ? true : 'collapsed'}
-                name="PlusCircle"
-                width={24}
-                height={24}
-              />
-            </>
-          }
-        />
+        {forceSvg ? (
+          <>
+            <UIIcon
+              data-testid={`${testId}-button-icon`}
+              component={
+                <>
+                  <ButtonIcon
+                    data-icon={isExpanded ? 'expanded' : true}
+                    data-fs-button-menu
+                    icon={forceSvg?.svg1 && forceSvg?.svg1}
+                    aria-label="Abrir menu"
+                    className="btn-drawer-menu"
+                  />
+
+                  <ButtonIcon
+                    data-icon={isExpanded ? true : 'collapsed'}
+                    data-fs-button-menu
+                    icon={forceSvg?.svg2 && forceSvg?.svg2}
+                    aria-label="Abrir menu"
+                    className="btn-drawer-menu"
+                  />
+                </>
+              }
+            />
+          </>
+        ) : (
+          <UIIcon
+            data-testid={`${testId}-button-icon`}
+            component={
+              <>
+                <Icon
+                  data-icon={isExpanded ? 'expanded' : true}
+                  name="MinusCircle"
+                  width={24}
+                  height={24}
+                />
+                <Icon
+                  data-icon={isExpanded ? true : 'collapsed'}
+                  name="PlusCircle"
+                  width={24}
+                  height={24}
+                />
+              </>
+            }
+          />
+        )}
       </UIAccordionButton>
       <UIAccordionPanel data-testid={`${testId}-panel`}>
         {children}

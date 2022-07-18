@@ -10,12 +10,19 @@ import BannerCategory from 'src/components/sections/BannerCategory'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { DepartmentPageQueryQuery } from '@generated/graphql'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
 
 export type Props = PageProps<DepartmentPageQueryQuery>
 function Page(props: Props) {
   const {
     data: { allContentfulBannerDepartmentCategory },
   } = props
+
+  const svgIcons = {
+    svg1: <AccordionUp />,
+    svg2: <AccordionDown />,
+  }
 
   const collection = ServerCollectionPageQuery
 
@@ -46,7 +53,7 @@ function Page(props: Props) {
 
       <BannerCategory nodes={allContentfulBannerDepartmentCategory.nodes} />
 
-      <ProductGallery title={title} />
+      <ProductGallery title={title} forceSvg={svgIcons} />
 
       <ScrollToTopButton />
     </SearchProvider>
