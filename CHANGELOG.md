@@ -9,12 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **GM-16** - Component Mult Range Slider.
 - **GM-114** - Page plans Gallery filter.
+
 ### Fixed
 
 ## [0.8.0] - 2022-07-11
 
 ### Added
 
+-**GM-123** - Created Created Banner component on for companies.
+
+- **GM-125** - Created Benefits Plans component business.
 - **GM-121** - Created Benefits Plans component.
 - **GM-297** - Agnostic component for simple text [page plans bottom text].
 - **GM-95** - Created ScrollToTopButton component.
@@ -30,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 ### Fixed
+
 - Removed duplicated TopSellers shelf from home
 
 ## [0.7.0] - 2022-07-04

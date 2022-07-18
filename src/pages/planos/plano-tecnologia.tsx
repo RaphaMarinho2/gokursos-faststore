@@ -36,7 +36,7 @@ const useSearchParams = ({ href }: Location) => {
 
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples },
+    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
 
   const itemListElement: ItemListType[] = [
@@ -64,6 +64,9 @@ function Page(props: Props) {
     return null
   }
 
+  const { galleryTitle } =
+    allContentfulPlanos.nodes[allContentfulPlanos.nodes.length - 1]
+
   return (
     <SearchProvider
       onChange={applySearchState}
@@ -76,7 +79,11 @@ function Page(props: Props) {
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
       />
-      <ProductGallery title={title} forceSvg={svgIcons} />
+      <ProductGallery
+        title={title}
+        forceSvg={svgIcons}
+        galleryTitle={galleryTitle}
+      />
 
       <ScrollToTopButton />
     </SearchProvider>
@@ -97,6 +104,11 @@ export const querySSG = graphql`
         text {
           text
         }
+      }
+    }
+    allContentfulPlanos {
+      nodes {
+        galleryTitle
       }
     }
   }
