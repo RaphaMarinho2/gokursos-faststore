@@ -12944,6 +12944,32 @@ export type HomePageQueryQuery = {
   }
 }
 
+export type ParaEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type ParaEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulBannerPlanosParaEmpresas: {
+    nodes: Array<{
+      subtitle: string | null
+      title: string | null
+      imageMobile: { url: string | null } | null
+      imageDesktop: { url: string | null } | null
+    }>
+  }
+  allContentfulBenefitsPlansForCompany: {
+    nodes: Array<{
+      image: { url: string | null } | null
+      text: { text: string | null } | null
+    }>
+  }
+}
+
 export type PlanosQueryVariables = Exact<{ [key: string]: never }>
 
 export type PlanosQuery = {

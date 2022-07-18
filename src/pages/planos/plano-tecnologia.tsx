@@ -39,6 +39,8 @@ function Page(props: Props) {
     data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
   } = props
 
+  const searchParams = useSearchParams(props.location)
+
   const itemListElement: ItemListType[] = [
     {
       item: '/planos',
@@ -57,8 +59,6 @@ function Page(props: Props) {
     svg1: <AccordionUp />,
     svg2: <AccordionDown />,
   }
-
-  const searchParams = useSearchParams(props.location)
 
   if (!searchParams) {
     return null
