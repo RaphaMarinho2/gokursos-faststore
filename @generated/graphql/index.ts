@@ -13020,10 +13020,25 @@ export type PlanoBasicoQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
-  allContentfulPlanos: { nodes: Array<{ galleryTitle: string | null }> }
 }
 
 export type PlanoComunicacaoTecnologiaQueryVariables = Exact<{
@@ -13038,10 +13053,25 @@ export type PlanoComunicacaoTecnologiaQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
-  allContentfulPlanos: { nodes: Array<{ galleryTitle: string | null }> }
 }
 
 export type PlanoEspecialQueryVariables = Exact<{ [key: string]: never }>
@@ -13054,10 +13084,25 @@ export type PlanoEspecialQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
-  allContentfulPlanos: { nodes: Array<{ galleryTitle: string | null }> }
 }
 
 export type PlanoNegocioQueryVariables = Exact<{ [key: string]: never }>
@@ -13070,10 +13115,25 @@ export type PlanoNegocioQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
-  allContentfulPlanos: { nodes: Array<{ galleryTitle: string | null }> }
 }
 
 export type PlanoSaudeQueryVariables = Exact<{ [key: string]: never }>
@@ -13086,10 +13146,25 @@ export type PlanoSaudeQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
-  allContentfulPlanos: { nodes: Array<{ galleryTitle: string | null }> }
 }
 
 export type PlanoTecnologiaQueryVariables = Exact<{ [key: string]: never }>
@@ -13102,10 +13177,25 @@ export type PlanoTecnologiaQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
-  allContentfulPlanos: { nodes: Array<{ galleryTitle: string | null }> }
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>

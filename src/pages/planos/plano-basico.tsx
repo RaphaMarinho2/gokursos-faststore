@@ -3,8 +3,9 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { PlanoBasicoQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
+import BuyBox from 'src/components/sections/BuyBox/BuyBox'
+import ExplanationPlan from 'src/components/sections/ExplanationPlan/ExplanationPlan'
 import type { SearchState } from '@faststore/sdk'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
@@ -36,7 +37,7 @@ const useSearchParams = ({ href }: Location) => {
 
 function Page(props: Props) {
   const {
-    data: { allContentfulPlanosTextoSimples, allContentfulPlanos },
+    data: { allContentfulPlanos },
   } = props
 
   const itemListElement: ItemListType[] = [
@@ -46,7 +47,7 @@ function Page(props: Props) {
       position: 1,
     },
     {
-      item: '/planos/plano-negocios',
+      item: '/planos/plano-basico',
       name: 'Plano Básico',
       position: 2,
     },
@@ -75,11 +76,15 @@ function Page(props: Props) {
       {...searchParams}
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
-
-      <SimpleText
-        textReceived={allContentfulPlanosTextoSimples}
-        className="text-banner-bottom"
-        withDivisorBottom
+      <BuyBox
+        nodes={allContentfulPlanos.nodes.filter(
+          (node) => node.slug === '/plano-basico'
+        )}
+      />
+      <ExplanationPlan
+        nodes={allContentfulPlanos.nodes.filter(
+          (node) => node.slug === '/plano-basico'
+        )}
       />
 
       <ProductGallery
@@ -102,16 +107,38 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
+    allContentfulPlanos(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        textoBotao
+        titulo
+        preco
+        slug
+        bannerImageMobile {
+          url
+        }
+        bannerImageDesktop {
+          url
+        }
+        compartilhar {
+          url
+        }
+        galleryTitle
+        texto {
+          texto
+        }
+        slug
+      }
+    }
+    allContentfulSignaturePageSubtitle {
+      nodes {
+        subtitle
+      }
+    }
     allContentfulPlanosTextoSimples {
       nodes {
         text {
           text
         }
-      }
-    }
-    allContentfulPlanos {
-      nodes {
-        galleryTitle
       }
     }
   }

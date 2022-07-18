@@ -1,0 +1,25 @@
+@import "src/styles/scaffold";
+
+.explanation-plan {
+  width: calc(100% - 32px);
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+
+  @include media(">=notebook") {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .explanation-plan__text {
+    font-size: 14px;
+    line-height: 18px;
+    color: #555;
+
+    @include media(">=notebook") {
+      max-width: 1125px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
