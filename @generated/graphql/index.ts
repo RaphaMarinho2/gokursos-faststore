@@ -13022,8 +13022,14 @@ export type PlanoBasicoQuery = {
   } | null
   allContentfulPlanos: {
     nodes: Array<{
-      galleryTitle: string | null
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
       slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
       texto: { texto: string | null } | null
     }>
   }
@@ -13049,8 +13055,14 @@ export type PlanoComunicacaoTecnologiaQuery = {
   } | null
   allContentfulPlanos: {
     nodes: Array<{
-      galleryTitle: string | null
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
       slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
       texto: { texto: string | null } | null
     }>
   }
@@ -13074,8 +13086,14 @@ export type PlanoEspecialQuery = {
   } | null
   allContentfulPlanos: {
     nodes: Array<{
-      galleryTitle: string | null
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
       slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
       texto: { texto: string | null } | null
     }>
   }
@@ -13099,8 +13117,14 @@ export type PlanoNegocioQuery = {
   } | null
   allContentfulPlanos: {
     nodes: Array<{
-      galleryTitle: string | null
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
       slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
       texto: { texto: string | null } | null
     }>
   }
@@ -13124,8 +13148,14 @@ export type PlanoSaudeQuery = {
   } | null
   allContentfulPlanos: {
     nodes: Array<{
-      galleryTitle: string | null
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
       slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
       texto: { texto: string | null } | null
     }>
   }
@@ -13149,8 +13179,14 @@ export type PlanoTecnologiaQuery = {
   } | null
   allContentfulPlanos: {
     nodes: Array<{
-      galleryTitle: string | null
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
       slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
       texto: { texto: string | null } | null
     }>
   }

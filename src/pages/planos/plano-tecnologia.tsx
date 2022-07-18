@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import type { PlanoTecnologiaQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
+import BuyBox from 'src/components/sections/BuyBox/BuyBox'
 import ExplanationPlan from 'src/components/sections/ExplanationPlan'
 import type { SearchState } from '@faststore/sdk'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
@@ -74,6 +75,11 @@ function Page(props: Props) {
       {...searchParams}
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
+      <BuyBox
+        nodes={allContentfulPlanos.nodes.filter(
+          (node) => node.slug === '/plano-tecnologia'
+        )}
+      />
       <ExplanationPlan
         nodes={allContentfulPlanos.nodes.filter(
           (node) => node.slug === '/plano-tecnologia'
@@ -102,6 +108,19 @@ export const querySSG = graphql`
     }
     allContentfulPlanos(sort: { order: ASC, fields: createdAt }) {
       nodes {
+        textoBotao
+        titulo
+        preco
+        slug
+        bannerImageMobile {
+          url
+        }
+        bannerImageDesktop {
+          url
+        }
+        compartilhar {
+          url
+        }
         galleryTitle
         texto {
           texto
