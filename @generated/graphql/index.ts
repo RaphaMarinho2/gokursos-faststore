@@ -7986,6 +7986,197 @@ export type ContentfulSignaturePageSubtitleSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulSixReasons = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    id: Scalars['ID']
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+  }
+
+export type ContentfulSixReasonsConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulSixReasonsEdge>
+  group: Array<ContentfulSixReasonsGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulSixReasons>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulSixReasonsConnectionDistinctArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsConnectionGroupArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulSixReasonsConnectionMaxArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsConnectionMinArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsConnectionSumArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsEdge = {
+  next: Maybe<ContentfulSixReasons>
+  node: ContentfulSixReasons
+  previous: Maybe<ContentfulSixReasons>
+}
+
+export type ContentfulSixReasonsFieldsEnum =
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+
+export type ContentfulSixReasonsFilterInput = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+}
+
+export type ContentfulSixReasonsGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulSixReasonsEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulSixReasonsGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulSixReasons>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulSixReasonsGroupConnectionDistinctArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsGroupConnectionGroupArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulSixReasonsGroupConnectionMaxArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsGroupConnectionMinArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsGroupConnectionSumArgs = {
+  field: ContentfulSixReasonsFieldsEnum
+}
+
+export type ContentfulSixReasonsSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulSixReasonsFieldsEnum>>>
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
 export type ContentfulTeste = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -9430,6 +9621,7 @@ export type Query = {
   allContentfulPlanosTextoSimplesTextTextNode: ContentfulPlanosTextoSimplesTextTextNodeConnection
   allContentfulPlanosTextoTextNode: ContentfulPlanosTextoTextNodeConnection
   allContentfulSignaturePageSubtitle: ContentfulSignaturePageSubtitleConnection
+  allContentfulSixReasons: ContentfulSixReasonsConnection
   allContentfulTeste: ContentfulTesteConnection
   allContentfulVideoSection: ContentfulVideoSectionConnection
   allDirectory: DirectoryConnection
@@ -9473,6 +9665,7 @@ export type Query = {
   contentfulPlanosTextoSimplesTextTextNode: Maybe<ContentfulPlanosTextoSimplesTextTextNode>
   contentfulPlanosTextoTextNode: Maybe<ContentfulPlanosTextoTextNode>
   contentfulSignaturePageSubtitle: Maybe<ContentfulSignaturePageSubtitle>
+  contentfulSixReasons: Maybe<ContentfulSixReasons>
   contentfulTeste: Maybe<ContentfulTeste>
   contentfulVideoSection: Maybe<ContentfulVideoSection>
   directory: Maybe<Directory>
@@ -9703,6 +9896,13 @@ export type QueryAllContentfulSignaturePageSubtitleArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulSignaturePageSubtitleSortInput>
+}
+
+export type QueryAllContentfulSixReasonsArgs = {
+  filter: InputMaybe<ContentfulSixReasonsFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulSixReasonsSortInput>
 }
 
 export type QueryAllContentfulTesteArgs = {
@@ -10213,6 +10413,15 @@ export type QueryContentfulSignaturePageSubtitleArgs = {
   subtitle: InputMaybe<StringQueryOperatorInput>
   sys: InputMaybe<ContentfulSignaturePageSubtitleSysFilterInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type QueryContentfulSixReasonsArgs = {
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
 }
 
 export type QueryContentfulTesteArgs = {
