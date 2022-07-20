@@ -200,6 +200,7 @@
         @include media(">=notebook") {
           max-width: 316px;
           font-size: 16px;
+          line-height: 24px;
         }
       }
     }
