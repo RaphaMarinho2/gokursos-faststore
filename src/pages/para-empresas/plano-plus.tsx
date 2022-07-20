@@ -42,13 +42,13 @@ function Page(props: Props) {
 
   const itemListElement: ItemListType[] = [
     {
-      item: '/empresas',
+      item: '/para-empresas',
       name: 'Empresas',
       position: 1,
     },
     {
-      item: '/empresas/plano-basico',
-      name: 'Plano Básico',
+      item: '/para-empresas/plano-basico',
+      name: 'Plano Plus',
       position: 2,
     },
   ]

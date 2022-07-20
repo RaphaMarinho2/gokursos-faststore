@@ -12,10 +12,10 @@ type PlanosType = {
       texto: string | null
     } | null
   }>
-  caminho?: string
+  path?: string
 }
 
-const CardPlanos = ({ nodes, caminho }: PlanosType) => {
+const CardPlanos = ({ nodes, path }: PlanosType) => {
   return (
     <div className="container">
       {nodes.map((node, index) => {
@@ -45,7 +45,7 @@ const CardPlanos = ({ nodes, caminho }: PlanosType) => {
             </div>
             <p className="texto">{texto?.texto}</p>
             <div className="botoes">
-              <a href={`${caminho}${slug}`} className="saiba-mais">
+              <a href={`${path}${slug}`} className="saiba-mais">
                 {saibaMais}
               </a>
               <button className="texto-botao">{textoBotao}</button>

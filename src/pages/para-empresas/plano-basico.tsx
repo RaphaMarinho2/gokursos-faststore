@@ -42,7 +42,7 @@ function Page(props: Props) {
 
   const itemListElement: ItemListType[] = [
     {
-      item: '/empresas',
+      item: '/para-empresas',
       name: 'Empresas',
       position: 1,
     },

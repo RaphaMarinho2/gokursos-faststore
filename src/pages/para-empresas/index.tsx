@@ -27,7 +27,7 @@ function Page(props: Props) {
       />
       <CardPlanos
         nodes={allContentfulPlanosForCompanies.nodes}
-        caminho="para-empresas"
+        path="para-empresas"
       />
     </Section>
   )
