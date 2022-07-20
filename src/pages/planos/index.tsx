@@ -16,6 +16,7 @@ function Page(props: Props) {
       allContentfulPlanosTextoSimples,
       allContentfulBannerPlanosDeAssinatura,
       allContentfulPlanos,
+      allContentfulSixReasons,
     },
   } = props
 
@@ -26,6 +27,13 @@ function Page(props: Props) {
         textReceived={allContentfulPlanosTextoSimples}
         className="text-banner-bottom"
       />
+
+      <BenefitsPlans
+        title="Seis motivos para escolher o GoKursos"
+        nodes={allContentfulSixReasons.nodes}
+        className="six-reasons"
+      />
+
       <BenefitsPlans
         title="Vantagens de fazer um plano de assinatura"
         nodes={allContentfulBenefitsPlans.nodes}
@@ -61,6 +69,15 @@ export const querySSG = graphql`
         image {
           url
         }
+        text {
+          text
+        }
+        exchangeImageInText
+      }
+    }
+    allContentfulSixReasons(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        exchangeImageInText
         text {
           text
         }

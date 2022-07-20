@@ -5,12 +5,13 @@ interface BenefitsPlansProps {
   subtitle?: string
   className?: string
   nodes: Array<{
-    image: {
+    image?: {
       url: string | null
     } | null
     text: {
       text: string | null
     } | null
+    exchangeImageInText?: string
   }>
 }
 
@@ -22,12 +23,13 @@ interface BenefitsPlansModifiedProps {
   subtitle: string
   className?: string
   nodes: Array<{
-    image: {
+    image?: {
       url: string | undefined
     } | null
     text: {
       text: string | null
     } | null
+    exchangeImageInText?: string | null
   }>
 }
 
@@ -69,19 +71,29 @@ const BenefitsPlans = ({
               className ? `--${className}` : ''
             }`}
           >
-            <div
-              className={`benefits-plans__container-image${
-                className ? `--${className}` : ''
-              }`}
-            >
-              <img
-                className={`benefits-plans__image${
+            {benefits.image?.url ? (
+              <div
+                className={`benefits-plans__container-image${
                   className ? `--${className}` : ''
                 }`}
-                src={benefits.image?.url}
-                alt=""
-              />
-            </div>
+              >
+                <img
+                  className={`benefits-plans__image${
+                    className ? `--${className}` : ''
+                  }`}
+                  src={benefits.image?.url}
+                  alt=""
+                />
+              </div>
+            ) : (
+              <div
+                className={`benefits-plans__container-exchange${
+                  className ? `--${className}` : ''
+                }`}
+              >
+                <h3>{benefits?.exchangeImageInText}</h3>
+              </div>
+            )}
 
             <p
               className={`benefits-plans__text${

@@ -113,4 +113,114 @@
       }
     }
   }
+
+  &--six-reasons {
+    display: block;
+
+    .benefits-plans__title {
+      &--six-reasons {
+        margin-bottom: 22px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+        color: #555;
+        text-align: center;
+
+        @include media(">=notebook") {
+          margin-bottom: 32px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    .benefits-plans__container {
+      &--six-reasons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        @include media(">=tablet") {
+          justify-content: center;
+          max-width: none;
+        }
+      }
+    }
+
+    .benefits-plans__container-item {
+      &--six-reasons {
+        display: block;
+        width: calc(50% - 24px);
+        margin-bottom: 16px;
+
+        @include media(">=notebook") {
+          width: 33%;
+          margin-bottom: 60px;
+        }
+      }
+    }
+
+    .benefits-plans__container-image {
+      &--six-reasons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        max-height: 32px;
+        border-radius: 4px;
+
+        @include media(">=notebook") {
+          min-width: 48px;
+          max-height: 48px;
+        }
+      }
+    }
+
+    .benefits-plans__image {
+      &--six-reasons {
+        max-width: 19px;
+
+        @include media(">=notebook") {
+          max-width: none;
+        }
+      }
+    }
+
+    .benefits-plans__text {
+      &--six-reasons {
+        max-width: 156px;
+        margin: 0 auto;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 16px;
+        color: #666666;
+        text-align: center;
+
+        @include media(">=notebook") {
+          max-width: 316px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .benefits-plans__container-exchange {
+      &--six-reasons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 4px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #004e98;
+
+        @include media(">=notebook") {
+          max-width: none;
+          margin-bottom: 8px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  ~.container {
+    margin-top: 0;
+  }
 }
