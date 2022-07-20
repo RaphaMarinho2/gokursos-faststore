@@ -11,7 +11,7 @@ interface BenefitsPlansProps {
     text: {
       text: string | null
     } | null
-    exchangeImageInText: string | null
+    exchangeImageInText?: string | null
   }>
 }
 
@@ -29,7 +29,7 @@ interface BenefitsPlansModifiedProps {
     text: {
       text: string | null
     } | null
-    exchangeImageInText: string | null
+    exchangeImageInText?: string | null
   }>
 }
 
