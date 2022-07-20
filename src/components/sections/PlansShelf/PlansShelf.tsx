@@ -63,7 +63,6 @@ function PlansShelf() {
       {products !== undefined && (
         <ProductShelf
           cardsQuantity={shelfItemQuantity}
-          withDivisor
           title={<ShelfTitle />}
           products={products}
         />

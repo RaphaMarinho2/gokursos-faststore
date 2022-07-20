@@ -50,8 +50,8 @@ function ProductShelf({
 
   return (
     <div
-      className={`product-shelf-container layout__section${
-        withDivisor ? ' section__divisor' : ''
+      className={`product-shelf-container layout__section ${
+        withDivisor ? 'section__divisor' : ''
       }`}
     >
       {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}

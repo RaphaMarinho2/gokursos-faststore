@@ -1,7 +1,12 @@
 @import "src/styles/scaffold";
 
 .plans-shelf {
-  margin-top: 1rem;
+  margin: 1rem 0.5rem;
+
+  @include media(">=tablet") {
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin: 2rem auto;
+  }
 
   &__title {
     display: flex;
