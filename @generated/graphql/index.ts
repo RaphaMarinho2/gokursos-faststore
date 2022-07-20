@@ -3532,7 +3532,7 @@ export type ContentfulContactFormulary = ContentfulEntry &
     spaceId: Maybe<Scalars['String']>
     subtitle: Maybe<Scalars['String']>
     sys: Maybe<ContentfulContactFormularySys>
-    tItle: Maybe<Scalars['String']>
+    title: Maybe<Scalars['String']>
     updatedAt: Maybe<Scalars['Date']>
   }
 
@@ -3752,7 +3752,7 @@ export type ContentfulContactFormularyFieldsEnum =
   | 'sys___contentType___sys___type'
   | 'sys___revision'
   | 'sys___type'
-  | 'tItle'
+  | 'title'
   | 'updatedAt'
 
 export type ContentfulContactFormularyFilterInput = {
@@ -3767,7 +3767,7 @@ export type ContentfulContactFormularyFilterInput = {
   spaceId: InputMaybe<StringQueryOperatorInput>
   subtitle: InputMaybe<StringQueryOperatorInput>
   sys: InputMaybe<ContentfulContactFormularySysFilterInput>
-  tItle: InputMaybe<StringQueryOperatorInput>
+  title: InputMaybe<StringQueryOperatorInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
@@ -7007,6 +7007,7 @@ export type ContentfulPlanosForCompanies = ContentfulEntry &
     compartilhar: Maybe<ContentfulAsset>
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
+    galleryTitle: Maybe<Scalars['String']>
     id: Scalars['ID']
     internal: Internal
     node_locale: Scalars['String']
@@ -7395,6 +7396,7 @@ export type ContentfulPlanosForCompaniesFieldsEnum =
   | 'compartilhar___width'
   | 'contentful_id'
   | 'createdAt'
+  | 'galleryTitle'
   | 'id'
   | 'internal___content'
   | 'internal___contentDigest'
@@ -7506,6 +7508,7 @@ export type ContentfulPlanosForCompaniesFilterInput = {
   compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  galleryTitle: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
@@ -10721,7 +10724,7 @@ export type QueryContentfulContactFormularyArgs = {
   spaceId: InputMaybe<StringQueryOperatorInput>
   subtitle: InputMaybe<StringQueryOperatorInput>
   sys: InputMaybe<ContentfulContactFormularySysFilterInput>
-  tItle: InputMaybe<StringQueryOperatorInput>
+  title: InputMaybe<StringQueryOperatorInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
@@ -10902,6 +10905,7 @@ export type QueryContentfulPlanosForCompaniesArgs = {
   compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  galleryTitle: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
