@@ -25,7 +25,10 @@ function Page(props: Props) {
         subtitle="Investir na capacitação da sua equipe é a melhor forma de manter sua empresa conectada com o futuro! O GoKursos para empresas oferece:"
         nodes={allContentfulBenefitsPlansForCompany.nodes}
       />
-      <CardPlanos nodes={allContentfulPlanosForCompanies.nodes} />
+      <CardPlanos
+        nodes={allContentfulPlanosForCompanies.nodes}
+        caminho="para-empresas"
+      />
     </Section>
   )
 }

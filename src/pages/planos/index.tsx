@@ -30,7 +30,7 @@ function Page(props: Props) {
         title="Vantagens de fazer um plano de assinatura"
         nodes={allContentfulBenefitsPlans.nodes}
       />
-      <CardPlanos nodes={allContentfulPlanos.nodes} />
+      <CardPlanos nodes={allContentfulPlanos.nodes} caminho="planos" />
     </Section>
   )
 }
