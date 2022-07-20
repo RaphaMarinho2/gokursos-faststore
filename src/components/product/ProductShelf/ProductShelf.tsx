@@ -8,7 +8,7 @@ interface ProductShelfProps {
   cardsQuantity?: number
   withDivisor?: boolean
   pretitle?: string
-  products?: any
+  products: any
 }
 
 function ClkBtn() {
