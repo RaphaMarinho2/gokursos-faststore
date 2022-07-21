@@ -2291,6 +2291,7 @@ export type ContentfulBenefitsPlansForCompany = ContentfulEntry &
     >
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
+    exchangeImageInText: Maybe<Scalars['String']>
     id: Scalars['ID']
     image: Maybe<ContentfulAsset>
     internal: Internal
@@ -2479,6 +2480,7 @@ export type ContentfulBenefitsPlansForCompanyFieldsEnum =
   | 'children___parent___parent___id'
   | 'contentful_id'
   | 'createdAt'
+  | 'exchangeImageInText'
   | 'id'
   | 'image___children'
   | 'image___children___children'
@@ -2646,6 +2648,7 @@ export type ContentfulBenefitsPlansForCompanyFilterInput = {
   childrenContentfulBenefitsPlansForCompanyTextTextNode: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterListInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  exchangeImageInText: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   image: InputMaybe<ContentfulAssetFilterInput>
   internal: InputMaybe<InternalFilterInput>
@@ -10641,6 +10644,7 @@ export type QueryContentfulBenefitsPlansForCompanyArgs = {
   childrenContentfulBenefitsPlansForCompanyTextTextNode: InputMaybe<ContentfulBenefitsPlansForCompanyTextTextNodeFilterListInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  exchangeImageInText: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   image: InputMaybe<ContentfulAssetFilterInput>
   internal: InputMaybe<InternalFilterInput>
@@ -14807,6 +14811,13 @@ export type ParaEmpresasQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulContactFormulary: {
+    nodes: Array<{
+      title: string | null
+      subtitle: string | null
+      image: { url: string | null; filename: string } | null
+    }>
+  }
   allContentfulBannerPlanosParaEmpresas: {
     nodes: Array<{
       subtitle: string | null
@@ -14820,6 +14831,79 @@ export type ParaEmpresasQuery = {
       image: { url: string | null } | null
       text: { text: string | null } | null
     }>
+  }
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      promocao: boolean | null
+      preco: string | null
+      saibaMais: string | null
+      slug: string | null
+      texto: { texto: string | null } | null
+    }>
+  }
+}
+
+export type PlanoBasicoEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoBasicoEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoPlusEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoPlusEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
   }
 }
 
