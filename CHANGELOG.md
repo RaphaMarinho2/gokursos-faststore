@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-437** - New business page.
 - **GM-126/GM-127** - Contact formulary to "Para Empresas" page
 
 ## [0.8.1] - 2022-07-18

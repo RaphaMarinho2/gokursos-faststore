@@ -7007,6 +7007,7 @@ export type ContentfulPlanosForCompanies = ContentfulEntry &
     compartilhar: Maybe<ContentfulAsset>
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
+    galleryTitle: Maybe<Scalars['String']>
     id: Scalars['ID']
     internal: Internal
     node_locale: Scalars['String']
@@ -7395,6 +7396,7 @@ export type ContentfulPlanosForCompaniesFieldsEnum =
   | 'compartilhar___width'
   | 'contentful_id'
   | 'createdAt'
+  | 'galleryTitle'
   | 'id'
   | 'internal___content'
   | 'internal___contentDigest'
@@ -7506,6 +7508,7 @@ export type ContentfulPlanosForCompaniesFilterInput = {
   compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  galleryTitle: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
@@ -10911,6 +10914,7 @@ export type QueryContentfulPlanosForCompaniesArgs = {
   compartilhar: InputMaybe<ContentfulAssetFilterInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
+  galleryTitle: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
@@ -15206,6 +15210,79 @@ export type ParaEmpresasQuery = {
       image: { url: string | null } | null
       text: { text: string | null } | null
     }>
+  }
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      promocao: boolean | null
+      preco: string | null
+      saibaMais: string | null
+      slug: string | null
+      texto: { texto: string | null } | null
+    }>
+  }
+}
+
+export type PlanoBasicoEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoBasicoEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoPlusEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoPlusEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
   }
 }
 
