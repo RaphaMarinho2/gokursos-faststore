@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **GM-129** - - Six reasons page plans.
+- **GM-407** - Plans shelf section at signatures page.
+- **GM-437** - New business page.
+- **GM-126/GM-127** - Contact formulary to "Para Empresas" page
+
 ## [0.8.1] - 2022-07-18
 
 ### Added
 
-- **GM-407** - Plans shelf section at signatures page.
 - **GM-113** - ExplanationPlan and Subtitle component.
 - **GM-123** - Created Created Banner component on for companies.
 - **GM-125** - Created Benefits Plans component business.

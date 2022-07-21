@@ -1,0 +1,125 @@
+@import "src/styles/scaffold";
+
+.contact-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+  background-color: #004e98;
+
+  @include media(">=notebook") {
+    padding: 5rem;
+  }
+
+  &__form-section {
+    padding: 2rem;
+
+    @include media(">=notebook") {
+      flex: 1;
+      padding: 0 10rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+
+    @include media(">=tablet") {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+
+    @include media(">=tablet") {
+      font-size: 1rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    > input,
+    > textarea {
+      padding: 0.5rem 2rem;
+      margin: 0.25rem 0;
+      font-size: 0.875rem;
+      color: #ffffff;
+      background-color: transparent;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+
+      &::placeholder {
+        color: #ffffff;
+      }
+
+      @include media(">=tablet") {
+        font-size: 1rem;
+      }
+    }
+
+    > button {
+      width: 156px;
+      height: 40px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #004e98;
+      cursor: pointer;
+      background-color: #ffffff;
+      border: 0;
+      border-radius: 4px;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: #e5f1fe;
+      }
+
+      @include media(">=notebook") {
+        width: 200px;
+      }
+    }
+  }
+
+  &__privacy-policy {
+    margin: 0.625rem 0;
+    font-size: 0.75rem;
+
+    > a {
+      color: #ffffff;
+    }
+
+    @include media(">=tablet") {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__checkbox {
+    margin-bottom: 1.25rem;
+    font-size: 0.75rem;
+
+    > input {
+      margin-right: 0.5rem;
+    }
+
+    @include media(">=tablet") {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__image-section {
+    display: none;
+
+    @include media(">=notebook") {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
