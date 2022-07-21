@@ -8,18 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.8.1] - 2022-07-18
+
 ### Added
-- **GM-113** - - ExplanationPlan and Subtitle component.
+
+- **GM-407** - Plans shelf section at signatures page.
+- **GM-113** - ExplanationPlan and Subtitle component.
 - **GM-123** - Created Created Banner component on for companies.
 - **GM-125** - Created Benefits Plans component business.
-- **GM-116** - Created Buy Box. 
+- **GM-116** - Created Buy Box.
 - **GM-16** - Component Mult Range Slider.
 - **GM-114** - Page plans Gallery filter.
-
 
 ## [0.8.0] - 2022-07-11
 
 ### Added
+
 - **GM-121** - Created Benefits Plans component.
 - **GM-297** - Agnostic component for simple text [page plans bottom text].
 - **GM-95** - Created ScrollToTopButton component.
