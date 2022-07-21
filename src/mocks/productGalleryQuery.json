@@ -1550,6 +1550,25 @@
               "quantity": 1
             }
           ]
+        },
+        {
+          "key": "brand",
+          "label": "Professores",
+          "type": "BOOLEAN",
+          "values": [
+            {
+              "label": "João Paulo",
+              "value": "João Paulo",
+              "selected": false,
+              "quantity": 1
+            },
+            {
+              "label": "Maria Fernanda",
+              "value": "Maria Fernanda",
+              "selected": false,
+              "quantity": 1
+            }
+          ]
         }
       ]
     }
