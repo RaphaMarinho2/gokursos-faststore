@@ -16,12 +16,18 @@ function Page(props: Props) {
       allContentfulPlanosForCompanies,
       allContentfulBenefitsPlansForCompany,
       allContentfulContactFormulary,
+      allContentfulSixReasons,
     },
   } = props
 
   return (
     <Section>
       <BannerPlanos nodes={allContentfulBannerPlanosParaEmpresas.nodes} />
+      <BenefitsPlans
+        title="Seis motivos para escolher o GoKursos"
+        nodes={allContentfulSixReasons.nodes}
+        className="six-reasons"
+      />
       <BenefitsPlans
         title="Vantagens dos nossos planos empresariais"
         subtitle="Investir na capacitação da sua equipe é a melhor forma de manter sua empresa conectada com o futuro! O GoKursos para empresas oferece:"
@@ -74,6 +80,14 @@ export const querySSG = graphql`
         image {
           url
         }
+        text {
+          text
+        }
+      }
+    }
+    allContentfulSixReasons(sort: { order: ASC, fields: createdAt }) {
+      nodes {
+        exchangeImageInText
         text {
           text
         }
