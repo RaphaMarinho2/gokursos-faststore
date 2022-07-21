@@ -14832,6 +14832,12 @@ export type ParaEmpresasQuery = {
       text: { text: string | null } | null
     }>
   }
+  allContentfulSixReasons: {
+    nodes: Array<{
+      exchangeImageInText: string | null
+      text: { text: string | null } | null
+    }>
+  }
   allContentfulPlanosForCompanies: {
     nodes: Array<{
       textoBotao: string | null
