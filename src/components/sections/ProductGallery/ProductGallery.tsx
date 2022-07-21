@@ -128,7 +128,7 @@ function ProductGallery({ title, searchTerm, galleryTitle, forceSvg }: Props) {
               aria-label="Open Filters"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
             >
-              Filters
+              Filtros
             </Button>
           </SkeletonElement>
         </div>
