@@ -6,6 +6,7 @@ import Section from 'src/components/sections/Section'
 import BannerPlanos from 'src/components/sections/BannerPlanos'
 import BenefitsPlans from 'src/components/sections/BenefitsPlans'
 import CardPlanos from 'src/components/sections/CardPlanos/CardPlanos'
+import ContactForm from 'src/components/sections/ContactForm'
 
 type Props = PageProps<ParaEmpresasQuery>
 function Page(props: Props) {
@@ -14,6 +15,7 @@ function Page(props: Props) {
       allContentfulBannerPlanosParaEmpresas,
       allContentfulPlanosForCompanies,
       allContentfulBenefitsPlansForCompany,
+      allContentfulContactFormulary,
     },
   } = props
 
@@ -29,6 +31,7 @@ function Page(props: Props) {
         nodes={allContentfulPlanosForCompanies.nodes}
         path="para-empresas"
       />
+      <ContactForm nodes={allContentfulContactFormulary.nodes} />
     </Section>
   )
 }
@@ -42,6 +45,17 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
+    allContentfulContactFormulary {
+      nodes {
+        title
+        subtitle
+        image {
+          url
+          filename
+        }
+      }
+    }
+
     allContentfulBannerPlanosParaEmpresas {
       nodes {
         subtitle
