@@ -6,11 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### Added
+
 - **GM-129** - - Six reasons page plans.
-
-### Added
-
+- **GM-407** - Plans shelf section at signatures page.
 - **GM-437** - New business page.
 - **GM-126/GM-127** - Contact formulary to "Para Empresas" page
 
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **GM-113** - - ExplanationPlan and Subtitle component.
+- **GM-113** - ExplanationPlan and Subtitle component.
 - **GM-123** - Created Created Banner component on for companies.
 - **GM-125** - Created Benefits Plans component business.
 - **GM-116** - Created Buy Box.
