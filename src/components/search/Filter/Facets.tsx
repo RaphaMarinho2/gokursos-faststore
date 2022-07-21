@@ -37,7 +37,7 @@ function Facets({
 }: FacetsProps) {
   return (
     <div className="filter" data-store-filter data-testid={testId}>
-      <h2 className="text__title-mini-alt">Filters</h2>
+      <h2 className="text__title-mini-alt">Filtros</h2>
       {facets.length && (
         <>
           <Accordion
