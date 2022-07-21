@@ -1,0 +1,51 @@
+@import "src/styles/scaffold";
+
+.plans-shelf {
+  margin: 1rem 0.5rem;
+
+  @include media(">=tablet") {
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin: 2rem auto;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.875rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+    > select {
+      width: 200px;
+      height: 40px;
+      padding: 0 1.5rem 0 0.5rem;
+      margin-top: 0.5rem;
+      font-weight: 600;
+      color: #004e98;
+      text-overflow: ellipsis;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDE0IDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNyA3TDEzIDEiIHN0cm9rZT0iIzAwNEU5OCIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
+      background-repeat: no-repeat;
+      background-position: 95% 50%;
+      border: 0;
+
+      // using another arrow for select
+      appearance: none;
+
+      @include media(">=tablet") {
+        width: 220px;
+        margin: 0 0.5rem;
+      }
+
+      > option {
+        color: #004e98;
+        background-color: #ffffff;
+      }
+    }
+
+    @include media(">=tablet") {
+      flex-direction: row;
+      font-size: 1.25rem;
+    }
+  }
+}

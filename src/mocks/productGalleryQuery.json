@@ -1491,36 +1491,80 @@
       "facets": [
         {
           "key": "brand",
-          "label": "Categoria",
+          "label": "Categorias",
           "type": "BOOLEAN",
           "values": [
             {
-              "label": "qualidade de software",
-              "value": "qualidade de software",
+              "label": "Literatura",
+              "value": "Literatura",
               "selected": false,
               "quantity": 1
             },
             {
-              "label": "administração",
-              "value": "administração",
+              "label": "Direito",
+              "value": "Direito",
               "selected": false,
               "quantity": 1
             },
             {
-              "label": "estética",
-              "value": "estética",
+              "label": "Antropologia",
+              "value": "Antropologia",
               "selected": false,
               "quantity": 1
             },
             {
-              "label": "nutrição",
-              "value": "nutrição",
+              "label": "Filosofia",
+              "value": "Filosofia",
+              "selected": false,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "key": "brand",
+          "label": "Carga horária",
+          "type": "BOOLEAN",
+          "values": [
+            {
+              "label": "04 horas",
+              "value": "04 horas",
               "selected": false,
               "quantity": 1
             },
             {
-              "label": "anatomia",
-              "value": "anatomia",
+              "label": "06 horas",
+              "value": "06 horas",
+              "selected": false,
+              "quantity": 1
+            },
+            {
+              "label": "10 horas",
+              "value": "10 horas",
+              "selected": false,
+              "quantity": 1
+            },
+            {
+              "label": "30 horas",
+              "value": "30 horas",
+              "selected": false,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "key": "brand",
+          "label": "Professores",
+          "type": "BOOLEAN",
+          "values": [
+            {
+              "label": "João Paulo",
+              "value": "João Paulo",
+              "selected": false,
+              "quantity": 1
+            },
+            {
+              "label": "Maria Fernanda",
+              "value": "Maria Fernanda",
               "selected": false,
               "quantity": 1
             }
