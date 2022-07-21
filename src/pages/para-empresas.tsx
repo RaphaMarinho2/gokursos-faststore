@@ -5,6 +5,7 @@ import { mark } from 'src/sdk/tests/mark'
 import Section from 'src/components/sections/Section'
 import BannerPlanos from 'src/components/sections/BannerPlanos'
 import BenefitsPlans from 'src/components/sections/BenefitsPlans'
+import ContactForm from 'src/components/sections/ContactForm'
 
 type Props = PageProps<ParaEmpresasQuery>
 function Page(props: Props) {
@@ -12,6 +13,7 @@ function Page(props: Props) {
     data: {
       allContentfulBannerPlanosParaEmpresas,
       allContentfulBenefitsPlansForCompany,
+      allContentfulContactFormulary,
     },
   } = props
 
@@ -23,6 +25,7 @@ function Page(props: Props) {
         subtitle="Investir na capacitação da sua equipe é a melhor forma de manter sua empresa conectada com o futuro! O GoKursos para empresas oferece:"
         nodes={allContentfulBenefitsPlansForCompany.nodes}
       />
+      <ContactForm nodes={allContentfulContactFormulary.nodes} />
     </Section>
   )
 }
@@ -36,6 +39,17 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
+    allContentfulContactFormulary {
+      nodes {
+        title
+        subtitle
+        image {
+          url
+          filename
+        }
+      }
+    }
+
     allContentfulBannerPlanosParaEmpresas {
       nodes {
         subtitle
