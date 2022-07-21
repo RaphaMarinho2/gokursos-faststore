@@ -60,7 +60,11 @@ function ProductShelf({
         arrow={{
           isVisible: true,
           iconColor: '#004E98',
-          style: sizeArrowCarousel,
+          style: {
+            ...sizeArrowCarousel,
+            background: '#FFFFFF',
+            boxShadow: '2px 1px 15px rgba(0, 0, 0, 0.15)',
+          },
         }}
         qtyItems={cardsQuantity}
       >
