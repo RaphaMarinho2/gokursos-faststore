@@ -14938,12 +14938,6 @@ export type PlanosQuery = {
       text: { text: string | null } | null
     }>
   }
-  allContentfulSixReasons: {
-    nodes: Array<{
-      exchangeImageInText: string | null
-      text: { text: string | null } | null
-    }>
-  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
