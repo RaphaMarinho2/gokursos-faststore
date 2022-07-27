@@ -6,10 +6,10 @@ interface BannerCategoryProps {
   nodes: Array<{
     title: string | null
     subtitle: string | null
-    imageDesktop: {
+    bannerImageDesktop: {
       url: string | null
     } | null
-    imageMobile: {
+    bannerImageMobile: {
       url: string | null
     } | null
   }>
