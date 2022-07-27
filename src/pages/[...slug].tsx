@@ -6,26 +6,38 @@ import { mark } from 'src/sdk/tests/mark'
 import { SearchProvider, parseSearchState } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
-import BannerCategory from 'src/components/sections/BannerCategory'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import axios from 'axios'
-import type { DepartmentPageQueryQuery } from '@generated/graphql'
+import type {
+  ContentfulPageDepartmentCategory,
+  DepartmentPageQueryQuery,
+  DepartmentPageQueryQueryVariables,
+} from '@generated/graphql'
+import queryContentful from 'src/sdk/contentful/queryContentful'
 
-export type Props = PageProps<DepartmentPageQueryQuery>
+interface ServerDataProps {
+  CMSData: ContentfulPageDepartmentCategory
+  productData: any
+}
+
+export type Props = PageProps<
+  DepartmentPageQueryQuery,
+  DepartmentPageQueryQueryVariables,
+  unknown,
+  ServerDataProps
+>
 function Page(props: Props) {
-  const {
-    data: { allContentfulBannerDepartmentCategory },
-    serverData,
-  } = props
+  const { location, data, serverData } = props
+
+  // eslint-disable-next-line no-console
+  console.log(data)
+
+  const title = 'a'
 
   const collection = ServerCollectionPageQuery
 
-  const title = collection?.seo.title ?? ''
-
-  const maybeState = parseSearchState(
-    new URL('https://deploy-preview-26--gokursos.netlify.app/tecnologia/')
-  )
+  const maybeState = parseSearchState(new URL(location.href))
 
   const searchParams = {
     page: maybeState?.page,
@@ -41,14 +53,42 @@ function Page(props: Props) {
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
     >
+      {/* SEO */}
+      {/* <GatsbySeo
+        title={data.site?.siteMetadata?.title ?? CMSData.seo?.title ?? ''}
+        titleTemplate={data.site?.siteMetadata?.titleTemplate ?? ''}
+        description={
+          data.site?.siteMetadata?.description ?? CMSData.seo?.description ?? ''
+        }
+        canonical={canonical}
+        language={locale}
+        openGraph={{
+          type: 'website',
+          title,
+          description: data.site?.siteMetadata?.description ?? '',
+        }}
+      />
+      <BreadcrumbJsonLd
+        itemListElements={collection?.breadcrumbList.itemListElement ?? []}
+      /> */}
+
+      {/*
+        WARNING: Do not import or render components from any
+        other folder than '../components/sections' in here.
+        This is necessary to keep the integration with the CMS
+        easy and consistent, enabling the change and reorder
+        of elements on this page.
+        If needed, wrap your component in a <Section /> component
+        (not the HTML tag) before rendering it here.
+      */}
       <Breadcrumb
         breadcrumbList={collection?.breadcrumbList.itemListElement}
         name={title}
       />
 
-      <BannerCategory nodes={allContentfulBannerDepartmentCategory.nodes} />
+      {/* <BannerCategory nodes={allContentfulPageDepartmentCategory.nodes} /> */}
 
-      <ProductGallery products={serverData} title={title} />
+      <ProductGallery products={serverData.productData} title={title} />
 
       <ScrollToTopButton />
     </SearchProvider>
@@ -59,25 +99,35 @@ export const querySSG = graphql`
   query DepartmentPageQuery {
     site {
       siteMetadata {
+        titleTemplate
         title
         description
-        titleTemplate
-      }
-    }
-    allContentfulBannerDepartmentCategory {
-      nodes {
-        title
-        subtitle
-        imageDesktop {
-          url
-        }
-        imageMobile {
-          url
-        }
       }
     }
   }
 `
+
+export const DepartmentCategoryPageQuery = `
+query DepartmentCategoryPageQuery {
+  departmentCategoryPageCollection {
+    items {
+      title
+      subtitle
+      seo
+      slug
+      bannerImageDesktop {
+        url
+        width
+        height
+      }
+      bannerImageMobile {
+        url
+        width
+        height
+      }
+    }
+  }
+}`
 
 export const getServerData = async (props: Props) => {
   const {
@@ -88,7 +138,16 @@ export const getServerData = async (props: Props) => {
   const departmentName = !slug.includes('/') && slug
 
   try {
-    const data = await axios
+    const body = {
+      query: DepartmentCategoryPageQuery,
+      variables: {},
+    }
+
+    const CMSData = await queryContentful<ContentfulPageDepartmentCategory>({
+      body,
+    })
+
+    const productData = await axios
       .get('/api/getDepartmentOrCategory', {
         proxy: {
           protocol: '',
@@ -102,7 +161,12 @@ export const getServerData = async (props: Props) => {
       })
       .then(({ data: { value } }) => value)
 
-    if (!data.length) {
+    const data: ServerDataProps = {
+      CMSData,
+      productData,
+    }
+
+    if (!data) {
       const originalUrl = `/${slug}`
 
       return {
