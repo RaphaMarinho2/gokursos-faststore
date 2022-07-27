@@ -16,7 +16,7 @@ import AccordionDown from 'src/components/icons/AccordionDown'
 export type Props = PageProps<DepartmentPageQueryQuery>
 function Page(props: Props) {
   const {
-    data: { allContentfulBannerDepartmentCategory },
+    data: { allContentfulPageDepartmentCategory },
   } = props
 
   const svgIcons = {
@@ -51,7 +51,7 @@ function Page(props: Props) {
         name={title}
       />
 
-      <BannerCategory nodes={allContentfulBannerDepartmentCategory.nodes} />
+      <BannerCategory nodes={allContentfulPageDepartmentCategory.nodes} />
 
       <ProductGallery title={title} forceSvg={svgIcons} />
 
@@ -69,14 +69,14 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    allContentfulBannerDepartmentCategory {
+    allContentfulPageDepartmentCategory {
       nodes {
         title
         subtitle
-        imageDesktop {
+        bannerImageDesktop {
           url
         }
-        imageMobile {
+        bannerImageMobile {
           url
         }
       }
