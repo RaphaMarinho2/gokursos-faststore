@@ -43,7 +43,11 @@ interface ServerDataProps {
       }
     }
   }
-  productsData: ProductsProductCard[]
+  productsData: {
+    '@odata.count': number
+    '@odata.context': string
+    value: ProductsProductCard[]
+  }
 }
 
 export type Props = PageProps<
@@ -60,7 +64,10 @@ function Page(props: Props) {
     serverData,
   } = props
 
-  const { CMSData, productsData } = serverData
+  const {
+    CMSData,
+    productsData: { value: products, '@odata.count': productsCount },
+  } = serverData
 
   const [
     {
@@ -148,7 +155,11 @@ function Page(props: Props) {
         imageBannerMobile={bannerImageMobile?.url}
       />
 
-      <ProductGallery products={productsData} title={title} />
+      <ProductGallery
+        products={products}
+        productsCount={productsCount}
+        title={title}
+      />
 
       <ScrollToTopButton />
     </SearchProvider>
@@ -222,9 +233,14 @@ export const getServerData = async (props: Props) => {
           categoryName,
         },
       })
-      .then(({ data: { value } }) => value)
+      .then(({ data }) => data)
+      .catch((err) => console.error(err))
 
-    if (!CMSData || !productsData) {
+    if (
+      !CMSData ||
+      !productsData ||
+      CMSData.data.departmentCategoryPageCollection.items.length === 0
+    ) {
       const originalUrl = `/${slug}`
 
       return {

@@ -25,9 +25,10 @@ interface Props {
   title: string
   searchTerm?: string
   products: ProductsProductCard[]
+  productsCount: number
 }
 
-function ProductGallery({ title, searchTerm, products }: Props) {
+function ProductGallery({ title, searchTerm, products, productsCount }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
@@ -41,7 +42,7 @@ function ProductGallery({ title, searchTerm, products }: Props) {
   useProductsPrefetch(prev ? prev.cursor : null)
   useProductsPrefetch(next ? next.cursor : null)
 
-  if (data && totalCount === 0) {
+  if (data && productsCount === 0) {
     return (
       <Section
         data-testid="product-gallery"
@@ -75,13 +76,14 @@ function ProductGallery({ title, searchTerm, products }: Props) {
           </FilterSkeleton>
         </div>
 
-        <div className="product-listing__results-count" data-count={totalCount}>
+        <div
+          className="product-listing__results-count"
+          data-count={productsCount}
+        >
           <SkeletonElement shimmer type="text" loading={!data}>
             <h2 data-testid="total-product-count">
-              <span>Mostrando</span>
-              <span>
-                {totalCount} de {totalCount} produtos
-              </span>
+              <span>Total de</span>
+              <span>{productsCount} produtos</span>
             </h2>
           </SkeletonElement>
         </div>

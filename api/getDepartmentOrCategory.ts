@@ -14,7 +14,7 @@ export default async function getDepartmentOrCategory(
         : `Category/Slug eq '${categoryName}'`
 
     const { data } = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${filterParam}&$top=20&$select=Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Especificacao/CargaHoraria/Text, ProductURL`
+      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${filterParam}&$top=20&$count=true&$select=Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Especificacao/CargaHoraria/Text, ProductURL`
     )
 
     res.json(data)
