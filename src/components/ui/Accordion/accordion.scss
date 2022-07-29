@@ -15,13 +15,6 @@
     }
   }
 
-  [data-accordion-panel] {
-    @include media(">=notebook") {
-      padding-right: var(--fs-spacing-4);
-      padding-left: var(--fs-spacing-4);
-    }
-  }
-
   [data-store-button] {
     display: inline-flex;
     align-items: center;
@@ -32,11 +25,6 @@
     cursor: pointer;
     background-color: transparent;
     border: 0;
-
-    @include media(">=notebook") {
-      padding-right: var(--fs-spacing-4);
-      padding-left: var(--fs-spacing-4);
-    }
   }
 
   [data-store-icon] {

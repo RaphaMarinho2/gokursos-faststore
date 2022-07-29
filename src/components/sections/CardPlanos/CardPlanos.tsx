@@ -12,14 +12,17 @@ type PlanosType = {
       texto: string | null
     } | null
   }>
+  path?: string
 }
 
-const CardPlanos = ({ nodes }: PlanosType) => {
+const CardPlanos = ({ nodes, path }: PlanosType) => {
   return (
     <div className="container">
       {nodes.map((node, index) => {
         const { titulo, preco, texto, textoBotao, saibaMais, promocao, slug } =
           node
+
+        console.info(slug)
 
         return (
           <div
@@ -44,7 +47,7 @@ const CardPlanos = ({ nodes }: PlanosType) => {
             </div>
             <p className="texto">{texto?.texto}</p>
             <div className="botoes">
-              <a href={`/planos${slug}`} className="saiba-mais">
+              <a href={`/${path}${slug}`} className="saiba-mais">
                 {saibaMais}
               </a>
               <button className="texto-botao">{textoBotao}</button>

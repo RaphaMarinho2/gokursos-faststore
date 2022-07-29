@@ -1,0 +1,18 @@
+@import "src/styles/scaffold";
+
+.subtitle {
+  width: calc(100% - 32px);
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #000000;
+
+  @include media(">=notebook") {
+    padding-top: 24px;
+    padding-left: 388px;
+    font-size: 24px;
+    line-height: 36px;
+    border-top: 1px solid #ddd;
+  }
+}

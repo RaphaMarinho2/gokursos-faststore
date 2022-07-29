@@ -2,14 +2,16 @@ import './style.scss'
 
 interface BenefitsPlansProps {
   title?: string
+  subtitle?: string
   className?: string
   nodes: Array<{
-    image: {
+    image?: {
       url: string | null
     } | null
     text: {
       text: string | null
     } | null
+    exchangeImageInText?: string | null
   }>
 }
 
@@ -18,18 +20,25 @@ interface BenefitsPlansModifiedProps {
     arg0: (benefits: any, index: number) => JSX.Element
   ): import('react').ReactNode
   title?: string
+  subtitle: string
   className?: string
   nodes: Array<{
-    image: {
+    image?: {
       url: string | undefined
     } | null
     text: {
       text: string | null
     } | null
+    exchangeImageInText?: string | null
   }>
 }
 
-const BenefitsPlans = ({ title, nodes, className }: BenefitsPlansProps) => {
+const BenefitsPlans = ({
+  title,
+  nodes,
+  className,
+  subtitle,
+}: BenefitsPlansProps) => {
   const nodesModified = nodes as unknown as BenefitsPlansModifiedProps
 
   return (
@@ -43,6 +52,13 @@ const BenefitsPlans = ({ title, nodes, className }: BenefitsPlansProps) => {
       >
         {title}
       </h2>
+      <h3
+        className={`benefits-plans__subtitle${
+          className ? `--${className}` : ''
+        }`}
+      >
+        {subtitle}
+      </h3>
       <div
         className={`benefits-plans__container${
           className ? `--${className}` : ''
@@ -55,19 +71,29 @@ const BenefitsPlans = ({ title, nodes, className }: BenefitsPlansProps) => {
               className ? `--${className}` : ''
             }`}
           >
-            <div
-              className={`benefits-plans__container-image${
-                className ? `--${className}` : ''
-              }`}
-            >
-              <img
-                className={`benefits-plans__image${
+            {benefits.image?.url ? (
+              <div
+                className={`benefits-plans__container-image${
                   className ? `--${className}` : ''
                 }`}
-                src={benefits.image?.url}
-                alt=""
-              />
-            </div>
+              >
+                <img
+                  className={`benefits-plans__image${
+                    className ? `--${className}` : ''
+                  }`}
+                  src={benefits.image?.url}
+                  alt=""
+                />
+              </div>
+            ) : (
+              <div
+                className={`benefits-plans__container-exchange${
+                  className ? `--${className}` : ''
+                }`}
+              >
+                <h3>{benefits?.exchangeImageInText}</h3>
+              </div>
+            )}
 
             <p
               className={`benefits-plans__text${

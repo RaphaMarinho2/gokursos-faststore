@@ -14854,6 +14854,118 @@ export type HomePageQueryQuery = {
   }
 }
 
+export type ParaEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type ParaEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulContactFormulary: {
+    nodes: Array<{
+      title: string | null
+      subtitle: string | null
+      image: { url: string | null; filename: string } | null
+    }>
+  }
+  allContentfulBannerPlanosParaEmpresas: {
+    nodes: Array<{
+      subtitle: string | null
+      title: string | null
+      imageMobile: { url: string | null } | null
+      imageDesktop: { url: string | null } | null
+    }>
+  }
+  allContentfulBenefitsPlansForCompany: {
+    nodes: Array<{
+      image: { url: string | null } | null
+      text: { text: string | null } | null
+    }>
+  }
+  allContentfulSixReasons: {
+    nodes: Array<{
+      exchangeImageInText: string | null
+      text: { text: string | null } | null
+    }>
+  }
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      promocao: boolean | null
+      preco: string | null
+      saibaMais: string | null
+      slug: string | null
+      texto: { texto: string | null } | null
+    }>
+  }
+}
+
+export type PlanoBasicoEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoBasicoEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
+export type PlanoPlusEmpresasQueryVariables = Exact<{ [key: string]: never }>
+
+export type PlanoPlusEmpresasQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulPlanosForCompanies: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
+  allContentfulPlanosTextoSimples: {
+    nodes: Array<{ text: { text: string | null } | null }>
+  }
+}
+
 export type PlanosQueryVariables = Exact<{ [key: string]: never }>
 
 export type PlanosQuery = {
@@ -14874,6 +14986,7 @@ export type PlanosQuery = {
   }
   allContentfulBenefitsPlans: {
     nodes: Array<{
+      exchangeImageInText: string | null
       image: { url: string | null } | null
       text: { text: string | null } | null
     }>
@@ -14904,6 +15017,22 @@ export type PlanoBasicoQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
@@ -14921,6 +15050,22 @@ export type PlanoComunicacaoTecnologiaQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
@@ -14936,6 +15081,22 @@ export type PlanoEspecialQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
@@ -14951,6 +15112,22 @@ export type PlanoNegocioQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
@@ -14966,6 +15143,22 @@ export type PlanoSaudeQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
@@ -14981,6 +15174,22 @@ export type PlanoTecnologiaQuery = {
       titleTemplate: string | null
     } | null
   } | null
+  allContentfulPlanos: {
+    nodes: Array<{
+      textoBotao: string | null
+      titulo: string | null
+      preco: string | null
+      slug: string | null
+      galleryTitle: string | null
+      bannerImageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      compartilhar: { url: string | null } | null
+      texto: { texto: string | null } | null
+    }>
+  }
+  allContentfulSignaturePageSubtitle: {
+    nodes: Array<{ subtitle: string | null }>
+  }
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }

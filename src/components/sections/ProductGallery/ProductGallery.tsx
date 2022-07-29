@@ -10,6 +10,7 @@ import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
+import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -21,20 +22,35 @@ import { useDelayedFacets } from './useDelayedFacets'
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
+type ForceSvg = {
+  svg1?: JSX.Element
+  svg2?: JSX.Element
+}
 interface Props {
+  galleryTitle?: string | null
   title: string
   searchTerm?: string
-  products: ProductsProductCard[]
-  productsCount: number
+  products?: ProductsProductCard[]
+  productsCount?: number
+  forceSvg?: ForceSvg
 }
 
-function ProductGallery({ title, searchTerm, products, productsCount }: Props) {
+function ProductGallery({
+  title,
+  searchTerm,
+  products,
+  productsCount,
+  galleryTitle,
+  forceSvg,
+}: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
   const { data } = useGalleryQuery()
 
   const facets = useDelayedFacets(data)
+
+  const facetsWithPrice = productGalleryQuery2.data?.search?.facets
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -65,6 +81,12 @@ function ProductGallery({ title, searchTerm, products, productsCount }: Props) {
           </h1>
         </header>
       )}
+
+      {galleryTitle && (
+        <div className="product-listing__content-grid layout__content">
+          <h1 className="gallery-title">{galleryTitle}</h1>
+        </div>
+      )}
       <div className="product-listing__content-grid layout__content">
         <div className="product-listing__filters">
           <FilterSkeleton loading={facets?.length === 0}>
@@ -72,6 +94,15 @@ function ProductGallery({ title, searchTerm, products, productsCount }: Props) {
               isOpen={isFilterOpen}
               facets={facets}
               onDismiss={() => setIsFilterOpen(false)}
+              forceSvg={forceSvg && forceSvg}
+            />
+          </FilterSkeleton>
+          <FilterSkeleton loading={facetsWithPrice?.length === 0}>
+            <Filter
+              isOpen={isFilterOpen}
+              facets={facetsWithPrice}
+              onDismiss={() => setIsFilterOpen(false)}
+              forceSvg={forceSvg && forceSvg}
             />
           </FilterSkeleton>
         </div>
@@ -102,7 +133,7 @@ function ProductGallery({ title, searchTerm, products, productsCount }: Props) {
               aria-label="Open Filters"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
             >
-              Filters
+              Filtros
             </Button>
           </SkeletonElement>
         </div>
@@ -135,14 +166,20 @@ function ProductGallery({ title, searchTerm, products, productsCount }: Props) {
           {data ? (
             <Suspense fallback={GalleryPageSkeleton}>
               {pages.map((page) => (
-                <GalleryPage
-                  key={`gallery-page-${page}`}
-                  showSponsoredProducts={false}
-                  fallbackData={page === searchState.page ? data : undefined}
-                  page={page}
-                  title={title}
-                  products={products}
-                />
+                <>
+                  {products && (
+                    <GalleryPage
+                      key={`gallery-page-${page}`}
+                      showSponsoredProducts={false}
+                      fallbackData={
+                        page === searchState.page ? data : undefined
+                      }
+                      page={page}
+                      title={title}
+                      products={products}
+                    />
+                  )}
+                </>
               ))}
             </Suspense>
           ) : (

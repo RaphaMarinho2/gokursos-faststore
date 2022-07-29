@@ -7,9 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.2] - 2022-07-21
+
 ### Added
 
-### Fixed
+- **GM-36** - - Filter class workload and teachers.
+- **GM-129** - - Six reasons page plans.
+- **GM-407** - Plans shelf section at signatures page.
+- **GM-437** - New business page.
+- **GM-126/GM-127** - Contact formulary to "Para Empresas" page
+
+## [0.8.1] - 2022-07-18
+
+### Added
+
+- **GM-113** - ExplanationPlan and Subtitle component.
+- **GM-123** - Created Created Banner component on for companies.
+- **GM-125** - Created Benefits Plans component business.
+- **GM-116** - Created Buy Box.
+- **GM-16** - Component Mult Range Slider.
+- **GM-114** - Page plans Gallery filter.
 
 ## [0.8.0] - 2022-07-11
 
