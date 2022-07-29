@@ -1,4 +1,5 @@
 import { useSearch } from '@faststore/sdk'
+import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import ProductGrid from 'src/components/product/ProductGrid'
 import './product-gallery.scss'
 
@@ -8,7 +9,7 @@ interface Props {
   fallbackData?: any
   title: string
   showSponsoredProducts?: boolean
-  products?: any
+  products: ProductsProductCard[]
 }
 
 function GalleryPage({ page, products }: Props) {

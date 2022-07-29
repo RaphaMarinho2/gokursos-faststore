@@ -1,24 +1,49 @@
-import ServerCollectionPageQuery from 'src/mocks/ServerCollectionPageQuery.json'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import { mark } from 'src/sdk/tests/mark'
-import { SearchProvider, parseSearchState } from '@faststore/sdk'
+import { SearchProvider, parseSearchState, useSession } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import axios from 'axios'
 import type {
-  ContentfulPageDepartmentCategory,
   DepartmentPageQueryQuery,
   DepartmentPageQueryQueryVariables,
 } from '@generated/graphql'
 import queryContentful from 'src/sdk/contentful/queryContentful'
+import { GatsbySeo } from 'gatsby-plugin-next-seo'
+import BannerCategory from 'src/components/sections/BannerCategory'
+import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
+
+interface PageCMSDepartmentCategoryType {
+  title: string
+  subtitle: string
+  slug: string
+  seoTitle: string
+  seoDescription: string
+  bannerImageDesktop: {
+    url: string
+    width: number
+    height: number
+  }
+  bannerImageMobile: {
+    url: string
+    width: number
+    height: number
+  }
+}
 
 interface ServerDataProps {
-  CMSData: ContentfulPageDepartmentCategory
-  productData: any
+  CMSData: {
+    data: {
+      departmentCategoryPageCollection: {
+        items: PageCMSDepartmentCategoryType[]
+      }
+    }
+  }
+  productsData: ProductsProductCard[]
 }
 
 export type Props = PageProps<
@@ -27,17 +52,31 @@ export type Props = PageProps<
   unknown,
   ServerDataProps
 >
+
 function Page(props: Props) {
-  const { location, data, serverData } = props
+  const {
+    location: { host, href },
+    data,
+    serverData,
+  } = props
 
-  // eslint-disable-next-line no-console
-  console.log(data)
+  const { CMSData, productsData } = serverData
 
-  const title = 'a'
+  const [
+    {
+      title,
+      subtitle,
+      slug,
+      seoTitle,
+      seoDescription,
+      bannerImageDesktop,
+      bannerImageMobile,
+    },
+  ] = CMSData.data.departmentCategoryPageCollection.items
 
-  const collection = ServerCollectionPageQuery
+  const { locale } = useSession()
 
-  const maybeState = parseSearchState(new URL(location.href))
+  const maybeState = parseSearchState(new URL(href))
 
   const searchParams = {
     page: maybeState?.page,
@@ -47,6 +86,25 @@ function Page(props: Props) {
     sort: maybeState?.sort ?? 'score_desc',
   }
 
+  // TODO: breadcrumbList needs to come from TrueChange. Waiting back-end changes.
+  const breadcrumbList = {
+    itemListElement: [
+      {
+        item: `/${slug}`,
+        name: slug[0].toUpperCase() + slug.substring(1),
+        position: 1,
+      },
+    ],
+  }
+
+  const { page } = searchParams
+
+  const pageQuery = page !== 0 ? `?page=${page}` : ''
+  const canonical =
+    host !== undefined
+      ? `https://${host}/${slug}/${pageQuery}`
+      : `/${slug}/${pageQuery}`
+
   return (
     <SearchProvider
       onChange={applySearchState}
@@ -54,23 +112,20 @@ function Page(props: Props) {
       {...searchParams}
     >
       {/* SEO */}
-      {/* <GatsbySeo
-        title={data.site?.siteMetadata?.title ?? CMSData.seo?.title ?? ''}
+      <GatsbySeo
+        title={seoTitle ?? data.site?.siteMetadata?.title ?? ''}
         titleTemplate={data.site?.siteMetadata?.titleTemplate ?? ''}
         description={
-          data.site?.siteMetadata?.description ?? CMSData.seo?.description ?? ''
+          seoDescription ?? data.site?.siteMetadata?.description ?? ''
         }
         canonical={canonical}
         language={locale}
         openGraph={{
           type: 'website',
-          title,
+          title: seoTitle,
           description: data.site?.siteMetadata?.description ?? '',
         }}
       />
-      <BreadcrumbJsonLd
-        itemListElements={collection?.breadcrumbList.itemListElement ?? []}
-      /> */}
 
       {/*
         WARNING: Do not import or render components from any
@@ -82,13 +137,18 @@ function Page(props: Props) {
         (not the HTML tag) before rendering it here.
       */}
       <Breadcrumb
-        breadcrumbList={collection?.breadcrumbList.itemListElement}
-        name={title}
+        breadcrumbList={breadcrumbList.itemListElement}
+        name={seoTitle}
       />
 
-      {/* <BannerCategory nodes={allContentfulPageDepartmentCategory.nodes} /> */}
+      <BannerCategory
+        title={title}
+        subtitle={subtitle}
+        imageBannerDesktop={bannerImageDesktop?.url}
+        imageBannerMobile={bannerImageMobile?.url}
+      />
 
-      <ProductGallery products={serverData.productData} title={title} />
+      <ProductGallery products={productsData} title={title} />
 
       <ScrollToTopButton />
     </SearchProvider>
@@ -108,12 +168,13 @@ export const querySSG = graphql`
 `
 
 export const DepartmentCategoryPageQuery = `
-query DepartmentCategoryPageQuery {
-  departmentCategoryPageCollection {
+query DepartmentCategoryPageQuery($slug: String!) {
+  departmentCategoryPageCollection(where: {slug: $slug}) {
     items {
       title
       subtitle
-      seo
+      seoTitle
+      seoDescription
       slug
       bannerImageDesktop {
         url
@@ -140,14 +201,16 @@ export const getServerData = async (props: Props) => {
   try {
     const body = {
       query: DepartmentCategoryPageQuery,
-      variables: {},
+      variables: {
+        slug,
+      },
     }
 
-    const CMSData = await queryContentful<ContentfulPageDepartmentCategory>({
+    const CMSData = await queryContentful<ServerDataProps['CMSData']>({
       body,
     })
 
-    const productData = await axios
+    const productsData = await axios
       .get('/api/getDepartmentOrCategory', {
         proxy: {
           protocol: '',
@@ -161,16 +224,11 @@ export const getServerData = async (props: Props) => {
       })
       .then(({ data: { value } }) => value)
 
-    const data: ServerDataProps = {
-      CMSData,
-      productData,
-    }
-
-    if (!data) {
+    if (!CMSData || !productsData) {
       const originalUrl = `/${slug}`
 
       return {
-        status: 301,
+        status: 404,
         props: {},
         headers: {
           'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
@@ -181,7 +239,10 @@ export const getServerData = async (props: Props) => {
 
     return {
       status: 200,
-      props: data ?? {},
+      props: {
+        CMSData,
+        productsData,
+      },
       headers: {
         'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
       },

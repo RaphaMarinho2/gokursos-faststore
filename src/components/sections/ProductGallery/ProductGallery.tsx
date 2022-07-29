@@ -9,6 +9,7 @@ import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
+import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -23,7 +24,7 @@ const GalleryPageSkeleton = <ProductGridSkeleton loading />
 interface Props {
   title: string
   searchTerm?: string
-  products?: any
+  products: ProductsProductCard[]
 }
 
 function ProductGallery({ title, searchTerm, products }: Props) {

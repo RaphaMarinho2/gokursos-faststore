@@ -14,8 +14,29 @@ import './product-card.scss'
 
 type Variant = 'wide' | 'default'
 
+export interface ProductsProductCard {
+  Name: string
+  Category: {
+    Name: string
+    Slug: string
+  }
+  Especificacao: {
+    CargaHoraria: {
+      Text: string
+    }
+  }
+  Price: {
+    BasePrice: number
+    CommisionedPrice: number
+    ListPrice: number
+    isSale: boolean
+  }
+  ProductImageURL: string
+  ProductURL: string
+}
+
 export interface ProductCardProps {
-  product?: any
+  product: ProductsProductCard
   index: number
   bordered?: boolean
   variant?: Variant

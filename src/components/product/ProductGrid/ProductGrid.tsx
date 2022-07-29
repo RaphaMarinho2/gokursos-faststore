@@ -1,10 +1,11 @@
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 
 import ProductCard from '../ProductCard'
+import type { ProductsProductCard } from '../ProductCard/ProductCard'
 import './product-grid.scss'
 
 interface Props {
-  products?: any
+  products: ProductsProductCard[]
   page: number
   pageSize: number
 }
@@ -13,7 +14,7 @@ function ProductGrid({ products, page, pageSize }: Props) {
   return (
     <ProductGridSkeleton loading={products.length === 0}>
       <ul className="product-grid">
-        {products.map((product: any, idx: number) => (
+        {products.map((product, idx: number) => (
           <li key={idx}>
             <ProductCard
               product={product}
