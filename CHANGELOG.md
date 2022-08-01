@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **GM-455** - Changed layout style in footer
+
 ## [0.8.2] - 2022-07-21
 
 ### Added
