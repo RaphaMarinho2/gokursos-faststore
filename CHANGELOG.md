@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **GM-455** - Changed layout style in footer
+### Added
+
+- **GM-397** - Filter mobile
 
 ### Added
 
