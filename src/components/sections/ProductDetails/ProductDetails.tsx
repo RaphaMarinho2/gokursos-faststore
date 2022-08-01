@@ -194,11 +194,6 @@ function ProductDetails({ product: staleProduct }: Props) {
             secondOffer={mockedSubscriptionOffers.secondOffer}
           />
         </section>
-
-        <section className="product-questions__container">
-          <LatestQuestions productQuestions={productQuestions} />
-          <QuestionForm />
-        </section>
       </section>
     </Section>
   )
