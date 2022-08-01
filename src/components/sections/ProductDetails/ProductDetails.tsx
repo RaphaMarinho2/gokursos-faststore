@@ -14,7 +14,11 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
+import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
+import productQuestions from '../../../mocks/productQuestions.json'
+
 import Section from '../Section'
+import LatestQuestions from './LatestQuestions'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -178,6 +182,11 @@ function ProductDetails({ product: staleProduct }: Props) {
             <h2 className="text__title-subsection">Description</h2>
             <p className="text__body">{description}</p>
           </article>
+        </section>
+
+        <section className="product-questions__container">
+          <LatestQuestions productQuestions={productQuestions} />
+          <QuestionForm />
         </section>
       </section>
     </Section>
