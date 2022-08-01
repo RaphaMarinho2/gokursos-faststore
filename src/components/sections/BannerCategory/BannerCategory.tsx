@@ -4,8 +4,8 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 interface BannerCategoryProps {
   nodes: Array<{
-    title: string | null
-    subtitle: string | null
+    title?: string | null
+    subtitle?: string | null
     bannerImageDesktop: {
       url: string | null
     } | null
@@ -21,11 +21,11 @@ interface BannerCategoryModifiedProps {
   ): import('react').ReactNode
   nodes: Array<{
     title: string
-    subtitle: string
-    imageDesktop: {
+    subtitle?: string
+    bannerImageDesktop: {
       url: string
     }
-    imageMobile: {
+    bannerImageMobile: {
       url: string
     }
   }>
@@ -45,7 +45,9 @@ const BannerCategory = ({ nodes }: BannerCategoryProps) => {
                 className="banner-category__image"
                 alt=""
                 src={
-                  isTablet ? banner.imageMobile?.url : banner.imageDesktop?.url
+                  isTablet
+                    ? banner.bannerImageMobile?.url
+                    : banner.bannerImageDesktop?.url
                 }
               />
             </BannerImage>

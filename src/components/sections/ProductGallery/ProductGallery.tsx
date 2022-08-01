@@ -29,13 +29,18 @@ interface Props {
   title: string
   searchTerm?: string
   forceSvg?: ForceSvg
+  hasFilter?: boolean
 }
 
-function ProductGallery({ title, searchTerm, galleryTitle, forceSvg }: Props) {
+function ProductGallery({
+  title,
+  searchTerm,
+  galleryTitle,
+  forceSvg,
+  hasFilter = true,
+}: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
-
-  // const { data } = useGalleryQuery()
 
   const { data } = productGalleryQuery // REPLACE QUERY WITH MOCK FILE
 
@@ -80,19 +85,28 @@ function ProductGallery({ title, searchTerm, galleryTitle, forceSvg }: Props) {
           <h1 className="gallery-title">{galleryTitle}</h1>
         </div>
       )}
+
       <div className="product-listing__content-grid layout__content">
-        <div className="product-listing__filters">
-          <FilterSkeleton
-            loading={facets?.length === 0 || facetsWithPrice?.length === 0}
-          >
-            <Filter
-              isOpen={isFilterOpen}
-              facets={[...facets, ...facetsWithPrice]}
-              onDismiss={() => setIsFilterOpen(false)}
-              forceSvg={forceSvg && forceSvg}
-            />
-          </FilterSkeleton>
-        </div>
+        {hasFilter && (
+          <div className="product-listing__filters">
+            <FilterSkeleton loading={facets?.length === 0}>
+              <Filter
+                isOpen={isFilterOpen}
+                facets={facets}
+                onDismiss={() => setIsFilterOpen(false)}
+                forceSvg={forceSvg && forceSvg}
+              />
+            </FilterSkeleton>
+            <FilterSkeleton loading={facetsWithPrice?.length === 0}>
+              <Filter
+                isOpen={isFilterOpen}
+                facets={facetsWithPrice}
+                onDismiss={() => setIsFilterOpen(false)}
+                forceSvg={forceSvg && forceSvg}
+              />
+            </FilterSkeleton>
+          </div>
+        )}
 
         <div className="product-listing__results-count" data-count={totalCount}>
           <SkeletonElement shimmer type="text" loading={!data}>
