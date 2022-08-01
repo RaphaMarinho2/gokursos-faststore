@@ -16,11 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **GM-455** - Changed layout style in footer
+
 ### Added
 
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list
 - **GM-108** - [PDP] Show common questions form
+- **GM-107** - Rating component with mock data
+- **GM-481** - [PDP - mobile] Rating component with mock data
 
 ### Added
 
