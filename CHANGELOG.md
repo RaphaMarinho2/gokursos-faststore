@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-108** - [PDP] Show common questions form
 - **GM-107** - Rating component with mock data
 - **GM-481** - [PDP - mobile] Rating component with mock data
+- **GM-457** - Infoprodutor Page
 
 ### Added
 
