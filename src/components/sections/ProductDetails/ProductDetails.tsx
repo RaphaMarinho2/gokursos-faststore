@@ -20,6 +20,7 @@ import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
 import Section from '../Section'
 import LatestQuestions from './LatestQuestions'
 import SubscriptionOffers from './SubscriptionOffers'
+import ProductRating from '../ProductRating'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -182,16 +183,16 @@ function ProductDetails({ product: staleProduct }: Props) {
           <article className="product-details__description">
             <h2 className="text__title-subsection">Description</h2>
             <p className="text__body">{description}</p>
+            <ProductRating />
+            <div className="product-questions__container">
+              <LatestQuestions productQuestions={productQuestions} />
+              <QuestionForm />
+            </div>
           </article>
           <SubscriptionOffers
             firstOffer={mockedSubscriptionOffers.firstOffer}
             secondOffer={mockedSubscriptionOffers.secondOffer}
           />
-        </section>
-
-        <section className="product-questions__container">
-          <LatestQuestions productQuestions={productQuestions} />
-          <QuestionForm />
         </section>
       </section>
     </Section>
