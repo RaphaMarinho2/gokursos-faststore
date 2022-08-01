@@ -12,6 +12,11 @@
   resolved "https://registry.yarnpkg.com/@acctglobal/carousel-universal/-/carousel-universal-1.2.0.tgz#d0d89b6d81f1bb8a4b0fef45195f652e810c58c8"
   integrity sha512-i4YxAB0AUrlwJ3htldPy4rOz7rVSvlIFHspRvY1xXv+Cx+JQESV/chak/fwkes6LFdFyHZ2Q+dvpmpSeh6HH1A==
 
+"@acctglobal/productdescription@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@acctglobal/productdescription/-/productdescription-0.2.1.tgz#c852633523bf7e38cf76845fba38d691dd5c1d03"
+  integrity sha512-WnswUBNp2cC4BFWM8LDakfkXfKDybht6T+dNBTOMMGp5ewrtU2uKpYkkbYPEqt4/ViQ6B5IAPvZPzEmkWq1v3g==
+
 "@ampproject/remapping@^2.1.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.1.2.tgz#4edca94973ded9630d20101cd8559cedb8d8bd34"

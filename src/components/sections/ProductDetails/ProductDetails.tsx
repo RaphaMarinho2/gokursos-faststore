@@ -13,6 +13,7 @@ import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import ProductDescription from '@acctglobal/productdescription'
 
 import Section from '../Section'
 
@@ -40,7 +41,7 @@ function ProductDetails({ product: staleProduct }: Props) {
     name: variantName,
     brand,
     isVariantOf,
-    description,
+    // description,
     image: productImages,
     offers: {
       lowPrice,
@@ -175,8 +176,32 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <section className="product-details__content">
           <article className="product-details__description">
-            <h2 className="text__title-subsection">Description</h2>
-            <p className="text__body">{description}</p>
+            <ProductDescription
+              loadMore="Load More"
+              descriptionTabs={[
+                {
+                  name: 'Sobre o curso',
+                  description:
+                    'O curso online de Programação Orientada a Objetos apresenta os conceitos para programar orientando objetos a partir da linguagem de programação Java, linguagem gratuita, robusta e que funciona em diversos sistemas operacionais e dispositivos mobile, desktop ou web. No decorrer do curso, o conteúdo será abordado de forma simplificada para que se possa abstrair facilmente os temas abordados no livro. ',
+                },
+                {
+                  name: 'Conteúdo do curso',
+                  description:
+                    'Lorem ipsum dolor sit amet. Qui nihil obcaecati ut quia harum a aliquid voluptatibus. Eum odit quia ut accusamus aspernatur est voluptatem velit eum vitae enim ut veniam odio et voluptas velit. Et saepe deserunt aut aperiam fugit id corporis voluptate et voluptatem quia id veniam voluptatibus a totam molestias. ',
+                },
+                {
+                  name: 'Objetivos',
+                  description:
+                    'In reprehenderit quasi sed quia fugiat sit perspiciatis officiis et unde earum ab deserunt voluptatibus. Quo nulla possimus ab fuga perspiciatis qui voluptas consequuntur! ',
+                },
+                {
+                  name: 'Certificados',
+                  description:
+                    'Et voluptatem similique et rerum velit hic cumque internos 33 dolorem ipsa eos beatae doloribus et molestiae iure. Et nobis quisquam id distinctio blanditiis est exercitationem ducimus sit magnam quisquam At ipsum nihil eum iste minus. ',
+                },
+              ]}
+              maxHeight={500}
+            />
           </article>
         </section>
       </section>

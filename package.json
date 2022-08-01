@@ -30,6 +30,7 @@
   "dependencies": {
     "@acctglobal/bubblelinks": "^1.0.1",
     "@acctglobal/carousel-universal": "^1.2.0",
+    "@acctglobal/productdescription": "^0.2.1",
     "@builder.io/partytown": "^0.5.4",
     "@envelop/core": "^1.2.0",
     "@envelop/graphql-jit": "^1.1.1",

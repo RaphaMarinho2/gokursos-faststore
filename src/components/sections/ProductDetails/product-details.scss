@@ -45,19 +45,26 @@
     margin-bottom: var(--fs-spacing-7);
   }
 
-  @include media(">=notebook") { grid-column: span 8; }
+  @include media(">=notebook") {
+    grid-column: span 8;
+  }
 }
 
 .product-details__content {
   margin-top: var(--fs-spacing-3);
-  .product-details__description .text__title-subsection { margin-bottom: var(--fs-spacing-3); }
+
+  .product-details__description .text__title-subsection {
+    margin-bottom: var(--fs-spacing-3);
+  }
 
   @include media(">=tablet") {
     grid-column: span 7;
     margin-top: 0;
   }
 
-  @include media(">=notebook") { grid-column: span 8; }
+  @include media(">=notebook") {
+    grid-column: span 8;
+  }
 }
 
 .product-details__title {
@@ -65,10 +72,14 @@
     grid-row: 1;
     grid-column: 8 / span 5;
     border: 1px solid var(--fs-border-color-light);
-    border-radius: var(--fs-border-radius-default) var(--fs-border-radius-default) 0 0;
+    border-radius:
+      var(--fs-border-radius-default)
+      var(--fs-border-radius-default) 0 0;
   }
 
-  @include media(">=notebook") { grid-column: 9 / span 4; }
+  @include media(">=notebook") {
+    grid-column: 9 / span 4;
+  }
 }
 
 .product-details__settings {
@@ -76,10 +87,15 @@
 
   [data-store-sku-selector] {
     margin-bottom: var(--fs-spacing-4);
-    &:last-of-type { margin-bottom: var(--fs-spacing-7); }
+
+    &:last-of-type {
+      margin-bottom: var(--fs-spacing-7);
+    }
   }
 
-  [data-store-buy-button] { width: 100%; }
+  [data-store-buy-button] {
+    width: 100%;
+  }
 
   .price[data-store-price] {
     display: block;
@@ -96,14 +112,218 @@
     padding: var(--fs-spacing-3);
     border: 1px solid var(--fs-border-color-light);
     border-top: 0;
-    border-radius: 0 0 var(--fs-border-radius-default) var(--fs-border-radius-default);
+    border-radius:
+      0 0 var(--fs-border-radius-default)
+      var(--fs-border-radius-default);
   }
 
-  @include media(">=notebook") { grid-column: 9 / span 4; }
+  @include media(">=notebook") {
+    grid-column: 9 / span 4;
+  }
 }
 
 .product-details__values {
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--fs-spacing-4);
+}
+
+.product-details__description {
+  [data-sf-product-description-container] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  [data-sf-product-description-item],
+  [data-sf-product-description-item-desk] {
+    display: inline-flex;
+    place-content: center;
+    align-items: center;
+    max-width: 848px;
+
+    &:last-child {
+      [data-sf-nav-container] {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  [data-sf-nav-container] {
+    place-content: center;
+    place-content: space-between;
+    width: 100%;
+    max-width: 848px;
+    margin: 0 auto;
+    margin-bottom: var(--fs-spacing-1);
+  }
+
+  [data-sf-nav-item] {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    cursor: pointer;
+  }
+
+  [data-sf-nav-link],
+  [data-sf-nav-link-desk] {
+    display: block;
+    cursor: pointer;
+
+    [data-sf-nav-title],
+    [data-sf-nav-title-desk] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--fs-spacing-1) var(--fs-spacing-3);
+      background-color: var(--fs-color-neutral-15);
+
+      &::after {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10px;
+        height: 10px;
+        content: "+";
+      }
+
+      @include media(">=notebook") {
+        padding: 0;
+        color: #004e98;
+        background-color: transparent;
+
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    [data-sf-nav-title-active="true"] {
+      font-weight: 600;
+      background-color: var(--fs-color-neutral-11);
+
+      &::after {
+        content: "-";
+      }
+
+      @include media(">=notebook") {
+        background-color: transparent;
+
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    [data-sf-nav-title-active="false"] {
+      font-weight: 600;
+
+      @include media(">=notebook") {
+        color: #666666;
+      }
+    }
+  }
+
+  [data-sf-product-description-item-desk] {
+    &::after {
+      @include media(">=notebook") {
+        width: 35px;
+        height: 12px;
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 6L15 12L9 18' stroke='%23666666' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+  }
+
+  [data-sf-description-text],
+  [data-sf-description-text-desk] {
+    font-weight: 400;
+    line-height: 24px;
+    color: #000000;
+    text-align: left;
+  }
+
+  [data-sf-description-button],
+  [data-sf-description-button-desk] {
+    width: 142px;
+    height: 38px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+  }
+
+  [data-sf-description-container-active="false"] {
+    display: none;
+  }
+
+  [data-sf-description-container-active="true"] {
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 848px;
+    padding: var(--fs-spacing-3) var(--fs-spacing-3);
+    background-color: var(--fs-color-neutral-15);
+
+    @include media(">=notebook") {
+      background-color: transparent;
+    }
+  }
+
+  @media (min-width: 768px) {
+    [data-sf-description-show-more="false"] {
+      max-height: 160px;
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 768px) {
+    [data-sf-description-button] {
+      display: none;
+    }
+
+    [data-sf-product-description-container] {
+      flex-direction: column;
+    }
+
+    [data-sf-description-container-active="true"] {
+      position: relative;
+    }
+  }
+
+  [data-sf-nav-title] {
+    line-height: 1.375rem;
+
+    @include media(">=notebook") {
+      gap: 1rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      text-align: left;
+      background-color: transparent;
+    }
+  }
+
+  [data-sf-product-description-container-name] {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--fs-spacing-3) var(--fs-spacing-3);
+    font-size: 20px;
+    font-weight: 700;
+    color: #004e98;
+
+    @include media(">=notebook") {
+      [data-sf-product-description-item-desk] {
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
