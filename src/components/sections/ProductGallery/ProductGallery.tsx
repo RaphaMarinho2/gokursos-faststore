@@ -14,9 +14,6 @@ import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
-// import { useDelayedFacets } from './useDelayedFacets'
-// import { useGalleryQuery } from './useGalleryQuery'
-// import { useProductsPrefetch } from './usePageProducts'
 
 import './product-gallery.scss'
 
@@ -85,18 +82,12 @@ function ProductGallery({ title, searchTerm, galleryTitle, forceSvg }: Props) {
       )}
       <div className="product-listing__content-grid layout__content">
         <div className="product-listing__filters">
-          <FilterSkeleton loading={facets?.length === 0}>
+          <FilterSkeleton
+            loading={facets?.length === 0 || facetsWithPrice?.length === 0}
+          >
             <Filter
               isOpen={isFilterOpen}
-              facets={facets}
-              onDismiss={() => setIsFilterOpen(false)}
-              forceSvg={forceSvg && forceSvg}
-            />
-          </FilterSkeleton>
-          <FilterSkeleton loading={facetsWithPrice?.length === 0}>
-            <Filter
-              isOpen={isFilterOpen}
-              facets={facetsWithPrice}
+              facets={[...facets, ...facetsWithPrice]}
               onDismiss={() => setIsFilterOpen(false)}
               forceSvg={forceSvg && forceSvg}
             />
@@ -121,9 +112,8 @@ function ProductGallery({ title, searchTerm, galleryTitle, forceSvg }: Props) {
 
           <SkeletonElement shimmer type="button" loading={facets?.length === 0}>
             <Button
-              variant="tertiary"
               data-testid="open-filter-button"
-              icon={<Icon name="FadersHorizontal" width={16} height={16} />}
+              icon={<Icon name="FadersHorizontal" width={20} height={20} />}
               iconPosition="left"
               aria-label="Open Filters"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
