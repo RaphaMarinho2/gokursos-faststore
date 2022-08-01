@@ -14,11 +14,12 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
-import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
 import productQuestions from '../../../mocks/productQuestions.json'
-
+import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
+import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
 import Section from '../Section'
 import LatestQuestions from './LatestQuestions'
+import SubscriptionOffers from './SubscriptionOffers'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -182,6 +183,10 @@ function ProductDetails({ product: staleProduct }: Props) {
             <h2 className="text__title-subsection">Description</h2>
             <p className="text__body">{description}</p>
           </article>
+          <SubscriptionOffers
+            firstOffer={mockedSubscriptionOffers.firstOffer}
+            secondOffer={mockedSubscriptionOffers.secondOffer}
+          />
         </section>
 
         <section className="product-questions__container">
