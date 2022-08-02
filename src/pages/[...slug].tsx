@@ -244,7 +244,7 @@ export const getServerData = async (props: Props) => {
       const originalUrl = `/${slug}`
 
       return {
-        status: 404,
+        status: 301,
         props: {},
         headers: {
           'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',

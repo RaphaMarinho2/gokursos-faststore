@@ -19,11 +19,7 @@ function GalleryPage({ page, products }: Props) {
     return null
   }
 
-  return (
-    <>
-      <ProductGrid products={products} page={page} pageSize={itemsPerPage} />
-    </>
-  )
+  return <ProductGrid products={products} page={page} pageSize={itemsPerPage} />
 }
 
 export default GalleryPage

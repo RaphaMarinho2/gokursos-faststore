@@ -15,7 +15,7 @@ function ProductGrid({ products, page, pageSize }: Props) {
     <ProductGridSkeleton loading={products.length === 0}>
       <ul className="product-grid">
         {products.map((product, idx: number) => (
-          <li key={idx}>
+          <li key={product.ID}>
             <ProductCard
               product={product}
               // eslint-disable-next-line @typescript-eslint/restrict-plus-operands

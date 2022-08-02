@@ -15,6 +15,7 @@ import './product-card.scss'
 type Variant = 'wide' | 'default'
 
 export interface ProductsProductCard {
+  ID: string
   Name: string
   Category: {
     Name: string
