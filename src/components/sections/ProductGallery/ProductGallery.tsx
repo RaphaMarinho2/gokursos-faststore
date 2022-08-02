@@ -33,6 +33,7 @@ interface Props {
   products?: ProductsProductCard[]
   productsCount?: number
   forceSvg?: ForceSvg
+  hasFilter?: boolean
 }
 
 function ProductGallery({
@@ -42,6 +43,7 @@ function ProductGallery({
   productsCount,
   galleryTitle,
   forceSvg,
+  hasFilter = true,
 }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
@@ -87,25 +89,28 @@ function ProductGallery({
           <h1 className="gallery-title">{galleryTitle}</h1>
         </div>
       )}
+
       <div className="product-listing__content-grid layout__content">
-        <div className="product-listing__filters">
-          <FilterSkeleton loading={facets?.length === 0}>
-            <Filter
-              isOpen={isFilterOpen}
-              facets={facets}
-              onDismiss={() => setIsFilterOpen(false)}
-              forceSvg={forceSvg && forceSvg}
-            />
-          </FilterSkeleton>
-          <FilterSkeleton loading={facetsWithPrice?.length === 0}>
-            <Filter
-              isOpen={isFilterOpen}
-              facets={facetsWithPrice}
-              onDismiss={() => setIsFilterOpen(false)}
-              forceSvg={forceSvg && forceSvg}
-            />
-          </FilterSkeleton>
-        </div>
+        {hasFilter && (
+          <div className="product-listing__filters">
+            <FilterSkeleton loading={facets?.length === 0}>
+              <Filter
+                isOpen={isFilterOpen}
+                facets={facets}
+                onDismiss={() => setIsFilterOpen(false)}
+                forceSvg={forceSvg && forceSvg}
+              />
+            </FilterSkeleton>
+            <FilterSkeleton loading={facetsWithPrice?.length === 0}>
+              <Filter
+                isOpen={isFilterOpen}
+                facets={facetsWithPrice}
+                onDismiss={() => setIsFilterOpen(false)}
+                forceSvg={forceSvg && forceSvg}
+              />
+            </FilterSkeleton>
+          </div>
+        )}
 
         <div
           className="product-listing__results-count"
@@ -126,9 +131,8 @@ function ProductGallery({
 
           <SkeletonElement shimmer type="button" loading={facets?.length === 0}>
             <Button
-              variant="tertiary"
               data-testid="open-filter-button"
-              icon={<Icon name="FadersHorizontal" width={16} height={16} />}
+              icon={<Icon name="FadersHorizontal" width={20} height={20} />}
               iconPosition="left"
               aria-label="Open Filters"
               onClick={() => setIsFilterOpen(!isFilterOpen)}

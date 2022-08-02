@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Button, { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
-// import type { Filter_FacetsFragment } from '@generated/graphql'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 
 import Facets from './Facets'
@@ -51,8 +50,6 @@ function Filter({
   const { onModalClose } = useModal()
   const { facets, selected, expanded, dispatch } = useFilter(allFacets)
 
-  console.info('Filter', forceSvg)
-
   return (
     <>
       <div className="hidden-mobile">
@@ -77,7 +74,7 @@ function Filter({
       >
         <div className="filter-modal__body">
           <header className="filter-modal__header">
-            <h2 className="text__lead">Filters</h2>
+            <h2 className="text__lead">FILTRO</h2>
             <ButtonIcon
               data-testid="filter-modal-button-close"
               aria-label="Close Filters"
@@ -94,32 +91,31 @@ function Filter({
           </header>
           <Facets
             facets={facets}
-            testId={`mobile-${testId}`}
+            testId={`desktop-${testId}`}
             indicesExpanded={expanded}
-            onFacetChange={(facet) =>
-              dispatch({ type: 'toggleFacet', payload: facet })
-            }
+            onFacetChange={toggleFacet}
             onAccordionChange={(index) =>
               dispatch({ type: 'toggleExpanded', payload: index })
             }
+            forceSvg={forceSvg ?? undefined}
           />
         </div>
         <footer className="filter-modal__footer">
           <Button
-            variant="secondary"
+            className="clear-button"
             onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
           >
-            Clear All
+            Limpar
           </Button>
           <Button
-            variant="primary"
+            className="apply-button"
             data-testid="filter-modal-button-apply"
             onClick={() => {
               setFacets(selected)
               onModalClose()
             }}
           >
-            Apply
+            Aplicar
           </Button>
         </footer>
       </SlideOver>

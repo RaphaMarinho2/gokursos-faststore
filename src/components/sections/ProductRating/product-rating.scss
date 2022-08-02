@@ -1,0 +1,97 @@
+@import "src/styles/scaffold";
+
+.product-rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0.5rem;
+  margin: 1.5rem 0.5rem;
+  text-align: center;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+
+  @include media(">=tablet") {
+    padding: 2rem;
+    margin: 1.5rem 0;
+  }
+}
+
+.product-rating-title {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+
+  @include media(">=tablet") {
+    font-size: 1.25rem;
+  }
+}
+
+.product-rating-subtitle {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #666666;
+
+  @include media(">=tablet") {
+    font-size: 1.5rem;
+  }
+}
+
+.product-rating-description {
+  font-size: 0.875rem;
+  color: #555555;
+
+  @include media(">=tablet") {
+    font-size: 1rem;
+  }
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+  color: #666666;
+}
+
+.rating-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  > strong {
+    font-size: 3rem;
+    font-weight: 600;
+
+    @include media(">=tablet") {
+      font-size: 4rem;
+    }
+
+    > span {
+      font-size: 1.5rem;
+
+      @include media(">=tablet") {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.rating-info-description {
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  @include media(">=tablet") {
+    font-size: 1rem;
+    font-weight: var(--fs-text-weight-regular);
+  }
+}
+
+.total-rates {
+  font-size: 12px;
+  font-weight: 400;
+
+  @include media(">=tablet") {
+    font-weight: 700;
+  }
+}

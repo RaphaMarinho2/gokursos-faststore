@@ -1,0 +1,14 @@
+{
+  "firstOffer": {
+    "name": "Plano Básico",
+    "price": 29.9,
+    "installmentCriteria": "por mês",
+    "link": "/#"
+  },
+  "secondOffer": {
+    "name": "Plano Especial",
+    "price": 69.0,
+    "installmentCriteria": "por mês",
+    "link": "/#"
+  }
+}
