@@ -1,4 +1,3 @@
-import ServerCollectionPageQuery from 'src/mocks/ServerCollectionPageQuery.json'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
@@ -9,14 +8,20 @@ import { ITEMS_PER_PAGE } from 'src/constants'
 import BannerCategory from 'src/components/sections/BannerCategory'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type { DepartmentPageQueryQuery } from '@generated/graphql'
+import type { InfoprodutorPageQueryQuery } from '@generated/graphql'
 import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
 
-export type Props = PageProps<DepartmentPageQueryQuery>
+export type Props = PageProps<InfoprodutorPageQueryQuery>
+type ItemListType = {
+  item: string
+  name: string
+  position: number
+}
+
 function Page(props: Props) {
   const {
-    data: { allContentfulPageDepartmentCategory },
+    data: { allContentfulBannerInfoProdutor },
   } = props
 
   const svgIcons = {
@@ -24,12 +29,10 @@ function Page(props: Props) {
     svg2: <AccordionDown />,
   }
 
-  const collection = ServerCollectionPageQuery
-
-  const title = collection?.seo.title ?? ''
+  const title = 'gilberto' ?? ''
 
   const maybeState = parseSearchState(
-    new URL('https://deploy-preview-26--gokursos.netlify.app/tecnologia/')
+    new URL('https://deploy-preview-26--gokursos.netlify.app/gilberto/')
   )
 
   const searchParams = {
@@ -40,20 +43,24 @@ function Page(props: Props) {
     sort: maybeState?.sort ?? 'score_desc',
   }
 
+  const itemListElement: ItemListType[] = [
+    {
+      item: '/gilberto',
+      name: 'Gilberto augusto',
+      position: 1,
+    },
+  ]
+
   return (
     <SearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
     >
-      <Breadcrumb
-        breadcrumbList={collection?.breadcrumbList.itemListElement}
-        name={title}
-      />
+      <Breadcrumb breadcrumbList={itemListElement} name={title} />
+      <BannerCategory nodes={allContentfulBannerInfoProdutor.nodes} />
 
-      <BannerCategory nodes={allContentfulPageDepartmentCategory.nodes} />
-
-      <ProductGallery title={title} forceSvg={svgIcons} />
+      <ProductGallery title={title} forceSvg={svgIcons} hasFilter={false} />
 
       <ScrollToTopButton />
     </SearchProvider>
@@ -61,7 +68,7 @@ function Page(props: Props) {
 }
 
 export const querySSG = graphql`
-  query DepartmentPageQuery {
+  query infoprodutorPageQuery {
     site {
       siteMetadata {
         title
@@ -69,10 +76,9 @@ export const querySSG = graphql`
         titleTemplate
       }
     }
-    allContentfulPageDepartmentCategory {
+    allContentfulBannerInfoProdutor {
       nodes {
         title
-        subtitle
         bannerImageDesktop {
           url
         }

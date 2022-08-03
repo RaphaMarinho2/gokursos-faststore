@@ -390,80 +390,209 @@ export type ContentfulAssetSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
-export type ContentfulBannerDepartmentCategory = ContentfulEntry &
+export type ContentfulBannerInfoProdutor = ContentfulEntry &
   ContentfulReference &
   Node & {
+    bannerImageDesktop: Maybe<ContentfulAsset>
+    bannerImageMobile: Maybe<ContentfulAsset>
     children: Array<Node>
     contentful_id: Scalars['String']
     createdAt: Maybe<Scalars['Date']>
     id: Scalars['ID']
-    imageDesktop: Maybe<ContentfulAsset>
-    imageMobile: Maybe<ContentfulAsset>
     internal: Internal
     node_locale: Scalars['String']
     parent: Maybe<Node>
     spaceId: Maybe<Scalars['String']>
-    subtitle: Maybe<Scalars['String']>
-    sys: Maybe<ContentfulBannerDepartmentCategorySys>
+    sys: Maybe<ContentfulBannerInfoProdutorSys>
     title: Maybe<Scalars['String']>
     updatedAt: Maybe<Scalars['Date']>
   }
 
-export type ContentfulBannerDepartmentCategoryCreatedAtArgs = {
+export type ContentfulBannerInfoProdutorCreatedAtArgs = {
   difference: InputMaybe<Scalars['String']>
   formatString: InputMaybe<Scalars['String']>
   fromNow: InputMaybe<Scalars['Boolean']>
   locale: InputMaybe<Scalars['String']>
 }
 
-export type ContentfulBannerDepartmentCategoryUpdatedAtArgs = {
+export type ContentfulBannerInfoProdutorUpdatedAtArgs = {
   difference: InputMaybe<Scalars['String']>
   formatString: InputMaybe<Scalars['String']>
   fromNow: InputMaybe<Scalars['Boolean']>
   locale: InputMaybe<Scalars['String']>
 }
 
-export type ContentfulBannerDepartmentCategoryConnection = {
+export type ContentfulBannerInfoProdutorConnection = {
   distinct: Array<Scalars['String']>
-  edges: Array<ContentfulBannerDepartmentCategoryEdge>
-  group: Array<ContentfulBannerDepartmentCategoryGroupConnection>
+  edges: Array<ContentfulBannerInfoProdutorEdge>
+  group: Array<ContentfulBannerInfoProdutorGroupConnection>
   max: Maybe<Scalars['Float']>
   min: Maybe<Scalars['Float']>
-  nodes: Array<ContentfulBannerDepartmentCategory>
+  nodes: Array<ContentfulBannerInfoProdutor>
   pageInfo: PageInfo
   sum: Maybe<Scalars['Float']>
   totalCount: Scalars['Int']
 }
 
-export type ContentfulBannerDepartmentCategoryConnectionDistinctArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorConnectionDistinctArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryConnectionGroupArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorConnectionGroupArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
 }
 
-export type ContentfulBannerDepartmentCategoryConnectionMaxArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorConnectionMaxArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryConnectionMinArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorConnectionMinArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryConnectionSumArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorConnectionSumArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryEdge = {
-  next: Maybe<ContentfulBannerDepartmentCategory>
-  node: ContentfulBannerDepartmentCategory
-  previous: Maybe<ContentfulBannerDepartmentCategory>
+export type ContentfulBannerInfoProdutorEdge = {
+  next: Maybe<ContentfulBannerInfoProdutor>
+  node: ContentfulBannerInfoProdutor
+  previous: Maybe<ContentfulBannerInfoProdutor>
 }
 
-export type ContentfulBannerDepartmentCategoryFieldsEnum =
+export type ContentfulBannerInfoProdutorFieldsEnum =
+  | 'bannerImageDesktop___children'
+  | 'bannerImageDesktop___children___children'
+  | 'bannerImageDesktop___children___children___children'
+  | 'bannerImageDesktop___children___children___id'
+  | 'bannerImageDesktop___children___id'
+  | 'bannerImageDesktop___children___internal___content'
+  | 'bannerImageDesktop___children___internal___contentDigest'
+  | 'bannerImageDesktop___children___internal___description'
+  | 'bannerImageDesktop___children___internal___fieldOwners'
+  | 'bannerImageDesktop___children___internal___ignoreType'
+  | 'bannerImageDesktop___children___internal___mediaType'
+  | 'bannerImageDesktop___children___internal___owner'
+  | 'bannerImageDesktop___children___internal___type'
+  | 'bannerImageDesktop___children___parent___children'
+  | 'bannerImageDesktop___children___parent___id'
+  | 'bannerImageDesktop___contentful_id'
+  | 'bannerImageDesktop___createdAt'
+  | 'bannerImageDesktop___description'
+  | 'bannerImageDesktop___file___contentType'
+  | 'bannerImageDesktop___file___details___size'
+  | 'bannerImageDesktop___file___fileName'
+  | 'bannerImageDesktop___file___url'
+  | 'bannerImageDesktop___filename'
+  | 'bannerImageDesktop___filesize'
+  | 'bannerImageDesktop___gatsbyImage'
+  | 'bannerImageDesktop___gatsbyImageData'
+  | 'bannerImageDesktop___height'
+  | 'bannerImageDesktop___id'
+  | 'bannerImageDesktop___internal___content'
+  | 'bannerImageDesktop___internal___contentDigest'
+  | 'bannerImageDesktop___internal___description'
+  | 'bannerImageDesktop___internal___fieldOwners'
+  | 'bannerImageDesktop___internal___ignoreType'
+  | 'bannerImageDesktop___internal___mediaType'
+  | 'bannerImageDesktop___internal___owner'
+  | 'bannerImageDesktop___internal___type'
+  | 'bannerImageDesktop___mimeType'
+  | 'bannerImageDesktop___node_locale'
+  | 'bannerImageDesktop___parent___children'
+  | 'bannerImageDesktop___parent___children___children'
+  | 'bannerImageDesktop___parent___children___id'
+  | 'bannerImageDesktop___parent___id'
+  | 'bannerImageDesktop___parent___internal___content'
+  | 'bannerImageDesktop___parent___internal___contentDigest'
+  | 'bannerImageDesktop___parent___internal___description'
+  | 'bannerImageDesktop___parent___internal___fieldOwners'
+  | 'bannerImageDesktop___parent___internal___ignoreType'
+  | 'bannerImageDesktop___parent___internal___mediaType'
+  | 'bannerImageDesktop___parent___internal___owner'
+  | 'bannerImageDesktop___parent___internal___type'
+  | 'bannerImageDesktop___parent___parent___children'
+  | 'bannerImageDesktop___parent___parent___id'
+  | 'bannerImageDesktop___placeholderUrl'
+  | 'bannerImageDesktop___publicUrl'
+  | 'bannerImageDesktop___resize___height'
+  | 'bannerImageDesktop___resize___src'
+  | 'bannerImageDesktop___resize___width'
+  | 'bannerImageDesktop___size'
+  | 'bannerImageDesktop___spaceId'
+  | 'bannerImageDesktop___sys___revision'
+  | 'bannerImageDesktop___sys___type'
+  | 'bannerImageDesktop___title'
+  | 'bannerImageDesktop___updatedAt'
+  | 'bannerImageDesktop___url'
+  | 'bannerImageDesktop___width'
+  | 'bannerImageMobile___children'
+  | 'bannerImageMobile___children___children'
+  | 'bannerImageMobile___children___children___children'
+  | 'bannerImageMobile___children___children___id'
+  | 'bannerImageMobile___children___id'
+  | 'bannerImageMobile___children___internal___content'
+  | 'bannerImageMobile___children___internal___contentDigest'
+  | 'bannerImageMobile___children___internal___description'
+  | 'bannerImageMobile___children___internal___fieldOwners'
+  | 'bannerImageMobile___children___internal___ignoreType'
+  | 'bannerImageMobile___children___internal___mediaType'
+  | 'bannerImageMobile___children___internal___owner'
+  | 'bannerImageMobile___children___internal___type'
+  | 'bannerImageMobile___children___parent___children'
+  | 'bannerImageMobile___children___parent___id'
+  | 'bannerImageMobile___contentful_id'
+  | 'bannerImageMobile___createdAt'
+  | 'bannerImageMobile___description'
+  | 'bannerImageMobile___file___contentType'
+  | 'bannerImageMobile___file___details___size'
+  | 'bannerImageMobile___file___fileName'
+  | 'bannerImageMobile___file___url'
+  | 'bannerImageMobile___filename'
+  | 'bannerImageMobile___filesize'
+  | 'bannerImageMobile___gatsbyImage'
+  | 'bannerImageMobile___gatsbyImageData'
+  | 'bannerImageMobile___height'
+  | 'bannerImageMobile___id'
+  | 'bannerImageMobile___internal___content'
+  | 'bannerImageMobile___internal___contentDigest'
+  | 'bannerImageMobile___internal___description'
+  | 'bannerImageMobile___internal___fieldOwners'
+  | 'bannerImageMobile___internal___ignoreType'
+  | 'bannerImageMobile___internal___mediaType'
+  | 'bannerImageMobile___internal___owner'
+  | 'bannerImageMobile___internal___type'
+  | 'bannerImageMobile___mimeType'
+  | 'bannerImageMobile___node_locale'
+  | 'bannerImageMobile___parent___children'
+  | 'bannerImageMobile___parent___children___children'
+  | 'bannerImageMobile___parent___children___id'
+  | 'bannerImageMobile___parent___id'
+  | 'bannerImageMobile___parent___internal___content'
+  | 'bannerImageMobile___parent___internal___contentDigest'
+  | 'bannerImageMobile___parent___internal___description'
+  | 'bannerImageMobile___parent___internal___fieldOwners'
+  | 'bannerImageMobile___parent___internal___ignoreType'
+  | 'bannerImageMobile___parent___internal___mediaType'
+  | 'bannerImageMobile___parent___internal___owner'
+  | 'bannerImageMobile___parent___internal___type'
+  | 'bannerImageMobile___parent___parent___children'
+  | 'bannerImageMobile___parent___parent___id'
+  | 'bannerImageMobile___placeholderUrl'
+  | 'bannerImageMobile___publicUrl'
+  | 'bannerImageMobile___resize___height'
+  | 'bannerImageMobile___resize___src'
+  | 'bannerImageMobile___resize___width'
+  | 'bannerImageMobile___size'
+  | 'bannerImageMobile___spaceId'
+  | 'bannerImageMobile___sys___revision'
+  | 'bannerImageMobile___sys___type'
+  | 'bannerImageMobile___title'
+  | 'bannerImageMobile___updatedAt'
+  | 'bannerImageMobile___url'
+  | 'bannerImageMobile___width'
   | 'children'
   | 'children___children'
   | 'children___children___children'
@@ -506,136 +635,6 @@ export type ContentfulBannerDepartmentCategoryFieldsEnum =
   | 'contentful_id'
   | 'createdAt'
   | 'id'
-  | 'imageDesktop___children'
-  | 'imageDesktop___children___children'
-  | 'imageDesktop___children___children___children'
-  | 'imageDesktop___children___children___id'
-  | 'imageDesktop___children___id'
-  | 'imageDesktop___children___internal___content'
-  | 'imageDesktop___children___internal___contentDigest'
-  | 'imageDesktop___children___internal___description'
-  | 'imageDesktop___children___internal___fieldOwners'
-  | 'imageDesktop___children___internal___ignoreType'
-  | 'imageDesktop___children___internal___mediaType'
-  | 'imageDesktop___children___internal___owner'
-  | 'imageDesktop___children___internal___type'
-  | 'imageDesktop___children___parent___children'
-  | 'imageDesktop___children___parent___id'
-  | 'imageDesktop___contentful_id'
-  | 'imageDesktop___createdAt'
-  | 'imageDesktop___description'
-  | 'imageDesktop___file___contentType'
-  | 'imageDesktop___file___details___size'
-  | 'imageDesktop___file___fileName'
-  | 'imageDesktop___file___url'
-  | 'imageDesktop___filename'
-  | 'imageDesktop___filesize'
-  | 'imageDesktop___gatsbyImage'
-  | 'imageDesktop___gatsbyImageData'
-  | 'imageDesktop___height'
-  | 'imageDesktop___id'
-  | 'imageDesktop___internal___content'
-  | 'imageDesktop___internal___contentDigest'
-  | 'imageDesktop___internal___description'
-  | 'imageDesktop___internal___fieldOwners'
-  | 'imageDesktop___internal___ignoreType'
-  | 'imageDesktop___internal___mediaType'
-  | 'imageDesktop___internal___owner'
-  | 'imageDesktop___internal___type'
-  | 'imageDesktop___mimeType'
-  | 'imageDesktop___node_locale'
-  | 'imageDesktop___parent___children'
-  | 'imageDesktop___parent___children___children'
-  | 'imageDesktop___parent___children___id'
-  | 'imageDesktop___parent___id'
-  | 'imageDesktop___parent___internal___content'
-  | 'imageDesktop___parent___internal___contentDigest'
-  | 'imageDesktop___parent___internal___description'
-  | 'imageDesktop___parent___internal___fieldOwners'
-  | 'imageDesktop___parent___internal___ignoreType'
-  | 'imageDesktop___parent___internal___mediaType'
-  | 'imageDesktop___parent___internal___owner'
-  | 'imageDesktop___parent___internal___type'
-  | 'imageDesktop___parent___parent___children'
-  | 'imageDesktop___parent___parent___id'
-  | 'imageDesktop___placeholderUrl'
-  | 'imageDesktop___publicUrl'
-  | 'imageDesktop___resize___height'
-  | 'imageDesktop___resize___src'
-  | 'imageDesktop___resize___width'
-  | 'imageDesktop___size'
-  | 'imageDesktop___spaceId'
-  | 'imageDesktop___sys___revision'
-  | 'imageDesktop___sys___type'
-  | 'imageDesktop___title'
-  | 'imageDesktop___updatedAt'
-  | 'imageDesktop___url'
-  | 'imageDesktop___width'
-  | 'imageMobile___children'
-  | 'imageMobile___children___children'
-  | 'imageMobile___children___children___children'
-  | 'imageMobile___children___children___id'
-  | 'imageMobile___children___id'
-  | 'imageMobile___children___internal___content'
-  | 'imageMobile___children___internal___contentDigest'
-  | 'imageMobile___children___internal___description'
-  | 'imageMobile___children___internal___fieldOwners'
-  | 'imageMobile___children___internal___ignoreType'
-  | 'imageMobile___children___internal___mediaType'
-  | 'imageMobile___children___internal___owner'
-  | 'imageMobile___children___internal___type'
-  | 'imageMobile___children___parent___children'
-  | 'imageMobile___children___parent___id'
-  | 'imageMobile___contentful_id'
-  | 'imageMobile___createdAt'
-  | 'imageMobile___description'
-  | 'imageMobile___file___contentType'
-  | 'imageMobile___file___details___size'
-  | 'imageMobile___file___fileName'
-  | 'imageMobile___file___url'
-  | 'imageMobile___filename'
-  | 'imageMobile___filesize'
-  | 'imageMobile___gatsbyImage'
-  | 'imageMobile___gatsbyImageData'
-  | 'imageMobile___height'
-  | 'imageMobile___id'
-  | 'imageMobile___internal___content'
-  | 'imageMobile___internal___contentDigest'
-  | 'imageMobile___internal___description'
-  | 'imageMobile___internal___fieldOwners'
-  | 'imageMobile___internal___ignoreType'
-  | 'imageMobile___internal___mediaType'
-  | 'imageMobile___internal___owner'
-  | 'imageMobile___internal___type'
-  | 'imageMobile___mimeType'
-  | 'imageMobile___node_locale'
-  | 'imageMobile___parent___children'
-  | 'imageMobile___parent___children___children'
-  | 'imageMobile___parent___children___id'
-  | 'imageMobile___parent___id'
-  | 'imageMobile___parent___internal___content'
-  | 'imageMobile___parent___internal___contentDigest'
-  | 'imageMobile___parent___internal___description'
-  | 'imageMobile___parent___internal___fieldOwners'
-  | 'imageMobile___parent___internal___ignoreType'
-  | 'imageMobile___parent___internal___mediaType'
-  | 'imageMobile___parent___internal___owner'
-  | 'imageMobile___parent___internal___type'
-  | 'imageMobile___parent___parent___children'
-  | 'imageMobile___parent___parent___id'
-  | 'imageMobile___placeholderUrl'
-  | 'imageMobile___publicUrl'
-  | 'imageMobile___resize___height'
-  | 'imageMobile___resize___src'
-  | 'imageMobile___resize___width'
-  | 'imageMobile___size'
-  | 'imageMobile___spaceId'
-  | 'imageMobile___sys___revision'
-  | 'imageMobile___sys___type'
-  | 'imageMobile___title'
-  | 'imageMobile___updatedAt'
-  | 'imageMobile___url'
-  | 'imageMobile___width'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -684,7 +683,6 @@ export type ContentfulBannerDepartmentCategoryFieldsEnum =
   | 'parent___parent___parent___children'
   | 'parent___parent___parent___id'
   | 'spaceId'
-  | 'subtitle'
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___linkType'
   | 'sys___contentType___sys___type'
@@ -693,94 +691,91 @@ export type ContentfulBannerDepartmentCategoryFieldsEnum =
   | 'title'
   | 'updatedAt'
 
-export type ContentfulBannerDepartmentCategoryFilterInput = {
+export type ContentfulBannerInfoProdutorFilterInput = {
+  bannerImageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  bannerImageMobile: InputMaybe<ContentfulAssetFilterInput>
   children: InputMaybe<NodeFilterListInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
-  imageDesktop: InputMaybe<ContentfulAssetFilterInput>
-  imageMobile: InputMaybe<ContentfulAssetFilterInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
   parent: InputMaybe<NodeFilterInput>
   spaceId: InputMaybe<StringQueryOperatorInput>
-  subtitle: InputMaybe<StringQueryOperatorInput>
-  sys: InputMaybe<ContentfulBannerDepartmentCategorySysFilterInput>
+  sys: InputMaybe<ContentfulBannerInfoProdutorSysFilterInput>
   title: InputMaybe<StringQueryOperatorInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
-export type ContentfulBannerDepartmentCategoryGroupConnection = {
+export type ContentfulBannerInfoProdutorGroupConnection = {
   distinct: Array<Scalars['String']>
-  edges: Array<ContentfulBannerDepartmentCategoryEdge>
+  edges: Array<ContentfulBannerInfoProdutorEdge>
   field: Scalars['String']
   fieldValue: Maybe<Scalars['String']>
-  group: Array<ContentfulBannerDepartmentCategoryGroupConnection>
+  group: Array<ContentfulBannerInfoProdutorGroupConnection>
   max: Maybe<Scalars['Float']>
   min: Maybe<Scalars['Float']>
-  nodes: Array<ContentfulBannerDepartmentCategory>
+  nodes: Array<ContentfulBannerInfoProdutor>
   pageInfo: PageInfo
   sum: Maybe<Scalars['Float']>
   totalCount: Scalars['Int']
 }
 
-export type ContentfulBannerDepartmentCategoryGroupConnectionDistinctArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorGroupConnectionDistinctArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryGroupConnectionGroupArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorGroupConnectionGroupArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
 }
 
-export type ContentfulBannerDepartmentCategoryGroupConnectionMaxArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorGroupConnectionMaxArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryGroupConnectionMinArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorGroupConnectionMinArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategoryGroupConnectionSumArgs = {
-  field: ContentfulBannerDepartmentCategoryFieldsEnum
+export type ContentfulBannerInfoProdutorGroupConnectionSumArgs = {
+  field: ContentfulBannerInfoProdutorFieldsEnum
 }
 
-export type ContentfulBannerDepartmentCategorySortInput = {
-  fields: InputMaybe<
-    Array<InputMaybe<ContentfulBannerDepartmentCategoryFieldsEnum>>
-  >
+export type ContentfulBannerInfoProdutorSortInput = {
+  fields: InputMaybe<Array<InputMaybe<ContentfulBannerInfoProdutorFieldsEnum>>>
   order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
 }
 
-export type ContentfulBannerDepartmentCategorySys = {
-  contentType: Maybe<ContentfulBannerDepartmentCategorySysContentType>
+export type ContentfulBannerInfoProdutorSys = {
+  contentType: Maybe<ContentfulBannerInfoProdutorSysContentType>
   revision: Maybe<Scalars['Int']>
   type: Maybe<Scalars['String']>
 }
 
-export type ContentfulBannerDepartmentCategorySysContentType = {
-  sys: Maybe<ContentfulBannerDepartmentCategorySysContentTypeSys>
+export type ContentfulBannerInfoProdutorSysContentType = {
+  sys: Maybe<ContentfulBannerInfoProdutorSysContentTypeSys>
 }
 
-export type ContentfulBannerDepartmentCategorySysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulBannerDepartmentCategorySysContentTypeSysFilterInput>
+export type ContentfulBannerInfoProdutorSysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulBannerInfoProdutorSysContentTypeSysFilterInput>
 }
 
-export type ContentfulBannerDepartmentCategorySysContentTypeSys = {
+export type ContentfulBannerInfoProdutorSysContentTypeSys = {
   id: Maybe<Scalars['String']>
   linkType: Maybe<Scalars['String']>
   type: Maybe<Scalars['String']>
 }
 
-export type ContentfulBannerDepartmentCategorySysContentTypeSysFilterInput = {
+export type ContentfulBannerInfoProdutorSysContentTypeSysFilterInput = {
   id: InputMaybe<StringQueryOperatorInput>
   linkType: InputMaybe<StringQueryOperatorInput>
   type: InputMaybe<StringQueryOperatorInput>
 }
 
-export type ContentfulBannerDepartmentCategorySysFilterInput = {
-  contentType: InputMaybe<ContentfulBannerDepartmentCategorySysContentTypeFilterInput>
+export type ContentfulBannerInfoProdutorSysFilterInput = {
+  contentType: InputMaybe<ContentfulBannerInfoProdutorSysContentTypeFilterInput>
   revision: InputMaybe<IntQueryOperatorInput>
   type: InputMaybe<StringQueryOperatorInput>
 }
@@ -5625,6 +5620,410 @@ export type ContentfulNewsletterSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>
 }
 
+export type ContentfulPageDepartmentCategory = ContentfulEntry &
+  ContentfulReference &
+  Node & {
+    bannerImageDesktop: Maybe<ContentfulAsset>
+    bannerImageMobile: Maybe<ContentfulAsset>
+    children: Array<Node>
+    contentful_id: Scalars['String']
+    createdAt: Maybe<Scalars['Date']>
+    id: Scalars['ID']
+    internal: Internal
+    node_locale: Scalars['String']
+    parent: Maybe<Node>
+    seoDescription: Maybe<Scalars['String']>
+    seoTitle: Maybe<Scalars['String']>
+    slug: Maybe<Scalars['String']>
+    spaceId: Maybe<Scalars['String']>
+    subtitle: Maybe<Scalars['String']>
+    sys: Maybe<ContentfulPageDepartmentCategorySys>
+    title: Maybe<Scalars['String']>
+    updatedAt: Maybe<Scalars['Date']>
+  }
+
+export type ContentfulPageDepartmentCategoryCreatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulPageDepartmentCategoryUpdatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>
+  formatString: InputMaybe<Scalars['String']>
+  fromNow: InputMaybe<Scalars['Boolean']>
+  locale: InputMaybe<Scalars['String']>
+}
+
+export type ContentfulPageDepartmentCategoryConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulPageDepartmentCategoryEdge>
+  group: Array<ContentfulPageDepartmentCategoryGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulPageDepartmentCategory>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulPageDepartmentCategoryConnectionDistinctArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryConnectionGroupArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulPageDepartmentCategoryConnectionMaxArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryConnectionMinArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryConnectionSumArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryEdge = {
+  next: Maybe<ContentfulPageDepartmentCategory>
+  node: ContentfulPageDepartmentCategory
+  previous: Maybe<ContentfulPageDepartmentCategory>
+}
+
+export type ContentfulPageDepartmentCategoryFieldsEnum =
+  | 'bannerImageDesktop___children'
+  | 'bannerImageDesktop___children___children'
+  | 'bannerImageDesktop___children___children___children'
+  | 'bannerImageDesktop___children___children___id'
+  | 'bannerImageDesktop___children___id'
+  | 'bannerImageDesktop___children___internal___content'
+  | 'bannerImageDesktop___children___internal___contentDigest'
+  | 'bannerImageDesktop___children___internal___description'
+  | 'bannerImageDesktop___children___internal___fieldOwners'
+  | 'bannerImageDesktop___children___internal___ignoreType'
+  | 'bannerImageDesktop___children___internal___mediaType'
+  | 'bannerImageDesktop___children___internal___owner'
+  | 'bannerImageDesktop___children___internal___type'
+  | 'bannerImageDesktop___children___parent___children'
+  | 'bannerImageDesktop___children___parent___id'
+  | 'bannerImageDesktop___contentful_id'
+  | 'bannerImageDesktop___createdAt'
+  | 'bannerImageDesktop___description'
+  | 'bannerImageDesktop___file___contentType'
+  | 'bannerImageDesktop___file___details___size'
+  | 'bannerImageDesktop___file___fileName'
+  | 'bannerImageDesktop___file___url'
+  | 'bannerImageDesktop___filename'
+  | 'bannerImageDesktop___filesize'
+  | 'bannerImageDesktop___gatsbyImage'
+  | 'bannerImageDesktop___gatsbyImageData'
+  | 'bannerImageDesktop___height'
+  | 'bannerImageDesktop___id'
+  | 'bannerImageDesktop___internal___content'
+  | 'bannerImageDesktop___internal___contentDigest'
+  | 'bannerImageDesktop___internal___description'
+  | 'bannerImageDesktop___internal___fieldOwners'
+  | 'bannerImageDesktop___internal___ignoreType'
+  | 'bannerImageDesktop___internal___mediaType'
+  | 'bannerImageDesktop___internal___owner'
+  | 'bannerImageDesktop___internal___type'
+  | 'bannerImageDesktop___mimeType'
+  | 'bannerImageDesktop___node_locale'
+  | 'bannerImageDesktop___parent___children'
+  | 'bannerImageDesktop___parent___children___children'
+  | 'bannerImageDesktop___parent___children___id'
+  | 'bannerImageDesktop___parent___id'
+  | 'bannerImageDesktop___parent___internal___content'
+  | 'bannerImageDesktop___parent___internal___contentDigest'
+  | 'bannerImageDesktop___parent___internal___description'
+  | 'bannerImageDesktop___parent___internal___fieldOwners'
+  | 'bannerImageDesktop___parent___internal___ignoreType'
+  | 'bannerImageDesktop___parent___internal___mediaType'
+  | 'bannerImageDesktop___parent___internal___owner'
+  | 'bannerImageDesktop___parent___internal___type'
+  | 'bannerImageDesktop___parent___parent___children'
+  | 'bannerImageDesktop___parent___parent___id'
+  | 'bannerImageDesktop___placeholderUrl'
+  | 'bannerImageDesktop___publicUrl'
+  | 'bannerImageDesktop___resize___height'
+  | 'bannerImageDesktop___resize___src'
+  | 'bannerImageDesktop___resize___width'
+  | 'bannerImageDesktop___size'
+  | 'bannerImageDesktop___spaceId'
+  | 'bannerImageDesktop___sys___revision'
+  | 'bannerImageDesktop___sys___type'
+  | 'bannerImageDesktop___title'
+  | 'bannerImageDesktop___updatedAt'
+  | 'bannerImageDesktop___url'
+  | 'bannerImageDesktop___width'
+  | 'bannerImageMobile___children'
+  | 'bannerImageMobile___children___children'
+  | 'bannerImageMobile___children___children___children'
+  | 'bannerImageMobile___children___children___id'
+  | 'bannerImageMobile___children___id'
+  | 'bannerImageMobile___children___internal___content'
+  | 'bannerImageMobile___children___internal___contentDigest'
+  | 'bannerImageMobile___children___internal___description'
+  | 'bannerImageMobile___children___internal___fieldOwners'
+  | 'bannerImageMobile___children___internal___ignoreType'
+  | 'bannerImageMobile___children___internal___mediaType'
+  | 'bannerImageMobile___children___internal___owner'
+  | 'bannerImageMobile___children___internal___type'
+  | 'bannerImageMobile___children___parent___children'
+  | 'bannerImageMobile___children___parent___id'
+  | 'bannerImageMobile___contentful_id'
+  | 'bannerImageMobile___createdAt'
+  | 'bannerImageMobile___description'
+  | 'bannerImageMobile___file___contentType'
+  | 'bannerImageMobile___file___details___size'
+  | 'bannerImageMobile___file___fileName'
+  | 'bannerImageMobile___file___url'
+  | 'bannerImageMobile___filename'
+  | 'bannerImageMobile___filesize'
+  | 'bannerImageMobile___gatsbyImage'
+  | 'bannerImageMobile___gatsbyImageData'
+  | 'bannerImageMobile___height'
+  | 'bannerImageMobile___id'
+  | 'bannerImageMobile___internal___content'
+  | 'bannerImageMobile___internal___contentDigest'
+  | 'bannerImageMobile___internal___description'
+  | 'bannerImageMobile___internal___fieldOwners'
+  | 'bannerImageMobile___internal___ignoreType'
+  | 'bannerImageMobile___internal___mediaType'
+  | 'bannerImageMobile___internal___owner'
+  | 'bannerImageMobile___internal___type'
+  | 'bannerImageMobile___mimeType'
+  | 'bannerImageMobile___node_locale'
+  | 'bannerImageMobile___parent___children'
+  | 'bannerImageMobile___parent___children___children'
+  | 'bannerImageMobile___parent___children___id'
+  | 'bannerImageMobile___parent___id'
+  | 'bannerImageMobile___parent___internal___content'
+  | 'bannerImageMobile___parent___internal___contentDigest'
+  | 'bannerImageMobile___parent___internal___description'
+  | 'bannerImageMobile___parent___internal___fieldOwners'
+  | 'bannerImageMobile___parent___internal___ignoreType'
+  | 'bannerImageMobile___parent___internal___mediaType'
+  | 'bannerImageMobile___parent___internal___owner'
+  | 'bannerImageMobile___parent___internal___type'
+  | 'bannerImageMobile___parent___parent___children'
+  | 'bannerImageMobile___parent___parent___id'
+  | 'bannerImageMobile___placeholderUrl'
+  | 'bannerImageMobile___publicUrl'
+  | 'bannerImageMobile___resize___height'
+  | 'bannerImageMobile___resize___src'
+  | 'bannerImageMobile___resize___width'
+  | 'bannerImageMobile___size'
+  | 'bannerImageMobile___spaceId'
+  | 'bannerImageMobile___sys___revision'
+  | 'bannerImageMobile___sys___type'
+  | 'bannerImageMobile___title'
+  | 'bannerImageMobile___updatedAt'
+  | 'bannerImageMobile___url'
+  | 'bannerImageMobile___width'
+  | 'children'
+  | 'children___children'
+  | 'children___children___children'
+  | 'children___children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___id'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___parent___children'
+  | 'children___children___parent___id'
+  | 'children___id'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___parent___children'
+  | 'children___parent___children___children'
+  | 'children___parent___children___id'
+  | 'children___parent___id'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___parent___children'
+  | 'children___parent___parent___id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'id'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'node_locale'
+  | 'parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___id'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___parent___children'
+  | 'parent___children___parent___id'
+  | 'parent___id'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___parent___children'
+  | 'parent___parent___children___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___id'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___parent___id'
+  | 'seoDescription'
+  | 'seoTitle'
+  | 'slug'
+  | 'spaceId'
+  | 'subtitle'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___type'
+  | 'sys___revision'
+  | 'sys___type'
+  | 'title'
+  | 'updatedAt'
+
+export type ContentfulPageDepartmentCategoryFilterInput = {
+  bannerImageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  bannerImageMobile: InputMaybe<ContentfulAssetFilterInput>
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  seoDescription: InputMaybe<StringQueryOperatorInput>
+  seoTitle: InputMaybe<StringQueryOperatorInput>
+  slug: InputMaybe<StringQueryOperatorInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulPageDepartmentCategorySysFilterInput>
+  title: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type ContentfulPageDepartmentCategoryGroupConnection = {
+  distinct: Array<Scalars['String']>
+  edges: Array<ContentfulPageDepartmentCategoryEdge>
+  field: Scalars['String']
+  fieldValue: Maybe<Scalars['String']>
+  group: Array<ContentfulPageDepartmentCategoryGroupConnection>
+  max: Maybe<Scalars['Float']>
+  min: Maybe<Scalars['Float']>
+  nodes: Array<ContentfulPageDepartmentCategory>
+  pageInfo: PageInfo
+  sum: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
+
+export type ContentfulPageDepartmentCategoryGroupConnectionDistinctArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryGroupConnectionGroupArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+}
+
+export type ContentfulPageDepartmentCategoryGroupConnectionMaxArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryGroupConnectionMinArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategoryGroupConnectionSumArgs = {
+  field: ContentfulPageDepartmentCategoryFieldsEnum
+}
+
+export type ContentfulPageDepartmentCategorySortInput = {
+  fields: InputMaybe<
+    Array<InputMaybe<ContentfulPageDepartmentCategoryFieldsEnum>>
+  >
+  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
+
+export type ContentfulPageDepartmentCategorySys = {
+  contentType: Maybe<ContentfulPageDepartmentCategorySysContentType>
+  revision: Maybe<Scalars['Int']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulPageDepartmentCategorySysContentType = {
+  sys: Maybe<ContentfulPageDepartmentCategorySysContentTypeSys>
+}
+
+export type ContentfulPageDepartmentCategorySysContentTypeFilterInput = {
+  sys: InputMaybe<ContentfulPageDepartmentCategorySysContentTypeSysFilterInput>
+}
+
+export type ContentfulPageDepartmentCategorySysContentTypeSys = {
+  id: Maybe<Scalars['String']>
+  linkType: Maybe<Scalars['String']>
+  type: Maybe<Scalars['String']>
+}
+
+export type ContentfulPageDepartmentCategorySysContentTypeSysFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  linkType: InputMaybe<StringQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ContentfulPageDepartmentCategorySysFilterInput = {
+  contentType: InputMaybe<ContentfulPageDepartmentCategorySysContentTypeFilterInput>
+  revision: InputMaybe<IntQueryOperatorInput>
+  type: InputMaybe<StringQueryOperatorInput>
+}
+
 export type ContentfulParceiros = ContentfulEntry &
   ContentfulReference &
   Node & {
@@ -10123,7 +10522,7 @@ export type Query = {
   /** All collections query. */
   allCollections: StoreCollectionConnection
   allContentfulAsset: ContentfulAssetConnection
-  allContentfulBannerDepartmentCategory: ContentfulBannerDepartmentCategoryConnection
+  allContentfulBannerInfoProdutor: ContentfulBannerInfoProdutorConnection
   allContentfulBannerMedium: ContentfulBannerMediumConnection
   allContentfulBannerPlanosDeAssinatura: ContentfulBannerPlanosDeAssinaturaConnection
   allContentfulBannerPlanosParaEmpresas: ContentfulBannerPlanosParaEmpresasConnection
@@ -10143,6 +10542,7 @@ export type Query = {
   allContentfulInfoproducers: ContentfulInfoproducersConnection
   allContentfulMainBanner: ContentfulMainBannerConnection
   allContentfulNewsletter: ContentfulNewsletterConnection
+  allContentfulPageDepartmentCategory: ContentfulPageDepartmentCategoryConnection
   allContentfulParceiros: ContentfulParceirosConnection
   allContentfulPartners: ContentfulPartnersConnection
   allContentfulPersons: ContentfulPersonsConnection
@@ -10169,7 +10569,7 @@ export type Query = {
   /** Collection query. */
   collection: StoreCollection
   contentfulAsset: Maybe<ContentfulAsset>
-  contentfulBannerDepartmentCategory: Maybe<ContentfulBannerDepartmentCategory>
+  contentfulBannerInfoProdutor: Maybe<ContentfulBannerInfoProdutor>
   contentfulBannerMedium: Maybe<ContentfulBannerMedium>
   contentfulBannerPlanosDeAssinatura: Maybe<ContentfulBannerPlanosDeAssinatura>
   contentfulBannerPlanosParaEmpresas: Maybe<ContentfulBannerPlanosParaEmpresas>
@@ -10189,6 +10589,7 @@ export type Query = {
   contentfulInfoproducers: Maybe<ContentfulInfoproducers>
   contentfulMainBanner: Maybe<ContentfulMainBanner>
   contentfulNewsletter: Maybe<ContentfulNewsletter>
+  contentfulPageDepartmentCategory: Maybe<ContentfulPageDepartmentCategory>
   contentfulParceiros: Maybe<ContentfulParceiros>
   contentfulPartners: Maybe<ContentfulPartners>
   contentfulPersons: Maybe<ContentfulPersons>
@@ -10230,11 +10631,11 @@ export type QueryAllContentfulAssetArgs = {
   sort: InputMaybe<ContentfulAssetSortInput>
 }
 
-export type QueryAllContentfulBannerDepartmentCategoryArgs = {
-  filter: InputMaybe<ContentfulBannerDepartmentCategoryFilterInput>
+export type QueryAllContentfulBannerInfoProdutorArgs = {
+  filter: InputMaybe<ContentfulBannerInfoProdutorFilterInput>
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
-  sort: InputMaybe<ContentfulBannerDepartmentCategorySortInput>
+  sort: InputMaybe<ContentfulBannerInfoProdutorSortInput>
 }
 
 export type QueryAllContentfulBannerMediumArgs = {
@@ -10368,6 +10769,13 @@ export type QueryAllContentfulNewsletterArgs = {
   limit: InputMaybe<Scalars['Int']>
   skip: InputMaybe<Scalars['Int']>
   sort: InputMaybe<ContentfulNewsletterSortInput>
+}
+
+export type QueryAllContentfulPageDepartmentCategoryArgs = {
+  filter: InputMaybe<ContentfulPageDepartmentCategoryFilterInput>
+  limit: InputMaybe<Scalars['Int']>
+  skip: InputMaybe<Scalars['Int']>
+  sort: InputMaybe<ContentfulPageDepartmentCategorySortInput>
 }
 
 export type QueryAllContentfulParceirosArgs = {
@@ -10554,19 +10962,18 @@ export type QueryContentfulAssetArgs = {
   width: InputMaybe<IntQueryOperatorInput>
 }
 
-export type QueryContentfulBannerDepartmentCategoryArgs = {
+export type QueryContentfulBannerInfoProdutorArgs = {
+  bannerImageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  bannerImageMobile: InputMaybe<ContentfulAssetFilterInput>
   children: InputMaybe<NodeFilterListInput>
   contentful_id: InputMaybe<StringQueryOperatorInput>
   createdAt: InputMaybe<DateQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
-  imageDesktop: InputMaybe<ContentfulAssetFilterInput>
-  imageMobile: InputMaybe<ContentfulAssetFilterInput>
   internal: InputMaybe<InternalFilterInput>
   node_locale: InputMaybe<StringQueryOperatorInput>
   parent: InputMaybe<NodeFilterInput>
   spaceId: InputMaybe<StringQueryOperatorInput>
-  subtitle: InputMaybe<StringQueryOperatorInput>
-  sys: InputMaybe<ContentfulBannerDepartmentCategorySysFilterInput>
+  sys: InputMaybe<ContentfulBannerInfoProdutorSysFilterInput>
   title: InputMaybe<StringQueryOperatorInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
@@ -10832,6 +11239,26 @@ export type QueryContentfulNewsletterArgs = {
   subtitulo: InputMaybe<StringQueryOperatorInput>
   sys: InputMaybe<ContentfulNewsletterSysFilterInput>
   titulo: InputMaybe<StringQueryOperatorInput>
+  updatedAt: InputMaybe<DateQueryOperatorInput>
+}
+
+export type QueryContentfulPageDepartmentCategoryArgs = {
+  bannerImageDesktop: InputMaybe<ContentfulAssetFilterInput>
+  bannerImageMobile: InputMaybe<ContentfulAssetFilterInput>
+  children: InputMaybe<NodeFilterListInput>
+  contentful_id: InputMaybe<StringQueryOperatorInput>
+  createdAt: InputMaybe<DateQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  internal: InputMaybe<InternalFilterInput>
+  node_locale: InputMaybe<StringQueryOperatorInput>
+  parent: InputMaybe<NodeFilterInput>
+  seoDescription: InputMaybe<StringQueryOperatorInput>
+  seoTitle: InputMaybe<StringQueryOperatorInput>
+  slug: InputMaybe<StringQueryOperatorInput>
+  spaceId: InputMaybe<StringQueryOperatorInput>
+  subtitle: InputMaybe<StringQueryOperatorInput>
+  sys: InputMaybe<ContentfulPageDepartmentCategorySysFilterInput>
+  title: InputMaybe<StringQueryOperatorInput>
   updatedAt: InputMaybe<DateQueryOperatorInput>
 }
 
@@ -14736,6 +15163,27 @@ export type ServerProductPageQueryQuery = {
   }
 }
 
+export type InfoprodutorPageQueryQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type InfoprodutorPageQueryQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  allContentfulBannerInfoProdutor: {
+    nodes: Array<{
+      title: string | null
+      bannerImageDesktop: { url: string | null } | null
+      bannerImageMobile: { url: string | null } | null
+    }>
+  }
+}
+
 export type HomePageQueryQueryVariables = Exact<{ [key: string]: never }>
 
 export type HomePageQueryQuery = {
@@ -15164,12 +15612,12 @@ export type DepartmentPageQueryQuery = {
       titleTemplate: string | null
     } | null
   } | null
-  allContentfulBannerDepartmentCategory: {
+  allContentfulPageDepartmentCategory: {
     nodes: Array<{
       title: string | null
       subtitle: string | null
-      imageDesktop: { url: string | null } | null
-      imageMobile: { url: string | null } | null
+      bannerImageDesktop: { url: string | null } | null
+      bannerImageMobile: { url: string | null } | null
     }>
   }
 }

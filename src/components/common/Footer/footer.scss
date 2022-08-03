@@ -178,7 +178,7 @@
       max-width: 393px;
 
       @include media(">=notebook") {
-        max-width: 236px;
+        max-width: 231px;
       }
 
       li {
@@ -192,7 +192,8 @@
           padding-left: 30px;
 
           @include media(">=notebook") {
-            padding-left: 6px;
+            max-width: 79px;
+            padding-left: 10px;
           }
         }
 
@@ -230,7 +231,7 @@
           padding: 0 145px 16px 6px;
 
           @include media(">=notebook") {
-            padding: 0 85px 16px 6px;
+            padding: 0 35px 16px 6px;
           }
         }
 

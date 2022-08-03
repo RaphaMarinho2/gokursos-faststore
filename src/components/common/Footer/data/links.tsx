@@ -7,7 +7,6 @@ import BoletoIcon from 'src/components/icons/Boleto'
 import PixIcon from 'src/components/icons/Pix'
 import TwoCardsIcon from 'src/components/icons/TwoCards'
 import AcctIcon from 'src/components/icons/Acct'
-import VtexIcon from 'src/components/icons/Vtex'
 import PciIcon from 'src/components/icons/Pci'
 import EncryptIcon from 'src/components/icons/Encrypt'
 import EshopIcon from 'src/components/icons/Eshop'
@@ -152,11 +151,6 @@ const links = [
         href: 'https://acct.global/',
         name: 'ACCT',
         icon: <AcctIcon />,
-      },
-      {
-        href: 'https://vtex.com/br-pt/',
-        name: 'VTEX',
-        icon: <VtexIcon />,
       },
       {
         href: 'https://secure.vtex.com/?an=t42748',
