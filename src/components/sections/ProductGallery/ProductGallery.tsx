@@ -46,9 +46,11 @@ function ProductGallery({
 
   // const facets = useDelayedFacets(data)
 
-  const { facets } = data?.search // REPLACE QUERY WITH MOCK FILE
+  const facets = productGalleryQuery.data?.search?.facets // REPLACE QUERY WITH MOCK FILE
 
   const facetsWithPrice = productGalleryQuery2.data?.search?.facets
+
+  const allFacets = facets.concat(facetsWithPrice)
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -92,15 +94,7 @@ function ProductGallery({
             <FilterSkeleton loading={facets?.length === 0}>
               <Filter
                 isOpen={isFilterOpen}
-                facets={facets}
-                onDismiss={() => setIsFilterOpen(false)}
-                forceSvg={forceSvg && forceSvg}
-              />
-            </FilterSkeleton>
-            <FilterSkeleton loading={facetsWithPrice?.length === 0}>
-              <Filter
-                isOpen={isFilterOpen}
-                facets={facetsWithPrice}
+                facets={allFacets}
                 onDismiss={() => setIsFilterOpen(false)}
                 forceSvg={forceSvg && forceSvg}
               />
