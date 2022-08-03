@@ -34,16 +34,16 @@
     line-height: 1.5;
     color: #000000;
 
+    #desktop-store-filter-accordion-panel {
+      height: 50px;
+    }
+
     @include media(">=notebook") {
       line-height: 1.25;
     }
 
     &[aria-expanded="true"] {
       font-weight: 600;
-
-      ~ [data-accordion-panel] {
-        min-height: 45px;
-      }
     }
 
     [data-store-icon] [data-icon] {
@@ -57,6 +57,14 @@
     [data-store-icon] [data-icon="collapsed"] {
       display: initial;
     }
+  }
+}
+
+.filter[data-store-filter] [data-accordion-item] [data-store-button][aria-expanded="true"] ~ [data-accordion-panel] {
+  min-height: 55px;
+
+  @include media(">=notebook") {
+    min-height: 60px;
   }
 }
 
@@ -92,6 +100,10 @@
   align-items: center;
   justify-content: space-between;
 
+  .text__lead {
+    font-weight: bold;
+  }
+
   [data-fs-button-icon] {
     margin-right: calc(-1 * var(--fs-spacing-1));
   }
@@ -101,7 +113,9 @@
   --filter-footer-height: 80px;
 
   height: calc(100vh - var(--filter-footer-height));
-  padding: var(--fs-spacing-3) var(--fs-spacing-3) calc(var(--filter-footer-height) + var(--fs-spacing-3));
+  padding:
+    var(--fs-spacing-4) var(--fs-spacing-4)
+    calc(var(--filter-footer-height) + var(--fs-spacing-4));
   overflow-y: auto;
 }
 
@@ -115,15 +129,27 @@
   background-color: var(--fs-color-neutral-0);
   box-shadow: 0 0 6px rgb(0 0 0 / 20%);
 
-  [data-fs-button] {
-    &[data-fs-button-variant="secondary"] {
-      width: 40%;
-      margin-right: var(--fs-spacing-3);
-    }
+  .apply-button {
+    width: 48%;
+    height: 40px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    color: #ffffff;
+    background: #004e98;
+    border-radius: 4px;
+  }
 
-    &[data-fs-button-variant="primary"] {
-      width: 60%;
-    }
+  .clear-button {
+    width: 48%;
+    height: 40px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    color: #004e98;
+    background: transparent;
+    border: 1px solid #004e98;
+    border-radius: 4px;
   }
 }
 
@@ -133,11 +159,15 @@
       .text {
         &__title-mini-alt {
           display: none;
+
+          @include media(">=notebook") {
+            display: flex;
+          }
         }
       }
 
       &__item {
-        display: block;
+        display: flex;
       }
     }
   }

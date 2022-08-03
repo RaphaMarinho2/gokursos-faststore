@@ -35,6 +35,9 @@ function Facets({
   onAccordionChange,
   forceSvg,
 }: FacetsProps) {
+  const facetsBolean = facets.filter((facet) => facet.type === 'BOOLEAN')
+  const facetsRange = facets.filter((facet) => facet.type === 'RANGE')
+
   return (
     <div className="filter" data-store-filter data-testid={testId}>
       <h2 className="text__title-mini-alt">Filtros</h2>
@@ -44,81 +47,75 @@ function Facets({
             expandedIndices={indicesExpanded}
             onChange={onAccordionChange}
           >
-            {facets
-              .filter((facet) => facet.type === 'BOOLEAN')
-              .map(({ label, values, key }, index) => (
-                <AccordionItem
-                  key={`${label}-${index}`}
-                  prefixId={testId}
-                  testId={`${testId}-accordion`}
-                  isExpanded={indicesExpanded.has(index)}
-                  buttonLabel={label}
-                  forceSvg={forceSvg && forceSvg}
-                >
-                  <UIList>
-                    {values.map((item) => {
-                      const id = `${testId}-${label}-${item.label}`
+            {facetsBolean.map(({ label, values, key }, index) => (
+              <AccordionItem
+                key={`${label}-${index}`}
+                prefixId={testId}
+                testId={`${testId}-accordion`}
+                isExpanded={indicesExpanded.has(index)}
+                buttonLabel={label}
+                forceSvg={forceSvg && forceSvg}
+              >
+                <UIList>
+                  {values.map((item) => {
+                    const id = `${testId}-${label}-${item.label}`
 
-                      return (
-                        <li key={id} className="filter__item">
-                          <Checkbox
-                            id={id}
-                            checked={item.selected}
-                            onChange={() =>
-                              onFacetChange({ key, value: item.value })
-                            }
-                            data-testid={`${testId}-accordion-panel-checkbox`}
-                            data-value={item.value}
-                            data-quantity={item.quantity}
-                          />
-                          <UILabel
-                            htmlFor={id}
-                            className="text__title-mini-alt"
-                          >
-                            {item.label} <Badge>{item.quantity}</Badge>
-                          </UILabel>
-                        </li>
-                      )
-                    })}
-                  </UIList>
-                </AccordionItem>
-              ))}
+                    return (
+                      <li key={id} className="filter__item">
+                        <Checkbox
+                          id={id}
+                          checked={item.selected}
+                          onChange={() =>
+                            onFacetChange({ key, value: item.value })
+                          }
+                          data-testid={`${testId}-accordion-panel-checkbox`}
+                          data-value={item.value}
+                          data-quantity={item.quantity}
+                        />
+                        <UILabel htmlFor={id} className="text__title-mini-alt">
+                          {item.label} <Badge>{item.quantity}</Badge>
+                        </UILabel>
+                      </li>
+                    )
+                  })}
+                </UIList>
+              </AccordionItem>
+            ))}
+            {facetsRange.map(({ label, values }, index) => (
+              <AccordionItem
+                key={`${label}-${index}`}
+                prefixId={testId}
+                testId={`${testId}-accordion`}
+                isExpanded={indicesExpanded.has(index + 3)}
+                buttonLabel={label}
+                forceSvg={forceSvg}
+              >
+                <UIList>
+                  {values.map((item) => {
+                    const id = `${testId}-${label}-${item.label}`
+
+                    return (
+                      <li key={id} className="filter__item range-item">
+                        <MultiRangeSlider
+                          min={priceByApi.min}
+                          max={priceByApi.max}
+                          onChange={({ min, max }) =>
+                            console.info(`min = ${min}, max = ${max}`)
+                          }
+                        />
+                      </li>
+                    )
+                  })}
+                </UIList>
+              </AccordionItem>
+            ))}
           </Accordion>
-          <Accordion
+          {/* <Accordion
             expandedIndices={indicesExpanded}
             onChange={onAccordionChange}
           >
-            {facets
-              .filter((facet) => facet.type === 'RANGE')
-              .map(({ label, values }, index) => (
-                <AccordionItem
-                  key={`${label}-${index}`}
-                  prefixId={testId}
-                  testId={`${testId}-accordion`}
-                  isExpanded={indicesExpanded.has(index)}
-                  buttonLabel={label}
-                  forceSvg={forceSvg}
-                >
-                  <UIList>
-                    {values.map((item) => {
-                      const id = `${testId}-${label}-${item.label}`
 
-                      return (
-                        <li key={id} className="filter__item">
-                          <MultiRangeSlider
-                            min={priceByApi.min}
-                            max={priceByApi.max}
-                            onChange={({ min, max }) =>
-                              console.info(`min = ${min}, max = ${max}`)
-                            }
-                          />
-                        </li>
-                      )
-                    })}
-                  </UIList>
-                </AccordionItem>
-              ))}
-          </Accordion>
+          </Accordion> */}
         </>
       )}
     </div>

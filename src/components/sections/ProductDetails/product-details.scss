@@ -45,19 +45,208 @@
     margin-bottom: var(--fs-spacing-7);
   }
 
-  @include media(">=notebook") { grid-column: span 8; }
+  @include media(">=notebook") {
+    grid-column: span 8;
+  }
 }
 
 .product-details__content {
+  display: flex;
+  flex-direction: column;
   margin-top: var(--fs-spacing-3);
-  .product-details__description .text__title-subsection { margin-bottom: var(--fs-spacing-3); }
+
+  .product-details__description {
+    max-width: 780px;
+  }
+
+  .product-details__description .text__title-subsection {
+    margin-bottom: var(--fs-spacing-3);
+  }
 
   @include media(">=tablet") {
     grid-column: span 7;
     margin-top: 0;
   }
 
-  @include media(">=notebook") { grid-column: span 8; }
+  @include media(">=notebook") {
+    flex-direction: row;
+    grid-column: span 12;
+  }
+}
+
+.product-details__pricing {
+  max-width: 548px;
+  height: fit-content;
+  padding: var(--fs-spacing-3);
+  margin: var(--fs-spacing-4) var(--fs-spacing-3) 0;
+  background-color: #ff3452;
+  border-radius: 8px;
+
+  @include media(">=notebook") {
+    margin: var(--fs-spacing-4) 0;
+  }
+
+  .product-details__title {
+    margin-bottom: var(--fs-spacing-1);
+    font-size: var(--fs-text-size-2);
+    font-weight: var(--fs-text-weight-bold);
+    line-height: 21px;
+    color: #fff;
+    border: none;
+
+    @include media(">=notebook") {
+      font-size: var(--fs-text-size-3);
+      line-height: 26px;
+    }
+  }
+
+  .product-details__subtitle {
+    margin-bottom: var(--fs-spacing-4);
+    font-size: var(--fs-text-size-0);
+    font-weight: var(--fs-text-weight-regular);
+    line-height: 16px;
+    color: #fff;
+
+    @include media(">=notebook") {
+      font-size: var(--fs-text-size-1);
+      line-height: 18px;
+    }
+  }
+
+  .product-details__see-more {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: var(--fs-spacing-1);
+    background-color: #fff;
+    border-radius: 8px;
+
+    @include media(">=tablet") {
+      width: 33%;
+      height: 96px;
+      min-height: 96px;
+      margin-left: 16px;
+    }
+
+    @include media(">=notebook") {
+      height: 130px;
+      padding: var(--fs-spacing-3);
+    }
+
+    .product-details__plan-details {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .product-details__plan {
+    display: flex;
+    font-size: var(--fs-text-size-0);
+    font-weight: var(--fs-text-weight-bold);
+    color: #004e98;
+
+    @include media(">=notebook") {
+      font-size: var(--fs-text-size-1);
+      line-height: 18px;
+    }
+  }
+
+  .product-details__plan-details {
+    padding: 0;
+    font-size: 10px;
+    font-weight: 13px;
+    color: #666;
+
+    @include media(">=notebook") {
+      font-size: var(--fs-text-size-0);
+      line-height: 16px;
+    }
+  }
+
+  .product-details__main-content {
+    display: flex;
+    flex-direction: column;
+
+    .product-details__list {
+      display: flex;
+      column-gap: 16px;
+      justify-content: space-between;
+      margin-bottom: 16px;
+
+      @include media(">=tablet") {
+        width: 66%;
+      }
+
+      .product-details__item {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+        min-height: 96px;
+        padding: var(--fs-spacing-1);
+        background-color: #fff;
+        border-radius: 8px;
+
+        @include media(">=notebook") {
+          height: 130px;
+          padding: var(--fs-spacing-3);
+        }
+
+        .product-details__plan {
+          font-size: var(--fs-text-size-1);
+
+          @include media(">=notebook") {
+            font-size: var(--fs-text-size-2);
+            line-height: 21px;
+          }
+        }
+
+        .product-details__plan-details {
+          font-weight: var(--fs-text-weight-bold);
+          text-decoration: underline;
+
+          @include media(">=tablet") {
+            font-weight: var(--fs-text-weight-regular);
+          }
+        }
+
+        .product-details__price-container {
+          display: flex;
+          flex-direction: column;
+
+          .product-details__price {
+            font-size: var(--fs-text-size-1);
+            font-weight: var(--fs-text-weight-bold);
+            line-height: 18px;
+            color: #000;
+
+            @include media(">=notebook") {
+              font-size: var(--fs-text-size-2);
+              line-height: 21px;
+            }
+          }
+
+          .product-details__installment-criteria {
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 13px;
+            color: #000;
+
+            @include media(">=notebook") {
+              font-size: var(--fs-text-size-0);
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    @include media(">=tablet") {
+      flex-direction: row;
+    }
+  }
 }
 
 .product-details__title {
@@ -68,7 +257,9 @@
     border-radius: var(--fs-border-radius-default) var(--fs-border-radius-default) 0 0;
   }
 
-  @include media(">=notebook") { grid-column: 9 / span 4; }
+  @include media(">=notebook") {
+    grid-column: 9 / span 4;
+  }
 }
 
 .product-details__settings {
@@ -76,10 +267,15 @@
 
   [data-store-sku-selector] {
     margin-bottom: var(--fs-spacing-4);
-    &:last-of-type { margin-bottom: var(--fs-spacing-7); }
+
+    &:last-of-type {
+      margin-bottom: var(--fs-spacing-7);
+    }
   }
 
-  [data-store-buy-button] { width: 100%; }
+  [data-store-buy-button] {
+    width: 100%;
+  }
 
   .price[data-store-price] {
     display: block;
@@ -99,11 +295,117 @@
     border-radius: 0 0 var(--fs-border-radius-default) var(--fs-border-radius-default);
   }
 
-  @include media(">=notebook") { grid-column: 9 / span 4; }
+  @include media(">=notebook") {
+    grid-column: 9 / span 4;
+  }
 }
 
 .product-details__values {
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--fs-spacing-4);
+}
+
+.product-questions__container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--fs-spacing-3);
+  margin-top: 24px;
+
+  @include media(">=notebook") {
+    flex-direction: row;
+  }
+
+  .product-questions__button {
+    display: block;
+    width: 217px;
+    height: 40px;
+    margin: var(--fs-spacing-4) auto 0;
+    font-size: var(--fs-text-size-1);
+    color: #666;
+    text-transform: uppercase;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: var(--fs-border-radius-default);
+
+    &:hover {
+      color: #666;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+  }
+
+  @include media(">=notebook") {
+    grid-column: span 8;
+    padding: 0;
+  }
+
+  .text__title-subsection {
+    font-size: 16px;
+    font-weight: var(--fs-text-weight-bold);
+    line-height: 21px;
+    color: #000;
+
+    @include media(">=notebook") {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  .product-questions__load-more {
+    width: 100%;
+    max-width: 348px;
+  }
+
+  .product-questions-component {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #dddddd;
+
+    @include media(">=notebook") {
+      padding-bottom: unset;
+      margin-right: 44px;
+      margin-bottom: unset;
+      border-bottom: none;
+
+      .product-questions__list {
+        padding-right: 44px;
+        border-right: 1px solid #dddddd;
+      }
+    }
+
+    .product-questions__item {
+      width: 348px;
+      padding: var(--fs-spacing-3) 0;
+      border-radius: var(--fs-border-radius-small);
+
+      @include media(">=notebook") {
+        grid-column: span 8;
+        padding: var(--fs-spacing-3);
+      }
+
+      .product-questions__text-container {
+        display: flex;
+
+        .text__question {
+          padding-bottom: var(--fs-spacing-4);
+          font-size: var(--fs-text-size-1);
+          font-weight: 600;
+          line-height: 18px;
+          color: #555;
+        }
+
+        .text__body-answer {
+          line-height: 18px;
+          color: #555;
+        }
+      }
+
+      @include media(">=notebook") {
+        &:nth-child(odd) {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+  }
 }
