@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **GM-109** - Add component product description
+
 ## [0.8.2] - 2022-07-21
 
 ### Added

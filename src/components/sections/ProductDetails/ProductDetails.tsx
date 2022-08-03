@@ -41,7 +41,6 @@ function ProductDetails({ product: staleProduct }: Props) {
     name: variantName,
     brand,
     isVariantOf,
-    // description,
     image: productImages,
     offers: {
       lowPrice,
