@@ -1,8 +1,13 @@
 @import "src/styles/scaffold";
 
 .product-details {
+  padding: 0 16px;
   margin-top: var(--fs-spacing-3);
   font-family: Montserrat, sans-serif;
+
+  @include media(">=tablet") {
+    padding: unset;
+  }
 }
 
 .column {
@@ -15,6 +20,36 @@
   flex-direction: column;
   row-gap: var(--fs-spacing-4);
   margin-top: var(--fs-spacing-3);
+
+  .product-details__title {
+    .product-title {
+      &__header {
+        [data-tags-container] {
+          width: fit-content;
+          padding: 2px 8px;
+          background-color: #ff3452;
+          border-radius: 4px;
+
+          [data-tag-category],
+          [data-tag-collection] {
+            font-size: var(--fs-text-size-0);
+            font-weight: var(--fs-text-weight-bold);
+            color: #fff;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .text__title-product {
+          font-size: 20px;
+          font-weight: var(--fs-text-weight-bold);
+        }
+      }
+    }
+  }
 
   @include media(">=tablet") {
     display: grid;
@@ -275,6 +310,7 @@
 
   [data-store-buy-button] {
     width: 100%;
+    font-weight: 600;
   }
 
   .price[data-store-price] {
@@ -304,12 +340,41 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--fs-spacing-4);
+
+  .product-details__prices {
+    width: 100%;
+
+    .text__lead {
+      font-size: 24px;
+      color: #000;
+    }
+
+    .product-details__list-price-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 45px;
+
+      [data-fs-discount-badge-variant="high"] {
+        font-size: var(--fs-text-size-0);
+        font-weight: 700;
+      }
+
+      .text__legend {
+        font-size: var(--fs-text-size-0);
+        color: #555;
+
+        @include media(">=tablet") {
+          font-size: var(--fs-text-size-2);
+        }
+      }
+    }
+  }
 }
 
 .product-questions__container {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--fs-spacing-3);
   margin-top: 24px;
 
   @include media(">=notebook") {
@@ -375,12 +440,12 @@
     }
 
     .product-questions__item {
-      width: 348px;
       padding: var(--fs-spacing-3) 0;
       border-radius: var(--fs-border-radius-small);
 
       @include media(">=notebook") {
         grid-column: span 8;
+        width: 348px;
         padding: var(--fs-spacing-3);
       }
 
