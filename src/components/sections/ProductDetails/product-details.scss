@@ -79,8 +79,14 @@
     margin-bottom: var(--fs-spacing-7);
   }
 
-  @include media(">=notebook") {
-    grid-column: span 8;
+  img {
+    height: auto;
+    max-height: 200px;
+
+    @include media(">=notebook") {
+      max-width: 780px;
+      max-height: 368px;
+    }
   }
 }
 
@@ -295,7 +301,7 @@
 
   @include media(">=tablet") {
     grid-row: 1;
-    grid-column: 8 / span 5;
+    grid-column: 8 / span 4;
     border: 1px solid var(--fs-border-color-light);
     border-radius:
       var(--fs-border-radius-default)
@@ -303,7 +309,7 @@
   }
 
   @include media(">=notebook") {
-    grid-column: 9 / span 4;
+    grid-column: 8 / span 4;
   }
 
   display: flex;
@@ -436,7 +442,7 @@
   }
 
   @include media(">=notebook") {
-    grid-column: 9 / span 4;
+    grid-column: 8 / span 4;
   }
 }
 
