@@ -7,13 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **GM-109** - Add component product description
+
+## [0.9.0] - 2022-08-02
+
 ### Fixed
 
 - **GM-455** - Changed layout style in footer
 
 ### Added
 
-- **GM-109** - Add component product description
+
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list
 - **GM-108** - [PDP] Show common questions form

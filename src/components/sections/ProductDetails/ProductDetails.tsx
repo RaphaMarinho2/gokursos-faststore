@@ -1,4 +1,5 @@
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
+import ProductTags from '@acctglobal/product-tags'
 import { graphql } from 'gatsby'
 import { useEffect, useState } from 'react'
 import { DiscountBadge } from 'src/components/ui/Badge'
@@ -17,11 +18,15 @@ import ProductDescription from '@acctglobal/productdescription'
 
 import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
+import instalment from '../../../mocks/instalment.json'
 import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
 import Section from '../Section'
+import ProductRating from '../ProductRating'
+import Instalments from '../Instalments'
+import Workload from '../Workload'
+import RatingSummary from '../RatingSummary'
 import LatestQuestions from './LatestQuestions'
 import SubscriptionOffers from './SubscriptionOffers'
-import ProductRating from '../ProductRating'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -114,7 +119,14 @@ function ProductDetails({ product: staleProduct }: Props) {
           <ProductTitle
             title={<h1 className="text__title-product">{variantName}</h1>}
             label={
-              <DiscountBadge listPrice={listPrice} spotPrice={lowPrice} big />
+              <>
+                <ProductTags
+                  tagCategoryLabel="Administração"
+                  urlCategory="/administracao"
+                />
+                <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} />
+                <Workload workload={60} />
+              </>
             }
           />
         </header>
@@ -134,15 +146,18 @@ function ProductDetails({ product: staleProduct }: Props) {
         <section className="product-details__settings">
           <section className="product-details__values">
             <div className="product-details__prices">
-              <Price
-                value={listPrice}
-                formatter={useFormattedPrice}
-                testId="list-price"
-                data-value={listPrice}
-                variant="listing"
-                classes="text__legend"
-                SRText="Original price:"
-              />
+              <div className="product-details__list-price-container">
+                <Price
+                  value={listPrice}
+                  formatter={useFormattedPrice}
+                  testId="list-price"
+                  data-value={listPrice}
+                  variant="listing"
+                  classes="text__legend"
+                  SRText="Original price:"
+                />
+                <DiscountBadge listPrice={listPrice} spotPrice={lowPrice} big />
+              </div>
               <Price
                 value={lowPrice}
                 formatter={useFormattedPrice}
@@ -152,6 +167,15 @@ function ProductDetails({ product: staleProduct }: Props) {
                 classes="text__lead"
                 SRText="Sale Price:"
               />
+              {instalment && (
+                <Instalments
+                  instalment={{
+                    instalments: instalment.instalments,
+                    value: instalment.value,
+                    interestRate: instalment.interestRate,
+                  }}
+                />
+              )}
             </div>
             {/* <div className="prices">
               <p className="price__old text__legend">{formattedListPrice}</p>

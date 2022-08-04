@@ -1,0 +1,12 @@
+@import "src/styles/scaffold";
+
+.instalments {
+  font-size: var(--fs-text-size-0);
+  line-height: 16px;
+  color: #555;
+
+  @include media(">=tablet") {
+    font-size: var(--fs-text-size-1);
+    line-height: 18px;
+  }
+}
