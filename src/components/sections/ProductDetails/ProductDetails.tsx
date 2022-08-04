@@ -20,6 +20,7 @@ import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import PolygonIcon from 'src/components/icons/PolygonIcon'
+import ProductQueryMock from 'src/mocks/productQueryMock.json'
 
 import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
@@ -30,6 +31,7 @@ import ProductRating from '../ProductRating'
 import Instalments from '../Instalments'
 import Workload from '../Workload'
 import RatingSummary from '../RatingSummary'
+import { InstalmentList } from './InstalmentList/InstalmentList'
 import LatestQuestions from './LatestQuestions'
 import SubscriptionOffers from './SubscriptionOffers'
 
@@ -40,6 +42,9 @@ interface Props {
 function ProductDetails({ product: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity] = useState(1)
+  const priceVaritation =
+    ProductQueryMock.data.search.products.edges[0]?.node.offers.offers[0]
+      ?.priceVaritation
 
   // Stale while revalidate the product for fetching the new price etc
   const { data } = useProduct(staleProduct.id, {
@@ -226,6 +231,7 @@ function ProductDetails({ product: staleProduct }: Props) {
                   }}
                 />
               )}
+              <InstalmentList priceVariation={priceVaritation} />
             </div>
             {/* <div className="prices">
       <p className="price__old text__legend">{formattedListPrice}</p>
