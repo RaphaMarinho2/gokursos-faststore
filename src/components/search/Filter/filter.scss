@@ -64,7 +64,7 @@
   min-height: 55px;
 
   @include media(">=notebook") {
-    min-height: 40px;
+    min-height: 60px;
   }
 }
 
@@ -159,11 +159,15 @@
       .text {
         &__title-mini-alt {
           display: none;
+
+          @include media(">=notebook") {
+            display: flex;
+          }
         }
       }
 
       &__item {
-        display: block;
+        display: flex;
       }
     }
   }
