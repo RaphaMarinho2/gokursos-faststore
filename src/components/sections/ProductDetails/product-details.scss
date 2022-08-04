@@ -63,7 +63,6 @@
 .product-details__image {
   position: relative;
   left: calc(-1 * var(--fs-grid-padding));
-  width: calc(100% + (2 * var(--fs-grid-padding)));
 
   [data-gatsby-image-wrapper] {
     @include media(">=tablet") {
@@ -285,15 +284,118 @@
 }
 
 .product-details__title {
+  .product-title {
+    width: 100%;
+
+    .product-details__title-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   @include media(">=tablet") {
     grid-row: 1;
     grid-column: 8 / span 5;
     border: 1px solid var(--fs-border-color-light);
-    border-radius: var(--fs-border-radius-default) var(--fs-border-radius-default) 0 0;
+    border-radius:
+      var(--fs-border-radius-default)
+      var(--fs-border-radius-default) 0 0;
   }
 
   @include media(">=notebook") {
     grid-column: 9 / span 4;
+  }
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+// Style share icon
+
+.share-icon {
+  display: flex;
+  flex-direction: column;
+
+  .polygon-icon {
+    position: relative;
+    top: 0;
+    right: 10px;
+    z-index: 2;
+  }
+
+  [data-open-modal-container] {
+    max-width: 28px;
+    max-height: 28px;
+
+    [data-open-modal-button] {
+      background: none;
+      border: none;
+    }
+
+    [data-open-modal-text] {
+      display: none;
+    }
+  }
+
+  // Style modal open
+
+  [data-additional-overlay] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+  }
+
+  [data-modal-background] {
+    position: relative;
+    top: 0;
+    right: 175px;
+    z-index: 2;
+    width: 211.37px;
+    height: 96px;
+    background-color: white;
+
+    @include media(">=tablet") {
+      right: 225px;
+      width: 267px;
+    }
+
+    [data-modal-share-product-text] {
+      display: none;
+    }
+
+    [data-modal-product-link-container] {
+      display: none;
+    }
+
+    [data-modal-copy-link-button] {
+      display: none;
+    }
+
+    [data-close-modal-button] {
+      display: none;
+    }
+
+    [data-modal-share-links-container] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #000000;
+
+      [data-modal-links-social] {
+        display: flex;
+        justify-content: space-evenly;
+        width: 70%;
+        margin-top: 20px;
+      }
+    }
   }
 }
 
@@ -328,7 +430,9 @@
     padding: var(--fs-spacing-3);
     border: 1px solid var(--fs-border-color-light);
     border-top: 0;
-    border-radius: 0 0 var(--fs-border-radius-default) var(--fs-border-radius-default);
+    border-radius:
+      0 0 var(--fs-border-radius-default)
+      var(--fs-border-radius-default);
   }
 
   @include media(">=notebook") {
