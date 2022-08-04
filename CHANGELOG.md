@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2022-08-04
+
 ### Added
 
 - **GM-101** - Add button and modal share
+- **GM-100** - [PDP] Buy Box - general
+- **GM-102** - [PDP] Buy Box - instalments list
+- **GM-103** - [PDP] Buy Box - Image banner
+- **GM-105** - [PDP] "How do we teach" section 
 
 ## [0.9.0] - 2022-08-02
 
