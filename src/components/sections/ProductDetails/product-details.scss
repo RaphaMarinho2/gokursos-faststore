@@ -8,6 +8,104 @@
   @include media(">=tablet") {
     padding: unset;
   }
+
+  &__price {
+    &-modal {
+      position: absolute;
+      right: 0;
+      bottom: 15vw;
+      left: 0;
+      width: 100%;
+      max-width: 314px;
+      height: 355px;
+      margin: 0 auto;
+      background-color: #fff;
+
+      @include media(">=notebook") {
+        top: 10vw;
+        max-width: 548px;
+        height: 680px;
+      }
+    }
+
+    &-list {
+      .modal-open {
+        padding-left: 0;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 130%;
+        color: #ff3452;
+        text-decoration: underline;
+        background-color: #fff;
+        border: 0;
+      }
+
+      &--top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        background: #ff3452;
+
+        @include media(">=notebook") {
+          padding: 22px 40px;
+        }
+
+        button {
+          background: #ff3452;
+          border: 0;
+
+          @include media(">=notebook") {
+            position: relative;
+            width: 22px;
+            height: 22px;
+          }
+        }
+
+        svg {
+          @include media(">=notebook") {
+            width: 22px;
+            height: 22px;
+          }
+        }
+
+        h3 {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 150%;
+          color: #fff;
+
+          @include media(">=notebook") {
+            font-size: 20px;
+          }
+        }
+      }
+
+      &--content {
+        li {
+          width: auto;
+          padding: 16px 0;
+          margin: 0 16px;
+          border-bottom: 1px solid #dddddd;
+
+          @include media(">=notebook") {
+            padding: 18px 0;
+            margin: 0 40px;
+          }
+
+          p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%;
+
+            @include media(">=notebook") {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .column {
@@ -63,6 +161,7 @@
 .product-details__image {
   position: relative;
   left: calc(-1 * var(--fs-grid-padding));
+  width: calc(100% + 2 * var(--fs-grid-padding));
 
   [data-gatsby-image-wrapper] {
     @include media(">=tablet") {
@@ -85,7 +184,7 @@
 
     @include media(">=notebook") {
       max-width: 780px;
-      max-height: 368px;
+      max-height: 400px;
     }
   }
 }
@@ -118,7 +217,7 @@
   max-width: 548px;
   height: fit-content;
   padding: var(--fs-spacing-3);
-  margin: var(--fs-spacing-4) var(--fs-spacing-3) 0;
+  margin: var(--fs-spacing-4) 0;
   background-color: #ff3452;
   border-radius: 8px;
 
@@ -290,6 +389,10 @@
 }
 
 .product-details__title {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+
   .product-title {
     width: 100%;
 
@@ -307,14 +410,6 @@
       var(--fs-border-radius-default)
       var(--fs-border-radius-default) 0 0;
   }
-
-  @include media(">=notebook") {
-    grid-column: 8 / span 4;
-  }
-
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
 }
 
 // Style share icon
@@ -402,6 +497,10 @@
         margin-top: 20px;
       }
     }
+
+    // @include media(">=notebook") {
+    //   grid-column: 9 / span 4;
+    // }
   }
 }
 
@@ -432,17 +531,13 @@
 
   @include media(">=tablet") {
     grid-row: 2 / span 3;
-    grid-column: 8 / span 5;
+    grid-column: 8 / span 4;
     padding: var(--fs-spacing-3);
     border: 1px solid var(--fs-border-color-light);
     border-top: 0;
     border-radius:
       0 0 var(--fs-border-radius-default)
       var(--fs-border-radius-default);
-  }
-
-  @include media(">=notebook") {
-    grid-column: 8 / span 4;
   }
 }
 
@@ -487,10 +582,6 @@
   flex-direction: column;
   margin-top: 24px;
 
-  @include media(">=notebook") {
-    flex-direction: row;
-  }
-
   .product-questions__button {
     display: block;
     width: 217px;
@@ -511,6 +602,7 @@
   }
 
   @include media(">=notebook") {
+    flex-direction: row;
     grid-column: span 8;
     padding: 0;
   }
