@@ -1,7 +1,7 @@
 {
   "name": "gokursos.store",
   "private": true,
-  "version": "0.9.0",
+  "version": "0.10.0",
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
@@ -28,6 +28,8 @@
   "dependencies": {
     "@acctglobal/bubblelinks": "^1.0.1",
     "@acctglobal/carousel-universal": "^1.2.0",
+    "@acctglobal/product-tags": "^0.3.2",
+    "@acctglobal/shareproduct": "^0.2.2",
     "@builder.io/partytown": "^0.5.4",
     "@envelop/core": "^1.2.0",
     "@envelop/graphql-jit": "^1.1.1",

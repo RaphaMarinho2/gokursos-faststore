@@ -2,7 +2,7 @@
 
 .section {
   width: 100%;
-  content-visibility: auto;
+  content-visibility: unset;
   contain-intrinsic-size: rem(2px) rem(1024px);
 
   .text__title-section {
