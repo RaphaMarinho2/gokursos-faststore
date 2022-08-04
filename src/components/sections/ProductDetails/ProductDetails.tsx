@@ -21,6 +21,7 @@ import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import PolygonIcon from 'src/components/icons/PolygonIcon'
 import ProductQueryMock from 'src/mocks/productQueryMock.json'
+import productQueryDetails from 'src/mocks/productQueryDetails.json'
 
 import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
@@ -34,6 +35,7 @@ import RatingSummary from '../RatingSummary'
 import { InstalmentList } from './InstalmentList/InstalmentList'
 import LatestQuestions from './LatestQuestions'
 import SubscriptionOffers from './SubscriptionOffers'
+import { VideoAndText } from './videoAndtextDetails'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -269,10 +271,15 @@ function ProductDetails({ product: staleProduct }: Props) {
               <QuestionForm />
             </div>
           </article>
-          <SubscriptionOffers
-            firstOffer={mockedSubscriptionOffers.firstOffer}
-            secondOffer={mockedSubscriptionOffers.secondOffer}
-          />
+          <div className="product-details__content-right">
+            <article className="product-details__description">
+              <VideoAndText ProductQueryDetails={productQueryDetails} />
+            </article>
+            <SubscriptionOffers
+              firstOffer={mockedSubscriptionOffers.firstOffer}
+              secondOffer={mockedSubscriptionOffers.secondOffer}
+            />
+          </div>
         </section>
       </section>
     </Section>
