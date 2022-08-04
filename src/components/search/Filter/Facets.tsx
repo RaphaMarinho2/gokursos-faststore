@@ -110,12 +110,6 @@ function Facets({
               </AccordionItem>
             ))}
           </Accordion>
-          {/* <Accordion
-            expandedIndices={indicesExpanded}
-            onChange={onAccordionChange}
-          >
-
-          </Accordion> */}
         </>
       )}
     </div>

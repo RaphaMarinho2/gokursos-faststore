@@ -1,16 +1,17 @@
 import { usePagination, useSearch } from '@faststore/sdk'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import { lazy, Suspense, useState } from 'react'
-import Filter from 'src/components/search/Filter'
+// import Filter from 'src/components/search/Filter'
 import Sort from 'src/components/search/Sort'
-import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
+// import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
-import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
+// import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
+import PLPFilters from 'src/components/search/PLPFilters'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -42,7 +43,6 @@ function ProductGallery({
   products,
   productsCount,
   galleryTitle,
-  forceSvg,
   hasFilter = true,
 }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
@@ -51,8 +51,6 @@ function ProductGallery({
   const { data } = useGalleryQuery()
 
   const facets = useDelayedFacets(data)
-
-  const facetsWithPrice = productGalleryQuery2.data?.search?.facets
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -93,22 +91,17 @@ function ProductGallery({
       <div className="product-listing__content-grid layout__content">
         {hasFilter && (
           <div className="product-listing__filters">
-            <FilterSkeleton loading={facets?.length === 0}>
-              <Filter
-                isOpen={isFilterOpen}
-                facets={facets}
-                onDismiss={() => setIsFilterOpen(false)}
-                forceSvg={forceSvg && forceSvg}
-              />
-            </FilterSkeleton>
-            <FilterSkeleton loading={facetsWithPrice?.length === 0}>
+            {/* <FilterSkeleton loading={facets?.length === 0}> */}
+            <PLPFilters slug="humanas" />
+            {/* </FilterSkeleton> */}
+            {/* <FilterSkeleton loading={facetsWithPrice?.length === 0}>
               <Filter
                 isOpen={isFilterOpen}
                 facets={facetsWithPrice}
                 onDismiss={() => setIsFilterOpen(false)}
                 forceSvg={forceSvg && forceSvg}
               />
-            </FilterSkeleton>
+            </FilterSkeleton> */}
           </div>
         )}
 
