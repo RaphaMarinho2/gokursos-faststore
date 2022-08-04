@@ -14,6 +14,12 @@ import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import ShareProduct from '@acctglobal/shareproduct'
+import ShareIcon from 'src/components/icons/ShareIcon'
+import FacebookShareIcon from 'src/components/icons/FacebookShare'
+import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
+import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
+import PolygonIcon from 'src/components/icons/PolygonIcon'
 
 import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
@@ -75,6 +81,18 @@ function ProductDetails({ product: staleProduct }: Props) {
     },
   })
 
+  const facebookShareIcon = () => {
+    return <FacebookShareIcon />
+  }
+
+  const twitterShareIcon = () => {
+    return <TwitterShareIcon />
+  }
+
+  const pinterestShareIcon = () => {
+    return <PinterestShareIcon />
+  }
+
   useEffect(() => {
     sendAnalyticsEvent<ViewItemEvent<AnalyticsItem>>({
       name: 'view_item',
@@ -117,7 +135,39 @@ function ProductDetails({ product: staleProduct }: Props) {
       <section className="product-details__body">
         <header className="product-details__title">
           <ProductTitle
-            title={<h1 className="text__title-product">{variantName}</h1>}
+            title={
+              <div className="product-details__title-container">
+                <h1 className="text__title-product">{variantName}</h1>
+                <div className="share-icon">
+                  <ShareProduct
+                    additionalOverlay
+                    shareWebSocials="Compartilhe:"
+                    productURL="/"
+                    shareLinks={[
+                      {
+                        name: 'Facebook',
+                        url: '/',
+                        SocialIcon: facebookShareIcon,
+                      },
+                      {
+                        name: 'Twitter',
+                        url: '/',
+                        SocialIcon: twitterShareIcon,
+                      },
+                      {
+                        name: 'Facebook',
+                        url: '/',
+                        SocialIcon: pinterestShareIcon,
+                      },
+                    ]}
+                    ShareIcon={ShareIcon}
+                  />
+                  <div className="polygon-icon">
+                    <PolygonIcon />
+                  </div>
+                </div>
+              </div>
+            }
             label={
               <>
                 <ProductTags
@@ -178,29 +228,29 @@ function ProductDetails({ product: staleProduct }: Props) {
               )}
             </div>
             {/* <div className="prices">
-              <p className="price__old text__legend">{formattedListPrice}</p>
-              <p className="price__new">{isValidating ? '' : formattedPrice}</p>
-            </div> */}
+      <p className="price__old text__legend">{formattedListPrice}</p>
+      <p className="price__new">{isValidating ? '' : formattedPrice}</p>
+    </div> */}
           </section>
           {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
-              non-composited animation violation due to the button transitioning its
-              background color when changing from its initial disabled to active state.
-              See full explanation on commit https://git.io/JyXV5. */}
+        non-composited animation violation due to the button transitioning its
+        background color when changing from its initial disabled to active state.
+        See full explanation on commit https://git.io/JyXV5. */}
           <ButtonBuy {...buyProps}>Adicionar ao carrinho</ButtonBuy>
           {/* {isValidating ? (
-            <AddToCartLoadingSkeleton />
-          ) : (
-            <ButtonBuy disabled={buyDisabled} {...buyProps}>
-              Add to Cart
-            </ButtonBuy>
-          )}
-          {!availability && (
-            <OutOfStock
-              onSubmit={(email) => {
-                console.info(email)
-              }}
-            />
-          )} */}
+      <AddToCartLoadingSkeleton />
+    ) : (
+      <ButtonBuy disabled={buyDisabled} {...buyProps}>
+        Add to Cart
+      </ButtonBuy>
+    )}
+    {!availability && (
+      <OutOfStock
+        onSubmit={(email) => {
+          console.info(email)
+        }}
+      />
+    )} */}
         </section>
 
         <section className="product-details__content">

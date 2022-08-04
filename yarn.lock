@@ -21,6 +21,11 @@
     "@testing-library/react" "^13.3.0"
     jest "^28.1.1"
 
+"@acctglobal/shareproduct@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@acctglobal/shareproduct/-/shareproduct-0.2.2.tgz#cff3e71775da181f8855c837e8308da0b9a59650"
+  integrity sha512-D7Kw6fxHKq8mDSk/bKGcgW7RoImQUUchmX7hElu/EJEI1f2G/aCEYk9ZmgpqMzBzUetDV0ZNBb1txfs2p4Pwrg==
+
 "@ampproject/remapping@^2.1.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.1.2.tgz#4edca94973ded9630d20101cd8559cedb8d8bd34"
