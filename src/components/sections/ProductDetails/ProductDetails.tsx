@@ -233,6 +233,7 @@ function ProductDetails({ product: staleProduct }: Props) {
                 maxHeight={500}
               />
             )}
+
             <ProductRating />
             <div className="product-questions__container">
               <LatestQuestions productQuestions={productQuestions} />
