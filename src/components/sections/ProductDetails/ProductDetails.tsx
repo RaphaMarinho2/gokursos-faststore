@@ -285,7 +285,7 @@ function ProductDetails({ product: staleProduct }: Props) {
                   {
                     name: 'Certificados',
                     description:
-                      'Et voluptatem similique et rerum velit hic cumque internos 33 dolorem ipsa eos beatae doloribus et molestiae iure. Et nobis quisquam id distinctio blanditiis est exercitationem ducimus sit magnam quisquam At ipsum nihil eum iste minus. ',
+                      'O certificado emitido pelo GoKursos será conferido após a conclusão de 75% da carga-horária do curso e da obtenção de nota mínima sete na média das avaliações. Para os cursos sem avaliação, será conferido o certificado por participação. ',
                   },
                 ]}
                 maxHeight={1000}
