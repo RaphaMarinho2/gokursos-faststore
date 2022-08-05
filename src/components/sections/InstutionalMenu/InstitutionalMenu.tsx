@@ -1,42 +1,97 @@
-import { Dropdown } from '@faststore/ui'
-import { useState, useEffect } from 'react'
+import {
+  Dropdown,
+  DropdownButton,
+  DropdownItem,
+  DropdownMenu,
+} from '@faststore/ui'
+import { useState } from 'react'
+import Section from 'src/components/sections/Section'
+import DropDownIcon from 'src/components/icons/DropDownIcon'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 import './style.scss'
 
-const InstitutionalMenu = () => {
-  const [isOpen, setOpen] = useState(false)
+import ArrayMenu from './menuMock.json'
 
-  useEffect(() => {
-    setOpen(false)
-  }, [])
+const ListMenuDesk = () => {
+  const location = window.location.pathname
+
+  return (
+    <div className="layout__content">
+      <ul>
+        {ArrayMenu.map((el, index) => {
+          const { text, url } = el
+          const selectedClass = location.indexOf(url) !== -1 ? 'selected' : ''
+
+          return (
+            <li className={selectedClass} key={index}>
+              <a href={url}>{text}</a>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
+}
+
+const DropDownMenu = () => {
+  const menuPosition = {
+    left: '0',
+    right: '0',
+  }
+
+  return (
+    <DropdownMenu style={menuPosition}>
+      {ArrayMenu.map((el, index) => {
+        const { text, url } = el
+
+        if (index !== 0) {
+          return (
+            <DropdownItem key={index}>
+              <a href={url}>{text}</a>
+            </DropdownItem>
+          )
+        }
+
+        return <></>
+      })}
+    </DropdownMenu>
+  )
+}
+
+const InstitutionalMenu = () => {
+  const { isTablet } = useWindowDimensions()
+
+  const [isOpen, setOpen] = useState(false)
 
   const onDismiss = () => {
     setOpen(false)
   }
 
+  const DropDownTop = () => {
+    return (
+      <div className="institutional-menu__top">
+        <a href="/institucional/fale-conosco">Fale Conosco</a>
+        <DropdownButton>
+          <div>
+            <DropDownIcon />
+          </div>
+        </DropdownButton>
+      </div>
+    )
+  }
+
   return (
-    <Dropdown isOpen={isOpen} onDismiss={onDismiss}>
-      <ul>
-        <li>
-          <a href="/fale-conosco">Fale Conosco</a>
-        </li>
-        <li>
-          <a href="/perguntas-frequentes">Perguntas Frequentes</a>
-        </li>
-        <li>
-          <a href="/quem-somos">Quem somos</a>
-        </li>
-        <li>
-          <a href="/formas-de-pagamento">Formas de Pagamento</a>
-        </li>
-        <li>
-          <a href="/termos-de-uso">Termos de Uso</a>
-        </li>
-        <li>
-          <a href="/seguranca-e-privacidade">Segurança e Privacidade</a>
-        </li>
-      </ul>
-    </Dropdown>
+    <Section className="institutional-menu">
+      {!isTablet ? (
+        <ListMenuDesk />
+      ) : (
+        <Dropdown isOpen={isOpen} onDismiss={onDismiss} id="institutional-menu">
+          <DropDownTop />
+          <DropDownMenu />
+        </Dropdown>
+      )}
+    </Section>
   )
 }
 
