@@ -1,21 +1,14 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Checkbox, Label } from '@faststore/ui'
 
 import './plp-filters.scss'
+import fetchFilters from './fetchFilters'
 
 interface PLPFiltersProps {
   slug: string
 }
 
-// interface Filter {
-//   type: 'category' | 'price' | 'brand' | 'cargaHoraria'
-//   selected: boolean
-//   label: string
-//   value: string
-// }
-
-interface Filters {
+export interface Filters {
   filterlabel: 'Categorias' | 'Carga horária' | 'Marcas' | 'Faixa de preço'
   type: 'CHECKBOX' | 'RANGE'
   facets: Array<{
@@ -28,97 +21,39 @@ interface Filters {
   }>
 }
 
-type CategoryFilterType = Array<{ Name: string; Slug: string }>
-type CargasHorariasFilterType = Array<{ Text: string }>
-type PricesFilterType = { minPrice: number; maxPrice: number }
-
 function PLPFilters({ slug }: PLPFiltersProps) {
   const [allFilters, setAllFilters] = useState<Filters[]>([])
 
-  // const selectedFilters = allFilters.filter(
-  //   (filter) => filter.selected === true
+  // const selectedFilters = allFilters.map((filter) =>
+  //   filter.facets.filter((facet) => facet.selected === true)
   // )
 
-  // const [categories] = [
-  //   ...allFilters.filter((filter) => filter.filterlabel === 'Categorias'),
-  // ]
+  function handleChangeFacet({
+    filterLabel,
+    facetValue,
+  }: {
+    filterLabel: string
+    facetValue: string
+  }) {
+    const [filterFind] = allFilters.filter(
+      (filter) => filter.filterlabel === filterLabel
+    )
 
-  // const [cargasHorarias] = [
-  //   ...allFilters.filter((filter) => filter.filterlabel === 'Carga horária'),
-  // ]
+    const newFacet = filterFind.facets.map((facet) =>
+      facet.value === facetValue ? { ...facet, selected: true } : facet
+    )
 
-  // const [minMaxPrice] = [
-  //   ...allFilters.filter((filter) => filter.filterlabel === 'Faixa de preço'),
-  // ]
+    const newFilter = allFilters.map((filter) =>
+      filter.filterlabel === filterLabel
+        ? { ...filter, facets: newFacet }
+        : filter
+    )
+
+    setAllFilters(newFilter)
+  }
 
   useEffect(() => {
-    const handleFilterAttributes = async () => {
-      setAllFilters([])
-
-      const categoriesFetch = await axios
-        .post<CategoryFilterType>('/api/getCategories', {
-          departmentSlug: slug,
-        })
-        .then(({ data }) => {
-          return data
-        })
-
-      const categoryFilter: Filters = {
-        filterlabel: 'Categorias',
-        type: 'CHECKBOX',
-        facets: categoriesFetch.map((category) => {
-          return {
-            selected: false,
-            value: category.Slug,
-            label: category.Name,
-          }
-        }),
-      }
-
-      const cargasHorariasFetch = await axios
-        .post<CargasHorariasFilterType>('/api/getCargasHorarias')
-        .then(({ data }) => {
-          return data
-        })
-
-      const cargaHorariaFilter: Filters = {
-        filterlabel: 'Carga horária',
-        type: 'CHECKBOX',
-        facets: cargasHorariasFetch.map((cargaHoraria) => {
-          return {
-            selected: false,
-            value: cargaHoraria.Text,
-            label: cargaHoraria.Text,
-          }
-        }),
-      }
-
-      const minMaxPriceFetch = await axios
-        .post<PricesFilterType>('/api/getMinMaxPrices', {
-          departmentSlug: slug,
-        })
-        .then(({ data }) => {
-          return data
-        })
-
-      const priceFilter: Filters = {
-        filterlabel: 'Faixa de preço',
-        type: 'RANGE',
-        facets: [
-          {
-            selected: false,
-            others: {
-              minPrice: minMaxPriceFetch.minPrice,
-              maxPrice: minMaxPriceFetch.maxPrice,
-            },
-          },
-        ],
-      }
-
-      setAllFilters([categoryFilter, cargaHorariaFilter, priceFilter])
-    }
-
-    handleFilterAttributes()
+    fetchFilters({ setAllFilters, slug })
   }, [slug])
 
   return (
@@ -134,10 +69,13 @@ function PLPFilters({ slug }: PLPFiltersProps) {
                 <div key={indexFacet}>
                   <Checkbox
                     id={facet.value}
-                    // checked={item.selected}
-                    // onChange={() =>
-                    //   onFacetChange({ key, value: item.value })
-                    // }
+                    checked={facet.selected}
+                    onChange={() =>
+                      handleChangeFacet({
+                        filterLabel: filter.filterlabel,
+                        facetValue: facet.value ?? '',
+                      })
+                    }
                     data-value={facet.value}
                   />
                   <Label htmlFor={facet.value} className="text__title-mini-alt">
