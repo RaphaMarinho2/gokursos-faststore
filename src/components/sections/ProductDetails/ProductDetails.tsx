@@ -275,12 +275,12 @@ function ProductDetails({ product: staleProduct }: Props) {
                   {
                     name: 'Conteúdo do curso',
                     description:
-                      'Lorem ipsum dolor sit amet. Qui nihil obcaecati ut quia harum a aliquid voluptatibus. Eum odit quia ut accusamus aspernatur est voluptatem velit eum vitae enim ut veniam odio et voluptas velit. Et saepe deserunt aut aperiam fugit id corporis voluptate et voluptatem quia id veniam voluptatibus a totam molestias. ',
+                      ' • Introdução à orientação a objetos.\n • Linguagens típicas orientadas a objetos.\n • Programação Orientada a Objeto em Java.\n • Conceitos básicos e terminologias de Programação orientada a objetos.\n • Classe, Objetos, Atributos, Métodos, Construtores e sobrecarga.\n • Instanciação e Referência de objetos.\n • Envio de mensagens.\n • Ciclo de vida de um objeto.\n • Abstração e encapsulamento.\n • Herança. Criação e uso de hierarquia de classes.\n • Classes abstratas e Interfaces.\n • Relacionamento entre classes.\n • Polimorfismo.\n • Ligação dinâmica dynamic binding.\n • Tratamento de exceções.',
                   },
                   {
                     name: 'Objetivos',
                     description:
-                      'In reprehenderit quasi sed quia fugiat sit perspiciatis officiis et unde earum ab deserunt voluptatibus. Quo nulla possimus ab fuga perspiciatis qui voluptas consequuntur! ',
+                      ' • Apresentar as características de Programação Orientada a Objetos\n • Compreender como surgiu o paradigma de Programação Orientada a Objetos\n • Introduzir a linguagem Java para Programação Orientada a Objetos\n • Entender os conceitos da Programação Orientada a Objetos\n • Apresentar os principais conceitos de atributos e métodos\n • Entender a ocultação das informações, encapsulando-as\n • Abordar os conceitos de instâncias e referências\n • Entender o ciclo de vida de um objeto\n • Aprender a utilizar métodos com sobrecarga\n • Aprender conceitos de herança e sua utilização\n • Entender como é a criação e o uso da hierarquia de classes\n • Aprender a criar e utilizar classes abstratas e interfaces\n • Aprender sobre os conceitos dos relacionamentos entre as classes e os tipos existentes ',
                   },
                   {
                     name: 'Certificados',
@@ -288,7 +288,7 @@ function ProductDetails({ product: staleProduct }: Props) {
                       'Et voluptatem similique et rerum velit hic cumque internos 33 dolorem ipsa eos beatae doloribus et molestiae iure. Et nobis quisquam id distinctio blanditiis est exercitationem ducimus sit magnam quisquam At ipsum nihil eum iste minus. ',
                   },
                 ]}
-                maxHeight={500}
+                maxHeight={1000}
               />
             )}
 
