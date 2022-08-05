@@ -14,24 +14,29 @@ import './style.scss'
 import ArrayMenu from './menuMock.json'
 
 const ListMenuDesk = () => {
-  const location = window.location.pathname
+  if (typeof window !== 'undefined') {
+    const location = window?.location?.pathname
 
-  return (
-    <div className="layout__content">
-      <ul>
-        {ArrayMenu.map((el, index) => {
-          const { text, url } = el
-          const selectedClass = location.indexOf(url) !== -1 ? 'selected' : ''
+    return (
+      <div className="layout__content">
+        <ul>
+          {ArrayMenu.map((el, index) => {
+            const { text, url } = el
+            const selectedClass =
+              location?.indexOf(url) !== -1 ? 'selected' : ''
 
-          return (
-            <li className={selectedClass} key={index}>
-              <a href={url}>{text}</a>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
+            return (
+              <li className={selectedClass} key={index}>
+                <a href={url}>{text}</a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
+
+  return <></>
 }
 
 const DropDownMenu = () => {

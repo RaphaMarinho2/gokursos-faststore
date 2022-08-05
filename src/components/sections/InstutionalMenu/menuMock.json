@@ -1,26 +1,26 @@
 [
   {
     "text": "Fale conosco",
-    "url": "/fale-conosco"
+    "url": "/institucional/fale-conosco"
   },
   {
     "text": "Perguntas Frequentes",
-    "url": "/perguntas-frequentes"
+    "url": "/institucional/perguntas-frequentes"
   },
   {
     "text": "Quem somos",
-    "url": "/quem-somos"
+    "url": "/institucional/quem-somos"
   },
   {
     "text": "Formas de Pagamento",
-    "url": "/formas-de-pagamento"
+    "url": "/institucional/formas-de-pagamento"
   },
   {
     "text": "Termos de Uso",
-    "url": "/termos-de-uso"
+    "url": "/institucional/termos-de-uso"
   },
   {
     "text": "Segurança e Privacidade",
-    "url": "/seguranca-e-privacidade"
+    "url": "/institucional/seguranca-e-privacidade"
   }
 ]
