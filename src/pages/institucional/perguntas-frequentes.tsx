@@ -10,7 +10,7 @@ function Page(props: Props) {
 
   return (
     <>
-      <InstitutionalMenu />
+      <InstitutionalMenu location={props.location.pathname} />
     </>
   )
 }

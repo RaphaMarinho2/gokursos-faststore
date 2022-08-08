@@ -13,6 +13,17 @@ import './style.scss'
 
 import ArrayMenu from './menuMock.json'
 
+interface InstitutionalMenuProps {
+  location: string
+}
+
+interface DropDownTopProps {
+  location: string
+  label: string
+}
+
+type DropDownMenuProps = Pick<InstitutionalMenuProps, 'location'>
+
 const ListMenuDesk = () => {
   if (typeof window !== 'undefined') {
     const location = window?.location?.pathname
@@ -39,7 +50,7 @@ const ListMenuDesk = () => {
   return <></>
 }
 
-const DropDownMenu = () => {
+const DropDownMenu = ({ location }: DropDownMenuProps) => {
   const menuPosition = {
     left: '0',
     right: '0',
@@ -50,7 +61,7 @@ const DropDownMenu = () => {
       {ArrayMenu.map((el, index) => {
         const { text, url } = el
 
-        if (index !== 0) {
+        if (url !== location) {
           return (
             <DropdownItem key={index}>
               <a href={url}>{text}</a>
@@ -64,26 +75,37 @@ const DropDownMenu = () => {
   )
 }
 
-const InstitutionalMenu = () => {
+const DropDownTop = ({ location, label }: DropDownTopProps) => {
+  return (
+    <div className="institutional-menu__top">
+      <a href={location}>{label}</a>
+      <DropdownButton>
+        <div>
+          <DropDownIcon />
+        </div>
+      </DropdownButton>
+    </div>
+  )
+}
+
+const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
   const { isTablet } = useWindowDimensions()
+
+  const label = ArrayMenu.reduce(
+    (labelText: string, item: { text: string; url: string }) => {
+      if (item.url === location) {
+        labelText = item.text
+      }
+
+      return labelText
+    },
+    ''
+  )
 
   const [isOpen, setOpen] = useState(false)
 
   const onDismiss = () => {
     setOpen(false)
-  }
-
-  const DropDownTop = () => {
-    return (
-      <div className="institutional-menu__top">
-        <a href="/institucional/fale-conosco">Fale Conosco</a>
-        <DropdownButton>
-          <div>
-            <DropDownIcon />
-          </div>
-        </DropdownButton>
-      </div>
-    )
   }
 
   return (
@@ -92,8 +114,8 @@ const InstitutionalMenu = () => {
         <ListMenuDesk />
       ) : (
         <Dropdown isOpen={isOpen} onDismiss={onDismiss} id="institutional-menu">
-          <DropDownTop />
-          <DropDownMenu />
+          <DropDownTop location={location} label={label} />
+          <DropDownMenu location={location} />
         </Dropdown>
       )}
     </Section>
