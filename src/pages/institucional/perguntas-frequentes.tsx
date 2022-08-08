@@ -2,7 +2,7 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { InstitutionalFaqQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import InstitutionalMenu from 'src/components/sections/InstutionalMenu/InstitutionalMenu'
+import InstitutionalCommonQuestion from 'src/components/sections/InstitutionalCommonQuestion/InstitutionalCommonQuestion'
 
 export type Props = PageProps<InstitutionalFaqQuery>
 function Page(props: Props) {
@@ -10,7 +10,7 @@ function Page(props: Props) {
 
   return (
     <>
-      <InstitutionalMenu />
+      <InstitutionalCommonQuestion />
     </>
   )
 }
