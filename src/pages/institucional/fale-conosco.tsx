@@ -1,10 +1,10 @@
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import { mark } from 'src/sdk/tests/mark'
-import InstitutionalMenu from 'src/components/sections/InstutionalMenu/InstitutionalMenu'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import { BreadcrumbJsonLd } from 'gatsby-plugin-next-seo'
 import type { InstitutionalContactUsQuery } from '@generated/graphql'
+import ContactUs from 'src/components/sections/ContactUs'
 
 const BREADCRUMB = [
   {
@@ -21,7 +21,7 @@ function Page(props: Props) {
     <>
       <BreadcrumbJsonLd itemListElements={BREADCRUMB} />
       <Breadcrumb breadcrumbList={BREADCRUMB} name="Fale Conosco" />
-      <InstitutionalMenu location={props.location.pathname} />
+      <ContactUs location={props.location.pathname} />
     </>
   )
 }
