@@ -29,10 +29,12 @@ export default function ContactUs({ location }: ContactUsProps) {
       <InstutionalMenu location={location} />
       <div className="contact-us__form-content">
         <h2 className="contact-us__form-title">Envia uma mensagem</h2>
-        <form onSubmit={formik.handleSubmit}>
+        <form className="contact-us__form" onSubmit={formik.handleSubmit}>
           <div>
-            <div>
-              <label htmlFor="customerName">Nome</label>
+            <div className="contact-us__input-container">
+              <label className="contact-us__input-label" htmlFor="customerName">
+                Nome
+              </label>
               <input
                 id="customerName"
                 name="customerName"
@@ -42,8 +44,10 @@ export default function ContactUs({ location }: ContactUsProps) {
                 placeholder="Digite seu nome"
               />
             </div>
-            <div>
-              <label htmlFor="customerName">E-mail</label>
+            <div className="contact-us__input-container">
+              <label className="contact-us__input-label" htmlFor="email">
+                E-mail
+              </label>
               <input
                 id="email"
                 name="email"
@@ -54,8 +58,10 @@ export default function ContactUs({ location }: ContactUsProps) {
               />
             </div>
           </div>
-          <div>
-            <label htmlFor="phone">Telefone</label>
+          <div className="contact-us__input-container">
+            <label className="contact-us__input-label" htmlFor="phone">
+              Telefone
+            </label>
             <input
               id="phone"
               name="phone"
@@ -65,8 +71,10 @@ export default function ContactUs({ location }: ContactUsProps) {
               placeholder="Digite seu telefone"
             />
           </div>
-          <div>
-            <label htmlFor="requestType">Tipo de Solicitação</label>
+          <div className="contact-us__input-container">
+            <label className="contact-us__input-label" htmlFor="requestType">
+              Tipo de Solicitação
+            </label>
             <select
               id="requestType"
               name="requestType"
@@ -76,8 +84,10 @@ export default function ContactUs({ location }: ContactUsProps) {
               <option value="Dúvida">Dúvida</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="message">Messagem</label>
+          <div className="contact-us__input-container">
+            <label className="contact-us__input-label" htmlFor="message">
+              Messagem
+            </label>
             <textarea
               id="message"
               name="message"

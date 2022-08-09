@@ -5,11 +5,30 @@
   flex-direction: column;
 
   .contact-us__form-content {
+    margin: 0 16px;
+
     .contact-us__form-title {
       margin-bottom: 24px;
       font-size: var(--fs-text-size-2);
       font-weight: var(--fs-text-weight-bold);
       color: #000;
+    }
+
+    .contact-us__input-container {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .contact-us__form {
+      .contact-us__input-container {
+        .contact-us__input-label {
+          margin-bottom: 4px;
+          font-size: var(--fs-text-size-2);
+          line-height: 21px;
+          color: #666;
+        }
+      }
     }
 
     @include media(">=notebook") {
