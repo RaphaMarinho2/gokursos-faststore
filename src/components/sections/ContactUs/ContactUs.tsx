@@ -15,7 +15,7 @@ export default function ContactUs({ location }: ContactUsProps) {
       customerName: '',
       email: '',
       phone: '',
-      requestType: '',
+      requestType: 'Dúvida',
       message: '',
       terms: false,
     },
