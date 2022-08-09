@@ -87,6 +87,10 @@ export default function ContactUs({ location }: ContactUsProps) {
               value={formik.values.requestType}
             >
               <option value="Dúvida">Dúvida</option>
+              <option value="Sugestão">Sugestão</option>
+              <option value="Reclamação">Reclamação</option>
+              <option value="Pedido">Pedido</option>
+              <option value="Outros">Outros</option>
             </select>
           </div>
           <div className="contact-us__input-container">
