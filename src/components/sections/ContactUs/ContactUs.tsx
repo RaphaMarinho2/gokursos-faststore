@@ -36,6 +36,7 @@ export default function ContactUs({ location }: ContactUsProps) {
                 Nome
               </label>
               <input
+                className="contact-us__input"
                 id="customerName"
                 name="customerName"
                 type="text"
@@ -49,6 +50,7 @@ export default function ContactUs({ location }: ContactUsProps) {
                 E-mail
               </label>
               <input
+                className="contact-us__input"
                 id="email"
                 name="email"
                 type="text"
@@ -63,6 +65,7 @@ export default function ContactUs({ location }: ContactUsProps) {
               Telefone
             </label>
             <input
+              className="contact-us__input"
               id="phone"
               name="phone"
               type="text"
@@ -76,6 +79,7 @@ export default function ContactUs({ location }: ContactUsProps) {
               Tipo de Solicitação
             </label>
             <select
+              className="contact-us__input"
               id="requestType"
               name="requestType"
               onChange={formik.handleChange}
@@ -89,13 +93,16 @@ export default function ContactUs({ location }: ContactUsProps) {
               Messagem
             </label>
             <textarea
+              className="contact-us__text-area"
               id="message"
               name="message"
               onChange={formik.handleChange}
               value={formik.values.message}
             />
           </div>
-          <button type="submit">Enviar</button>
+          <button className="contact-us__submit-button" type="submit">
+            Enviar
+          </button>
         </form>
       </div>
     </Section>
