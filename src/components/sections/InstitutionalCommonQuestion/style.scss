@@ -39,7 +39,7 @@
     background: #ffffff;
 
     @include media (">=notebook") {
-      width: auto;
+      width: 50%;
     }
 
     [data-accordion-container] {

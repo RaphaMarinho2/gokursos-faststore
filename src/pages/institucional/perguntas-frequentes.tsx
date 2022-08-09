@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import type { InstitutionalFaqQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import InstitutionalCommonQuestion from 'src/components/sections/InstitutionalCommonQuestion/InstitutionalCommonQuestion'
+import Breadcrumb from 'src/components/sections/Breadcrumb'
 
 export type Props = PageProps<InstitutionalFaqQuery>
 function Page(props: Props) {
@@ -10,7 +11,17 @@ function Page(props: Props) {
 
   return (
     <>
-      <InstitutionalCommonQuestion />
+      <Breadcrumb
+        breadcrumbList={[
+          {
+            name: 'Perguntas Frequentes',
+            item: '',
+            position: 1,
+          },
+        ]}
+        name="Perguntas Frequentes"
+      />
+      <InstitutionalCommonQuestion location={props.location.pathname} />
     </>
   )
 }
