@@ -44,6 +44,12 @@
 
     [data-accordion-container] {
       background: #f5f5f5;
+
+      [data-accordion-title-text] {
+        @include media (">=notebook") {
+          font-size: 14px;
+        }
+      }
     }
 
     .common-questions__title {
@@ -51,6 +57,10 @@
       font-weight: 700;
       color: #000000;
       border-bottom: unset;
+
+      @include media (">=notebook") {
+        font-size: 24px;
+      }
     }
   }
 }
