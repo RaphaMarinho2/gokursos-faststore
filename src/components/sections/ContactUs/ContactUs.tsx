@@ -17,6 +17,7 @@ export default function ContactUs({ location }: ContactUsProps) {
       phone: '',
       requestType: '',
       message: '',
+      terms: false,
     },
     onSubmit: (values) => {
       // eslint-disable-next-line no-console
@@ -99,6 +100,31 @@ export default function ContactUs({ location }: ContactUsProps) {
               onChange={formik.handleChange}
               value={formik.values.message}
             />
+          </div>
+          <div className="contact-us__input-container">
+            <span className="contact-us__terms-warning">
+              Ao informar meus dados eu eu concordo com a{' '}
+              <a
+                className="contact-us__terms-link"
+                href="/institucional/seguranca-e-privacidade"
+                target="_blank"
+              >
+                Política de Privacidade
+              </a>
+              .
+            </span>
+            <div className="contact-us__terms-container">
+              <input
+                id="terms"
+                name="terms"
+                type="checkbox"
+                onChange={formik.handleChange}
+                checked={formik.values.terms}
+              />
+              <label className="contact-us__terms-label" htmlFor="terms">
+                Eu concordo em receber comunicações
+              </label>
+            </div>
           </div>
           <button className="contact-us__submit-button" type="submit">
             Enviar

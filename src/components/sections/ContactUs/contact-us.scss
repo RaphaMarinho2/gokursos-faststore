@@ -45,6 +45,39 @@
           background-color: #f5f5f5;
           border: none;
         }
+
+        .contact-us__terms-container {
+          display: flex;
+          align-items: center;
+
+          .contact-us__terms-label {
+            margin-left: 6px;
+            font-size: var(--fs-text-size-0);
+            color: #555;
+
+            .contact-us__terms-link {
+              color: #004e98;
+            }
+
+            @include media(">=notebook") {
+              font-size: var(--fs-text-size-1);
+            }
+          }
+        }
+
+        .contact-us__terms-warning {
+          margin-bottom: 9px;
+          font-size: var(--fs-text-size-0);
+          color: #555;
+
+          .contact-us__terms-link {
+            color: #004e98;
+          }
+
+          @include media(">=notebook") {
+            font-size: var(--fs-text-size-1);
+          }
+        }
       }
 
       .contact-us__submit-button {
@@ -52,6 +85,7 @@
         min-width: 156px;
         max-width: 316px;
         height: 40px;
+        margin-top: 32px;
         font-size: var(--fs-text-size-2);
         font-weight: 600;
         color: #fff;
