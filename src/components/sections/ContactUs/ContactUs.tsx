@@ -31,7 +31,7 @@ export default function ContactUs({ location }: ContactUsProps) {
       <div className="contact-us__form-content">
         <h2 className="contact-us__form-title">Envia uma mensagem</h2>
         <form className="contact-us__form" onSubmit={formik.handleSubmit}>
-          <div>
+          <div className="contact-us__main-data-container">
             <div className="contact-us__input-container">
               <label className="contact-us__input-label" htmlFor="customerName">
                 Nome
