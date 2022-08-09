@@ -3,6 +3,8 @@ import { useFormik } from 'formik'
 import InstutionalMenu from '../InstutionalMenu'
 import Section from '../Section'
 
+import './contact-us.scss'
+
 interface ContactUsProps {
   location: string
 }
@@ -23,10 +25,10 @@ export default function ContactUs({ location }: ContactUsProps) {
   })
 
   return (
-    <Section className="layout__content">
+    <Section className="layout__content contact-us__content">
       <InstutionalMenu location={location} />
-      <div>
-        <h2>Envia uma mensagem</h2>
+      <div className="contact-us__form-content">
+        <h2 className="contact-us__form-title">Envia uma mensagem</h2>
         <form onSubmit={formik.handleSubmit}>
           <div>
             <div>

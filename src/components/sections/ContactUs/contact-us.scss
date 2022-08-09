@@ -1,0 +1,27 @@
+@import "src/styles/scaffold";
+
+.contact-us__content {
+  display: flex;
+  flex-direction: column;
+
+  .contact-us__form-content {
+    .contact-us__form-title {
+      margin-bottom: 24px;
+      font-size: var(--fs-text-size-2);
+      font-weight: var(--fs-text-weight-bold);
+      color: #000;
+    }
+
+    @include media(">=notebook") {
+      margin: 32px 0 40px 32px;
+    }
+  }
+
+  @include media(">=notebook") {
+    flex-direction: row;
+
+    .institutional-menu {
+      width: auto;
+    }
+  }
+}
