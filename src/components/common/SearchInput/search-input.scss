@@ -87,3 +87,15 @@
     height: var(--fs-spacing-4);
   }
 }
+
+.search-input-container {
+  [data-store-search-input-dropdown-wrapper] {
+    position: absolute;
+    z-index: 999;
+    background-color: #fff;
+
+    @include media(">=notebook") {
+      width: 600px;
+    }
+  }
+}
