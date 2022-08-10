@@ -1,3 +1,5 @@
+@import "src/styles/scaffold";
+
 .title-container {
   width: 100%;
   padding: 62px 16px;
@@ -12,4 +14,24 @@
     font-size: 32px;
     line-height: 48px;
   }
+}
+
+.institucional-cancel-policy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @include media(">notebook") {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin: 0 auto;
+  }
+}
+
+.text-container {
+  margin-top: 32px;
+  margin-left: 32px;
 }

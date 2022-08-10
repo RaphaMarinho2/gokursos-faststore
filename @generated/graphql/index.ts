@@ -15644,6 +15644,26 @@ export type InstitutionalQuery = {
   } | null
 }
 
+export type InstitutionalCancelPolicyQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
+export type InstitutionalTermsQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
 export type InstitutionalFaqQueryVariables = Exact<{ [key: string]: never }>
 
 export type InstitutionalFaqQuery = {

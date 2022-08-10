@@ -1,13 +1,11 @@
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type { InstitutionalFaqQuery } from '@generated/graphql'
+import type { InstitutionalTermsQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import InstitutionalTerms from 'src/components/sections/InstitutionalTerms/InstitutionalTerms'
 
-export type Props = PageProps<InstitutionalFaqQuery>
+export type Props = PageProps<InstitutionalTermsQuery>
 function Page(props: Props) {
-  console.info('pagina intitucional', props)
-
   return (
     <>
       <InstitutionalTerms location={props.location.pathname} />
@@ -16,7 +14,7 @@ function Page(props: Props) {
 }
 
 export const querySSG = graphql`
-  query InstitutionalFaq {
+  query InstitutionalTerms {
     site {
       siteMetadata {
         title

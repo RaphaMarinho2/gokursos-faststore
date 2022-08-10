@@ -1,22 +1,20 @@
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type { InstitutionalFaqQuery } from '@generated/graphql'
+import type { InstitutionalCancelPolicyQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import InstitutionalTerms from 'src/components/sections/InstitutionalTerms/InstitutionalTerms'
+import InstitutionalCancelPolicy from 'src/components/sections/InstitutionalCancelPolicy/InstitutionalCancelPolicy'
 
-export type Props = PageProps<InstitutionalFaqQuery>
+export type Props = PageProps<InstitutionalCancelPolicyQuery>
 function Page(props: Props) {
-  console.info('pagina intitucional', props)
-
   return (
     <>
-      <InstitutionalTerms location={props.location.pathname} />
+      <InstitutionalCancelPolicy location={props.location.pathname} />
     </>
   )
 }
 
 export const querySSG = graphql`
-  query InstitutionalFaq {
+  query InstitutionalCancelPolicy {
     site {
       siteMetadata {
         title

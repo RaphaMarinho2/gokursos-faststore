@@ -6,9 +6,7 @@ interface InstitutionalCancelPolicyProps {
   text?: string | null
 }
 
-const InstitutionalCancelPolicy = ({
-  location,
-}: InstitutionalCancelPolicyProps) => {
+const AboutUs = ({ location }: InstitutionalCancelPolicyProps) => {
   return (
     <>
       <div className="title-container">
@@ -36,4 +34,4 @@ const InstitutionalCancelPolicy = ({
   )
 }
 
-export default InstitutionalCancelPolicy
+export default AboutUs
