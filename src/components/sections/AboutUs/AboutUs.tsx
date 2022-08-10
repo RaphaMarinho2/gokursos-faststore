@@ -1,12 +1,12 @@
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
 
-interface InstitutionalCancelPolicyProps {
+interface AboutUsProps {
   location: string
   text?: string | null
 }
 
-const AboutUs = ({ location }: InstitutionalCancelPolicyProps) => {
+const AboutUs = ({ location }: AboutUsProps) => {
   return (
     <>
       <div className="title-container">
@@ -16,17 +16,35 @@ const AboutUs = ({ location }: InstitutionalCancelPolicyProps) => {
       <div className="institucional-cancel-policy">
         <InstitutionalMenu location={location} />
         <div className="text-container">
+          <span>Somos especialistas em educação digital</span>
           <p>
-            Nossa política de cancelamento tem como base o Código de Defesa do
-            Consumidor. Sendo assim, para cancelamento o prazo é de até 7 (sete)
-            dias corridos após a data da compra do curso. Após solicitar o
-            cancelamento do seu pedido, nossa equipe irá entrar em contato para
-            realizar os trâmites do reembolso. Para realização do reembolso,
-            será necessário o envio dos dados bancários em nome do próprio
-            cliente e comprovante do pagamento. O prazo para que haja o crédito
-            na conta do favorecido é de até 10 (dez) dias úteis, contados a
-            partir do recebimento de todos os dados necessários ao procedimento
-            do reembolso.
+            Acreditamos que o acesso ao conhecimento é fundamental para
+            transformar sonhos em oportunidades. Oferecemos centenas de cursos
+            em diversas áreas de ensino e simplificamos o aprendizado através de
+            capacitações online e certificações reconhecidas no mercado de
+            trabalho.
+          </p>
+          <span>Qual o nosso objetivo?</span>
+          <p>
+            Ajudamos profissionais de todas as áreas a desenvolverem habilidades
+            atualizadas ao mercado de trabalho e ampliamos o conhecimento de
+            estudantes de todos os cantos do Brasil. Nosso compromisso é
+            oferecer conteúdo de qualidade para ajudar nossos alunos a
+            conquistarem seus objetivos pessoais e profissionais.
+          </p>
+          <span>Nós somos o futuro da educação</span>
+          <p>
+            O mundo está em constante evolução e a transformação digital exige
+            novos formatos de ensino. Para acompanhar este ritmo, nossa missão é
+            compartilhar conhecimento de forma inovadora, simplificada,
+            acessível e ágil.
+          </p>
+          <span>E como fazemos isso, na prática?</span>
+          <p>
+            Temos professores altamente capacitados, com experiência no mercado
+            de trabalho. As aulas são 100% online, disponibilizadas em uma
+            plataforma completa. Somos experientes: fazemos parte do Grupo Ser
+            Educacional, a maior organização de ensino do país.
           </p>
         </div>
       </div>
