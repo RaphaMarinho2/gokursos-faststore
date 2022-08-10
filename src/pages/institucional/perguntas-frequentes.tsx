@@ -5,6 +5,8 @@ import { mark } from 'src/sdk/tests/mark'
 import InstitutionalCommonQuestion from 'src/components/sections/InstitutionalCommonQuestion/InstitutionalCommonQuestion'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 
+import commonQuestions from '../../mocks/commonQuestions.json'
+
 export type Props = PageProps<InstitutionalFaqQuery>
 function Page(props: Props) {
   console.info('pagina intitucional', props)
@@ -21,7 +23,10 @@ function Page(props: Props) {
         ]}
         name="Perguntas Frequentes"
       />
-      <InstitutionalCommonQuestion location={props.location.pathname} />
+      <InstitutionalCommonQuestion
+        location={props.location.pathname}
+        asnwersAndQuestions={commonQuestions}
+      />
     </>
   )
 }
