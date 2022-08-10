@@ -2,8 +2,8 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { InstitutionalFaqQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import InstitutionalCommonQuestion from 'src/components/sections/InstitutionalCommonQuestion/InstitutionalCommonQuestion'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
+import InstitutionalFrequentQuestions from 'src/components/sections/InstitutionalFrequentQuestions/InstitutionalFrequentQuestions'
 
 import commonQuestions from '../../mocks/commonQuestions.json'
 
@@ -23,7 +23,7 @@ function Page(props: Props) {
         ]}
         name="Perguntas Frequentes"
       />
-      <InstitutionalCommonQuestion
+      <InstitutionalFrequentQuestions
         location={props.location.pathname}
         asnwersAndQuestions={commonQuestions}
       />

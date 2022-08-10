@@ -2,7 +2,7 @@ import CommonQuestions from '../CommonQuestions'
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
 
-interface InstitutionalCommonQuestionProps {
+interface InstitutionalFrequentQuestionsProps {
   location: string
   asnwersAndQuestions: Array<{
     question: string | null
@@ -12,17 +12,17 @@ interface InstitutionalCommonQuestionProps {
   }>
 }
 
-const InstitutionalCommonQuestion = ({
+const InstitutionalFrequentQuestions = ({
   location,
   asnwersAndQuestions,
-}: InstitutionalCommonQuestionProps) => {
+}: InstitutionalFrequentQuestionsProps) => {
   return (
     <>
       <div className="title-container">
         <p>Perguntas Frequentes</p>
       </div>
 
-      <div className="institucional-common-questions">
+      <div className="institutional-frequent-questions">
         <InstitutionalMenu location={location} />
         <CommonQuestions nodes={asnwersAndQuestions} />
       </div>
@@ -30,4 +30,4 @@ const InstitutionalCommonQuestion = ({
   )
 }
 
-export default InstitutionalCommonQuestion
+export default InstitutionalFrequentQuestions
