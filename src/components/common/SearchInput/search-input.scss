@@ -91,11 +91,13 @@
 .search-input-container {
   [data-store-search-input-dropdown-wrapper] {
     position: absolute;
+    left: 0;
     z-index: 999;
-    padding: 10px 24px;
+    width: 100%;
     background-color: #fff;
 
     @include media(">=notebook") {
+      left: unset;
       width: 600px;
     }
   }

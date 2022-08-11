@@ -6,9 +6,11 @@ import type { HTMLAttributes } from 'react'
 
 import SuggestionProductCard from '../SuggestionProductCard'
 
+import './suggestions.scss'
+
 // const MAX_SUGGESTIONS = 10
 // const MAX_SUGGESTIONS_WITH_PRODUCTS = 5
-const MAX_SUGGESTED_PRODUCTS = 4
+const MAX_SUGGESTED_PRODUCTS = 8
 const SUGGESTED_PRODUCTS = [
   {
     name: 'Ergonomic Wooden Bacon',
@@ -23,6 +25,72 @@ const SUGGESTED_PRODUCTS = [
   },
   {
     name: 'Handcrafted Rubber Sausages',
+    listPrice: 59.57,
+    price: 32.83,
+    image: [
+      {
+        alternateName: 'ea',
+        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
+      },
+    ],
+  },
+  {
+    name: 'Ergonomic Wooden Bacon 2',
+    listPrice: 72.06,
+    price: 46.26,
+    image: [
+      {
+        alternateName: 'rerum',
+        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
+      },
+    ],
+  },
+  {
+    name: 'Handcrafted Rubber Sausages 2',
+    listPrice: 59.57,
+    price: 32.83,
+    image: [
+      {
+        alternateName: 'ea',
+        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
+      },
+    ],
+  },
+  {
+    name: 'Ergonomic Wooden Bacon 3',
+    listPrice: 72.06,
+    price: 46.26,
+    image: [
+      {
+        alternateName: 'rerum',
+        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
+      },
+    ],
+  },
+  {
+    name: 'Handcrafted Rubber Sausages 3',
+    listPrice: 59.57,
+    price: 32.83,
+    image: [
+      {
+        alternateName: 'ea',
+        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
+      },
+    ],
+  },
+  {
+    name: 'Ergonomic Wooden Bacon 4',
+    listPrice: 72.06,
+    price: 46.26,
+    image: [
+      {
+        alternateName: 'rerum',
+        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
+      },
+    ],
+  },
+  {
+    name: 'Handcrafted Rubber Sausages 4',
     listPrice: 59.57,
     price: 32.83,
     image: [
