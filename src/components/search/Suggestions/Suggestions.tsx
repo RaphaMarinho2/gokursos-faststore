@@ -122,7 +122,7 @@ const Suggestions = forwardRef<HTMLDivElement, SuggestionsProps>(
 
         {SUGGESTED_PRODUCTS.length > 0 && (
           <div className="suggestions__section">
-            <p className="suggestions__title">Suggested Products</p>
+            <p className="suggestions__title">{`Busca por "${term}"`}</p>
             <UIList>
               {SUGGESTED_PRODUCTS.slice(0, MAX_SUGGESTED_PRODUCTS).map(
                 (product, index) => (
