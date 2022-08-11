@@ -14,8 +14,8 @@ const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
 
       <div className="institutional-about-us">
         <InstitutionalMenu location={location} />
-        <div>
-          <p>Somos especialistas em educação digital</p>
+        <div className="text-container">
+          <h1>Somos especialistas em educação digital</h1>
           <p>
             Acreditamos que o acesso ao conhecimento é fundamental para
             transformar sonhos em oportunidades. Oferecemos centenas de cursos
@@ -23,7 +23,7 @@ const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
             capacitações online e certificações reconhecidas no mercado de
             trabalho.
           </p>
-          <p>Qual o nosso objetivo?</p>
+          <h1>Qual o nosso objetivo?</h1>
           <p>
             Ajudamos profissionais de todas as áreas a desenvolverem habilidades
             atualizadas ao mercado de trabalho e ampliamos o conhecimento de
@@ -31,19 +31,23 @@ const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
             oferecer conteúdo de qualidade para ajudar nossos alunos a
             conquistarem seus objetivos pessoais e profissionais.
           </p>
-          <p>Nós somos o futuro da educação</p>
+          <h1>Nós somos o futuro da educação</h1>
           <p>
             O mundo está em constante evolução e a transformação digital exige
             novos formatos de ensino. Para acompanhar este ritmo, nossa missão é
             compartilhar conhecimento de forma inovadora, simplificada,
             acessível e ágil.
           </p>
-          <p>E como fazemos isso, na prática?</p>
+          <h1>E como fazemos isso, na prática?</h1>
           <p>
-            Temos professores altamente capacitados, com experiência no mercado
-            de trabalho. As aulas são 100% online, disponibilizadas em uma
-            plataforma completa. Somos experientes: fazemos parte do Grupo Ser
-            Educacional, a maior organização de ensino do país.
+            • Temos professores altamente capacitados, com experiência no
+            mercado de trabalho.
+            <p>
+              • As aulas são 100% online, disponibilizadas em uma plataforma
+              completa.
+            </p>
+            • Somos experientes: fazemos parte do Grupo Ser Educacional, a maior
+            organização de ensino do país.
           </p>
         </div>
       </div>

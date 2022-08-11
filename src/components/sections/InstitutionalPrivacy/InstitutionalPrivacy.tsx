@@ -16,7 +16,6 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
         <InstitutionalMenu location={location} />
         <div className="text-container">
           <h1>Aviso de Privacidade - GoKursos</h1>
-          <p>Privacidade - GoKursos</p>
           <p>
             O site www.gokursos.com é um serviço interativo, oferecido por meio
             de página eletrônica na internet, que disponibiliza aos usuários uma
@@ -27,7 +26,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
             Deste modo, recomendamos que consulte a nossa política de
             privacidade com regularidade.
           </p>
-          <p>Uso das informações e confidencialidade</p>
+          <h1>Uso das informações e confidencialidade</h1>
           <p>
             1. A GoKursos poderá, a partir do acesso do USUÁRIO, coletar e
             armazenar todas as informações a seu respeito, inclusive as
@@ -101,7 +100,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
             concorde com algum dos termos e regras aqui previstos, não deverá
             utilizar seu conteúdo.
           </p>
-          <p>Os Anúncios</p>
+          <h1>Os Anúncios</h1>
           <p>
             1. Tal como outros websites, coletamos e utilizamos informação
             contida nos anúncios.
@@ -118,7 +117,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
             responsabilidade única e exclusiva dos anunciantes. Ligações a Sites
             de terceiros
           </p>
-          <p>Ligações e Sites Terceiros</p>
+          <h1>Ligações e Sites Terceiros</h1>
           <p>
             1. O site da GoKursos possui ligações para outros sites, a fim de
             proporcionar uma melhor experiência aos usuários;

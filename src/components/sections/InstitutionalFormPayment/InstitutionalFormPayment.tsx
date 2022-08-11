@@ -1,4 +1,5 @@
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
+import './style.scss'
 
 interface InstitutionalFormpaymentProps {
   location: string

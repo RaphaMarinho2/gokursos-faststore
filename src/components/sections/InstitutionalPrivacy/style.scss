@@ -16,7 +16,7 @@
   }
 }
 
-.institucional-terms {
+.institucional-privacy {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,11 +31,39 @@
   }
 
   .text-container {
-    margin-top: 32px;
-    margin-left: 32px;
+    padding: 16px;
+
+    @include media(">=notebook") {
+      width: 65%;
+      padding: unset;
+      margin-top: 32px;
+      margin-left: 32px;
+    }
+  }
+
+  h1 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #000000;
+
+    @include media(">=notebook") {
+      font-size: 20px;
+      line-height: 30px;
+    }
   }
 
   p {
-    margin-top: 50px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+
+    @include media(">=notebook") {
+      margin-top: 32px;
+      margin-bottom: 45px;
+      font-size: 16px;
+    }
   }
 }

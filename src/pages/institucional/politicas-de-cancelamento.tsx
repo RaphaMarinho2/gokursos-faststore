@@ -2,12 +2,23 @@ import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { InstitutionalCancelPolicyQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
+import Breadcrumb from 'src/components/sections/Breadcrumb'
 import InstitutionalCancelPolicy from 'src/components/sections/InstitutionalCancelPolicy/InstitutionalCancelPolicy'
 
 export type Props = PageProps<InstitutionalCancelPolicyQuery>
 function Page(props: Props) {
   return (
     <>
+      <Breadcrumb
+        breadcrumbList={[
+          {
+            name: 'Políticas de Privacidade',
+            item: '',
+            position: 1,
+          },
+        ]}
+        name="Políticas de Privacidade"
+      />
       <InstitutionalCancelPolicy location={props.location.pathname} />
     </>
   )

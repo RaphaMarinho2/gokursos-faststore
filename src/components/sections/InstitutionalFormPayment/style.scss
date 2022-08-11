@@ -16,7 +16,7 @@
   }
 }
 
-.institucional-cancel-policy {
+.institucional-form-payment {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,8 +31,24 @@
   }
 
   .text-container {
-    width: 65%;
-    margin-top: 32px;
-    margin-left: 32px;
+    padding: 16px;
+
+    @include media(">=notebook") {
+      width: 65%;
+      padding: unset;
+      margin-top: 32px;
+      margin-left: 32px;
+    }
+  }
+
+  p {
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+
+    @include media(">=notebook") {
+      font-size: 16px;
+    }
   }
 }
