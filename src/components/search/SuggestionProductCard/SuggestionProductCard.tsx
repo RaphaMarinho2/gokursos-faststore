@@ -1,7 +1,7 @@
 import { Card, CardContent, CardImage } from '@faststore/ui'
 import { Image } from 'src/components/ui/Image'
-import Price from 'src/components/ui/Price'
-import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
+
+import './suggestion-product-card.scss'
 
 // TODO: Remove it when integration is complete
 const PRODUCTS = [
@@ -24,8 +24,6 @@ function SuggestionProductCard({
 }) {
   const {
     name,
-    listPrice,
-    price,
     image: [img],
   } = product
 
@@ -42,26 +40,6 @@ function SuggestionProductCard({
           <p className="text__title-mini" data-suggestion-product-card-title>
             {name}
           </p>
-          <span data-suggestion-product-card-prices>
-            <Price
-              value={listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={listPrice}
-              variant="listing"
-              classes="text__legend"
-              SRText="Original price:"
-            />
-            <Price
-              value={price}
-              formatter={useFormattedPrice}
-              testId="price"
-              data-value={price}
-              variant="spot"
-              classes="text__title-mini"
-              SRText="Price:"
-            />
-          </span>
         </div>
       </CardContent>
     </Card>
