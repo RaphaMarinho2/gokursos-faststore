@@ -3,9 +3,7 @@ import { graphql } from 'gatsby'
 import type { InstitutionalFaqQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import InstitutionalFrequentQuestions from 'src/components/sections/InstitutionalFrequentQuestions/InstitutionalFrequentQuestions'
-
-import commonQuestions from '../../mocks/commonQuestions.json'
+import InstitutionalFrequentQuestions from 'src/components/sections/InstitutionalFrequentQuestions'
 
 export type Props = PageProps<InstitutionalFaqQuery>
 function Page(props: Props) {
@@ -23,10 +21,7 @@ function Page(props: Props) {
         ]}
         name="Perguntas Frequentes"
       />
-      <InstitutionalFrequentQuestions
-        location={props.location.pathname}
-        asnwersAndQuestions={commonQuestions}
-      />
+      <InstitutionalFrequentQuestions location={props.location.pathname} />
     </>
   )
 }
