@@ -33,12 +33,19 @@
 
   [data-suggestion-product-card-title] {
     margin-bottom: var(--fs-spacing-0);
+    font-size: var(--fs-text-size-1);
+    font-weight: 600;
     line-height: 18px;
     color: #000;
     text-decoration: none;
     outline: none;
 
     @include truncate-title;
+
+    @include media(">=notebook") {
+      font-size: var(--fs-text-size-2);
+      line-height: 20px;
+    }
   }
 
   [data-suggestion-product-card-prices] {

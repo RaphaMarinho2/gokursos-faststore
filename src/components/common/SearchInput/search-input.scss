@@ -99,11 +99,25 @@
     .suggestions {
       .suggestions__section {
         [data-store-list] {
-          max-height: 338px;
+          max-height: 317px;
           overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: #666 #ddd;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #ddd;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #666;
+          }
 
           @include media(">=notebook") {
-            max-height: 440px;
+            max-height: 428px;
           }
         }
       }
