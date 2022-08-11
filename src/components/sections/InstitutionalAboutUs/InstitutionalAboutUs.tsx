@@ -3,20 +3,19 @@ import './style.scss'
 
 interface AboutUsProps {
   location: string
-  text?: string | null
 }
 
-const AboutUs = ({ location }: AboutUsProps) => {
+const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
   return (
     <>
       <div className="title-container">
-        <p>Políticas de Cancelamento</p>
+        <p>Quem somos</p>
       </div>
 
-      <div className="institucional-cancel-policy">
+      <div className="institutional-about-us">
         <InstitutionalMenu location={location} />
-        <div className="text-container">
-          <span>Somos especialistas em educação digital</span>
+        <div>
+          <p>Somos especialistas em educação digital</p>
           <p>
             Acreditamos que o acesso ao conhecimento é fundamental para
             transformar sonhos em oportunidades. Oferecemos centenas de cursos
@@ -24,7 +23,7 @@ const AboutUs = ({ location }: AboutUsProps) => {
             capacitações online e certificações reconhecidas no mercado de
             trabalho.
           </p>
-          <span>Qual o nosso objetivo?</span>
+          <p>Qual o nosso objetivo?</p>
           <p>
             Ajudamos profissionais de todas as áreas a desenvolverem habilidades
             atualizadas ao mercado de trabalho e ampliamos o conhecimento de
@@ -32,14 +31,14 @@ const AboutUs = ({ location }: AboutUsProps) => {
             oferecer conteúdo de qualidade para ajudar nossos alunos a
             conquistarem seus objetivos pessoais e profissionais.
           </p>
-          <span>Nós somos o futuro da educação</span>
+          <p>Nós somos o futuro da educação</p>
           <p>
             O mundo está em constante evolução e a transformação digital exige
             novos formatos de ensino. Para acompanhar este ritmo, nossa missão é
             compartilhar conhecimento de forma inovadora, simplificada,
             acessível e ágil.
           </p>
-          <span>E como fazemos isso, na prática?</span>
+          <p>E como fazemos isso, na prática?</p>
           <p>
             Temos professores altamente capacitados, com experiência no mercado
             de trabalho. As aulas são 100% online, disponibilizadas em uma
@@ -52,4 +51,4 @@ const AboutUs = ({ location }: AboutUsProps) => {
   )
 }
 
-export default AboutUs
+export default InstitutionalAboutUs

@@ -1,22 +1,20 @@
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type { InstitutionalAboutUsQuery } from '@generated/graphql'
+import type { InstitutionalPrivacyQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import InstitutionalAboutUs from 'src/components/sections/InstitutionalAboutUs/InstitutionalAboutUs'
+import InstitutionalPrivacy from 'src/components/sections/InstitutionalPrivacy/InstitutionalPrivacy'
 
-export type Props = PageProps<InstitutionalAboutUsQuery>
+export type Props = PageProps<InstitutionalPrivacyQuery>
 function Page(props: Props) {
-  console.info('pagina intitucional', props)
-
   return (
     <>
-      <InstitutionalAboutUs location={props.location.pathname} />
+      <InstitutionalPrivacy location={props.location.pathname} />
     </>
   )
 }
 
 export const querySSG = graphql`
-  query InstitutionalAboutUs {
+  query InstitutionalPrivacy {
     site {
       siteMetadata {
         title

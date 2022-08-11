@@ -1,22 +1,20 @@
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type { InstitutionalAboutUsQuery } from '@generated/graphql'
+import type { InstitutionalFormPaymentQuery } from '@generated/graphql'
 import { mark } from 'src/sdk/tests/mark'
-import InstitutionalAboutUs from 'src/components/sections/InstitutionalAboutUs/InstitutionalAboutUs'
+import InstitutionalFormPayment from 'src/components/sections/InstitutionalFormPayment'
 
-export type Props = PageProps<InstitutionalAboutUsQuery>
+export type Props = PageProps<InstitutionalFormPaymentQuery>
 function Page(props: Props) {
-  console.info('pagina intitucional', props)
-
   return (
     <>
-      <InstitutionalAboutUs location={props.location.pathname} />
+      <InstitutionalFormPayment location={props.location.pathname} />
     </>
   )
 }
 
 export const querySSG = graphql`
-  query InstitutionalAboutUs {
+  query InstitutionalFormPayment {
     site {
       siteMetadata {
         title
