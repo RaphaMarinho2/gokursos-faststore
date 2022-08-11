@@ -5,6 +5,7 @@ import {
 } from '@faststore/sdk'
 import { SearchInput as UISearchInput } from '@faststore/ui'
 import { navigate } from 'gatsby'
+import type { ChangeEvent } from 'react'
 import { forwardRef, Suspense, useState, useRef } from 'react'
 import useSearchHistory from 'src/sdk/search/useSearchHistory'
 import type { SearchEvent } from '@faststore/sdk'
@@ -44,6 +45,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
     ref
   ) {
     const [searchDropdownOpen, setSearchDropdownOpen] = useState<boolean>(false)
+    const [searchQuery, setSearchQuery] = useState<string>('')
     const searchRef = useRef<HTMLDivElement>(null)
     const { addToSearchHistory } = useSearchHistory()
     const handleSearch = (term: string) => {
@@ -52,6 +54,10 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
     }
 
     useOnClickOutside(searchRef, () => setSearchDropdownOpen(false))
+
+    const handleChangeTerm = (event: ChangeEvent<{ value: string }>) => {
+      setSearchQuery(event.target.value)
+    }
 
     return (
       <div className="search-input-container" ref={searchRef}>
@@ -77,12 +83,13 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
           placeholder="O que você quer aprender?"
           onSubmit={handleSearch}
           onFocus={() => setSearchDropdownOpen(true)}
+          onChange={handleChangeTerm}
           {...props}
         />
         {searchDropdownOpen && (
           <Suspense fallback={null}>
             <div data-store-search-input-dropdown-wrapper>
-              <SearchDropdown term="teste" />
+              <SearchDropdown term={searchQuery} />
             </div>
           </Suspense>
         )}

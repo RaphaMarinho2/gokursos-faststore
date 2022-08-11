@@ -1,28 +1,31 @@
 // import type { SearchSuggestionsProps } from 'src/components/search/SearchSuggestions'
-// import useSuggestions from 'src/sdk/search/useSuggestions'
+import useSuggestions from 'src/sdk/search/useSuggestions'
 
 import type { SuggestionsProps } from '../Suggestions'
 import Suggestions from '../Suggestions'
 
-export type SearchDropdownProps = SuggestionsProps
+export type SearchDropdownProps = Omit<SuggestionsProps, 'products'>
 
 function SearchDropdown({
   term = '',
-  // history,
   style,
   ...otherProps
 }: SearchDropdownProps) {
-  // const { terms, products, isLoading } = useSuggestions(term)
+  const { products, isLoading } = useSuggestions(term)
 
-  // if (isLoading) {
-  //   return <p data-fs-search-input-loading-text>Loading...</p>
-  // }
+  if (!term) {
+    return <></>
+  }
 
-  // if (terms.length === 0 && products.length === 0) {
-  //   return null
-  // }
+  if (isLoading) {
+    return <p data-fs-search-input-loading-text>Loading...</p>
+  }
 
-  return <Suggestions term={term} {...otherProps} />
+  if (products.length === 0) {
+    return <></>
+  }
+
+  return <Suggestions term={term} products={products} {...otherProps} />
 }
 
 export default SearchDropdown

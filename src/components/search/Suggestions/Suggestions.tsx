@@ -10,97 +10,6 @@ import './suggestions.scss'
 
 // const MAX_SUGGESTIONS = 10
 // const MAX_SUGGESTIONS_WITH_PRODUCTS = 5
-const MAX_SUGGESTED_PRODUCTS = 8
-const SUGGESTED_PRODUCTS = [
-  {
-    name: 'Ergonomic Wooden Bacon',
-    listPrice: 72.06,
-    price: 46.26,
-    image: [
-      {
-        alternateName: 'rerum',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
-      },
-    ],
-  },
-  {
-    name: 'Handcrafted Rubber Sausages',
-    listPrice: 59.57,
-    price: 32.83,
-    image: [
-      {
-        alternateName: 'ea',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
-      },
-    ],
-  },
-  {
-    name: 'Ergonomic Wooden Bacon 2',
-    listPrice: 72.06,
-    price: 46.26,
-    image: [
-      {
-        alternateName: 'rerum',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
-      },
-    ],
-  },
-  {
-    name: 'Handcrafted Rubber Sausages 2',
-    listPrice: 59.57,
-    price: 32.83,
-    image: [
-      {
-        alternateName: 'ea',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
-      },
-    ],
-  },
-  {
-    name: 'Ergonomic Wooden Bacon 3',
-    listPrice: 72.06,
-    price: 46.26,
-    image: [
-      {
-        alternateName: 'rerum',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
-      },
-    ],
-  },
-  {
-    name: 'Handcrafted Rubber Sausages 3',
-    listPrice: 59.57,
-    price: 32.83,
-    image: [
-      {
-        alternateName: 'ea',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
-      },
-    ],
-  },
-  {
-    name: 'Ergonomic Wooden Bacon 4',
-    listPrice: 72.06,
-    price: 46.26,
-    image: [
-      {
-        alternateName: 'rerum',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/167285/ut.jpg?v=637753017045600000',
-      },
-    ],
-  },
-  {
-    name: 'Handcrafted Rubber Sausages 4',
-    listPrice: 59.57,
-    price: 32.83,
-    image: [
-      {
-        alternateName: 'ea',
-        url: 'http://storeframework.vtexassets.com/arquivos/ids/155949/voluptas.jpg?v=637752878341070000',
-      },
-    ],
-  },
-]
 
 // const SUGGESTIONS = ['Sony MX', 'Sony MV-100 Headphone', 'Sony M2000 Earbuds']
 
@@ -148,19 +57,14 @@ const SUGGESTED_PRODUCTS = [
 // }
 
 export interface SuggestionsProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * ID to find this component in testing tools (e.g.: cypress, testing library, and jest).
-   */
   testId?: string
-  /**
-   * Search term
-   */
-  term?: string
+  term: string
+  products: any
 }
 
 const Suggestions = forwardRef<HTMLDivElement, SuggestionsProps>(
   function Suggestions(
-    { testId = 'suggestions', term = '', ...otherProps },
+    { testId = 'suggestions', term = '', products = [], ...otherProps },
     ref
   ) {
     // const suggestions =
@@ -188,19 +92,17 @@ const Suggestions = forwardRef<HTMLDivElement, SuggestionsProps>(
           </UIList>
         )} */}
 
-        {SUGGESTED_PRODUCTS.length > 0 && (
+        {products.length > 0 && (
           <div className="suggestions__section">
             <p className="suggestions__title">{`Busca por "${term}"`}</p>
             <UIList>
-              {SUGGESTED_PRODUCTS.slice(0, MAX_SUGGESTED_PRODUCTS).map(
-                (product, index) => (
-                  <li key={index} className="suggestions__item">
-                    <Link to="/" variant="display">
-                      <SuggestionProductCard product={product} />
-                    </Link>
-                  </li>
-                )
-              )}
+              {products.map((product: any, index: number) => (
+                <li key={index} className="suggestions__item">
+                  <Link to="/" variant="display">
+                    <SuggestionProductCard product={product} />
+                  </Link>
+                </li>
+              ))}
             </UIList>
           </div>
         )}
