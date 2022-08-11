@@ -92,6 +92,7 @@
   [data-store-search-input-dropdown-wrapper] {
     position: absolute;
     z-index: 999;
+    padding: 10px 24px;
     background-color: #fff;
 
     @include media(">=notebook") {
