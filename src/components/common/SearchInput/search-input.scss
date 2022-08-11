@@ -96,6 +96,19 @@
     width: 100%;
     background-color: #fff;
 
+    .suggestions {
+      .suggestions__section {
+        [data-store-list] {
+          max-height: 338px;
+          overflow-y: auto;
+
+          @include media(">=notebook") {
+            max-height: 440px;
+          }
+        }
+      }
+    }
+
     @include media(">=notebook") {
       left: unset;
       width: 600px;
