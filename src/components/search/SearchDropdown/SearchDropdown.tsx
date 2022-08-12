@@ -3,6 +3,9 @@ import useSuggestions from 'src/sdk/search/useSuggestions'
 
 import type { SuggestionsProps } from '../Suggestions'
 import Suggestions from '../Suggestions'
+import SearchDropdownSkeleton from './SearchDropdownSkeleton'
+
+import './search-dropdown.scss'
 
 export type SearchDropdownProps = Omit<SuggestionsProps, 'products'>
 
@@ -18,7 +21,7 @@ function SearchDropdown({
   }
 
   if (isLoading) {
-    return <p data-fs-search-input-loading-text>Loading...</p>
+    return <SearchDropdownSkeleton />
   }
 
   if (products.length === 0) {
