@@ -98,7 +98,7 @@ const Suggestions = forwardRef<HTMLDivElement, SuggestionsProps>(
             <UIList>
               {products.map((product: any, index: number) => (
                 <li key={index} className="suggestions__item">
-                  <Link to="/" variant="display">
+                  <Link to={`/${product.LinkId}/p`} variant="display">
                     <SuggestionProductCard product={product} />
                   </Link>
                 </li>
