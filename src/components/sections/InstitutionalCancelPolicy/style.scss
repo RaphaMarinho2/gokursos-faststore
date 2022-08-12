@@ -31,8 +31,19 @@
   }
 
   .text-container {
-    width: 65%;
-    margin-top: 32px;
-    margin-left: 32px;
+    width: 85%;
+
+    p {
+      margin-bottom: 170px;
+      font-size: 14px;
+      line-height: 19px;
+      color: #000000;
+    }
+
+    @include media(">=notebook") {
+      margin-top: 32px;
+      margin-left: 32px;
+      line-height: 24px;
+    }
   }
 }
