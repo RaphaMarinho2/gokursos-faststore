@@ -11,7 +11,7 @@ const InstitutionalFormpayment = ({
   return (
     <>
       <div className="title-container">
-        <p>Formas de pagamento</p>
+        <p className="layout__content">Formas de pagamento</p>
       </div>
 
       <div className="institucional-form-payment">

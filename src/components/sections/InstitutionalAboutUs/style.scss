@@ -10,7 +10,7 @@
   background: #004e98;
 
   @include media(">=notebook") {
-    padding: 92px 152px;
+    padding: 92px 0;
     font-size: 32px;
     line-height: 48px;
   }

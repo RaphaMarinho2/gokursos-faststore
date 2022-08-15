@@ -9,7 +9,7 @@ const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
   return (
     <>
       <div className="title-container">
-        <p>Quem somos</p>
+        <p className="layout__content">Quem somos</p>
       </div>
 
       <div className="institutional-about-us">

@@ -14,7 +14,7 @@ const InstitutionalTerms = ({ location }: InstitutionalTermsProps) => {
   return (
     <>
       <div className="title-container">
-        <p>Termos de uso</p>
+        <p className="layout__content">Termos de uso</p>
       </div>
 
       <div className="institucional-terms">

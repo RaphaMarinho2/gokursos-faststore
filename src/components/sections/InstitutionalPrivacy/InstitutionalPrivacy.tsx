@@ -13,8 +13,8 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
 
   return (
     <>
-      <div className="title-container">
-        <p>Segurança e Privacidade</p>
+      <div className="title-container-privacy ">
+        <p className="layout__content">Segurança e Privacidade</p>
       </div>
 
       <div className="institucional-privacy">

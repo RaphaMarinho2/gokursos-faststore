@@ -12,7 +12,7 @@ const InstitutionalCancelPolicy = ({
   return (
     <>
       <div className="title-container">
-        <p>Políticas de Cancelamento</p>
+        <p className="layout__content">Políticas de Cancelamento</p>
       </div>
 
       <div className="institucional-cancel-policy">

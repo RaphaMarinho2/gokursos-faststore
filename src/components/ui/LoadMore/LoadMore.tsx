@@ -13,11 +13,13 @@ const LoadMore = ({ loadMoreText, setMaxHeight }: LoadMoreProps) => {
     setMaxHeight('100%')
   }
 
+  if (!isShowMore) {
+    return <></>
+  }
+
   return (
     <div className="load-more-btn">
-      {isShowMore && (
-        <button onClick={handleClick}>{loadMoreText ?? 'Carregar mais'}</button>
-      )}
+      <button onClick={handleClick}>{loadMoreText ?? 'Carregar mais'}</button>
     </div>
   )
 }
