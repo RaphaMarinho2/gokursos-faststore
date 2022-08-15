@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { useImage } from './useImage'
@@ -7,9 +7,11 @@ import './image.scss'
 
 interface Props extends ImageOptions {
   preload?: boolean
+  fallbackImage?: React.ReactNode
 }
 
-function Image({ preload = false, ...otherProps }: Props) {
+function Image({ preload = false, fallbackImage, ...otherProps }: Props) {
+  const [imageError, setImageError] = useState<boolean>(false)
   const imgProps = useImage(otherProps)
   const { src, sizes = '100vw', srcSet } = imgProps
 
@@ -28,7 +30,16 @@ function Image({ preload = false, ...otherProps }: Props) {
           ]}
         />
       )}
-      <img data-store-image {...imgProps} alt={imgProps.alt} />
+      {imageError && fallbackImage ? (
+        fallbackImage
+      ) : (
+        <img
+          data-store-image
+          {...imgProps}
+          alt={imgProps.alt}
+          onError={() => setImageError(true)}
+        />
+      )}
     </>
   )
 }

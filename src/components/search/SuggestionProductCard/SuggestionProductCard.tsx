@@ -1,4 +1,5 @@
 import { Card, CardContent, CardImage } from '@faststore/ui'
+import SuggestionImageFallback from 'src/components/icons/SuggestionImageFallback'
 import { Image } from 'src/components/ui/Image'
 
 import './suggestion-product-card.scss'
@@ -17,7 +18,13 @@ function SuggestionProductCard({ product }: SuggestionProductCardProps) {
     >
       <CardContent>
         <CardImage>
-          <Image src={imageURL} alt={name} width={56} height={56} />
+          <Image
+            src={imageURL}
+            alt={name}
+            width={56}
+            height={56}
+            fallbackImage={<SuggestionImageFallback />}
+          />
         </CardImage>
         <div data-suggestion-product-card-summary>
           <p className="text__title-mini" data-suggestion-product-card-title>
