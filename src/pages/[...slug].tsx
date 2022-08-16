@@ -2,7 +2,11 @@ import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import { mark } from 'src/sdk/tests/mark'
-import { SearchProvider, parseSearchState, useSession } from '@faststore/sdk'
+import {
+  SearchProvider as FSSearchProvider,
+  parseSearchState,
+  useSession,
+} from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
@@ -16,6 +20,7 @@ import queryContentful from 'src/sdk/contentful/queryContentful'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import BannerCategory from 'src/components/sections/BannerCategory'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
 interface PageCMSDepartmentCategoryType {
   title: string
@@ -113,7 +118,7 @@ function Page(props: Props) {
       : `/${slug}/${pageQuery}`
 
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
@@ -155,14 +160,16 @@ function Page(props: Props) {
         imageBannerMobile={bannerImageMobile?.url}
       />
 
-      <ProductGallery
-        products={products}
-        productsCount={productsCount}
-        title={title}
-      />
+      <SearchProvider slug={slug}>
+        <ProductGallery
+          products={products}
+          productsCount={productsCount}
+          title={title}
+        />
+      </SearchProvider>
 
       <ScrollToTopButton />
-    </SearchProvider>
+    </FSSearchProvider>
   )
 }
 
@@ -206,9 +213,6 @@ export const getServerData = async (props: Props) => {
     params: { slug },
   } = props
 
-  const categoryName = slug.includes('/') && slug.split('/')[1]
-  const departmentName = !slug.includes('/') && slug
-
   try {
     const body = {
       query: DepartmentCategoryPageQuery,
@@ -222,17 +226,19 @@ export const getServerData = async (props: Props) => {
     })
 
     const productsData = await axios
-      .get('/api/getDepartmentOrCategory', {
-        proxy: {
-          protocol: '',
-          host: '',
-          port: 8000,
+      .post(
+        '/api/getDepartmentOrCategory',
+        {
+          slug,
         },
-        params: {
-          departmentName,
-          categoryName,
-        },
-      })
+        {
+          proxy: {
+            protocol: '',
+            host: '',
+            port: 8000,
+          },
+        }
+      )
       .then(({ data }) => data)
       .catch((err) => console.error(err))
 

@@ -1,17 +1,15 @@
-import { usePagination, useSearch } from '@faststore/sdk'
+import { usePagination, useSearch as useFSSearch } from '@faststore/sdk'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import { lazy, Suspense, useState } from 'react'
-// import Filter from 'src/components/search/Filter'
+import { lazy, useState, useEffect } from 'react'
 import Sort from 'src/components/search/Sort'
-// import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
-// import productGalleryQuery2 from 'src/mocks/productGalleryQuery2.json'
 import PLPFilters from 'src/components/search/PLPFilters'
+import useSearch from 'src/contexts/SearchContext/useSearch'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -21,7 +19,6 @@ import { useGalleryQuery } from './useGalleryQuery'
 import { useDelayedFacets } from './useDelayedFacets'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
-const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
 type ForceSvg = {
   svg1?: JSX.Element
@@ -40,13 +37,21 @@ interface Props {
 function ProductGallery({
   title,
   searchTerm,
-  products,
+  products: initialProducts,
   productsCount,
   galleryTitle,
   hasFilter = true,
 }: Props) {
+  const { setProducts, products, isLoading } = useSearch()
+
+  useEffect(() => {
+    if (initialProducts && initialProducts.length > 0) {
+      setProducts(initialProducts)
+    }
+  }, [initialProducts, setProducts])
+
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
-  const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
+  const { pages, addNextPage, addPrevPage, state: searchState } = useFSSearch()
 
   const { data } = useGalleryQuery()
 
@@ -91,17 +96,8 @@ function ProductGallery({
       <div className="product-listing__content-grid layout__content">
         {hasFilter && (
           <div className="product-listing__filters">
-            {/* <FilterSkeleton loading={facets?.length === 0}> */}
+            {/* TODO: remove `slug` data mock */}
             <PLPFilters slug="humanas" />
-            {/* </FilterSkeleton> */}
-            {/* <FilterSkeleton loading={facetsWithPrice?.length === 0}>
-              <Filter
-                isOpen={isFilterOpen}
-                facets={facetsWithPrice}
-                onDismiss={() => setIsFilterOpen(false)}
-                forceSvg={forceSvg && forceSvg}
-              />
-            </FilterSkeleton> */}
           </div>
         )}
 
@@ -158,31 +154,25 @@ function ProductGallery({
               </ButtonLink>
             </div>
           )}
-
           {/* Render ALL products */}
-          {data ? (
-            <Suspense fallback={GalleryPageSkeleton}>
-              {pages.map((page) => (
-                <>
-                  {products && (
-                    <GalleryPage
-                      key={`gallery-page-${page}`}
-                      showSponsoredProducts={false}
-                      fallbackData={
-                        page === searchState.page ? data : undefined
-                      }
-                      page={page}
-                      title={title}
-                      products={products}
-                    />
-                  )}
-                </>
-              ))}
-            </Suspense>
-          ) : (
-            GalleryPageSkeleton
-          )}
-
+          <ProductGridSkeleton loading={!products || isLoading}>
+            {pages.map((page) => (
+              <>
+                {products && (
+                  <GalleryPage
+                    key={`gallery-page-${page}`}
+                    showSponsoredProducts={false}
+                    fallbackData={
+                      page === searchState.page ? products : undefined
+                    }
+                    page={page}
+                    title={title}
+                    products={products}
+                  />
+                )}
+              </>
+            ))}
+          </ProductGridSkeleton>
           {/* Add link to next page. This helps on SEO */}
           {next !== false && (
             <div className="product-listing__pagination product-listing__pagination--bottom">
@@ -208,5 +198,4 @@ function ProductGallery({
   )
 }
 
-ProductGallery.displayName = 'ProductGallery'
 export default mark(ProductGallery)

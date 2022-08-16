@@ -15,6 +15,9 @@ const RangeChangeType = (current: never) => {
 }
 
 const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
+  const [currentMinVal, setCurrentMinVal] = useState(min)
+  const [currentMaxVal, setCurrentMaxVal] = useState(max)
+
   const [minVal, setMinVal] = useState(min)
   const [maxVal, setMaxVal] = useState(max)
   const minValRef = useRef(min)
@@ -32,14 +35,14 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
     const minPercent = getPercent(minVal)
     const maxPercent = getPercent(maxValRef.current)
 
-    console.info('')
-    // eslint-disable-next-line vtex/prefer-early-return
     if (range?.current) {
       const rangeModify = RangeChangeType(range?.current)
 
       if (rangeModify?.style) {
         rangeModify.style.left = `${minPercent}%`
         rangeModify.style.width = `${maxPercent - minPercent}%`
+        // console.log(rangeModify?.style.left)
+        // console.log(minPercent)
       }
     }
   }, [minVal, getPercent])
@@ -60,8 +63,9 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
 
   // Get min and max values when their state changes
   useEffect(() => {
-    onChange({ min: minVal, max: maxVal })
-  }, [minVal, maxVal, onChange])
+    onChange({ min: currentMinVal, max: currentMaxVal })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentMinVal, currentMaxVal])
 
   return (
     <div className="container mult-range">
@@ -70,6 +74,11 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
         min={min}
         max={max}
         value={minVal}
+        onClick={(event) => {
+          const value = Math.max(Number(event.currentTarget.value), minVal + 1)
+
+          setCurrentMinVal(value)
+        }}
         onChange={(event) => {
           const value = Math.min(Number(event.target.value), maxVal - 1)
 
@@ -84,6 +93,11 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
         min={min}
         max={max}
         value={maxVal}
+        onClick={(event) => {
+          const value = Math.max(Number(event.currentTarget.value), minVal + 1)
+
+          setCurrentMaxVal(value)
+        }}
         onChange={(event) => {
           const value = Math.max(Number(event.target.value), minVal + 1)
 

@@ -65,10 +65,13 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
     type: 'RANGE',
     facets: [
       {
-        selected: false,
+        label: 'Faixa de preço',
+        value: 'priceRange',
         others: {
-          minPrice: minMaxPriceFetch.minPrice,
-          maxPrice: minMaxPriceFetch.maxPrice,
+          actualMin: minMaxPriceFetch.minPrice,
+          actualMax: minMaxPriceFetch.maxPrice,
+          min: minMaxPriceFetch.minPrice,
+          max: minMaxPriceFetch.maxPrice,
         },
       },
     ],
