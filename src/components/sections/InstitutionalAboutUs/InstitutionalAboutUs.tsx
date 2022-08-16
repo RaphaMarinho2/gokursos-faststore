@@ -40,14 +40,20 @@ const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
           </p>
           <h1>E como fazemos isso, na prática?</h1>
           <p>
-            • Temos professores altamente capacitados, com experiência no
-            mercado de trabalho.
-            <p>
-              • As aulas são 100% online, disponibilizadas em uma plataforma
-              completa.
-            </p>
-            • Somos experientes: fazemos parte do Grupo Ser Educacional, a maior
-            organização de ensino do país.
+            <ul>
+              <li>
+                • Temos professores altamente capacitados, com experiência no
+                mercado de trabalho.
+              </li>
+              <li>
+                • As aulas são 100% online, disponibilizadas em uma plataforma
+                completa.
+              </li>
+              <li>
+                • Somos experientes: fazemos parte do Grupo Ser Educacional, a
+                maior organização de ensino do país.
+              </li>
+            </ul>
           </p>
         </div>
       </div>
