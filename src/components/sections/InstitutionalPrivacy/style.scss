@@ -106,18 +106,23 @@
       }
     }
 
-    li {
-      margin-top: 16px;
-      margin-bottom: 24px;
-      font-size: 14px;
-      line-height: 19px;
-      color: #000000;
+    ol {
+      padding-left: 20px;
+      list-style: decimal;
 
-      @include media(">=notebook") {
-        margin-top: 32px;
-        margin-bottom: 45px;
-        font-size: 16px;
-        line-height: 24px;
+      li {
+        margin-top: 16px;
+        margin-bottom: 24px;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;
+
+        @include media(">=notebook") {
+          margin-top: 32px;
+          margin-bottom: 45px;
+          font-size: 16px;
+          line-height: 24px;
+        }
       }
     }
   }
