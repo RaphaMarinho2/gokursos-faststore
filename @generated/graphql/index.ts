@@ -11648,12 +11648,12 @@ export type QueryStaticImageArgs = {
   children: InputMaybe<NodeFilterListInput>
   ctime: InputMaybe<DateQueryOperatorInput>
   ctimeMs: InputMaybe<FloatQueryOperatorInput>
-  dev: InputMaybe<FloatQueryOperatorInput>
+  dev: InputMaybe<IntQueryOperatorInput>
   dir: InputMaybe<StringQueryOperatorInput>
   ext: InputMaybe<StringQueryOperatorInput>
   extension: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
-  ino: InputMaybe<FloatQueryOperatorInput>
+  ino: InputMaybe<IntQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   mode: InputMaybe<IntQueryOperatorInput>
   modifiedTime: InputMaybe<DateQueryOperatorInput>
@@ -12870,12 +12870,12 @@ export type StaticImage = Node & {
   children: Array<Node>
   ctime: Maybe<Scalars['Date']>
   ctimeMs: Maybe<Scalars['Float']>
-  dev: Maybe<Scalars['Float']>
+  dev: Maybe<Scalars['Int']>
   dir: Maybe<Scalars['String']>
   ext: Maybe<Scalars['String']>
   extension: Maybe<Scalars['String']>
   id: Scalars['ID']
-  ino: Maybe<Scalars['Float']>
+  ino: Maybe<Scalars['Int']>
   internal: Internal
   mode: Maybe<Scalars['Int']>
   modifiedTime: Maybe<Scalars['Date']>
@@ -13125,12 +13125,12 @@ export type StaticImageFilterInput = {
   children: InputMaybe<NodeFilterListInput>
   ctime: InputMaybe<DateQueryOperatorInput>
   ctimeMs: InputMaybe<FloatQueryOperatorInput>
-  dev: InputMaybe<FloatQueryOperatorInput>
+  dev: InputMaybe<IntQueryOperatorInput>
   dir: InputMaybe<StringQueryOperatorInput>
   ext: InputMaybe<StringQueryOperatorInput>
   extension: InputMaybe<StringQueryOperatorInput>
   id: InputMaybe<StringQueryOperatorInput>
-  ino: InputMaybe<FloatQueryOperatorInput>
+  ino: InputMaybe<IntQueryOperatorInput>
   internal: InputMaybe<InternalFilterInput>
   mode: InputMaybe<IntQueryOperatorInput>
   modifiedTime: InputMaybe<DateQueryOperatorInput>
@@ -15630,6 +15630,20 @@ export type HomePageQueryQuery = {
       image: { url: string | null } | null
     }>
   }
+}
+
+export type InstitutionalContactUsQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type InstitutionalContactUsQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
 }
 
 export type InstitutionalQueryVariables = Exact<{ [key: string]: never }>
