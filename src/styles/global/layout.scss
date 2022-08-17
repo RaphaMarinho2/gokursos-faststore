@@ -68,3 +68,10 @@ main,
     visibility: hidden;
   }
 }
+
+// Helper Class
+// ! Manter sempre a linha de baixo para is-hide || always keep the line down to is-hide
+.is-hide {
+  // eslint-disable-next-line
+  display: none !important;
+}
