@@ -1,4 +1,4 @@
-interface SearchState {
+export interface SearchState {
   base: string
   term: string | null
   page: number
