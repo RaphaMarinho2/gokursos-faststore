@@ -1,0 +1,116 @@
+@import "src/styles/scaffold";
+
+#institutional-menu {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 214px;
+  margin: 0 auto;
+
+  button {
+    width: 214px;
+    padding: 11px 0 11px 8px;
+    margin: 0;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #dddddd;
+
+    &:not(:first-of-type) {
+      border-top: 0;
+    }
+
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 130%;
+      color: #727273;
+      text-decoration: none;
+    }
+  }
+}
+
+.institutional-menu {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  margin-top: 32px;
+  margin-bottom: 40px;
+
+  @include media(">=notebook") {
+    display: block;
+    height: auto;
+
+    ul {
+      width: 316px;
+      border: 1px solid #f5f5f5;
+
+      li {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        padding-left: 24px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 130%;
+        border-bottom: 1px solid #f5f5f5;
+
+        &.selected {
+          border-left: 5px solid #004e98;
+        }
+
+        a {
+          color: #555555;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 214px;
+    height: 40px;
+    border: 1px solid #dddddd;
+
+    &:not(:first-of-type) {
+      border-top: 1px solid #dddddd;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding-left: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 130%;
+      color: #727273;
+      text-decoration: none;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 60px;
+      height: 38px;
+      background-color: #fff;
+      border: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &[aria-expanded="false"] {
+        flex-direction: row-reverse;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
