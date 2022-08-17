@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import SROnly from 'src/components/ui/SROnly'
 import { ITEMS_PER_PAGE } from 'src/constants'
-import { applySearchState } from 'src/sdk/search/state'
 import { mark } from 'src/sdk/tests/mark'
 import type { SearchState } from '@faststore/sdk'
 import type { PageProps } from 'gatsby'
@@ -13,13 +12,17 @@ import type {
   SearchPageQueryQuery,
   SearchPageQueryQueryVariables,
 } from '@generated/graphql'
-
 import 'src/styles/pages/search.scss'
+import axios from 'axios'
+import { applySearchState } from 'src/sdk/search/state'
+
+type Query = { query: Record<string, string> }
 
 export type Props = PageProps<
   SearchPageQueryQuery,
   SearchPageQueryQueryVariables
->
+> &
+  Query
 
 const useSearchParams = ({ href }: Location) => {
   const [params, setParams] = useState<SearchState | null>(null)
@@ -45,6 +48,9 @@ function Page(props: Props) {
   if (!searchParams) {
     return null
   }
+
+  // eslint-disable-next-line no-console
+  console.log('PROPS -->', props)
 
   return (
     <SearchProvider
@@ -98,6 +104,52 @@ export const querySSG = graphql`
     }
   }
 `
+
+export const getServerData = async (props: Props) => {
+  const { query } = props
+
+  try {
+    const productsData = await axios
+      .post(
+        '/api/getSearch',
+        {
+          term: query.q,
+          sort: query.sort,
+          skip: Number(query.page) * ITEMS_PER_PAGE,
+          itemsPerPage: ITEMS_PER_PAGE,
+        },
+        {
+          proxy: {
+            protocol: '',
+            host: '',
+            port: 8000,
+          },
+        }
+      )
+      .then(({ data }) => data)
+      .catch((err) => console.error(err))
+
+    return {
+      status: 200,
+      props: {
+        productsData,
+      },
+      headers: {
+        'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
+      },
+    }
+  } catch (err) {
+    console.error(err)
+
+    return {
+      status: 500,
+      props: {},
+      headers: {
+        'cache-control': 'public, max-age=0, must-revalidate',
+      },
+    }
+  }
+}
 
 Page.displayName = 'Page'
 
