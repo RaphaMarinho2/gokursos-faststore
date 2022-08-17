@@ -4,11 +4,12 @@ import type { ProductsProductCard } from 'src/components/product/ProductCard/Pro
 import type { Filters } from 'src/components/search/PLPFilters/PLPFilters'
 
 type SearchProviderProps = {
-  slug?: string
+  slug: string
   children: React.ReactNode
 }
 
 interface SearchContextProps {
+  slug: string
   isLoading: boolean
   filteredFacets: Filters[]
   setFilteredFacets: React.Dispatch<React.SetStateAction<Filters[]>>
@@ -59,6 +60,7 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
 
   const value = {
     isLoading,
+    slug,
     filteredFacets,
     setFilteredFacets,
     products,

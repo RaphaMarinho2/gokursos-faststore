@@ -4,6 +4,9 @@ import './plp-filters.scss'
 import useSearch from 'src/contexts/SearchContext/useSearch'
 import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
 import MultiRangeSlider from 'src/components/sections/MulRangeSlider'
+import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
+import AccordionUp from 'src/components/icons/AccordionUp'
+import AccordionDown from 'src/components/icons/AccordionDown'
 
 import fetchFilters from './fetchFilters'
 
@@ -30,6 +33,20 @@ export interface Filters {
 function PLPFilters({ slug }: PLPFiltersProps) {
   const [allFilters, setAllFilters] = useState<Filters[]>([])
   const { setFilteredFacets } = useSearch()
+
+  // const [indices, setIndices] = useState([0])
+  const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
+    new Set([])
+  )
+
+  const onAccordionChange = (index: number) => {
+    if (indicesExpanded.has(index)) {
+      indicesExpanded.delete(index)
+      setIndicesExpanded(new Set(indicesExpanded))
+    } else {
+      setIndicesExpanded(new Set(indicesExpanded.add(index)))
+    }
+  }
 
   const selectedFilters = allFilters.map((filter) => {
     return {
@@ -113,56 +130,68 @@ function PLPFilters({ slug }: PLPFiltersProps) {
     <div className="filter">
       <FilterSkeleton loading={allFilters?.length === 0}>
         <span className="filter__title">Filtros</span>
-        {allFilters.map((filter, indexFilter) => (
-          <div key={indexFilter} className="facet">
-            <span className="facet__title">{filter.filterlabel}</span>
-
-            {filter.type === 'CHECKBOX' ? (
-              <div className="facet__facet">
-                {filter.facets.map((facet, indexFacet) => (
-                  <div key={indexFacet}>
-                    <Checkbox
-                      id={facet.value}
-                      checked={facet.selected}
-                      onChange={() =>
-                        handleChangeFacet({
-                          filterLabel: filter.filterlabel,
-                          facetValue: facet.value ?? '',
-                        })
-                      }
-                      data-value={facet.value}
-                    />
-                    <Label
-                      htmlFor={facet.value}
-                      className="text__title-mini-alt"
-                    >
-                      {facet.label}{' '}
-                      {filter.filterlabel === 'Carga horária' &&
-                        `hora${parseInt(facet.label, 10) > 1 ? 's' : ''}`}
-                    </Label>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="facet__facet">
-                <MultiRangeSlider
-                  min={filter.facets[0].others?.min ?? 0}
-                  max={filter.facets[0].others?.max ?? 0}
-                  onChange={({ min, max }) => {
-                    handleChangeFacet({
-                      filterLabel: 'Faixa de preço',
-                      facetValue: filter.facets[0].value ?? '',
-                      min: filter.facets[0].others?.min,
-                      max: filter.facets[0].others?.max,
-                      actualMin: min,
-                      actualMax: max,
-                    })
-                  }}
-                />
-              </div>
-            )}
-          </div>
-        ))}
+        <Accordion
+          expandedIndices={indicesExpanded}
+          onChange={onAccordionChange}
+        >
+          {allFilters.map((filter, indexFilter) => (
+            <AccordionItem
+              key={`${filter.filterlabel}-${indexFilter}`}
+              className="facet"
+              buttonLabel={filter.filterlabel}
+              isExpanded={indicesExpanded.has(indexFilter)}
+              forceSvg={{
+                svg1: <AccordionUp />,
+                svg2: <AccordionDown />,
+              }}
+            >
+              {filter.type === 'CHECKBOX' ? (
+                <>
+                  {filter.facets.map((facet, indexFacet) => (
+                    <div key={indexFacet} className="filter__item">
+                      <Checkbox
+                        id={facet.value}
+                        checked={facet.selected}
+                        onChange={() =>
+                          handleChangeFacet({
+                            filterLabel: filter.filterlabel,
+                            facetValue: facet.value ?? '',
+                          })
+                        }
+                        data-value={facet.value}
+                      />
+                      <Label
+                        htmlFor={facet.value}
+                        className="text__title-mini-alt"
+                      >
+                        {facet.label}{' '}
+                        {filter.filterlabel === 'Carga horária' &&
+                          `hora${parseInt(facet.label, 10) > 1 ? 's' : ''}`}
+                      </Label>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <div className="facet__facet">
+                  <MultiRangeSlider
+                    min={filter.facets[0].others?.min ?? 0}
+                    max={filter.facets[0].others?.max ?? 0}
+                    onChange={({ min, max }) => {
+                      handleChangeFacet({
+                        filterLabel: 'Faixa de preço',
+                        facetValue: filter.facets[0].value ?? '',
+                        min: filter.facets[0].others?.min,
+                        max: filter.facets[0].others?.max,
+                        actualMin: min,
+                        actualMax: max,
+                      })
+                    }}
+                  />
+                </div>
+              )}
+            </AccordionItem>
+          ))}
+        </Accordion>
       </FilterSkeleton>
     </div>
   )

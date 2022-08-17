@@ -42,7 +42,7 @@ function ProductGallery({
   galleryTitle,
   hasFilter = true,
 }: Props) {
-  const { setProducts, products, isLoading } = useSearch()
+  const { setProducts, products, isLoading, slug } = useSearch()
 
   useEffect(() => {
     if (initialProducts && initialProducts.length > 0) {
@@ -96,8 +96,7 @@ function ProductGallery({
       <div className="product-listing__content-grid layout__content">
         {hasFilter && (
           <div className="product-listing__filters">
-            {/* TODO: remove `slug` data mock */}
-            <PLPFilters slug="humanas" />
+            <PLPFilters slug={slug} />
           </div>
         )}
 
