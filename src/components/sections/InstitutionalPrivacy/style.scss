@@ -1,0 +1,148 @@
+@import "src/styles/scaffold";
+
+.title-container-privacy {
+  width: 100%;
+  padding: 62px 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #ffffff;
+  background: #004e98;
+
+  @include media(">=notebook") {
+    padding: 92px 0;
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+.institucional-privacy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @include media(">notebook") {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin: 0 auto;
+  }
+
+  .text-container {
+    position: relative;
+    max-height: 900px;
+    padding: 16px;
+    overflow-y: hidden;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 200px;
+      content: "";
+      background: rgb(255 255 255);
+      background:
+        -moz-linear-gradient(
+          180deg,
+          rgb(255 255 255 / 0%) 0%,
+          rgb(255 255 255 / 100%) 100%
+        );
+      background:
+        -webkit-linear-gradient(
+          180deg,
+          rgb(255 255 255 / 0%) 0%,
+          rgb(255 255 255 / 100%) 100%
+        );
+      background:
+        linear-gradient(
+          180deg,
+          rgb(255 255 255 / 0%) 0%,
+          rgb(255 255 255 / 100%) 100%
+        );
+      filter: progid:dximagetransform.microsoft.gradient(startColorstr="#FFFFFF", endColorstr="#FFFFFF", GradientType=1);
+    }
+
+    &.open {
+      &::after {
+        display: none;
+      }
+    }
+
+    @include media(">=notebook") {
+      width: 85%;
+      padding: unset;
+      margin-top: 32px;
+      margin-left: 32px;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      color: #000000;
+
+      @include media(">=notebook") {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+
+    p {
+      margin-top: 16px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 19px;
+      color: #000000;
+
+      @include media(">=notebook") {
+        margin-top: 32px;
+        margin-bottom: 45px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    ol {
+      padding-left: 40px;
+      list-style: decimal;
+
+      li {
+        margin-top: 16px;
+        margin-bottom: 24px;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;
+
+        @include media(">=notebook") {
+          margin-top: 32px;
+          margin-bottom: 45px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .load-more-btn {
+    padding: 20px 79px;
+
+    @include media(">=notebook") {
+      padding: 20px 340px;
+    }
+
+    button {
+      padding: 8px 47px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #666666;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+    }
+  }
+}

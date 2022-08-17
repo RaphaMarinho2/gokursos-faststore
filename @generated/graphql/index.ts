@@ -15658,6 +15658,56 @@ export type InstitutionalQuery = {
   } | null
 }
 
+export type InstitutionalPrivacyQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
+export type InstitutionalFormPaymentQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
+export type InstitutionalCancelPolicyQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
+export type InstitutionalTermsQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
+export type InstitutionalAboutUsQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
 export type InstitutionalFaqQueryVariables = Exact<{ [key: string]: never }>
 
 export type InstitutionalFaqQuery = {
