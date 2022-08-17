@@ -10,6 +10,6 @@ export function initSearchState(searchParams: SearchParams) {
     base,
     term,
     page: 0,
-    sort: 'asc',
+    sort: '',
   }
 }
