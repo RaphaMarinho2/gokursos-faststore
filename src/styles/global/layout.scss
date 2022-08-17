@@ -68,11 +68,3 @@ main,
     visibility: hidden;
   }
 }
-
-
-// Helper Class
-// ! Manter sempre a linha de baixo para is-hide || always keep the line down to is-hide
-// eslint-disable-next-line no-use-before-define
-.is-hide {
-  display: none !important;
-}

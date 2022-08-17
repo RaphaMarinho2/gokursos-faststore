@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-132** - Contact us form
 
+### Added
+
+- **GM-109** - Add component product description
+- 
 ## [0.10.0] - 2022-08-04
 
 ### Added
@@ -30,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-455** - Changed layout style in footer
 
 ### Added
+
 
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list

@@ -56,7 +56,6 @@ function Page() {
 
       <ProductDetails product={product} />
 
-
       <PDPProductShelf
         pretitle=""
         title={`Mais vendidos de ${departmentName}`}

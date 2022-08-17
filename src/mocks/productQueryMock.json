@@ -1,73 +1,72 @@
 {
-    "data": {
-      "search": {
-        "products": {
-          "pageInfo": {
-            "totalCount": 8
-          },
-          "edges": [
-            {
-              "node": {
-                "id": "99988211",
-                "slug": "cuidados-ergonomicos-para-o-massoterapeuta",
-                "sku": "99988211",
-                "brand": {
-                  "brandName": "estética",
-                  "name": "estética"
-                },
-                "name": "Cuidados Ergonômicos para o Massoterapeuta",
-                "gtin": "1502",
-                "isVariantOf": {
-                  "productGroupID": "99995944",
-                  "name": "Cuidados Ergonômicos para o Massoterapeuta"
-                },
-                "image": [
-                  {
-                    "url": "https://gokursosgatsby.vtexassets.com/arquivos/cuidados-ergonomicos-para-o-massoterapeuta.jpg",
-                    "alternateName": "Cuidados Ergonômicos para o Massoterapeuta"
-                  }
-                ],
-                "offers": {
-                  "lowPrice": 99.9,
-                  "offers": [
-                    {
-                      "availability": "https://schema.org/InStock",
-                      "price": 99.9,
-                      "listPrice": 99.9,
-                      "quantity": 10000,
-                      "seller": {
-                        "identifier": "1"
-                      },
-                      "priceVaritation": [
-                        {
-                          "installment": 1,
-                          "priceValue": 99.9
-                        },
-                        {
-                          "installment": 2,
-                          "priceValue": 45.5
-                        },
-                        {
-                          "installment": 3,
-                          "priceValue": 33.3
-                        },
-                        {
-                          "installment": 4,
-                          "priceValue": 25
-                        },
-                        {
-                          "installment": 5,
-                          "priceValue": 25
-                        }
-                      ]
-                    }
-                  ]
+  "data": {
+    "search": {
+      "products": {
+        "pageInfo": {
+          "totalCount": 8
+        },
+        "edges": [
+          {
+            "node": {
+              "id": "99988211",
+              "slug": "cuidados-ergonomicos-para-o-massoterapeuta",
+              "sku": "99988211",
+              "brand": {
+                "brandName": "estética",
+                "name": "estética"
+              },
+              "name": "Cuidados Ergonômicos para o Massoterapeuta",
+              "gtin": "1502",
+              "isVariantOf": {
+                "productGroupID": "99995944",
+                "name": "Cuidados Ergonômicos para o Massoterapeuta"
+              },
+              "image": [
+                {
+                  "url": "https://gokursosgatsby.vtexassets.com/arquivos/cuidados-ergonomicos-para-o-massoterapeuta.jpg",
+                  "alternateName": "Cuidados Ergonômicos para o Massoterapeuta"
                 }
+              ],
+              "offers": {
+                "lowPrice": 99.9,
+                "offers": [
+                  {
+                    "availability": "https://schema.org/InStock",
+                    "price": 99.9,
+                    "listPrice": 99.9,
+                    "quantity": 10000,
+                    "seller": {
+                      "identifier": "1"
+                    },
+                    "priceVaritation": [
+                      {
+                        "installment": 1,
+                        "priceValue": 99.9
+                      },
+                      {
+                        "installment": 2,
+                        "priceValue": 45.5
+                      },
+                      {
+                        "installment": 3,
+                        "priceValue": 33.3
+                      },
+                      {
+                        "installment": 4,
+                        "priceValue": 25
+                      },
+                      {
+                        "installment": 5,
+                        "priceValue": 25
+                      }
+                    ]
+                  }
+                ]
               }
             }
-          ]
-        }
+          }
+        ]
       }
     }
   }
-  
+}
