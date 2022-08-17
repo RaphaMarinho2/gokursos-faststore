@@ -14,6 +14,7 @@ import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import ProductDescription from '@acctglobal/productdescription'
 import ShareProduct from '@acctglobal/shareproduct'
 import ShareIcon from 'src/components/icons/ShareIcon'
 import FacebookShareIcon from 'src/components/icons/FacebookShare'
@@ -64,7 +65,6 @@ function ProductDetails({ product: staleProduct }: Props) {
     name: variantName,
     brand,
     isVariantOf,
-    description,
     image: productImages,
     offers: {
       lowPrice,
@@ -263,8 +263,35 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <section className="product-details__content">
           <article className="product-details__description">
-            <h2 className="text__title-subsection">Description</h2>
-            <p className="text__body">{description}</p>
+            {typeof window !== 'undefined' && (
+              <ProductDescription
+                loadMore="Load More"
+                descriptionTabs={[
+                  {
+                    name: 'Sobre o curso',
+                    description:
+                      'O curso online de Programação Orientada a Objetos apresenta os conceitos para programar orientando objetos a partir da linguagem de programação Java, linguagem gratuita, robusta e que funciona em diversos sistemas operacionais e dispositivos mobile, desktop ou web. No decorrer do curso, o conteúdo será abordado de forma simplificada para que se possa abstrair facilmente os temas abordados no livro. ',
+                  },
+                  {
+                    name: 'Conteúdo do curso',
+                    description:
+                      ' • Introdução à orientação a objetos.\n • Linguagens típicas orientadas a objetos.\n • Programação Orientada a Objeto em Java.\n • Conceitos básicos e terminologias de Programação orientada a objetos.\n • Classe, Objetos, Atributos, Métodos, Construtores e sobrecarga.\n • Instanciação e Referência de objetos.\n • Envio de mensagens.\n • Ciclo de vida de um objeto.\n • Abstração e encapsulamento.\n • Herança. Criação e uso de hierarquia de classes.\n • Classes abstratas e Interfaces.\n • Relacionamento entre classes.\n • Polimorfismo.\n • Ligação dinâmica dynamic binding.\n • Tratamento de exceções.',
+                  },
+                  {
+                    name: 'Objetivos',
+                    description:
+                      ' • Apresentar as características de Programação Orientada a Objetos\n • Compreender como surgiu o paradigma de Programação Orientada a Objetos\n • Introduzir a linguagem Java para Programação Orientada a Objetos\n • Entender os conceitos da Programação Orientada a Objetos\n • Apresentar os principais conceitos de atributos e métodos\n • Entender a ocultação das informações, encapsulando-as\n • Abordar os conceitos de instâncias e referências\n • Entender o ciclo de vida de um objeto\n • Aprender a utilizar métodos com sobrecarga\n • Aprender conceitos de herança e sua utilização\n • Entender como é a criação e o uso da hierarquia de classes\n • Aprender a criar e utilizar classes abstratas e interfaces\n • Aprender sobre os conceitos dos relacionamentos entre as classes e os tipos existentes ',
+                  },
+                  {
+                    name: 'Certificados',
+                    description:
+                      'O certificado emitido pelo GoKursos será conferido após a conclusão de 75% da carga-horária do curso e da obtenção de nota mínima sete na média das avaliações. Para os cursos sem avaliação, será conferido o certificado por participação. ',
+                  },
+                ]}
+                maxHeight={1000}
+              />
+            )}
+
             <ProductRating />
             <div className="product-questions__container">
               <LatestQuestions productQuestions={productQuestions} />
