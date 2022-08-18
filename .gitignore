@@ -52,7 +52,7 @@ src/typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env
 *.env
 
 # gatsby files
