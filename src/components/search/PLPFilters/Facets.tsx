@@ -1,3 +1,4 @@
+import type { Dispatch } from 'react'
 import { useEffect, useState } from 'react'
 import { Checkbox, Label } from '@faststore/ui'
 import './plp-filters.scss'
@@ -8,33 +9,16 @@ import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
 
-import fetchFilters from './fetchFilters'
+import type { Filters } from './Filters'
 
 interface PLPFiltersProps {
-  slug: string
+  allFilters: Filters[]
+  setAllFilters: Dispatch<React.SetStateAction<Filters[]>>
 }
 
-export interface Filters {
-  filterlabel: 'Categorias' | 'Carga horária' | 'Marcas' | 'Faixa de preço'
-  type: 'CHECKBOX' | 'RANGE'
-  facets: Array<{
-    selected?: boolean
-    value: string
-    label: string
-    others?: {
-      actualMin: number
-      actualMax: number
-      min: number
-      max: number
-    }
-  }>
-}
-
-function PLPFilters({ slug }: PLPFiltersProps) {
-  const [allFilters, setAllFilters] = useState<Filters[]>([])
+function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
   const { setFilteredFacets } = useSearch()
 
-  // const [indices, setIndices] = useState([0])
   const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
     new Set([])
   )
@@ -118,13 +102,9 @@ function PLPFilters({ slug }: PLPFiltersProps) {
   }
 
   useEffect(() => {
-    setFilteredFacets(selectedFilters as Filters[])
+    setFilteredFacets(selectedFilters as unknown as Filters[])
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allFilters])
-
-  useEffect(() => {
-    fetchFilters({ setAllFilters, slug })
-  }, [slug])
 
   return (
     <div className="filter">
@@ -197,4 +177,4 @@ function PLPFilters({ slug }: PLPFiltersProps) {
   )
 }
 
-export default PLPFilters
+export default Facets

@@ -1,6 +1,6 @@
 import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
-import type { Filters } from 'src/components/search/PLPFilters/PLPFilters'
+import type { Filters } from 'src/components/search/PLPFilters/Filters'
 
 interface RequestType {
   slug: string

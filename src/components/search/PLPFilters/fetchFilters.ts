@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import type { Filters } from './PLPFilters'
+import type { Filters } from './Filters'
 
 type CategoryFilterType = Array<{ Name: string; Slug: string }>
 type CargasHorariasFilterType = Array<{ Text: string }>

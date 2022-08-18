@@ -8,8 +8,8 @@ import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
-import PLPFilters from 'src/components/search/PLPFilters'
 import useSearch from 'src/contexts/SearchContext/useSearch'
+import Filters from 'src/components/search/PLPFilters'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
@@ -96,7 +96,11 @@ function ProductGallery({
       <div className="product-listing__content-grid layout__content">
         {hasFilter && (
           <div className="product-listing__filters">
-            <PLPFilters slug={slug} />
+            <Filters
+              slug={slug}
+              isFilterOpen={isFilterOpen}
+              onDismiss={() => setIsFilterOpen(false)}
+            />
           </div>
         )}
 
@@ -117,7 +121,7 @@ function ProductGallery({
             <Sort />
           </SkeletonElement>
 
-          <SkeletonElement shimmer type="button" loading={facets?.length === 0}>
+          <SkeletonElement shimmer type="button" loading={isLoading}>
             <Button
               data-testid="open-filter-button"
               icon={<Icon name="FadersHorizontal" width={20} height={20} />}

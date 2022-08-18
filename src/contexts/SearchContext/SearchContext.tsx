@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
-import type { Filters } from 'src/components/search/PLPFilters/PLPFilters'
+import type { Filters } from 'src/components/search/PLPFilters/Filters'
 
 type SearchProviderProps = {
   slug: string

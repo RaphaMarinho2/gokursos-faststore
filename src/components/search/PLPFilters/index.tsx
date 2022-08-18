@@ -1,1 +1,1 @@
-export { default } from './PLPFilters'
+export { default } from './Filters'
