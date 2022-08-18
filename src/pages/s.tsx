@@ -1,4 +1,8 @@
-import { parseSearchState, SearchProvider, useSession } from '@faststore/sdk'
+import {
+  parseSearchState,
+  SearchProvider as FSSearchProvider,
+  useSession,
+} from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import { useEffect, useState } from 'react'
@@ -15,12 +19,25 @@ import type {
 import 'src/styles/pages/search.scss'
 import axios from 'axios'
 import { applySearchState } from 'src/sdk/search/state'
+import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
+import ProductGallery from 'src/components/sections/ProductGallery'
 
 type Query = { query: Record<string, string> }
 
+interface ServerDataProps {
+  productsData: {
+    '@odata.count': number
+    '@odata.context': string
+    value: ProductsProductCard[]
+  }
+}
+
 export type Props = PageProps<
   SearchPageQueryQuery,
-  SearchPageQueryQueryVariables
+  SearchPageQueryQueryVariables,
+  unknown,
+  ServerDataProps
 > &
   Query
 
@@ -39,7 +56,12 @@ const useSearchParams = ({ href }: Location) => {
 function Page(props: Props) {
   const {
     data: { site },
+    serverData,
   } = props
+
+  const {
+    productsData: { value: products, '@odata.count': productsCount },
+  } = serverData
 
   const { locale } = useSession()
   const searchParams = useSearchParams(props.location)
@@ -49,11 +71,8 @@ function Page(props: Props) {
     return null
   }
 
-  // eslint-disable-next-line no-console
-  console.log('PROPS -->', props)
-
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
@@ -85,11 +104,15 @@ function Page(props: Props) {
       */}
       <Breadcrumb name="All Products" />
       {/* TODO: Add search request */}
-      {/* <ProductGallery
-        title="Search Results"
-        searchTerm={searchParams.term ?? undefined}
-      /> */}
-    </SearchProvider>
+      <SearchProvider searchParams={searchParams}>
+        <ProductGallery
+          title="Search Results"
+          searchTerm={searchParams.term ?? undefined}
+          products={products}
+          productsCount={productsCount}
+        />
+      </SearchProvider>
+    </FSSearchProvider>
   )
 }
 
