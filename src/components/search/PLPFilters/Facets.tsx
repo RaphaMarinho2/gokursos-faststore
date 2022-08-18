@@ -1,5 +1,5 @@
 import type { Dispatch } from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Checkbox, Label } from '@faststore/ui'
 import './plp-filters.scss'
 import useSearch from 'src/contexts/SearchContext/useSearch'
@@ -14,6 +14,15 @@ import type { Filters } from './Filters'
 interface PLPFiltersProps {
   allFilters: Filters[]
   setAllFilters: Dispatch<React.SetStateAction<Filters[]>>
+}
+
+interface ChangeFacetProps {
+  filterLabel: string
+  facetValue: string
+  min?: number
+  max?: number
+  actualMin?: number
+  actualMax?: number
 }
 
 function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
@@ -32,27 +41,6 @@ function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
     }
   }
 
-  const selectedFilters = allFilters.map((filter) => {
-    return {
-      filterlabel: filter.filterlabel,
-      facets:
-        filter.type === 'CHECKBOX'
-          ? filter.facets.filter((facet) => facet.selected === true)
-          : [
-              {
-                value: filter?.facets[0]?.value,
-                label: filter?.facets[0]?.label,
-                others: {
-                  min: filter?.facets[0].others?.min,
-                  max: filter?.facets[0].others?.max,
-                  actualMin: filter?.facets[0].others?.actualMin,
-                  actualMax: filter?.facets[0].others?.actualMax,
-                },
-              },
-            ],
-    }
-  })
-
   function handleChangeFacet({
     filterLabel,
     facetValue,
@@ -60,14 +48,7 @@ function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
     max,
     actualMin,
     actualMax,
-  }: {
-    filterLabel: string
-    facetValue: string
-    min?: number
-    max?: number
-    actualMin?: number
-    actualMax?: number
-  }) {
+  }: ChangeFacetProps) {
     const filterFind = allFilters.find(
       (filter) => filter.filterlabel === filterLabel
     )
@@ -98,13 +79,30 @@ function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
         : filter
     )
 
-    setAllFilters(newFilter)
-  }
+    const selectedFilters = newFilter.map((filter) => {
+      return {
+        filterlabel: filter.filterlabel,
+        facets:
+          filter.type === 'CHECKBOX'
+            ? filter.facets.filter((facet) => facet.selected === true)
+            : [
+                {
+                  value: filter?.facets[0]?.value,
+                  label: filter?.facets[0]?.label,
+                  others: {
+                    min: filter?.facets[0].others?.min,
+                    max: filter?.facets[0].others?.max,
+                    actualMin: filter?.facets[0].others?.actualMin,
+                    actualMax: filter?.facets[0].others?.actualMax,
+                  },
+                },
+              ],
+      }
+    })
 
-  useEffect(() => {
+    setAllFilters(newFilter)
     setFilteredFacets(selectedFilters as unknown as Filters[])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allFilters])
+  }
 
   return (
     <div className="filter">

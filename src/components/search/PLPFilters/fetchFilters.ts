@@ -12,8 +12,6 @@ interface Props {
 }
 
 async function fetchFilters({ setAllFilters, slug }: Props) {
-  setAllFilters([])
-
   const categoriesFetch = await axios
     .post<CategoryFilterType>('/api/getCategories', {
       departmentSlug: slug,

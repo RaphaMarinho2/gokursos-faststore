@@ -5,8 +5,6 @@ import type { ButtonProps } from '@faststore/ui'
 type Props = ButtonProps
 
 function ButtonBuy({ children, ...props }: Props) {
-  console.info('ButtonBuy')
-
   return (
     <UIButton
       data-fs-button

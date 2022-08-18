@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState, useRef } from 'react'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
+import debounce from 'lodash.debounce'
+
 import './styles.scss'
 
 type TypeMultiRangeSlider = {
@@ -15,14 +17,27 @@ const RangeChangeType = (current: never) => {
 }
 
 const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
-  const [currentMinVal, setCurrentMinVal] = useState(min)
-  const [currentMaxVal, setCurrentMaxVal] = useState(max)
+  const [debouncedMinVal, setDebouncedMinVal] = useState(min)
+  const [debouncedMaxVal, setDebouncedMaxVal] = useState(max)
 
   const [minVal, setMinVal] = useState(min)
   const [maxVal, setMaxVal] = useState(max)
   const minValRef = useRef(min)
   const maxValRef = useRef(max)
   const range = useRef(null)
+  const changeMaxValueRef = useRef(
+    debounce((value: number) => {
+      setDebouncedMaxVal(value)
+      onChange({ min: debouncedMinVal, max: value })
+    }, 500)
+  )
+
+  const changeMinValueRef = useRef(
+    debounce((value: number) => {
+      setDebouncedMinVal(value)
+      onChange({ min: value, max: debouncedMaxVal })
+    }, 500)
+  )
 
   // Convert to percentage
   const getPercent = useCallback(
@@ -41,8 +56,6 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
       if (rangeModify?.style) {
         rangeModify.style.left = `${minPercent}%`
         rangeModify.style.width = `${maxPercent - minPercent}%`
-        // console.log(rangeModify?.style.left)
-        // console.log(minPercent)
       }
     }
   }, [minVal, getPercent])
@@ -61,12 +74,6 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
     }
   }, [maxVal, getPercent])
 
-  // Get min and max values when their state changes
-  useEffect(() => {
-    onChange({ min: currentMinVal, max: currentMaxVal })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentMinVal, currentMaxVal])
-
   return (
     <div className="container mult-range">
       <input
@@ -74,15 +81,11 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
         min={min}
         max={max}
         value={minVal}
-        onClick={(event) => {
-          const value = Math.max(Number(event.currentTarget.value), minVal + 1)
-
-          setCurrentMinVal(value)
-        }}
         onChange={(event) => {
           const value = Math.min(Number(event.target.value), maxVal - 1)
 
           setMinVal(value)
+          changeMinValueRef.current(value)
           minValRef.current = value
         }}
         className="thumb thumb--left"
@@ -93,15 +96,11 @@ const MultiRangeSlider = ({ min, max, onChange }: TypeMultiRangeSlider) => {
         min={min}
         max={max}
         value={maxVal}
-        onClick={(event) => {
-          const value = Math.max(Number(event.currentTarget.value), minVal + 1)
-
-          setCurrentMaxVal(value)
-        }}
         onChange={(event) => {
           const value = Math.max(Number(event.target.value), minVal + 1)
 
           setMaxVal(value)
+          changeMaxValueRef.current(value)
           maxValRef.current = value
         }}
         className="thumb thumb--right"

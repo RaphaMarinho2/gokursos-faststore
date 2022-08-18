@@ -39,19 +39,19 @@ function Filters({ slug, onDismiss, isFilterOpen }: FilterProps) {
 
   return (
     <div>
-      {!isTablet && (
+      {isTablet ? (
+        <SlideOver
+          isOpen={isFilterOpen}
+          onDismiss={onDismiss}
+          size="partial"
+          direction="rightSide"
+          className="filter-modal__content"
+        >
+          <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
+        </SlideOver>
+      ) : (
         <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
       )}
-
-      <SlideOver
-        isOpen={isFilterOpen}
-        onDismiss={onDismiss}
-        size="partial"
-        direction="rightSide"
-        className="filter-modal__content"
-      >
-        <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
-      </SlideOver>
     </div>
   )
 }
