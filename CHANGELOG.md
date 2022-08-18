@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]- 
+## [Unreleased]-
+
+## [0.12.0] - 2022-08-18
+
+### Added
+
+- **GM-646** - Changed TRUE CHANGE requests url to an env variable
 
 ## [0.11.0] - 2022-08-17
 
@@ -25,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-100** - [PDP] Buy Box - general
 - **GM-102** - [PDP] Buy Box - instalments list
 - **GM-103** - [PDP] Buy Box - Image banner
-- **GM-105** - [PDP] "How do we teach" section 
+- **GM-105** - [PDP] "How do we teach" section
 
 ## [0.9.0] - 2022-08-02
 
@@ -35,15 +41,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-
-- **GM-397** - Filter mobile
-- **GM-398** - [PDP] Show latest questions list
-- **GM-108** - [PDP] Show common questions form
-- **GM-107** - Rating component with mock data
-- **GM-481** - [PDP - mobile] Rating component with mock data
-- **GM-457** - Infoprodutor Page
-
-### Added
 
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list
