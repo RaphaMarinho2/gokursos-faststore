@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+## [0.13.0] - 2022-08-18
+
+### Added
+
+- **GM-613** - Get Search Suggestions
+
 ## [0.12.0] - 2022-08-18
 
 ### Added

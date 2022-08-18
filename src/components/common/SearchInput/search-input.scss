@@ -87,3 +87,45 @@
     height: var(--fs-spacing-4);
   }
 }
+
+.search-input-container {
+  [data-store-search-input-dropdown-wrapper] {
+    position: absolute;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #fff;
+
+    .suggestions {
+      .suggestions__section {
+        [data-store-list] {
+          max-height: 317px;
+          overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: #666 #ddd;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #ddd;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #666;
+          }
+
+          @include media(">=notebook") {
+            max-height: 428px;
+          }
+        }
+      }
+    }
+
+    @include media(">=notebook") {
+      left: unset;
+      width: 600px;
+    }
+  }
+}

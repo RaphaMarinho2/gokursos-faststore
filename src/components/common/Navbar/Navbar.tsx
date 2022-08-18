@@ -12,14 +12,15 @@ import MenuMobileIcon from 'src/components/icons/MenuMobileIcon'
 import MenuMobile from 'src/components/common/MenuMobile'
 import MenuDesktop from 'src/components/common/MenuDesktop/MenuDesktop'
 import menuItems from 'src/components/common/MenuDesktop/mocks/menuItems.json'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 function Navbar() {
   const { onModalClose } = useModal()
   const searchMobileRef = useRef<SearchInputRef>(null)
   const [value, setValue] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-
   const [searchExpanded, setSearchExpanded] = useState(false)
+  const { isMobile, isTablet } = useWindowDimensions()
 
   const handleCloseSlideOver = () => {
     onModalClose()
@@ -34,7 +35,7 @@ function Navbar() {
   return (
     <header
       className={
-        searchExpanded === true
+        searchExpanded
           ? 'navbar layout__content-full search-expanded'
           : 'navbar layout__content-full'
       }
@@ -53,7 +54,7 @@ function Navbar() {
               <Logo />
             </>
           )}
-          <SearchInput />
+          {!isMobile && !isTablet && <SearchInput />}
           <div
             className="navbar__buttons"
             data-store-search-expanded={searchExpanded}
