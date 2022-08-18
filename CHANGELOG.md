@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]- 
 
+### Added
+
+- **GM-646** - Changed TRUE CHANGE requests url to an env variable
+
 ## [0.11.0] - 2022-08-17
 
 ### Added
@@ -16,10 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-109** - Add component product description
 - **GM-137** - Add static institutional pages
 - **GM-131** - Add institutional menu
-
-### Added
-
-- **GM-646** - Changed TRUE CHANGE requests url to an env variable
 
 ## [0.10.0] - 2022-08-04
 
