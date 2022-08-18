@@ -12,7 +12,6 @@ import useSearch from 'src/contexts/SearchContext/useSearch'
 import Filters from 'src/components/search/PLPFilters'
 
 import Section from '../Section'
-import EmptyGallery from './EmptyGallery'
 import { useProductsPrefetch } from './usePageProducts'
 import './product-gallery.scss'
 import { useGalleryQuery } from './useGalleryQuery'
@@ -38,17 +37,28 @@ function ProductGallery({
   title,
   searchTerm,
   products: initialProducts,
-  productsCount,
+  productsCount: initialProductsCount,
   galleryTitle,
   hasFilter = true,
 }: Props) {
-  const { setProducts, products, isLoading, slug } = useSearch()
+  const {
+    setProducts,
+    products,
+    setProductsCount,
+    productsCount,
+    isLoading,
+    slug,
+  } = useSearch()
 
   useEffect(() => {
     if (initialProducts && initialProducts.length > 0) {
       setProducts(initialProducts)
+      setProductsCount({
+        total: initialProductsCount ?? 0,
+        actualCount: initialProductsCount ?? 0,
+      })
     }
-  }, [initialProducts, setProducts])
+  }, [initialProducts, initialProductsCount, setProducts, setProductsCount])
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useFSSearch()
@@ -62,17 +72,6 @@ function ProductGallery({
 
   useProductsPrefetch(prev ? prev.cursor : null)
   useProductsPrefetch(next ? next.cursor : null)
-
-  if (data && productsCount === 0) {
-    return (
-      <Section
-        data-testid="product-gallery"
-        className="product-listing layout__content"
-      >
-        <EmptyGallery />
-      </Section>
-    )
-  }
 
   return (
     <Section
@@ -106,12 +105,16 @@ function ProductGallery({
 
         <div
           className="product-listing__results-count"
-          data-count={productsCount}
+          data-count={productsCount.actualCount}
         >
-          <SkeletonElement shimmer type="text" loading={!data}>
+          <SkeletonElement shimmer type="text" loading={!data || isLoading}>
             <h2 data-testid="total-product-count">
-              <span>Total de</span>
-              <span>{productsCount} produtos</span>
+              <span>Monstrando</span>
+              <span>
+                {productsCount.actualCount !== productsCount.total &&
+                  `${productsCount.actualCount} de `}
+                {productsCount.total} produtos
+              </span>
             </h2>
           </SkeletonElement>
         </div>
@@ -177,7 +180,7 @@ function ProductGallery({
             ))}
           </ProductGridSkeleton>
           {/* Add link to next page. This helps on SEO */}
-          {next !== false && (
+          {next !== false && products && products.length ? (
             <div className="product-listing__pagination product-listing__pagination--bottom">
               <GatsbySeo defer linkTags={[{ rel: 'next', href: next.link }]} />
               <ButtonLink
@@ -194,6 +197,8 @@ function ProductGallery({
                 CARREGAR MAIS
               </ButtonLink>
             </div>
+          ) : (
+            <></>
           )}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useSearch } from '@faststore/sdk'
+import ProductNotFound from 'src/components/common/ProductNotFound/ProductNotFound'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import ProductGrid from 'src/components/product/ProductGrid'
 import './product-gallery.scss'
@@ -16,7 +17,12 @@ function GalleryPage({ page, products }: Props) {
   const { itemsPerPage } = useSearch()
 
   if (!products.length) {
-    return null
+    return (
+      <ProductNotFound
+        title="OPS!!!!!"
+        subtitle="Infelizmente não conseguimos encontrar nenhum resultado para os filtros selecionados."
+      />
+    )
   }
 
   return <ProductGrid products={products} page={page} pageSize={itemsPerPage} />
