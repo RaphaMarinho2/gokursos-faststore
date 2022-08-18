@@ -20,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-646** - Changed TRUE CHANGE requests url to an env variable
-- **GM-646** - Added `.env.sample`
 
 ## [0.10.0] - 2022-08-04
 
