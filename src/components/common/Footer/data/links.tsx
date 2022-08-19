@@ -26,32 +26,32 @@ const links = [
         icon: null,
       },
       {
-        href: '/',
+        href: '/institucional/perguntas-frequentes/',
         name: 'Perguntas Frequentes',
         icon: null,
       },
       {
-        href: '/',
+        href: '/institucional/quem-somos/',
         name: 'Quem somos',
         icon: null,
       },
       {
-        href: '/',
+        href: '/institucional/formas-de-pagamento/',
         name: 'Formas de pagamento',
         icon: null,
       },
       {
-        href: '/',
+        href: '/institucional/politicas-de-cancelamento/',
         name: 'Política de Cancelamento',
         icon: null,
       },
       {
-        href: '/',
+        href: '/institucional/termos-de-uso/',
         name: 'Termos de Uso',
         icon: null,
       },
       {
-        href: '/',
+        href: '/institucional/seguranca-e-privacidade/',
         name: 'Segurança de Privacidade',
         icon: null,
       },

@@ -35,8 +35,8 @@ function Facets({
   onAccordionChange,
   forceSvg,
 }: FacetsProps) {
-  const facetsBolean = [...facets.filter((facet) => facet.type === 'BOOLEAN')]
-  const facetsRange = [...facets.filter((facet) => facet.type === 'RANGE')]
+  const facetsBolean = facets.filter((facet) => facet.type === 'BOOLEAN')
+  const facetsRange = facets.filter((facet) => facet.type === 'RANGE')
 
   return (
     <div className="filter" data-store-filter data-testid={testId}>

@@ -1,0 +1,13 @@
+@import "src/styles/scaffold";
+
+.workload {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-text-size-0);
+  font-weight: 600;
+  color: #666;
+
+  svg {
+    margin-right: 8px;
+  }
+}

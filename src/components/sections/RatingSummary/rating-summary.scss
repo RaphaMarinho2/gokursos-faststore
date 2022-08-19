@@ -1,0 +1,13 @@
+@import "src/styles/scaffold";
+
+.rating-summary {
+  display: flex;
+  align-items: flex-start;
+
+  &__total-rates {
+    font-size: var(--fs-text-size-0);
+    font-weight: var(--fs-text-weight-regular);
+    line-height: 16px;
+    color: rgb(0 0 0 / 60%);
+  }
+}

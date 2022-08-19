@@ -5,13 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Unreleased]-
+
+## [0.13.0] - 2022-08-18
+
+### Added
+
+- **GM-613** - Get Search Suggestions
+
+## [0.12.0] - 2022-08-18
+
+### Added
+
+- **GM-646** - Changed TRUE CHANGE requests url to an env variable
+
+## [0.11.0] - 2022-08-17
+
+### Added
+
+- **GM-135** - Add page Frequent Questions
+- **GM-132** - Contact us form
+- **GM-109** - Add component product description
+- **GM-137** - Add static institutional pages
+- **GM-131** - Add institutional menu
+
+## [0.10.0] - 2022-08-04
+
+### Added
+
+- **GM-101** - Add button and modal share
+- **GM-100** - [PDP] Buy Box - general
+- **GM-102** - [PDP] Buy Box - instalments list
+- **GM-103** - [PDP] Buy Box - Image banner
+- **GM-105** - [PDP] "How do we teach" section
+
+## [0.9.0] - 2022-08-02
 
 ### Fixed
 
 - **GM-455** - Changed layout style in footer
 
 ### Added
+
 
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list
