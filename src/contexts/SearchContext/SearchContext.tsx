@@ -39,8 +39,8 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    if (!filteredFacets || filteredFacets.length === 0) {
-      return
+    const body = {
+      slug,
     }
 
     const changeProducts = async () => {
@@ -48,10 +48,7 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
       const { value, '@odata.count': count } = await axios
         .post(
           '/api/getDepartmentOrCategory',
-          {
-            slug,
-            filteredFacets,
-          },
+          filteredFacets.length ? { ...body, filteredFacets } : body,
           {
             proxy: {
               protocol: '',

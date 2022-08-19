@@ -1,13 +1,12 @@
 import { usePagination, useSearch as useFSSearch } from '@faststore/sdk'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import { lazy, useState, useEffect } from 'react'
+import { lazy, useState } from 'react'
 import Sort from 'src/components/search/Sort'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
-import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import useSearch from 'src/contexts/SearchContext/useSearch'
 import Filters from 'src/components/search/PLPFilters'
 
@@ -27,8 +26,6 @@ interface Props {
   galleryTitle?: string | null
   title: string
   searchTerm?: string
-  products?: ProductsProductCard[]
-  productsCount?: number
   forceSvg?: ForceSvg
   hasFilter?: boolean
 }
@@ -36,29 +33,10 @@ interface Props {
 function ProductGallery({
   title,
   searchTerm,
-  products: initialProducts,
-  productsCount: initialProductsCount,
   galleryTitle,
   hasFilter = true,
 }: Props) {
-  const {
-    setProducts,
-    products,
-    setProductsCount,
-    productsCount,
-    isLoading,
-    slug,
-  } = useSearch()
-
-  useEffect(() => {
-    if (initialProducts && initialProducts.length > 0) {
-      setProducts(initialProducts)
-      setProductsCount({
-        total: initialProductsCount ?? 0,
-        actualCount: initialProductsCount ?? 0,
-      })
-    }
-  }, [initialProducts, initialProductsCount, setProducts, setProductsCount])
+  const { products, productsCount, isLoading, slug } = useSearch()
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useFSSearch()

@@ -11,7 +11,6 @@ import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import axios from 'axios'
 import type {
   DepartmentPageQueryQuery,
   DepartmentPageQueryQueryVariables,
@@ -19,7 +18,6 @@ import type {
 import queryContentful from 'src/sdk/contentful/queryContentful'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import BannerCategory from 'src/components/sections/BannerCategory'
-import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
 interface PageCMSDepartmentCategoryType {
@@ -48,11 +46,6 @@ interface ServerDataProps {
       }
     }
   }
-  productsData: {
-    '@odata.count': number
-    '@odata.context': string
-    value: ProductsProductCard[]
-  }
 }
 
 export type Props = PageProps<
@@ -69,10 +62,7 @@ function Page(props: Props) {
     serverData,
   } = props
 
-  const {
-    CMSData,
-    productsData: { value: products, '@odata.count': productsCount },
-  } = serverData
+  const { CMSData } = serverData
 
   const [
     {
@@ -160,11 +150,7 @@ function Page(props: Props) {
         imageBannerMobile={bannerImageMobile?.url}
       />
       <SearchProvider slug={slug}>
-        <ProductGallery
-          products={products}
-          productsCount={productsCount}
-          title={title}
-        />
+        <ProductGallery title={title} />
       </SearchProvider>
 
       <ScrollToTopButton />
@@ -224,26 +210,8 @@ export const getServerData = async (props: Props) => {
       body,
     })
 
-    const productsData = await axios
-      .post(
-        '/api/getDepartmentOrCategory',
-        {
-          slug,
-        },
-        {
-          proxy: {
-            protocol: '',
-            host: '',
-            port: 8000,
-          },
-        }
-      )
-      .then(({ data }) => data)
-      .catch((err) => console.error(err))
-
     if (
       !CMSData ||
-      !productsData ||
       CMSData.data.departmentCategoryPageCollection.items.length === 0
     ) {
       const originalUrl = `/${slug}`
@@ -262,7 +230,7 @@ export const getServerData = async (props: Props) => {
       status: 200,
       props: {
         CMSData,
-        productsData,
+        // productsData,
       },
       headers: {
         'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
