@@ -2,7 +2,11 @@ import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import { mark } from 'src/sdk/tests/mark'
-import { SearchProvider, parseSearchState, useSession } from '@faststore/sdk'
+import {
+  SearchProvider as FSSearchProvider,
+  parseSearchState,
+  useSession,
+} from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
@@ -16,7 +20,7 @@ import queryContentful from 'src/sdk/contentful/queryContentful'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import BannerCategory from 'src/components/sections/BannerCategory'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
-import { SearchProvider as PLPProvider } from 'src/contexts/SearchContext/SearchContext'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
 interface PageCMSDepartmentCategoryType {
   title: string
@@ -114,7 +118,7 @@ function Page(props: Props) {
       : `/${slug}/${pageQuery}`
 
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
@@ -155,16 +159,16 @@ function Page(props: Props) {
         imageBannerDesktop={bannerImageDesktop?.url}
         imageBannerMobile={bannerImageMobile?.url}
       />
-      <PLPProvider slug={slug}>
+      <SearchProvider slug={slug}>
         <ProductGallery
           products={products}
           productsCount={productsCount}
           title={title}
         />
-      </PLPProvider>
+      </SearchProvider>
 
       <ScrollToTopButton />
-    </SearchProvider>
+    </FSSearchProvider>
   )
 }
 

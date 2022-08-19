@@ -164,7 +164,7 @@ function ProductGallery({
           <ProductGridSkeleton loading={!products || isLoading}>
             {pages.map((page) => (
               <>
-                {products && (
+                {products?.length && (
                   <GalleryPage
                     key={`gallery-page-${page}`}
                     showSponsoredProducts={false}
