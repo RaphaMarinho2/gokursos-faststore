@@ -8,7 +8,7 @@ type PricesFilterType = { minPrice: number; maxPrice: number }
 
 interface Props {
   setAllFilters: React.Dispatch<React.SetStateAction<Filters[]>>
-  slug: string
+  slug?: string
 }
 
 async function fetchFilters({ setAllFilters, slug }: Props) {

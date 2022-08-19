@@ -26,7 +26,7 @@ export interface Filters {
 }
 
 interface FilterProps {
-  slug: string
+  slug?: string
   onDismiss: () => void
   isFilterOpen: boolean
 }

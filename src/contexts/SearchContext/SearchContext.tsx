@@ -7,13 +7,13 @@ import type { Filters } from 'src/components/search/PLPFilters/Filters'
 import { ITEMS_PER_PAGE } from 'src/constants'
 
 type SearchProviderProps = {
-  slug: string
+  slug?: string
   children: React.ReactNode
   searchParams?: SearchState
 }
 
 interface SearchContextProps {
-  slug: string
+  slug?: string
   isLoading: boolean
   filteredFacets: Filters[]
   setFilteredFacets: Dispatch<SetStateAction<Filters[]>>
@@ -34,15 +34,12 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true)
-
     const body = {
       slug,
     }
 
-    setIsLoading(true)
-
     if (slug) {
+      setIsLoading(true)
       const changeProducts = async () => {
         const { value, '@odata.count': count } = await axios
           .post(
@@ -58,28 +55,33 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
       }
 
       changeProducts()
+
+      return
     }
 
-    if (searchParams) {
-      const changeProducts = async () => {
-        const { term, sort, page } = searchParams
-        const { value, '@odata.count': count } = await axios
-          .post('/api/getSearch', {
-            term,
-            sort,
-            skip: page * ITEMS_PER_PAGE,
-            itemsPerPage: ITEMS_PER_PAGE,
-          })
-          .then(({ data }) => data)
-          .catch((err) => console.error(err))
-          .finally(() => setIsLoading(false))
-
-        setProductsCount(count)
-        setProducts(value)
-      }
-
-      changeProducts()
+    if (!searchParams) {
+      return
     }
+
+    setIsLoading(true)
+    const searchProducts = async () => {
+      const { term, sort, page } = searchParams
+      const { value, '@odata.count': count } = await axios
+        .post('/api/getSearch', {
+          term,
+          sort,
+          skip: page * ITEMS_PER_PAGE,
+          itemsPerPage: ITEMS_PER_PAGE,
+        })
+        .then(({ data }) => data)
+        .catch((err) => console.error(err))
+        .finally(() => setIsLoading(false))
+
+      setProductsCount(count)
+      setProducts(value)
+    }
+
+    searchProducts()
   }, [filteredFacets, searchParams, slug])
 
   const value = {
