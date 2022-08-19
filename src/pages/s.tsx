@@ -103,13 +103,14 @@ function Page(props: Props) {
         (not the HTML tag) before rendering it here.
       */}
       <Breadcrumb name="All Products" />
-      {/* TODO: Add search request */}
       <SearchProvider searchParams={searchParams}>
         <ProductGallery
           title="Search Results"
           searchTerm={searchParams.term ?? undefined}
           products={products}
           productsCount={productsCount}
+          // TODO: remove this when adapt filters to search
+          hasFilter={false}
         />
       </SearchProvider>
     </FSSearchProvider>
