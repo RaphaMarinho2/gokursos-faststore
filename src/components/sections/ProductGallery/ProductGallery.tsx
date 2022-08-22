@@ -37,7 +37,8 @@ function ProductGallery({
   galleryTitle,
   hasFilter = true,
 }: Props) {
-  const { products, productsCount, isLoading, slug } = useSearch()
+  const { products, productsCount, isLoading, slug, lastPage, currentPage } =
+    useSearch()
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, state: searchState } = useFSSearch()
@@ -142,7 +143,14 @@ function ProductGallery({
             ))}
           </ProductGridSkeleton>
           {/* Add link to next page. This helps on SEO */}
-          {!isLoading && products?.length ? <ProductGalleryPaginator /> : <></>}
+          {!isLoading && products?.length ? (
+            <ProductGalleryPaginator
+              currentPage={currentPage}
+              lastPage={lastPage}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </Section>
