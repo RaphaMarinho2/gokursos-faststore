@@ -17,29 +17,15 @@ import type {
   SearchPageQueryQueryVariables,
 } from '@generated/graphql'
 import 'src/styles/pages/search.scss'
-import axios from 'axios'
 import { applySearchState } from 'src/sdk/search/state'
-import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 import ProductGallery from 'src/components/sections/ProductGallery'
-
-type Query = { query: Record<string, string> }
-
-interface ServerDataProps {
-  productsData: {
-    '@odata.count': number
-    '@odata.context': string
-    value: ProductsProductCard[]
-  }
-}
 
 export type Props = PageProps<
   SearchPageQueryQuery,
   SearchPageQueryQueryVariables,
-  unknown,
-  ServerDataProps
-> &
-  Query
+  unknown
+>
 
 const useSearchParams = ({ href }: Location) => {
   const [params, setParams] = useState<SearchState | null>(null)
@@ -56,12 +42,7 @@ const useSearchParams = ({ href }: Location) => {
 function Page(props: Props) {
   const {
     data: { site },
-    serverData,
   } = props
-
-  const {
-    productsData: { value: products, '@odata.count': productsCount },
-  } = serverData
 
   const { locale } = useSession()
   const searchParams = useSearchParams(props.location)
@@ -107,8 +88,6 @@ function Page(props: Props) {
         <ProductGallery
           title="Search Results"
           searchTerm={searchParams.term ?? undefined}
-          products={products}
-          productsCount={productsCount}
           // TODO: remove this when adapt filters to search
           hasFilter={false}
         />
@@ -128,52 +107,6 @@ export const querySSG = graphql`
     }
   }
 `
-
-export const getServerData = async (props: Props) => {
-  const { query } = props
-
-  try {
-    const productsData = await axios
-      .post(
-        '/api/getSearch',
-        {
-          term: query.q,
-          sort: query.sort,
-          skip: Number(query.page) * ITEMS_PER_PAGE,
-          itemsPerPage: ITEMS_PER_PAGE,
-        },
-        {
-          proxy: {
-            protocol: '',
-            host: '',
-            port: 8000,
-          },
-        }
-      )
-      .then(({ data }) => data)
-      .catch((err) => console.error(err))
-
-    return {
-      status: 200,
-      props: {
-        productsData,
-      },
-      headers: {
-        'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
-      },
-    }
-  } catch (err) {
-    console.error(err)
-
-    return {
-      status: 500,
-      props: {},
-      headers: {
-        'cache-control': 'public, max-age=0, must-revalidate',
-      },
-    }
-  }
-}
 
 Page.displayName = 'Page'
 
