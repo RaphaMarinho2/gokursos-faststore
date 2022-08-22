@@ -2,25 +2,19 @@ import { useCallback } from 'react'
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import { useLocation } from '@reach/router'
 import type { CurrencyCode, SelectItemEvent } from '@faststore/sdk'
+import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 
 import type { AnalyticsItem, SearchSelectItemEvent } from '../analytics/types'
 
 export type ProductLinkOptions = {
   index: number
-  product?: any
-  selectedOffer: number
+  product: ProductsProductCard
 }
 
-export const useProductLink = ({
-  index,
-  product,
-  selectedOffer,
-}: ProductLinkOptions) => {
-  const { ProductURL } = product
+export const useProductLink = ({ index, product }: ProductLinkOptions) => {
+  const { LinkId } = product
 
-  const slug = ProductURL
-    ? ProductURL.replace('https://www.gokursos.com/', '')
-    : ''
+  const slug = LinkId.toLowerCase()
 
   const { href } = useLocation()
   const {
@@ -33,18 +27,17 @@ export const useProductLink = ({
       params: {
         items: [
           {
-            item_id: product.isVariantOf.productGroupID,
-            item_name: product.isVariantOf.name,
-            item_brand: product.brand.name,
-            item_variant: product.sku,
+            item_id: product.ID,
+            item_name: product.Name,
+            item_brand: product.Category.Name,
             index,
-            price: product.offers.offers[selectedOffer].price,
-            discount:
-              product.offers.offers[selectedOffer].listPrice -
-              product.offers.offers[selectedOffer].price,
+            price: product.Price.BasePrice,
+            discount: product.Price.isSale
+              ? product.Price.ListPrice - product.Price.BasePrice
+              : 0,
             currency: code as CurrencyCode,
-            item_variant_name: product.name,
-            product_reference_id: product.gtin,
+            item_variant_name: product.Name,
+            product_reference_id: null,
           },
         ],
       },
@@ -56,17 +49,16 @@ export const useProductLink = ({
         url: href,
         items: [
           {
-            item_id: product.isVariantOf.productGroupID,
-            item_variant: product.sku,
+            item_id: product.ID,
             index,
           },
         ],
       },
     })
-  }, [code, product, index, selectedOffer, href])
+  }, [code, product, index, href])
 
   return {
-    to: `/${slug}`,
+    to: `/${slug}/p`,
     onClick,
     'data-testid': 'product-link',
   }

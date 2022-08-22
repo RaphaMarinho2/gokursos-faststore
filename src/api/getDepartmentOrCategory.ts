@@ -11,8 +11,11 @@ export default async function getDepartmentOrCategory(
   req: GatsbyFunctionRequest<RequestType>,
   res: GatsbyFunctionResponse
 ) {
-  if (req.method !== `POST`) {
-    throw new Error('Request method should be POST')
+  if (req.method !== 'POST') {
+    res.status(405)
+    res.send('Request method must be POST')
+
+    return
   }
 
   const { slug, filteredFacets } = req.body
@@ -79,7 +82,7 @@ export default async function getDepartmentOrCategory(
   } ${filters?.priceRangeFilter ? `and (${filters?.priceRangeFilter})` : ''}
   `
 
-  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${allFilters} &$top=20&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, ProductURL`
+  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${allFilters} &$top=20&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`
 
   try {
     const { data } = await axios.get(URL)

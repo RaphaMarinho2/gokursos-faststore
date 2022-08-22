@@ -48,14 +48,7 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
       const { value, '@odata.count': count } = await axios
         .post(
           '/api/getDepartmentOrCategory',
-          filteredFacets.length ? { ...body, filteredFacets } : body,
-          {
-            proxy: {
-              protocol: '',
-              host: '',
-              port: 8000,
-            },
-          }
+          filteredFacets.length ? { ...body, filteredFacets } : body
         )
         .then(({ data }) => data)
         .catch((err) => console.error(err))

@@ -13,17 +13,26 @@ export default async function getMinMaxPrices(
         ? `Department/Slug eq '${departmentSlug}'`
         : `Category/Slug eq '${categorySlug}'`
 
-    const { data: maxPrice } = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
-    )
+    const [maxPriceData, minPriceData] = await Promise.all([
+      axios.get(
+        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
+      ),
+      axios.get(
+        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
+      ),
+    ])
 
-    const { data: minPrice } = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
-    )
+    // const { data: maxPrice } = await axios.get(
+    //   `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
+    // )
+
+    // const { data: minPrice } = await axios.get(
+    //   `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
+    // )
 
     const data = {
-      minPrice: minPrice.value[0].Price.BasePrice,
-      maxPrice: maxPrice.value[0].Price.BasePrice,
+      minPrice: minPriceData.data.value[0].Price.BasePrice,
+      maxPrice: maxPriceData.data.value[0].Price.BasePrice,
     }
 
     res.json(data)

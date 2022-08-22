@@ -9,20 +9,23 @@ export default async function getCategories(
   req: GatsbyFunctionRequest<RequestType>,
   res: GatsbyFunctionResponse
 ) {
-  if (req.method === `POST`) {
-    const { departmentSlug } = req.body
-    const filterParam = `Department/Slug eq '${departmentSlug}'`
+  if (req.method !== 'POST') {
+    res.status(405)
+    res.send('Request method must be POST')
 
-    try {
-      const { data } = await axios.get(
-        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Categories?$select=Name, Slug&$filter=${filterParam}`
-      )
+    return
+  }
 
-      res.json(data.value)
-    } catch (error) {
-      throw new Error(error)
-    }
-  } else {
-    throw new Error('Request method should be POST')
+  const { departmentSlug } = req.body
+  const filterParam = `Department/Slug eq '${departmentSlug}'`
+
+  try {
+    const { data } = await axios.get(
+      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Categories?$select=Name, Slug&$filter=${filterParam}`
+    )
+
+    res.json(data.value)
+  } catch (error) {
+    throw new Error(error)
   }
 }

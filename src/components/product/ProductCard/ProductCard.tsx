@@ -33,7 +33,7 @@ export interface ProductsProductCard {
     isSale: boolean
   }
   ProductImageURL: string
-  ProductURL: string
+  LinkId: string
 }
 
 export interface ProductCardProps {
@@ -59,7 +59,7 @@ function ProductCard({
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
-  const linkProps = useProductLink({ product, selectedOffer: 0, index })
+  const linkProps = useProductLink({ product, index })
 
   return (
     <UICard
