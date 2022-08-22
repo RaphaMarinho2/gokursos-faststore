@@ -37,12 +37,12 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const body = {
-      slug,
-      sort,
-    }
-
     if (slug) {
+      const body = {
+        slug,
+        sort,
+      }
+
       setIsLoading(true)
       const changeProducts = async () => {
         const { value, '@odata.count': count } = await axios
