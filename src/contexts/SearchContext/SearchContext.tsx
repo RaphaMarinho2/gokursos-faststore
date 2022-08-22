@@ -19,7 +19,9 @@ interface SearchContextProps {
   setFilteredFacets: Dispatch<SetStateAction<Filters[]>>
   productsCount: number
   products: ProductsProductCard[]
-  setProducts: Dispatch<SetStateAction<ProductsProductCard[]>>
+  setProducts: React.Dispatch<React.SetStateAction<ProductsProductCard[]>>
+  currentPage: number
+  lastPage: number
   sort: string
   setSort: Dispatch<SetStateAction<string>>
 }
@@ -32,6 +34,8 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
   const [filteredFacets, setFilteredFacets] = useState<Filters[]>([])
   const [sort, setSort] = useState<string>('')
   const [productsCount, setProductsCount] = useState<number>(0)
+
+  const [lastPage, setLastPage] = useState<number>(0)
 
   const [products, setProducts] = useState<ProductsProductCard[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -82,6 +86,7 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
         .finally(() => setIsLoading(false))
 
       setProductsCount(count)
+      setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
       setProducts(value)
     }
 
@@ -96,6 +101,8 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
     productsCount,
     products,
     setProducts,
+    lastPage,
+    currentPage: (searchParams?.page ?? 0) + 1,
     sort,
     setSort,
   }
