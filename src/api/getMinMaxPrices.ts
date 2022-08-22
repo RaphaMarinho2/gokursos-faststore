@@ -22,14 +22,6 @@ export default async function getMinMaxPrices(
       ),
     ])
 
-    // const { data: maxPrice } = await axios.get(
-    //   `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
-    // )
-
-    // const { data: minPrice } = await axios.get(
-    //   `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
-    // )
-
     const data = {
       minPrice: minPriceData.data.value[0].Price.BasePrice,
       maxPrice: maxPriceData.data.value[0].Price.BasePrice,

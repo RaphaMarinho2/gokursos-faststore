@@ -230,7 +230,6 @@ export const getServerData = async (props: Props) => {
       status: 200,
       props: {
         CMSData,
-        // productsData,
       },
       headers: {
         'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
