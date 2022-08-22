@@ -213,11 +213,18 @@
   }
 
   &--bottom {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
     margin-top: var(--padding);
   }
 
   [data-store-button] {
     width: 100%;
+
+    &.product-listing__pagination-button {
+      border: 1px solid #ddd;
+    }
 
     @include media(">=notebook") {
       width: fit-content;

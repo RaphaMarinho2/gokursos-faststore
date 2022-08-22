@@ -1,10 +1,9 @@
 import { usePagination, useSearch as useFSSearch } from '@faststore/sdk'
-import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import { lazy, useState } from 'react'
 import Sort from 'src/components/search/Sort'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
-import Button, { ButtonLink } from 'src/components/ui/Button'
+import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import useSearch from 'src/contexts/SearchContext/useSearch'
@@ -15,6 +14,7 @@ import Section from '../Section'
 import { useProductsPrefetch } from './usePageProducts'
 import './product-gallery.scss'
 import { useGalleryQuery } from './useGalleryQuery'
+import ProductGalleryPaginator from './ProductGalleryPaginator'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 
@@ -39,7 +39,7 @@ function ProductGallery({
   const { products, productsCount, isLoading, slug } = useSearch()
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
-  const { pages, addNextPage, addPrevPage, state: searchState } = useFSSearch()
+  const { pages, state: searchState } = useFSSearch()
 
   const { data } = useGalleryQuery()
 
@@ -117,28 +117,6 @@ function ProductGallery({
         </div>
 
         <div className="product-listing__results">
-          {/* Add link to previous page. This helps on SEO */}
-          {prev !== false && (
-            <div className="product-listing__pagination product-listing__pagination--top">
-              <GatsbySeo defer linkTags={[{ rel: 'prev', href: prev.link }]} />
-              <ButtonLink
-                onClick={(e) => {
-                  e.currentTarget.blur()
-                  e.preventDefault()
-                  addPrevPage()
-                }}
-                to={prev.link}
-                rel="prev"
-                variant="secondary"
-                iconPosition="left"
-                icon={
-                  <Icon name="ArrowLeft" width={16} height={16} weight="bold" />
-                }
-              >
-                Previous Page
-              </ButtonLink>
-            </div>
-          )}
           {/* Render ALL products */}
           <ProductGridSkeleton loading={!products || isLoading}>
             {pages.map((page) => (
@@ -159,26 +137,7 @@ function ProductGallery({
             ))}
           </ProductGridSkeleton>
           {/* Add link to next page. This helps on SEO */}
-          {next !== false && products && products.length ? (
-            <div className="product-listing__pagination product-listing__pagination--bottom">
-              <GatsbySeo defer linkTags={[{ rel: 'next', href: next.link }]} />
-              <ButtonLink
-                data-testid="show-more"
-                onClick={(e) => {
-                  e.currentTarget.blur()
-                  e.preventDefault()
-                  addNextPage()
-                }}
-                to={next.link}
-                rel="next"
-                variant="secondary"
-              >
-                CARREGAR MAIS
-              </ButtonLink>
-            </div>
-          ) : (
-            <></>
-          )}
+          {!isLoading && products?.length ? <ProductGalleryPaginator /> : <></>}
         </div>
       </div>
     </Section>
