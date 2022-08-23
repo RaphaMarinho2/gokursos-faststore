@@ -62,6 +62,13 @@ function Page(props: Props) {
     serverData,
   } = props
 
+  const { locale } = useSession()
+
+  // No data was found
+  if (!serverData) {
+    return <></>
+  }
+
   const { CMSData } = serverData
 
   const [
@@ -75,8 +82,6 @@ function Page(props: Props) {
       bannerImageMobile,
     },
   ] = CMSData.data.departmentCategoryPageCollection.items
-
-  const { locale } = useSession()
 
   const maybeState = parseSearchState(new URL(href))
 
@@ -212,7 +217,7 @@ export const getServerData = async (props: Props) => {
 
     if (
       !CMSData ||
-      CMSData.data.departmentCategoryPageCollection.items.length === 0
+      !CMSData.data.departmentCategoryPageCollection.items.length
     ) {
       const originalUrl = `/${slug}`
 
