@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
+import { useModal } from 'src/sdk/ui/modal/Provider'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 import Facets from './Facets'
@@ -38,6 +39,7 @@ function Filters({ slug, onDismiss, isFilterOpen }: FilterProps) {
   }, [slug])
 
   const { isTablet } = useWindowDimensions()
+  const { onModalClose } = useModal()
 
   return (
     <div>
@@ -54,7 +56,7 @@ function Filters({ slug, onDismiss, isFilterOpen }: FilterProps) {
             aria-label="Close Filters"
             className="close-button"
             icon={<Icon name="X" width={25} height={25} />}
-            onClick={onDismiss}
+            onClick={onModalClose}
           />
           <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
         </SlideOver>

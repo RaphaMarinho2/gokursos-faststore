@@ -149,7 +149,7 @@ function ProductGallery({
             </div>
           )}
           {/* Render ALL products */}
-          <ProductGridSkeleton loading={!products || isLoading}>
+          <ProductGridSkeleton loading>
             {pages.map((page) => (
               <>
                 {products?.length && (
