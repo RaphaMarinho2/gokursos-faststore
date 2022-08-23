@@ -17,10 +17,6 @@ const ProductGalleryPaginator = ({
     const { search, pathname } = window.location
     const urlParams = new URLSearchParams(search)
 
-    if (!urlParams.has('page')) {
-      return
-    }
-
     const current = parseInt(urlParams.get('page') ?? '0', 10)
 
     urlParams.set('page', `${current + 1}`)
@@ -32,10 +28,6 @@ const ProductGalleryPaginator = ({
     const { search, pathname } = window.location
     const urlParams = new URLSearchParams(search)
 
-    if (!urlParams.has('page')) {
-      return
-    }
-
     const current = parseInt(urlParams.get('page') ?? '0', 10)
 
     urlParams.set('page', `${current - 1}`)
@@ -46,10 +38,6 @@ const ProductGalleryPaginator = ({
   const checkPage = (page: number) => {
     const { search } = window.location
     const urlParams = new URLSearchParams(search)
-
-    if (!urlParams.has('page')) {
-      return
-    }
 
     const current = parseInt(urlParams.get('page') ?? '0', 10)
 
@@ -66,7 +54,7 @@ const ProductGalleryPaginator = ({
       >
         <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
       </Button>
-      <div className="product-listing__current-page">{currentPage}</div>
+      <div className="product-listing__current-page">{currentPage + 1}</div>
       <span className="product-listing__page-separator">de</span>
       <div className="product-listing__last-page">{lastPage}</div>
       <Button
