@@ -5,6 +5,8 @@ import type { Filters } from 'src/components/search/PLPFilters/Filters'
 interface RequestType {
   slug: string
   filteredFacets?: Filters[]
+  skip?: number
+  itemsPerPage?: number
 }
 
 export default async function getDepartmentOrCategory(
@@ -18,7 +20,7 @@ export default async function getDepartmentOrCategory(
     return
   }
 
-  const { slug, filteredFacets } = req.body
+  const { slug, filteredFacets, skip = 0, itemsPerPage = 12 } = req.body
 
   const categorySlug = slug.includes('/') && slug.split('/')[1]
   const departmentSlug = !slug.includes('/') && slug
@@ -86,7 +88,7 @@ export default async function getDepartmentOrCategory(
   }
   `
 
-  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${allFilters} &$top=20&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`
+  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=${skip}&$filter=${allFilters} &$top=${itemsPerPage}&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`
 
   try {
     const { data } = await axios.get(URL)

@@ -156,7 +156,7 @@ function Page(props: Props) {
         imageBannerDesktop={bannerImageDesktop?.url}
         imageBannerMobile={bannerImageMobile?.url}
       />
-      <SearchProvider slug={slug}>
+      <SearchProvider slug={slug} searchParams={searchParams}>
         <ProductGallery title={title} />
       </SearchProvider>
 

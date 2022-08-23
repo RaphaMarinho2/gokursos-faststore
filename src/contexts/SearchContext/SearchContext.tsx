@@ -41,6 +41,8 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
     if (slug) {
       const body = {
         slug,
+        itemsPerPage: ITEMS_PER_PAGE,
+        skip: (searchParams?.page ?? 0) * ITEMS_PER_PAGE,
       }
 
       setIsLoading(true)
@@ -55,6 +57,7 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
           .finally(() => setIsLoading(false))
 
         setProductsCount(count)
+        setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
         setProducts(value)
       }
 
@@ -63,7 +66,7 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
       return
     }
 
-    if (!searchParams) {
+    if (!searchParams || !searchParams.term) {
       return
     }
 
@@ -98,7 +101,7 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
     products,
     setProducts,
     lastPage,
-    currentPage: (searchParams?.page ?? 0) + 1,
+    currentPage: searchParams?.page ?? 0,
   }
 
   return (
