@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { ButtonIcon } from 'src/components/ui/Button'
+import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
@@ -47,6 +49,13 @@ function Filters({ slug, onDismiss, isFilterOpen }: FilterProps) {
           direction="rightSide"
           className="filter-modal__content"
         >
+          <ButtonIcon
+            data-testid="filter-modal-button-close"
+            aria-label="Close Filters"
+            className="close-button"
+            icon={<Icon name="X" width={25} height={25} />}
+            onClick={onDismiss}
+          />
           <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
         </SlideOver>
       ) : (

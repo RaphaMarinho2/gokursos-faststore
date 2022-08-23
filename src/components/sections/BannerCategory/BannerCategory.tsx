@@ -18,7 +18,7 @@ const BannerCategory = ({
   const { isTablet } = useWindowDimensions()
 
   return (
-    <section className="banner-category layout__content">
+    <section className="banner-category">
       <div className="banner-category__content">
         <Banner>
           <BannerImage>
