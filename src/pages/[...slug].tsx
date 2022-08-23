@@ -57,7 +57,7 @@ export type Props = PageProps<
 
 function Page(props: Props) {
   const {
-    location: { host, href },
+    location: { host, href, pathname },
     data,
     serverData,
   } = props
@@ -65,7 +65,7 @@ function Page(props: Props) {
   const { locale } = useSession()
 
   // No data was found
-  if (!serverData) {
+  if (!serverData || !serverData.CMSData?.data) {
     return <></>
   }
 
@@ -83,7 +83,9 @@ function Page(props: Props) {
     },
   ] = CMSData.data.departmentCategoryPageCollection.items
 
-  const maybeState = parseSearchState(new URL(href))
+  const maybeState = parseSearchState(
+    new URL(href ?? pathname, 'http://localhost')
+  )
 
   const searchParams = {
     page: maybeState?.page,

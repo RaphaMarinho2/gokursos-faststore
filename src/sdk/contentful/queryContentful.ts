@@ -26,9 +26,6 @@ async function queryContentful<R>({ body }: QueryContentfulProps): Promise<R> {
       .then((response) => {
         return response.data
       })
-      .catch((error) => {
-        return error.response.data
-      })
 
     return CMSData
   } catch (error) {

@@ -2,7 +2,7 @@ import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PropsWithChildren } from 'react'
 
 import ProductCardSkeleton from '../ProductCardSkeleton'
-import './product-grid-skeleton.scss'
+import '../../product/ProductGrid/product-grid.scss'
 
 interface Props {
   loading?: boolean
