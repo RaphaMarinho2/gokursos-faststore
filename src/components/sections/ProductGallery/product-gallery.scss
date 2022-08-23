@@ -228,6 +228,10 @@
     &.product-listing__pagination-button {
       max-width: 40px;
       border: 1px solid #ddd;
+
+      &:disabled {
+        background-color: #fff;
+      }
     }
 
     @include media(">=notebook") {
