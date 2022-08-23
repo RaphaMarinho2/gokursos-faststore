@@ -21,6 +21,4 @@ export default async function getCargasHorarias(
   } catch (error) {
     throw new Error(error)
   }
-
-  throw new Error('Request method should be POST')
 }
