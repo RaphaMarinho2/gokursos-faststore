@@ -36,7 +36,7 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
   )
 
   const [products, setProducts] = useState<ProductsProductCard[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const body = {
@@ -44,7 +44,6 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
     }
 
     const changeProducts = async () => {
-      setIsLoading(true)
       const { value, '@odata.count': count } = await axios
         .post(
           '/api/getDepartmentOrCategory',
