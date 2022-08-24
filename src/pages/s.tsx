@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import { useEffect, useState } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import ProductGallery from 'src/components/sections/ProductGallery'
 import SROnly from 'src/components/ui/SROnly'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { applySearchState } from 'src/sdk/search/state'
@@ -66,9 +65,7 @@ function Page(props: Props) {
           description: site?.siteMetadata?.description ?? '',
         }}
       />
-
       <SROnly as="h1" text={title} />
-
       {/*
         WARNING: Do not import or render components from any
         other folder than '../components/sections' in here.
@@ -81,11 +78,11 @@ function Page(props: Props) {
         (not the HTML tag) before rendering it here.
       */}
       <Breadcrumb name="All Products" />
-
-      <ProductGallery
+      {/* TODO: Add search request */}
+      {/* <ProductGallery
         title="Search Results"
         searchTerm={searchParams.term ?? undefined}
-      />
+      /> */}
     </SearchProvider>
   )
 }

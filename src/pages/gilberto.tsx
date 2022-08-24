@@ -2,7 +2,10 @@ import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import { mark } from 'src/sdk/tests/mark'
-import { SearchProvider, parseSearchState } from '@faststore/sdk'
+import {
+  SearchProvider as FSSearchProvider,
+  parseSearchState,
+} from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import BannerCategory from 'src/components/sections/BannerCategory'
@@ -11,6 +14,7 @@ import { graphql } from 'gatsby'
 import type { InfoprodutorPageQueryQuery } from '@generated/graphql'
 import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
 export type Props = PageProps<InfoprodutorPageQueryQuery>
 type ItemListType = {
@@ -24,12 +28,14 @@ function Page(props: Props) {
     data: { allContentfulBannerInfoProdutor },
   } = props
 
+  const [bannerInfo] = allContentfulBannerInfoProdutor.nodes
+
   const svgIcons = {
     svg1: <AccordionUp />,
     svg2: <AccordionDown />,
   }
 
-  const title = 'gilberto' ?? ''
+  const title = 'Gilberto'
 
   const maybeState = parseSearchState(
     new URL('https://deploy-preview-26--gokursos.netlify.app/gilberto/')
@@ -52,18 +58,23 @@ function Page(props: Props) {
   ]
 
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
-      <BannerCategory nodes={allContentfulBannerInfoProdutor.nodes} />
-
-      <ProductGallery title={title} forceSvg={svgIcons} hasFilter={false} />
-
+      <BannerCategory
+        title={bannerInfo.title ?? ''}
+        subtitle=" "
+        imageBannerDesktop={bannerInfo.bannerImageDesktop?.url ?? ''}
+        imageBannerMobile={bannerInfo.bannerImageMobile?.url ?? ''}
+      />
+      <SearchProvider slug="/gilberto">
+        <ProductGallery title={title} forceSvg={svgIcons} hasFilter={false} />
+      </SearchProvider>
       <ScrollToTopButton />
-    </SearchProvider>
+    </FSSearchProvider>
   )
 }
 

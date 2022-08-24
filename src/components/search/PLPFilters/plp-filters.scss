@@ -1,0 +1,121 @@
+@import "src/styles/scaffold";
+
+.filter {
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include media(">=tablet") {
+      font-size: 24px;
+      text-transform: none;
+    }
+  }
+}
+
+.filter-modal__content {
+  width: calc(100vw - 50px);
+  height: calc(100vh - 65px);
+  padding: 1.5rem;
+
+  @media (max-width: 375px) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1.5%;
+    right: 4%;
+  }
+}
+
+[data-store-accordion] {
+  margin-top: 1rem;
+
+  @include media(">=tablet") {
+    margin-top: 0;
+  }
+}
+
+[data-accordion-item] [data-store-button] {
+  padding: 0.5rem 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+
+  @include media(">=tablet") {
+    padding: 2rem 0 0.4rem;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  &[aria-expanded="true"] {
+    font-weight: 600;
+  }
+}
+
+[data-accordion-item] [data-store-button][aria-expanded="true"] ~ [data-accordion-panel] {
+  min-height: 50px;
+  max-height: 300px;
+  margin-bottom: 0.6rem;
+  overflow-y: auto;
+
+  @include media(">=tablet") {
+    max-height: 400px;
+  }
+}
+
+.filter__item {
+  display: flex;
+  align-items: center;
+
+  [data-store-checkbox] {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.25rem 0.25rem 0.25rem 0;
+
+    @include media(">=tablet") {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  [data-store-checkbox]:checked ~ [data-store-label] {
+    color: rgb(0 0 0 / 100%);
+  }
+
+  [data-store-label] {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: var(--fs-spacing-1);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(0 0 0 / 60%);
+
+    @include media(">=tablet") {
+      font-size: 16px;
+    }
+  }
+
+  [data-store-badge] {
+    margin-left: var(--fs-spacing-1);
+  }
+}
+
+.filter-modal__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .text__lead {
+    font-weight: bold;
+  }
+
+  [data-fs-button-icon] {
+    margin-right: calc(-1 * var(--fs-spacing-1));
+  }
+}

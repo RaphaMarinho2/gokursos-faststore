@@ -11,10 +11,10 @@ dotenv.config()
 const gatsbyConfig: GatsbyConfig = {
   jsxRuntime: 'automatic',
   siteMetadata: {
-    title: 'GatsbyStore',
+    title: 'GoKursos',
     description: 'Fast Demo Store',
-    titleTemplate: '%s | FastStore',
-    author: 'Store Framework',
+    titleTemplate: '%s - GoKursos',
+    author: 'ACCT Global',
     siteUrl: config.storeUrl,
   },
   flags: {
@@ -30,6 +30,7 @@ const gatsbyConfig: GatsbyConfig = {
       options: {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
         accessToken: process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN,
+        forceFullSync: true,
       },
     },
     {

@@ -32,8 +32,6 @@ function Button({
   children,
   ...props
 }: Props) {
-  console.info('Button')
-
   return (
     <UIButton
       data-fs-button

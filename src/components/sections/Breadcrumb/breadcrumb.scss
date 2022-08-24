@@ -1,8 +1,8 @@
 @import "src/styles/scaffold";
 
 .breadcrumb {
-  padding-top: var(--fs-spacing-0);
-  padding-bottom: var(--fs-spacing-0);
+  padding-top: 3rem;
+  padding-bottom: 0.5rem;
 
   li {
     a {
@@ -12,11 +12,5 @@
         font-size: 16px;
       }
     }
-  }
-}
-
-section {
-  &.breadcrumb {
-    padding: 50px 0;
   }
 }
