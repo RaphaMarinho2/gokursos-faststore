@@ -14,8 +14,30 @@ import './product-card.scss'
 
 type Variant = 'wide' | 'default'
 
+export interface ProductsProductCard {
+  ID: string
+  Name: string
+  Category: {
+    Name: string
+    Slug: string
+  }
+  Especificacao: {
+    CargaHoraria: {
+      Text: string
+    }
+  }
+  Price: {
+    BasePrice: number
+    CommisionedPrice: number
+    ListPrice: number
+    isSale: boolean
+  }
+  ProductImageURL: string
+  LinkId: string
+}
+
 export interface ProductCardProps {
-  product: any
+  product: ProductsProductCard
   index: number
   bordered?: boolean
   variant?: Variant
@@ -37,7 +59,7 @@ function ProductCard({
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
-  const linkProps = useProductLink({ product, selectedOffer: 0, index })
+  const linkProps = useProductLink({ product, index })
 
   return (
     <UICard
@@ -47,7 +69,7 @@ function ProductCard({
       data-fs-product-card-actionabled={!!ButtonBuy}
       {...otherProps}
     >
-      {img !== '' && (
+      {img !== '' ? (
         <UICardImage>
           <img
             src={img}
@@ -56,6 +78,8 @@ function ProductCard({
             loading="lazy"
           />
         </UICardImage>
+      ) : (
+        <div className="product-image__skeleton" />
       )}
 
       <UICardContent data-fs-product-card-content>

@@ -1,3 +1,5 @@
+@import "src/styles/scaffold";
+
 .slider {
   position: relative;
   width: 275px;
@@ -29,9 +31,13 @@
 
 .slider__left-value,
 .slider__right-value {
-  margin-top: 20px;
-  font-size: 12px;
-  color: #cacbcc;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #727273;
+
+  @include media(">=tablet") {
+    font-size: 12px;
+  }
 }
 
 .slider__left-value {

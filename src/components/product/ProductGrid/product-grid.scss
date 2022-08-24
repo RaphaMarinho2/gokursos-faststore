@@ -8,6 +8,7 @@
   @include media(">=notebook") {
     $pagination-start-index: 2;
 
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--fs-grid-gap-2);
 

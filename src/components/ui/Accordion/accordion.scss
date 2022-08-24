@@ -6,7 +6,7 @@
   justify-content: space-around;
 
   [data-accordion-item] {
-    border-bottom: 1px solid var(--fs-border-color-light);
+    border-bottom: 1px solid #cacbcc;
 
     @include media(">=notebook") {
       &:last-child {
@@ -20,7 +20,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: var(--fs-spacing-3) 0;
     color: var(--fs-color-text);
     cursor: pointer;
     background-color: transparent;

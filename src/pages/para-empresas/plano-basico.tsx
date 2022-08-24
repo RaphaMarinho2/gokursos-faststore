@@ -7,13 +7,17 @@ import Breadcrumb from 'src/components/sections/Breadcrumb'
 import BuyBox from 'src/components/sections/BuyBox/BuyBox'
 import ExplanationPlan from 'src/components/sections/ExplanationPlan/ExplanationPlan'
 import type { SearchState } from '@faststore/sdk'
-import { SearchProvider, parseSearchState } from '@faststore/sdk'
+import {
+  SearchProvider as FSSearchProvider,
+  parseSearchState,
+} from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
 export type Props = PageProps<PlanoBasicoEmpresasQuery>
 
@@ -72,7 +76,7 @@ function Page(props: Props) {
     ]
 
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
@@ -88,15 +92,17 @@ function Page(props: Props) {
           (node) => node.slug === '/plano-basico'
         )}
       />
-
-      <ProductGallery
-        title={title}
-        forceSvg={svgIcons}
-        galleryTitle={galleryTitle}
-      />
+      <SearchProvider slug="/plano-basico">
+        <ProductGallery
+          title={title}
+          forceSvg={svgIcons}
+          galleryTitle={galleryTitle}
+          hasFilter={false}
+        />
+      </SearchProvider>
 
       <ScrollToTopButton />
-    </SearchProvider>
+    </FSSearchProvider>
   )
 }
 

@@ -15471,9 +15471,64 @@ export type ProductDetailsFragment_ProductFragment = {
   }
 }
 
-export type CollectionPageQueryQueryVariables = Exact<{ [key: string]: never }>
+export type ProductGalleryQueryQueryVariables = Exact<{
+  first: Scalars['Int']
+  after: Scalars['String']
+  sort: StoreSort
+  term: Scalars['String']
+  selectedFacets: Array<IStoreSelectedFacet> | IStoreSelectedFacet
+}>
 
-export type CollectionPageQueryQuery = {
+export type ProductGalleryQueryQuery = {
+  search: {
+    products: {
+      pageInfo: { totalCount: number }
+      edges: Array<{
+        node: {
+          sku: string
+          name: string
+          gtin: string
+          description: string
+          id: string
+          isVariantOf: { productGroupID: string; name: string }
+          image: Array<{ url: string; alternateName: string }>
+          brand: { name: string }
+          offers: {
+            lowPrice: number
+            offers: Array<{
+              availability: string
+              price: number
+              listPrice: number
+              seller: { identifier: string }
+            }>
+          }
+          breadcrumbList: {
+            itemListElement: Array<{
+              item: string
+              name: string
+              position: number
+            }>
+          }
+        }
+      }>
+    }
+    facets: Array<{
+      key: string
+      label: string
+      type: StoreFacetType
+      values: Array<{
+        label: string
+        value: string
+        selected: boolean
+        quantity: number
+      }>
+    }>
+  }
+}
+
+export type DepartmentPageQueryQueryVariables = Exact<{ [key: string]: never }>
+
+export type DepartmentPageQueryQuery = {
   site: {
     siteMetadata: {
       titleTemplate: string | null
@@ -15481,20 +15536,6 @@ export type CollectionPageQueryQuery = {
       description: string | null
     } | null
   } | null
-}
-
-export type ServerCollectionPageQueryQueryVariables = Exact<{
-  slug: Scalars['String']
-}>
-
-export type ServerCollectionPageQueryQuery = {
-  collection: {
-    seo: { title: string; description: string }
-    breadcrumbList: {
-      itemListElement: Array<{ item: string; name: string; position: number }>
-    }
-    meta: { selectedFacets: Array<{ key: string; value: string }> }
-  }
 }
 
 export type ProductPageQueryQueryVariables = Exact<{ [key: string]: never }>
@@ -16073,26 +16114,6 @@ export type SearchPageQueryQuery = {
   } | null
 }
 
-export type DepartmentPageQueryQueryVariables = Exact<{ [key: string]: never }>
-
-export type DepartmentPageQueryQuery = {
-  site: {
-    siteMetadata: {
-      title: string | null
-      description: string | null
-      titleTemplate: string | null
-    } | null
-  } | null
-  allContentfulPageDepartmentCategory: {
-    nodes: Array<{
-      title: string | null
-      subtitle: string | null
-      bannerImageDesktop: { url: string | null } | null
-      bannerImageMobile: { url: string | null } | null
-    }>
-  }
-}
-
 export type ValidateCartMutationMutationVariables = Exact<{
   cart: IStoreCart
 }>
@@ -16173,6 +16194,50 @@ export type BrowserProductQueryQuery = {
     }
     breadcrumbList: {
       itemListElement: Array<{ item: string; name: string; position: number }>
+    }
+  }
+}
+
+export type ProductsQueryQueryVariables = Exact<{
+  first: Scalars['Int']
+  after: InputMaybe<Scalars['String']>
+  sort: StoreSort
+  term: Scalars['String']
+  selectedFacets: Array<IStoreSelectedFacet> | IStoreSelectedFacet
+}>
+
+export type ProductsQueryQuery = {
+  search: {
+    products: {
+      pageInfo: { totalCount: number }
+      edges: Array<{
+        node: {
+          sku: string
+          name: string
+          gtin: string
+          description: string
+          id: string
+          isVariantOf: { productGroupID: string; name: string }
+          image: Array<{ url: string; alternateName: string }>
+          brand: { name: string }
+          offers: {
+            lowPrice: number
+            offers: Array<{
+              availability: string
+              price: number
+              listPrice: number
+              seller: { identifier: string }
+            }>
+          }
+          breadcrumbList: {
+            itemListElement: Array<{
+              item: string
+              name: string
+              position: number
+            }>
+          }
+        }
+      }>
     }
   }
 }
