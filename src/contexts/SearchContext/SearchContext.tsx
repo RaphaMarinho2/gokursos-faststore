@@ -17,6 +17,8 @@ interface SearchContextProps {
   productsCount: number
   products: ProductsProductCard[]
   setProducts: Dispatch<SetStateAction<ProductsProductCard[]>>
+  sort: string
+  setSort: Dispatch<SetStateAction<string>>
 }
 
 export const SearchContext = createContext<SearchContextProps | undefined>(
@@ -25,6 +27,7 @@ export const SearchContext = createContext<SearchContextProps | undefined>(
 
 function SearchProvider({ children, slug }: SearchProviderProps) {
   const [filteredFacets, setFilteredFacets] = useState<Filters[]>([])
+  const [sort, setSort] = useState<string>('')
   const [productsCount, setProductsCount] = useState<number>(0)
 
   const [products, setProducts] = useState<ProductsProductCard[]>([])
@@ -35,6 +38,7 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
 
     const body = {
       slug,
+      sort,
     }
 
     const changeProducts = async () => {
@@ -52,7 +56,7 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
     }
 
     changeProducts()
-  }, [filteredFacets, slug])
+  }, [filteredFacets, slug, sort])
 
   const value = {
     isLoading,
@@ -62,6 +66,8 @@ function SearchProvider({ children, slug }: SearchProviderProps) {
     productsCount,
     products,
     setProducts,
+    sort,
+    setSort,
   }
 
   return (

@@ -15,7 +15,6 @@ import Section from '../Section'
 import { useProductsPrefetch } from './usePageProducts'
 import './product-gallery.scss'
 import { useGalleryQuery } from './useGalleryQuery'
-import { useDelayedFacets } from './useDelayedFacets'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
 
@@ -43,8 +42,6 @@ function ProductGallery({
   const { pages, addNextPage, addPrevPage, state: searchState } = useFSSearch()
 
   const { data } = useGalleryQuery()
-
-  const facets = useDelayedFacets(data)
 
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = usePagination(totalCount)
@@ -104,9 +101,7 @@ function ProductGallery({
         </div>
 
         <div className="product-listing__sort">
-          <SkeletonElement shimmer type="text" loading={facets?.length === 0}>
-            <Sort />
-          </SkeletonElement>
+          <Sort />
 
           <SkeletonElement shimmer type="button" loading={isLoading}>
             <Button
