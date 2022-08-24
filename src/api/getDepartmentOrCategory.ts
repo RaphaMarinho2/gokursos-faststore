@@ -79,7 +79,11 @@ export default async function getDepartmentOrCategory(
     filters?.cargaHorariaFetchFilters
       ? `and (${filters?.cargaHorariaFetchFilters})`
       : ''
-  } ${filters?.priceRangeFilter ? `and (${filters?.priceRangeFilter})` : ''}
+  } ${
+    filters?.priceRangeFilter
+      ? `and (${filters?.priceRangeFilter})`
+      : 'and Price/BasePrice gt 0'
+  }
   `
 
   const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${allFilters} &$top=20&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`

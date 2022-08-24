@@ -93,16 +93,12 @@ function ProductGallery({
 
         <div
           className="product-listing__results-count"
-          data-count={productsCount.actualCount}
+          data-count={productsCount}
         >
           <SkeletonElement shimmer type="text" loading={!data || isLoading}>
             <h2 data-testid="total-product-count">
               <span>Monstrando</span>
-              <span>
-                {productsCount.actualCount !== productsCount.total &&
-                  `${productsCount.actualCount} de `}
-                {productsCount.total} produtos
-              </span>
+              <span>{productsCount} produtos</span>
             </h2>
           </SkeletonElement>
         </div>
