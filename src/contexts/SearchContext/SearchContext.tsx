@@ -79,6 +79,7 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
           sort,
           skip: page * ITEMS_PER_PAGE,
           itemsPerPage: ITEMS_PER_PAGE,
+          filteredFacets: filteredFacets.length ? filteredFacets : undefined,
         })
         .then(({ data }) => data)
         .catch((err) => console.error(err))
