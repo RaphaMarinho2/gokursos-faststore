@@ -8,17 +8,18 @@ export default async function getMinMaxPrices(
   const { departmentSlug, categorySlug } = req.body
 
   try {
-    const filterParam =
-      categorySlug === undefined
-        ? `Department/Slug eq '${departmentSlug}'`
-        : `Category/Slug eq '${categorySlug}'`
+    const filterParam = departmentSlug
+      ? ` and Department/Slug eq '${departmentSlug}'`
+      : categorySlug
+      ? ` and Category/Slug eq '${categorySlug}'`
+      : ''
 
     const [maxPriceData, minPriceData] = await Promise.all([
       axios.get(
-        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
+        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne ''${filterParam}`
       ),
       axios.get(
-        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne '' and ${filterParam}`
+        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne ''${filterParam}`
       ),
     ])
 
