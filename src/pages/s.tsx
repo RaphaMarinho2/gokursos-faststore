@@ -88,8 +88,6 @@ function Page(props: Props) {
         <ProductGallery
           title="Search Results"
           searchTerm={searchParams.term ?? undefined}
-          // TODO: remove this when adapt filters to search
-          hasFilter={false}
         />
       </SearchProvider>
     </FSSearchProvider>
