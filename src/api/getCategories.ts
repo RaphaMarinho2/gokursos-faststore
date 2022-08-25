@@ -2,7 +2,7 @@ import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 
 interface RequestType {
-  departmentSlug: string
+  departmentSlug?: string
 }
 
 export default async function getCategories(
@@ -16,12 +16,14 @@ export default async function getCategories(
     return
   }
 
-  const { departmentSlug } = req.body
-  const filterParam = `Department/Slug eq '${departmentSlug}'`
+  const { departmentSlug = '' } = req.body
+  const filterParam = departmentSlug
+    ? `&$filter=Department/Slug eq '${departmentSlug}'`
+    : ''
 
   try {
     const { data } = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Categories?$select=Name, Slug&$filter=${filterParam}`
+      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Categories?$expand=Department,Product&$select=Name, Slug${filterParam}`
     )
 
     res.json(data.value)
