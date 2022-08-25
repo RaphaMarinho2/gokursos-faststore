@@ -12,6 +12,8 @@ interface Props {
 }
 
 async function fetchFilters({ setAllFilters, slug }: Props) {
+  const allFilters = []
+
   const categoriesFetch = await axios
     .post<CategoryFilterType>('/api/getCategories', {
       departmentSlug: slug,
@@ -20,16 +22,20 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
       return data
     })
 
-  const categoryFilter: Filters = {
-    filterlabel: 'Categorias',
-    type: 'CHECKBOX',
-    facets: categoriesFetch.map((category) => {
-      return {
-        selected: false,
-        value: category.Slug,
-        label: category.Name,
-      }
-    }),
+  if (categoriesFetch?.length) {
+    const categoryFilter: Filters = {
+      filterlabel: 'Categorias',
+      type: 'CHECKBOX',
+      facets: categoriesFetch.map((category) => {
+        return {
+          selected: false,
+          value: category.Slug,
+          label: category.Name,
+        }
+      }),
+    }
+
+    allFilters.push(categoryFilter)
   }
 
   const cargasHorariasFetch = await axios
@@ -38,16 +44,20 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
       return data
     })
 
-  const cargaHorariaFilter: Filters = {
-    filterlabel: 'Carga horária',
-    type: 'CHECKBOX',
-    facets: cargasHorariasFetch.map((cargaHoraria) => {
-      return {
-        selected: false,
-        value: cargaHoraria.Text,
-        label: cargaHoraria.Text,
-      }
-    }),
+  if (cargasHorariasFetch?.length) {
+    const cargaHorariaFilter: Filters = {
+      filterlabel: 'Carga horária',
+      type: 'CHECKBOX',
+      facets: cargasHorariasFetch.map((cargaHoraria) => {
+        return {
+          selected: false,
+          value: cargaHoraria.Text,
+          label: cargaHoraria.Text,
+        }
+      }),
+    }
+
+    allFilters.push(cargaHorariaFilter)
   }
 
   const minMaxPriceFetch = await axios
@@ -58,24 +68,28 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
       return data
     })
 
-  const priceFilter: Filters = {
-    filterlabel: 'Faixa de preço',
-    type: 'RANGE',
-    facets: [
-      {
-        label: 'Faixa de preço',
-        value: 'priceRange',
-        others: {
-          actualMin: minMaxPriceFetch.minPrice,
-          actualMax: minMaxPriceFetch.maxPrice,
-          min: minMaxPriceFetch.minPrice,
-          max: minMaxPriceFetch.maxPrice,
+  if (minMaxPriceFetch && Object.keys(minMaxPriceFetch).length) {
+    const priceFilter: Filters = {
+      filterlabel: 'Faixa de preço',
+      type: 'RANGE',
+      facets: [
+        {
+          label: 'Faixa de preço',
+          value: 'priceRange',
+          others: {
+            actualMin: minMaxPriceFetch.minPrice,
+            actualMax: minMaxPriceFetch.maxPrice,
+            min: minMaxPriceFetch.minPrice,
+            max: minMaxPriceFetch.maxPrice,
+          },
         },
-      },
-    ],
+      ],
+    }
+
+    allFilters.push(priceFilter)
   }
 
-  setAllFilters([categoryFilter, cargaHorariaFilter, priceFilter])
+  setAllFilters(allFilters)
 }
 
 export default fetchFilters

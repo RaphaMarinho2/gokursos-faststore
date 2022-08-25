@@ -8,7 +8,6 @@ import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import useSearch from 'src/contexts/SearchContext/useSearch'
 import Filters from 'src/components/search/PLPFilters'
-import ProductNotFound from 'src/components/common/ProductNotFound/ProductNotFound'
 
 import Section from '../Section'
 import { useProductsPrefetch } from './usePageProducts'
@@ -52,15 +51,6 @@ function ProductGallery({
 
   useProductsPrefetch(prev ? prev.cursor : null)
   useProductsPrefetch(next ? next.cursor : null)
-
-  if ((!products || !products.length) && !isLoading) {
-    return (
-      <ProductNotFound
-        title="OPS!!!!!"
-        subtitle={`Produtos de "${slug}" não encontrados.`}
-      />
-    )
-  }
 
   return (
     <Section
@@ -126,20 +116,14 @@ function ProductGallery({
           {/* Render ALL products */}
           <ProductGridSkeleton loading={!products || isLoading}>
             {pages.map((page) => (
-              <>
-                {products?.length && (
-                  <GalleryPage
-                    key={`gallery-page-${page}`}
-                    showSponsoredProducts={false}
-                    fallbackData={
-                      page === searchState.page ? products : undefined
-                    }
-                    page={page}
-                    title={title}
-                    products={products}
-                  />
-                )}
-              </>
+              <GalleryPage
+                key={`gallery-page-${page}`}
+                showSponsoredProducts={false}
+                fallbackData={page === searchState.page ? products : undefined}
+                page={page}
+                title={title}
+                products={products}
+              />
             ))}
           </ProductGridSkeleton>
           {/* Add link to next page. This helps on SEO */}
