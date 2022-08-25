@@ -23,10 +23,16 @@ export default async function getMinMaxPrices(
       ),
     ])
 
-    const data = {
-      minPrice: minPriceData.data.value[0].Price.BasePrice,
-      maxPrice: maxPriceData.data.value[0].Price.BasePrice,
-    }
+    const maxPrice = maxPriceData.data.value[0]?.Price?.BasePrice
+    const minPrice = minPriceData.data.value[0]?.Price?.BasePrice
+
+    const data =
+      maxPrice && (minPrice || minPrice === 0)
+        ? {
+            minPrice,
+            maxPrice,
+          }
+        : {}
 
     res.json(data)
   } catch (error) {

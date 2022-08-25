@@ -16,11 +16,11 @@ interface Props {
 function GalleryPage({ page, products }: Props) {
   const { itemsPerPage } = useSearch()
 
-  if (!products.length) {
+  if (!products?.length) {
     return (
       <ProductNotFound
         title="OPS!!!!!"
-        subtitle="Infelizmente não conseguimos encontrar nenhum resultado para os filtros selecionados."
+        subtitle="Infelizmente não conseguimos encontrar nenhum resultado."
       />
     )
   }
