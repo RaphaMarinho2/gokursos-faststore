@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+### Added
+
+- **GM-664** - Added new order by to Product Gallery
+
+## [0.14.0] - 2022-08-24
+
+### Added
+
+- **GM-343** - Make Department/Category pages dinamic
+- **GM-344** - Integrate filters for Department/Category page
+
 ## [0.13.0] - 2022-08-18
 
 ### Added
@@ -47,7 +58,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list
 - **GM-108** - [PDP] Show common questions form
@@ -80,7 +90,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **GM-343** - Make Department/Category pages dinamic
 - **GM-121** - Created Benefits Plans component.
 - **GM-297** - Agnostic component for simple text [page plans bottom text].
 - **GM-95** - Created ScrollToTopButton component.
