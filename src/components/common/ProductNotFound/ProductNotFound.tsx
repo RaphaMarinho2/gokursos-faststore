@@ -4,7 +4,7 @@ import './product-not-found.scss'
 
 interface ProductNotFoundProps {
   title: string
-  subtitle: string
+  subtitle: React.ReactNode
 }
 
 function ProductNotFound({ title, subtitle }: ProductNotFoundProps) {
@@ -12,7 +12,7 @@ function ProductNotFound({ title, subtitle }: ProductNotFoundProps) {
     <div className="not-found">
       <FaceIcon />
       <span className="not-found__title">{title}</span>
-      <p className="not-found__subtitle">{subtitle}</p>
+      <div className="not-found__subtitle">{subtitle}</div>
     </div>
   )
 }
