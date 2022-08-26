@@ -10,6 +10,6 @@ export function formatSearchState(searchParams: SearchState) {
 
   return {
     pathname: base,
-    search: `?q=${term}&sort=${sort}&page=${page}`,
+    search: `?q=${encodeURI(term ?? '')}&sort=${sort}&page=${page}`,
   }
 }
