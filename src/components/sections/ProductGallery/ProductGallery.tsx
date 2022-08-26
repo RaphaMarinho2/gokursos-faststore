@@ -73,6 +73,7 @@ function ProductGallery({
           <div className="product-listing__filters">
             <Filters
               slug={slug}
+              term={searchTerm}
               isFilterOpen={isFilterOpen}
               onDismiss={() => setIsFilterOpen(false)}
             />
