@@ -284,3 +284,50 @@
   font-weight: var(--fs-text-weight-bold);
   color: #666;
 }
+
+.search-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__main-text {
+    font-size: 20px;
+    color: #000;
+
+    @include media(">=notebook") {
+      font-size: 24px;
+    }
+
+    .search-empty__term {
+      color: #ff3452;
+      text-decoration: underline;
+    }
+  }
+
+  &__others {
+    margin: 16px 0 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+
+    @include media(">=notebook") {
+      margin: 23px 0 53px;
+    }
+  }
+
+  [data-fs-button] {
+    &[data-fs-button-variant="secondary"] {
+      &.search-empty__button {
+        max-width: 252px;
+        color: #fff;
+        background-color: #ff3452;
+        border: none;
+
+        &:hover {
+          color: #fff;
+          background-color: #ff3452;
+        }
+      }
+    }
+  }
+}
