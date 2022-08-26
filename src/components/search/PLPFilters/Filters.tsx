@@ -27,16 +27,18 @@ export interface Filters {
 
 interface FilterProps {
   slug?: string
+  term?: string | null
   onDismiss: () => void
   isFilterOpen: boolean
 }
 
-function Filters({ slug, onDismiss, isFilterOpen }: FilterProps) {
+function Filters({ slug, term, onDismiss, isFilterOpen }: FilterProps) {
   const [allFilters, setAllFilters] = useState<Filters[]>([])
+  const [filterLoading, setFilterLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    fetchFilters({ setAllFilters, slug })
-  }, [slug])
+    fetchFilters({ setAllFilters, setFilterLoading, slug, term })
+  }, [slug, term])
 
   const { isTablet } = useWindowDimensions()
   const { onModalClose } = useModal()
@@ -58,10 +60,18 @@ function Filters({ slug, onDismiss, isFilterOpen }: FilterProps) {
             icon={<Icon name="X" width={25} height={25} />}
             onClick={onModalClose}
           />
-          <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
+          <Facets
+            allFilters={allFilters}
+            setAllFilters={setAllFilters}
+            filterLoading={filterLoading}
+          />
         </SlideOver>
       ) : (
-        <Facets allFilters={allFilters} setAllFilters={setAllFilters} />
+        <Facets
+          allFilters={allFilters}
+          setAllFilters={setAllFilters}
+          filterLoading={filterLoading}
+        />
       )}
     </div>
   )

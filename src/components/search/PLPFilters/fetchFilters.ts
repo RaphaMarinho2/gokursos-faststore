@@ -8,11 +8,20 @@ type PricesFilterType = { minPrice: number; maxPrice: number }
 
 interface Props {
   setAllFilters: React.Dispatch<React.SetStateAction<Filters[]>>
+  setFilterLoading: (filterLoading: boolean) => void
   slug?: string
+  term?: string | null
 }
 
-async function fetchFilters({ setAllFilters, slug }: Props) {
+async function fetchFilters({
+  setAllFilters,
+  setFilterLoading,
+  slug,
+  term,
+}: Props) {
   const allFilters = []
+
+  setFilterLoading(true)
 
   const categoriesFetch = await axios
     .post<CategoryFilterType>('/api/getCategories', {
@@ -63,6 +72,7 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
   const minMaxPriceFetch = await axios
     .post<PricesFilterType>('/api/getMinMaxPrices', {
       departmentSlug: slug,
+      term,
     })
     .then(({ data }) => {
       return data
@@ -90,6 +100,7 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
   }
 
   setAllFilters(allFilters)
+  setFilterLoading(false)
 }
 
 export default fetchFilters

@@ -13,6 +13,7 @@ import type { Filters } from './Filters'
 
 interface PLPFiltersProps {
   allFilters: Filters[]
+  filterLoading: boolean
   setAllFilters: Dispatch<React.SetStateAction<Filters[]>>
 }
 
@@ -25,7 +26,7 @@ interface ChangeFacetProps {
   actualMax?: number
 }
 
-function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
+function Facets({ allFilters, filterLoading, setAllFilters }: PLPFiltersProps) {
   const { setFilteredFacets } = useSearch()
 
   const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
@@ -106,7 +107,7 @@ function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
 
   return (
     <div className="filter">
-      <FilterSkeleton loading={allFilters?.length === 0}>
+      <FilterSkeleton loading={!allFilters?.length || filterLoading}>
         <span className="filter__title">Filtros</span>
         <Accordion
           expandedIndices={indicesExpanded}
