@@ -57,7 +57,7 @@ function ProductGallery({
       {searchTerm && (
         <header className="product-listing__search-term layout__content">
           <h1>
-            Showing results for: <span>{searchTerm}</span>
+            Mostrando resultados de: <span>{searchTerm}</span>
           </h1>
         </header>
       )}
@@ -83,7 +83,7 @@ function ProductGallery({
           className="product-listing__results-count"
           data-count={productsCount}
         >
-          <SkeletonElement shimmer type="text" loading={!data || isLoading}>
+          <SkeletonElement shimmer type="text" loading={!products || isLoading}>
             <h2 data-testid="total-product-count">
               <span>Monstrando</span>
               <span>{productsCount} produtos</span>
