@@ -18,6 +18,9 @@ async function getSearch(
 ) {
   if (req.method !== `POST`) {
     res.status(405)
+    res.json({})
+
+    return
   }
 
   try {
@@ -29,32 +32,40 @@ async function getSearch(
       filteredFacets,
     } = req.body
 
-    const defaultFilters = `IsActive eq true and (contains(Name, '${term}') or contains(Department/Name, '${term}') or contains(Category/Name, '${term}') or contains(KeyWords, '${term}') or contains(Brand/Name, '${term}'))`
+    const expand =
+      'SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria'
+
+    const select =
+      'ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId'
+
+    const encodedTerm = encodeURI(term ?? '')
+
+    const defaultFilters = `IsActive eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}'))`
 
     const formatedFilters = formatQueryFilters(filteredFacets)
 
-    const allFilters = `${defaultFilters} ${
-      formatedFilters?.categoryFetchFilters
-        ? `and (${formatedFilters?.categoryFetchFilters})`
-        : ''
-    } ${
-      formatedFilters?.cargaHorariaFetchFilters
-        ? `and (${formatedFilters?.cargaHorariaFetchFilters})`
-        : ''
-    } ${
-      formatedFilters?.priceRangeFilter
-        ? `and (${formatedFilters?.priceRangeFilter})`
-        : 'and Price/BasePrice gt 0'
-    }
-    `
+    const categoryFilter = formatedFilters?.categoryFetchFilters
+      ? ` and (${formatedFilters?.categoryFetchFilters})`
+      : ''
+
+    const workloadFilter = formatedFilters?.cargaHorariaFetchFilters
+      ? ` and (${formatedFilters?.cargaHorariaFetchFilters})`
+      : ''
+
+    const priceFilter = formatedFilters?.priceRangeFilter
+      ? ` and (${formatedFilters?.priceRangeFilter})`
+      : 'and Price/BasePrice gt 0'
+
+    const allFilters = `${defaultFilters}${categoryFilter}${workloadFilter}${priceFilter}`
 
     const data = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria&$filter=${allFilters}&$top=${itemsPerPage}&$skip=${skip}&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId&$orderby=${sort}&$count=true`
+      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${allFilters}&$top=${itemsPerPage}&$skip=${skip}&$select=${select}&$orderby=${sort}&$count=true`
     )
 
     res.json(data.data ?? {})
   } catch (error) {
-    throw new Error(error)
+    res.status(error.response.status)
+    res.json({})
   }
 }
 
