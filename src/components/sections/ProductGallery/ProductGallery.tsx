@@ -1,4 +1,3 @@
-import { usePagination, useSearch as useFSSearch } from '@faststore/sdk'
 import { lazy, useState } from 'react'
 import Sort from 'src/components/search/Sort'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
@@ -10,7 +9,6 @@ import useSearch from 'src/contexts/SearchContext/useSearch'
 import Filters from 'src/components/search/PLPFilters'
 
 import Section from '../Section'
-import { useProductsPrefetch } from './usePageProducts'
 import './product-gallery.scss'
 import { useGalleryQuery } from './useGalleryQuery'
 import { useDelayedFacets } from './useDelayedFacets'
@@ -40,17 +38,9 @@ function ProductGallery({
     useSearch()
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
-  const { pages, state: searchState } = useFSSearch()
-
   const { data } = useGalleryQuery()
 
   const facets = useDelayedFacets(data)
-
-  const totalCount = data?.search.products.pageInfo.totalCount ?? 0
-  const { next, prev } = usePagination(totalCount)
-
-  useProductsPrefetch(prev ? prev.cursor : null)
-  useProductsPrefetch(next ? next.cursor : null)
 
   return (
     <Section
@@ -116,16 +106,12 @@ function ProductGallery({
         <div className="product-listing__results">
           {/* Render ALL products */}
           <ProductGridSkeleton loading={!products || isLoading}>
-            {pages.map((page) => (
-              <GalleryPage
-                key={`gallery-page-${page}`}
-                showSponsoredProducts={false}
-                fallbackData={page === searchState.page ? products : undefined}
-                page={page}
-                title={title}
-                products={products}
-              />
-            ))}
+            <GalleryPage
+              showSponsoredProducts={false}
+              page={currentPage}
+              title={title}
+              products={products}
+            />
           </ProductGridSkeleton>
           {/* Add link to next page. This helps on SEO */}
           {!isLoading && products?.length ? (
