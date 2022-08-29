@@ -59,9 +59,12 @@
 
   margin-bottom: 10px;
   background-color: var(--fs-product-card-bkg-color);
+  background-color: var(--fs-product-card-bkg-color-hover);
   border: var(--fs-product-card-border-width) solid transparent;
+  border-color: var(--fs-product-card-border-color-hover);
   border-radius: var(--fs-product-card-border-radius);
   box-shadow: var(--fs-product-card-shadow);
+  box-shadow: var(--fs-product-card-shadow-hover);
   transition: var(--fs-product-card-transition-property) var(--fs-product-card-transition-timing) var(--fs-product-card-transition-function);
 
   @include media(">=tablet") {
@@ -74,13 +77,6 @@
     background-color: var(--fs-product-card-bkg-color-focus);
   }
 
-  @media (hover: hover) {
-    &:hover {
-      background-color: var(--fs-product-card-bkg-color-hover);
-      border-color: var(--fs-product-card-border-color-hover);
-      box-shadow: var(--fs-product-card-shadow-hover);
-    }
-  }
 
   [data-card-image] {
     position: relative;
@@ -109,15 +105,6 @@
   display: grid;
   grid-template-rows: 1fr auto;
   padding: var(--fs-product-card-content-padding);
-
-  &:hover {
-    [data-fs-product-card-actions] {
-      button {
-        color: #fff;
-        background: #ff3452;
-      }
-    }
-  }
 
   a[href] {
     min-height: 100%;
@@ -156,14 +143,21 @@
   align-items: end;
 
   button {
+    z-index: 1;
     width: 99%;
     height: 40px;
     font-size: var(--fs-text-size-base);
     font-weight: 600;
-    color: #ff3452;
-    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    background: #ff3452;
     border: 1px solid #ff3452;
     border-radius: 4px;
+
+    &:hover {
+      color: #ff3452;
+      background: transparent;
+    }
   }
 }
 
