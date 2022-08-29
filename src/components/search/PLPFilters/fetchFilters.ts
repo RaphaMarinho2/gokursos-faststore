@@ -23,6 +23,22 @@ async function fetchFilters({
 
   setFilterLoading(true)
 
+  const minMaxPriceFetch = await axios
+    .post<PricesFilterType>('/api/getMinMaxPrices', {
+      departmentSlug: slug,
+      term,
+    })
+    .then(({ data }) => {
+      return data
+    })
+
+  if (!minMaxPriceFetch || !Object.keys(minMaxPriceFetch).length) {
+    setAllFilters([])
+    setFilterLoading(false)
+
+    return
+  }
+
   const categoriesFetch = await axios
     .post<CategoryFilterType>('/api/getCategories', {
       departmentSlug: slug,
@@ -69,35 +85,24 @@ async function fetchFilters({
     allFilters.push(cargaHorariaFilter)
   }
 
-  const minMaxPriceFetch = await axios
-    .post<PricesFilterType>('/api/getMinMaxPrices', {
-      departmentSlug: slug,
-      term,
-    })
-    .then(({ data }) => {
-      return data
-    })
-
-  if (minMaxPriceFetch && Object.keys(minMaxPriceFetch).length) {
-    const priceFilter: Filters = {
-      filterlabel: 'Faixa de preço',
-      type: 'RANGE',
-      facets: [
-        {
-          label: 'Faixa de preço',
-          value: 'priceRange',
-          others: {
-            actualMin: minMaxPriceFetch.minPrice,
-            actualMax: minMaxPriceFetch.maxPrice,
-            min: minMaxPriceFetch.minPrice,
-            max: minMaxPriceFetch.maxPrice,
-          },
+  const priceFilter: Filters = {
+    filterlabel: 'Faixa de preço',
+    type: 'RANGE',
+    facets: [
+      {
+        label: 'Faixa de preço',
+        value: 'priceRange',
+        others: {
+          actualMin: minMaxPriceFetch.minPrice,
+          actualMax: minMaxPriceFetch.maxPrice,
+          min: minMaxPriceFetch.minPrice,
+          max: minMaxPriceFetch.maxPrice,
         },
-      ],
-    }
-
-    allFilters.push(priceFilter)
+      },
+    ],
   }
+
+  allFilters.push(priceFilter)
 
   setAllFilters(allFilters)
   setFilterLoading(false)
