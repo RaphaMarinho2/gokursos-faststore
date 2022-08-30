@@ -74,7 +74,7 @@ function ProductGallery({
         >
           <SkeletonElement shimmer type="text" loading={!products || isLoading}>
             <h2 data-testid="total-product-count">
-              <span>Monstrando</span>
+              <span>Mostrando</span>
               <span>{productsCount} produtos</span>
             </h2>
           </SkeletonElement>
