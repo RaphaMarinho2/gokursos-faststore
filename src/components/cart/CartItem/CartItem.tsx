@@ -37,15 +37,17 @@ function CartItem({ item }: Props) {
             {item.itemOffered.isVariantOf.name}
           </p>
           <span data-cart-item-prices>
-            <Price
-              value={item.listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={item.listPrice}
-              variant="listing"
-              classes="text__legend"
-              SRText="Original price:"
-            />
+            {item.listPrice && (
+              <Price
+                value={item.listPrice}
+                formatter={useFormattedPrice}
+                testId="list-price"
+                data-value={item.listPrice}
+                variant="listing"
+                classes="text__legend"
+                SRText="Original price:"
+              />
+            )}
             <Price
               value={item.price}
               formatter={useFormattedPrice}

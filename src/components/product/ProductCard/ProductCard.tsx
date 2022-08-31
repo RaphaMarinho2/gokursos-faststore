@@ -5,11 +5,11 @@ import {
   CardImage as UICardImage,
 } from '@faststore/ui'
 import { Link } from 'gatsby'
-import { memo } from 'react'
+import { memo, useState } from 'react'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
-import type { ReactNode } from 'react'
+import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import './product-card.scss'
 
 type Variant = 'wide' | 'default'
@@ -42,7 +42,6 @@ export interface ProductCardProps {
   bordered?: boolean
   variant?: Variant
   aspectRatio?: number
-  ButtonBuy?: ReactNode
 }
 
 function ProductCard({
@@ -50,7 +49,6 @@ function ProductCard({
   index,
   variant = 'default',
   bordered = false,
-  ButtonBuy,
   ...otherProps
 }: ProductCardProps) {
   const { Name: name, ProductImageURL: img } = product
@@ -59,14 +57,37 @@ function ProductCard({
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
+  const [addQuantity] = useState(1)
+
   const linkProps = useProductLink({ product, index })
+
+  const buyProps = useBuyButton({
+    id: product.ID,
+    price: spotPrice,
+    listPrice,
+    seller: { identifier: '' },
+    quantity: addQuantity,
+    itemOffered: {
+      sku: '',
+      name,
+      gtin: '',
+      image: [
+        {
+          alternateName: name,
+          url: img,
+        },
+      ],
+      brand: { name: '' },
+      isVariantOf: { productGroupID: '', name },
+    },
+  })
 
   return (
     <UICard
       data-fs-product-card
       data-fs-product-card-variant={variant}
       data-fs-product-card-bordered={bordered}
-      data-fs-product-card-actionabled={!!ButtonBuy}
+      data-fs-product-card-actionabled
       {...otherProps}
     >
       {img !== '' ? (
@@ -118,12 +139,9 @@ function ProductCard({
             )}
           </div>
         </div>
-
-        {!!ButtonBuy && (
-          <UICardActions data-fs-product-card-actions>
-            {ButtonBuy}
-          </UICardActions>
-        )}
+        <UICardActions data-fs-product-card-actions>
+          <button {...buyProps}>Quero começar</button>
+        </UICardActions>
       </UICardContent>
     </UICard>
   )

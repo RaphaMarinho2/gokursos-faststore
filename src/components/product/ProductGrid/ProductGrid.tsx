@@ -17,7 +17,6 @@ function ProductGrid({ products, page, pageSize }: Props) {
             product={product}
             // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
             index={pageSize * page + idx + 1}
-            ButtonBuy={<button>Quero começar</button>}
             bordered
           />
         </li>
