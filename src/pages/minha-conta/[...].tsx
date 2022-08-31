@@ -8,7 +8,7 @@ const PrivateMyOrders = WithPrivateRoute(MyOrders)
 
 export default function MyAccount() {
   return (
-    <Section className="layout__content">
+    <Section className="layout__content my-account">
       <MyAccountMenu />
       <Router basepath="/minha-conta" className="layout__content-full">
         <PrivateMyOrders path="/pedidos" />
