@@ -56,8 +56,10 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   return (
     <Section className="navigattionTabs-container section">
-      {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
-      {title && <h2 className="product-shelf-title">{title}</h2>}
+      <div className="product-shelf-titles">
+        {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
+        {title && <h2 className="product-shelf-title">{title}</h2>}
+      </div>
       <div className="section-top layout__content section__divisor">
         <div className="navigattionTabs-list scrollmenu">
           <List variant="unordered">

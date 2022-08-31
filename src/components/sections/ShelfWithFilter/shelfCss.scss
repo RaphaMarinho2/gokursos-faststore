@@ -5,29 +5,37 @@
     overflow: hidden;
   }
 
+  .product-shelf-titles {
+    .product-shelf-title {
+      margin: 0;
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .product-shelf-pretitle {
+      font-size: 14px;
+      color: #ff3452;
+    }
+
+    .product-shelf-pretitle,
+    .product-shelf-title {
+      margin-left: 16px;
+
+      @include media(">=notebook") {
+        margin-left: 0;
+      }
+    }
+
+    @include media(">=tablet") {
+      max-width: var(--fs-grid-breakpoint-desktop);
+      margin: 2rem auto 0;
+    }
+  }
+
   .section__divisor {
     padding-top: 10px;
     padding-left: 0;
-  }
-
-  .product-shelf-title {
-    margin-bottom: 0.5rem;
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  .product-shelf-pretitle {
-    font-size: 14px;
-    color: #ff3452;
-  }
-
-  .product-shelf-pretitle,
-  .product-shelf-title {
-    margin-left: 16px;
-
-    @include media(">=notebook") {
-      margin-left: 72px;
-    }
   }
 }
 
