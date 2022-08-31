@@ -24,9 +24,6 @@ export const useImage = ({
   const { srcSet } = useMemo(() => {
     const srcs = FACTORS.map((factor) => {
       const rescaledWidth = width * factor
-
-      console.log('builder', rescaledWidth)
-
       return `${src} ${rescaledWidth}w`
     })
 

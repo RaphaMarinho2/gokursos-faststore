@@ -32,33 +32,29 @@ import Section from '../Section'
 // import ProductRating from '../ProductRating'
 import Instalments from '../Instalments'
 import Workload from '../Workload'
-import RatingSummary from '../RatingSummary'
+// import RatingSummary from '../RatingSummary'
 import { InstalmentList } from './InstalmentList/InstalmentList'
 // import LatestQuestions from './LatestQuestions'
 import SubscriptionOffers from './SubscriptionOffers'
 import { VideoAndText } from './videoAndtextDetails'
-import { ProductInfo } from '../../../pages/[slug]/p'
+import type { ProductInfo } from '../../../pages/[slug]/p'
 
 interface Props {
   product: ProductInfo | any
 }
 
-
-
 function ProductDetails(product: Props) {
   // const { currency } = useSession()
   // const [addQuantity] = useState(1)
-  console.log("ProductInfo", product)
+  console.log('ProductInfo', product)
   const priceVaritation =
     ProductQueryMock.data.search.products.edges[0]?.node.offers.offers[0]
       ?.priceVaritation
-
 
   // Stale while revalidate the product for fetching the new price etc
   // const { data } = useProduct(staleProduct.id, {
   //   product: staleProduct,
   // })
-
 
   // if (!data) {
   //   throw new Error('NotFound')
@@ -72,30 +68,26 @@ function ProductDetails(product: Props) {
       productImages,
       priceOnData,
       breadCrumb,
-      category
-    }
+      category,
+    },
   } = product
 
-
-
   const parseHtml = (text: string) => {
-    return new DOMParser().parseFromString(text, "text/html");
+    return new DOMParser().parseFromString(text, 'text/html')
   }
-
 
   const tabSpecification = [
     {
       name: 'Sobre o curso',
-      description: description
-
+      description,
     },
     {
       name: 'Conteúdo do curso',
-      description: parseHtml(specification.Conteudo).documentElement.innerHTML
+      description: parseHtml(specification.Conteudo).documentElement.innerHTML,
     },
     {
       name: 'Objetivos',
-      description: specification.Objetivos
+      description: specification.Objetivos,
     },
     {
       name: 'Certificados',
@@ -181,9 +173,7 @@ function ProductDetails(product: Props) {
 
   return (
     <Section className="product-details layout__content layout__section column">
-      <Breadcrumb
-        breadcrumbList={breadCrumb}
-      />
+      <Breadcrumb breadcrumbList={breadCrumb} />
 
       <section className="product-details__body">
         <header className="product-details__title">
@@ -223,23 +213,23 @@ function ProductDetails(product: Props) {
             }
             label={
               <>
-                {
-                  category.Name &&
-                  category.Name !== undefined &&
+                {category.Name && category.Name !== undefined && (
                   <ProductTags
                     tagCategoryLabel={category.Name}
                     urlCategory={`/${category.Slug}`}
                   />
-                }
+                )}
                 {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
-                {specification.CargaHoraria.Text && <Workload workload={specification.CargaHoraria.Text} />}
+                {specification.CargaHoraria.Text && (
+                  <Workload workload={specification.CargaHoraria.Text} />
+                )}
               </>
             }
           />
         </header>
 
         <section className="product-details__image">
-          {productImages ?
+          {productImages ? (
             <Image
               preload
               loading="eager"
@@ -248,26 +238,34 @@ function ProductDetails(product: Props) {
               width={360}
               height={270}
               sizes="(max-width: 768px) 25vw, 50vw"
-            /> : <h4 className='image-not-found'>
-              imagem insdisponível
-            </h4>}
+            />
+          ) : (
+            <h4 className="image-not-found">imagem insdisponível</h4>
+          )}
         </section>
 
         <section className="product-details__settings">
           <section className="product-details__values">
             <div className="product-details__prices">
               <div className="product-details__list-price-container">
-                {priceOnData.ListPrice && <Price
-                  value={priceOnData.ListPrice}
-                  formatter={useFormattedPrice}
-                  testId="list-price"
-                  data-value={priceOnData.ListPrice}
-                  variant="listing"
-                  classes="text__legend"
-                  SRText="Original price:"
-                />
-                }
-                {priceOnData.ListPrice && <DiscountBadge listPrice={priceOnData.ListPrice} spotPrice={priceOnData.BasePrice} big />}
+                {priceOnData.ListPrice && (
+                  <Price
+                    value={priceOnData.ListPrice}
+                    formatter={useFormattedPrice}
+                    testId="list-price"
+                    data-value={priceOnData.ListPrice}
+                    variant="listing"
+                    classes="text__legend"
+                    SRText="Original price:"
+                  />
+                )}
+                {priceOnData.ListPrice && (
+                  <DiscountBadge
+                    listPrice={priceOnData.ListPrice}
+                    spotPrice={priceOnData.BasePrice}
+                    big
+                  />
+                )}
               </div>
               <Price
                 value={priceOnData.BasePrice}
