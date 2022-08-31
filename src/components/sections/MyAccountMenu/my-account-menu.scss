@@ -1,0 +1,64 @@
+@import "src/styles/scaffold";
+
+.my-account-menu {
+  display: flex;
+  flex-direction: column;
+
+  &__greetings {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #666;
+
+    &-text {
+      font-family: Montserrat, sans-serif;
+      font-size: 20px;
+      font-weight: var(--fs-text-weight-regular);
+      line-height: 30px;
+      color: #666;
+    }
+
+    &-name {
+      font-family: Montserrat, sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+      color: #666;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    width: 316px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 15%);
+
+    &-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 20px 24px;
+      font-family: Montserrat, sans-serif;
+      font-size: var(--fs-text-size-2);
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      background-color: #ff3452;
+      border-bottom: 1px solid #f5f5f5;
+      border-radius: 0;
+    }
+
+    &-logout {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 20px 24px;
+      font-size: var(--fs-text-size-2);
+      font-weight: 600;
+      color: #555;
+      background-color: #fff;
+      border: none;
+    }
+  }
+}
