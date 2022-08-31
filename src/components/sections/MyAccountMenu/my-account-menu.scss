@@ -62,3 +62,53 @@
     }
   }
 }
+
+.my-account-mobile-menu {
+  margin-top: 32px;
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 214px;
+    padding: 11px 8px;
+    color: #727273;
+    background-color: #fff;
+    border: 1px solid #dddddd;
+
+    .dropdown-icon {
+      display: flex;
+      align-items: center;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__links {
+    position: absolute;
+    z-index: 999;
+    background-color: #fff;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      width: 214px;
+      padding: 11px 8px;
+      border-right: 1px solid #dddddd;
+      border-bottom: 1px solid #dddddd;
+      border-left: 1px solid #dddddd;
+
+      .link {
+        color: #727273;
+        text-decoration: none;
+      }
+
+      .logout {
+        padding: 0;
+        color: #727273;
+        text-decoration: none;
+        background-color: #fff;
+        border: none;
+      }
+    }
+  }
+}
