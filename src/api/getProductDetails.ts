@@ -1,98 +1,69 @@
-import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
-import type { Filters } from 'src/components/search/PLPFilters/Filters'
 
-interface RequestType {
-  slug: string
-  filteredFacets?: Filters[]
+export interface ProductInfo  {
+  productData: {
+    productName: string | undefined,
+    description: string | undefined,
+    specification: string | undefined,
+    productImages: string | undefined,
+    priceOnData: string | undefined,
+    breadCrumb: string | undefined,
+    category: string | undefined,
+    department: string | undefined | any,
+    installments: string | undefined
+  }
 }
 
-export default async function getProductDetails(
-  req: GatsbyFunctionRequest<RequestType>,
-  res: GatsbyFunctionResponse
-) {
-  if (req.method !== 'POST') {
-    res.status(405)
-    res.send('Request method must be POST')
-
-    return
-  }
-
-  const { slug, filteredFacets } = req.body
-
-  const categorySlug = slug.includes('/') && slug.split('/')[1]
-  const departmentSlug = !slug.includes('/') && slug
-
-  const filterParam = !categorySlug
-    ? `Department/Slug eq '${departmentSlug}'`
-    : `Category/Slug eq '${categorySlug}'`
-
-  const getQueryFilters = () => {
-    if (!filteredFacets) return
-
-    const [categoryFacets] = filteredFacets?.filter((facet) => {
-      return facet.filterlabel === 'Categorias'
-    })
-
-    const [cargaHorariaFacets] = filteredFacets?.filter((facet) => {
-      return facet.filterlabel === 'Carga horária'
-    })
-
-    const [priceRangeFacet] = filteredFacets?.filter((facet) => {
-      return facet.filterlabel === 'Faixa de preço'
-    })
-
-    const categoryFetchFilters = categoryFacets.facets
-      .map(
-        (category, idx, arr) =>
-          `Category/Slug eq '${category.value}'${
-            idx + 1 !== arr.length ? ' or ' : ''
-          }`
-      )
-      .join('')
-
-    const cargaHorariaFetchFilters = cargaHorariaFacets.facets
-      .map(
-        (cargaHoraria, idx, arr) =>
-          `Especificacao/CargaHoraria/Text eq '${cargaHoraria.value}'${
-            idx + 1 !== arr.length ? ' or ' : ''
-          }`
-      )
-      .join('')
-
-    const priceRangeFilter = `Price/BasePrice gt ${priceRangeFacet.facets[0].others?.actualMin} and Price/BasePrice lt ${priceRangeFacet.facets[0].others?.actualMax}`
-
-    return {
-      categoryFetchFilters,
-      cargaHorariaFetchFilters,
-      priceRangeFilter,
-    }
-  }
-
-  const filters = getQueryFilters()
-
-  const allFilters = `${filterParam} ${
-    filters?.categoryFetchFilters
-      ? `and (${filters?.categoryFetchFilters})`
-      : ''
-  } ${
-    filters?.cargaHorariaFetchFilters
-      ? `and (${filters?.cargaHorariaFetchFilters})`
-      : ''
-  } ${
-    filters?.priceRangeFilter
-      ? `and (${filters?.priceRangeFilter})`
-      : 'and Price/BasePrice gt 0'
-  }
-  `
-
-  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$orderby=Rank/Score desc&$skip=0&$filter=${allFilters} &$top=20&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`
+export const getProductDetails = async ({
+  params: { slug },
+}: {
+  params: Record<string, string>
+}) => {
 
   try {
-    const { data } = await axios.get(URL)
+    console.log("slug", slug)
 
-    res.json(data)
-  } catch (error) {
-    throw new Error(error)
+    const response = await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
+    Department, Category, Price, Especificacao, Especificacao/CargaHoraria, Especificacao/DisponibilidadeDias,
+    Especificacao/TipoCurso, BreadCrumbs&$filter=LinkId eq '${slug}'&$top=1&$select=_Id, Name,
+    ProductImageURL, IsActive, Description, DescriptionShort, isKit, Department, Category, Price/ListPrice, Price/BasePrice,
+    Price/isSale, Price/SalePercentage, Especificacao/Conteudo, Especificacao/Objetivos,
+    Especificacao/CargaHoraria/Text,Especificacao/DisponibilidadeDias/Text, Especificacao/TipoCurso/Text, Especificacao/TipoCurso/TextGodigitalEdu,
+    Especificacao/TipoCurso/DescriptionCertificate, Brand/Name, BreadCrumbs/Titulo, BreadCrumbs/Url, BreadCrumbs/Tipo, Installments/Valor, Installments/Parcela,
+    Installments/Text,LinkId`)
+
+    console.log("reponse", response.data)
+    return {
+      status: 200,
+      props: {
+        productData: {
+          productName: response.data.value[0]?.Name,
+          description: response.data.value[0]?.Description,
+          specification: response.data.value[0]?.Especificacao,
+          productImages: response.data.value[0]?.ProductImageURL,
+          priceOnData: response.data.value[0]?.Price,
+          breadCrumb: response.data.value[0]?.BreadCrumbs,
+          category: response.data.value[0]?.Category,
+          department: response.data.value[0]?.Department,
+          installments: response.data.value[0]?.Installments,
+
+        }
+      },
+      headers: {
+        'cache-control': 'public, max-age=0, must-revalidate',
+      },
+    }
+
+  } catch (err) {
+    console.error(err)
+
+    return {
+      status: 500,
+      props: {},
+      headers: {
+        'cache-control': 'public, max-age=0, must-revalidate',
+      },
+    }
   }
 }
+

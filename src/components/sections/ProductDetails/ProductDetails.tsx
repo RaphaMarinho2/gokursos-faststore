@@ -1,14 +1,14 @@
 // import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import ProductTags from '@acctglobal/product-tags'
 // import { graphql } from 'gatsby'
-// import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
-// import { ButtonBuy } from 'src/components/ui/Button'
+import { ButtonBuy } from 'src/components/ui/Button'
 import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
-// import { useBuyButton } from 'src/sdk/cart/useBuyButton'
+import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 // import { useProduct } from 'src/sdk/product/useProduct'
 // import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
@@ -21,7 +21,7 @@ import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import PolygonIcon from 'src/components/icons/PolygonIcon'
-import ProductQueryMock from 'src/mocks/productQueryMock.json'
+// import ProductQueryMock from 'src/mocks/productQueryMock.json'
 import productQueryDetails from 'src/mocks/productQueryDetails.json'
 
 // import productQuestions from '../../../mocks/productQuestions.json'
@@ -45,11 +45,9 @@ interface Props {
 
 function ProductDetails(product: Props) {
   // const { currency } = useSession()
-  // const [addQuantity] = useState(1)
+  const [addQuantity] = useState(1)
   console.log('ProductInfo', product)
-  const priceVaritation =
-    ProductQueryMock.data.search.products.edges[0]?.node.offers.offers[0]
-      ?.priceVaritation
+
 
   // Stale while revalidate the product for fetching the new price etc
   // const { data } = useProduct(staleProduct.id, {
@@ -60,8 +58,11 @@ function ProductDetails(product: Props) {
   //   throw new Error('NotFound')
   // }
 
+
+
   const {
     product: {
+      productId,
       productName,
       description,
       specification,
@@ -69,30 +70,30 @@ function ProductDetails(product: Props) {
       priceOnData,
       breadCrumb,
       category,
+      installments,
+      brand
     },
   } = product
 
-  const parseHtml = (text: string) => {
-    return new DOMParser().parseFromString(text, 'text/html')
-  }
+  const priceVaritation = installments
+
 
   const tabSpecification = [
     {
-      name: 'Sobre o curso',
-      description,
+      name: description ? 'Sobre o curso' : "",
+      description: description ?? "",
     },
     {
-      name: 'Conteúdo do curso',
-      description: parseHtml(specification.Conteudo).documentElement.innerHTML,
+      name: specification?.Conteudo ? 'Conteúdo do curso' : "",
+      description: specification?.Conteudo ?? "",
     },
     {
-      name: 'Objetivos',
-      description: specification.Objetivos,
+      name: specification?.Objetivos ? 'Objetivos' : "",
+      description: specification?.Objetivos ?? "",
     },
     {
-      name: 'Certificados',
-      description:
-        'O certificado emitido pelo GoKursos será conferido após a conclusão de 75% da carga-horária do curso e da obtenção de nota mínima sete na média das avaliações. Para os cursos sem avaliação, será conferido o certificado por participação. ',
+      name: specification?.TipoCurso?.DescriptionCertificate ? 'Certificados' : "",
+      description: specification?.TipoCurso?.DescriptionCertificate ?? ""
     },
   ]
 
@@ -110,21 +111,21 @@ function ProductDetails(product: Props) {
   //   },
   // } = staleProduct
 
-  // const buyProps = useBuyButton({
-  //   id,
-  //   price,
-  //   listPrice,
-  //   seller,
-  //   quantity: addQuantity,
-  //   itemOffered: {
-  //     sku,
-  //     name: variantName,
-  //     gtin,
-  //     image: productImages,
-  //     brand,
-  //     isVariantOf,
-  //   },
-  // })
+  const buyProps = useBuyButton({
+    id: productId,
+    price: priceOnData.BasePrice,
+    listPrice: priceOnData.ListPrice,
+    seller:brand.Name ,
+    quantity: addQuantity,
+    itemOffered: {
+      sku: '',
+      name: productName,
+      gtin: '',
+      image: productImages,
+      brand: { name: '' },
+      isVariantOf: { productGroupID: '', name: productName },
+    },
+  })
 
   const facebookShareIcon = () => {
     return <FacebookShareIcon />
@@ -189,17 +190,17 @@ function ProductDetails(product: Props) {
                     shareLinks={[
                       {
                         name: 'Facebook',
-                        url: '/',
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`,
                         SocialIcon: facebookShareIcon,
                       },
                       {
                         name: 'Twitter',
-                        url: '/',
+                        url: `https://twitter.com/intent/tweet?url=${window.location.href}`,
                         SocialIcon: twitterShareIcon,
                       },
                       {
-                        name: 'Facebook',
-                        url: '/',
+                        name: 'Pinterest',
+                        url: `https://www.pinterest.com/pin/create/button/?url=${window.location.href}`,
                         SocialIcon: pinterestShareIcon,
                       },
                     ]}
@@ -276,16 +277,14 @@ function ProductDetails(product: Props) {
                 classes="text__lead"
                 SRText="Sale Price:"
               />
-              {instalment && (
-                <Instalments
-                  instalment={{
-                    instalments: instalment.instalments,
-                    value: instalment.value,
-                    interestRate: instalment.interestRate,
-                  }}
-                />
-              )}
-              <InstalmentList priceVariation={priceVaritation} />
+              {installments &&
+                <>
+                  <Instalments
+                    instalment={priceVaritation}
+                  />
+                  <InstalmentList priceVariation={priceVaritation} />
+                </>
+              }
             </div>
             {/* <div className="prices">
       <p className="price__old text__legend">{formattedListPrice}</p>
@@ -296,7 +295,7 @@ function ProductDetails(product: Props) {
         non-composited animation violation due to the button transitioning its
         background color when changing from its initial disabled to active state.
         See full explanation on commit https://git.io/JyXV5. */}
-          {/* <ButtonBuy {...buyProps}>Adicionar ao carrinho</ButtonBuy> */}
+          <ButtonBuy {...buyProps}>Adicionar ao carrinho</ButtonBuy>
           {/* {isValidating ? (
       <AddToCartLoadingSkeleton />
     ) : (
@@ -319,7 +318,7 @@ function ProductDetails(product: Props) {
               <ProductDescription
                 loadMore="Load More"
                 descriptionTabs={tabSpecification}
-                maxHeight={1000}
+                maxHeight={100}
               />
             )}
 

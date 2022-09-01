@@ -13,18 +13,17 @@
     &-modal {
       position: absolute;
       right: 0;
-      bottom: 15vw;
+      bottom: 0;
       left: 0;
       width: 100%;
-      max-width: 314px;
-      height: 355px;
-      margin: 0 auto;
+      max-width: 548px;
       background-color: #fff;
+      top: 0;
+      margin: 3% auto;
+      overflow-y: scroll;
 
-      @include media(">=notebook") {
-        top: 10vw;
-        max-width: 548px;
-        height: 680px;
+      @include media("<=tablet") {
+        max-width: 310px;
       }
     }
 
@@ -38,6 +37,7 @@
         text-decoration: underline;
         background-color: #fff;
         border: 0;
+        cursor: pointer;
       }
 
       &--top {
@@ -46,6 +46,8 @@
         justify-content: space-between;
         padding: 10px 16px;
         background: #ff3452;
+        position: sticky;
+        top: 0;
 
         @include media(">=notebook") {
           padding: 22px 40px;
@@ -54,6 +56,7 @@
         button {
           background: #ff3452;
           border: 0;
+          cursor: pointer;
 
           @include media(">=notebook") {
             position: relative;
@@ -298,11 +301,12 @@
       padding: 0 0 0 32px;
       margin-top: 0;
       border: 0;
+      flex-basis: 50%;
     }
   }
 
   .product-details__description {
-    max-width: 780px;
+    flex-basis: 50%;
     padding-top: 24px;
     border-top: 1px solid #dddddd;
 
@@ -555,6 +559,7 @@
     [data-open-modal-button] {
       background: none;
       border: none;
+      cursor: pointer;
     }
 
     [data-open-modal-text] {
@@ -843,6 +848,9 @@
     background-color: #ffffff;
     border: 1px solid #000000;
     border-radius: 4px;
+  }
+  [data-sf-description-button-desk]{
+    display: none;
   }
 
   [data-sf-description-container-active="false"] {

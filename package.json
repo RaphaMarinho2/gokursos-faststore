@@ -29,7 +29,7 @@
     "@acctglobal/bubblelinks": "^1.0.1",
     "@acctglobal/carousel-universal": "^1.2.0",
     "@acctglobal/product-tags": "^0.3.2",
-    "@acctglobal/productdescription": "^0.2.1",
+    "@acctglobal/productdescription": "^0.2.2",
     "@acctglobal/shareproduct": "^0.2.2",
     "@builder.io/partytown": "^0.5.4",
     "@envelop/core": "^1.2.0",

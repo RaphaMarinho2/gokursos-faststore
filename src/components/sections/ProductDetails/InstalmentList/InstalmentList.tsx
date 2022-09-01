@@ -3,10 +3,11 @@ import { Button as UIButton, Modal } from '@faststore/ui'
 
 import Section from '../../Section'
 import IconClose from '../../../icons/IconClose'
+import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 
 interface PriceVariation {
-  installment: number | string
-  priceValue: number
+  Parcela: number | string
+  Valor: number
 }
 
 interface InstalmentListProps {
@@ -36,15 +37,19 @@ export const InstalmentList = ({ priceVariation }: InstalmentListProps) => {
     setModal(false)
   }
 
-  const listOfInstalment = priceVariation.map(
+  const listOfInstalment = priceVariation.sort((a, b) =>
+    a.Parcela > b.Parcela
+      ? 1
+      : -1
+  ).map(
     (value: PriceVariation, index: number) => (
       <li key={index}>
-        {value?.installment !== 1 ? (
+        {value?.Parcela !== 1 ? (
           <p>
-            Apenas {value?.installment}x de {value?.priceValue}
+            Apenas {value?.Parcela}x de {useFormattedPrice(value?.Valor)}
           </p>
         ) : (
-          <p>à vista {value?.priceValue}</p>
+          <p>à vista R$ {value?.Valor},00</p>
         )}
       </li>
     )

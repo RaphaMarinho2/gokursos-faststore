@@ -14,7 +14,9 @@ function Image({ preload = false, fallbackImage, ...otherProps }: Props) {
   const [imageError, setImageError] = useState<boolean>(false)
   const imgProps = useImage(otherProps)
   const { sizes = '100vw'} = imgProps
+
   console.log("imgProps", imgProps)
+  console.log("otherProps", otherProps)
 
   return (
     <>

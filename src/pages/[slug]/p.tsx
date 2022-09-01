@@ -18,14 +18,17 @@ import PDPProductShelf from 'src/components/sections/PDPProductShelf'
 
 export interface ProductInfo  {
   productData: {
+    productId: number | undefined,
     productName: string | undefined,
     description: string | undefined,
     specification: string | undefined,
     productImages: string | undefined,
     priceOnData: string | undefined,
     breadCrumb: string | undefined,
-    category: string | undefined
-    department: string | undefined | any
+    category: string | undefined,
+    department: string | undefined | any,
+    installments: string | undefined,
+    brand: string | undefined
   }
 }
 
@@ -146,10 +149,10 @@ export const getServerData = async ({
   try {
     console.log("slug", slug)
 
-    const response = await axios.get(`https://dev-gde.godigitaledu.com/odata/Catalog/v1/Products?$expand=Installments,Brand,
+    const response = await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
     Department, Category, Price, Especificacao, Especificacao/CargaHoraria, Especificacao/DisponibilidadeDias,
     Especificacao/TipoCurso, BreadCrumbs&$filter=LinkId eq '${slug}'&$top=1&$select=_Id, Name,
-    ProductImageURL, IsActive, Description, DescriptionShort, isKit, Department, Category, Price/ListPrice, Price/BasePrice,
+    ProductImageURL,ID,IsActive, Description, DescriptionShort, isKit, Department, Category, Price/ListPrice, Price/BasePrice,
     Price/isSale, Price/SalePercentage, Especificacao/Conteudo, Especificacao/Objetivos,
     Especificacao/CargaHoraria/Text,Especificacao/DisponibilidadeDias/Text, Especificacao/TipoCurso/Text, Especificacao/TipoCurso/TextGodigitalEdu,
     Especificacao/TipoCurso/DescriptionCertificate, Brand/Name, BreadCrumbs/Titulo, BreadCrumbs/Url, BreadCrumbs/Tipo, Installments/Valor, Installments/Parcela,
@@ -160,6 +163,7 @@ export const getServerData = async ({
       status: 200,
       props: {
         productData: {
+          productId: response.data.value[0]?.ID,
           productName: response.data.value[0]?.Name,
           description: response.data.value[0]?.Description,
           specification: response.data.value[0]?.Especificacao,
@@ -168,6 +172,8 @@ export const getServerData = async ({
           breadCrumb: response.data.value[0]?.BreadCrumbs,
           category: response.data.value[0]?.Category,
           department: response.data.value[0]?.Department,
+          installments: response.data.value[0]?.Installments,
+          brand: response.data.value[0]?.Brand,
 
         }
       },
