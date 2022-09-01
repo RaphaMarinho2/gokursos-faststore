@@ -13,10 +13,7 @@ interface Props extends ImageOptions {
 function Image({ preload = false, fallbackImage, ...otherProps }: Props) {
   const [imageError, setImageError] = useState<boolean>(false)
   const imgProps = useImage(otherProps)
-  const { sizes = '100vw'} = imgProps
-
-  console.log("imgProps", imgProps)
-  console.log("otherProps", otherProps)
+  const { sizes = '100vw' } = imgProps
 
   return (
     <>
@@ -26,8 +23,8 @@ function Image({ preload = false, fallbackImage, ...otherProps }: Props) {
             {
               as: 'image',
               rel: 'preload',
-              href: "",
-              imagesrcset: "",
+              href: '',
+              imagesrcset: '',
               imagesizes: sizes,
             } as any,
           ]}
