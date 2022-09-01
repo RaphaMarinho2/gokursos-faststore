@@ -26,7 +26,7 @@ import productQueryDetails from 'src/mocks/productQueryDetails.json'
 
 // import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
-import instalment from '../../../mocks/instalment.json'
+// import instalment from '../../../mocks/instalment.json'
 // import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
 import Section from '../Section'
 // import ProductRating from '../ProductRating'
