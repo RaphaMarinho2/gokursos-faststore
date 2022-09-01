@@ -84,6 +84,7 @@ function SearchProvider({
           defaultFilters,
           term: 'tecnologia',
           skip: page * ITEMS_PER_PAGE,
+          sort,
           itemsPerPage: ITEMS_PER_PAGE,
           filteredFacets: filteredFacets.length ? filteredFacets : undefined,
         })
@@ -97,7 +98,14 @@ function SearchProvider({
     }
 
     searchProducts()
-  }, [allFilters.length, defaultFilters, filteredFacets, searchParams, slug])
+  }, [
+    allFilters.length,
+    defaultFilters,
+    filteredFacets,
+    searchParams,
+    slug,
+    sort,
+  ])
 
   const value = {
     isLoading,

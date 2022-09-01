@@ -4,7 +4,7 @@ import type { Filters } from 'src/components/search/PLPFilters/Filters'
 
 import { formatQueryFilters } from '../utils/formatQueryFilters'
 
-interface SearchRequest {
+interface ProductsRequest {
   sort?: string
   skip?: number
   itemsPerPage?: number
@@ -12,8 +12,8 @@ interface SearchRequest {
   filteredFacets?: Filters[]
 }
 
-async function getSearch(
-  req: GatsbyFunctionRequest<SearchRequest>,
+async function getProducts(
+  req: GatsbyFunctionRequest<ProductsRequest>,
   res: GatsbyFunctionResponse
 ) {
   if (req.method !== `POST`) {
@@ -65,4 +65,4 @@ async function getSearch(
   }
 }
 
-export default getSearch
+export default getProducts
