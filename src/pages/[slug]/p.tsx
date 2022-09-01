@@ -53,10 +53,17 @@ function Page(props: Props) {
           url: `${site?.siteMetadata?.siteUrl}${slug}`,
           title,
           description,
-          images: product.image.map((img) => ({
-            url: img.url,
-            alt: img.alternateName,
-          })),
+          images: product
+            ? product.image.map((img) => ({
+                url: img.url,
+                alt: img.alternateName,
+              }))
+            : [
+                {
+                  url: '',
+                  alt: '',
+                },
+              ],
         }}
         metaTags={[
           {

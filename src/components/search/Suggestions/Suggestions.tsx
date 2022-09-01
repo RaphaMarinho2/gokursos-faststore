@@ -30,13 +30,19 @@ const Suggestions = forwardRef<HTMLDivElement, SuggestionsProps>(
           <div className="suggestions__section">
             <p className="suggestions__title">{`Busca por "${term}"`}</p>
             <UIList>
-              {products.map((product: any, index: number) => (
-                <li key={index} className="suggestions__item">
-                  <Link to={`/${product.LinkId}/p`} variant="display">
-                    <SuggestionProductCard product={product} />
-                  </Link>
-                </li>
-              ))}
+              {products.map((product: any, index: number) => {
+                const productURL = `/${(
+                  product.LinkId as string
+                ).toLocaleLowerCase()}/p`
+
+                return (
+                  <li key={index} className="suggestions__item">
+                    <Link to={productURL} variant="display">
+                      <SuggestionProductCard product={product} />
+                    </Link>
+                  </li>
+                )
+              })}
             </UIList>
           </div>
         )}

@@ -1,11 +1,14 @@
-import { parseSearchState, SearchProvider, useSession } from '@faststore/sdk'
+import {
+  parseSearchState,
+  SearchProvider as FSSearchProvider,
+  useSession,
+} from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import { useEffect, useState } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import SROnly from 'src/components/ui/SROnly'
 import { ITEMS_PER_PAGE } from 'src/constants'
-import { applySearchState } from 'src/sdk/search/state'
 import { mark } from 'src/sdk/tests/mark'
 import type { SearchState } from '@faststore/sdk'
 import type { PageProps } from 'gatsby'
@@ -13,12 +16,15 @@ import type {
   SearchPageQueryQuery,
   SearchPageQueryQueryVariables,
 } from '@generated/graphql'
-
 import 'src/styles/pages/search.scss'
+import { applySearchState } from 'src/sdk/search/state'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
+import ProductGallery from 'src/components/sections/ProductGallery'
 
 export type Props = PageProps<
   SearchPageQueryQuery,
-  SearchPageQueryQueryVariables
+  SearchPageQueryQueryVariables,
+  unknown
 >
 
 const useSearchParams = ({ href }: Location) => {
@@ -47,7 +53,7 @@ function Page(props: Props) {
   }
 
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
@@ -77,13 +83,14 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-      <Breadcrumb name="All Products" />
-      {/* TODO: Add search request */}
-      {/* <ProductGallery
-        title="Search Results"
-        searchTerm={searchParams.term ?? undefined}
-      /> */}
-    </SearchProvider>
+      <Breadcrumb name="Busca" />
+      <SearchProvider searchParams={searchParams}>
+        <ProductGallery
+          title="Search Results"
+          searchTerm={searchParams.term ?? undefined}
+        />
+      </SearchProvider>
+    </FSSearchProvider>
   )
 }
 
