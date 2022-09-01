@@ -8,10 +8,37 @@ type PricesFilterType = { minPrice: number; maxPrice: number }
 
 interface Props {
   setAllFilters: React.Dispatch<React.SetStateAction<Filters[]>>
-  slug: string
+  setFilterLoading: (filterLoading: boolean) => void
+  slug?: string
+  term?: string | null
 }
 
-async function fetchFilters({ setAllFilters, slug }: Props) {
+async function fetchFilters({
+  setAllFilters,
+  setFilterLoading,
+  slug,
+  term,
+}: Props) {
+  const allFilters = []
+
+  setFilterLoading(true)
+
+  const minMaxPriceFetch = await axios
+    .post<PricesFilterType>('/api/getMinMaxPrices', {
+      departmentSlug: slug,
+      term,
+    })
+    .then(({ data }) => {
+      return data
+    })
+
+  if (!minMaxPriceFetch || !Object.keys(minMaxPriceFetch).length) {
+    setAllFilters([])
+    setFilterLoading(false)
+
+    return
+  }
+
   const categoriesFetch = await axios
     .post<CategoryFilterType>('/api/getCategories', {
       departmentSlug: slug,
@@ -20,16 +47,20 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
       return data
     })
 
-  const categoryFilter: Filters = {
-    filterlabel: 'Categorias',
-    type: 'CHECKBOX',
-    facets: categoriesFetch.map((category) => {
-      return {
-        selected: false,
-        value: category.Slug,
-        label: category.Name,
-      }
-    }),
+  if (categoriesFetch?.length) {
+    const categoryFilter: Filters = {
+      filterlabel: 'Categorias',
+      type: 'CHECKBOX',
+      facets: categoriesFetch.map((category) => {
+        return {
+          selected: false,
+          value: category.Slug,
+          label: category.Name,
+        }
+      }),
+    }
+
+    allFilters.push(categoryFilter)
   }
 
   const cargasHorariasFetch = await axios
@@ -38,25 +69,21 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
       return data
     })
 
-  const cargaHorariaFilter: Filters = {
-    filterlabel: 'Carga horária',
-    type: 'CHECKBOX',
-    facets: cargasHorariasFetch.map((cargaHoraria) => {
-      return {
-        selected: false,
-        value: cargaHoraria.Text,
-        label: cargaHoraria.Text,
-      }
-    }),
-  }
+  if (cargasHorariasFetch?.length) {
+    const cargaHorariaFilter: Filters = {
+      filterlabel: 'Carga horária',
+      type: 'CHECKBOX',
+      facets: cargasHorariasFetch.map((cargaHoraria) => {
+        return {
+          selected: false,
+          value: cargaHoraria.Text,
+          label: cargaHoraria.Text,
+        }
+      }),
+    }
 
-  const minMaxPriceFetch = await axios
-    .post<PricesFilterType>('/api/getMinMaxPrices', {
-      departmentSlug: slug,
-    })
-    .then(({ data }) => {
-      return data
-    })
+    allFilters.push(cargaHorariaFilter)
+  }
 
   const priceFilter: Filters = {
     filterlabel: 'Faixa de preço',
@@ -75,7 +102,10 @@ async function fetchFilters({ setAllFilters, slug }: Props) {
     ],
   }
 
-  setAllFilters([categoryFilter, cargaHorariaFilter, priceFilter])
+  allFilters.push(priceFilter)
+
+  setAllFilters(allFilters)
+  setFilterLoading(false)
 }
 
 export default fetchFilters

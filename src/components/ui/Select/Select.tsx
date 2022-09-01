@@ -31,6 +31,7 @@ export default function Select({
   value,
   'aria-label': ariaLabel,
   testId,
+  placeholder,
 }: UISelectProps) {
   return (
     <div data-select className={className}>
@@ -42,6 +43,9 @@ export default function Select({
         aria-label={ariaLabel}
         id={id}
       >
+        <option value="" disabled selected>
+          {placeholder}
+        </option>
         {Object.keys(options).map((key) => (
           <option key={key} value={key}>
             {options[key]}

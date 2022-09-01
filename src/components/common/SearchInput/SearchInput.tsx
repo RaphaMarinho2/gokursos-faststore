@@ -1,8 +1,4 @@
-import {
-  formatSearchState,
-  initSearchState,
-  sendAnalyticsEvent,
-} from '@faststore/sdk'
+import { sendAnalyticsEvent } from '@faststore/sdk'
 import { SearchInput as UISearchInput } from '@faststore/ui'
 import { navigate } from 'gatsby'
 import type { ChangeEvent } from 'react'
@@ -18,6 +14,8 @@ import SearchIcon from 'src/components/icons/SearchIcon'
 import Icon from 'src/components/ui/Icon'
 import SearchDropdown from 'src/components/search/SearchDropdown'
 import useOnClickOutside from 'src/hooks/useOnClickOutside'
+import { formatSearchState } from 'src/sdk/search/formatSearchState'
+import { initSearchState } from 'src/sdk/search/initSearchState'
 
 declare type SearchInputProps = {
   onSearchClick?: () => void

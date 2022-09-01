@@ -30,6 +30,7 @@ export default function useSuggestions(term: string) {
         setData(resp.data)
       } catch (error) {
         console.error(error)
+        setData([])
       } finally {
         setLoading(false)
       }
