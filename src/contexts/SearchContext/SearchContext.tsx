@@ -16,7 +16,7 @@ type SearchProviderProps = {
 interface SearchContextProps {
   slug?: string
   isLoading: boolean
-  filteredFacets: any
+  filteredFacets: Filters[]
   setAllFilters: Dispatch<SetStateAction<Filters[]>>
   allFilters: Filters[]
   productsCount: number
@@ -61,7 +61,7 @@ function SearchProvider({
         }
       }),
     [allFilters]
-  )
+  ) as Filters[]
 
   const [productsCount, setProductsCount] = useState<number>(0)
 
