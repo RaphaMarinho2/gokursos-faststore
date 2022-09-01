@@ -2,6 +2,8 @@ import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 import type { Filters } from 'src/components/search/PLPFilters/Filters'
 
+import { formatQueryFilters } from '../utils/formatQueryFilters'
+
 interface RequestType {
   slug: string
   sort:
@@ -12,6 +14,8 @@ interface RequestType {
     | 'Name desc'
     | 'ReleaseDate desc'
   filteredFacets?: Filters[]
+  skip?: number
+  itemsPerPage?: number
 }
 
 export default async function getDepartmentOrCategory(
@@ -25,7 +29,7 @@ export default async function getDepartmentOrCategory(
     return
   }
 
-  const { slug, filteredFacets, sort } = req.body
+  const { slug, filteredFacets, sort, skip = 0, itemsPerPage = 12 } = req.body
 
   const categorySlug = slug.includes('/') && slug.split('/')[1]
   const departmentSlug = !slug.includes('/') && slug
@@ -35,49 +39,7 @@ export default async function getDepartmentOrCategory(
     ? `Department/Slug eq '${departmentSlug}'`
     : `Category/Slug eq '${categorySlug}'`
 
-  const getQueryFilters = () => {
-    if (!filteredFacets) return
-
-    const [categoryFacets] = filteredFacets?.filter((facet) => {
-      return facet.filterlabel === 'Categorias'
-    })
-
-    const [cargaHorariaFacets] = filteredFacets?.filter((facet) => {
-      return facet.filterlabel === 'Carga horária'
-    })
-
-    const [priceRangeFacet] = filteredFacets?.filter((facet) => {
-      return facet.filterlabel === 'Faixa de preço'
-    })
-
-    const categoryFetchFilters = categoryFacets.facets
-      .map(
-        (category, idx, arr) =>
-          `Category/Slug eq '${category.value}'${
-            idx + 1 !== arr.length ? ' or ' : ''
-          }`
-      )
-      .join('')
-
-    const cargaHorariaFetchFilters = cargaHorariaFacets.facets
-      .map(
-        (cargaHoraria, idx, arr) =>
-          `Especificacao/CargaHoraria/Text eq '${cargaHoraria.value}'${
-            idx + 1 !== arr.length ? ' or ' : ''
-          }`
-      )
-      .join('')
-
-    const priceRangeFilter = `Price/BasePrice gt ${priceRangeFacet.facets[0].others?.actualMin} and Price/BasePrice lt ${priceRangeFacet.facets[0].others?.actualMax}`
-
-    return {
-      categoryFetchFilters,
-      cargaHorariaFetchFilters,
-      priceRangeFilter,
-    }
-  }
-
-  const filters = getQueryFilters()
+  const filters = formatQueryFilters(filteredFacets)
 
   const allFilters = `${filterParam} ${
     filters?.categoryFetchFilters
@@ -94,7 +56,7 @@ export default async function getDepartmentOrCategory(
   }
   `
 
-  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria&$skip=0${orderSort}&$filter=${allFilters} &$top=20&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`
+  const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria${orderSort}&$skip=${skip}&$filter=${allFilters} &$top=${itemsPerPage}&$count=true&$select=ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId`
 
   try {
     const { data } = await axios.get(URL)

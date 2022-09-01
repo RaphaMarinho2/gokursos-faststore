@@ -13,6 +13,7 @@ import type { Filters } from './Filters'
 
 interface PLPFiltersProps {
   allFilters: Filters[]
+  filterLoading: boolean
   setAllFilters: Dispatch<React.SetStateAction<Filters[]>>
 }
 
@@ -25,7 +26,7 @@ interface ChangeFacetProps {
   actualMax?: number
 }
 
-function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
+function Facets({ allFilters, filterLoading, setAllFilters }: PLPFiltersProps) {
   const { setFilteredFacets } = useSearch()
 
   const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
@@ -106,70 +107,77 @@ function Facets({ allFilters, setAllFilters }: PLPFiltersProps) {
 
   return (
     <div className="filter">
-      <FilterSkeleton loading={allFilters?.length === 0}>
-        <span className="filter__title">Filtros</span>
-        <Accordion
-          expandedIndices={indicesExpanded}
-          onChange={onAccordionChange}
-        >
-          {allFilters.map((filter, indexFilter) => (
-            <AccordionItem
-              key={`${filter.filterlabel}-${indexFilter}`}
-              className="facet"
-              buttonLabel={filter.filterlabel}
-              isExpanded={indicesExpanded.has(indexFilter)}
-              forceSvg={{
-                svg1: <AccordionUp />,
-                svg2: <AccordionDown />,
-              }}
+      <FilterSkeleton loading={filterLoading}>
+        {allFilters?.length ? (
+          <>
+            <span className="filter__title">Filtros</span>
+            <Accordion
+              expandedIndices={indicesExpanded}
+              onChange={onAccordionChange}
             >
-              {filter.type === 'CHECKBOX' ? (
-                <>
-                  {filter.facets.map((facet, indexFacet) => (
-                    <div key={indexFacet} className="filter__item">
-                      <Checkbox
-                        id={facet.value}
-                        checked={facet.selected}
-                        onChange={() =>
+              {allFilters.map((filter, indexFilter) => (
+                <AccordionItem
+                  key={`${filter.filterlabel}-${indexFilter}`}
+                  className="facet"
+                  buttonLabel={filter.filterlabel}
+                  isExpanded={indicesExpanded.has(indexFilter)}
+                  forceSvg={{
+                    svg1: <AccordionUp />,
+                    svg2: <AccordionDown />,
+                  }}
+                >
+                  {filter.type === 'CHECKBOX' && (
+                    <>
+                      {filter.facets.map((facet, indexFacet) => (
+                        <div key={indexFacet} className="filter__item">
+                          <Checkbox
+                            id={facet.value}
+                            checked={facet.selected}
+                            onChange={() =>
+                              handleChangeFacet({
+                                filterLabel: filter.filterlabel,
+                                facetValue: facet.value ?? '',
+                              })
+                            }
+                            data-value={facet.value}
+                          />
+                          <Label
+                            htmlFor={facet.value}
+                            className="text__title-mini-alt"
+                          >
+                            {facet.label}{' '}
+                            {filter.filterlabel === 'Carga horária' &&
+                              `hora${parseInt(facet.label, 10) > 1 ? 's' : ''}`}
+                          </Label>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                  {filter.type === 'RANGE' && (
+                    <div className="facet__facet">
+                      <MultiRangeSlider
+                        min={filter.facets[0].others?.min ?? 0}
+                        max={filter.facets[0].others?.max ?? 0}
+                        onChange={({ min, max }) => {
                           handleChangeFacet({
-                            filterLabel: filter.filterlabel,
-                            facetValue: facet.value ?? '',
+                            filterLabel: 'Faixa de preço',
+                            facetValue: filter.facets[0].value ?? '',
+                            min: filter.facets[0].others?.min,
+                            max: filter.facets[0].others?.max,
+                            actualMin: min,
+                            actualMax: max,
                           })
-                        }
-                        data-value={facet.value}
+                        }}
                       />
-                      <Label
-                        htmlFor={facet.value}
-                        className="text__title-mini-alt"
-                      >
-                        {facet.label}{' '}
-                        {filter.filterlabel === 'Carga horária' &&
-                          `hora${parseInt(facet.label, 10) > 1 ? 's' : ''}`}
-                      </Label>
                     </div>
-                  ))}
-                </>
-              ) : (
-                <div className="facet__facet">
-                  <MultiRangeSlider
-                    min={filter.facets[0].others?.min ?? 0}
-                    max={filter.facets[0].others?.max ?? 0}
-                    onChange={({ min, max }) => {
-                      handleChangeFacet({
-                        filterLabel: 'Faixa de preço',
-                        facetValue: filter.facets[0].value ?? '',
-                        min: filter.facets[0].others?.min,
-                        max: filter.facets[0].others?.max,
-                        actualMin: min,
-                        actualMax: max,
-                      })
-                    }}
-                  />
-                </div>
-              )}
-            </AccordionItem>
-          ))}
-        </Accordion>
+                  )}
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </>
+        ) : (
+          <></>
+        )}
       </FilterSkeleton>
     </div>
   )

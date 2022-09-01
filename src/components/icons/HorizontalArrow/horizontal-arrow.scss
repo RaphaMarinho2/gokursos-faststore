@@ -1,0 +1,9 @@
+.horizontal-arrow__container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.horizontal-arrow__right {
+  transform: rotate(180deg);
+}

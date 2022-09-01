@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-664** - Added new order by to Product Gallery
+- **GM-91** - Search page integration
 
 ## [0.14.0] - 2022-08-24
 
