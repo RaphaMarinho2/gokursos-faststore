@@ -10,32 +10,32 @@
           "submenu": [
             {
               "label": "Engenharia",
-              "link": "/exatas/engenharia",
+              "link": "/exatas/?facets=category&category=engenharia",
               "submenu": []
             },
             {
               "label": "Matemática",
-              "link": "/exatas/matematica",
+              "link": "/exatas/?facets=category&category=matematica",
               "submenu": []
             },
             {
               "label": "Estatística",
-              "link": "/exatas/estatistica",
+              "link": "/exatas/?facets=category&category=estatistica",
               "submenu": []
             },
             {
               "label": "Física",
-              "link": "/exatas/fisica",
+              "link": "/exatas/?facets=category&category=fisica",
               "submenu": []
             },
             {
               "label": "Química",
-              "link": "/exatas/quimica",
+              "link": "/exatas/?facets=category&category=quimica",
               "submenu": []
             },
             {
               "label": "Análise de Dados",
-              "link": "/exatas/analise-de-dados",
+              "link": "/exatas/?facets=category&category=analise-de-dados",
               "submenu": []
             },
             {
@@ -51,57 +51,57 @@
           "submenu": [
             {
               "label": "Literatura",
-              "link": "/humanas/literatura",
+              "link": "/humanas/?facets=category&category=literatura",
               "submenu": []
             },
             {
               "label": "Direito",
-              "link": "/humanas/direito",
+              "link": "/humanas/?facets=category&category=direito",
               "submenu": []
             },
             {
               "label": "Antropologia",
-              "link": "/humanas/antropologia",
+              "link": "/humanas/?facets=category&category=antropologia",
               "submenu": []
             },
             {
               "label": "Filosofia",
-              "link": "/humanas/filosofia",
+              "link": "/humanas/?facets=category&category=filosofia",
               "submenu": []
             },
             {
               "label": "Pedagogia",
-              "link": "/humanas/pedagogia",
+              "link": "/humanas/?facets=category&category=pedagogia",
               "submenu": []
             },
             {
               "label": "Política",
-              "link": "/humanas/politica",
+              "link": "/humanas/?facets=category&category=politica",
               "submenu": []
             },
             {
               "label": "Português",
-              "link": "/humanas/portugues",
+              "link": "/humanas/?facets=category&category=portugues",
               "submenu": []
             },
             {
               "label": "Didática",
-              "link": "/humanas/didatica",
+              "link": "/humanas/?facets=category&category=didatica",
               "submenu": []
             },
             {
               "label": "Geografia",
-              "link": "/humanas/geografia",
+              "link": "/humanas/?facets=category&category=geografia",
               "submenu": []
             },
             {
               "label": "Pesquisa Científica",
-              "link": "/humanas/pesquisa-cientifica",
+              "link": "/humanas/?facets=category&category=pesquisa-cientifica",
               "submenu": []
             },
             {
               "label": "História",
-              "link": "/humanas/historia",
+              "link": "/humanas/?facets=category&category=historia",
               "submenu": []
             },
             {
@@ -117,82 +117,82 @@
           "submenu": [
             {
               "label": "Psicologia",
-              "link": "/saude/psicologia",
+              "link": "/saude/?facets=category&category=psicologia",
               "submenu": []
             },
             {
               "label": "Nutrição",
-              "link": "/saude/nutricao",
+              "link": "/saude/?facets=category&category=nutricao",
               "submenu": []
             },
             {
               "label": "Biologia",
-              "link": "/saude/biologia",
+              "link": "/saude/?facets=category&category=biologia",
               "submenu": []
             },
             {
               "label": "Genética",
-              "link": "/saude/genetica",
+              "link": "/saude/?facets=category&category=genetica",
               "submenu": []
             },
             {
               "label": "Anatomia",
-              "link": "/saude/anatomia",
+              "link": "/saude/?facets=category&category=anatomia",
               "submenu": []
             },
             {
               "label": "Enfermagem",
-              "link": "/saude/enfermagem",
+              "link": "/saude/?facets=category&category=enfermagem",
               "submenu": []
             },
             {
               "label": "Fisioterapia",
-              "link": "/saude/fisioterapia",
+              "link": "/saude/?facets=category&category=fisioterapia",
               "submenu": []
             },
             {
               "label": "Patologias",
-              "link": "/saude/patologias",
+              "link": "/saude/?facets=category&category=patologias",
               "submenu": []
             },
             {
               "label": "Odontologia",
-              "link": "/saude/odontologia",
+              "link": "/saude/?facets=category&category=odontologia",
               "submenu": []
             },
             {
               "label": "Farmacologia e Cosméticos",
-              "link": "/saude/farmacologia-e-cosmeticos",
+              "link": "/saude/?facets=category&category=farmacologia-e-cosmeticos",
               "submenu": []
             },
             {
               "label": "Estética",
-              "link": "/saude/estetica",
+              "link": "/saude/?facets=category&category=estetica",
               "submenu": []
             },
             {
               "label": "Educação Física",
-              "link": "/saude/educacao-fisica",
+              "link": "/saude/?facets=category&category=educacao-fisica",
               "submenu": []
             },
             {
               "label": "Sanitarismo",
-              "link": "/saude/sanitarismo",
+              "link": "/saude/?facets=category&category=sanitarismo",
               "submenu": []
             },
             {
               "label": "Veterinária",
-              "link": "/saude/veterinaria",
+              "link": "/saude/?facets=category&category=veterinaria",
               "submenu": []
             },
             {
               "label": "Saúde",
-              "link": "/saude/saude",
+              "link": "/saude/?facets=category&category=saude",
               "submenu": []
             },
             {
               "label": "Dermatologia",
-              "link": "/saude/dermatologia",
+              "link": "/saude/?facets=category&category=dermatologia",
               "submenu": []
             },
             {
@@ -208,47 +208,47 @@
           "submenu": [
             {
               "label": "Empreendedorismo",
-              "link": "/negocios/empreendedorismo",
+              "link": "/negocios/?facets=category&category=empreendedorismo",
               "submenu": []
             },
             {
               "label": "Administração",
-              "link": "/negocios/administracao",
+              "link": "/negocios/?facets=category&category=administracao",
               "submenu": []
             },
             {
               "label": "Contabilidade",
-              "link": "/negocios/contabilidade",
+              "link": "/negocios/?facets=category&category=contabilidade",
               "submenu": []
             },
             {
               "label": "Economia",
-              "link": "/negocios/economia",
+              "link": "/negocios/?facets=category&category=economia",
               "submenu": []
             },
             {
               "label": "Gestão",
-              "link": "/negocios/gestao",
+              "link": "/negocios/?facets=category&category=gestao",
               "submenu": []
             },
             {
               "label": "Recursos Humanos",
-              "link": "/negocios/recursos-humanos",
+              "link": "/negocios/?facets=category&category=recursos-humanos",
               "submenu": []
             },
             {
               "label": "Carreiras",
-              "link": "/negocios/carreiras",
+              "link": "/negocios/?facets=category&category=carreiras",
               "submenu": []
             },
             {
               "label": "Negócios",
-              "link": "/negocios/negocios",
+              "link": "/negocios/?facets=category&category=negocios",
               "submenu": []
             },
             {
               "label": "Finanças",
-              "link": "/negocios/financas",
+              "link": "/negocios/?facets=category&category=financas",
               "submenu": []
             },
             {
@@ -264,77 +264,77 @@
           "submenu": [
             {
               "label": "Bancos de Dados",
-              "link": "/tecnologia/bancos-de-dados",
+              "link": "/tecnologia/?facets=category&category=bancos-de-dados",
               "submenu": []
             },
             {
               "label": "Sistemas Operacionais",
-              "link": "/tecnologia/sistemas-operacionais",
+              "link": "/tecnologia/?facets=category&category=sistemas-operacionais",
               "submenu": []
             },
             {
               "label": "Qualidade de Software",
-              "link": "/tecnologia/qualidade-de-software",
+              "link": "/tecnologia/?facets=category&category=qualidade-de-software",
               "submenu": []
             },
             {
               "label": "Desenvolvimento Web",
-              "link": "/tecnologia/desenvolvimento-web",
+              "link": "/tecnologia/?facets=category&category=desenvolvimento-web",
               "submenu": []
             },
             {
               "label": "Desenvolvimento Mobile",
-              "link": "/tecnologia/desenvolvimento-mobile",
+              "link": "/tecnologia/?facets=category&category=desenvolvimento-mobile",
               "submenu": []
             },
             {
               "label": "Linguagens de Programação",
-              "link": "/tecnologia/linguagens-de-programacao",
+              "link": "/tecnologia/?facets=category&category=linguagens-de-programacao",
               "submenu": []
             },
             {
               "label": "Redes e Infraestrutura",
-              "link": "/tecnologia/redes-e-infraestrutura",
+              "link": "/tecnologia/?facets=category&category=redes-e-infraestrutura",
               "submenu": []
             },
             {
               "label": "Inteligência Artificial",
-              "link": "/tecnologia/inteligencia-artificial",
+              "link": "/tecnologia/?facets=category&category=inteligencia-artificial",
               "submenu": []
             },
             {
               "label": "Segurança da Informação",
-              "link": "/tecnologia/seguranca-da-informacao",
+              "link": "/tecnologia/?facets=category&category=seguranca-da-informacao",
               "submenu": []
             },
             {
               "label": "Jogos Digitais",
-              "link": "/tecnologia/jogos-digitais",
+              "link": "/tecnologia/?facets=category&category=jogos-digitais",
               "submenu": []
             },
             {
               "label": "Engenharia de Software",
-              "link": "/tecnologia/engenharia-de-software",
+              "link": "/tecnologia/?facets=category&category=engenharia-de-software",
               "submenu": []
             },
             {
               "label": "Data Science",
-              "link": "/tecnologia/data-science",
+              "link": "/tecnologia/?facets=category&category=data-science",
               "submenu": []
             },
             {
               "label": "Robótica",
-              "link": "/tecnologia/robotica",
+              "link": "/tecnologia/?facets=category&category=robotica",
               "submenu": []
             },
             {
               "label": "Inovação",
-              "link": "/tecnologia/inovacao",
+              "link": "/tecnologia/?facets=category&category=inovacao",
               "submenu": []
             },
             {
               "label": "UI e UX Design",
-              "link": "/tecnologia/ui-e-ux-design",
+              "link": "/tecnologia/?facets=category&category=ui-e-ux-design",
               "submenu": []
             },
             {
@@ -350,7 +350,7 @@
           "submenu": [
             {
               "label": "ENEM",
-              "link": "/preparatorios/enem",
+              "link": "/preparatorios/?facets=category&category=enem",
               "submenu": []
             },
             {
@@ -366,57 +366,57 @@
           "submenu": [
             {
               "label": "Oratória",
-              "link": "/comunicacao/oratoria",
+              "link": "/comunicacao/?facets=category&category=oratoria",
               "submenu": []
             },
             {
               "label": "Marketing",
-              "link": "/comunicacao/marketing",
+              "link": "/comunicacao/?facets=category&category=marketing",
               "submenu": []
             },
             {
               "label": "Audiovisual",
-              "link": "/comunicacao/audiovisual",
+              "link": "/comunicacao/?facets=category&category=audiovisual",
               "submenu": []
             },
             {
               "label": "Línguas e Idiomas",
-              "link": "/comunicacao/linguas-e-idiomas",
+              "link": "/comunicacao/?facets=category&category=linguas-e-idiomas",
               "submenu": []
             },
             {
               "label": "Arte e Design",
-              "link": "/comunicacao/arte-e-design",
+              "link": "/comunicacao/?facets=category&category=arte-e-design",
               "submenu": []
             },
             {
               "label": "Marketing Digital",
-              "link": "/comunicacao/marketing-digital",
+              "link": "/comunicacao/?facets=category&category=marketing-digital",
               "submenu": []
             },
             {
               "label": "Branding",
-              "link": "/comunicacao/branding",
+              "link": "/comunicacao/?facets=category&category=branding",
               "submenu": []
             },
             {
               "label": "Cinema",
-              "link": "/comunicacao/cinema",
+              "link": "/comunicacao/?facets=category&category=cinema",
               "submenu": []
             },
             {
               "label": "Fotografia",
-              "link": "/comunicacao/fotografia",
+              "link": "/comunicacao/?facets=category&category=fotografia",
               "submenu": []
             },
             {
               "label": "Publicidade e Propaganda",
-              "link": "/comunicacao/publicidade-e-propaganda",
+              "link": "/comunicacao/?facets=category&category=publicidade-e-propaganda",
               "submenu": []
             },
             {
               "label": "Jornalismo",
-              "link": "/comunicacao/jornalismo",
+              "link": "/comunicacao/?facets=category&category=jornalismo",
               "submenu": []
             },
             {
@@ -432,27 +432,27 @@
           "submenu": [
             {
               "label": "Doces",
-              "link": "/gastronomia/doces",
+              "link": "/gastronomia/?facets=category&category=doces",
               "submenu": []
             },
             {
               "label": "Culinárias Regionais",
-              "link": "/gastronomia/culinarias-regionais",
+              "link": "/gastronomia/?facets=category&category=culinarias-regionais",
               "submenu": []
             },
             {
               "label": "Culinária Dietética",
-              "link": "/gastronomia/culinaria-dietetica",
+              "link": "/gastronomia/?facets=category&category=culinaria-dietetica",
               "submenu": []
             },
             {
               "label": "Técnicas de Gastronomia",
-              "link": "/gastronomia/tecnicas-de-gastronomia",
+              "link": "/gastronomia/?facets=category&category=tecnicas-de-gastronomia",
               "submenu": []
             },
             {
               "label": "Panificação",
-              "link": "/gastronomia/panificacao",
+              "link": "/gastronomia/?facets=category&category=panificacao",
               "submenu": []
             },
             {
@@ -468,42 +468,42 @@
           "submenu": [
             {
               "label": "Mecânica",
-              "link": "/outros/mecanica",
+              "link": "/outros/?facets=category&category=mecanica",
               "submenu": []
             },
             {
               "label": "Moda",
-              "link": "/outros/moda",
+              "link": "/outros/?facets=category&category=moda",
               "submenu": []
             },
             {
               "label": "Arquitetura",
-              "link": "/outros/arquitetura",
+              "link": "/outros/?facets=category&category=arquitetura",
               "submenu": []
             },
             {
               "label": "Aviação",
-              "link": "/outros/aviacao",
+              "link": "/outros/?facets=category&category=aviacao",
               "submenu": []
             },
             {
               "label": "Gestão Hospitalar",
-              "link": "/outros/gestao-hospitalar",
+              "link": "/outros/?facets=category&category=gestao-hospitalar",
               "submenu": []
             },
             {
               "label": "Gestão Esportiva",
-              "link": "/outros/gestao-esportiva",
+              "link": "/outros/?facets=category&category=gestao-esportiva",
               "submenu": []
             },
             {
               "label": "Segurança do Trabalho",
-              "link": "/outros/seguranca-do-trabalho",
+              "link": "/outros/?facets=category&category=seguranca-do-trabalho",
               "submenu": []
             },
             {
               "label": "Artesanato",
-              "link": "/outros/artesanato",
+              "link": "/outros/?facets=category&category=artesanato",
               "submenu": []
             },
             {
@@ -519,37 +519,37 @@
           "submenu": [
             {
               "label": "Exatas",
-              "link": "/duce/exatas",
+              "link": "/duce/?facets=category&category=exatas",
               "submenu": []
             },
             {
               "label": "Humanas",
-              "link": "/duce/humanas",
+              "link": "/duce/?facets=category&category=humanas",
               "submenu": []
             },
             {
               "label": "Negócios",
-              "link": "/duce/negocios",
+              "link": "/duce/?facets=category&category=negocios",
               "submenu": []
             },
             {
               "label": "Comunicação",
-              "link": "/duce/comunicacao",
+              "link": "/duce/?facets=category&category=comunicacao",
               "submenu": []
             },
             {
               "label": "Saúde",
-              "link": "/duce/saude",
+              "link": "/duce/?facets=category&category=saude",
               "submenu": []
             },
             {
               "label": "Tecnologia",
-              "link": "/duce/tecnologia",
+              "link": "/duce/?facets=category&category=tecnologia",
               "submenu": []
             },
             {
               "label": "Gastronomia",
-              "link": "/duce/gastronomia",
+              "link": "/duce/?facets=category&category=gastronomia",
               "submenu": []
             },
             {

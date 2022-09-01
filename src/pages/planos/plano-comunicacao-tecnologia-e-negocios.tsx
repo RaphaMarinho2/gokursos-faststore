@@ -91,7 +91,10 @@ function Page(props: Props) {
         )}
       />
 
-      <SearchProvider slug="/plano-comunicacao-tecnologia-e-negocios">
+      <SearchProvider
+        slug="/plano-comunicacao-tecnologia-e-negocios"
+        searchParams={searchParams}
+      >
         <ProductGallery
           title={title}
           forceSvg={svgIcons}

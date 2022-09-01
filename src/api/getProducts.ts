@@ -5,10 +5,10 @@ import type { Filters } from 'src/components/search/PLPFilters/Filters'
 import { formatQueryFilters } from '../utils/formatQueryFilters'
 
 interface SearchRequest {
-  term: string | null
   sort?: string
   skip?: number
   itemsPerPage?: number
+  defaultFilters?: string
   filteredFacets?: Filters[]
 }
 
@@ -25,11 +25,11 @@ async function getSearch(
 
   try {
     const {
-      term,
       sort = 'Rank/Score desc',
       skip = 0,
       itemsPerPage,
       filteredFacets,
+      defaultFilters,
     } = req.body
 
     const expand =
@@ -37,10 +37,6 @@ async function getSearch(
 
     const select =
       'ID, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, Category/Slug, Especificacao/CargaHoraria/Text, LinkId'
-
-    const encodedTerm = encodeURI(term ?? '')
-
-    const defaultFilters = `IsActive eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}') or contains(Description, '${encodedTerm}') or contains(DescriptionShort, '${encodedTerm}') or contains(Especificacao/Conteudo, '${encodedTerm}') or contains(Especificacao/Objetivos, '${encodedTerm}'))`
 
     const formatedFilters = formatQueryFilters(filteredFacets)
 
@@ -58,9 +54,9 @@ async function getSearch(
 
     const allFilters = `${defaultFilters}${categoryFilter}${workloadFilter}${priceFilter}`
 
-    const data = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${allFilters}&$top=${itemsPerPage}&$skip=${skip}&$select=${select}&$orderby=${sort}&$count=true`
-    )
+    const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${allFilters}&$top=${itemsPerPage}&$skip=${skip}&$select=${select}&$orderby=${sort}&$count=true`
+
+    const data = await axios.get(URL)
 
     res.json(data.data ?? {})
   } catch (error) {

@@ -1,7 +1,7 @@
 import type { SearchState } from '@faststore/sdk'
 import axios from 'axios'
 import type { Dispatch, SetStateAction } from 'react'
-import { createContext, useEffect, useState } from 'react'
+import { useMemo, createContext, useEffect, useState } from 'react'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import type { Filters } from 'src/components/search/PLPFilters/Filters'
 import { ITEMS_PER_PAGE } from 'src/constants'
@@ -9,18 +9,20 @@ import { ITEMS_PER_PAGE } from 'src/constants'
 type SearchProviderProps = {
   slug?: string
   children: React.ReactNode
-  searchParams?: SearchState
+  searchParams: SearchState
+  defaultFilters?: string
 }
 
 interface SearchContextProps {
   slug?: string
   isLoading: boolean
-  filteredFacets: Filters[]
-  setFilteredFacets: Dispatch<SetStateAction<Filters[]>>
+  filteredFacets: any
+  setAllFilters: Dispatch<SetStateAction<Filters[]>>
+  allFilters: Filters[]
   productsCount: number
   products: ProductsProductCard[]
   setProducts: React.Dispatch<React.SetStateAction<ProductsProductCard[]>>
-  currentPage: number
+  searchParams: SearchState
   lastPage: number
 }
 
@@ -28,8 +30,39 @@ export const SearchContext = createContext<SearchContextProps | undefined>(
   undefined
 )
 
-function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
-  const [filteredFacets, setFilteredFacets] = useState<Filters[]>([])
+function SearchProvider({
+  children,
+  slug,
+  searchParams,
+  defaultFilters,
+}: SearchProviderProps) {
+  const [allFilters, setAllFilters] = useState<Filters[]>([])
+
+  const filteredFacets = useMemo(
+    () =>
+      allFilters.map((filter) => {
+        return {
+          filterlabel: filter.filterlabel,
+          facets:
+            filter.type === 'CHECKBOX'
+              ? filter.facets.filter((facet) => facet.selected === true)
+              : [
+                  {
+                    value: filter?.facets[0]?.value,
+                    label: filter?.facets[0]?.label,
+                    others: {
+                      min: filter?.facets[0].others?.min,
+                      max: filter?.facets[0].others?.max,
+                      actualMin: filter?.facets[0].others?.actualMin,
+                      actualMax: filter?.facets[0].others?.actualMax,
+                    },
+                  },
+                ],
+        }
+      }),
+    [allFilters]
+  )
+
   const [productsCount, setProductsCount] = useState<number>(0)
 
   const [lastPage, setLastPage] = useState<number>(0)
@@ -38,45 +71,15 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (slug) {
-      const body = {
-        slug,
-        itemsPerPage: ITEMS_PER_PAGE,
-        skip: (searchParams?.page ?? 0) * ITEMS_PER_PAGE,
-      }
-
-      setIsLoading(true)
-      const changeProducts = async () => {
-        const { value, '@odata.count': count } = await axios
-          .post(
-            '/api/getDepartmentOrCategory',
-            filteredFacets.length ? { ...body, filteredFacets } : body
-          )
-          .then(({ data }) => data)
-          .catch((err) => console.error(err))
-          .finally(() => setIsLoading(false))
-
-        setProductsCount(count)
-        setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
-        setProducts(value)
-      }
-
-      changeProducts()
-
-      return
-    }
-
-    if (!searchParams || !searchParams.term) {
-      return
-    }
-
     setIsLoading(true)
+    if (!allFilters.length) return
+
     const searchProducts = async () => {
-      const { term, sort, page } = searchParams
+      const { page } = searchParams
       const { value, '@odata.count': count } = await axios
-        .post('/api/getSearch', {
-          term,
-          sort,
+        .post('/api/getProducts', {
+          defaultFilters,
+          term: 'tecnologia',
           skip: page * ITEMS_PER_PAGE,
           itemsPerPage: ITEMS_PER_PAGE,
           filteredFacets: filteredFacets.length ? filteredFacets : undefined,
@@ -91,18 +94,19 @@ function SearchProvider({ children, slug, searchParams }: SearchProviderProps) {
     }
 
     searchProducts()
-  }, [filteredFacets, searchParams, slug])
+  }, [allFilters.length, defaultFilters, filteredFacets, searchParams, slug])
 
   const value = {
     isLoading,
     slug,
     filteredFacets,
-    setFilteredFacets,
     productsCount,
     products,
     setProducts,
     lastPage,
-    currentPage: searchParams?.page ?? 0,
+    searchParams,
+    setAllFilters,
+    allFilters,
   }
 
   return (

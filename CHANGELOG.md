@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+### Fixed
+
+- **GM-642** - Possibility to redirect to Department page with filter applied.
+- **GM-642** - SearchContext refactor
+
 ## [0.14.0] - 2022-08-24
 
 ### Added
@@ -53,7 +58,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-455** - Changed layout style in footer
 
 ### Added
-
 
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list

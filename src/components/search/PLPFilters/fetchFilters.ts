@@ -1,3 +1,4 @@
+import type { Facet } from '@faststore/sdk/dist/search/useSearchState'
 import axios from 'axios'
 
 import type { Filters } from './Filters'
@@ -7,21 +8,13 @@ type CargasHorariasFilterType = Array<{ Text: string }>
 type PricesFilterType = { minPrice: number; maxPrice: number }
 
 interface Props {
-  setAllFilters: React.Dispatch<React.SetStateAction<Filters[]>>
-  setFilterLoading: (filterLoading: boolean) => void
   slug?: string
   term?: string | null
+  selectedFacets?: Facet[]
 }
 
-async function fetchFilters({
-  setAllFilters,
-  setFilterLoading,
-  slug,
-  term,
-}: Props) {
+async function fetchFilters({ slug, term, selectedFacets }: Props) {
   const allFilters = []
-
-  setFilterLoading(true)
 
   const minMaxPriceFetch = await axios
     .post<PricesFilterType>('/api/getMinMaxPrices', {
@@ -33,9 +26,6 @@ async function fetchFilters({
     })
 
   if (!minMaxPriceFetch || !Object.keys(minMaxPriceFetch).length) {
-    setAllFilters([])
-    setFilterLoading(false)
-
     return
   }
 
@@ -48,12 +38,16 @@ async function fetchFilters({
     })
 
   if (categoriesFetch?.length) {
+    const paramCategoryFilter = selectedFacets
+      ?.filter((facet) => facet.key === 'category')
+      .map((facet) => facet.value)
+
     const categoryFilter: Filters = {
       filterlabel: 'Categorias',
       type: 'CHECKBOX',
       facets: categoriesFetch.map((category) => {
         return {
-          selected: false,
+          selected: paramCategoryFilter?.includes(category.Slug),
           value: category.Slug,
           label: category.Name,
         }
@@ -104,8 +98,7 @@ async function fetchFilters({
 
   allFilters.push(priceFilter)
 
-  setAllFilters(allFilters)
-  setFilterLoading(false)
+  return allFilters
 }
 
 export default fetchFilters

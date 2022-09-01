@@ -19,6 +19,7 @@ import queryContentful from 'src/sdk/contentful/queryContentful'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import BannerCategory from 'src/components/sections/BannerCategory'
 import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
+import useSearchParams from 'src/utils/useSearchParams'
 
 interface PageCMSDepartmentCategoryType {
   title: string
@@ -62,6 +63,10 @@ function Page(props: Props) {
     serverData,
   } = props
 
+  const searchParams =
+    useSearchParams(props.location) ??
+    parseSearchState(new URL(href ?? pathname, 'http://localhost'))
+
   const { locale } = useSession()
 
   // No data was found
@@ -82,18 +87,6 @@ function Page(props: Props) {
       bannerImageMobile,
     },
   ] = CMSData.data.departmentCategoryPageCollection.items
-
-  const maybeState = parseSearchState(
-    new URL(href ?? pathname, 'http://localhost')
-  )
-
-  const searchParams = {
-    page: maybeState?.page,
-    base: maybeState?.base,
-    selectedFacets: maybeState ? maybeState.selectedFacets : [],
-    term: maybeState?.term ?? null,
-    sort: maybeState?.sort ?? 'score_desc',
-  }
 
   // TODO: breadcrumbList needs to come from TrueChange. Waiting back-end changes.
   const breadcrumbList = {
@@ -156,7 +149,11 @@ function Page(props: Props) {
         imageBannerDesktop={bannerImageDesktop?.url}
         imageBannerMobile={bannerImageMobile?.url}
       />
-      <SearchProvider slug={slug} searchParams={searchParams}>
+      <SearchProvider
+        slug={slug}
+        searchParams={searchParams}
+        defaultFilters={`Department/Slug eq '${slug}'`}
+      >
         <ProductGallery title={title} />
       </SearchProvider>
 
