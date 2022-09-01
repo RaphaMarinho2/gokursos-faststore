@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+## [0.15.0] - 2022-09-01
+
 ### Added
 
 - **GM-664** - Added new order by to Product Gallery
