@@ -24,6 +24,8 @@ interface SearchContextProps {
   setProducts: React.Dispatch<React.SetStateAction<ProductsProductCard[]>>
   searchParams: SearchState
   lastPage: number
+  sort: string
+  setSort: Dispatch<SetStateAction<string>>
 }
 
 export const SearchContext = createContext<SearchContextProps | undefined>(
@@ -37,6 +39,7 @@ function SearchProvider({
   defaultFilters,
 }: SearchProviderProps) {
   const [allFilters, setAllFilters] = useState<Filters[]>([])
+  const [sort, setSort] = useState<string>('')
 
   const filteredFacets = useMemo(
     () =>
@@ -107,6 +110,8 @@ function SearchProvider({
     searchParams,
     setAllFilters,
     allFilters,
+    sort,
+    setSort,
   }
 
   return (

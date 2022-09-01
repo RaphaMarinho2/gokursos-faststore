@@ -10,8 +10,6 @@ import Filters from 'src/components/search/PLPFilters'
 
 import Section from '../Section'
 import './product-gallery.scss'
-import { useGalleryQuery } from './useGalleryQuery'
-import { useDelayedFacets } from './useDelayedFacets'
 import ProductGalleryPaginator from './ProductGalleryPaginator'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
@@ -32,9 +30,6 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
     useSearch()
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
-  const { data } = useGalleryQuery()
-
-  const facets = useDelayedFacets(data)
 
   return (
     <Section
@@ -74,16 +69,14 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
         >
           <SkeletonElement shimmer type="text" loading={!products || isLoading}>
             <h2 data-testid="total-product-count">
-              <span>Monstrando</span>
+              <span>Mostrando</span>
               <span>{productsCount} produtos</span>
             </h2>
           </SkeletonElement>
         </div>
 
         <div className="product-listing__sort">
-          <SkeletonElement shimmer type="text" loading={facets?.length === 0}>
-            <Sort />
-          </SkeletonElement>
+          <Sort />
 
           <SkeletonElement shimmer type="button" loading={isLoading}>
             <Button

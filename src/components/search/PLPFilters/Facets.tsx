@@ -9,9 +9,7 @@ import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
 
 interface PLPFiltersProps {
-  // allFilters: Filters[]
   filterLoading: boolean
-  // setAllFilters: Dispatch<React.SetStateAction<Filters[]>>
 }
 
 interface ChangeFacetProps {
