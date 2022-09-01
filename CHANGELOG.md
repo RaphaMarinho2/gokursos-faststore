@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+### Added
+
+- **GM-664** - Added new order by to Product Gallery
+
 ## [0.14.0] - 2022-08-24
 
 ### Added
@@ -53,7 +57,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-455** - Changed layout style in footer
 
 ### Added
-
 
 - **GM-397** - Filter mobile
 - **GM-398** - [PDP] Show latest questions list
