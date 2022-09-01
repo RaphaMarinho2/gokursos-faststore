@@ -36,6 +36,7 @@
   .section__divisor {
     padding-top: 10px;
     padding-left: 0;
+    border-top: none;
   }
 }
 
@@ -64,6 +65,10 @@
       @include media(">=notebook") {
         width: 140px;
         padding: 10px 0;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
