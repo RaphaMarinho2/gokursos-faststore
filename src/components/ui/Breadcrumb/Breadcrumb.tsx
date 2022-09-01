@@ -15,9 +15,9 @@ import IconHome from 'src/components/icons/IconHome'
 import './breadcrumb.scss'
 
 type ItemElement = {
-  Url: string
-  Titulo: string
-  position: number
+  item: string
+  name: string
+  position?: number
 }
 export interface BreadcrumbProps extends UIBreadcrumbProps {
   breadcrumbList: ItemElement[]
@@ -50,24 +50,24 @@ function BaseBreadcrumb({
       </Link>
 
       {!collapseBreadcrumb &&
-        breadcrumbList.map(({ Url, Titulo }, index) => {
+        breadcrumbList.map(({ item, name }, index) => {
           return breadcrumbList.length !== index + 1 ? (
-            <Link className="breadcrump-item" to={Url} key={String(index)}>
-              {Titulo}
+            <Link className="breadcrump-item" to={item} key={String(index)}>
+              {name}
             </Link>
           ) : (
             <Link
               className="breadcrump-item last-child"
-              to={Url}
+              to={item}
               key={String(index)}
             >
-              {Titulo}
+              {name}
             </Link>
           )
         })}
 
       {collapseBreadcrumb && firstItem && (
-        <Link to={firstItem.Url}>{firstItem.Titulo}</Link>
+        <Link to={firstItem.item}>{firstItem.name}</Link>
       )}
 
       {collapseBreadcrumb && (
@@ -76,14 +76,14 @@ function BaseBreadcrumb({
             <span>...</span>
           </UIDropdownButton>
           <UIDropdownMenu data-store-breadcrumb-dropdown-menu>
-            {mediumItems.map(({ Url, Titulo }, index) => (
+            {mediumItems.map(({ item, name }, index) => (
               <UIDropdownItem
                 data-store-dropdown-menu-item
-                onClick={() => navigate(Url)}
+                onClick={() => navigate(item)}
                 key={String(index)}
               >
                 <Icon name="ArrowElbowDownRight" width={24} height={24} />
-                <span>{Titulo}</span>
+                <span>{name}</span>
               </UIDropdownItem>
             ))}
           </UIDropdownMenu>
@@ -91,12 +91,12 @@ function BaseBreadcrumb({
       )}
 
       {collapseBreadcrumb &&
-        lastItems.map(({ Url, Titulo }, index) => {
+        lastItems.map(({ item, name }, index) => {
           return lastItems.length === index + 1 ? (
-            <span key={String(index)}>{Titulo}</span>
+            <span key={String(index)}>{name}</span>
           ) : (
-            <Link to={Url} key={String(index)}>
-              {Titulo}
+            <Link to={item} key={String(index)}>
+              {name}
             </Link>
           )
         })}

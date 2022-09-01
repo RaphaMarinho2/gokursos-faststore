@@ -16,18 +16,18 @@ import 'src/styles/pages/pdp.scss'
 import axios from 'axios'
 import PDPProductShelf from 'src/components/sections/PDPProductShelf'
 
-export interface ProductInfo  {
+export interface ProductInfo {
   productData: {
-    productId: number | undefined,
-    productName: string | undefined,
-    description: string | undefined,
-    specification: string | undefined,
-    productImages: string | undefined,
-    priceOnData: string | undefined,
-    breadCrumb: string | undefined,
-    category: string | undefined,
-    department: string | undefined | any,
-    installments: string | undefined,
+    productId: number | undefined
+    productName: string | undefined
+    description: string | undefined
+    specification: string | undefined
+    productImages: string | undefined
+    priceOnData: string | undefined
+    breadCrumb: string | undefined
+    category: string | undefined
+    department: string | undefined | any
+    installments: string | undefined
     brand: string | undefined
   }
 }
@@ -48,12 +48,8 @@ function Page(props: Props) {
     slug,
   } = props
 
-  console.log("props", props)
-  console.log("productData", productData)
-
   const title = site?.siteMetadata?.title ?? ''
-  const description =
-    site?.siteMetadata?.description ?? ''
+  const description = site?.siteMetadata?.description ?? ''
 
   const canonical =
     host !== undefined ? `https://${host}/${slug}/p` : `/${slug}/p`
@@ -71,15 +67,17 @@ function Page(props: Props) {
           url: `${site?.siteMetadata?.siteUrl}${slug}`,
           title,
           description,
-          images: [{
-            url: "",
-            alt: "",
-          }],
+          images: [
+            {
+              url: '',
+              alt: '',
+            },
+          ],
         }}
         metaTags={[
           {
             property: 'product:price:amount',
-            content: "" ?? undefined,
+            content: '' ?? undefined,
           },
           {
             property: 'product:price:currency',
@@ -145,11 +143,9 @@ export const getServerData = async ({
 }: {
   params: Record<string, string>
 }) => {
-
   try {
-    console.log("slug", slug)
-
-    const response = await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
+    const response =
+      await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
     Department, Category, Price, Especificacao, Especificacao/CargaHoraria, Especificacao/DisponibilidadeDias,
     Especificacao/TipoCurso, BreadCrumbs&$filter=LinkId eq '${slug}'&$top=1&$select=_Id, Name,
     ProductImageURL,ID,IsActive, Description, DescriptionShort, isKit, Department, Category, Price/ListPrice, Price/BasePrice,
@@ -158,7 +154,6 @@ export const getServerData = async ({
     Especificacao/TipoCurso/DescriptionCertificate, Brand/Name, BreadCrumbs/Titulo, BreadCrumbs/Url, BreadCrumbs/Tipo, Installments/Valor, Installments/Parcela,
     Installments/Text,LinkId`)
 
-    console.log("reponse", response.data)
     return {
       status: 200,
       props: {
@@ -174,14 +169,12 @@ export const getServerData = async ({
           department: response.data.value[0]?.Department,
           installments: response.data.value[0]?.Installments,
           brand: response.data.value[0]?.Brand,
-
-        }
+        },
       },
       headers: {
         'cache-control': 'public, max-age=0, must-revalidate',
       },
     }
-
   } catch (err) {
     console.error(err)
 

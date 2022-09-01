@@ -39,6 +39,10 @@ import SubscriptionOffers from './SubscriptionOffers'
 import { VideoAndText } from './videoAndtextDetails'
 import type { ProductInfo } from '../../../pages/[slug]/p'
 
+// type ItemListType = {
+//   item: string
+//   name: string
+// }
 interface Props {
   product: ProductInfo | any
 }
@@ -46,8 +50,6 @@ interface Props {
 function ProductDetails(product: Props) {
   // const { currency } = useSession()
   const [addQuantity] = useState(1)
-  console.log('ProductInfo', product)
-
 
   // Stale while revalidate the product for fetching the new price etc
   // const { data } = useProduct(staleProduct.id, {
@@ -57,8 +59,6 @@ function ProductDetails(product: Props) {
   // if (!data) {
   //   throw new Error('NotFound')
   // }
-
-
 
   const {
     product: {
@@ -71,29 +71,30 @@ function ProductDetails(product: Props) {
       breadCrumb,
       category,
       installments,
-      brand
+      brand,
     },
   } = product
 
   const priceVaritation = installments
 
-
   const tabSpecification = [
     {
-      name: description ? 'Sobre o curso' : "",
-      description: description ?? "",
+      name: description ? 'Sobre o curso' : '',
+      description: description ?? '',
     },
     {
-      name: specification?.Conteudo ? 'Conteúdo do curso' : "",
-      description: specification?.Conteudo ?? "",
+      name: specification?.Conteudo ? 'Conteúdo do curso' : '',
+      description: specification?.Conteudo ?? '',
     },
     {
-      name: specification?.Objetivos ? 'Objetivos' : "",
-      description: specification?.Objetivos ?? "",
+      name: specification?.Objetivos ? 'Objetivos' : '',
+      description: specification?.Objetivos ?? '',
     },
     {
-      name: specification?.TipoCurso?.DescriptionCertificate ? 'Certificados' : "",
-      description: specification?.TipoCurso?.DescriptionCertificate ?? ""
+      name: specification?.TipoCurso?.DescriptionCertificate
+        ? 'Certificados'
+        : '',
+      description: specification?.TipoCurso?.DescriptionCertificate ?? '',
     },
   ]
 
@@ -113,9 +114,9 @@ function ProductDetails(product: Props) {
 
   const buyProps = useBuyButton({
     id: productId,
-    price: priceOnData.BasePrice,
+    price: priceOnData?.BasePrice,
     listPrice: priceOnData.ListPrice,
-    seller:brand.Name ,
+    seller: brand.Name,
     quantity: addQuantity,
     itemOffered: {
       sku: '',
@@ -174,7 +175,14 @@ function ProductDetails(product: Props) {
 
   return (
     <Section className="product-details layout__content layout__section column">
-      <Breadcrumb breadcrumbList={breadCrumb} />
+      <Breadcrumb
+        breadcrumbList={breadCrumb.map((item: any) => {
+          return {
+            item: item.Url,
+            name: item.Titulo,
+          }
+        })}
+      />
 
       <section className="product-details__body">
         <header className="product-details__title">
@@ -263,28 +271,26 @@ function ProductDetails(product: Props) {
                 {priceOnData.ListPrice && (
                   <DiscountBadge
                     listPrice={priceOnData.ListPrice}
-                    spotPrice={priceOnData.BasePrice}
+                    spotPrice={priceOnData?.BasePrice}
                     big
                   />
                 )}
               </div>
               <Price
-                value={priceOnData.BasePrice}
+                value={priceOnData?.BasePrice}
                 formatter={useFormattedPrice}
                 testId="price"
-                data-value={priceOnData.BasePrice}
+                data-value={priceOnData?.BasePrice}
                 variant="spot"
                 classes="text__lead"
                 SRText="Sale Price:"
               />
-              {installments &&
+              {installments && (
                 <>
-                  <Instalments
-                    instalment={priceVaritation}
-                  />
+                  <Instalments instalment={priceVaritation} />
                   <InstalmentList priceVariation={priceVaritation} />
                 </>
-              }
+              )}
             </div>
             {/* <div className="prices">
       <p className="price__old text__legend">{formattedListPrice}</p>

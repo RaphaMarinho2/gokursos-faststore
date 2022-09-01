@@ -1,15 +1,15 @@
 import axios from 'axios'
 
-export interface ProductInfo  {
+export interface ProductInfo {
   productData: {
-    productName: string | undefined,
-    description: string | undefined,
-    specification: string | undefined,
-    productImages: string | undefined,
-    priceOnData: string | undefined,
-    breadCrumb: string | undefined,
-    category: string | undefined,
-    department: string | undefined | any,
+    productName: string | undefined
+    description: string | undefined
+    specification: string | undefined
+    productImages: string | undefined
+    priceOnData: string | undefined
+    breadCrumb: string | undefined
+    category: string | undefined
+    department: string | undefined | any
     installments: string | undefined
   }
 }
@@ -19,11 +19,9 @@ export const getProductDetails = async ({
 }: {
   params: Record<string, string>
 }) => {
-
   try {
-    console.log("slug", slug)
-
-    const response = await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
+    const response =
+      await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
     Department, Category, Price, Especificacao, Especificacao/CargaHoraria, Especificacao/DisponibilidadeDias,
     Especificacao/TipoCurso, BreadCrumbs&$filter=LinkId eq '${slug}'&$top=1&$select=_Id, Name,
     ProductImageURL, IsActive, Description, DescriptionShort, isKit, Department, Category, Price/ListPrice, Price/BasePrice,
@@ -32,7 +30,6 @@ export const getProductDetails = async ({
     Especificacao/TipoCurso/DescriptionCertificate, Brand/Name, BreadCrumbs/Titulo, BreadCrumbs/Url, BreadCrumbs/Tipo, Installments/Valor, Installments/Parcela,
     Installments/Text,LinkId`)
 
-    console.log("reponse", response.data)
     return {
       status: 200,
       props: {
@@ -46,14 +43,12 @@ export const getProductDetails = async ({
           category: response.data.value[0]?.Category,
           department: response.data.value[0]?.Department,
           installments: response.data.value[0]?.Installments,
-
-        }
+        },
       },
       headers: {
         'cache-control': 'public, max-age=0, must-revalidate',
       },
     }
-
   } catch (err) {
     console.error(err)
 
@@ -66,4 +61,3 @@ export const getProductDetails = async ({
     }
   }
 }
-
