@@ -35,7 +35,7 @@ const MenuBase: FC<IMenuBase> = ({ json, menuStatus, setMenuStatus }) => {
   return (
     <ul>
       {currentMenu.map(
-        ({ label, submenu, link, blueText }: ObjectItem, index: number) => {
+        ({ label, submenu, link }: ObjectItem, index: number) => {
           return (
             <li key={`${label}-${index}`}>
               {submenu.length !== 0 ? (
@@ -45,14 +45,7 @@ const MenuBase: FC<IMenuBase> = ({ json, menuStatus, setMenuStatus }) => {
                   <Icon name="CaretRight" width={24} height={24} color="#222" />
                 </div>
               ) : (
-                <Link
-                  href={link}
-                  className={
-                    blueText === true
-                      ? 'menu-item blueText-menu-item-link'
-                      : 'menu-item menu-item-link'
-                  }
-                >
+                <Link href={link} className="menu-item menu-item-link">
                   {label}
                   <Icon name="CaretRight" width={24} height={24} color="#222" />
                 </Link>
