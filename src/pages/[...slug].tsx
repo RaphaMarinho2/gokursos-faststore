@@ -217,21 +217,21 @@ export const getServerData = async (props: Props) => {
       body,
     })
 
-    if (
-      !CMSData ||
-      !CMSData.data.departmentCategoryPageCollection.items.length
-    ) {
-      const originalUrl = `/${slug}`
+    // if (
+    //   !CMSData ||
+    //   !CMSData.data.departmentCategoryPageCollection.items.length
+    // ) {
+    //   const originalUrl = `/${slug}`
 
-      return {
-        status: 301,
-        props: {},
-        headers: {
-          'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
-          location: `/404/?from=${encodeURIComponent(originalUrl)}`,
-        },
-      }
-    }
+    //   return {
+    //     status: 301,
+    //     props: {},
+    //     headers: {
+    //       'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
+    //       location: `/404/?from=${encodeURIComponent(originalUrl)}`,
+    //     },
+    //   }
+    // }
 
     return {
       status: 200,
