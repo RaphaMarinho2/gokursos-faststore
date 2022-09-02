@@ -5,7 +5,24 @@
     overflow: hidden;
   }
 
-  .product-shelf-titles {
+  .navigattionTabs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navigattionTabs-arrows {
+      display: flex;
+      margin-right: 30px;
+
+      button {
+        background-color: #ffffff;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
     .product-shelf-title {
       margin: 0;
       margin-bottom: 0.5rem;
@@ -49,6 +66,7 @@
   }
 
   ul {
+    display: inherit;
     padding-bottom: 16px;
 
     button {

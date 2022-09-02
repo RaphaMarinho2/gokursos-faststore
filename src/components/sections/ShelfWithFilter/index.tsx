@@ -1,9 +1,10 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { List } from '@faststore/ui'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import ProductShelf from 'src/components/product/ProductShelf'
 import axios from 'axios'
 import { slugify } from 'src/sdk/utils/slugify'
+import Arrows from 'src/components/common/Carousel/components/Arrows'
 
 import Section from '../Section'
 import { useTabs, TabPanel } from './tabRules'
@@ -26,6 +27,8 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
 
+  const isDesktop = !isMobile && !isTablet
+
   const allTabs = [
     ...new Set(
       navigattionTabs?.map((item: { tabLabel: string }) => item.tabLabel)
@@ -36,6 +39,25 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
   const [selectedTab, setSelectedTab] = useTabs(tabs)
 
   const [products, setProducts] = useState<any>()
+
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const refitem = useRef<HTMLDivElement | null>(null)
+
+  const arrowsNavigation = (position: string) => {
+    if (containerRef.current && refitem.current) {
+      const widthItem = refitem.current.clientWidth
+
+      if (position === 'prev') {
+        containerRef.current.scrollLeft -= widthItem
+      }
+
+      if (position === 'next') {
+        containerRef.current.scrollLeft += widthItem
+      }
+    }
+
+    return null
+  }
 
   useEffect(() => {
     const departmentName =
@@ -54,26 +76,65 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
       .then(({ data: { value } }) => setProducts(value))
   }, [selectedTab])
 
+  const arrowStyle = {
+    borderRadius: '30px',
+    border: '1px solid #FF3452',
+    height: ' 33px',
+    margin: '8px',
+    width: '32px',
+  }
+
   return (
     <Section className="navigattionTabs-container section">
-      <div className="product-shelf-titles">
-        {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
-        {title && <h2 className="product-shelf-title">{title}</h2>}
+      <div className="navigattionTabs-header">
+        <div className="product-shelf-titles">
+          {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
+          {title && <h2 className="product-shelf-title">{title}</h2>}
+        </div>
+        {isDesktop && (
+          <div className="navigattionTabs-arrows">
+            <Arrows
+              position="prev"
+              style={arrowStyle}
+              iconColor="#FF3452"
+              onClick={() => arrowsNavigation('prev')}
+            />
+            <Arrows
+              position="next"
+              style={arrowStyle}
+              iconColor="#FF3452"
+              onClick={() => arrowsNavigation('next')}
+            />
+          </div>
+        )}
       </div>
       <div className="section-top layout__content section__divisor">
-        <div className="navigattionTabs-list scrollmenu">
+        <div
+          className="navigattionTabs-list scrollmenu"
+          ref={containerRef}
+          style={{
+            transform: 'translate3d(0, 0, 0)',
+            width: '100%',
+            display: ' flex',
+            flexDirection: 'row',
+            scrollBehavior: 'smooth',
+            overflowX: 'scroll',
+          }}
+        >
           <List variant="unordered">
             {tabs.map((tab: string, index: number) => {
               return (
-                <li key={index} className="navigattionTabs-tab">
-                  <TabSwitch
-                    key={index}
-                    isActive={selectedTab === tab}
-                    onClick={() => setSelectedTab(tab)}
-                  >
-                    {tab}
-                  </TabSwitch>
-                </li>
+                <div key={index} ref={refitem}>
+                  <li key={index} className="navigattionTabs-tab">
+                    <TabSwitch
+                      key={index}
+                      isActive={selectedTab === tab}
+                      onClick={() => setSelectedTab(tab)}
+                    >
+                      {tab}
+                    </TabSwitch>
+                  </li>
+                </div>
               )
             })}
           </List>
