@@ -11,10 +11,7 @@ import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type {
-  DepartmentPageQueryQuery,
-  DepartmentPageQueryQueryVariables,
-} from '@generated/graphql'
+import type { DepartmentPageQueryQuery } from '@generated/graphql'
 import queryContentful from 'src/sdk/contentful/queryContentful'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import BannerCategory from 'src/components/sections/BannerCategory'
@@ -50,7 +47,7 @@ interface ServerDataProps {
 
 export type Props = PageProps<
   DepartmentPageQueryQuery,
-  DepartmentPageQueryQueryVariables,
+  { slug: string },
   unknown,
   ServerDataProps
 >
@@ -60,6 +57,7 @@ function Page(props: Props) {
     location: { host, href, pathname },
     data,
     serverData,
+    pageContext: { slug },
   } = props
 
   const { locale } = useSession()
@@ -75,7 +73,6 @@ function Page(props: Props) {
     {
       title,
       subtitle,
-      slug,
       seoTitle,
       seoDescription,
       bannerImageDesktop,
@@ -206,6 +203,7 @@ export const getServerData = async (props: Props) => {
   } = props
 
   const ONE_YEAR_CACHE = `s-maxage=31536000, stale-while-revalidate`
+  const originalUrl = `/${slug}`
 
   try {
     const body = {
@@ -223,8 +221,6 @@ export const getServerData = async (props: Props) => {
       !CMSData ||
       !CMSData.data.departmentCategoryPageCollection.items.length
     ) {
-      const originalUrl = `/${slug}`
-
       return {
         status: 301,
         props: {},
@@ -251,7 +247,7 @@ export const getServerData = async (props: Props) => {
       status: 500,
       props: {},
       headers: {
-        'cache-control': 'public, max-age=0, must-revalidate',
+        'cache-control': ONE_YEAR_CACHE,
       },
     }
   }

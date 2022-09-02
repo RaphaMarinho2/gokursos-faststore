@@ -1,15 +1,15 @@
+import path from 'path'
+
 import type { GatsbyNode } from 'gatsby'
 
 import { apiSchema } from './src/server'
-
-const path = require(`path`)
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
   reporter.info(`Your Gatsby site has been built!`)
 }
 
-// Create blog pages dynamically
+// Create department pages dynamically
 exports.createPages = async ({ graphql, actions }: any) => {
   const { createPage } = actions
   const departmentPage = path.resolve(`src/pages/[...slug].tsx`)
@@ -18,17 +18,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       allContentfulPageDepartmentCategory {
         edges {
           node {
-            title
-            subtitle
             slug
-            seoTitle
-            seoDescription
-            bannerImageDesktop {
-              url
-            }
-            bannerImageMobile {
-              url
-            }
           }
         }
       }
@@ -40,7 +30,6 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: `${edge.node.slug}`,
       component: departmentPage,
       context: {
-        title: edge.node.title,
         slug: edge.node.slug,
       },
     })
