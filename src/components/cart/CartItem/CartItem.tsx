@@ -1,6 +1,5 @@
 import { Card, CardActions, CardContent, CardImage } from '@faststore/ui'
 import Button from 'src/components/ui/Button'
-import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import QuantitySelector from 'src/components/ui/QuantitySelector'
 import { useCart } from 'src/sdk/cart/useCart'
@@ -25,7 +24,7 @@ function CartItem({ item }: Props) {
     >
       <CardContent>
         <CardImage>
-          <Image
+          <img
             src={item.itemOffered.image[0].url}
             alt={item.itemOffered.image[0].alternateName}
             width={72}

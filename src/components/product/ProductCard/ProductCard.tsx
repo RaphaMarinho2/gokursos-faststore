@@ -5,7 +5,7 @@ import {
   CardImage as UICardImage,
 } from '@faststore/ui'
 import { Link } from 'gatsby'
-import { memo, useState } from 'react'
+import { memo } from 'react'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
@@ -57,8 +57,6 @@ function ProductCard({
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
-  const [addQuantity] = useState(1)
-
   const linkProps = useProductLink({ product, index })
 
   const buyProps = useBuyButton({
@@ -66,7 +64,7 @@ function ProductCard({
     price: spotPrice,
     listPrice,
     seller: { identifier: '' },
-    quantity: addQuantity,
+    quantity: 1,
     itemOffered: {
       sku: '',
       name,
