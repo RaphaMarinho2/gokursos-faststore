@@ -202,56 +202,59 @@ query DepartmentCategoryPageQuery($slug: String!) {
 
 export const getServerData = async (props: Props) => {
   const {
-    params: { slug },
+    pageContext: { slug },
   } = props
 
   const ONE_YEAR_CACHE = `s-maxage=31536000, stale-while-revalidate`
 
-  // try {
-  const body = {
-    query: DepartmentCategoryPageQuery,
-    variables: {
-      slug,
-    },
-  }
+  try {
+    const body = {
+      query: DepartmentCategoryPageQuery,
+      variables: {
+        slug,
+      },
+    }
 
-  const CMSData = await queryContentful<ServerDataProps['CMSData']>({
-    body,
-  })
+    const CMSData = await queryContentful<ServerDataProps['CMSData']>({
+      body,
+    })
 
-  if (!CMSData || !CMSData.data.departmentCategoryPageCollection.items.length) {
-    const originalUrl = `/${slug}`
+    if (
+      !CMSData ||
+      !CMSData.data.departmentCategoryPageCollection.items.length
+    ) {
+      const originalUrl = `/${slug}`
+
+      return {
+        status: 301,
+        props: {},
+        headers: {
+          'cache-control': ONE_YEAR_CACHE,
+          location: `/404/?from=${encodeURIComponent(originalUrl)}`,
+        },
+      }
+    }
 
     return {
-      status: 301,
-      props: {},
+      status: 200,
+      props: {
+        CMSData,
+      },
       headers: {
         'cache-control': ONE_YEAR_CACHE,
-        location: `/404/?from=${encodeURIComponent(originalUrl)}`,
+      },
+    }
+  } catch (err) {
+    console.error(err)
+
+    return {
+      status: 500,
+      props: {},
+      headers: {
+        'cache-control': 'public, max-age=0, must-revalidate',
       },
     }
   }
-
-  return {
-    status: 200,
-    props: {
-      CMSData,
-    },
-    headers: {
-      'cache-control': ONE_YEAR_CACHE,
-    },
-  }
-  // } catch (err) {
-  //   console.error(err)
-
-  //   return {
-  //     status: 500,
-  //     props: {},
-  //     headers: {
-  //       'cache-control': 'public, max-age=0, must-revalidate',
-  //     },
-  //   }
-  // }
 }
 
 Page.displayName = 'Page'
