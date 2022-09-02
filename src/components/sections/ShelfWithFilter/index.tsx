@@ -40,8 +40,16 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const [products, setProducts] = useState<any>()
 
+  const [isArrowPrevEnabled, setIsArrowPrevEnabled] = useState<boolean>(false)
+  const [isArrowNextEnabled, setIsArrowNextEnabled] = useState<boolean>(true)
   const containerRef = useRef<HTMLDivElement | null>(null)
-  const refitem = useRef<HTMLDivElement | null>(null)
+  const refitem = useRef<HTMLLIElement | null>(null)
+  const arrowStyle = {
+    borderRadius: '30px',
+    height: ' 33px',
+    margin: '8px',
+    width: '32px',
+  }
 
   const arrowsNavigation = (position: string) => {
     if (containerRef.current && refitem.current) {
@@ -53,6 +61,28 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
       if (position === 'next') {
         containerRef.current.scrollLeft += widthItem
+      }
+    }
+
+    return null
+  }
+
+  const handleScroll = () => {
+    if (containerRef.current) {
+      if (
+        containerRef.current.scrollTop === 0 &&
+        containerRef.current.scrollLeft === 0
+      ) {
+        setIsArrowNextEnabled(true)
+        setIsArrowPrevEnabled(false)
+      } else if (
+        containerRef.current.scrollLeft >= containerRef.current.scrollHeight
+      ) {
+        setIsArrowNextEnabled(false)
+        setIsArrowPrevEnabled(true)
+      } else {
+        setIsArrowNextEnabled(true)
+        setIsArrowPrevEnabled(true)
       }
     }
 
@@ -76,17 +106,9 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
       .then(({ data: { value } }) => setProducts(value))
   }, [selectedTab])
 
-  const arrowStyle = {
-    borderRadius: '30px',
-    border: '1px solid #FF3452',
-    height: ' 33px',
-    margin: '8px',
-    width: '32px',
-  }
-
   return (
     <Section className="navigattionTabs-container section">
-      <div className="navigattionTabs-header">
+      <div className="navigattionTabs-headers">
         <div className="product-shelf-titles">
           {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
           {title && <h2 className="product-shelf-title">{title}</h2>}
@@ -96,14 +118,16 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
             <Arrows
               position="prev"
               style={arrowStyle}
-              iconColor="#FF3452"
+              iconColor={isArrowPrevEnabled ? '#FF3452' : '#DDDDDD'}
               onClick={() => arrowsNavigation('prev')}
+              disabled={!isArrowPrevEnabled}
             />
             <Arrows
               position="next"
               style={arrowStyle}
-              iconColor="#FF3452"
+              iconColor={isArrowNextEnabled ? '#FF3452' : '#DDDDDD'}
               onClick={() => arrowsNavigation('next')}
+              disabled={!isArrowNextEnabled}
             />
           </div>
         )}
@@ -120,21 +144,20 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
             scrollBehavior: 'smooth',
             overflowX: 'scroll',
           }}
+          onScroll={handleScroll}
         >
           <List variant="unordered">
             {tabs.map((tab: string, index: number) => {
               return (
-                <div key={index} ref={refitem}>
-                  <li key={index} className="navigattionTabs-tab">
-                    <TabSwitch
-                      key={index}
-                      isActive={selectedTab === tab}
-                      onClick={() => setSelectedTab(tab)}
-                    >
-                      {tab}
-                    </TabSwitch>
-                  </li>
-                </div>
+                <li key={index} className="navigattionTabs-tab" ref={refitem}>
+                  <TabSwitch
+                    key={index}
+                    isActive={selectedTab === tab}
+                    onClick={() => setSelectedTab(tab)}
+                  >
+                    {tab}
+                  </TabSwitch>
+                </li>
               )
             })}
           </List>
