@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
@@ -8,18 +8,20 @@ import 'src/styles/pages/layout.scss'
 
 import Topbar from './components/common/TopBar'
 import Newletter from './components/sections/Newletter'
+import LoginSidebar from './components/Sidebar/Sidebar'
 
 const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
 
 function Layout({ children }: PropsWithChildren<unknown>) {
   const { displayMinicart } = useUI()
+  const [displaySidebar, setDisplaySidebar] = useState(false)
 
   return (
     <>
       <div id="layout">
         <Topbar />
 
-        <Navbar />
+        <Navbar setDisplaySidebar={setDisplaySidebar} />
 
         <main>{children}</main>
 
@@ -28,6 +30,11 @@ function Layout({ children }: PropsWithChildren<unknown>) {
         <Footer />
 
         <Toast />
+
+        <LoginSidebar
+          displaySidebar={displaySidebar}
+          setDisplaySidebar={setDisplaySidebar}
+        />
 
         {displayMinicart && (
           <Suspense fallback={null}>

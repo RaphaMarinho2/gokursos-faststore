@@ -67,6 +67,10 @@
   align-items: center;
   justify-content: flex-end;
 
+  @include media(">=notebook") {
+    justify-content: space-around;
+  }
+
   [data-fs-button-collapse] {
     margin-left: calc(-1 * var(--fs-spacing-3));
   }
@@ -186,6 +190,7 @@
 }
 
 .login-message__bold {
+  margin-left: 8px;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-weight: 600;

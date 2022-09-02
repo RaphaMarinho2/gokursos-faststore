@@ -1,22 +1,26 @@
-import usePersonQuery from 'src/sdk/person/usePersonQuery'
-import { ButtonLink } from 'src/components/ui/Button'
 import User from 'src/components/icons/user'
+import { navigate } from 'gatsby'
+import './style.scss'
+import { windowGlobal } from 'src/constants'
 
-const ButtonSignIn = () => {
-  const person = usePersonQuery()
-
+const ButtonSignIn = (props: any) => {
   return (
-    <ButtonLink
+    <button
       data-fs-button-signin-link
-      to={person?.id ? '/account' : '/login'}
-      className="text__title-mini signin-link"
-      variant="tertiary"
+      className=" signin-link"
+      onClick={() =>
+        !windowGlobal?.localStorage.getItem('user')
+          ? navigate('/login')
+          : props?.setDisplaySidebar?.(true)
+      }
     >
       <User />
       <span className="login-message__bold">
-        {person?.id ? 'My Account' : 'Entre ou Cadastre-se'}
+        {windowGlobal?.localStorage.getItem('user')
+          ? 'Meus cursos'
+          : 'Entre ou Cadastre-se'}
       </span>
-    </ButtonLink>
+    </button>
   )
 }
 

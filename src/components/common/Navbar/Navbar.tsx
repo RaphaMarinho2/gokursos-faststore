@@ -13,7 +13,7 @@ import MenuMobile from 'src/components/common/MenuMobile'
 import MenuDesktop from 'src/components/common/MenuDesktop/MenuDesktop'
 import menuItems from 'src/components/common/MenuDesktop/mocks/menuItems.json'
 
-function Navbar() {
+function Navbar(props: any) {
   const { onModalClose } = useModal()
   const searchMobileRef = useRef<SearchInputRef>(null)
   const [value, setValue] = useState(false)
@@ -73,7 +73,7 @@ function Navbar() {
               buttonTestId="store-input-mobile-button"
               onSearchClick={handlerExpandSearch}
             />
-            <ButtonSignIn />
+            <ButtonSignIn setDisplaySidebar={props.setDisplaySidebar} />
             <CartToggle />
           </div>
         </section>
