@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
 import { ButtonBuy } from 'src/components/ui/Button'
-import { Image } from 'src/components/ui/Image'
+// import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
@@ -245,17 +245,16 @@ function ProductDetails(product: Props) {
 
         <section className="product-details__image">
           {product.product?.productImages ? (
-            <Image
-              preload
+            <img
               loading="eager"
               src={product.product?.productImages}
               alt={product.product?.productName}
-              width={360}
-              height={270}
+              // width={360}
+              // height={270}
               sizes="(max-width: 768px) 25vw, 50vw"
             />
           ) : (
-            <h4 className="image-not-found">imagem insdisponível</h4>
+            <h4 className="image-not-found">imagem indisponível</h4>
           )}
         </section>
 

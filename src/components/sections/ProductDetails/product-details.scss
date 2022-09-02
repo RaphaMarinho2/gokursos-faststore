@@ -12,15 +12,15 @@
   &__price {
     &-modal {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
       width: 100%;
       max-width: 548px;
-      background-color: #fff;
-      top: 0;
       margin: 3% auto;
       overflow-y: scroll;
+      background-color: #fff;
 
       @include media("<=tablet") {
         max-width: 310px;
@@ -35,28 +35,28 @@
         line-height: 130%;
         color: #ff3452;
         text-decoration: underline;
+        cursor: pointer;
         background-color: #fff;
         border: 0;
-        cursor: pointer;
       }
 
       &--top {
+        position: sticky;
+        top: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 10px 16px;
         background: #ff3452;
-        position: sticky;
-        top: 0;
 
         @include media(">=notebook") {
           padding: 22px 40px;
         }
 
         button {
+          cursor: pointer;
           background: #ff3452;
           border: 0;
-          cursor: pointer;
 
           @include media(">=notebook") {
             position: relative;
@@ -275,12 +275,12 @@
   }
 
   img {
+    width: 100%;
     height: auto;
-    max-height: 200px;
 
     @include media(">=notebook") {
-      max-width: 780px;
-      max-height: 400px;
+      max-width: 100%;
+      max-height: 100%;
     }
   }
 }
@@ -298,10 +298,10 @@
     margin-top: 24px;
 
     @include media (">=notebook") {
+      flex-basis: 50%;
       padding: 0 0 0 32px;
       margin-top: 0;
       border: 0;
-      flex-basis: 50%;
     }
   }
 
@@ -557,9 +557,9 @@
     max-height: 28px;
 
     [data-open-modal-button] {
+      cursor: pointer;
       background: none;
       border: none;
-      cursor: pointer;
     }
 
     [data-open-modal-text] {
@@ -849,7 +849,8 @@
     border: 1px solid #000000;
     border-radius: 4px;
   }
-  [data-sf-description-button-desk]{
+
+  [data-sf-description-button-desk] {
     display: none;
   }
 
@@ -1031,16 +1032,16 @@
   }
 }
 
-.image-not-found{
+.image-not-found {
   position: absolute;
   top: 0;
-  margin: auto;
-  left: 0;
   right: 0;
-  width: 242px;
   bottom: 0;
-  text-align: center;
+  left: 0;
+  width: 242px;
   height: 20px;
+  margin: auto;
   font-size: 18px;
+  text-align: center;
   text-transform: capitalize;
 }

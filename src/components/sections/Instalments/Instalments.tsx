@@ -16,12 +16,11 @@ export default function Instalments({ instalment }: InstalmentsProps) {
     return prev.Valor < current.Valor ? prev : current
   })
 
-  const { Parcela, Valor, Text } = maxInstalment
+  const { Parcela, Valor } = maxInstalment
 
   const formattedValue = useFormattedPrice(Valor)
-  const rate = Text.includes('sem juros') ? 'sem juros' : ''
 
   return (
-    <span className="instalments">{`em até ${Parcela}x de ${formattedValue} ${rate}`}</span>
+    <span className="instalments">{`em até ${Parcela}x de ${formattedValue}`}</span>
   )
 }
