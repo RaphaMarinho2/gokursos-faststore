@@ -115,7 +115,7 @@ function ProductDetails(product: Props) {
   const buyProps = useBuyButton({
     id: productId,
     price: priceOnData?.BasePrice,
-    listPrice: priceOnData.ListPrice,
+    listPrice: priceOnData?.ListPrice,
     seller: brand.Name,
     quantity: addQuantity,
     itemOffered: {
@@ -176,7 +176,7 @@ function ProductDetails(product: Props) {
   return (
     <Section className="product-details layout__content layout__section column">
       <Breadcrumb
-        breadcrumbList={breadCrumb.map((item: any) => {
+        breadcrumbList={breadCrumb?.map((item: any) => {
           return {
             item: item.Url,
             name: item.Titulo,
@@ -198,17 +198,17 @@ function ProductDetails(product: Props) {
                     shareLinks={[
                       {
                         name: 'Facebook',
-                        url: `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`,
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${window?.location.href}`,
                         SocialIcon: facebookShareIcon,
                       },
                       {
                         name: 'Twitter',
-                        url: `https://twitter.com/intent/tweet?url=${window.location.href}`,
+                        url: `https://twitter.com/intent/tweet?url=${window?.location.href}`,
                         SocialIcon: twitterShareIcon,
                       },
                       {
                         name: 'Pinterest',
-                        url: `https://www.pinterest.com/pin/create/button/?url=${window.location.href}`,
+                        url: `https://www.pinterest.com/pin/create/button/?url=${window?.location.href}`,
                         SocialIcon: pinterestShareIcon,
                       },
                     ]}
@@ -257,20 +257,20 @@ function ProductDetails(product: Props) {
           <section className="product-details__values">
             <div className="product-details__prices">
               <div className="product-details__list-price-container">
-                {priceOnData.ListPrice && (
+                {priceOnData?.ListPrice && (
                   <Price
-                    value={priceOnData.ListPrice}
+                    value={priceOnData?.ListPrice}
                     formatter={useFormattedPrice}
                     testId="list-price"
-                    data-value={priceOnData.ListPrice}
+                    data-value={priceOnData?.ListPrice}
                     variant="listing"
                     classes="text__legend"
                     SRText="Original price:"
                   />
                 )}
-                {priceOnData.ListPrice && (
+                {priceOnData?.ListPrice && (
                   <DiscountBadge
-                    listPrice={priceOnData.ListPrice}
+                    listPrice={priceOnData?.ListPrice}
                     spotPrice={priceOnData?.BasePrice}
                     big
                   />

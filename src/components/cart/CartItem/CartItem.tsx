@@ -21,7 +21,7 @@ function CartItem({ item }: Props) {
       className="cart-item"
       data-testid="cart-item"
       data-sku={item.itemOffered.sku}
-      data-seller={item.seller.identifier}
+      data-seller={item.seller?.identifier}
     >
       <CardContent>
         <CardImage>
