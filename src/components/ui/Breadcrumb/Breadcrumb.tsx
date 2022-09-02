@@ -31,14 +31,14 @@ function BaseBreadcrumb({
   breadcrumbList,
   isDesktop = false,
 }: BaseBreadcrumbProps) {
-  const firstItem = isDesktop ? breadcrumbList[0] : null
+  const firstItem = isDesktop ? breadcrumbList : null
   const mediumItems = isDesktop
-    ? breadcrumbList.slice(1, -2)
-    : breadcrumbList.slice(0, -2)
+    ? breadcrumbList?.slice(1, -2)
+    : breadcrumbList?.slice(0, -2)
 
-  const lastItems = breadcrumbList.slice(-2)
+  const lastItems = breadcrumbList?.slice(-2)
 
-  const collapseBreadcrumb = breadcrumbList.length > 4
+  const collapseBreadcrumb = breadcrumbList?.length > 4
 
   return (
     <UIBreadcrumb
@@ -50,8 +50,8 @@ function BaseBreadcrumb({
       </Link>
 
       {!collapseBreadcrumb &&
-        breadcrumbList.map(({ item, name }, index) => {
-          return breadcrumbList.length !== index + 1 ? (
+        breadcrumbList?.map(({ item, name }, index) => {
+          return breadcrumbList?.length !== index + 1 ? (
             <Link className="breadcrump-item" to={item} key={String(index)}>
               {name}
             </Link>
@@ -67,7 +67,7 @@ function BaseBreadcrumb({
         })}
 
       {collapseBreadcrumb && firstItem && (
-        <Link to={firstItem.item}>{firstItem.name}</Link>
+        <Link to={firstItem[0]?.item}>{firstItem[0]?.name}</Link>
       )}
 
       {collapseBreadcrumb && (

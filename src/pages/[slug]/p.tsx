@@ -18,17 +18,17 @@ import PDPProductShelf from 'src/components/sections/PDPProductShelf'
 
 export interface ProductInfo {
   productData: {
-    productId: number | undefined
-    productName: string | undefined
-    description: string | undefined
-    specification: string | undefined
-    productImages: string | undefined
-    priceOnData: string | undefined
-    breadCrumb: string | undefined
-    category: string | undefined
-    department: string | undefined | any
-    installments: string | undefined
-    brand: string | undefined
+    productId?: number
+    productName?: string
+    description?: string
+    specification?: string
+    productImages?: string
+    priceOnData?: string
+    breadCrumb?: string
+    category?: string
+    department?: string | any
+    installments?: string
+    brand?: string
   }
 }
 

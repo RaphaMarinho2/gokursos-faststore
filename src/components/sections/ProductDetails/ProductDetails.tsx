@@ -198,17 +198,23 @@ function ProductDetails(product: Props) {
                     shareLinks={[
                       {
                         name: 'Facebook',
-                        url: `https://www.facebook.com/sharer/sharer.php?u=${window?.location.href}`,
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${
+                          typeof window !== 'undefined' && window.location.href
+                        }`,
                         SocialIcon: facebookShareIcon,
                       },
                       {
                         name: 'Twitter',
-                        url: `https://twitter.com/intent/tweet?url=${window?.location.href}`,
+                        url: `https://twitter.com/intent/tweet?url=${
+                          typeof window !== 'undefined' && window.location.href
+                        }`,
                         SocialIcon: twitterShareIcon,
                       },
                       {
                         name: 'Pinterest',
-                        url: `https://www.pinterest.com/pin/create/button/?url=${window?.location.href}`,
+                        url: `https://www.pinterest.com/pin/create/button/?url=${
+                          typeof window !== 'undefined' && window.location.href
+                        }`,
                         SocialIcon: pinterestShareIcon,
                       },
                     ]}
@@ -222,15 +228,15 @@ function ProductDetails(product: Props) {
             }
             label={
               <>
-                {category.Name && category.Name !== undefined && (
+                {category?.Name && category?.Name !== undefined && (
                   <ProductTags
-                    tagCategoryLabel={category.Name}
+                    tagCategoryLabel={category?.Name}
                     urlCategory={`/${category.Slug}`}
                   />
                 )}
                 {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
-                {specification.CargaHoraria.Text && (
-                  <Workload workload={specification.CargaHoraria.Text} />
+                {specification?.CargaHoraria.Text && (
+                  <Workload workload={specification?.CargaHoraria.Text} />
                 )}
               </>
             }
@@ -238,12 +244,12 @@ function ProductDetails(product: Props) {
         </header>
 
         <section className="product-details__image">
-          {productImages ? (
+          {product.product?.productImages ? (
             <Image
               preload
               loading="eager"
-              src={productImages}
-              alt={productName}
+              src={product.product?.productImages}
+              alt={product.product?.productName}
               width={360}
               height={270}
               sizes="(max-width: 768px) 25vw, 50vw"
