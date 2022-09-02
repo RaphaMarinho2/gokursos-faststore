@@ -12,11 +12,9 @@ function LoginSidebar(props: any) {
     windowGlobal?.location.reload()
   }
 
-  let userData
-
-  if (windowGlobal?.localStorage.getItem('user')) {
-    userData = JSON.parse(windowGlobal?.localStorage.getItem('user') ?? '')
-  }
+  const userData = JSON.parse(
+    windowGlobal?.localStorage.getItem('user') ?? '{}'
+  )
 
   return (
     <SlideOver
@@ -39,7 +37,7 @@ function LoginSidebar(props: any) {
           />
         </div>
         <div className="container-title-login">
-          <p>Olá, {userData?.name ?? userData?.email}</p>
+          <p>Olá, {userData?.name ?? userData?.email ?? ''}</p>
         </div>
         <div className="infos-sidebar">
           <a href="/">
