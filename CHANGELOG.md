@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+### Fixed
+
+- **GM-483** - Remove header menu item: "Seja um parceiro"
+
 ## [0.15.0] - 2022-09-01
 
 ### Added

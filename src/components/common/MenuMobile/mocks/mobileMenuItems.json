@@ -715,12 +715,6 @@
       "submenu": []
     },
     {
-      "label": "Seja um parceiro",
-      "link": "/seja-um-parceiro",
-      "blueText": false,
-      "submenu": []
-    },
-    {
       "label": "Blog",
       "link": "https://blog.gokursos.com/",
       "blueText": false,
