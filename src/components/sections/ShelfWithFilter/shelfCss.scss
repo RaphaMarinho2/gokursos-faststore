@@ -13,8 +13,11 @@
     justify-content: space-between;
 
     .navigattionTabs-arrows {
-      display: flex;
-      margin-right: 30px;
+      @include media("<=tablet") {
+        display: hidden;
+      }
+
+      display: inline;
 
       button {
         background-color: #ffffff;
@@ -54,6 +57,14 @@
 
     @include media(">=tablet") {
       max-width: var(--fs-grid-breakpoint-desktop);
+    }
+
+    @include media(">=notebook") {
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    @include media(">=desktop") {
       margin: 0 auto;
     }
   }
@@ -70,11 +81,17 @@
 }
 
 .navigattionTabs-list {
+  margin-right: 16px;
   margin-left: 16px;
 
   @include media(">=notebook") {
-    margin-right: 38px;
-    margin-left: 58px;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+  @include media(">=desktop") {
+    margin-right: 0;
+    margin-left: 0;
   }
 
   ul {
