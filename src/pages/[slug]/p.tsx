@@ -1,9 +1,9 @@
 import { useSession } from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import {
-  // BreadcrumbJsonLd,
+  BreadcrumbJsonLd,
   GatsbySeo,
-  // ProductJsonLd,
+  ProductJsonLd,
 } from 'gatsby-plugin-next-seo'
 import ProductDetails from 'src/components/sections/ProductDetails'
 import { mark } from 'src/sdk/tests/mark'
@@ -22,13 +22,15 @@ export interface ProductInfo {
     productName?: string
     description?: string
     specification?: string
-    productImages?: string
-    priceOnData?: string
-    breadCrumb?: string
+    productImages?: any
+    priceOnData?: any
+    breadCrumb?: any
     category?: string
-    department?: string | any
+    department?: any
     installments?: string
-    brand?: string
+    brand?: {
+      Name: string
+    }
   }
 }
 
@@ -69,8 +71,8 @@ function Page(props: Props) {
           description,
           images: [
             {
-              url: '',
-              alt: '',
+              url: productData?.productImages,
+              alt: productData.productName,
             },
           ],
         }}
@@ -85,22 +87,27 @@ function Page(props: Props) {
           },
         ]}
       />
-      {/* <BreadcrumbJsonLd
-        itemListElements={product.breadcrumbList.itemListElement ?? []}
-      /> */}
-      {/* <ProductJsonLd
-        name={product.name}
-        description={product.description}
-        brand={product.brand.name}
-        sku={product.sku}
-        gtin={product.gtin}
-        images={product.image.map((img) => img.url)} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
+      <BreadcrumbJsonLd
+        itemListElements={productData.breadCrumb.map((item: any) => {
+          return {
+            item: item.Url,
+            name: item.Titulo,
+          }
+        })}
+      />
+      <ProductJsonLd
+        name={productData.productName}
+        description={productData.description}
+        brand={productData.brand?.Name}
+        sku=""
+        gtin=""
+        images={productData.productImages} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
         offersType="AggregateOffer"
         offers={{
-          ...product.offers,
-          price: product.offers.offers[0].price.toString(),
+          ...productData.priceOnData,
+          price: productData.priceOnData?.BasePrice,
         }}
-      /> */}
+      />
 
       {/*
         WARNING: Do not import or render components from any
