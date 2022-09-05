@@ -62,10 +62,27 @@
           }
 
           .order-status {
+            display: flex;
+            align-items: center;
             font-size: var(--fs-text-size-2);
             font-weight: var(--fs-text-weight-regular);
             line-height: 24px;
             color: #666;
+
+            &__pending {
+              margin: 0 5px;
+              font-size: var(--fs-text-size-2);
+              font-weight: var(--fs-text-weight-regular);
+              line-height: 20px;
+              color: #f2bd4d;
+            }
+
+            &__text {
+              margin: 0 5px;
+              font-size: var(--fs-text-size-2);
+              font-weight: var(--fs-text-weight-regular);
+              line-height: 20px;
+            }
           }
         }
 
@@ -80,6 +97,10 @@
           background-color: #fff;
           border: 1px solid #ff3452;
           border-radius: 4px;
+
+          &:hover {
+            cursor: pointer;
+          }
 
           @include media(">=notebook") {
             max-width: 232px;
