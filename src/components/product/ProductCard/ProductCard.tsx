@@ -53,7 +53,7 @@ function ProductCard({
 }: ProductCardProps) {
   const { Name: name, ProductImageURL: img } = product
 
-  const spotPrice = product.Price?.BasePrice
+  const price = product.Price?.BasePrice
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
@@ -61,7 +61,7 @@ function ProductCard({
 
   const buyProps = useBuyButton({
     id: product.ID,
-    price: spotPrice,
+    price,
     listPrice,
     seller: { identifier: '' },
     quantity: 1,
@@ -111,9 +111,9 @@ function ProductCard({
           </h3>
 
           <div data-fs-product-card-prices>
-            {spotPrice && (
+            {price && (
               <>
-                {listPrice && listPrice > spotPrice && (
+                {listPrice && listPrice > price && (
                   <Price
                     value={listPrice}
                     formatter={useFormattedPrice}
@@ -125,10 +125,10 @@ function ProductCard({
                   />
                 )}
                 <Price
-                  value={spotPrice}
+                  value={price}
                   formatter={useFormattedPrice}
                   testId="price"
-                  data-value={spotPrice}
+                  data-value={price}
                   variant="spot"
                   classes="text__body"
                   SRText="Sale Price:"

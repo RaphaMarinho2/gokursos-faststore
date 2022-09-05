@@ -36,7 +36,7 @@ function CartItem({ item }: Props) {
             {item.itemOffered.isVariantOf.name}
           </p>
           <span data-cart-item-prices>
-            {item.listPrice && (
+            {item.listPrice !== item.price && (
               <Price
                 value={item.listPrice}
                 formatter={useFormattedPrice}
