@@ -1,70 +1,113 @@
-import { parseSearchState, SearchProvider, useSession } from '@faststore/sdk'
-import { gql } from '@vtex/graphql-utils'
-import { graphql } from 'gatsby'
-import { BreadcrumbJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo'
-import { useMemo } from 'react'
-import Breadcrumb from 'src/components/sections/Breadcrumb'
-import Hero from 'src/components/sections/Hero'
-import ProductGallery from 'src/components/sections/ProductGallery'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
-import Icon from 'src/components/ui/Icon'
-import { ITEMS_PER_PAGE } from 'src/constants'
-import { applySearchState } from 'src/sdk/search/state'
+import ProductGallery from 'src/components/sections/ProductGallery'
+import Breadcrumb from 'src/components/sections/Breadcrumb'
 import { mark } from 'src/sdk/tests/mark'
-import type {
-  CollectionPageQueryQuery,
-  ServerCollectionPageQueryQuery,
-  CollectionPageQueryQueryVariables,
-} from '@generated/graphql'
+import {
+  SearchProvider as FSSearchProvider,
+  parseSearchState,
+  useSession,
+} from '@faststore/sdk'
+import { applySearchState } from 'src/sdk/search/state'
+import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
-import type { SearchState } from '@faststore/sdk'
+import { graphql } from 'gatsby'
+import type {
+  DepartmentPageQueryQuery,
+  DepartmentPageQueryQueryVariables,
+} from '@generated/graphql'
+import queryContentful from 'src/sdk/contentful/queryContentful'
+import { GatsbySeo } from 'gatsby-plugin-next-seo'
+import BannerCategory from 'src/components/sections/BannerCategory'
+import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
-import 'src/styles/pages/plp.scss'
-
-type Props = PageProps<
-  CollectionPageQueryQuery,
-  CollectionPageQueryQueryVariables,
-  unknown,
-  ServerCollectionPageQueryQuery
-> & { slug: string }
-
-const useSearchParams = (props: Props): SearchState => {
-  const {
-    location: { href, pathname },
-    serverData: { collection },
-  } = props
-
-  const selectedFacets = collection?.meta.selectedFacets
-
-  return useMemo(() => {
-    const maybeState = href ? parseSearchState(new URL(href)) : null
-
-    return {
-      page: maybeState?.page ?? 0,
-      base: maybeState?.base ?? pathname,
-      selectedFacets:
-        maybeState && maybeState.selectedFacets.length > 0
-          ? maybeState.selectedFacets
-          : selectedFacets ?? [],
-      term: maybeState?.term ?? null,
-      sort: maybeState?.sort ?? 'score_desc',
-    }
-  }, [href, pathname, selectedFacets])
+interface PageCMSDepartmentCategoryType {
+  title: string
+  subtitle: string
+  slug: string
+  seoTitle: string
+  seoDescription: string
+  bannerImageDesktop: {
+    url: string
+    width: number
+    height: number
+  }
+  bannerImageMobile: {
+    url: string
+    width: number
+    height: number
+  }
 }
+
+interface ServerDataProps {
+  CMSData: {
+    data: {
+      departmentCategoryPageCollection: {
+        items: PageCMSDepartmentCategoryType[]
+      }
+    }
+  }
+}
+
+export type Props = PageProps<
+  DepartmentPageQueryQuery,
+  DepartmentPageQueryQueryVariables,
+  unknown,
+  ServerDataProps
+>
 
 function Page(props: Props) {
   const {
-    data: { site },
-    serverData: { collection },
-    location: { host },
-    slug,
+    location: { host, href, pathname },
+    data,
+    serverData,
   } = props
 
   const { locale } = useSession()
-  const searchParams = useSearchParams(props)
+
+  // No data was found
+  if (!serverData || !serverData.CMSData?.data) {
+    return <></>
+  }
+
+  const { CMSData } = serverData
+
+  const [
+    {
+      title,
+      subtitle,
+      slug,
+      seoTitle,
+      seoDescription,
+      bannerImageDesktop,
+      bannerImageMobile,
+    },
+  ] = CMSData.data.departmentCategoryPageCollection.items
+
+  const maybeState = parseSearchState(
+    new URL(href ?? pathname, 'http://localhost')
+  )
+
+  const searchParams = {
+    page: maybeState?.page,
+    base: maybeState?.base,
+    selectedFacets: maybeState ? maybeState.selectedFacets : [],
+    term: maybeState?.term ?? null,
+    sort: maybeState?.sort ?? 'score_desc',
+  }
+
+  // TODO: breadcrumbList needs to come from TrueChange. Waiting back-end changes.
+  const breadcrumbList = {
+    itemListElement: [
+      {
+        item: `/${slug}`,
+        name: slug[0].toUpperCase() + slug.substring(1),
+        position: 1,
+      },
+    ],
+  }
 
   const { page } = searchParams
-  const title = collection?.seo.title ?? site?.siteMetadata?.title ?? ''
+
   const pageQuery = page !== 0 ? `?page=${page}` : ''
   const canonical =
     host !== undefined
@@ -72,62 +115,58 @@ function Page(props: Props) {
       : `/${slug}/${pageQuery}`
 
   return (
-    <SearchProvider
+    <FSSearchProvider
       onChange={applySearchState}
       itemsPerPage={ITEMS_PER_PAGE}
       {...searchParams}
     >
       {/* SEO */}
       <GatsbySeo
-        title={title}
-        titleTemplate={site?.siteMetadata?.titleTemplate ?? ''}
-        description={site?.siteMetadata?.description ?? ''}
+        title={seoTitle ?? data.site?.siteMetadata?.title ?? ''}
+        titleTemplate={data.site?.siteMetadata?.titleTemplate ?? ''}
+        description={
+          seoDescription ?? data.site?.siteMetadata?.description ?? ''
+        }
         canonical={canonical}
         language={locale}
         openGraph={{
           type: 'website',
-          title,
-          description: site?.siteMetadata?.description ?? '',
+          title: seoTitle,
+          description: data.site?.siteMetadata?.description ?? '',
         }}
-      />
-      <BreadcrumbJsonLd
-        itemListElements={collection?.breadcrumbList.itemListElement ?? []}
       />
 
       {/*
         WARNING: Do not import or render components from any
         other folder than '../components/sections' in here.
-
         This is necessary to keep the integration with the CMS
         easy and consistent, enabling the change and reorder
         of elements on this page.
-
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
       <Breadcrumb
-        breadcrumbList={collection?.breadcrumbList.itemListElement}
-        name={title}
+        breadcrumbList={breadcrumbList.itemListElement}
+        name={seoTitle}
       />
 
-      <Hero
-        variant="secondary"
+      <BannerCategory
         title={title}
-        subtitle={`All the amazing ${title} from the brands we partner with.`}
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
-        icon={<Icon name="Headphones" width={48} height={48} weight="thin" />}
+        subtitle={subtitle}
+        imageBannerDesktop={bannerImageDesktop?.url}
+        imageBannerMobile={bannerImageMobile?.url}
       />
-
-      <ProductGallery title={title} />
+      <SearchProvider slug={slug} searchParams={searchParams}>
+        <ProductGallery title={title} />
+      </SearchProvider>
 
       <ScrollToTopButton />
-    </SearchProvider>
+    </FSSearchProvider>
   )
 }
 
 export const querySSG = graphql`
-  query CollectionPageQuery {
+  query DepartmentPageQuery {
     site {
       siteMetadata {
         titleTemplate
@@ -138,43 +177,50 @@ export const querySSG = graphql`
   }
 `
 
-export const querySSR = gql`
-  query ServerCollectionPageQuery($slug: String!) {
-    collection(slug: $slug) {
-      seo {
-        title
-        description
+export const DepartmentCategoryPageQuery = `
+query DepartmentCategoryPageQuery($slug: String!) {
+  departmentCategoryPageCollection(where: {slug: $slug}) {
+    items {
+      title
+      subtitle
+      seoTitle
+      seoDescription
+      slug
+      bannerImageDesktop {
+        url
+        width
+        height
       }
-      breadcrumbList {
-        itemListElement {
-          item
-          name
-          position
-        }
-      }
-      meta {
-        selectedFacets {
-          key
-          value
-        }
+      bannerImageMobile {
+        url
+        width
+        height
       }
     }
   }
-`
+}`
 
-export const getServerData = async ({
-  params: { slug },
-}: {
-  params: Record<string, string>
-}) => {
+export const getServerData = async (props: Props) => {
+  const {
+    params: { slug },
+  } = props
+
   try {
-    const { execute } = await import('src/server/index')
-    const { data } = await execute({
-      operationName: querySSR,
-      variables: { slug },
+    const body = {
+      query: DepartmentCategoryPageQuery,
+      variables: {
+        slug,
+      },
+    }
+
+    const CMSData = await queryContentful<ServerDataProps['CMSData']>({
+      body,
     })
 
-    if (data === null) {
+    if (
+      !CMSData ||
+      !CMSData.data.departmentCategoryPageCollection.items.length
+    ) {
       const originalUrl = `/${slug}`
 
       return {
@@ -189,7 +235,9 @@ export const getServerData = async ({
 
     return {
       status: 200,
-      props: data ?? {},
+      props: {
+        CMSData,
+      },
       headers: {
         'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
       },

@@ -5,18 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]- 
+## [Unreleased]-
+
+## [0.15.0] - 2022-09-01
+
+### Added
+
+- **GM-664** - Added new order by to Product Gallery
+- **GM-91** - Search page integration
+
+## [0.14.0] - 2022-08-24
+
+### Added
+
+- **GM-343** - Make Department/Category pages dinamic
+- **GM-344** - Integrate filters for Department/Category page
+
+## [0.13.0] - 2022-08-18
+
+### Added
+
+- **GM-613** - Get Search Suggestions
+
+## [0.12.0] - 2022-08-18
+
+### Added
+
+- **GM-646** - Changed TRUE CHANGE requests url to an env variable
+
+## [0.11.0] - 2022-08-17
+
+### Added
 
 - **GM-135** - Add page Frequent Questions
-
-### Added
-
 - **GM-132** - Contact us form
-
-### Added
-
 - **GM-109** - Add component product description
-- 
+- **GM-137** - Add static institutional pages
+- **GM-131** - Add institutional menu
+
 ## [0.10.0] - 2022-08-04
 
 ### Added
@@ -25,23 +51,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-100** - [PDP] Buy Box - general
 - **GM-102** - [PDP] Buy Box - instalments list
 - **GM-103** - [PDP] Buy Box - Image banner
-- **GM-105** - [PDP] "How do we teach" section 
+- **GM-105** - [PDP] "How do we teach" section
 
 ## [0.9.0] - 2022-08-02
 
 ### Fixed
 
 - **GM-455** - Changed layout style in footer
-
-### Added
-
-
-- **GM-397** - Filter mobile
-- **GM-398** - [PDP] Show latest questions list
-- **GM-108** - [PDP] Show common questions form
-- **GM-107** - Rating component with mock data
-- **GM-481** - [PDP - mobile] Rating component with mock data
-- **GM-457** - Infoprodutor Page
 
 ### Added
 

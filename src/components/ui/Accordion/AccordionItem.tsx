@@ -56,23 +56,13 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
             <UIIcon
               data-testid={`${testId}-button-icon`}
               component={
-                <>
-                  <ButtonIcon
-                    data-icon={isExpanded ? 'expanded' : true}
-                    data-fs-button-menu
-                    icon={forceSvg?.svg1 && forceSvg?.svg1}
-                    aria-label="Abrir menu"
-                    className="btn-drawer-menu"
-                  />
-
-                  <ButtonIcon
-                    data-icon={isExpanded ? true : 'collapsed'}
-                    data-fs-button-menu
-                    icon={forceSvg?.svg2 && forceSvg?.svg2}
-                    aria-label="Abrir menu"
-                    className="btn-drawer-menu"
-                  />
-                </>
+                <ButtonIcon
+                  data-icon={isExpanded ? 'expanded' : true}
+                  data-fs-button-menu
+                  icon={isExpanded ? forceSvg?.svg1 : forceSvg?.svg2}
+                  aria-label="Abrir menu"
+                  className="btn-drawer-menu"
+                />
               }
             />
           </>

@@ -7,7 +7,7 @@
   A starter powered by FastStore and Gatsby
 </h1>
 
-Kickoff your store with this boilerplate. This starter ships with the main FastStore configuration files you might need to get up and running blazing fast with the blazing-fast store for React.
+Kickoff your store with this boilerplate. This starter ships with the main FastStore configuration files you might need to get up and running blazing fast with the blazing-fast store for React
 
 ## ⚠️ Before you start
 
@@ -25,7 +25,6 @@ As of Dec, 22, 2021, this starter is still far from covering most basic cases fo
 10. Sku selector on PDP
 11. Promotions via utm
 12. Product specifications
-
 
 ## 🚀 Quick start
 
@@ -250,7 +249,7 @@ Now, include the component's CSS into the Store's CSS. Open `src/styles/global/c
 
 ```scss
 // ...
-@import "src/components/ui/Button/button.scss";
+@import 'src/components/ui/Button/button.scss';
 // ...
 ```
 
@@ -325,6 +324,7 @@ The aforementioned guide works well for UI components. However, components like 
 ```
 
 ### Managing SVG Icons
+
 Icons help build web pages by illustrating concepts and improving website navigation. However, using icons can decrease the page's performance. One option to avoid the decrease of the page's performance is to use SVGs from a single SVG file, located in `/static/icons.svg`, and load them with the `ui/Icon` component.
 
 In the following steps, learn how to add and use a new SVG icon and avoid decreasing page performance while using an icon.
@@ -334,6 +334,7 @@ In the following steps, learn how to add and use a new SVG icon and avoid decrea
 > This is a recommendation while using icons on a web page. Evaluate if this fits in your project.
 
 #### Adding an SVG icon
+
 1. In the SVG file, change the `svg` tag to `symbol`.
 2. Add an `id` to the symbol. Remember to use an unique `id` and do not replicate it.
 3. Remove unnecessary HTML/SVG properties to allow you to style and decrease the final file size, such as `fill`, `stroke-width`, `width`, `height`, and `color`.
@@ -472,4 +473,3 @@ export const onRenderBody = ({ setHeadComponents }) => {
 ```
 
 For more information about integrating third-party scripts: [Partytown Wiki](https://github.com/BuilderIO/partytown/wiki)
-
