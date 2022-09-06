@@ -1,4 +1,5 @@
 import WarningIcon from 'src/components/icons/Warning'
+import ConfirmedPaymentIcon from 'src/components/icons/ConfirmedPayment'
 
 import type { OrderData } from './typings'
 import './my-orders.scss'
@@ -15,6 +16,15 @@ export default function OrderStatus({ orderData }: OrderStatusProps) {
       <>
         <span className="order-status__pending">{statusDescription}</span>
         <WarningIcon />
+      </>
+    )
+  }
+
+  if (status === 'ready-for-handling') {
+    return (
+      <>
+        <span className="order-status__approved">Pagamento Aprovado</span>
+        <ConfirmedPaymentIcon />
       </>
     )
   }

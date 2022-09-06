@@ -145,6 +145,14 @@
     color: #f2bd4d;
   }
 
+  &__approved {
+    margin: 0 5px;
+    font-size: var(--fs-text-size-2);
+    font-weight: var(--fs-text-weight-regular);
+    line-height: 24px;
+    color: #41a201;
+  }
+
   &__text {
     margin: 0 5px;
     font-size: var(--fs-text-size-2);
