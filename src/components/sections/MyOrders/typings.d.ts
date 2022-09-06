@@ -1,11 +1,11 @@
 export interface OrderData {
-  Pedidos: Pedido[]
+  Pedidos: OrderDetails[]
   Status: string
   StatusDescription: string
   StatusCore: StatusCore
 }
 
-export interface Pedido {
+export interface OrderDetails {
   OrderID: string
   ValorLiquido: number
   ValorTransacionado: number
@@ -16,11 +16,16 @@ export interface Pedido {
   Campanha: boolean
   qtdItens: number
   NewVLiquido: number
-  Items: Item[]
+  Items: OrderItemData[]
   Order: ShippingInfo
+  PaymentMethodCore: PaymentMethod
 }
 
-export interface Item {
+export interface PaymentMethod {
+  Name: string
+}
+
+export interface OrderItemData {
   ValorTransacionadoItem: number
   VTransicionadoPorItem: number
   Quantidade: number
@@ -33,6 +38,7 @@ export interface Product {
   Description: string
   BrandCore: BrandCore
   ProductURL: string
+  ProductImageURL: string
 }
 
 export interface BrandCore {
