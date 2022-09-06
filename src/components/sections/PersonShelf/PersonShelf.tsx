@@ -73,7 +73,7 @@ const PersonShelf = ({
       {pretitle && <h4 className="pretitle">{pretitle}</h4>}
       {title && <h3 className="title">{title}</h3>}
       <Carousel
-        navigationAutomatic={autoPlay}
+        hasAutomaticNavigation={autoPlay}
         timeoutNavigationAutomatic={timeoutNavigationAutomatic}
         arrow={{
           isVisible: itemHasArrows,
