@@ -8,7 +8,7 @@ interface OrdersProps {
   orderData: OrderData
 }
 
-export default function Order({ orderData }: OrdersProps) {
+export default function OrderItem({ orderData }: OrdersProps) {
   const orderValue = useFormattedPrice(orderData.Pedidos[0].ValorTransacionado)
   const orderDate = new Date(orderData.Pedidos[0].DataHora)
 

@@ -1,11 +1,19 @@
 import useOrders from 'src/contexts/OrdersContext/useOrders'
 
 import './my-orders.scss'
-import Order from './Order'
+import OrderItem from './OrderItem'
 import type { OrderData } from './typings'
 
 export default function MyOrders() {
-  const { ordersData } = useOrders()
+  const { ordersData, isLoading, isError } = useOrders()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (isError) {
+    return <div>Error...</div>
+  }
 
   return (
     <div className="my-orders">
@@ -18,7 +26,9 @@ export default function MyOrders() {
                 return
               }
 
-              return <Order orderData={order} key={order.Pedidos[0].OrderID} />
+              return (
+                <OrderItem orderData={order} key={order.Pedidos[0].OrderID} />
+              )
             })}
           </ul>
         </div>
