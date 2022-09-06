@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { navigate } from 'gatsby'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { ButtonLink } from 'src/components/ui/Button'
 import { windowGlobal } from 'src/constants'
 
@@ -21,7 +21,7 @@ function Login() {
     setPasswordLogin(e.target.value)
   }
 
-  const handleSubmitLogin = async (e: any) => {
+  const handleSubmitLogin = async (e: React.MouseEvent) => {
     e.preventDefault()
     try {
       const response = await axios.post('/api/login', {

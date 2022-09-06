@@ -18,7 +18,7 @@ function EditPasswordToken(props: Props) {
     setToken(e.target.value)
   }
 
-  const handleSubmitToken = async (e: any) => {
+  const handleSubmitToken = async (e: React.MouseEvent) => {
     e.preventDefault()
     try {
       await axios.post('/api/login', {
@@ -52,7 +52,7 @@ function EditPasswordToken(props: Props) {
         />
       </div>
       {showErrorMessage && <span>Código inválido</span>}
-      <button type="button" onClick={() => handleSubmitToken}>
+      <button type="button" onClick={handleSubmitToken}>
         Continuar
       </button>
       <div>

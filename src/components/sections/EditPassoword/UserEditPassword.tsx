@@ -168,7 +168,7 @@ function UserEditPassword(props: Props) {
                   : undefined,
             }}
           >
-            Senhas iguais
+            As senhas devem ser iguais
           </p>
         </div>
         <button
