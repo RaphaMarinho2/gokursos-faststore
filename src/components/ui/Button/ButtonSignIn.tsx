@@ -3,7 +3,11 @@ import { navigate } from 'gatsby'
 import './style.scss'
 import { windowGlobal } from 'src/constants'
 
-const ButtonSignIn = (props: any) => {
+interface Props {
+  setDisplaySidebar?: (param: boolean) => void
+}
+
+const ButtonSignIn = (props: Props) => {
   return (
     <button
       data-fs-button-signin-link

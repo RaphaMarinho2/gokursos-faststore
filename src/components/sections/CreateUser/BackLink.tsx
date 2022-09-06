@@ -1,6 +1,8 @@
-import type { StepWizardChildProps } from 'react-step-wizard'
+interface Props {
+  previousStep?: () => void
+}
 
-function BackLink(props: Pick<StepWizardChildProps, 'previousStep'>) {
+function BackLink(props: Props) {
   const { previousStep } = props
 
   return (

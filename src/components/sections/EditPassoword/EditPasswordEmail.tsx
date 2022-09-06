@@ -1,7 +1,13 @@
 import './style.scss'
 
-function EditPasswordEmail(props: any) {
-  const { nextStep } = props
+interface Props {
+  nextStep?: () => void
+  handleUserChange: (param: React.ChangeEvent<HTMLInputElement>) => void
+  user: string
+}
+
+function EditPasswordEmail(props: Props) {
+  const { nextStep, handleUserChange, user } = props
 
   return (
     <div className="container-user-input">
@@ -14,11 +20,11 @@ function EditPasswordEmail(props: any) {
           name="user"
           id="user"
           placeholder="Digite seu e-mail"
-          onChange={props.handleUserChange}
+          onChange={handleUserChange}
         />
       </div>
       <button
-        disabled={!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(props.user)}
+        disabled={!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(user)}
         type="button"
         onClick={nextStep}
       >

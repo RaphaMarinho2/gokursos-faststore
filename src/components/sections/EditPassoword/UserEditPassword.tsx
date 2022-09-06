@@ -2,8 +2,15 @@ import { useState } from 'react'
 
 import BackLink from './BackLink'
 
-function UserEditPassword(props: any) {
-  const { nextStep } = props
+interface Props {
+  nextStep?: () => void
+  previousStep?: () => void
+  handleSubmit: (nextStep: () => void, password: string) => void
+  showErrorMessage: boolean
+}
+
+function UserEditPassword(props: Props) {
+  const { nextStep, previousStep, handleSubmit, showErrorMessage } = props
 
   const [confirmPassword, setConfirmPassword] = useState('')
   const [password, setPassword] = useState('')
@@ -15,7 +22,7 @@ function UserEditPassword(props: any) {
     isEqual: false,
   })
 
-  const handleConfirmPassword = (e: any) => {
+  const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
     setConfirmPassword(value)
@@ -27,7 +34,7 @@ function UserEditPassword(props: any) {
     }
   }
 
-  const handlePasswordChange = (e: any) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
     setPassword(value)
@@ -63,7 +70,7 @@ function UserEditPassword(props: any) {
 
   const handleClick = () => {
     if (Object.values(validate).every((rule) => !!rule)) {
-      props.handleSubmit(nextStep, password)
+      handleSubmit(nextStep as () => void, password)
     }
   }
 
@@ -78,7 +85,7 @@ function UserEditPassword(props: any) {
           name="password"
           id="password"
           style={{
-            borderColor: props.showErrorMessage ? '#D72424' : undefined,
+            borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
           placeholder="Digite sua nova senha"
           value={password}
@@ -91,13 +98,13 @@ function UserEditPassword(props: any) {
           name="password"
           id="password"
           style={{
-            borderColor: props.showErrorMessage ? '#D72424' : undefined,
+            borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
           placeholder="Digite sua nova senha"
           value={confirmPassword}
           onChange={handleConfirmPassword}
         />
-        {props.showErrorMessage && (
+        {showErrorMessage && (
           <span>
             Falha ao redefinir senha. Em alguns instantes, tenta novamente.
           </span>
@@ -151,6 +158,18 @@ function UserEditPassword(props: any) {
           >
             *** 8 caracteres
           </p>
+          <p
+            style={{
+              color:
+                password.length > 0
+                  ? validate.isEqual
+                    ? 'green'
+                    : 'red'
+                  : undefined,
+            }}
+          >
+            Senhas iguais
+          </p>
         </div>
         <button
           type="button"
@@ -161,7 +180,7 @@ function UserEditPassword(props: any) {
         </button>
       </div>
       <div>
-        <BackLink previousStep={props.previousStep} />
+        <BackLink previousStep={previousStep} />
       </div>
     </div>
   )

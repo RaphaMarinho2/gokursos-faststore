@@ -5,7 +5,13 @@ import { windowGlobal } from 'src/constants'
 
 import BackLink from './BackLink'
 
-function CreateUserToken(props: any) {
+interface Props {
+  user: string
+  previousStep?: () => void
+}
+
+function CreateUserToken(props: Props) {
+  const { user, previousStep } = props
   const [token, setToken] = useState('')
   const [showErrorMessage, setShowErrorMessage] = useState(false)
 
@@ -17,7 +23,7 @@ function CreateUserToken(props: any) {
     e.preventDefault()
     try {
       const response = await axios.post('/api/login', {
-        email: props.user,
+        email: user,
         passcode: token,
         isPin: true,
         isNew: true,
@@ -26,7 +32,7 @@ function CreateUserToken(props: any) {
 
       windowGlobal?.localStorage.setItem(
         'user',
-        JSON.stringify({ token: response.data.Token.Token, email: props.user })
+        JSON.stringify({ token: response.data.Token.Token, email: user })
       )
 
       navigate('/')
@@ -39,7 +45,7 @@ function CreateUserToken(props: any) {
     <div className="container-token-input">
       <h1>
         Agora é só informar a chave de validação enviado para:
-        <p>{props.user}</p>
+        <p>{user}</p>
       </h1>
       <div className="token-input">
         <input
@@ -56,7 +62,7 @@ function CreateUserToken(props: any) {
         Continuar
       </button>
       <div>
-        <BackLink previousStep={props.previousStep} />
+        <BackLink previousStep={previousStep} />
       </div>
     </div>
   )

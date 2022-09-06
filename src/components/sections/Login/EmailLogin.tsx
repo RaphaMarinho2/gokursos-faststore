@@ -1,6 +1,17 @@
 import './style.scss'
 
-function EmailLogin(props: any) {
+interface Props {
+  showErrorMessage?: boolean
+  handleEmailChange: (param: React.ChangeEvent<HTMLInputElement>) => void
+  handlePasswordLoginChange: (
+    param: React.ChangeEvent<HTMLInputElement>
+  ) => void
+}
+
+function EmailLogin(props: Props) {
+  const { handleEmailChange, handlePasswordLoginChange, showErrorMessage } =
+    props
+
   return (
     <div className="container-login">
       <h1>Entrar com e-mail e senha</h1>
@@ -12,10 +23,10 @@ function EmailLogin(props: any) {
           name="email"
           id="email"
           style={{
-            borderColor: props.showErrorMessage ? '#D72424' : undefined,
+            borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
           placeholder="Digite seu e-mail"
-          onChange={props.handleEmailChange}
+          onChange={handleEmailChange}
         />
         <p>Senha</p>
 
@@ -24,10 +35,10 @@ function EmailLogin(props: any) {
           name="password"
           id="password"
           style={{
-            borderColor: props.showErrorMessage ? '#D72424' : undefined,
+            borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
           placeholder="Digite sua senha"
-          onChange={props.handlePasswordLoginChange}
+          onChange={handlePasswordLoginChange}
         />
       </div>
     </div>

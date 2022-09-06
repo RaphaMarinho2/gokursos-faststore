@@ -4,7 +4,13 @@ import { useState } from 'react'
 
 import BackLink from './BackLink'
 
-function EditPasswordToken(props: any) {
+interface Props {
+  user: string
+  previousStep?: () => void
+}
+
+function EditPasswordToken(props: Props) {
+  const { user, previousStep } = props
   const [token, setToken] = useState('')
   const [showErrorMessage, setShowErrorMessage] = useState(false)
 
@@ -16,7 +22,7 @@ function EditPasswordToken(props: any) {
     e.preventDefault()
     try {
       await axios.post('/api/login', {
-        email: props.user,
+        email: user,
         passcode: token,
         isPin: true,
         isNew: false,
@@ -33,7 +39,7 @@ function EditPasswordToken(props: any) {
     <div className="container-token-input">
       <h1>
         Agora é só informar a chave de validação enviado para:
-        <p>{props.user}</p>
+        <p>{user}</p>
       </h1>
       <div className="token-input">
         <input
@@ -46,11 +52,11 @@ function EditPasswordToken(props: any) {
         />
       </div>
       {showErrorMessage && <span>Código inválido</span>}
-      <button type="button" onClick={handleSubmitToken}>
+      <button type="button" onClick={() => handleSubmitToken}>
         Continuar
       </button>
       <div>
-        <BackLink previousStep={props.previousStep} />
+        <BackLink previousStep={previousStep} />
       </div>
     </div>
   )

@@ -1,5 +1,9 @@
+@import "src/styles/scaffold";
+
 .login-sidebar {
-  top: 93px;
+  @include media(">=notebook") {
+    top: 93px;
+  }
 
   .login-sidebar__top {
     display: flex;
