@@ -40,8 +40,8 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const [products, setProducts] = useState<any>()
 
-  const [isArrowPrevEnabled, setIsArrowPrevEnabled] = useState<boolean>(false)
-  const [isArrowNextEnabled, setIsArrowNextEnabled] = useState<boolean>(true)
+  const [arrowPrevEnabled, setArrowPrevEnabled] = useState<boolean>(false)
+  const [arrowNextEnabled, setArrowNextEnabled] = useState<boolean>(true)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const refitem = useRef<HTMLLIElement | null>(null)
   const arrowStyle = {
@@ -69,20 +69,19 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const handleScroll = () => {
     if (containerRef.current) {
-      if (
-        containerRef.current.scrollTop === 0 &&
-        containerRef.current.scrollLeft === 0
-      ) {
-        setIsArrowNextEnabled(true)
-        setIsArrowPrevEnabled(false)
-      } else if (
-        containerRef.current.scrollLeft >= containerRef.current.scrollHeight
-      ) {
-        setIsArrowNextEnabled(false)
-        setIsArrowPrevEnabled(true)
+      const divWidth = containerRef.current.clientWidth
+      const { scrollWidth } = containerRef.current
+      const { scrollLeft } = containerRef.current
+
+      if (containerRef.current.scrollTop === 0 && scrollLeft === 0) {
+        setArrowNextEnabled(true)
+        setArrowPrevEnabled(false)
+      } else if (divWidth + scrollLeft === scrollWidth) {
+        setArrowNextEnabled(false)
+        setArrowPrevEnabled(true)
       } else {
-        setIsArrowNextEnabled(true)
-        setIsArrowPrevEnabled(true)
+        setArrowNextEnabled(true)
+        setArrowPrevEnabled(true)
       }
     }
 
@@ -118,16 +117,16 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
             <Arrows
               position="prev"
               style={arrowStyle}
-              iconColor={isArrowPrevEnabled ? '#FF3452' : '#DDDDDD'}
+              iconColor={arrowPrevEnabled ? '#FF3452' : '#DDDDDD'}
               onClick={() => arrowsNavigation('prev')}
-              disabled={!isArrowPrevEnabled}
+              disabled={!arrowPrevEnabled}
             />
             <Arrows
               position="next"
               style={arrowStyle}
-              iconColor={isArrowNextEnabled ? '#FF3452' : '#DDDDDD'}
+              iconColor={arrowNextEnabled ? '#FF3452' : '#DDDDDD'}
               onClick={() => arrowsNavigation('next')}
-              disabled={!isArrowNextEnabled}
+              disabled={!arrowNextEnabled}
             />
           </div>
         )}
