@@ -3,8 +3,11 @@ import { Link } from 'gatsby'
 import useOrders from 'src/contexts/OrdersContext/useOrders'
 import AccountBackIcon from 'src/components/icons/AccountBackIcon'
 
+import ProductItem from './ProductItem'
 import OrderStatus from './OrderStatus'
 import type { OrderData, OrderItemData } from './typings'
+import OrderPreferences from './OrdersPreferences'
+import OrderSummary from './OrderSummary'
 
 import './my-orders.scss'
 
@@ -69,39 +72,11 @@ export default function OrderDetails() {
       </span>
       <ul className="my-order__details-list">
         {orderDetails.Pedidos[0].Items.map((item: OrderItemData) => (
-          <li className="my-order__details-item" key={item.Product.LinkId}>
-            <img
-              className="my-order__details-item-image"
-              src={item.Product.ProductImageURL}
-              alt={item.Product.Name}
-            />
-            <span className="my-order__details-item-name">
-              {item.Product.Name}
-            </span>
-            <span className="my-order__details-item-price">{`${item.Quantidade} uni - ${item.ValorTransacionadoItem}`}</span>
-          </li>
+          <ProductItem item={item} key={item.Product.LinkId} />
         ))}
       </ul>
-      <div className="my-order__details-preferences">
-        <h4 className="title">Preferências</h4>
-        <span className="subtitle">Método de pagamento</span>
-        <span className="text">
-          {orderDetails.Pedidos[0].PaymentMethodCore.Name}
-        </span>
-      </div>
-      <div className="my-order__details-summary">
-        <h4 className="title">Resumo</h4>
-        <div className="subtotal">
-          <span className="text">Subtotal</span>
-          <span className="text">{orderDetails.Pedidos[0].ValorLiquido}</span>
-        </div>
-        <div className="total">
-          <span className="text">Total</span>
-          <span className="text">
-            {orderDetails.Pedidos[0].ValorTransacionado}
-          </span>
-        </div>
-      </div>
+      <OrderPreferences orderDetails={orderDetails as OrderData} />
+      <OrderSummary orderDetails={orderDetails as OrderData} />
       <Link className="my-order__details-back" to="/minha-conta/pedidos">
         <AccountBackIcon />
         Voltar
