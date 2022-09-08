@@ -120,8 +120,8 @@ function Page(props: Props) {
         qtyMobile={2}
         qtyDesk={5}
         hasArrows
-        title="Com quem"
-        pretitle="Você irá aprender"
+        title="Você irá aprender"
+        pretitle="Com quem"
       />
 
       <HomeProductShelf
