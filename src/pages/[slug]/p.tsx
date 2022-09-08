@@ -15,24 +15,7 @@ import type {
 import 'src/styles/pages/pdp.scss'
 import axios from 'axios'
 import PDPProductShelf from 'src/components/sections/PDPProductShelf'
-
-export interface ProductInfo {
-  productData: {
-    productId?: number
-    productName?: string
-    description?: string
-    specification?: string
-    productImages?: any
-    priceOnData?: any
-    breadCrumb?: any
-    category?: string
-    department?: any
-    installments?: string
-    brand?: {
-      Name: string
-    }
-  }
-}
+import type { ProductInfo } from 'src/components/sections/ProductDetails/typings'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
@@ -71,8 +54,8 @@ function Page(props: Props) {
           description,
           images: [
             {
-              url: productData?.productImages,
-              alt: productData.productName,
+              url: productData?.ProductImageURL,
+              alt: productData.Name,
             },
           ],
         }}
@@ -88,24 +71,26 @@ function Page(props: Props) {
         ]}
       />
       <BreadcrumbJsonLd
-        itemListElements={productData.breadCrumb.map((item: any) => {
+        itemListElements={productData?.BreadCrumbs?.map((item: any) => {
           return {
             item: item.Url,
             name: item.Titulo,
+            position: item.Tipo,
           }
         })}
       />
       <ProductJsonLd
-        name={productData.productName}
-        description={productData.description}
-        brand={productData.brand?.Name}
+        name={productData.Name}
+        description={productData?.Description}
+        brand={productData.Brand?.Name}
         sku=""
         gtin=""
-        images={productData.productImages} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
+        images={productData.ProductImageURL} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
         offersType="AggregateOffer"
         offers={{
-          ...productData.priceOnData,
-          price: productData.priceOnData?.BasePrice,
+          ...productData?.Price,
+          price: productData?.Price?.BasePrice,
+          priceCurrency: 'BRA',
         }}
       />
 
@@ -125,8 +110,8 @@ function Page(props: Props) {
 
       <PDPProductShelf
         pretitle=""
-        title={`Mais vendidos de ${productData?.department.Name}`}
-        productDepartment={productData?.department.Name}
+        title={`Mais vendidos de ${productData?.Department.Name}`}
+        productDepartment={productData?.Department.Name}
       />
     </>
   )
@@ -161,21 +146,34 @@ export const getServerData = async ({
     Especificacao/TipoCurso/DescriptionCertificate, Brand/Name, BreadCrumbs/Titulo, BreadCrumbs/Url, BreadCrumbs/Tipo, Installments/Valor, Installments/Parcela,
     Installments/Text,LinkId`)
 
+    if (!response.data.value.length) {
+      const originalUrl = `/${slug}/p`
+
+      return {
+        status: 301,
+        props: {},
+        headers: {
+          'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
+          location: `/404/?from=${encodeURIComponent(originalUrl)}`,
+        },
+      }
+    }
+
     return {
       status: 200,
       props: {
         productData: {
-          productId: response.data.value[0]?.ID,
-          productName: response.data.value[0]?.Name,
-          description: response.data.value[0]?.Description,
-          specification: response.data.value[0]?.Especificacao,
-          productImages: response.data.value[0]?.ProductImageURL,
-          priceOnData: response.data.value[0]?.Price,
-          breadCrumb: response.data.value[0]?.BreadCrumbs,
-          category: response.data.value[0]?.Category,
-          department: response.data.value[0]?.Department,
-          installments: response.data.value[0]?.Installments,
-          brand: response.data.value[0]?.Brand,
+          ID: response.data.value[0]?.ID,
+          Name: response.data.value[0]?.Name,
+          Description: response.data.value[0]?.Description,
+          Especificacao: response.data.value[0]?.Especificacao,
+          ProductImageURL: response.data.value[0]?.ProductImageURL,
+          Price: response.data.value[0]?.Price,
+          BreadCrumbs: response.data.value[0]?.BreadCrumbs,
+          Category: response.data.value[0]?.Category,
+          Department: response.data.value[0]?.Department,
+          Installments: response.data.value[0]?.Installments,
+          Brand: response.data.value[0]?.Brand,
         },
       },
       headers: {

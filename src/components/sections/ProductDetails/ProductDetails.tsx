@@ -10,12 +10,11 @@ import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
 import { ButtonBuy } from 'src/components/ui/Button'
-import Price from 'src/components/ui/Price'
+import Prices from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
 import productQueryDetails from 'src/mocks/productQueryDetails.json'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
-import type { ProductInfo } from 'src/pages/[slug]/p'
 
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
 import Section from '../Section'
@@ -24,65 +23,66 @@ import Workload from '../Workload'
 import { InstalmentList } from './InstalmentList/InstalmentList'
 import SubscriptionOffers from './SubscriptionOffers'
 import { VideoAndText } from './videoAndtextDetails'
+import type { ProductData } from './typings'
 
 interface Props {
-  product: ProductInfo | any
+  product: ProductData
 }
 
-function ProductDetails(product: Props) {
+function ProductDetails({ product }: Props) {
   const [addQuantity] = useState(1)
 
   const {
-    product: {
-      productId,
-      productName,
-      description,
-      specification,
-      productImages,
-      priceOnData,
-      breadCrumb,
-      category,
-      installments,
-      brand,
-    },
+    ID,
+    Name,
+    Description,
+    Especificacao,
+    ProductImageURL,
+    Price,
+    BreadCrumbs,
+    Category,
+    Installments,
+    Brand,
   } = product
 
-  const priceVaritation = installments
+  const priceVaritation = Installments
 
   const tabSpecification = [
     {
-      name: description ? 'Sobre o curso' : '',
-      description: description ?? '',
+      name: Description ? 'Sobre o curso' : '',
+      description: Description ?? '',
     },
     {
-      name: specification?.Conteudo ? 'Conteúdo do curso' : '',
-      description: specification?.Conteudo ?? '',
+      name: Especificacao?.Conteudo ? 'Conteúdo do curso' : '',
+      description: Especificacao?.Conteudo ?? '',
     },
     {
-      name: specification?.Objetivos ? 'Objetivos' : '',
-      description: specification?.Objetivos ?? '',
+      name: Especificacao?.Objetivos ? 'Objetivos' : '',
+      description: Especificacao?.Objetivos ?? '',
     },
     {
-      name: specification?.TipoCurso?.DescriptionCertificate
+      name: Especificacao?.TipoCurso?.DescriptionCertificate
         ? 'Certificados'
         : '',
-      description: specification?.TipoCurso?.DescriptionCertificate ?? '',
+      description: Especificacao?.TipoCurso?.DescriptionCertificate ?? '',
     },
   ]
 
   const buyProps = useBuyButton({
-    id: productId,
-    price: priceOnData?.BasePrice,
-    listPrice: priceOnData?.ListPrice,
-    seller: brand.Name,
+    id: ID,
+    price: Price?.BasePrice,
+    listPrice: Price?.ListPrice,
+    seller: {
+      identifier: Brand?.Name,
+    },
     quantity: addQuantity,
     itemOffered: {
       sku: '',
-      name: productName,
+      name: Name,
       gtin: '',
-      image: productImages,
+      image: ProductImageURL,
       brand: { name: '' },
-      isVariantOf: { productGroupID: '', name: productName },
+      isVariantOf: { productGroupID: '', name: Name },
     },
   })
 
@@ -98,10 +98,12 @@ function ProductDetails(product: Props) {
     return <PinterestShareIcon />
   }
 
+  const pdpLink = typeof window !== 'undefined' && window.location.href
+
   return (
     <Section className="product-details layout__content layout__section column">
       <Breadcrumb
-        breadcrumbList={breadCrumb?.map((item: any) => {
+        breadcrumbList={BreadCrumbs?.map((item: any) => {
           return {
             item: item.Url,
             name: item.Titulo,
@@ -114,7 +116,7 @@ function ProductDetails(product: Props) {
           <ProductTitle
             title={
               <div className="product-details__title-container">
-                <h1 className="text__title-product">{productName}</h1>
+                <h1 className="text__title-product">{Name}</h1>
                 <div className="share-icon">
                   <ShareProduct
                     additionalOverlay
@@ -123,23 +125,17 @@ function ProductDetails(product: Props) {
                     shareLinks={[
                       {
                         name: 'Facebook',
-                        url: `https://www.facebook.com/sharer/sharer.php?u=${
-                          typeof window !== 'undefined' && window.location.href
-                        }`,
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${pdpLink}`,
                         SocialIcon: facebookShareIcon,
                       },
                       {
                         name: 'Twitter',
-                        url: `https://twitter.com/intent/tweet?url=${
-                          typeof window !== 'undefined' && window.location.href
-                        }`,
+                        url: `https://twitter.com/intent/tweet?url=${pdpLink}`,
                         SocialIcon: twitterShareIcon,
                       },
                       {
                         name: 'Pinterest',
-                        url: `https://www.pinterest.com/pin/create/button/?url=${
-                          typeof window !== 'undefined' && window.location.href
-                        }`,
+                        url: `https://www.pinterest.com/pin/create/button/?url=${pdpLink}`,
                         SocialIcon: pinterestShareIcon,
                       },
                     ]}
@@ -153,15 +149,15 @@ function ProductDetails(product: Props) {
             }
             label={
               <>
-                {category?.Name && category?.Name !== undefined && (
+                {Category?.Name && Category?.Name !== undefined && (
                   <ProductTags
-                    tagCategoryLabel={category?.Name}
-                    urlCategory={`/${category.Slug}`}
+                    tagCategoryLabel={Category?.Name}
+                    urlCategory={`/${Category?.Slug}`}
                   />
                 )}
                 {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
-                {specification?.CargaHoraria.Text && (
-                  <Workload workload={specification?.CargaHoraria.Text} />
+                {Especificacao?.CargaHoraria.Text && (
+                  <Workload workload={Especificacao?.CargaHoraria.Text} />
                 )}
               </>
             }
@@ -169,11 +165,11 @@ function ProductDetails(product: Props) {
         </header>
 
         <section className="product-details__image">
-          {product.product?.productImages ? (
+          {product?.ProductImageURL ? (
             <img
               loading="eager"
-              src={product.product?.productImages}
-              alt={product.product?.productName}
+              src={product?.ProductImageURL}
+              alt={product?.Name}
               sizes="(max-width: 768px) 25vw, 50vw"
             />
           ) : (
@@ -184,39 +180,52 @@ function ProductDetails(product: Props) {
         <section className="product-details__settings">
           <section className="product-details__values">
             <div className="product-details__prices">
-              <div className="product-details__list-price-container">
-                {priceOnData?.ListPrice && (
-                  <Price
-                    value={priceOnData?.ListPrice}
+              {Price?.ListPrice && (
+                <div className="product-details__list-price-container">
+                  <Prices
+                    value={Price?.ListPrice}
                     formatter={useFormattedPrice}
                     testId="list-price"
-                    data-value={priceOnData?.ListPrice}
+                    data-value={Price?.ListPrice}
                     variant="listing"
                     classes="text__legend"
                     SRText="Original price:"
                   />
-                )}
-                {priceOnData?.ListPrice && (
                   <DiscountBadge
-                    listPrice={priceOnData?.ListPrice}
-                    spotPrice={priceOnData?.BasePrice}
+                    listPrice={Price?.ListPrice}
+                    spotPrice={Price?.BasePrice}
                     big
                   />
-                )}
-              </div>
-              <Price
-                value={priceOnData?.BasePrice}
+                </div>
+              )}
+              <Prices
+                value={Price?.BasePrice}
                 formatter={useFormattedPrice}
                 testId="price"
-                data-value={priceOnData?.BasePrice}
+                data-value={Price?.BasePrice}
                 variant="spot"
                 classes="text__lead"
                 SRText="Sale Price:"
               />
-              {installments && (
+              {Installments && (
                 <>
-                  <Instalments instalment={priceVaritation} />
-                  <InstalmentList priceVariation={priceVaritation} />
+                  <Instalments
+                    instalment={priceVaritation.map((installments: any) => {
+                      return {
+                        installment: installments?.Parcela,
+                        priceValue: installments?.Valor,
+                        text: installments?.Text,
+                      }
+                    })}
+                  />
+                  <InstalmentList
+                    priceVariation={priceVaritation.map((installments: any) => {
+                      return {
+                        installment: installments?.Parcela,
+                        priceValue: installments?.Valor,
+                      }
+                    })}
+                  />
                 </>
               )}
             </div>

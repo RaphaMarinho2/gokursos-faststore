@@ -16,7 +16,7 @@ type Props = PriceProps & {
   classes?: string
 }
 
-function Price({ classes, SRText, ...props }: Props) {
+function Prices({ classes, SRText, ...props }: Props) {
   return (
     <>
       <SROnly text={SRText} />
@@ -25,4 +25,4 @@ function Price({ classes, SRText, ...props }: Props) {
   )
 }
 
-export default memo(Price)
+export default memo(Prices)
