@@ -15,6 +15,7 @@ type PersonShelfType = {
   qtyMobile?: number
   qtyTablet?: number
   qtyDesk?: number
+  hasArrows?: boolean
   title?: string
   pretitle?: string
   navigationAutomatic?: boolean
@@ -28,6 +29,7 @@ const PersonShelf = ({
   qtyMobile,
   qtyTablet,
   qtyDesk,
+  hasArrows,
   title,
   pretitle,
   navigationAutomatic,
@@ -38,12 +40,13 @@ const PersonShelf = ({
   const tabletShelfQty = qtyTablet ?? 4
   const deskShelfQty = qtyDesk ?? 5
   const autoPlay = !!navigationAutomatic
+  const itemHasArrows = hasArrows
 
   const shelfItemQuantity = isMobile
     ? mobileShelfQty
     : isTablet
-    ? tabletShelfQty
-    : deskShelfQty
+      ? tabletShelfQty
+      : deskShelfQty
 
   const styleArrowMobile = {
     height: 30,
@@ -73,9 +76,13 @@ const PersonShelf = ({
         navigationAutomatic={autoPlay}
         timeoutNavigationAutomatic={timeoutNavigationAutomatic}
         arrow={{
-          isVisible: true,
+          isVisible: itemHasArrows,
           iconColor: '#004E98',
-          style: sizeArrowCarousel,
+          style: {
+            ...sizeArrowCarousel,
+            background: '#FFFFFF',
+            boxShadow: '2px 1px 15px rgba(0, 0, 0, 0.15)',
+          },
         }}
         qtyItems={shelfItemQuantity}
         gapItems={0}

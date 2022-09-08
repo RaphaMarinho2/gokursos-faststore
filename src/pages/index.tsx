@@ -104,14 +104,14 @@ function Page(props: Props) {
 
       <PersonShelf
         nodes={allContentfulParceiros.nodes}
-        withDivisor
         classNameShelf="partner"
         qtyMobile={1}
         qtyDesk={4}
+        hasArrows={false}
         title="Confiam na GoKursos"
         pretitle="Grandes Parceiros"
         navigationAutomatic
-        timeoutNavigationAutomatic={5000}
+        timeoutNavigationAutomatic={6500}
       />
 
       <PersonShelf
@@ -119,6 +119,7 @@ function Page(props: Props) {
         classNameShelf="teachers"
         qtyMobile={2}
         qtyDesk={5}
+        hasArrows
         title="Com quem"
         pretitle="Você irá aprender"
       />

@@ -34,7 +34,7 @@ const Carousel = ({
   qtyItems,
   gapItems,
   navigationAutomatic = false,
-  timeoutNavigationAutomatic = 5000,
+  timeoutNavigationAutomatic = 6500,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   let [bulletsQtd, setBulletsQtd] = useState<number>(0)
@@ -318,11 +318,10 @@ const Carousel = ({
                   style={{
                     ...style.bullets,
                     transition: 'all 0.8s  ease-out',
-                    backgroundColor: `${
-                      buttonFocus === index
+                    backgroundColor: `${buttonFocus === index
                         ? bullet?.bulletEnableColor ?? '#ff0000'
                         : bullet?.bulletDisableColor ?? '#ccc'
-                    }`,
+                      }`,
                   }}
                 />
               )
