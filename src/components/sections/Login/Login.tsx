@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import React, { useState } from 'react'
 import { ButtonLink } from 'src/components/ui/Button'
 import { windowGlobal } from 'src/constants'
@@ -62,9 +62,9 @@ function Login() {
           </button>
           <ButtonLink to="/register">Cadastre-se</ButtonLink>
         </div>
-        <a href="/">
-          <p className="back-text">Voltar</p>
-        </a>
+        <Link className="back-text" to="/">
+          Voltar
+        </Link>
       </div>
     </div>
   )

@@ -8,24 +8,31 @@ export default async function createUser(
   const { method } = req
 
   if (method !== 'PUT') {
-    throw new Error('Method not allowed')
+    res.status(405)
+    res.send('Request method must be PUT')
+
+    return
   }
 
-  const data = JSON.stringify(req.body)
+  try {
+    const data = JSON.stringify(req.body)
 
-  const config = {
-    method: 'put',
-    url: `${process.env.GATSBY_CATALOG_BASE_URL}/rest/clientcore/v1/login/edit`,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-API-Client-Token': process.env.GATSBY_REST_API_TOKEN ?? '',
-      ClientAuthorization: process.env.GATSBY_REST_CLIENT_AUTH ?? '',
-    },
-    data,
+    const config = {
+      method: 'put',
+      url: `${process.env.GATSBY_CATALOG_BASE_URL}/rest/clientcore/v1/login/edit`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'X-API-Client-Token': process.env.GATSBY_REST_API_TOKEN ?? '',
+        ClientAuthorization: process.env.GATSBY_REST_CLIENT_AUTH ?? '',
+      },
+      data,
+    }
+
+    const response = await axios(config)
+
+    res.json(response.data)
+  } catch (error) {
+    throw new Error(JSON.stringify(error))
   }
-
-  const response = await axios(config)
-
-  res.json(response.data)
 }

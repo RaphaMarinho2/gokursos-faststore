@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import BackLink from './BackLink'
+import BackLink from '../BackLink'
 
 interface Props {
   nextStep?: () => void

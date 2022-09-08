@@ -2,7 +2,7 @@ import axios from 'axios'
 import { navigate } from 'gatsby'
 import { useState } from 'react'
 
-import BackLink from './BackLink'
+import BackLink from '../BackLink'
 
 interface Props {
   user: string

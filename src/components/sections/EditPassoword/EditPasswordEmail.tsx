@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import './style.scss'
 
 interface Props {
@@ -30,10 +31,8 @@ function EditPasswordEmail(props: Props) {
       >
         Confirmar
       </button>
-      <div>
-        <a href="/">
-          <p className="back-text">Voltar</p>
-        </a>
+      <div className="back-text">
+        <Link to="/">Voltar</Link>
       </div>
     </div>
   )

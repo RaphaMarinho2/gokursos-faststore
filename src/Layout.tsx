@@ -8,7 +8,7 @@ import 'src/styles/pages/layout.scss'
 
 import Topbar from './components/common/TopBar'
 import Newletter from './components/sections/Newletter'
-import LoginSidebar from './components/Sidebar'
+import LoginSidebar from './components/LoginSidebar'
 
 const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
 
