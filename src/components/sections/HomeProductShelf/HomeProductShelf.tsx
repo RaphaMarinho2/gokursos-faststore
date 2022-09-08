@@ -29,7 +29,6 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
         cardsQuantity={shelfItemQuantity}
         title={title}
         pretitle={pretitle}
-        withDivisor
         products={products}
       />
     </Section>
