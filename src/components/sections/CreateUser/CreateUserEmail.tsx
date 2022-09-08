@@ -31,9 +31,9 @@ function CreateUserEmail(props: Props) {
       >
         Confirmar
       </button>
-      <div className="back-text">
-        <Link to="/">Voltar</Link>
-      </div>
+      <Link className="back-text" to="/">
+        Voltar
+      </Link>
     </div>
   )
 }
