@@ -1,5 +1,6 @@
 import RedWarningIcon from 'src/components/icons/RedWarning'
 import useOrders from 'src/contexts/OrdersContext/useOrders'
+import SpinnerIcon from 'src/components/icons/Spinner'
 
 import './my-orders.scss'
 import OrderItem from './OrderItem'
@@ -9,7 +10,14 @@ export default function MyOrders() {
   const { ordersData, isLoading, isError } = useOrders()
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return (
+      <div className="my-orders">
+        <div className="my-orders__loading-content">
+          <SpinnerIcon />
+          <span className="text">Carregando...</span>
+        </div>
+      </div>
+    )
   }
 
   if (isError) {
