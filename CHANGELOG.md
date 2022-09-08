@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-642** - Possibility to redirect to Department page with filter applied.
 - **GM-642** - SearchContext refactor
 
+### Fixed
+
+- **GM-671** - Dynamic build for department page
+
 ## [0.15.0] - 2022-09-01
 
 ### Added
