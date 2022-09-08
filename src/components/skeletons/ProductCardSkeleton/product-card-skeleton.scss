@@ -14,11 +14,7 @@
   @include media(">=notebook") { min-width: 12rem; }
 
   &[data-bordered="true"] {
-    border: none;
-
-    @include media(">=notebook") {
-      border: var(--fs-border-width-default) solid var(--fs-border-color-light);
-    }
+    border: var(--fs-border-width-default) solid var(--fs-border-color-light);
   }
 
   [data-product-card-skeleton-image] {
