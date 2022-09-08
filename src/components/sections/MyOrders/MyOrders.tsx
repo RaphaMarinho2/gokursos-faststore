@@ -19,7 +19,7 @@ export default function MyOrders() {
           <RedWarningIcon width={173} height={173} />
           <h3 className="title">Ops!!!!!</h3>
           <span className="text">
-            Desculpe, estamos enfrentando problemas técnico e não conseguimos
+            Desculpe, estamos enfrentando problemas técnicos e não conseguimos
             carregar seus pedidos no momento.
           </span>
         </div>
