@@ -4,7 +4,6 @@ type ObjectItem = {
   label: string
   link: string
   submenu: SubMenuItemType
-  blueText: boolean
 }
 
 type MenuItemType = {

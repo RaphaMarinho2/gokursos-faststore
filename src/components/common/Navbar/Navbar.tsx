@@ -9,9 +9,9 @@ import { mark } from 'src/sdk/tests/mark'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import type { SearchInputRef } from '@faststore/ui'
 import MenuMobileIcon from 'src/components/icons/MenuMobileIcon'
-import MenuMobile from 'src/components/common/MenuMobile'
-import MenuDesktop from 'src/components/common/MenuDesktop/MenuDesktop'
-import menuItems from 'src/components/common/MenuDesktop/mocks/menuItems.json'
+import MenuMobile from 'src/components/common/Menu/MenuMobile'
+import MenuDesktop from 'src/components/common/Menu/MenuDesktop/MenuDesktop'
+import menuItems from 'src/components/common/Menu/mocks/menuItems.json'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 function Navbar() {
