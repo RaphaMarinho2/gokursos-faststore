@@ -41,6 +41,14 @@ export default function MyAccountMenu() {
 
   const openModal = () => setModalIsOpen(true)
 
+  const userData = JSON.parse(
+    typeof window !== 'undefined'
+      ? window.localStorage.getItem('user') ?? '{}'
+      : '{}'
+  )
+
+  const userName = userData?.name ?? userData?.email
+
   if (isTablet) {
     return (
       <>
@@ -81,7 +89,7 @@ export default function MyAccountMenu() {
       <div className="my-account-menu">
         <div className="my-account-menu__greetings">
           <span className="my-account-menu__greetings-text">Olá,</span>
-          <span className="my-account-menu__greetings-name">Thales!</span>
+          <span className="my-account-menu__greetings-name">{`${userName}!`}</span>
         </div>
         <nav className="my-account-menu__links">
           <Link
