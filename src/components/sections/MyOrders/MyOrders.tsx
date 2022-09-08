@@ -1,3 +1,4 @@
+import RedWarningIcon from 'src/components/icons/RedWarning'
 import useOrders from 'src/contexts/OrdersContext/useOrders'
 
 import './my-orders.scss'
@@ -12,7 +13,18 @@ export default function MyOrders() {
   }
 
   if (isError) {
-    return <div>Error...</div>
+    return (
+      <div className="my-orders">
+        <div className="my-orders__error-content">
+          <RedWarningIcon width={173} height={173} />
+          <h3 className="title">Ops!!!!!</h3>
+          <span className="text">
+            Desculpe, estamos enfrentando problemas técnico e não conseguimos
+            carregar seus pedidos no momento.
+          </span>
+        </div>
+      </div>
+    )
   }
 
   return (

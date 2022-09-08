@@ -1,29 +1,34 @@
-const RedWarningIcon = () => (
+interface RedWarningIconProps {
+  width?: number
+  height?: number
+}
+
+const RedWarningIcon = ({ width = 73, height = 73 }: RedWarningIconProps) => (
   <svg
-    width="73"
-    height="73"
-    viewBox="0 0 73 73"
+    width={width}
+    height={height}
+    viewBox="0 0 178 178"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
-      d="M36.4998 7.604L3.0415 65.3957H69.9582L36.4998 7.604Z"
+      d="M89.0003 18.5417L7.41699 159.458H170.584L89.0003 18.5417Z"
       stroke="#FF3452"
-      strokeWidth="3"
+      strokeWidth="8"
       strokeLinejoin="round"
     />
     <path
-      d="M36.5 53.229V54.7498"
+      d="M89 129.792V133.5"
       stroke="#FF3452"
-      strokeWidth="3"
+      strokeWidth="8"
       strokeLinecap="round"
     />
     <path
-      d="M36.5 28.8965L36.5126 44.1041"
+      d="M89 70.4602L89.0308 107.542"
       stroke="#FF3452"
-      strokeWidth="3"
+      strokeWidth="8"
       strokeLinecap="round"
     />
   </svg>
