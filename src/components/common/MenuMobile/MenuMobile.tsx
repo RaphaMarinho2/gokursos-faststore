@@ -31,13 +31,11 @@ const MenuMobile: FC<Props> = ({ isDrawerOpen, onCloseModal }) => {
             setMenuStatus={setMenuStatus}
           />
           <div className="menu-mobile-container">
-            <div className="menu-mobile-departament-container">
-              <MenuBase
-                json={json}
-                menuStatus={menuStatus}
-                setMenuStatus={handleMenuStatus}
-              />
-            </div>
+            <MenuBase
+              json={json}
+              menuStatus={menuStatus}
+              setMenuStatus={handleMenuStatus}
+            />
           </div>
         </>
       )}

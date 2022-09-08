@@ -95,21 +95,13 @@ function Navbar() {
         onDismiss={handleCloseSlideOver}
         size="full"
         direction="leftSide"
-        className="navbar__modal-content"
+        className="navbar-modal"
       >
-        <div className="navbar__modal-body">
-          <MenuMobile
-            setIsDrawerOpen={setIsDrawerOpen}
-            isDrawerOpen={isDrawerOpen}
-            onCloseModal={handleCloseSlideOver}
-          />
-
-          <div className="navlinks">
-            <div className="navlinks__signin">
-              <ButtonSignIn />
-            </div>
-          </div>
-        </div>
+        <MenuMobile
+          setIsDrawerOpen={setIsDrawerOpen}
+          isDrawerOpen={isDrawerOpen}
+          onCloseModal={handleCloseSlideOver}
+        />
       </SlideOver>
     </header>
   )
