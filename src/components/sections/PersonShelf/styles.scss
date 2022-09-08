@@ -21,11 +21,6 @@
     color: #ff3452;
   }
 
-  .carousel-content {
-    padding-top: 16px;
-    margin: 0 -16px;
-  }
-
   &.teachers {
     .carousel-content {
       .carousel-arrow-button-prev,
@@ -59,6 +54,8 @@
 
   .carousel-content {
     position: relative;
+    padding-top: 16px;
+    margin: 0 -16px;
 
     .carousel-arrow-button-prev,
     .carousel-arrow-button-next {
