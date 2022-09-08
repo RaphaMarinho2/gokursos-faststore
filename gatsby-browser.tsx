@@ -7,7 +7,6 @@ import './src/styles/global/layout.scss'
 import { CartProvider, SessionProvider, UIProvider } from '@faststore/sdk'
 import Layout from 'src/Layout'
 import AnalyticsHandler from 'src/sdk/analytics'
-import { validateCart } from 'src/sdk/cart/validate'
 import ErrorBoundary from 'src/sdk/error/ErrorBoundary'
 import TestProvider from 'src/sdk/tests'
 import { uiActions, uiEffects, uiInitialState } from 'src/sdk/ui'
@@ -33,7 +32,7 @@ export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({
             locale: storeConfig.locale,
           }}
         >
-          <CartProvider mode="optimistic" onValidateCart={validateCart}>
+          <CartProvider mode="optimistic">
             <ModalProvider>{element}</ModalProvider>
           </CartProvider>
         </SessionProvider>
