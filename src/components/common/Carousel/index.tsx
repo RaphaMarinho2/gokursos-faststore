@@ -34,7 +34,7 @@ const Carousel = ({
   qtyItems,
   gapItems,
   navigationAutomatic = false,
-  timeoutNavigationAutomatic = 5000,
+  timeoutNavigationAutomatic = 6500,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   let [bulletsQtd, setBulletsQtd] = useState<number>(0)
