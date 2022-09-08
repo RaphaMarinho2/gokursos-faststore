@@ -318,10 +318,11 @@ const Carousel = ({
                   style={{
                     ...style.bullets,
                     transition: 'all 0.8s  ease-out',
-                    backgroundColor: `${buttonFocus === index
+                    backgroundColor: `${
+                      buttonFocus === index
                         ? bullet?.bulletEnableColor ?? '#ff0000'
                         : bullet?.bulletDisableColor ?? '#ccc'
-                      }`,
+                    }`,
                   }}
                 />
               )

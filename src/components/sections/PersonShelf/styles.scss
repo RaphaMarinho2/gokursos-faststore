@@ -1,4 +1,4 @@
-@import 'src/styles/scaffold';
+@import "src/styles/scaffold";
 
 .component-shelf-container {
   width: 100%;
@@ -8,12 +8,12 @@
   }
 
   .title {
+    padding-bottom: 8px;
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 600;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #dddddd;
     color: #000;
+    border-bottom: 1px solid #dddddd;
   }
 
   .pretitle {
@@ -32,7 +32,7 @@
       .carousel-arrow-button-next {
         top: calc(50% - 15px);
 
-        @include media('>=tablet') {
+        @include media(">=tablet") {
           top: calc(50% - 45px);
         }
       }
@@ -62,20 +62,20 @@
 
     .carousel-arrow-button-prev,
     .carousel-arrow-button-next {
-      top: calc(50% - 32px);
       position: absolute;
-      cursor: pointer;
+      top: calc(50% - 32px);
       z-index: 2;
+      cursor: pointer;
     }
 
     .carousel-arrow-button-prev {
       left: 8px;
 
-      @include media('>=phonemid') {
+      @include media(">=phonemid") {
         left: 2px;
       }
 
-      @include media('>=notebook') {
+      @include media(">=notebook") {
         left: -4px;
       }
     }
@@ -83,17 +83,17 @@
     .carousel-arrow-button-next {
       right: 8px;
 
-      @include media('>=phonemid') {
+      @include media(">=phonemid") {
         right: 2px;
       }
 
-      @include media('>=notebook') {
+      @include media(">=notebook") {
         right: -4px;
       }
     }
   }
 
-  @include media('>=tablet') {
+  @include media(">=tablet") {
     max-width: var(--fs-grid-breakpoint-desktop);
     margin: 2rem auto;
   }
@@ -108,7 +108,7 @@
         padding: 0 8px;
       }
 
-      @include media('>=tablet') {
+      @include media(">=tablet") {
         .component-shelf__content {
           padding: 0 12px;
         }
@@ -124,8 +124,8 @@
       padding: 0 13px;
 
       @media screen and (min-width: 380px) {
-        font-size: 20px;
         padding: 0;
+        font-size: 20px;
       }
     }
 
@@ -137,7 +137,7 @@
       line-height: 150%;
       color: #fff;
 
-      @include media('>=tablet') {
+      @include media(">=tablet") {
         color: #000;
       }
 
@@ -153,7 +153,7 @@
       font-weight: 400;
       color: #f5f5f5;
 
-      @include media('>=tablet') {
+      @include media(">=tablet") {
         font-weight: normal;
         font-weight: 700;
         color: #555555;
@@ -164,7 +164,7 @@
       }
     }
 
-    @include media('>=tablet') {
+    @include media(">=tablet") {
       h3,
       p {
         position: unset;

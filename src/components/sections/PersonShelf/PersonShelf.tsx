@@ -45,8 +45,8 @@ const PersonShelf = ({
   const shelfItemQuantity = isMobile
     ? mobileShelfQty
     : isTablet
-      ? tabletShelfQty
-      : deskShelfQty
+    ? tabletShelfQty
+    : deskShelfQty
 
   const styleArrowMobile = {
     height: 30,
