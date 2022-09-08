@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import useOrders from 'src/contexts/OrdersContext/useOrders'
 import AccountBackIcon from 'src/components/icons/AccountBackIcon'
+import RedWarningIcon from 'src/components/icons/RedWarning'
 
 import ProductItem from './ProductItem'
 import OrderStatus from './OrderStatus'
@@ -57,7 +58,18 @@ export default function OrderDetails() {
   }
 
   if (isError) {
-    return <div>Error...</div>
+    return (
+      <div className="my-orders">
+        <div className="my-orders__error-content">
+          <RedWarningIcon width={173} height={173} />
+          <h3 className="title">Ops!!!!!</h3>
+          <span className="text">
+            Desculpe, estamos enfrentando problemas técnicos e não conseguimos
+            carregar seu pedido no momento.
+          </span>
+        </div>
+      </div>
+    )
   }
 
   return (
