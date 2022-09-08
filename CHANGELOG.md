@@ -24,6 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-483** - Remove header menu item: "Seja um parceiro"
 
+### Fixed
+
+- **GM-748** - Page system error 404 and 500
+
 ## [0.15.0] - 2022-09-01
 
 ### Added
