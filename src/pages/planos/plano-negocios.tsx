@@ -91,7 +91,7 @@ function Page(props: Props) {
         )}
       />
 
-      <SearchProvider slug="/plano-negocios">
+      <SearchProvider slug="/plano-negocios" searchParams={searchParams}>
         <ProductGallery
           title={title}
           forceSvg={svgIcons}

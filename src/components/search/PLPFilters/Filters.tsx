@@ -1,7 +1,9 @@
+import type { Facet } from '@faststore/sdk/dist/search/useSearchState'
 import { useEffect, useState } from 'react'
 import { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
+import useSearch from 'src/contexts/SearchContext/useSearch'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
@@ -28,17 +30,37 @@ export interface Filters {
 interface FilterProps {
   slug?: string
   term?: string | null
+  selectedFacets?: Facet[]
   onDismiss: () => void
   isFilterOpen: boolean
 }
 
-function Filters({ slug, term, onDismiss, isFilterOpen }: FilterProps) {
-  const [allFilters, setAllFilters] = useState<Filters[]>([])
+function Filters({
+  slug,
+  term,
+  onDismiss,
+  isFilterOpen,
+  selectedFacets,
+}: FilterProps) {
   const [filterLoading, setFilterLoading] = useState<boolean>(true)
+  const { setAllFilters } = useSearch()
 
   useEffect(() => {
-    fetchFilters({ setAllFilters, setFilterLoading, slug, term })
-  }, [slug, term])
+    const setFilters = async () => {
+      setFilterLoading(true)
+      const filters = await fetchFilters({
+        slug,
+        term,
+        selectedFacets,
+      })
+
+      if (!filters) return
+      setAllFilters(filters)
+      setFilterLoading(false)
+    }
+
+    setFilters()
+  }, [selectedFacets, setAllFilters, slug, term])
 
   const { isTablet } = useWindowDimensions()
   const { onModalClose } = useModal()
@@ -60,18 +82,10 @@ function Filters({ slug, term, onDismiss, isFilterOpen }: FilterProps) {
             icon={<Icon name="X" width={25} height={25} />}
             onClick={onModalClose}
           />
-          <Facets
-            allFilters={allFilters}
-            setAllFilters={setAllFilters}
-            filterLoading={filterLoading}
-          />
+          <Facets filterLoading={filterLoading} />
         </SlideOver>
       ) : (
-        <Facets
-          allFilters={allFilters}
-          setAllFilters={setAllFilters}
-          filterLoading={filterLoading}
-        />
+        <Facets filterLoading={filterLoading} />
       )}
     </div>
   )

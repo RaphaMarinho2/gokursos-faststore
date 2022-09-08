@@ -1,4 +1,3 @@
-import type { Dispatch } from 'react'
 import { useState } from 'react'
 import { Checkbox, Label } from '@faststore/ui'
 import './plp-filters.scss'
@@ -9,12 +8,8 @@ import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
 
-import type { Filters } from './Filters'
-
 interface PLPFiltersProps {
-  allFilters: Filters[]
   filterLoading: boolean
-  setAllFilters: Dispatch<React.SetStateAction<Filters[]>>
 }
 
 interface ChangeFacetProps {
@@ -26,8 +21,8 @@ interface ChangeFacetProps {
   actualMax?: number
 }
 
-function Facets({ allFilters, filterLoading, setAllFilters }: PLPFiltersProps) {
-  const { setFilteredFacets } = useSearch()
+function Facets({ filterLoading }: PLPFiltersProps) {
+  const { allFilters, setAllFilters } = useSearch()
 
   const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
     new Set([])
@@ -80,29 +75,7 @@ function Facets({ allFilters, filterLoading, setAllFilters }: PLPFiltersProps) {
         : filter
     )
 
-    const selectedFilters = newFilter.map((filter) => {
-      return {
-        filterlabel: filter.filterlabel,
-        facets:
-          filter.type === 'CHECKBOX'
-            ? filter.facets.filter((facet) => facet.selected === true)
-            : [
-                {
-                  value: filter?.facets[0]?.value,
-                  label: filter?.facets[0]?.label,
-                  others: {
-                    min: filter?.facets[0].others?.min,
-                    max: filter?.facets[0].others?.max,
-                    actualMin: filter?.facets[0].others?.actualMin,
-                    actualMax: filter?.facets[0].others?.actualMax,
-                  },
-                },
-              ],
-      }
-    })
-
     setAllFilters(newFilter)
-    setFilteredFacets(selectedFilters as unknown as Filters[])
   }
 
   return (

@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import { useState } from 'react'
-import menu from 'src/components/common/MenuMobile/mocks/mobileMenuItems.json'
+import menu from 'src/components/common/Menu/mocks/menuItems.json'
 
 import MenuBase from './MenuBase'
 import MenuHeader from './MenuHeader'
