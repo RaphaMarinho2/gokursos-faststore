@@ -44,7 +44,7 @@ function LoginSidebar(props: any) {
             <p className="courses-link">Meus cursos</p>
           </a>
           <a href="/">
-            <p className="courses-link">Meus pedidos</p>
+            <p className="requests-link">Meus pedidos</p>
           </a>
           <button onClick={handleClick} className="exit-link">
             Sair desta loja
