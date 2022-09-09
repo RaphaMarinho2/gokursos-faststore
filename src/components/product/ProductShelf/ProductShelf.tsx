@@ -1,6 +1,6 @@
-import Carousel from '@acctglobal/carousel-universal'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
+import Carousel from 'src/components/common/Carousel'
 
 import ProductCard from '../ProductCard'
 
