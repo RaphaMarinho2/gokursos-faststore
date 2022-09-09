@@ -1,7 +1,7 @@
 @import "src/styles/scaffold";
 
 .footer {
-  padding: 0 16px 36px;
+  padding: 20px 16px;
   background-color: #ffffff;
   content-visibility: auto;
   contain-intrinsic-size: rem(860px);
@@ -250,6 +250,7 @@
 
   .accordion[data-store-accordion] {
     [data-store-button] {
+      padding: 12px 0;
       font-family: Montserrat, sans-serif;
       font-size: 14px;
       font-weight: 600;
