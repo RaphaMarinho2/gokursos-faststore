@@ -51,7 +51,10 @@ function ProductShelf({
     >
       {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
       <h2 className="product-shelf-title">{title}</h2>
-      <ProductShelfSkeleton cardsQuantity={cardsQuantity} loading={isLoading}>
+      <ProductShelfSkeleton
+        cardsQuantity={cardsQuantity!}
+        loading={isLoading ?? false}
+      >
         <Carousel
           arrow={{
             isVisible: !isLoading,
