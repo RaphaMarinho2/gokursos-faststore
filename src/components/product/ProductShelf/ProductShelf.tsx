@@ -11,14 +11,6 @@ interface ProductShelfProps {
   products: any
 }
 
-function ClkBtn() {
-  console.info('click')
-}
-
-function ProductBtnBuyInPage() {
-  return <button onClick={ClkBtn}>Quero começar</button>
-}
-
 function ProductShelf({
   cardsQuantity,
   title,
@@ -70,11 +62,7 @@ function ProductShelf({
       >
         {products?.map((product: any, idx: number) => (
           <div key={idx} className="product-shelf__content">
-            <ProductCard
-              product={product}
-              index={idx + 1}
-              ButtonBuy={ProductBtnBuyInPage()}
-            />
+            <ProductCard product={product} index={idx + 1} />
           </div>
         ))}
       </Carousel>

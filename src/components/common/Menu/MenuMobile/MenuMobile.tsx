@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import { useState } from 'react'
-import menu from 'src/components/common/MenuMobile/mocks/mobileMenuItems.json'
+import menu from 'src/components/common/Menu/mocks/menuItems.json'
 
 import MenuBase from './MenuBase'
 import MenuHeader from './MenuHeader'
@@ -31,13 +31,11 @@ const MenuMobile: FC<Props> = ({ isDrawerOpen, onCloseModal }) => {
             setMenuStatus={setMenuStatus}
           />
           <div className="menu-mobile-container">
-            <div className="menu-mobile-departament-container">
-              <MenuBase
-                json={json}
-                menuStatus={menuStatus}
-                setMenuStatus={handleMenuStatus}
-              />
-            </div>
+            <MenuBase
+              json={json}
+              menuStatus={menuStatus}
+              setMenuStatus={handleMenuStatus}
+            />
           </div>
         </>
       )}

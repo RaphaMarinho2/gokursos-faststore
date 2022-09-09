@@ -2,6 +2,7 @@ import { Badge as UIBadge } from '@faststore/ui'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import type { ReactNode } from 'react'
+import './badge.scss'
 
 export type BadgeVariants = 'info' | 'highlighted' | 'success' | 'neutral'
 

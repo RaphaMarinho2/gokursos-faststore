@@ -5,7 +5,6 @@ import type { GatsbySSR } from 'gatsby'
 import ThirdPartyScripts from './src/components/ThirdPartyScripts'
 import Layout from './src/Layout'
 import AnalyticsHandler from './src/sdk/analytics'
-import { validateCart } from './src/sdk/cart/validate'
 import ErrorBoundary from './src/sdk/error/ErrorBoundary'
 import TestProvider from './src/sdk/tests'
 import { uiActions, uiEffects, uiInitialState } from './src/sdk/ui'
@@ -27,7 +26,7 @@ export const wrapRootElement: GatsbySSR['wrapRootElement'] = ({ element }) => (
             locale: storeConfig.locale,
           }}
         >
-          <CartProvider mode="optimistic" onValidateCart={validateCart}>
+          <CartProvider mode="optimistic">
             <ModalProvider>{element}</ModalProvider>
           </CartProvider>
         </SessionProvider>
