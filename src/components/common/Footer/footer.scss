@@ -24,11 +24,12 @@
   position: relative;
   display: grid;
   grid-template-rows: 3;
-  grid-template-columns: 1;
-  padding-left: 10px;
+
+  // grid-template-columns: 1;
+  // padding-left: 10px;
 
   @include media(">=phonemid") {
-    padding-left: 26px;
+    // padding-left: 26px;
   }
 
   @include media(">=notebook") {
@@ -251,7 +252,7 @@
     [data-store-button] {
       font-family: Montserrat, sans-serif;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 24px;
       color: #004e98;
 
