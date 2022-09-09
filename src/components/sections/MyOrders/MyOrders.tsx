@@ -12,6 +12,7 @@ export default function MyOrders() {
   if (isLoading) {
     return (
       <div className="my-orders">
+        <h3 className="my-orders__title">Pedidos</h3>
         <div className="my-orders__loading-content">
           <SpinnerIcon />
           <span className="text">Carregando...</span>

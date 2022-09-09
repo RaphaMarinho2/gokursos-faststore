@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import useOrders from 'src/contexts/OrdersContext/useOrders'
 import AccountBackIcon from 'src/components/icons/AccountBackIcon'
 import RedWarningIcon from 'src/components/icons/RedWarning'
+import SpinnerIcon from 'src/components/icons/Spinner'
 
 import ProductItem from './ProductItem'
 import OrderStatus from './OrderStatus'
@@ -50,11 +51,21 @@ export default function OrderDetails() {
         {}
       )
     )
-    setDetailsLoading(false)
+    const loadingDelay = setTimeout(() => setDetailsLoading(false), 500)
+
+    return () => clearTimeout(loadingDelay)
   }, [isLoading, location, ordersData])
 
   if (isLoading || detailsLoading) {
-    return <div>Loading...</div>
+    return (
+      <div className="my-orders">
+        <h3 className="my-orders__title">Pedidos</h3>
+        <div className="my-orders__loading-content">
+          <SpinnerIcon />
+          <span className="text">Carregando...</span>
+        </div>
+      </div>
+    )
   }
 
   if (isError) {
