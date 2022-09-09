@@ -7,26 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
+## [0.16.0] - 2022-09-08
+
+### Added
 
 - **GM-642** - Possibility to redirect to Department page with filter applied.
+
+### Fixed
+
 - **GM-642** - SearchContext refactor
-
-### Fixed
-
 - **GM-671** - Dynamic build for department page
-
-### Fixed
-
 - **GM-275** - Fixed menu spacing
+- **GM-248** - Product card spacing
+- **GM-307** - Top Sellers shelf spacing
+- **GM-347** - Trust partners shelf spacing
+- **GM-346** - Infoprodutor shelf spacing
+- **GM-748** - Page system error 404 and 500
 
-### Fixed
+### Removed
 
 - **GM-483** - Remove header menu item: "Seja um parceiro"
-
-### Fixed
-
-- **GM-748** - Page system error 404 and 500
 
 ## [0.15.0] - 2022-09-01
 
