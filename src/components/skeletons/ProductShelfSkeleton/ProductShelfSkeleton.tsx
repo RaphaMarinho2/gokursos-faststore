@@ -9,7 +9,7 @@ interface Props {
 
 function ProductShelfSkeleton({
   children,
-  loading = true,
+  loading = false,
   cardsQuantity,
 }: PropsWithChildren<Props>) {
   return loading ? (

@@ -37,7 +37,7 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
 
   return (
     <Section className="layout__content pdp-shelf-container">
-      {products !== undefined && (
+      {products && (
         <ProductShelf
           products={products}
           cardsQuantity={shelfItemQuantity}

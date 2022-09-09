@@ -25,7 +25,7 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
 
   return (
     <Section className="layout__content home-shelf-container">
-      {products !== undefined && (
+      {products && (
         <ProductShelf
           cardsQuantity={shelfItemQuantity}
           title={title}
