@@ -9,7 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-295** - Video section video size
+
+
+### Fixed
+
 - **GM-740** - Adjust Mobile Footer Layout
+
 
 ## [0.16.0] - 2022-09-08
 
