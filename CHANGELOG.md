@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed 
+
+- **GM-751** - Fixed Layout of ProductCards in ProductShelf component
+
 ### Fixed
 
 - **GM-295** - Video section video size
