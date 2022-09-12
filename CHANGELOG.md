@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **GM-520** - button close modal share social in PDP
+
 ## [0.16.0] - 2022-09-08
 
 ### Added

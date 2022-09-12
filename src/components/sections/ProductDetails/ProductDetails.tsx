@@ -23,6 +23,7 @@ import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import PolygonIcon from 'src/components/icons/PolygonIcon'
 import ProductQueryMock from 'src/mocks/productQueryMock.json'
 import productQueryDetails from 'src/mocks/productQueryDetails.json'
+import IconClose from 'src/components/icons/IconClose'
 
 import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
@@ -88,6 +89,10 @@ function ProductDetails({ product: staleProduct }: Props) {
     },
   })
 
+  const iconClose = () => {
+    return <IconClose />
+  }
+
   const facebookShareIcon = () => {
     return <FacebookShareIcon />
   }
@@ -150,6 +155,7 @@ function ProductDetails({ product: staleProduct }: Props) {
                     additionalOverlay
                     shareWebSocials="Compartilhe:"
                     productURL="/"
+                    CloseIcon={iconClose}
                     shareLinks={[
                       {
                         name: 'Facebook',
