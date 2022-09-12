@@ -26,8 +26,12 @@ function CartItem({ item }: Props) {
       <CardContent>
         <CardImage>
           <Image
-            src={item.itemOffered.image[0].url}
-            alt={item.itemOffered.image[0].alternateName}
+            src={item.itemOffered.image ? item.itemOffered.image[0].url : ''}
+            alt={
+              item.itemOffered.image
+                ? item.itemOffered.image[0].alternateName
+                : 'imagem indisponível'
+            }
             width={72}
             height={72}
           />

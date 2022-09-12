@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]-
 
+### Fixed
+
+- **GM-769** - issue image in minicart
+
 ### Added
 
 - **GM-666** - Integration in PDP with OnData
