@@ -26,6 +26,8 @@ interface SearchContextProps {
   lastPage: number
   sort: string
   setSort: Dispatch<SetStateAction<string>>
+  filterLoading: boolean
+  setFilterLoading: (filterLoading: boolean) => void
 }
 
 export const SearchContext = createContext<SearchContextProps | undefined>(
@@ -40,6 +42,7 @@ function SearchProvider({
 }: SearchProviderProps) {
   const [allFilters, setAllFilters] = useState<Filters[]>([])
   const [sort, setSort] = useState<string>('')
+  const [filterLoading, setFilterLoading] = useState<boolean>(true)
 
   const filteredFacets = useMemo(
     () =>
@@ -75,14 +78,14 @@ function SearchProvider({
 
   useEffect(() => {
     setIsLoading(true)
-    if (!allFilters.length) return
+    if (filterLoading) return
 
     const searchProducts = async () => {
-      const { page } = searchParams
+      const { page, term } = searchParams
       const { value, '@odata.count': count } = await axios
         .post('/api/getProducts', {
           defaultFilters,
-          term: 'tecnologia',
+          term,
           skip: page * ITEMS_PER_PAGE,
           sort,
           itemsPerPage: ITEMS_PER_PAGE,
@@ -101,6 +104,7 @@ function SearchProvider({
   }, [
     allFilters.length,
     defaultFilters,
+    filterLoading,
     filteredFacets,
     searchParams,
     slug,
@@ -120,6 +124,8 @@ function SearchProvider({
     allFilters,
     sort,
     setSort,
+    filterLoading,
+    setFilterLoading,
   }
 
   return (

@@ -67,7 +67,7 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
           className="product-listing__results-count"
           data-count={productsCount}
         >
-          <SkeletonElement shimmer type="text" loading={!products || isLoading}>
+          <SkeletonElement shimmer type="text" loading={isLoading}>
             <h2 data-testid="total-product-count">
               <span>Mostrando</span>
               <span>{productsCount} produtos</span>
@@ -93,7 +93,7 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
 
         <div className="product-listing__results">
           {/* Render ALL products */}
-          <ProductGridSkeleton loading={!products || isLoading}>
+          <ProductGridSkeleton loading={isLoading}>
             <GalleryPage
               showSponsoredProducts={false}
               page={searchParams.page}

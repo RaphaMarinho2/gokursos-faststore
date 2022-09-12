@@ -1,5 +1,5 @@
 import type { Facet } from '@faststore/sdk/dist/search/useSearchState'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
@@ -42,8 +42,7 @@ function Filters({
   isFilterOpen,
   selectedFacets,
 }: FilterProps) {
-  const [filterLoading, setFilterLoading] = useState<boolean>(true)
-  const { setAllFilters } = useSearch()
+  const { setAllFilters, filterLoading, setFilterLoading } = useSearch()
 
   useEffect(() => {
     const setFilters = async () => {
@@ -54,13 +53,18 @@ function Filters({
         selectedFacets,
       })
 
-      if (!filters) return
+      if (!filters) {
+        setFilterLoading(false)
+
+        return
+      }
+
       setAllFilters(filters)
       setFilterLoading(false)
     }
 
     setFilters()
-  }, [selectedFacets, setAllFilters, slug, term])
+  }, [selectedFacets, setAllFilters, setFilterLoading, slug, term])
 
   const { isTablet } = useWindowDimensions()
   const { onModalClose } = useModal()
