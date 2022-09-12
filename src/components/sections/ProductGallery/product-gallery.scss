@@ -12,19 +12,37 @@
 }
 
 .product-listing__search-term {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 149px;
+  padding: 0 8px;
+  margin-bottom: 24px;
+  background-color: #004e98;
+
   @include media(">=notebook") {
-    padding-bottom: var(--fs-spacing-6);
+    height: 234px;
+    padding: 0;
+    margin-bottom: 44px;
   }
 
   h1 {
-    font-size: var(--fs-text-size-4);
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
 
     @include media(">=tablet") {
       font-size: var(--fs-text-size-5);
     }
 
-    span {
-      font-weight: var(--fs-text-weight-bold);
+    @include media(">=notebook") {
+      font-size: 32px;
     }
   }
 }

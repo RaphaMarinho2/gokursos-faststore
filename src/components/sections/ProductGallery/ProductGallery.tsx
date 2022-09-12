@@ -37,9 +37,16 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
       className="product-listing layout__content-full"
     >
       {searchParams.term && (
-        <header className="product-listing__search-term layout__content">
+        <header className="product-listing__search-term">
           <h1>
-            Mostrando resultados de: <span>{searchParams.term}</span>
+            {isLoading ? (
+              'Busca'
+            ) : (
+              <>
+                Busca ({`${productsCount} produtos`}
+                <br /> encontrados)
+              </>
+            )}
           </h1>
         </header>
       )}
@@ -62,18 +69,6 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
             />
           </div>
         )}
-
-        <div
-          className="product-listing__results-count"
-          data-count={productsCount}
-        >
-          <SkeletonElement shimmer type="text" loading={isLoading}>
-            <h2 data-testid="total-product-count">
-              <span>Mostrando</span>
-              <span>{productsCount} produtos</span>
-            </h2>
-          </SkeletonElement>
-        </div>
 
         <div className="product-listing__sort">
           <Sort />
