@@ -1,6 +1,5 @@
 import { Card, CardActions, CardContent, CardImage } from '@faststore/ui'
 import Button from 'src/components/ui/Button'
-// import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import QuantitySelector from 'src/components/ui/QuantitySelector'
 import { useCart } from 'src/sdk/cart/useCart'
@@ -41,15 +40,17 @@ function CartItem({ item }: Props) {
             {item.itemOffered.isVariantOf.name}
           </p>
           <span data-cart-item-prices>
-            <Price
-              value={item.listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={item.listPrice}
-              variant="listing"
-              classes="text__legend"
-              SRText="Original price:"
-            />
+            {item.listPrice !== item.price && (
+              <Price
+                value={item.listPrice}
+                formatter={useFormattedPrice}
+                testId="list-price"
+                data-value={item.listPrice}
+                variant="listing"
+                classes="text__legend"
+                SRText="Original price:"
+              />
+            )}
             <Price
               value={item.price}
               formatter={useFormattedPrice}

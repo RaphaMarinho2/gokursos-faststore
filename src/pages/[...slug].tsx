@@ -11,14 +11,12 @@ import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import type {
-  DepartmentPageQueryQuery,
-  DepartmentPageQueryQueryVariables,
-} from '@generated/graphql'
+import type { DepartmentPageQueryQuery } from '@generated/graphql'
 import queryContentful from 'src/sdk/contentful/queryContentful'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import BannerCategory from 'src/components/sections/BannerCategory'
 import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
+import useSearchParams from 'src/utils/useSearchParams'
 
 interface PageCMSDepartmentCategoryType {
   title: string
@@ -50,7 +48,7 @@ interface ServerDataProps {
 
 export type Props = PageProps<
   DepartmentPageQueryQuery,
-  DepartmentPageQueryQueryVariables,
+  { slug: string },
   unknown,
   ServerDataProps
 >
@@ -60,7 +58,12 @@ function Page(props: Props) {
     location: { host, href, pathname },
     data,
     serverData,
+    pageContext: { slug },
   } = props
+
+  const searchParams =
+    useSearchParams(props.location) ??
+    parseSearchState(new URL(href ?? pathname, 'http://localhost'))
 
   const { locale } = useSession()
 
@@ -75,25 +78,12 @@ function Page(props: Props) {
     {
       title,
       subtitle,
-      slug,
       seoTitle,
       seoDescription,
       bannerImageDesktop,
       bannerImageMobile,
     },
   ] = CMSData.data.departmentCategoryPageCollection.items
-
-  const maybeState = parseSearchState(
-    new URL(href ?? pathname, 'http://localhost')
-  )
-
-  const searchParams = {
-    page: maybeState?.page,
-    base: maybeState?.base,
-    selectedFacets: maybeState ? maybeState.selectedFacets : [],
-    term: maybeState?.term ?? null,
-    sort: maybeState?.sort ?? 'score_desc',
-  }
 
   // TODO: breadcrumbList needs to come from TrueChange. Waiting back-end changes.
   const breadcrumbList = {
@@ -156,7 +146,11 @@ function Page(props: Props) {
         imageBannerDesktop={bannerImageDesktop?.url}
         imageBannerMobile={bannerImageMobile?.url}
       />
-      <SearchProvider slug={slug} searchParams={searchParams}>
+      <SearchProvider
+        slug={slug}
+        searchParams={searchParams}
+        defaultFilters={`Department/Slug eq '${slug}'`}
+      >
         <ProductGallery title={title} />
       </SearchProvider>
 
@@ -202,8 +196,11 @@ query DepartmentCategoryPageQuery($slug: String!) {
 
 export const getServerData = async (props: Props) => {
   const {
-    params: { slug },
+    pageContext: { slug },
   } = props
+
+  const ONE_YEAR_CACHE = `s-maxage=31536000, stale-while-revalidate`
+  const originalUrl = `/${slug}`
 
   try {
     const body = {
@@ -221,13 +218,11 @@ export const getServerData = async (props: Props) => {
       !CMSData ||
       !CMSData.data.departmentCategoryPageCollection.items.length
     ) {
-      const originalUrl = `/${slug}`
-
       return {
         status: 301,
         props: {},
         headers: {
-          'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
+          'cache-control': ONE_YEAR_CACHE,
           location: `/404/?from=${encodeURIComponent(originalUrl)}`,
         },
       }
@@ -239,7 +234,7 @@ export const getServerData = async (props: Props) => {
         CMSData,
       },
       headers: {
-        'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
+        'cache-control': ONE_YEAR_CACHE,
       },
     }
   } catch (err) {
@@ -249,7 +244,7 @@ export const getServerData = async (props: Props) => {
       status: 500,
       props: {},
       headers: {
-        'cache-control': 'public, max-age=0, must-revalidate',
+        'cache-control': ONE_YEAR_CACHE,
       },
     }
   }

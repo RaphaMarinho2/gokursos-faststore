@@ -29,9 +29,11 @@
   }
 
   .product-shelf-title {
-    margin-bottom: 0.5rem;
-    font-size: 20px;
+    padding-bottom: 8px;
+    margin-bottom: 1.75rem;
+    font-size: 16px;
     font-weight: 700;
+    border-bottom: 1px solid #dddddd;
 
     @include media("<=tablet") {
       padding-left: 16px;
@@ -49,30 +51,15 @@
 
   .carousel-content {
     position: relative;
-    padding: 0 1rem;
-
-    @include media(">=notebook") {
-      padding: 0 24px;
-    }
-
-    @media screen and (max-width: 375px) {
-      padding: 0;
-    }
+    margin: 0 -20px;
 
     div {
       .carousel-container {
         overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
         .product-shelf__content {
-          padding: 0 3px;
-
-          @include media(">=phonemid") {
-            padding: 0 10px;
-          }
-
-          @include media(">=notebook") {
-            padding: 0 14px;
-          }
+          display: flex;
+          justify-content: center;
         }
 
         article {
@@ -107,26 +94,26 @@
     }
 
     .carousel-arrow-button-prev {
-      left: 8px;
+      left: 22px;
 
       @include media(">=phonemid") {
         left: 16px;
       }
 
       @include media(">=notebook") {
-        left: 24px;
+        left: 10px;
       }
     }
 
     .carousel-arrow-button-next {
-      right: 8px;
+      right: 22px;
 
       @include media(">=phonemid") {
         right: 16px;
       }
 
       @include media(">=notebook") {
-        right: 24px;
+        right: 10px;
       }
     }
   }
