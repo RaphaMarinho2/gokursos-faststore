@@ -63,6 +63,12 @@
 
 .gallery-title,
 .product-listing__filters {
+  .filter {
+    [data-accordion-item] {
+      background: #fff;
+    }
+  }
+
   @include media(">=notebook") {
     position: sticky;
     top: var(--fs-grid-gap-2);
