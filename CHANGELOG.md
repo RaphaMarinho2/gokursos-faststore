@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed 
 
 - **GM-751** - Fixed Layout of ProductCards in ProductShelf component
+- **GM-375** - Scroll to Top Button adjust
 
 ## [0.16.0] - 2022-09-08
 
