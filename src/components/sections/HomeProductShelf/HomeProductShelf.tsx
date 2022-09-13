@@ -25,12 +25,14 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
 
   return (
     <Section className="layout__content home-shelf-container">
-      <ProductShelf
-        cardsQuantity={shelfItemQuantity}
-        title={title}
-        pretitle={pretitle}
-        products={products}
-      />
+      {products && (
+        <ProductShelf
+          cardsQuantity={shelfItemQuantity}
+          title={title}
+          pretitle={pretitle}
+          products={products}
+        />
+      )}
     </Section>
   )
 }

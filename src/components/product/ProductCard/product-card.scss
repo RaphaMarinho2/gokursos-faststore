@@ -82,7 +82,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 156px;
+    min-width: 156px;
     height: 156px;
     padding: 0;
     overflow: hidden;
@@ -95,6 +95,7 @@
     }
 
     @include media(">=notebook") {
+      min-width: 232px;
       height: 202px;
     }
   }
