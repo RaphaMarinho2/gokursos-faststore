@@ -1,7 +1,7 @@
 @import "src/styles/scaffold";
 
 .footer {
-  padding: 20px 16px;
+  padding: 0 16px 36px;
   background-color: #ffffff;
   content-visibility: auto;
   contain-intrinsic-size: rem(860px);
@@ -24,12 +24,11 @@
   position: relative;
   display: grid;
   grid-template-rows: 3;
-
-  // grid-template-columns: 1;
-  // padding-left: 10px;
+  grid-template-columns: 1;
+  padding-left: 10px;
 
   @include media(">=phonemid") {
-    // padding-left: 26px;
+    padding-left: 26px;
   }
 
   @include media(">=notebook") {
@@ -250,10 +249,9 @@
 
   .accordion[data-store-accordion] {
     [data-store-button] {
-      padding: 12px 0;
       font-family: Montserrat, sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 24px;
       color: #004e98;
 
