@@ -29,7 +29,7 @@ export default function ContactUs({ location }: ContactUsProps) {
     <Section className="layout__content contact-us__content">
       <InstutionalMenu location={location} />
       <div className="contact-us__form-content">
-        <h2 className="contact-us__form-title">Envia uma mensagem</h2>
+        <h2 className="contact-us__form-title">Envie uma mensagem</h2>
         <form className="contact-us__form" onSubmit={formik.handleSubmit}>
           <div className="contact-us__main-data-container">
             <div className="contact-us__input-container">
@@ -61,19 +61,21 @@ export default function ContactUs({ location }: ContactUsProps) {
               />
             </div>
           </div>
-          <div className="contact-us__input-container">
-            <label className="contact-us__input-label" htmlFor="phone">
-              Telefone
-            </label>
-            <input
-              className="contact-us__input"
-              id="phone"
-              name="phone"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.phone}
-              placeholder="Digite seu telefone"
-            />
+          <div className="contact-us__container-phone">
+            <div className="contact-us__input-container">
+              <label className="contact-us__input-label" htmlFor="phone">
+                Telefone
+              </label>
+              <input
+                className="contact-us__input"
+                id="phone"
+                name="phone"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.phone}
+                placeholder="Digite seu telefone"
+              />
+            </div>
           </div>
           <div className="contact-us__input-container">
             <label className="contact-us__input-label" htmlFor="requestType">
@@ -95,7 +97,7 @@ export default function ContactUs({ location }: ContactUsProps) {
           </div>
           <div className="contact-us__input-container">
             <label className="contact-us__input-label" htmlFor="message">
-              Messagem
+              Mensagem
             </label>
             <textarea
               className="contact-us__text-area"
