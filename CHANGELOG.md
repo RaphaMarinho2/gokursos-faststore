@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed 
+### Fixed
+
+- **GM-740** - Adjust Mobile Footer Layout
 
 - **GM-751** - Fixed Layout of ProductCards in ProductShelf component
 
