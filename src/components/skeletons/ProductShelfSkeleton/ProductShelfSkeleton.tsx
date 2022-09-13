@@ -1,22 +1,21 @@
+import { ITEMS_PER_SECTION } from 'src/constants'
 import type { PropsWithChildren } from 'react'
 
 import ProductCardSkeleton from '../ProductCardSkeleton'
 
 interface Props {
   loading?: boolean
-  cardsQuantity: number
 }
 
 function ProductShelfSkeleton({
   children,
-  loading = false,
-  cardsQuantity,
+  loading = true,
 }: PropsWithChildren<Props>) {
   return loading ? (
     <ul data-fs-product-shelf-items className="layout__content">
-      {Array.from({ length: cardsQuantity }, (_, index) => (
+      {Array.from({ length: ITEMS_PER_SECTION }, (_, index) => (
         <li key={String(index)}>
-          <ProductCardSkeleton bordered />
+          <ProductCardSkeleton sectioned />
         </li>
       ))}
     </ul>

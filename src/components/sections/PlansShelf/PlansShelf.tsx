@@ -60,7 +60,7 @@ function PlansShelf() {
 
   return (
     <div className="plans-shelf">
-      {products && (
+      {products !== undefined && (
         <ProductShelf
           cardsQuantity={shelfItemQuantity}
           title={<ShelfTitle />}
