@@ -1,5 +1,4 @@
 import { useSession } from '@faststore/sdk'
-import { gql } from '@vtex/graphql-utils'
 import { graphql } from 'gatsby'
 import {
   BreadcrumbJsonLd,
@@ -11,31 +10,31 @@ import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type {
   ProductPageQueryQuery,
-  ServerProductPageQueryQuery,
   ProductPageQueryQueryVariables,
 } from '@generated/graphql'
 import 'src/styles/pages/pdp.scss'
-// import PDPProductShelf from 'src/components/sections/PDPProductShelf'
+import axios from 'axios'
+import PDPProductShelf from 'src/components/sections/PDPProductShelf'
+import type { ProductInfo } from 'src/components/sections/ProductDetails/typings'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
   ProductPageQueryQueryVariables,
   unknown,
-  ServerProductPageQueryQuery
+  ProductInfo
 > & { slug: string }
 
 function Page(props: Props) {
   const { locale, currency } = useSession()
   const {
     data: { site },
-    serverData: { product },
+    serverData: { productData },
     location: { host },
     slug,
   } = props
 
-  const title = product?.seo.title ?? site?.siteMetadata?.title ?? ''
-  const description =
-    product?.seo.description ?? site?.siteMetadata?.description ?? ''
+  const title = site?.siteMetadata?.title ?? ''
+  const description = site?.siteMetadata?.description ?? ''
 
   const canonical =
     host !== undefined ? `https://${host}/${slug}/p` : `/${slug}/p`
@@ -53,22 +52,17 @@ function Page(props: Props) {
           url: `${site?.siteMetadata?.siteUrl}${slug}`,
           title,
           description,
-          images: product
-            ? product.image.map((img) => ({
-                url: img.url,
-                alt: img.alternateName,
-              }))
-            : [
-                {
-                  url: '',
-                  alt: '',
-                },
-              ],
+          images: [
+            {
+              url: productData?.ProductImageURL,
+              alt: productData.Name,
+            },
+          ],
         }}
         metaTags={[
           {
             property: 'product:price:amount',
-            content: product.offers.lowPrice?.toString() ?? undefined,
+            content: '' ?? undefined,
           },
           {
             property: 'product:price:currency',
@@ -77,19 +71,26 @@ function Page(props: Props) {
         ]}
       />
       <BreadcrumbJsonLd
-        itemListElements={product.breadcrumbList.itemListElement ?? []}
+        itemListElements={productData?.BreadCrumbs?.map((item: any) => {
+          return {
+            item: item.Url,
+            name: item.Titulo,
+            position: item.Tipo,
+          }
+        })}
       />
       <ProductJsonLd
-        name={product.name}
-        description={product.description}
-        brand={product.brand.name}
-        sku={product.sku}
-        gtin={product.gtin}
-        images={product.image.map((img) => img.url)} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
+        name={productData.Name}
+        description={productData?.Description}
+        brand={productData.Brand?.Name}
+        sku=""
+        gtin=""
+        images={productData.ProductImageURL} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
         offersType="AggregateOffer"
         offers={{
-          ...product.offers,
-          price: product.offers.offers[0].price.toString(),
+          ...productData?.Price,
+          price: productData?.Price?.BasePrice,
+          priceCurrency: 'BRA',
         }}
       />
 
@@ -105,13 +106,13 @@ function Page(props: Props) {
         (not the HTML tag) before rendering it here.
       */}
 
-      <ProductDetails product={product} />
+      <ProductDetails product={productData} />
 
-      {/* <PDPProductShelf
+      <PDPProductShelf
         pretitle=""
-        title="Cursos relacionados"
-        product={product}
-      /> */}
+        title={`Mais vendidos de ${productData?.Department.Name}`}
+        productDepartment={productData?.Department.Name}
+      />
     </>
   )
 }
@@ -129,78 +130,23 @@ export const querySSG = graphql`
   }
 `
 
-export const querySSR = gql`
-  query ServerProductPageQuery($id: String!) {
-    product(locator: [{ key: "id", value: $id }]) {
-      id: productID
-      slug
-
-      seo {
-        title
-        description
-      }
-
-      brand {
-        name
-      }
-
-      slug
-      sku
-      gtin
-      name
-      description
-
-      breadcrumbList {
-        itemListElement {
-          item
-          name
-          position
-        }
-      }
-
-      image {
-        url
-        alternateName
-      }
-
-      offers {
-        lowPrice
-        highPrice
-        priceCurrency
-        offers {
-          availability
-          price
-          priceValidUntil
-          priceCurrency
-          itemCondition
-          seller {
-            identifier
-          }
-        }
-      }
-
-      ...ProductDetailsFragment_product
-    }
-  }
-`
-
 export const getServerData = async ({
   params: { slug },
 }: {
   params: Record<string, string>
 }) => {
   try {
-    const id = slug.split('-').pop()
+    const response =
+      await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
+    Department, Category, Price, Especificacao, Especificacao/CargaHoraria, Especificacao/DisponibilidadeDias,
+    Especificacao/TipoCurso, BreadCrumbs&$filter=LinkId eq '${slug}'&$top=1&$select=_Id, Name,
+    ProductImageURL,ID,IsActive, Description, DescriptionShort, isKit, Department, Category, Price/ListPrice, Price/BasePrice,
+    Price/isSale, Price/SalePercentage, Especificacao/Conteudo, Especificacao/Objetivos,
+    Especificacao/CargaHoraria/Text,Especificacao/DisponibilidadeDias/Text, Especificacao/TipoCurso/Text, Especificacao/TipoCurso/TextGodigitalEdu,
+    Especificacao/TipoCurso/DescriptionCertificate, Brand/Name, BreadCrumbs/Titulo, BreadCrumbs/Url, BreadCrumbs/Tipo, Installments/Valor, Installments/Parcela,
+    Installments/Text,LinkId`)
 
-    console.info('slug')
-
-    const { execute } = await import('src/server/index')
-    const { data } = await execute({
-      operationName: querySSR,
-      variables: { id },
-    })
-
-    if (data === null) {
+    if (!response.data.value.length) {
       const originalUrl = `/${slug}/p`
 
       return {
@@ -215,9 +161,23 @@ export const getServerData = async ({
 
     return {
       status: 200,
-      props: data ?? {},
+      props: {
+        productData: {
+          ID: response.data.value[0]?.ID,
+          Name: response.data.value[0]?.Name,
+          Description: response.data.value[0]?.Description,
+          Especificacao: response.data.value[0]?.Especificacao,
+          ProductImageURL: response.data.value[0]?.ProductImageURL,
+          Price: response.data.value[0]?.Price,
+          BreadCrumbs: response.data.value[0]?.BreadCrumbs,
+          Category: response.data.value[0]?.Category,
+          Department: response.data.value[0]?.Department,
+          Installments: response.data.value[0]?.Installments,
+          Brand: response.data.value[0]?.Brand,
+        },
+      },
       headers: {
-        'cache-control': 'public, max-age=0, stale-while-revalidate=31536000',
+        'cache-control': 'public, max-age=0, must-revalidate',
       },
     }
   } catch (err) {
