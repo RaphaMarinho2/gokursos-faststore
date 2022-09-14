@@ -116,7 +116,7 @@ export default function ContactUs({ location }: ContactUsProps) {
             </div>
             <div className="contact-us__input-container">
               <span className="contact-us__terms-warning">
-                Ao informar meus dados eu eu concordo com a{' '}
+                Ao informar meus dados eu concordo com a{' '}
                 <a
                   className="contact-us__terms-link"
                   href="/institucional/seguranca-e-privacidade"
