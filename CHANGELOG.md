@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+### Fixed
 
-- **GM-782** - [HOME] Loading Skeleton to the HomeProductShelf
+- **GM-782** - [HOME] Added loading Skeleton to the HomeProductShelf
 
 ## [0.17.0] - 2022-09-13
 
