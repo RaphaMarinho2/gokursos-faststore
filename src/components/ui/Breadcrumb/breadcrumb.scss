@@ -42,7 +42,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        @include media("<=tablet") { max-width: 30%; }
+        @include media("<=tablet") { max-width: 50%; }
       }
 
       &:nth-child(2) {
