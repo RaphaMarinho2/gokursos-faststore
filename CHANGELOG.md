@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- **GM-772** - Adjust icons footer
-
 ### Fixed
+
+- **GM-772** - Adjust icons footer
 
 ## [0.17.0] - 2022-09-13
 
