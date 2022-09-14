@@ -6,6 +6,7 @@ const EncryptIcon: FC = () => {
     <StaticImage
       src="../../images/lets-encrypt-logo.png"
       alt="Let's Encrypt Logo"
+      placeholder="tracedSVG"
     />
   )
 }
