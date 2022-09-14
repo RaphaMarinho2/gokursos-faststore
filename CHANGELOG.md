@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.17.0] - 2022-09-13
+
+### Added
+
+- **GM-666** - Integration in PDP with OnData
+
+### Fixed
+
+- **GM-740** - Adjust Mobile Footer Layout
+- **GM-751** - Fixed Layout of ProductCards in ProductShelf component
+- **GM-295** - Video section video size
+- **GM-296** - [HOME] Fix main banner autoplay
+- **GM-761** - [PRODUCT CARD] Card size
+
 ## [0.16.0] - 2022-09-08
 
 ### Added

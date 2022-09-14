@@ -56,6 +56,6 @@ export const useBuyButton = (item: CartItem | null) => {
     onClick,
     'data-testid': 'buy-button',
     'data-sku': item?.itemOffered.sku,
-    'data-seller': item?.seller.identifier,
+    'data-seller': item?.seller?.identifier,
   }
 }

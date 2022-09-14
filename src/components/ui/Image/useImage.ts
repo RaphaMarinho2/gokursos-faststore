@@ -23,7 +23,6 @@ export const useImage = ({
 }: ImageOptions): ImgHTMLAttributes<HTMLImageElement> => {
   const { srcSet, src } = useMemo(() => {
     const builder = urlBuilder(baseUrl, options)
-
     const srcs = FACTORS.map((factor) => {
       const rescaledWidth = width * factor
 

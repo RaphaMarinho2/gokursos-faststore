@@ -1,90 +1,88 @@
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import ProductTags from '@acctglobal/product-tags'
-import { graphql } from 'gatsby'
-import { useEffect, useState } from 'react'
+import ProductDescription from '@acctglobal/productdescription'
+import ShareProduct from '@acctglobal/shareproduct'
+import { useState } from 'react'
+import FacebookShareIcon from 'src/components/icons/FacebookShare'
+import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
+import PolygonIcon from 'src/components/icons/PolygonIcon'
+import ShareIcon from 'src/components/icons/ShareIcon'
+import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
 import { ButtonBuy } from 'src/components/ui/Button'
-import { Image } from 'src/components/ui/Image'
-import Price from 'src/components/ui/Price'
+import Prices from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
+import productQueryDetails from 'src/mocks/productQueryDetails.json'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
-import { useProduct } from 'src/sdk/product/useProduct'
-import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
-import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
-import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import ProductDescription from '@acctglobal/productdescription'
-import ShareProduct from '@acctglobal/shareproduct'
-import ShareIcon from 'src/components/icons/ShareIcon'
-import FacebookShareIcon from 'src/components/icons/FacebookShare'
-import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
-import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
-import PolygonIcon from 'src/components/icons/PolygonIcon'
-import ProductQueryMock from 'src/mocks/productQueryMock.json'
-import productQueryDetails from 'src/mocks/productQueryDetails.json'
 
-import productQuestions from '../../../mocks/productQuestions.json'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
-import instalment from '../../../mocks/instalment.json'
-import { Form as QuestionForm } from '../ProductCommonQuestions/FormFac'
 import Section from '../Section'
-import ProductRating from '../ProductRating'
 import Instalments from '../Instalments'
 import Workload from '../Workload'
-import RatingSummary from '../RatingSummary'
 import { InstalmentList } from './InstalmentList/InstalmentList'
-import LatestQuestions from './LatestQuestions'
 import SubscriptionOffers from './SubscriptionOffers'
 import { VideoAndText } from './videoAndtextDetails'
+import type { ProductData } from './typings'
 
 interface Props {
-  product: ProductDetailsFragment_ProductFragment
+  product: ProductData
 }
 
-function ProductDetails({ product: staleProduct }: Props) {
-  const { currency } = useSession()
+function ProductDetails({ product }: Props) {
   const [addQuantity] = useState(1)
-  const priceVaritation =
-    ProductQueryMock.data.search.products.edges[0]?.node.offers.offers[0]
-      ?.priceVaritation
-
-  // Stale while revalidate the product for fetching the new price etc
-  const { data } = useProduct(staleProduct.id, {
-    product: staleProduct,
-  })
-
-  if (!data) {
-    throw new Error('NotFound')
-  }
 
   const {
-    id,
-    sku,
-    gtin,
-    name: variantName,
-    brand,
-    isVariantOf,
-    image: productImages,
-    offers: {
-      lowPrice,
-      offers: [{ price, listPrice, seller }],
+    ID,
+    Name,
+    Description,
+    Especificacao,
+    ProductImageURL,
+    Price,
+    BreadCrumbs,
+    Category,
+    Installments,
+    Brand,
+  } = product
+
+  const priceVaritation = Installments
+
+  const tabSpecification = [
+    {
+      name: Description ? 'Sobre o curso' : '',
+      description: Description ?? '',
     },
-  } = staleProduct
+    {
+      name: Especificacao?.Conteudo ? 'Conteúdo do curso' : '',
+      description: Especificacao?.Conteudo ?? '',
+    },
+    {
+      name: Especificacao?.Objetivos ? 'Objetivos' : '',
+      description: Especificacao?.Objetivos ?? '',
+    },
+    {
+      name: Especificacao?.TipoCurso?.DescriptionCertificate
+        ? 'Certificados'
+        : '',
+      description: Especificacao?.TipoCurso?.DescriptionCertificate ?? '',
+    },
+  ]
 
   const buyProps = useBuyButton({
-    id,
-    price,
-    listPrice,
-    seller,
+    id: ID,
+    price: Price?.BasePrice,
+    listPrice: Price?.ListPrice,
+    seller: {
+      identifier: Brand?.Name,
+    },
     quantity: addQuantity,
     itemOffered: {
-      sku,
-      name: variantName,
-      gtin,
-      image: productImages,
-      brand,
-      isVariantOf,
+      sku: '',
+      name: Name,
+      gtin: '',
+      image: ProductImageURL,
+      brand: { name: '' },
+      isVariantOf: { productGroupID: '', name: Name },
     },
   })
 
@@ -100,43 +98,17 @@ function ProductDetails({ product: staleProduct }: Props) {
     return <PinterestShareIcon />
   }
 
-  useEffect(() => {
-    sendAnalyticsEvent<ViewItemEvent<AnalyticsItem>>({
-      name: 'view_item',
-      params: {
-        currency: currency.code as CurrencyCode,
-        value: price,
-        items: [
-          {
-            item_id: isVariantOf.productGroupID,
-            item_name: isVariantOf.name,
-            item_brand: brand.name,
-            item_variant: sku,
-            price,
-            discount: listPrice - price,
-            currency: currency.code as CurrencyCode,
-            item_variant_name: variantName,
-            product_reference_id: gtin,
-          },
-        ],
-      },
-    })
-  }, [
-    isVariantOf.productGroupID,
-    isVariantOf.name,
-    brand.name,
-    sku,
-    price,
-    listPrice,
-    currency.code,
-    variantName,
-    gtin,
-  ])
+  const pdpLink = typeof window !== 'undefined' && window.location.href
 
   return (
     <Section className="product-details layout__content layout__section column">
       <Breadcrumb
-        breadcrumbList={staleProduct.breadcrumbList.itemListElement}
+        breadcrumbList={BreadCrumbs?.map((item: any) => {
+          return {
+            item: item.Url,
+            name: item.Titulo,
+          }
+        })}
       />
 
       <section className="product-details__body">
@@ -144,7 +116,7 @@ function ProductDetails({ product: staleProduct }: Props) {
           <ProductTitle
             title={
               <div className="product-details__title-container">
-                <h1 className="text__title-product">{variantName}</h1>
+                <h1 className="text__title-product">{Name}</h1>
                 <div className="share-icon">
                   <ShareProduct
                     additionalOverlay
@@ -153,17 +125,17 @@ function ProductDetails({ product: staleProduct }: Props) {
                     shareLinks={[
                       {
                         name: 'Facebook',
-                        url: '/',
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${pdpLink}`,
                         SocialIcon: facebookShareIcon,
                       },
                       {
                         name: 'Twitter',
-                        url: '/',
+                        url: `https://twitter.com/intent/tweet?url=${pdpLink}`,
                         SocialIcon: twitterShareIcon,
                       },
                       {
-                        name: 'Facebook',
-                        url: '/',
+                        name: 'Pinterest',
+                        url: `https://www.pinterest.com/pin/create/button/?url=${pdpLink}`,
                         SocialIcon: pinterestShareIcon,
                       },
                     ]}
@@ -177,88 +149,88 @@ function ProductDetails({ product: staleProduct }: Props) {
             }
             label={
               <>
-                <ProductTags
-                  tagCategoryLabel="Administração"
-                  urlCategory="/administracao"
-                />
-                <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} />
-                <Workload workload={60} />
+                {Category?.Name && Category?.Name !== undefined && (
+                  <ProductTags
+                    tagCategoryLabel={Category?.Name}
+                    urlCategory={`/${Category?.Slug}`}
+                  />
+                )}
+                {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
+                {Especificacao?.CargaHoraria.Text && (
+                  <Workload workload={Especificacao?.CargaHoraria.Text} />
+                )}
               </>
             }
           />
         </header>
 
         <section className="product-details__image">
-          <Image
-            preload
-            loading="eager"
-            src={productImages[0].url}
-            alt={productImages[0].alternateName}
-            width={360}
-            height={270}
-            sizes="(max-width: 768px) 25vw, 50vw"
-          />
+          {product?.ProductImageURL ? (
+            <img
+              loading="eager"
+              src={product?.ProductImageURL}
+              alt={product?.Name}
+              sizes="(max-width: 768px) 25vw, 50vw"
+            />
+          ) : (
+            <h4 className="image-not-found">imagem indisponível</h4>
+          )}
         </section>
 
         <section className="product-details__settings">
           <section className="product-details__values">
             <div className="product-details__prices">
-              <div className="product-details__list-price-container">
-                <Price
-                  value={listPrice}
-                  formatter={useFormattedPrice}
-                  testId="list-price"
-                  data-value={listPrice}
-                  variant="listing"
-                  classes="text__legend"
-                  SRText="Original price:"
-                />
-                <DiscountBadge listPrice={listPrice} spotPrice={lowPrice} big />
-              </div>
-              <Price
-                value={lowPrice}
+              {Price?.ListPrice && (
+                <div className="product-details__list-price-container">
+                  <Prices
+                    value={Price?.ListPrice}
+                    formatter={useFormattedPrice}
+                    testId="list-price"
+                    data-value={Price?.ListPrice}
+                    variant="listing"
+                    classes="text__legend"
+                    SRText="Original price:"
+                  />
+                  <DiscountBadge
+                    listPrice={Price?.ListPrice}
+                    spotPrice={Price?.BasePrice}
+                    big
+                  />
+                </div>
+              )}
+              <Prices
+                value={Price?.BasePrice}
                 formatter={useFormattedPrice}
                 testId="price"
-                data-value={lowPrice}
+                data-value={Price?.BasePrice}
                 variant="spot"
                 classes="text__lead"
                 SRText="Sale Price:"
               />
-              {instalment && (
-                <Instalments
-                  instalment={{
-                    instalments: instalment.instalments,
-                    value: instalment.value,
-                    interestRate: instalment.interestRate,
-                  }}
-                />
+              {Installments && (
+                <>
+                  <Instalments
+                    instalment={priceVaritation.map((installments: any) => {
+                      return {
+                        installment: installments?.Parcela,
+                        priceValue: installments?.Valor,
+                        text: installments?.Text,
+                      }
+                    })}
+                  />
+                  <InstalmentList
+                    priceVariation={priceVaritation.map((installments: any) => {
+                      return {
+                        installment: installments?.Parcela,
+                        priceValue: installments?.Valor,
+                      }
+                    })}
+                  />
+                </>
               )}
-              <InstalmentList priceVariation={priceVaritation} />
             </div>
-            {/* <div className="prices">
-      <p className="price__old text__legend">{formattedListPrice}</p>
-      <p className="price__new">{isValidating ? '' : formattedPrice}</p>
-    </div> */}
           </section>
-          {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
-        non-composited animation violation due to the button transitioning its
-        background color when changing from its initial disabled to active state.
-        See full explanation on commit https://git.io/JyXV5. */}
           <ButtonBuy {...buyProps}>Adicionar ao carrinho</ButtonBuy>
-          {/* {isValidating ? (
-      <AddToCartLoadingSkeleton />
-    ) : (
-      <ButtonBuy disabled={buyDisabled} {...buyProps}>
-        Add to Cart
-      </ButtonBuy>
-    )}
-    {!availability && (
-      <OutOfStock
-        onSubmit={(email) => {
-          console.info(email)
-        }}
-      />
-    )} */}
         </section>
 
         <section className="product-details__content">
@@ -266,37 +238,16 @@ function ProductDetails({ product: staleProduct }: Props) {
             {typeof window !== 'undefined' && (
               <ProductDescription
                 loadMore="Load More"
-                descriptionTabs={[
-                  {
-                    name: 'Sobre o curso',
-                    description:
-                      'O curso online de Programação Orientada a Objetos apresenta os conceitos para programar orientando objetos a partir da linguagem de programação Java, linguagem gratuita, robusta e que funciona em diversos sistemas operacionais e dispositivos mobile, desktop ou web. No decorrer do curso, o conteúdo será abordado de forma simplificada para que se possa abstrair facilmente os temas abordados no livro. ',
-                  },
-                  {
-                    name: 'Conteúdo do curso',
-                    description:
-                      ' • Introdução à orientação a objetos.\n • Linguagens típicas orientadas a objetos.\n • Programação Orientada a Objeto em Java.\n • Conceitos básicos e terminologias de Programação orientada a objetos.\n • Classe, Objetos, Atributos, Métodos, Construtores e sobrecarga.\n • Instanciação e Referência de objetos.\n • Envio de mensagens.\n • Ciclo de vida de um objeto.\n • Abstração e encapsulamento.\n • Herança. Criação e uso de hierarquia de classes.\n • Classes abstratas e Interfaces.\n • Relacionamento entre classes.\n • Polimorfismo.\n • Ligação dinâmica dynamic binding.\n • Tratamento de exceções.',
-                  },
-                  {
-                    name: 'Objetivos',
-                    description:
-                      ' • Apresentar as características de Programação Orientada a Objetos\n • Compreender como surgiu o paradigma de Programação Orientada a Objetos\n • Introduzir a linguagem Java para Programação Orientada a Objetos\n • Entender os conceitos da Programação Orientada a Objetos\n • Apresentar os principais conceitos de atributos e métodos\n • Entender a ocultação das informações, encapsulando-as\n • Abordar os conceitos de instâncias e referências\n • Entender o ciclo de vida de um objeto\n • Aprender a utilizar métodos com sobrecarga\n • Aprender conceitos de herança e sua utilização\n • Entender como é a criação e o uso da hierarquia de classes\n • Aprender a criar e utilizar classes abstratas e interfaces\n • Aprender sobre os conceitos dos relacionamentos entre as classes e os tipos existentes ',
-                  },
-                  {
-                    name: 'Certificados',
-                    description:
-                      'O certificado emitido pelo GoKursos será conferido após a conclusão de 75% da carga-horária do curso e da obtenção de nota mínima sete na média das avaliações. Para os cursos sem avaliação, será conferido o certificado por participação. ',
-                  },
-                ]}
-                maxHeight={1000}
+                descriptionTabs={tabSpecification}
+                maxHeight={100}
               />
             )}
 
-            <ProductRating />
-            <div className="product-questions__container">
+            {/* <ProductRating /> */}
+            {/* <div className="product-questions__container">
               <LatestQuestions productQuestions={productQuestions} />
               <QuestionForm />
-            </div>
+            </div> */}
           </article>
           <div className="product-details__content-right">
             <article className="product-details__description">
@@ -312,49 +263,5 @@ function ProductDetails({ product: staleProduct }: Props) {
     </Section>
   )
 }
-
-export const fragment = graphql`
-  fragment ProductDetailsFragment_product on StoreProduct {
-    id: productID
-    sku
-    name
-    gtin
-    description
-
-    isVariantOf {
-      productGroupID
-      name
-    }
-
-    image {
-      url
-      alternateName
-    }
-
-    brand {
-      name
-    }
-
-    offers {
-      lowPrice
-      offers {
-        availability
-        price
-        listPrice
-        seller {
-          identifier
-        }
-      }
-    }
-
-    breadcrumbList {
-      itemListElement {
-        item
-        name
-        position
-      }
-    }
-  }
-`
 
 export default ProductDetails
