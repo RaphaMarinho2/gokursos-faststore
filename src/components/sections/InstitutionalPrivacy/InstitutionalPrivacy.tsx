@@ -24,7 +24,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
             className={`text-container ${maxHeight === '100%' ? 'open' : ''}`}
             style={{ maxHeight }}
           >
-            <h1>Privacidade - GoKursos</h1>
+            <h1>Aviso de Privacidade - GoKursos</h1>
             <p>
               O site www.gokursos.com é um serviço interativo, oferecido por
               meio de página eletrônica na internet, que disponibiliza aos
@@ -67,15 +67,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
                 A GoKursos não concede qualquer garantia relacionada à
                 disponibilidade, continuidade de funcionamento ou infalibilidade
                 do seu endereço eletrônico, nem que os mesmos serão úteis para a
-                realização de qualquer atividade em particular; 5. A GoKursos
-                não garante, ainda, a segurança e privacidade do conteúdo fora
-                do seu endereço eletrônico, salvo se nos termos desta Política
-                de Privacidade, nem que o mesmo será ininterrupto, livre de
-                vírus ou outros problemas, erros e ataques e, em particular, não
-                garante que terceiros não autorizados não possam acessar e,
-                eventualmente, interceptar, eliminar, alterar, modificar ou
-                manipular de qualquer modo os dados presentes e/ou transmitidos
-                a seus servidores;
+                realização de qualquer atividade em particular;
               </li>
               <li>
                 A GoKursos não garante, ainda, a segurança e privacidade do
@@ -123,7 +115,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
                 deverá utilizar seu conteúdo.
               </li>
             </ol>
-            <h1>Os Anúncios</h1>
+            <h1>Os anúncios</h1>
             <ol>
               <li>
                 Tal como outros websites, coletamos e utilizamos informação
@@ -138,8 +130,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
               </li>
               <li>
                 Todas as informações constantes nos anúncios são de
-                responsabilidade única e exclusiva dos anunciantes. Ligações a
-                Sites de terceiros
+                responsabilidade única e exclusiva dos anunciantes.
               </li>
             </ol>
             <h1>Ligações e Sites Terceiros</h1>
