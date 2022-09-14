@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-740** - Adjust Mobile Footer Layout
 - **GM-751** - Fixed Layout of ProductCards in ProductShelf component
 - **GM-295** - Video section video size
+- **GM-635** - [INSTITUTIONAL] Adjust font-size of inputs and labels
 
 ## [0.16.0] - 2022-09-08
 
