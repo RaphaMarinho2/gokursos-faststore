@@ -21,7 +21,7 @@ const links = [
         icon: null,
       },
       {
-        href: '/institucional/fale-conosco/',
+        href: '/institucional/fale-conosco',
         name: 'Fale conosco',
         icon: null,
       },
