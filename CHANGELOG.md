@@ -5,11 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]-
+## [Unreleased]
+
+### Fixed
+
+- **GM-272** - [HOME] Adjust shelf titles and loading
+- **GM-769** - issue image in minicart
+
+## [0.17.0] - 2022-09-13
 
 ### Added
 
 - **GM-666** - Integration in PDP with OnData
+
+### Fixed
+
+- **GM-740** - Adjust Mobile Footer Layout
+- **GM-751** - Fixed Layout of ProductCards in ProductShelf component
+- **GM-295** - Video section video size
+- **GM-296** - [HOME] Fix main banner autoplay
+- **GM-761** - [PRODUCT CARD] Card size
+
+## [0.16.0] - 2022-09-08
+
+### Fixed
+
+- **GM-642** - Possibility to redirect to Department page with filter applied.
+
+### Fixed
+
+- **GM-642** - SearchContext refactor
+- **GM-671** - Dynamic build for department page
+- **GM-275** - Fixed menu spacing
+- **GM-248** - Product card spacing
+- **GM-307** - Top Sellers shelf spacing
+- **GM-347** - Trust partners shelf spacing
+- **GM-346** - Infoprodutor shelf spacing
+- **GM-748** - Page system error 404 and 500
+
+### Removed
+
+- **GM-483** - Remove header menu item: "Seja um parceiro"
 
 ## [0.15.0] - 2022-09-01
 

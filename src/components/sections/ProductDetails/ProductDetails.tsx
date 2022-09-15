@@ -155,7 +155,12 @@ function ProductDetails({ product }: Props) {
       sku: '',
       name: Name,
       gtin: '',
-      image: ProductImageURL,
+      image: [
+        {
+          url: ProductImageURL,
+          alternateName: Name,
+        },
+      ],
       brand: { name: '' },
       isVariantOf: { productGroupID: '', name: Name },
     },

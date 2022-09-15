@@ -3,8 +3,6 @@ import storeConfig from 'store.config'
 import { LocationProvider } from '@reach/router'
 
 import type { ProductCardProps } from '.'
-import Icon from '../../ui/Icon'
-import Button from '../../ui/Button'
 import ProductCard from '.'
 
 export default {
@@ -23,10 +21,6 @@ export default {
       options: [0.75, 1.5, 1],
       control: { type: 'radio' },
       table: { defaultValue: '1' },
-    },
-    ButtonBuy: {
-      control: 'boolean',
-      table: { defaultValue: false },
     },
   },
 }
@@ -62,48 +56,26 @@ const product = {
   },
 }
 
-const Template = ({ ButtonBuy, ...args }: ProductCardProps) => {
+const Template = ({ ...args }: ProductCardProps) => {
   console.info('Template')
-
-  const button = ButtonBuy ? (
-    <Button
-      variant="primary"
-      data-fs-button-size="small"
-      icon={<Icon name="ShoppingCart" width={18} height={18} />}
-      iconPosition="left"
-    >
-      Add
-    </Button>
-  ) : null
 
   return (
     <LocationProvider>
       <SessionProvider initialState={{ channel: storeConfig.channel }}>
         <div style={{ width: 300 }}>
-          <ProductCard ButtonBuy={button} {...args} />
+          <ProductCard {...args} />
         </div>
       </SessionProvider>
     </LocationProvider>
   )
 }
 
-const TemplateWide = ({ ButtonBuy, ...args }: ProductCardProps) => {
-  const button = ButtonBuy ? (
-    <Button
-      variant="primary"
-      data-fs-button-size="small"
-      icon={<Icon name="ShoppingCart" width={18} height={18} />}
-      iconPosition="left"
-    >
-      Add
-    </Button>
-  ) : null
-
+const TemplateWide = ({ ...args }: ProductCardProps) => {
   return (
     <LocationProvider>
       <SessionProvider initialState={{ channel: storeConfig.channel }}>
         <div style={{ width: 400 }}>
-          <ProductCard ButtonBuy={button} {...args} />
+          <ProductCard {...args} />
         </div>
       </SessionProvider>
     </LocationProvider>

@@ -3,11 +3,18 @@ interface Props {
   style: Record<string, unknown>
   position: string
   iconColor: string
+  disabled?: boolean
 }
 
-const Arrows = ({ onClick, style, position, iconColor }: Props) => {
+const Arrows = ({
+  onClick,
+  style,
+  position,
+  iconColor,
+  disabled = false,
+}: Props) => {
   return (
-    <button style={style} onClick={onClick}>
+    <button style={style} onClick={onClick} disabled={disabled}>
       {position === 'prev' ? (
         <svg
           width="7"

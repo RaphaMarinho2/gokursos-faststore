@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+import './empty-state.scss'
 
 function EmptyState({ children }: PropsWithChildren<unknown>) {
   return (

@@ -9,7 +9,7 @@ import { memo } from 'react'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
-import type { ReactNode } from 'react'
+import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import './product-card.scss'
 
 type Variant = 'wide' | 'default'
@@ -42,7 +42,6 @@ export interface ProductCardProps {
   bordered?: boolean
   variant?: Variant
   aspectRatio?: number
-  ButtonBuy?: ReactNode
 }
 
 function ProductCard({
@@ -50,23 +49,43 @@ function ProductCard({
   index,
   variant = 'default',
   bordered = false,
-  ButtonBuy,
   ...otherProps
 }: ProductCardProps) {
   const { Name: name, ProductImageURL: img } = product
 
-  const spotPrice = product.Price?.BasePrice
+  const price = product.Price?.BasePrice
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
 
   const linkProps = useProductLink({ product, index })
+
+  const buyProps = useBuyButton({
+    id: product.ID,
+    price,
+    listPrice,
+    seller: { identifier: '' },
+    quantity: 1,
+    itemOffered: {
+      sku: '',
+      name,
+      gtin: '',
+      image: [
+        {
+          alternateName: name,
+          url: img,
+        },
+      ],
+      brand: { name: '' },
+      isVariantOf: { productGroupID: '', name },
+    },
+  })
 
   return (
     <UICard
       data-fs-product-card
       data-fs-product-card-variant={variant}
       data-fs-product-card-bordered={bordered}
-      data-fs-product-card-actionabled={!!ButtonBuy}
+      data-fs-product-card-actionabled
       {...otherProps}
     >
       {img !== '' ? (
@@ -92,9 +111,9 @@ function ProductCard({
           </h3>
 
           <div data-fs-product-card-prices>
-            {spotPrice && (
+            {price && (
               <>
-                {listPrice && listPrice > spotPrice && (
+                {listPrice && listPrice > price && (
                   <Price
                     value={listPrice}
                     formatter={useFormattedPrice}
@@ -106,10 +125,10 @@ function ProductCard({
                   />
                 )}
                 <Price
-                  value={spotPrice}
+                  value={price}
                   formatter={useFormattedPrice}
                   testId="price"
-                  data-value={spotPrice}
+                  data-value={price}
                   variant="spot"
                   classes="text__body"
                   SRText="Sale Price:"
@@ -118,12 +137,9 @@ function ProductCard({
             )}
           </div>
         </div>
-
-        {!!ButtonBuy && (
-          <UICardActions data-fs-product-card-actions>
-            {ButtonBuy}
-          </UICardActions>
-        )}
+        <UICardActions data-fs-product-card-actions>
+          <button {...buyProps}>Quero começar</button>
+        </UICardActions>
       </UICardContent>
     </UICard>
   )
