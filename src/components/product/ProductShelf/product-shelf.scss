@@ -36,7 +36,9 @@
     border-bottom: 1px solid #dddddd;
 
     @include media("<=tablet") {
-      padding-left: 16px;
+      padding-left: 0;
+      margin-right: 16px;
+      margin-left: 16px;
     }
   }
 
