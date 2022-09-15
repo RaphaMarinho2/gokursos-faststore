@@ -14,11 +14,14 @@ interface ShelfProps {
 
 const NewReleasesShelf = ({ title, pretitle }: ShelfProps) => {
   const [products, setProducts] = useState<any>()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
+    setIsLoading(true)
     axios
       .get('/api/getNewReleases')
       .then(({ data: { value } }) => setProducts(value))
+      .finally(() => setIsLoading(false))
   }, [])
 
   const { isMobile, isTablet } = useWindowDimensions()
@@ -27,15 +30,13 @@ const NewReleasesShelf = ({ title, pretitle }: ShelfProps) => {
 
   return (
     <Section className="layout__content new-releases-shelf">
-      {products !== undefined && (
-        <ProductShelf
-          cardsQuantity={shelfItemQuantity}
-          title={title}
-          pretitle={pretitle}
-          withDivisor
-          products={products}
-        />
-      )}
+      <ProductShelf
+        cardsQuantity={shelfItemQuantity}
+        title={title}
+        pretitle={pretitle}
+        products={products}
+        isLoading={isLoading}
+      />
     </Section>
   )
 }

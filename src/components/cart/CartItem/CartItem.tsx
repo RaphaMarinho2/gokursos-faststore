@@ -20,13 +20,17 @@ function CartItem({ item }: Props) {
       className="cart-item"
       data-testid="cart-item"
       data-sku={item.itemOffered.sku}
-      data-seller={item.seller.identifier}
+      data-seller={item.seller?.identifier}
     >
       <CardContent>
         <CardImage>
           <img
-            src={item.itemOffered.image[0].url}
-            alt={item.itemOffered.image[0].alternateName}
+            src={item.itemOffered.image ? item.itemOffered.image[0].url : ''}
+            alt={
+              item.itemOffered.image
+                ? item.itemOffered.image[0].alternateName
+                : 'imagem indisponível'
+            }
             width={72}
             height={72}
           />

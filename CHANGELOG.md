@@ -7,13 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed 
+
+- **GM-635** - [INSTITUTIONAL] Adjust font-size of inputs and labels
+- **GM-272** - [HOME] Adjust shelf titles and loading
+- **GM-769** - issue image in minicart
+- **GM-375** - Scroll to Top Button adjust
+- **GM-319** - Adjust Result Quantity in search
+- **GM-782** - [HOME] Added loading Skeleton to the HomeProductShelf
+- **GM-653** - Adjust institucional pages texts and layout
+- **GM-772** - Adjust icons footer
+- **GM-520** - button close modal share social in PDP
+
+## [0.17.0] - 2022-09-13
+
+### Added
+
+- **GM-666** - Integration in PDP with OnData
+
 ### Fixed
 
-- **GM-520** - button close modal share social in PDP
+- **GM-740** - Adjust Mobile Footer Layout
+- **GM-751** - Fixed Layout of ProductCards in ProductShelf component
+- **GM-295** - Video section video size
+- **GM-296** - [HOME] Fix main banner autoplay
+- **GM-761** - [PRODUCT CARD] Card size
 
 ## [0.16.0] - 2022-09-08
 
-### Added
+### Fixed
 
 - **GM-642** - Possibility to redirect to Department page with filter applied.
 

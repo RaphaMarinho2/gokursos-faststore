@@ -40,6 +40,8 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
 
   const [products, setProducts] = useState<any>()
 
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+
   const [arrowPrevEnabled, setArrowPrevEnabled] = useState<boolean>(false)
   const [arrowNextEnabled, setArrowNextEnabled] = useState<boolean>(true)
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -89,6 +91,7 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
   }
 
   useEffect(() => {
+    setIsLoading(true)
     const departmentName =
       selectedTab &&
       selectedTab !== undefined &&
@@ -102,7 +105,10 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
           departmentName,
         },
       })
-      .then(({ data: { value } }) => setProducts(value))
+      .then(({ data: { value } }) => {
+        setProducts(value)
+      })
+      .finally(() => setIsLoading(false))
   }, [selectedTab])
 
   return (
@@ -176,6 +182,7 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
                   <ProductShelf
                     cardsQuantity={shelfItemQuantity}
                     products={products}
+                    isLoading={isLoading}
                   />
                 </Section>
               </article>

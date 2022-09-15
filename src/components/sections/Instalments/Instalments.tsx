@@ -3,21 +3,24 @@ import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import './instalments.scss'
 
 interface Instalment {
-  instalments: number
-  value: number
-  interestRate?: number | null
+  installment: number
+  priceValue: number
+  text?: string
 }
-
 interface InstalmentsProps {
-  instalment: Instalment
+  instalment: Instalment[]
 }
 
 export default function Instalments({ instalment }: InstalmentsProps) {
-  const { instalments, value, interestRate } = instalment
-  const formattedValue = useFormattedPrice(value)
-  const rate = interestRate ? '' : 'sem juros'
+  const maxInstalment = instalment.reduce((prev: any, current: any) => {
+    return prev.priceValue < current.priceValue ? prev : current
+  })
+
+  const { installment, priceValue } = maxInstalment
+
+  const formattedValue = useFormattedPrice(priceValue)
 
   return (
-    <span className="instalments">{`em até ${instalments}x de ${formattedValue} ${rate}`}</span>
+    <span className="instalments">{`em até ${installment}x de ${formattedValue}`}</span>
   )
 }
