@@ -33,6 +33,7 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
   return (
     <div className="main-banner layout__content">
       <Carousel
+        fullWidth
         hasAutomaticNavigation
         timeoutNavigationAutomatic={5000}
         bullet={{
