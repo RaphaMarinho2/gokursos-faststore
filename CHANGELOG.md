@@ -7,9 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.16.0] - 2022-09-08
+### Fixed
+
+- **GM-272** - [HOME] Adjust shelf titles and loading
+- **GM-769** - issue image in minicart
+
+## [0.17.0] - 2022-09-13
 
 ### Added
+
+- **GM-666** - Integration in PDP with OnData
+
+### Fixed
+
+- **GM-740** - Adjust Mobile Footer Layout
+- **GM-751** - Fixed Layout of ProductCards in ProductShelf component
+- **GM-295** - Video section video size
+- **GM-296** - [HOME] Fix main banner autoplay
+- **GM-761** - [PRODUCT CARD] Card size
+
+## [0.16.0] - 2022-09-08
+
+### Fixed
 
 - **GM-642** - Possibility to redirect to Department page with filter applied.
 
@@ -27,14 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - **GM-483** - Remove header menu item: "Seja um parceiro"
-
-### Fixed
-
-- **GM-769** - issue image in minicart
-
-### Added
-
-- **GM-666** - Integration in PDP with OnData
 
 ## [0.15.0] - 2022-09-01
 
