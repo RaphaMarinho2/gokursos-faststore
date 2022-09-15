@@ -104,7 +104,7 @@ const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
     return labelText
   })
 
-  const textLabel = label[0].text
+  const textLabel = label[0]?.text
 
   const [isOpen, setOpen] = useState(false)
 
