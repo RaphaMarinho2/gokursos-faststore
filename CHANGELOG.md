@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-769** - issue image in minicart
 - **GM-375** - Scroll to Top Button adjust
 - **GM-319** - Adjust Result Quantity in search
+- **GM-782** - [HOME] Added loading Skeleton to the HomeProductShelf
 
 ## [0.17.0] - 2022-09-13
 
