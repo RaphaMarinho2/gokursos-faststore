@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **GM-626** - Adjust Mobile title of dropdown pages institutional
+
 ## [0.17.0] - 2022-09-13
 
 ### Added
