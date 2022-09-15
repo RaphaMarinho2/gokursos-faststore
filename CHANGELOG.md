@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-272** - [HOME] Adjust shelf titles and loading
 - **GM-769** - issue image in minicart
+- **GM-375** - Scroll to Top Button adjust
 
 ## [0.17.0] - 2022-09-13
 
