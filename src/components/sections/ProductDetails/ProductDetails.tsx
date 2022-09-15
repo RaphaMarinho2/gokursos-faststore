@@ -41,84 +41,9 @@ function ProductDetails({ product }: Props) {
     Price,
     BreadCrumbs,
     Category,
-    // Installments,
+    Installments,
     Brand,
   } = product
-
-  const Installments = [
-    {
-      ID: 113434415614394571,
-      Valor: 233.33333333,
-      Parcela: 3,
-      Text: '3x de R$ 233,33 sem juros',
-    },
-    {
-      ID: 113434415614394572,
-      Valor: 175.0,
-      Parcela: 4,
-      Text: '4x de R$ 175,00 sem juros',
-    },
-    {
-      ID: 113434415614394573,
-      Valor: 140.0,
-      Parcela: 5,
-      Text: '5x de R$ 140,00 sem juros',
-    },
-    {
-      ID: 113434415614394574,
-      Valor: 116.66666667,
-      Parcela: 6,
-      Text: '6x de R$ 116,67 sem juros',
-    },
-    {
-      ID: 113434415614394575,
-      Valor: 100.0,
-      Parcela: 7,
-      Text: '7x de R$ 100,00 sem juros',
-    },
-    {
-      ID: 113434415614394576,
-      Valor: 87.5,
-      Parcela: 8,
-      Text: '8x de R$ 87,50 sem juros',
-    },
-    {
-      ID: 113434415614394577,
-      Valor: 77.77777778,
-      Parcela: 9,
-      Text: '9x de R$ 77,78 sem juros',
-    },
-    {
-      ID: 113434415614394578,
-      Valor: 70.0,
-      Parcela: 10,
-      Text: '10x de R$ 70,00 sem juros',
-    },
-    {
-      ID: 113434415614394579,
-      Valor: 63.63636364,
-      Parcela: 11,
-      Text: '11x de R$ 63,64 sem juros',
-    },
-    {
-      ID: 113434415614394580,
-      Valor: 58.33333333,
-      Parcela: 12,
-      Text: '12x de R$ 58,33 sem juros',
-    },
-    {
-      ID: 113434415614394569,
-      Valor: 700.0,
-      Parcela: 1,
-      Text: 'Pagamento à vista - R$ 700,00 sem juros',
-    },
-    {
-      ID: 113434415614394570,
-      Valor: 350.0,
-      Parcela: 2,
-      Text: '2x de R$ 350,00 sem juros',
-    },
-  ]
 
   const priceVaritation = Installments
 
