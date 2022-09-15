@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **GM-653** - Adjust institucional pages texts
+- **GM-653** - Adjust institucional pages texts and layout
 
 ## [0.17.0] - 2022-09-13
 
