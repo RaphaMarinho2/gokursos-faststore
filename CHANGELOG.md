@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **GM-272** - [HOME] Adjust shelf titles and loading
+
 ## [0.17.0] - 2022-09-13
 
 ### Added
@@ -23,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.16.0] - 2022-09-08
 
-### Added
+### Fixed
 
 - **GM-642** - Possibility to redirect to Department page with filter applied.
 
