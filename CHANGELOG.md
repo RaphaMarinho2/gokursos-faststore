@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed 
+
+- **GM-635** - [INSTITUTIONAL] Adjust font-size of inputs and labels
+
+## [0.17.0] - 2022-09-13
+
+### Added
+
+- **GM-666** - Integration in PDP with OnData
+
 ### Fixed
 
 - **GM-272** - [HOME] Adjust shelf titles and loading
