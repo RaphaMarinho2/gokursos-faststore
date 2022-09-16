@@ -53,12 +53,6 @@ function Filters({
         selectedFacets,
       })
 
-      if (!filters) {
-        setFilterLoading(false)
-
-        return
-      }
-
       setAllFilters(filters)
       setFilterLoading(false)
     }

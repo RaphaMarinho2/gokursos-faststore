@@ -17,7 +17,7 @@ interface SearchContextProps {
   slug?: string
   isLoading: boolean
   filteredFacets: Filters[]
-  setAllFilters: Dispatch<SetStateAction<Filters[]>>
+  setAllFilters: (allFilters: Filters[]) => void
   allFilters: Filters[]
   productsCount: number
   products: ProductsProductCard[]
@@ -52,7 +52,8 @@ function SearchProvider({
           facets:
             filter.type === 'CHECKBOX'
               ? filter.facets.filter((facet) => facet.selected === true)
-              : [
+              : filter?.facets?.length
+              ? [
                   {
                     value: filter?.facets[0]?.value,
                     label: filter?.facets[0]?.label,
@@ -63,7 +64,8 @@ function SearchProvider({
                       actualMax: filter?.facets[0].others?.actualMax,
                     },
                   },
-                ],
+                ]
+              : [],
         }
       }),
     [allFilters]
@@ -78,14 +80,12 @@ function SearchProvider({
 
   useEffect(() => {
     setIsLoading(true)
-    if (filterLoading) return
 
     const searchProducts = async () => {
-      const { page, term } = searchParams
+      const { page } = searchParams
       const { value, '@odata.count': count } = await axios
         .post('/api/getProducts', {
           defaultFilters,
-          term,
           skip: page * ITEMS_PER_PAGE,
           sort,
           itemsPerPage: ITEMS_PER_PAGE,
@@ -101,15 +101,7 @@ function SearchProvider({
     }
 
     searchProducts()
-  }, [
-    allFilters.length,
-    defaultFilters,
-    filterLoading,
-    filteredFacets,
-    searchParams,
-    slug,
-    sort,
-  ])
+  }, [defaultFilters, filterLoading, filteredFacets, searchParams, sort])
 
   const value = {
     isLoading,

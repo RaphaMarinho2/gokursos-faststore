@@ -126,7 +126,7 @@ function Facets({ filterLoading }: PLPFiltersProps) {
                       ))}
                     </>
                   )}
-                  {filter.type === 'RANGE' && (
+                  {filter.type === 'RANGE' && filter.facets.length ? (
                     <div className="facet__facet">
                       <MultiRangeSlider
                         min={filter.facets[0].others?.min ?? 0}
@@ -143,6 +143,8 @@ function Facets({ filterLoading }: PLPFiltersProps) {
                         }}
                       />
                     </div>
+                  ) : (
+                    <></>
                   )}
                 </AccordionItem>
               ))}
