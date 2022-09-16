@@ -104,8 +104,8 @@ const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
     return labelText
   })
 
-  const valueDefault = ArrayMenu[0]?.text
   const textLabel = label[0]?.text
+  const valueDefault = ArrayMenu[0]?.text
 
   const [isOpen, setOpen] = useState(false)
 
