@@ -79,6 +79,14 @@
       margin-left: 32px;
     }
 
+    h1:first-child {
+      margin-bottom: 18px;
+
+      @include media(">=notebook") {
+        margin-bottom: 24px;
+      }
+    }
+
     h1 {
       font-size: 16px;
       font-weight: 700;
@@ -93,33 +101,37 @@
 
     p {
       margin-top: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
       font-size: 14px;
-      line-height: 19px;
+      line-height: 18px;
       color: #000000;
 
       @include media(">=notebook") {
-        margin-top: 32px;
-        margin-bottom: 45px;
+        margin-top: 16px;
+        margin-bottom: 61px;
         font-size: 16px;
         line-height: 24px;
       }
     }
 
     ol {
-      padding-left: 40px;
-      list-style: decimal;
+      margin-top: 16px;
+      margin-bottom: 32px;
+      list-style: none;
+
+      @include media(">=notebook") {
+        margin-top: 16px;
+        margin-bottom: 61px;
+      }
 
       li {
-        margin-top: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 18px;
         font-size: 14px;
-        line-height: 19px;
+        line-height: 18px;
         color: #000000;
 
         @include media(">=notebook") {
-          margin-top: 32px;
-          margin-bottom: 45px;
+          margin-bottom: 24px;
           font-size: 16px;
           line-height: 24px;
         }
@@ -139,6 +151,7 @@
       font-size: 14px;
       font-weight: 600;
       color: #666666;
+      white-space: nowrap;
       cursor: pointer;
       background: #ffffff;
       border: 1px solid #dddddd;
