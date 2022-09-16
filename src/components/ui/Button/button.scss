@@ -413,11 +413,23 @@
       var(--fs-button-border-width) solid
       var(--fs-button-buy-border-color);
 
+    svg {
+      path {
+        transition: 0.2s;
+      }
+    }
+
     &:hover {
       color: var(--fs-button-buy-text-color-hover);
       background-color: var(--fs-button-buy-bkg-color-hover);
       border-color: var(--fs-button-buy-border-color-hover);
       box-shadow: var(--fs-button-buy-shadow-hover);
+
+      svg {
+        path {
+          fill: white;
+        }
+      }
     }
 
     &:focus,
