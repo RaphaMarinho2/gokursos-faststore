@@ -104,6 +104,7 @@ const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
     return labelText
   })
 
+  const valueDefault = ArrayMenu[0].text
   const textLabel = label[0]?.text
 
   const [isOpen, setOpen] = useState(false)
@@ -118,7 +119,7 @@ const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
         <ListMenuDesk />
       ) : (
         <Dropdown isOpen={isOpen} onDismiss={onDismiss} id="institutional-menu">
-          <DropDownTop location={location} label={textLabel} />
+          <DropDownTop location={location} label={textLabel ?? valueDefault} />
           <DropDownMenu location={location} />
         </Dropdown>
       )}
