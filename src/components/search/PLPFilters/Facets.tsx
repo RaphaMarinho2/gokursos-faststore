@@ -22,7 +22,7 @@ interface ChangeFacetProps {
 }
 
 function Facets({ filterLoading }: PLPFiltersProps) {
-  const { allFilters, setAllFilters } = useSearch()
+  const { allFilters, setAllFilters, searchParams } = useSearch()
 
   const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
     new Set([])
@@ -83,7 +83,14 @@ function Facets({ filterLoading }: PLPFiltersProps) {
       <FilterSkeleton loading={filterLoading}>
         {allFilters?.length ? (
           <>
-            <span className="filter__title">Filtros</span>
+            <div className="filter__title-container">
+              {searchParams?.term ? (
+                <span className="filter__title">{searchParams?.term}</span>
+              ) : (
+                <></>
+              )}
+              <span className="filter__title">Filtros</span>
+            </div>
             <Accordion
               expandedIndices={indicesExpanded}
               onChange={onAccordionChange}

@@ -1,6 +1,12 @@
 @import "src/styles/scaffold";
 
 .filter {
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
   &__title {
     font-size: 14px;
     font-weight: 700;
