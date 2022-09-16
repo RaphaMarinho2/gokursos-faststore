@@ -590,7 +590,7 @@
 
     @include media(">=tablet") {
       right: 225px;
-      width: 267px;
+      width: 290px;
     }
 
     [data-modal-share-product-text] {
@@ -606,7 +606,18 @@
     }
 
     [data-close-modal-button] {
-      display: none;
+      position: absolute;
+      top: 7px;
+      right: 1px;
+      cursor: pointer;
+      background: none;
+      border: 0;
+
+      svg {
+        path {
+          stroke: #555;
+        }
+      }
     }
 
     [data-modal-share-links-container] {

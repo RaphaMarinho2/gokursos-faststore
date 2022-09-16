@@ -14,6 +14,7 @@ const LeiaJaLogo: FC = () => {
         className="leiaja-logo"
         src="../../images/leiaja.png"
         alt="LeiaJa Logo"
+        placeholder="tracedSVG"
       />
     </Link>
   )
