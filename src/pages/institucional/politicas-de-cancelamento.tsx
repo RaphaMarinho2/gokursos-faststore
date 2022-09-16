@@ -12,12 +12,12 @@ function Page(props: Props) {
       <Breadcrumb
         breadcrumbList={[
           {
-            name: 'Políticas de Privacidade',
+            name: 'Política de Cancelamento',
             item: '',
             position: 1,
           },
         ]}
-        name="Políticas de Privacidade"
+        name="Política de Cancelamento"
       />
       <InstitutionalCancelPolicy location={props.location.pathname} />
     </>
