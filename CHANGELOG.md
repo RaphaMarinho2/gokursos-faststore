@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed 
 
-- **GM-794** - [PDP] Remove lowercase of linkId
+- **GM-794** - [PDP] Remove lowercase of linkId in shelfs and search results
 
 ## [0.17.1] - 2022-09-15
 
