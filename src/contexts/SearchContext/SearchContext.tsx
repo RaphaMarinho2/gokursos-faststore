@@ -83,21 +83,26 @@ function SearchProvider({
 
     const searchProducts = async () => {
       const { page } = searchParams
-      const { value, '@odata.count': count } = await axios
-        .post('/api/getProducts', {
-          defaultFilters,
-          skip: page * ITEMS_PER_PAGE,
-          sort,
-          itemsPerPage: ITEMS_PER_PAGE,
-          filteredFacets: filteredFacets.length ? filteredFacets : undefined,
-        })
-        .then(({ data }) => data)
-        .catch((err) => console.error(err))
-        .finally(() => setIsLoading(false))
 
-      setProductsCount(count)
-      setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
-      setProducts(value)
+      try {
+        const { value, '@odata.count': count } = await axios
+          .post('/api/getProducts', {
+            defaultFilters,
+            skip: page * ITEMS_PER_PAGE,
+            sort,
+            itemsPerPage: ITEMS_PER_PAGE,
+            filteredFacets: filteredFacets.length ? filteredFacets : undefined,
+          })
+          .then(({ data }) => data)
+
+        setProductsCount(count)
+        setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
+        setProducts(value)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     searchProducts()
