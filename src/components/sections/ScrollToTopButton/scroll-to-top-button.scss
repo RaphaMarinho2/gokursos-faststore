@@ -14,11 +14,8 @@
   .scroll-to-top-button__content {
     position: fixed;
     bottom: 15%;
+    left: 0;
     z-index: 2;
-
-    @include media(">=desktop") {
-      left: auto;
-    }
 
     [data-store-button] {
       display: flex;

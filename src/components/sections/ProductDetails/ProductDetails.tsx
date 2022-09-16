@@ -13,6 +13,7 @@ import { ButtonBuy } from 'src/components/ui/Button'
 import Prices from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
 import productQueryDetails from 'src/mocks/productQueryDetails.json'
+import IconClose from 'src/components/icons/IconClose'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 
@@ -80,11 +81,20 @@ function ProductDetails({ product }: Props) {
       sku: '',
       name: Name,
       gtin: '',
-      image: ProductImageURL,
+      image: [
+        {
+          url: ProductImageURL,
+          alternateName: Name,
+        },
+      ],
       brand: { name: '' },
       isVariantOf: { productGroupID: '', name: Name },
     },
   })
+
+  const iconClose = () => {
+    return <IconClose />
+  }
 
   const facebookShareIcon = () => {
     return <FacebookShareIcon />
@@ -122,6 +132,7 @@ function ProductDetails({ product }: Props) {
                     additionalOverlay
                     shareWebSocials="Compartilhe:"
                     productURL="/"
+                    CloseIcon={iconClose}
                     shareLinks={[
                       {
                         name: 'Facebook',

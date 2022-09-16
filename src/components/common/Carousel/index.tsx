@@ -1,4 +1,10 @@
-import React, { Children, useEffect, useRef, useState } from 'react'
+import React, {
+  Children,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from 'react'
 
 import Bullets from './components/Bullets'
 import Arrows from './components/Arrows'
@@ -25,6 +31,7 @@ export interface CarouselProps {
   gapItems?: number
   hasAutomaticNavigation?: boolean
   timeoutNavigationAutomatic?: number
+  fullWidth?: boolean
 }
 
 const Carousel = ({
@@ -35,6 +42,7 @@ const Carousel = ({
   gapItems,
   hasAutomaticNavigation = false,
   timeoutNavigationAutomatic = 5000,
+  fullWidth = false,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   const [bulletsQtd, setBulletsQtd] = useState<number>(0)
@@ -102,7 +110,7 @@ const Carousel = ({
     return null
   }
 
-  const setBullets = () => {
+  const setBullets = useCallback(() => {
     if (containerRef.current && refitem.current) {
       const newItemWidth = refitem.current.clientWidth
       const divWidth = containerRef.current.offsetWidth
@@ -118,7 +126,7 @@ const Carousel = ({
     }
 
     return null
-  }
+  }, [arrayChildren.length, qtyItems])
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -135,7 +143,7 @@ const Carousel = ({
   }
 
   const visibleItems = (qtd: number) => {
-    if (containerRef.current && refitem.current) {
+    if (containerRef.current) {
       const divWidth = containerRef.current.offsetWidth
       const widthItem = divWidth / qtd
 
@@ -149,7 +157,8 @@ const Carousel = ({
     window.addEventListener('resize', () => {
       currentItemDisplayed()
       setBullets()
-      if (qtyItems) {
+
+      if (qtyItems && !fullWidth) {
         visibleItems(qtyItems)
       }
     })
@@ -184,7 +193,7 @@ const Carousel = ({
   ])
 
   useEffect(() => {
-    if (qtyItems) {
+    if (qtyItems && !fullWidth) {
       visibleItems(qtyItems)
     }
 
@@ -194,8 +203,7 @@ const Carousel = ({
       currentItemDisplayed()
       focusBullets()
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerRef])
+  }, [containerRef, qtyItems, setBullets, fullWidth])
 
   return (
     <>
@@ -239,25 +247,46 @@ const Carousel = ({
               display: ' flex',
               flexDirection: 'row',
               scrollBehavior: 'smooth',
-              overflowX: 'scroll',
+              overflowX: 'hidden',
             }}
           >
-            {arrayChildren.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className="container-item"
-                  style={{
-                    minWidth: qtyItems ? `${itemWidth}px` : 'auto',
-                    transition: 'all 0.5  ease-out',
-                    paddingRight: `${gapItems ?? 2}px`,
-                  }}
-                  ref={refitem}
-                >
-                  {item}
-                </div>
-              )
-            })}
+            {itemWidth && !fullWidth
+              ? arrayChildren.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="container-item"
+                      style={{
+                        minWidth: qtyItems ? `${itemWidth}px` : 'auto',
+                        minHeight: '192px',
+                        transition: 'all 0.5 ease-out',
+                        paddingRight: `${gapItems ?? 2}px`,
+                      }}
+                      ref={refitem}
+                    >
+                      {item}
+                    </div>
+                  )
+                })
+              : ''}
+            {fullWidth &&
+              arrayChildren.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="container-item"
+                    style={{
+                      minWidth: qtyItems ? `100%` : 'auto',
+                      minHeight: '192px',
+                      transition: 'all 0.5 ease-out',
+                      paddingRight: `${gapItems ?? 2}px`,
+                    }}
+                    ref={refitem}
+                  >
+                    {item}
+                  </div>
+                )
+              })}
           </div>
 
           <div
