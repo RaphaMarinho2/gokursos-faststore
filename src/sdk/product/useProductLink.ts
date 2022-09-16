@@ -12,9 +12,7 @@ export type ProductLinkOptions = {
 }
 
 export const useProductLink = ({ index, product }: ProductLinkOptions) => {
-  const { LinkId } = product
-
-  const slug = LinkId.toLowerCase()
+  const { LinkId: slug } = product
 
   const { href } = useLocation()
   const {
