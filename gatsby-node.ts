@@ -1,6 +1,7 @@
 import path from 'path'
 
 import type { GatsbyNode } from 'gatsby'
+import axios from 'axios'
 
 import { apiSchema } from './src/server'
 
@@ -31,6 +32,25 @@ exports.createPages = async ({ graphql, actions }: any) => {
       component: departmentPage,
       context: {
         slug: edge.node.slug,
+      },
+    })
+  })
+}
+
+// Create product pages dynamically
+exports.createPages = async ({ actions }: any) => {
+  const { createPage } = actions
+  const productPage = path.resolve(`src/pages/[slug]/p.tsx`)
+  const result = await axios.get(
+    `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
+  )
+
+  result.data.value.forEach((edge: any) => {
+    createPage({
+      path: `${edge.linkId}`,
+      component: productPage,
+      context: {
+        slug: edge.linkId,
       },
     })
   })
