@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-653** - Adjust institucional pages texts and layout
 - **GM-772** - Adjust icons footer
 - **GM-520** - button close modal share social in PDP
+- **GM-519** - [PDP] Adjust in buy box layout
 
 ## [0.17.0] - 2022-09-13
 
