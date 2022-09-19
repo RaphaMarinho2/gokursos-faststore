@@ -1,5 +1,11 @@
 import './styles.scss'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import ShareProduct from '@acctglobal/shareproduct'
+import IconClose from 'src/components/icons/IconClose'
+import FacebookShareIcon from 'src/components/icons/FacebookShare'
+import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
+import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
+import ShareIconPlan from 'src/components/icons/ShareIconPlan'
 
 interface BuyBoxProps {
   nodes: Array<{
@@ -44,6 +50,24 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
   const { isTablet } = useWindowDimensions()
   const nodesModifiedProps = nodes as unknown as BuyBoxModifiedProps
 
+  const iconClose = () => {
+    return <IconClose />
+  }
+
+  const facebookShareIcon = () => {
+    return <FacebookShareIcon />
+  }
+
+  const twitterShareIcon = () => {
+    return <TwitterShareIcon />
+  }
+
+  const pinterestShareIcon = () => {
+    return <PinterestShareIcon />
+  }
+
+  const planLink = typeof window !== 'undefined' && window.location.href
+
   return (
     <div className="buy-box__container layout__content">
       {nodesModifiedProps.map((node, index) => {
@@ -53,7 +77,6 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
           textoBotao,
           bannerImageDesktop,
           bannerImageMobile,
-          compartilhar,
         } = node
 
         return (
@@ -66,7 +89,32 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
             <div key={index} className="component-Buybox__content">
               <div className="titulo-compartilhar">
                 <h2 className="titulo-planos">{titulo}</h2>
-                <img alt={titulo} src={compartilhar?.url} />
+                <div className="share-icon">
+                  <ShareProduct
+                    additionalOverlay
+                    shareWebSocials="Compartilhe:"
+                    productURL="/"
+                    CloseIcon={iconClose}
+                    shareLinks={[
+                      {
+                        name: 'Facebook',
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${planLink}`,
+                        SocialIcon: facebookShareIcon,
+                      },
+                      {
+                        name: 'Twitter',
+                        url: `https://twitter.com/intent/tweet?url=${planLink}`,
+                        SocialIcon: twitterShareIcon,
+                      },
+                      {
+                        name: 'Pinterest',
+                        url: `https://www.pinterest.com/pin/create/button/?url=${planLink}`,
+                        SocialIcon: pinterestShareIcon,
+                      },
+                    ]}
+                    ShareIcon={ShareIconPlan}
+                  />
+                </div>
               </div>
               <h3 className="preco">{preco}</h3>
               <div className="botao">
