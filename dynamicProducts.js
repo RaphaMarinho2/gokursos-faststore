@@ -2,7 +2,7 @@ import axios from 'axios'
 
 function getProducts() {
   return axios.get(
-    `${process.env.SERVER_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
+    `${'https://gde.godigitaledu.com'}/odata/Catalog/v1/Products?$select=LinkId`
   )
 }
 
