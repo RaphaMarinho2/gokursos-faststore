@@ -37,13 +37,15 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
 
   return (
     <Section className="layout__content pdp-shelf-container">
-      <ProductShelf
-        products={products}
-        cardsQuantity={shelfItemQuantity}
-        title={title}
-        pretitle={pretitle}
-        withDivisor
-      />
+      {products && (
+        <ProductShelf
+          products={products}
+          cardsQuantity={shelfItemQuantity}
+          title={title}
+          pretitle={pretitle}
+          withDivisor
+        />
+      )}
     </Section>
   )
 }

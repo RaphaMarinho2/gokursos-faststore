@@ -21,18 +21,12 @@ type ForceSvg = {
 interface Props {
   galleryTitle?: string | null
   title: string
-  searchTerm?: string
   forceSvg?: ForceSvg
   hasFilter?: boolean
 }
 
-function ProductGallery({
-  title,
-  searchTerm,
-  galleryTitle,
-  hasFilter = true,
-}: Props) {
-  const { products, productsCount, isLoading, slug, lastPage, currentPage } =
+function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
+  const { products, productsCount, isLoading, slug, lastPage, searchParams } =
     useSearch()
 
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
@@ -42,10 +36,10 @@ function ProductGallery({
       data-testid="product-gallery"
       className="product-listing layout__content-full"
     >
-      {searchTerm && (
+      {searchParams.term && (
         <header className="product-listing__search-term layout__content">
           <h1>
-            Mostrando resultados de: <span>{searchTerm}</span>
+            Mostrando resultados de: <span>{searchParams.term}</span>
           </h1>
         </header>
       )}
@@ -61,7 +55,8 @@ function ProductGallery({
           <div className="product-listing__filters">
             <Filters
               slug={slug}
-              term={searchTerm}
+              term={searchParams.term}
+              selectedFacets={searchParams.selectedFacets}
               isFilterOpen={isFilterOpen}
               onDismiss={() => setIsFilterOpen(false)}
             />
@@ -101,7 +96,7 @@ function ProductGallery({
           <ProductGridSkeleton loading={!products || isLoading}>
             <GalleryPage
               showSponsoredProducts={false}
-              page={currentPage}
+              page={searchParams.page}
               title={title}
               products={products}
             />
@@ -109,7 +104,7 @@ function ProductGallery({
           {/* Add link to next page. This helps on SEO */}
           {!isLoading && products?.length ? (
             <ProductGalleryPaginator
-              currentPage={currentPage}
+              currentPage={searchParams.page}
               lastPage={lastPage}
             />
           ) : (

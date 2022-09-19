@@ -92,7 +92,7 @@ function Page(props: Props) {
           (node) => node.slug === '/plano-basico'
         )}
       />
-      <SearchProvider slug="/plano-basico">
+      <SearchProvider slug="/plano-basico" searchParams={searchParams}>
         <ProductGallery
           title={title}
           forceSvg={svgIcons}

@@ -1,16 +1,10 @@
-import {
-  parseSearchState,
-  SearchProvider as FSSearchProvider,
-  useSession,
-} from '@faststore/sdk'
+import { SearchProvider as FSSearchProvider, useSession } from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import { useEffect, useState } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import SROnly from 'src/components/ui/SROnly'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { mark } from 'src/sdk/tests/mark'
-import type { SearchState } from '@faststore/sdk'
 import type { PageProps } from 'gatsby'
 import type {
   SearchPageQueryQuery,
@@ -20,24 +14,13 @@ import 'src/styles/pages/search.scss'
 import { applySearchState } from 'src/sdk/search/state'
 import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 import ProductGallery from 'src/components/sections/ProductGallery'
+import useSearchParams from 'src/utils/useSearchParams'
 
 export type Props = PageProps<
   SearchPageQueryQuery,
   SearchPageQueryQueryVariables,
   unknown
 >
-
-const useSearchParams = ({ href }: Location) => {
-  const [params, setParams] = useState<SearchState | null>(null)
-
-  useEffect(() => {
-    const url = new URL(href)
-
-    setParams(parseSearchState(url))
-  }, [href])
-
-  return params
-}
 
 function Page(props: Props) {
   const {
@@ -46,11 +29,14 @@ function Page(props: Props) {
 
   const { locale } = useSession()
   const searchParams = useSearchParams(props.location)
-  const title = 'Search Results | BaseStore'
+
+  const title = searchParams?.term ?? ''
 
   if (!searchParams) {
     return null
   }
+
+  const encodedTerm = encodeURI(searchParams.term ?? '')
 
   return (
     <FSSearchProvider
@@ -84,11 +70,11 @@ function Page(props: Props) {
         (not the HTML tag) before rendering it here.
       */}
       <Breadcrumb name="Busca" />
-      <SearchProvider searchParams={searchParams}>
-        <ProductGallery
-          title="Search Results"
-          searchTerm={searchParams.term ?? undefined}
-        />
+      <SearchProvider
+        searchParams={searchParams}
+        defaultFilters={`IsActive eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}') or contains(Description, '${encodedTerm}') or contains(DescriptionShort, '${encodedTerm}') or contains(Especificacao/Conteudo, '${encodedTerm}') or contains(Especificacao/Objetivos, '${encodedTerm}'))`}
+      >
+        <ProductGallery title="Search Results" />
       </SearchProvider>
     </FSSearchProvider>
   )

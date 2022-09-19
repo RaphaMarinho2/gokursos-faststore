@@ -21,10 +21,10 @@
     "@testing-library/react" "^13.3.0"
     jest "^28.1.1"
 
-"@acctglobal/productdescription@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/@acctglobal/productdescription/-/productdescription-0.2.1.tgz"
-  integrity sha512-WnswUBNp2cC4BFWM8LDakfkXfKDybht6T+dNBTOMMGp5ewrtU2uKpYkkbYPEqt4/ViQ6B5IAPvZPzEmkWq1v3g==
+"@acctglobal/productdescription@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@acctglobal/productdescription/-/productdescription-0.2.2.tgz#4ed673e7e0dd683c63b88a96e5b6240bae460ab7"
+  integrity sha512-t6MXKmEuTkLxawx94X+YufiwCZLQ7rONK/EOrfRh1tmAVtlspqnaOb6p3WHTQlzxgXCn6URwehRfMgA3m+7yPg==
 
 "@acctglobal/shareproduct@^0.2.2":
   version "0.2.2"
@@ -20178,7 +20178,7 @@ react-sizeme@^3.0.1:
 
 react-step-wizard@^5.3.11:
   version "5.3.11"
-  resolved "https://registry.npmjs.org/react-step-wizard/-/react-step-wizard-5.3.11.tgz"
+  resolved "https://registry.yarnpkg.com/react-step-wizard/-/react-step-wizard-5.3.11.tgz#a52b46db772c0340dd6f45f93716d2afcf2196e2"
   integrity sha512-TD3ocUdt4XWvisTNEiATh+cFuh1RK0LgvYqOResTIhLtFmdWnXzFVaNIZJ3qzW5Bm6yeotzZ4KAmRjmsqBXnWQ==
 
 react-swipeable@^6.1.2:

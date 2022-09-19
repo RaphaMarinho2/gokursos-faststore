@@ -29,12 +29,16 @@
   }
 
   .product-shelf-title {
-    margin-bottom: 0.5rem;
-    font-size: 20px;
+    padding-bottom: 8px;
+    margin-bottom: 1.75rem;
+    font-size: 16px;
     font-weight: 700;
+    border-bottom: 1px solid #dddddd;
 
     @include media("<=tablet") {
-      padding-left: 16px;
+      padding-left: 0;
+      margin-right: 16px;
+      margin-left: 16px;
     }
   }
 
@@ -57,6 +61,7 @@
 
     @media screen and (max-width: 375px) {
       padding: 0;
+      margin: 0 6px;
     }
 
     div {
@@ -64,6 +69,8 @@
         overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 
         .product-shelf__content {
+          display: flex;
+          justify-content: center;
           padding: 0 3px;
 
           @include media(">=phonemid") {
@@ -79,8 +86,9 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          min-width: 100px;
-          min-height: 381px;
+          width: 100%;
+          min-width: 143px;
+          min-height: 382px;
           padding: 0;
           border: 0;
 
@@ -107,10 +115,10 @@
     }
 
     .carousel-arrow-button-prev {
-      left: 8px;
+      left: 0;
 
-      @include media(">=phonemid") {
-        left: 16px;
+      @include media(">phonemid") {
+        left: 10px;
       }
 
       @include media(">=notebook") {
@@ -119,14 +127,49 @@
     }
 
     .carousel-arrow-button-next {
-      right: 8px;
+      right: 0;
 
-      @include media(">=phonemid") {
-        right: 16px;
+      @include media(">phonemid") {
+        right: 10px;
       }
 
       @include media(">=notebook") {
         right: 24px;
+      }
+    }
+  }
+
+  [data-fs-product-shelf-items] {
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+
+    @include media(">phonemid") {
+      padding: 0 16px;
+    }
+
+    @include media(">=notebook") {
+      padding: 0 24px;
+    }
+
+    li {
+      flex: 1;
+      padding: 0 3px;
+
+      @include media(">=phonemid") {
+        padding: 0 10px;
+      }
+
+      @include media(">=notebook") {
+        padding: 0 14px;
+      }
+
+      [data-store-product-card-skeleton] {
+        min-height: 396px;
+
+        @include media(">=notebook") {
+          height: 404px;
+        }
       }
     }
   }

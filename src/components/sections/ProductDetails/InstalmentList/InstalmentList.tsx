@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react'
 import { Button as UIButton, Modal } from '@faststore/ui'
+import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 
 import Section from '../../Section'
 import IconClose from '../../../icons/IconClose'
 
 interface PriceVariation {
-  installment: number | string
+  installment: number
   priceValue: number
 }
 
 interface InstalmentListProps {
   priceVariation: PriceVariation[]
+}
+
+interface InstalmentItemProps {
+  value: PriceVariation
 }
 
 export const InstalmentList = ({ priceVariation }: InstalmentListProps) => {
@@ -36,20 +41,6 @@ export const InstalmentList = ({ priceVariation }: InstalmentListProps) => {
     setModal(false)
   }
 
-  const listOfInstalment = priceVariation.map(
-    (value: PriceVariation, index: number) => (
-      <li key={index}>
-        {value?.installment !== 1 ? (
-          <p>
-            Apenas {value?.installment}x de {value?.priceValue}
-          </p>
-        ) : (
-          <p>à vista {value?.priceValue}</p>
-        )}
-      </li>
-    )
-  )
-
   return (
     <Section className="product-details__price-list">
       <UIButton className="modal-open" onClick={showModal}>
@@ -65,11 +56,31 @@ export const InstalmentList = ({ priceVariation }: InstalmentListProps) => {
           </div>
           <div>
             <ul className="product-details__price-list--content">
-              {listOfInstalment}
+              {priceVariation
+                .sort((a, b) => a.installment - b.installment)
+                .map((value: PriceVariation, index: number) => (
+                  <InstalmentItem value={value} key={index} />
+                ))}
             </ul>
           </div>
         </div>
       </Modal>
     </Section>
+  )
+}
+
+function InstalmentItem({ value }: InstalmentItemProps) {
+  const formattedValue = useFormattedPrice(value?.priceValue)
+
+  return (
+    <li>
+      {value?.installment !== 1 ? (
+        <p>
+          {value?.installment}x de {formattedValue}
+        </p>
+      ) : (
+        <p>à vista {formattedValue}</p>
+      )}
+    </li>
   )
 }

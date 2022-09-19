@@ -12,19 +12,18 @@
   &__price {
     &-modal {
       position: absolute;
+      top: 0;
       right: 0;
-      bottom: 15vw;
+      bottom: 0;
       left: 0;
       width: 100%;
-      max-width: 314px;
-      height: 355px;
-      margin: 0 auto;
+      max-width: 548px;
+      margin: 3% auto;
+      overflow-y: scroll;
       background-color: #fff;
 
-      @include media(">=notebook") {
-        top: 10vw;
-        max-width: 548px;
-        height: 680px;
+      @include media("<=tablet") {
+        max-width: 310px;
       }
     }
 
@@ -36,11 +35,14 @@
         line-height: 130%;
         color: #ff3452;
         text-decoration: underline;
+        cursor: pointer;
         background-color: #fff;
         border: 0;
       }
 
       &--top {
+        position: sticky;
+        top: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -52,6 +54,7 @@
         }
 
         button {
+          cursor: pointer;
           background: #ff3452;
           border: 0;
 
@@ -272,12 +275,12 @@
   }
 
   img {
+    width: 100%;
     height: auto;
-    max-height: 200px;
 
     @include media(">=notebook") {
-      max-width: 780px;
-      max-height: 400px;
+      max-width: 100%;
+      max-height: 100%;
     }
   }
 }
@@ -295,6 +298,7 @@
     margin-top: 24px;
 
     @include media (">=notebook") {
+      flex-basis: 50%;
       padding: 0 0 0 32px;
       margin-top: 0;
       border: 0;
@@ -302,7 +306,7 @@
   }
 
   .product-details__description {
-    max-width: 780px;
+    flex-basis: 50%;
     padding-top: 24px;
     border-top: 1px solid #dddddd;
 
@@ -553,6 +557,7 @@
     max-height: 28px;
 
     [data-open-modal-button] {
+      cursor: pointer;
       background: none;
       border: none;
     }
@@ -585,7 +590,7 @@
 
     @include media(">=tablet") {
       right: 225px;
-      width: 267px;
+      width: 290px;
     }
 
     [data-modal-share-product-text] {
@@ -601,7 +606,18 @@
     }
 
     [data-close-modal-button] {
-      display: none;
+      position: absolute;
+      top: 7px;
+      right: 1px;
+      cursor: pointer;
+      background: none;
+      border: 0;
+
+      svg {
+        path {
+          stroke: #555;
+        }
+      }
     }
 
     [data-modal-share-links-container] {
@@ -845,6 +861,10 @@
     border-radius: 4px;
   }
 
+  [data-sf-description-button-desk] {
+    display: none;
+  }
+
   [data-sf-description-container-active="false"] {
     display: none;
   }
@@ -1021,4 +1041,18 @@
       }
     }
   }
+}
+
+.image-not-found {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 242px;
+  height: 20px;
+  margin: auto;
+  font-size: 18px;
+  text-align: center;
+  text-transform: capitalize;
 }

@@ -1,4 +1,10 @@
-import React, { Children, useEffect, useRef, useState } from 'react'
+import React, {
+  Children,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from 'react'
 
 import Bullets from './components/Bullets'
 import Arrows from './components/Arrows'
@@ -23,8 +29,9 @@ export interface CarouselProps {
   arrow?: Arrow
   qtyItems?: number
   gapItems?: number
-  navigationAutomatic?: boolean
+  hasAutomaticNavigation?: boolean
   timeoutNavigationAutomatic?: number
+  fullWidth?: boolean
 }
 
 const Carousel = ({
@@ -33,15 +40,16 @@ const Carousel = ({
   arrow,
   qtyItems,
   gapItems,
-  navigationAutomatic = false,
+  hasAutomaticNavigation = false,
   timeoutNavigationAutomatic = 5000,
+  fullWidth = false,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
-  let [bulletsQtd, setBulletsQtd] = useState<number>(0)
+  const [bulletsQtd, setBulletsQtd] = useState<number>(0)
   const [buttonFocus, setButtonFocus] = useState<number>(0)
-  let [itemWidth, setItemWidth] = useState<number>(0)
-  const [pause, setPause] = useState(true)
-  const [testeNavigation, setTesteNavigation] = useState<number>(0)
+  const [itemWidth, setItemWidth] = useState<number>(0)
+  const [pause, setPause] = useState(false)
+  const [navigation, setNavigation] = useState<number>(0)
   const [numericBullet, setNumericBullet] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const refitem = useRef<HTMLDivElement | null>(null)
@@ -78,9 +86,9 @@ const Carousel = ({
     if (containerRef.current && refitem.current) {
       const widthItem = refitem.current.clientWidth
       const currentScroll = containerRef.current.scrollLeft
-      const navigation = Math.round(currentScroll / widthItem)
+      const actualNavigation = Math.round(currentScroll / widthItem)
 
-      setButtonFocus(navigation)
+      setButtonFocus(actualNavigation)
     }
 
     return null
@@ -102,23 +110,23 @@ const Carousel = ({
     return null
   }
 
-  const setBullets = () => {
+  const setBullets = useCallback(() => {
     if (containerRef.current && refitem.current) {
-      itemWidth = refitem.current.clientWidth
+      const newItemWidth = refitem.current.clientWidth
       const divWidth = containerRef.current.offsetWidth
       const widthScroll = containerRef.current.scrollWidth
 
-      bulletsQtd = Math.ceil((widthScroll - divWidth) / itemWidth)
+      const newBulletsQtd = Math.ceil((widthScroll - divWidth) / newItemWidth)
 
       if (qtyItems) {
         setBulletsQtd(arrayChildren.length - qtyItems)
       } else {
-        setBulletsQtd(bulletsQtd)
+        setBulletsQtd(newBulletsQtd)
       }
     }
 
     return null
-  }
+  }, [arrayChildren.length, qtyItems])
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -135,7 +143,7 @@ const Carousel = ({
   }
 
   const visibleItems = (qtd: number) => {
-    if (containerRef.current && refitem.current) {
+    if (containerRef.current) {
       const divWidth = containerRef.current.offsetWidth
       const widthItem = divWidth / qtd
 
@@ -149,44 +157,43 @@ const Carousel = ({
     window.addEventListener('resize', () => {
       currentItemDisplayed()
       setBullets()
-      if (qtyItems) {
+
+      if (qtyItems && !fullWidth) {
         visibleItems(qtyItems)
       }
     })
   }
 
   useEffect(() => {
-    const automaticaNavigation = () => {
-      if (pause) {
-        setTimeout(() => {
-          setTesteNavigation((prevIndex: number) =>
-            prevIndex === bulletsQtd ? 0 : prevIndex + 1
-          )
+    if (pause || !hasAutomaticNavigation) return
 
-          setButtonFocus(testeNavigation + 1)
-        }, timeoutNavigationAutomatic)
-        bulletsNavigation(testeNavigation)
-      }
+    const navigate = () => {
+      setTimeout(() => {
+        setNavigation((prevIndex: number) =>
+          prevIndex === bulletsQtd ? 0 : prevIndex + 1
+        )
+
+        setButtonFocus(navigation + 1)
+      }, timeoutNavigationAutomatic)
+      bulletsNavigation(navigation)
     }
 
+    navigate()
     resetTimeout()
-    if (navigationAutomatic) {
-      automaticaNavigation()
-    }
 
     return () => {
       resetTimeout()
     }
   }, [
-    bulletsQtd,
-    navigationAutomatic,
+    navigation,
+    hasAutomaticNavigation,
     pause,
-    testeNavigation,
     timeoutNavigationAutomatic,
+    bulletsQtd,
   ])
 
   useEffect(() => {
-    if (qtyItems) {
+    if (qtyItems && !fullWidth) {
       visibleItems(qtyItems)
     }
 
@@ -196,19 +203,14 @@ const Carousel = ({
       currentItemDisplayed()
       focusBullets()
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerRef])
+  }, [containerRef, qtyItems, setBullets, fullWidth])
 
   return (
     <>
       <div className="carousel-content" data-testid="Carousel">
         <div
-          onMouseLeave={() =>
-            navigationAutomatic ? setPause(true) : undefined
-          }
-          onMouseEnter={() =>
-            navigationAutomatic ? setPause(false) : undefined
-          }
+          onMouseEnter={() => hasAutomaticNavigation && setPause(true)}
+          onMouseLeave={() => hasAutomaticNavigation && setPause(false)}
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -245,25 +247,46 @@ const Carousel = ({
               display: ' flex',
               flexDirection: 'row',
               scrollBehavior: 'smooth',
-              overflowX: 'scroll',
+              overflowX: 'hidden',
             }}
           >
-            {arrayChildren.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className="container-item"
-                  style={{
-                    minWidth: qtyItems ? `${itemWidth}px` : 'auto',
-                    transition: 'all 0.5  ease-out',
-                    paddingRight: `${gapItems ?? 2}px`,
-                  }}
-                  ref={refitem}
-                >
-                  {item}
-                </div>
-              )
-            })}
+            {itemWidth && !fullWidth
+              ? arrayChildren.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="container-item"
+                      style={{
+                        minWidth: qtyItems ? `${itemWidth}px` : 'auto',
+                        minHeight: '192px',
+                        transition: 'all 0.5 ease-out',
+                        paddingRight: `${gapItems ?? 2}px`,
+                      }}
+                      ref={refitem}
+                    >
+                      {item}
+                    </div>
+                  )
+                })
+              : ''}
+            {fullWidth &&
+              arrayChildren.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="container-item"
+                    style={{
+                      minWidth: qtyItems ? `100%` : 'auto',
+                      minHeight: '192px',
+                      transition: 'all 0.5 ease-out',
+                      paddingRight: `${gapItems ?? 2}px`,
+                    }}
+                    ref={refitem}
+                  >
+                    {item}
+                  </div>
+                )
+              })}
           </div>
 
           <div

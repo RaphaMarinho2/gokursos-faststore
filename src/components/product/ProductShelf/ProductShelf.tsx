@@ -1,22 +1,16 @@
-import Carousel from '@acctglobal/carousel-universal'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
+import Carousel from 'src/components/common/Carousel'
 
 import ProductCard from '../ProductCard'
 
 interface ProductShelfProps {
   title?: string | JSX.Element
-  cardsQuantity?: number
+  cardsQuantity: number
   withDivisor?: boolean
   pretitle?: string
   products: any
-}
-
-function ClkBtn() {
-  console.info('click')
-}
-
-function ProductBtnBuyInPage() {
-  return <button onClick={ClkBtn}>Quero começar</button>
+  isLoading?: boolean
 }
 
 function ProductShelf({
@@ -25,6 +19,7 @@ function ProductShelf({
   pretitle,
   withDivisor = false,
   products,
+  isLoading,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
 
@@ -56,28 +51,26 @@ function ProductShelf({
     >
       {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
       <h2 className="product-shelf-title">{title}</h2>
-      <Carousel
-        arrow={{
-          isVisible: true,
-          iconColor: '#004E98',
-          style: {
-            ...sizeArrowCarousel,
-            background: '#FFFFFF',
-            boxShadow: '2px 1px 15px rgba(0, 0, 0, 0.15)',
-          },
-        }}
-        qtyItems={cardsQuantity}
-      >
-        {products?.map((product: any, idx: number) => (
-          <div key={idx} className="product-shelf__content">
-            <ProductCard
-              product={product}
-              index={idx + 1}
-              ButtonBuy={ProductBtnBuyInPage()}
-            />
-          </div>
-        ))}
-      </Carousel>
+      <ProductShelfSkeleton cardsQuantity={cardsQuantity!} loading={isLoading}>
+        <Carousel
+          arrow={{
+            isVisible: !isLoading,
+            iconColor: '#004E98',
+            style: {
+              ...sizeArrowCarousel,
+              background: '#FFFFFF',
+              boxShadow: '2px 1px 15px rgba(0, 0, 0, 0.15)',
+            },
+          }}
+          qtyItems={cardsQuantity}
+        >
+          {products?.map((product: any, idx: number) => (
+            <div key={idx} className="product-shelf__content">
+              <ProductCard product={product} index={idx + 1} />
+            </div>
+          ))}
+        </Carousel>
+      </ProductShelfSkeleton>
     </div>
   )
 }

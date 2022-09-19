@@ -1,5 +1,5 @@
 import { BreadcrumbJsonLd, ProductJsonLd } from 'gatsby-plugin-next-seo'
-import ProductDetails from 'src/components/sections/ProductDetails'
+// import ProductDetails from 'src/components/sections/ProductDetails'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type {
@@ -54,7 +54,7 @@ function Page() {
         (not the HTML tag) before rendering it here.
       */}
 
-      <ProductDetails product={product} />
+      {/* <ProductDetails product={product} /> */}
 
       <PDPProductShelf
         pretitle=""

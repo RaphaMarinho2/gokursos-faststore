@@ -139,8 +139,13 @@
     display: flex;
 
     span {
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 14px;
+      line-height: 18px;
+
+      @include media(">=notebook") {
+        font-size: 16px;
+        line-height: 24px;
+      }
 
       &:first-of-type {
         margin-right: 0.3rem;
@@ -171,6 +176,7 @@
 
   [data-fs-product-card] {
     min-width: 100%;
+    padding: 0;
   }
 }
 

@@ -1,6 +1,7 @@
 import { QuantitySelector as UIQuantitySelector } from '@faststore/ui'
 import { memo, useEffect, useState } from 'react'
 import Icon from 'src/components/ui/Icon'
+import './quantity-selector.scss'
 
 interface QuantitySelectorProps {
   max?: number

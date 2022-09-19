@@ -14,9 +14,14 @@ interface ShelfProps {
 
 const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
   const [products, setProducts] = useState<any>()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    axios.get('/api/getDuce').then(({ data: { value } }) => setProducts(value))
+    setIsLoading(true)
+    axios
+      .get('/api/getDuce')
+      .then(({ data: { value } }) => setProducts(value))
+      .finally(() => setIsLoading(false))
   }, [])
 
   const { isMobile, isTablet } = useWindowDimensions()
@@ -29,8 +34,8 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
         cardsQuantity={shelfItemQuantity}
         title={title}
         pretitle={pretitle}
-        withDivisor
         products={products}
+        isLoading={isLoading}
       />
     </Section>
   )

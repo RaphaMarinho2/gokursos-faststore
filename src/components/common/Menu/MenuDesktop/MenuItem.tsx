@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Popover } from '@faststore/ui'
 import { useEffect, useState, useRef } from 'react'
 import { Link } from 'gatsby'
@@ -22,7 +20,6 @@ const MenuItem = ({
   const [currentMenu, setCurrentMenu] = useState<SubMenuItemType>([])
   const [menuStatus, setMenuStatus] = useState<number[]>([])
 
-  /* eslint-disable-next-line */
   const parsedLabelMenu = item.label
     .normalize('NFD')
     .replace(/[\u0300-\u036f ]/g, '')
@@ -31,8 +28,7 @@ const MenuItem = ({
   useEffect(() => {
     let newCurrentMenu = item.submenu
 
-    // eslint-disable-next-line array-callback-return
-    menuStatus.map((index: number) => {
+    menuStatus.forEach((index: number) => {
       newCurrentMenu = newCurrentMenu[index].submenu
     })
     setCurrentMenu(newCurrentMenu)
@@ -85,13 +81,13 @@ const MenuItem = ({
             <div className="popover-container">
               {currentMenu.map((submenuItem: ObjectItem, index: number) => {
                 return (
-                  <div
+                  <button
                     className="link-container-border"
                     key={submenuItem.label}
                     onClick={() => handleClick(index)}
                   >
                     <LinkItem submenuItem={submenuItem} />
-                  </div>
+                  </button>
                 )
               })}
             </div>

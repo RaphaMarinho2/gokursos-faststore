@@ -3,21 +3,22 @@
 .component-shelf-container {
   width: 100%;
 
+  @media (max-width: 767px) {
+    padding: 0 15px;
+  }
+
   .title {
+    padding-bottom: 8px;
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 600;
     color: #000;
+    border-bottom: 1px solid #dddddd;
   }
 
   .pretitle {
     font-size: 14px;
     color: #ff3452;
-  }
-
-  .title,
-  .pretitle {
-    padding-left: 24px;
   }
 
   &.teachers {
@@ -52,9 +53,40 @@
   }
 
   .carousel-content {
+    position: relative;
+    padding-top: 16px;
+    margin: 0 -16px;
+
     .carousel-arrow-button-prev,
     .carousel-arrow-button-next {
+      position: absolute;
       top: calc(50% - 32px);
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .carousel-arrow-button-prev {
+      left: 8px;
+
+      @include media(">=phonemid") {
+        left: 2px;
+      }
+
+      @include media(">=notebook") {
+        left: -4px;
+      }
+    }
+
+    .carousel-arrow-button-next {
+      right: 8px;
+
+      @include media(">=phonemid") {
+        right: 2px;
+      }
+
+      @include media(">=notebook") {
+        right: -4px;
+      }
     }
   }
 
@@ -68,7 +100,7 @@
       display: none;
     }
 
-    >div {
+    > div {
       .component-shelf__content {
         padding: 0 8px;
       }
@@ -85,17 +117,18 @@
     h3,
     p {
       position: absolute;
-      left: 15px;
       z-index: 999;
+      padding: 0 13px;
 
       @media screen and (min-width: 380px) {
+        padding: 0;
         font-size: 20px;
       }
     }
 
     h3 {
       bottom: 58px;
-      font-size: 14px;
+      font-size: 16px;
       font-style: normal;
       font-weight: 600;
       line-height: 150%;
@@ -105,14 +138,14 @@
         color: #000;
       }
 
-      @media screen and (min-width: 380px) {
-        font-size: 16px;
+      @media (max-width: 380px) {
+        font-size: 14px;
       }
     }
 
     p {
       bottom: 30px;
-      font-size: 10px;
+      font-size: 12px;
       font-style: normal;
       font-weight: 400;
       color: #f5f5f5;
@@ -123,8 +156,8 @@
         color: #555555;
       }
 
-      @media screen and (min-width: 380px) {
-        font-size: 12px;
+      @media (max-width: 380px) {
+        font-size: 10px;
       }
     }
 
