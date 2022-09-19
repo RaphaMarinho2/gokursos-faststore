@@ -1,4 +1,4 @@
-const { axios } = require('axios')
+import axios from 'axios'
 
 function getProducts() {
   return axios
@@ -8,7 +8,7 @@ function getProducts() {
     .then((response) => response.json())
 }
 
-exports.dynamicProducts = async () => {
+export async function dynamicProducts() {
   const products = await getProducts()
 
   return products
