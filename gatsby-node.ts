@@ -1,14 +1,13 @@
 import 'dotenv/config'
 import path from 'path'
 
-import dotenv from 'dotenv'
+import * as dotenv from 'dotenv'
 import type { GatsbyNode } from 'gatsby'
 
 import { apiSchema } from './src/server'
 
-dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+// eslint-disable-next-line node/no-path-concat
+dotenv.config({ path: `${__dirname}/.env.${process.env.NODE_ENV}` })
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
