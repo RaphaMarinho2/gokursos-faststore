@@ -5,9 +5,18 @@ import type { GatsbyNode } from 'gatsby'
 import { REST_BASE_URL } from './gatsby-config'
 import { apiSchema } from './src/server'
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
   reporter.info(`Your Gatsby site has been built!`)
+}
+
+exports.onPreBuild = () => {
+  // eslint-disable-next-line no-console
+  console.log('BASE_URL', REST_BASE_URL)
 }
 
 // Create department pages dynamically
