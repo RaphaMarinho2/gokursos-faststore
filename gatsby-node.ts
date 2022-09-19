@@ -2,7 +2,6 @@ import path from 'path'
 
 import type { GatsbyNode } from 'gatsby'
 
-import { REST_BASE_URL } from './gatsby-config'
 import { apiSchema } from './src/server'
 
 require('dotenv').config({
@@ -12,11 +11,6 @@ require('dotenv').config({
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
   reporter.info(`Your Gatsby site has been built!`)
-}
-
-exports.onPreBuild = () => {
-  // eslint-disable-next-line no-console
-  console.log('BASE_URL', REST_BASE_URL)
 }
 
 // Create department pages dynamically
@@ -45,11 +39,11 @@ exports.createPages = async ({ graphql, actions }: any) => {
     })
   })
 
+  const baseUrl = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
+
   // Create product pages dynamically
   const productPage = path.resolve(`src/pages/[slug]/p.tsx`)
-  const resultPDP = await fetch(
-    `${REST_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
-  ).then((response) => response.json())
+  const resultPDP = await fetch(baseUrl).then((response) => response.json())
 
   resultPDP.value.forEach((edge: any) => {
     createPage({
