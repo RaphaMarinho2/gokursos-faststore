@@ -6,8 +6,7 @@ import type { GatsbyNode } from 'gatsby'
 
 import { apiSchema } from './src/server'
 
-// eslint-disable-next-line node/no-path-concat
-dotenv.config({ path: `${__dirname}/.env.${process.env.NODE_ENV}` })
+dotenv.config({ path: `.env` })
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
