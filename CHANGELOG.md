@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed 
 
-- **GM-272** - [PLAN] Adjust in share icons
+- **GM-452** - [PLAN] Adjust in share icons
 
 ## [0.17.1] - 2022-09-15
 
