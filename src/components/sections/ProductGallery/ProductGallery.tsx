@@ -23,15 +23,9 @@ interface Props {
   title: string
   forceSvg?: ForceSvg
   hasFilter?: boolean
-  showFilterButton?: boolean
 }
 
-function ProductGallery({
-  title,
-  galleryTitle,
-  hasFilter = true,
-  showFilterButton = true,
-}: Props) {
+function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
   const { products, productsCount, isLoading, slug, lastPage, searchParams } =
     useSearch()
 
@@ -83,7 +77,7 @@ function ProductGallery({
 
         <div className="product-listing__sort">
           <Sort />
-          {showFilterButton && (
+          {hasFilter && (
             <SkeletonElement shimmer type="button" loading={isLoading}>
               <Button
                 data-testid="open-filter-button"

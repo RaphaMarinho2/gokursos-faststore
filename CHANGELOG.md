@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed 
+
+- **GM-503** - Adjust in filters in Info Productor page
+
 ## [0.17.1] - 2022-09-15
 
 ### Fixed 
