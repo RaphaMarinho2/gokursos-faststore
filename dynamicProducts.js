@@ -1,15 +1,13 @@
 import axios from 'axios'
 
 function getProducts() {
-  return axios
-    .get(
-      `${process.env.SERVER_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
-    )
-    .then((response) => response.json())
+  return axios.get(
+    `${process.env.SERVER_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
+  )
 }
 
 export async function dynamicProducts() {
-  const products = await getProducts()
+  const { data } = await getProducts()
 
-  return products
+  return data
 }
