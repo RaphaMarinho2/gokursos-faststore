@@ -1,7 +1,11 @@
+const { axios } = require('axios')
+
 function getProducts() {
-  return fetch(
-    `${process.env.SERVER_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
-  ).then((response) => response.json())
+  return axios
+    .get(
+      `${process.env.SERVER_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
+    )
+    .then((response) => response.json())
 }
 
 exports.dynamicProducts = async () => {
