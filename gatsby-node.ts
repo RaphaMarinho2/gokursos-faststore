@@ -6,11 +6,9 @@ import type { GatsbyNode } from 'gatsby'
 
 import { apiSchema } from './src/server'
 
-// require('dotenv').config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
-
-dotenv.config()
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
