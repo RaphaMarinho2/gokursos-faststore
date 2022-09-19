@@ -1,7 +1,7 @@
 import path from 'path'
 
-import dotenv from 'dotenv'
 import 'dotenv/config'
+import dotenv from 'dotenv'
 import type { GatsbyNode } from 'gatsby'
 
 import { apiSchema } from './src/server'

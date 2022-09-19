@@ -1,7 +1,7 @@
 import { join, resolve } from 'path'
 
-import dotenv from 'dotenv'
 import 'dotenv/config'
+import dotenv from 'dotenv'
 import type { GatsbyConfig } from 'gatsby'
 
 import config from './store.config'
