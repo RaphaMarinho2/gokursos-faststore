@@ -1,8 +1,8 @@
 import path from 'path'
 
 import type { GatsbyNode } from 'gatsby'
-import { REST_BASE_URL } from 'gatsby-config'
 
+import { REST_BASE_URL } from './gatsby-config'
 import { apiSchema } from './src/server'
 
 // Log out information after a build is done
