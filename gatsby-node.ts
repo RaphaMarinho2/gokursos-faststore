@@ -43,9 +43,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
   // Create product pages dynamically
   const productPage = path.resolve(`src/pages/[slug]/p.tsx`)
   const resultPDP = await fetch(
-    `${
-      process.env.GATSBY_CATALOG_BASE_URL ?? 'https://gde.godigitaledu.com'
-    }/odata/Catalog/v1/Products?$select=LinkId`
+    `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
   ).then((response) => response.json())
 
   resultPDP.value.forEach((edge: any) => {
