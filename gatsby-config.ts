@@ -8,6 +8,8 @@ import config from './store.config'
 
 dotenv.config()
 
+export const REST_BASE_URL = process.env.GATSBY_CATALOG_BASE_URL
+
 const gatsbyConfig: GatsbyConfig = {
   jsxRuntime: 'automatic',
   siteMetadata: {

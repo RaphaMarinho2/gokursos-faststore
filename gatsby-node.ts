@@ -1,13 +1,9 @@
 import path from 'path'
 
-import 'dotenv/config'
 import type { GatsbyNode } from 'gatsby'
+import { REST_BASE_URL } from 'gatsby-config'
 
 import { apiSchema } from './src/server'
-
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
@@ -43,7 +39,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
   // Create product pages dynamically
   const productPage = path.resolve(`src/pages/[slug]/p.tsx`)
   const resultPDP = await fetch(
-    `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
+    `${REST_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
   ).then((response) => response.json())
 
   resultPDP.value.forEach((edge: any) => {
