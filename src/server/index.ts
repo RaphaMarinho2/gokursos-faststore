@@ -38,12 +38,6 @@ const apiOptions: APIOptions = {
 
 export const apiSchema = getSchema(apiOptions)
 
-export const fetchProducts = () => {
-  return fetch(
-    `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$select=LinkId`
-  )
-}
-
 const apiContextFactory = getContextFactory(apiOptions)
 
 const isBadRequestError = (err: GraphQLError) => {
