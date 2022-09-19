@@ -23,9 +23,15 @@ interface Props {
   title: string
   forceSvg?: ForceSvg
   hasFilter?: boolean
+  showFilterButton?: boolean
 }
 
-function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
+function ProductGallery({
+  title,
+  galleryTitle,
+  hasFilter = true,
+  showFilterButton = true,
+}: Props) {
   const { products, productsCount, isLoading, slug, lastPage, searchParams } =
     useSearch()
 
@@ -77,18 +83,19 @@ function ProductGallery({ title, galleryTitle, hasFilter = true }: Props) {
 
         <div className="product-listing__sort">
           <Sort />
-
-          <SkeletonElement shimmer type="button" loading={isLoading}>
-            <Button
-              data-testid="open-filter-button"
-              icon={<Icon name="FadersHorizontal" width={20} height={20} />}
-              iconPosition="left"
-              aria-label="Open Filters"
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-            >
-              Filtros
-            </Button>
-          </SkeletonElement>
+          {showFilterButton && (
+            <SkeletonElement shimmer type="button" loading={isLoading}>
+              <Button
+                data-testid="open-filter-button"
+                icon={<Icon name="FadersHorizontal" width={20} height={20} />}
+                iconPosition="left"
+                aria-label="Open Filters"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                Filtros
+              </Button>
+            </SkeletonElement>
+          )}
         </div>
 
         <div className="product-listing__results">

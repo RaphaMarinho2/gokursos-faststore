@@ -71,7 +71,12 @@ function Page(props: Props) {
         imageBannerMobile={bannerInfo.bannerImageMobile?.url ?? ''}
       />
       <SearchProvider slug="/gilberto" searchParams={searchParams}>
-        <ProductGallery title={title} forceSvg={svgIcons} hasFilter={false} />
+        <ProductGallery
+          title={title}
+          forceSvg={svgIcons}
+          hasFilter={false}
+          showFilterButton={false}
+        />
       </SearchProvider>
       <ScrollToTopButton />
     </FSSearchProvider>
