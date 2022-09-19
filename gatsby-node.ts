@@ -1,10 +1,10 @@
 import 'dotenv/config'
 import path from 'path'
 
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 import type { GatsbyNode } from 'gatsby'
 
-import { apiSchema } from './src/server'
+import { apiSchema, fetchProducts } from './src/server'
 
 dotenv.config({ path: `.env` })
 
@@ -39,17 +39,10 @@ exports.createPages = async ({ graphql, actions }: any) => {
     })
   })
 
-  const baseUrl =
-    process.env.NODE_ENV === 'development'
-      ? process.env.GATSBY_CATALOG_BASE_URL
-      : process.env.SERVER_CATALOG_BASE_URL
-
   // Create product pages dynamically
   const productPage = path.resolve(`src/pages/[slug]/p.tsx`)
 
-  const resultPDP = await fetch(
-    `${baseUrl}/odata/Catalog/v1/Products?$select=LinkId`
-  ).then((response) => response.json())
+  const resultPDP = await fetchProducts().then((response) => response.json())
 
   resultPDP.value.forEach((edge: any) => {
     createPage({
