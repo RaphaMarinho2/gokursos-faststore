@@ -66,6 +66,8 @@
   .filter {
     [data-accordion-item] {
       background: #fff;
+      border-bottom: 1px solid #cacbcc;
+      border-radius: unset;
     }
   }
 
@@ -289,9 +291,7 @@
   display: flex;
   align-items: center;
   height: 40px;
-  padding:
-    calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2))
-    var(--fs-spacing-3);
+  padding: calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2)) var(--fs-spacing-3);
   color: #fff;
   background-color: #ff3452;
   border-radius: 4px;
@@ -301,9 +301,7 @@
   display: flex;
   align-items: center;
   height: 40px;
-  padding:
-    calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2))
-    var(--fs-spacing-3);
+  padding: calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2)) var(--fs-spacing-3);
   color: #ff3452;
   border: 1px solid #ff3452;
   border-radius: 4px;
