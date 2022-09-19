@@ -7,6 +7,11 @@
     row-gap: 16px;
   }
 
+  &__search-term {
+    font-size: 32px;
+    font-weight: var(--fs-text-weight-bold);
+  }
+
   &__title {
     font-size: 14px;
     font-weight: 700;

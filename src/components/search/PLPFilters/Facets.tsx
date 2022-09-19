@@ -85,7 +85,9 @@ function Facets({ filterLoading }: PLPFiltersProps) {
           <>
             <div className="filter__title-container">
               {searchParams?.term ? (
-                <span className="filter__title">{searchParams?.term}</span>
+                <span className="filter__search-term">
+                  {searchParams?.term}
+                </span>
               ) : (
                 <></>
               )}
