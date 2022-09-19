@@ -12,6 +12,14 @@
     font-weight: var(--fs-text-weight-bold);
   }
 
+  .accordion[data-store-accordion] {
+    [data-accordion-item] {
+      background-color: #fff;
+      border-bottom: 1px solid #cacbcc;
+      border-radius: unset;
+    }
+  }
+
   &__title {
     font-size: 14px;
     font-weight: 700;
