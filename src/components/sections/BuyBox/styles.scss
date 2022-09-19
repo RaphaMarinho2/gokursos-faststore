@@ -102,6 +102,12 @@
           cursor: pointer;
           background: none;
           border: 0;
+
+          svg {
+            path {
+              stroke: #555;
+            }
+          }
         }
 
         [data-modal-share-links-container] {
