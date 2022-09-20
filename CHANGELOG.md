@@ -7,13 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
 - **GM-503** - Adjust in filters in Info Productor page
 - **GM-406** - [Department/Category] Dropdown List Layout Adjustment
 - **GM-519** - [PDP] Adjust in buy box layout
 - **GM-349** - [HOME] Adjusted Newletter layout on mobile
 - **GM-657** - [Search] Adjusted Search input layout and behaviour
+- **GM-794** - [PDP] Remove lowercase of linkId in shelfs and search results
 
 ## [0.17.1] - 2022-09-15
 
