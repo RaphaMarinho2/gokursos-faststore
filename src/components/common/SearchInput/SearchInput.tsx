@@ -51,6 +51,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
     const handleSearch = (term: string) => {
       addToSearchHistory(term)
       doSearch(term)
+      setSearchDropdownOpen(false)
     }
 
     useOnClickOutside(searchRef, () => setSearchDropdownOpen(false))

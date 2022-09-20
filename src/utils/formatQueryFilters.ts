@@ -3,6 +3,10 @@ import type { Filters } from 'src/components/search/PLPFilters/Filters'
 export const formatQueryFilters = (filteredFacets?: Filters[]) => {
   if (!filteredFacets) return
 
+  const isEmptyFacets = filteredFacets.every((facet) => !facet.facets?.length)
+
+  if (isEmptyFacets) return
+
   const [categoryFacets] = filteredFacets?.filter((facet) => {
     return facet.filterlabel === 'Categorias'
   })
@@ -15,7 +19,7 @@ export const formatQueryFilters = (filteredFacets?: Filters[]) => {
     return facet.filterlabel === 'Faixa de preço'
   })
 
-  const categoryFetchFilters = categoryFacets.facets
+  const categoryFetchFilters = categoryFacets?.facets
     .map(
       (category, idx, arr) =>
         `Category/Slug eq '${category.value}'${
@@ -24,7 +28,7 @@ export const formatQueryFilters = (filteredFacets?: Filters[]) => {
     )
     .join('')
 
-  const cargaHorariaFetchFilters = cargaHorariaFacets.facets
+  const cargaHorariaFetchFilters = cargaHorariaFacets?.facets
     .map(
       (cargaHoraria, idx, arr) =>
         `Especificacao/CargaHoraria/Text eq '${cargaHoraria.value}'${
@@ -33,7 +37,9 @@ export const formatQueryFilters = (filteredFacets?: Filters[]) => {
     )
     .join('')
 
-  const priceRangeFilter = `Price/BasePrice gt ${priceRangeFacet.facets[0].others?.actualMin} and Price/BasePrice lt ${priceRangeFacet.facets[0].others?.actualMax}`
+  const priceRangeFilter = priceRangeFacet?.facets?.length
+    ? `Price/BasePrice gt ${priceRangeFacet.facets[0].others?.actualMin} and Price/BasePrice lt ${priceRangeFacet.facets[0].others?.actualMax}`
+    : ''
 
   return {
     categoryFetchFilters,

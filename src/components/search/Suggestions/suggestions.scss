@@ -2,7 +2,7 @@
 
 .suggestions__title {
   padding: 0 var(--fs-spacing-3);
-  margin-bottom: var(--fs-spacing-1);
+  margin-bottom: var(--fs-spacing-2);
   font-size: var(--fs-text-size-1);
   line-height: 18px;
 
@@ -24,6 +24,11 @@
 .suggestions__item {
   padding-right: var(--fs-spacing-3);
   padding-left: var(--fs-spacing-3);
+
+  @include media(">=notebook") {
+    padding-right: var(--fs-spacing-4);
+    padding-left: var(--fs-spacing-4);
+  }
 
   &:hover {
     background-color: var(--fs-color-main-0);
