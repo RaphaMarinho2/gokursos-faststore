@@ -1,0 +1,60 @@
+@import "src/styles/scaffold";
+
+.banner-info-produtor {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  .banner-info-produtor__content {
+    position: relative;
+    width: 100%;
+
+    [data-banner-content] {
+      position: absolute;
+      top: 40%;
+      left: 16px;
+      color: #fff;
+
+      @include media(">=notebook") {
+        left: 156px;
+      }
+
+      .banner-info-produtor__title {
+        width: 215px;
+        max-height: 52px;
+        margin-bottom: 8px;
+        overflow: hidden;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+
+        @include media(">=notebook") {
+          width: 430px;
+          max-height: 96px;
+          font-size: 32px;
+          line-height: 48px;
+        }
+      }
+
+      .banner-info-produtor__subtitle {
+        width: 270px;
+        max-height: 54px;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+
+        @include media(">=notebook") {
+          width: 430px;
+          max-height: 48px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .banner-info-produtor__image {
+      width: 100%;
+    }
+  }
+}
