@@ -66,7 +66,6 @@ function Page(props: Props) {
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
       <BannerInfoProdutor
         title={bannerInfo.title ?? ''}
-        subtitle=" "
         imageBannerDesktop={bannerInfo.bannerImageDesktop?.url ?? ''}
         imageBannerMobile={bannerInfo.bannerImageMobile?.url ?? ''}
       />

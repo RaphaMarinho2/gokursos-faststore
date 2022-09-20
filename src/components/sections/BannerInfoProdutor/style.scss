@@ -2,8 +2,8 @@
 
 .banner-info-produtor {
   width: 100%;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   .banner-info-produtor__content {
     position: relative;
@@ -12,11 +12,11 @@
     [data-banner-content] {
       position: absolute;
       top: 40%;
-      left: 16px;
+      left: 1rem;
       color: #fff;
 
       @include media(">=notebook") {
-        left: 156px;
+        left: 10rem;
       }
 
       .banner-info-produtor__title {
@@ -33,22 +33,6 @@
           max-height: 96px;
           font-size: 32px;
           line-height: 48px;
-        }
-      }
-
-      .banner-info-produtor__subtitle {
-        width: 270px;
-        max-height: 54px;
-        overflow: hidden;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 18px;
-
-        @include media(">=notebook") {
-          width: 430px;
-          max-height: 48px;
-          font-size: 16px;
-          line-height: 24px;
         }
       }
     }

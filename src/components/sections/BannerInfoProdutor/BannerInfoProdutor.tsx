@@ -4,14 +4,12 @@ import './style.scss'
 
 interface BannerInfoProdutorProps {
   title: string
-  subtitle: string
   imageBannerDesktop: string
   imageBannerMobile: string
 }
 
 const BannerInfoProdutor = ({
   title,
-  subtitle,
   imageBannerDesktop,
   imageBannerMobile,
 }: BannerInfoProdutorProps) => {
@@ -30,7 +28,6 @@ const BannerInfoProdutor = ({
           </BannerImage>
           <BannerContent>
             <h2 className="banner-info-produtor__title">{title}</h2>
-            <h3 className="banner-info-produtor__subtitle">{subtitle}</h3>
           </BannerContent>
         </Banner>
       </div>
