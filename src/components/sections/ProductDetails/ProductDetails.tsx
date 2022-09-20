@@ -167,8 +167,8 @@ function ProductDetails({ product }: Props) {
                   />
                 )}
                 {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
-                {Especificacao?.CargaHoraria.Text && (
-                  <Workload workload={Especificacao?.CargaHoraria.Text} />
+                {Especificacao?.CargaHoraria?.Text && (
+                  <Workload workload={Especificacao?.CargaHoraria?.Text} />
                 )}
               </>
             }

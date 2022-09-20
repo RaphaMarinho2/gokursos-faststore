@@ -31,9 +31,7 @@ const Suggestions = forwardRef<HTMLDivElement, SuggestionsProps>(
             <p className="suggestions__title">{`Busca por "${term}"`}</p>
             <UIList>
               {products.map((product: any, index: number) => {
-                const productURL = `/${(
-                  product.LinkId as string
-                ).toLocaleLowerCase()}/p`
+                const productURL = `/${product.LinkId as string}/p`
 
                 return (
                   <li key={index} className="suggestions__item">
