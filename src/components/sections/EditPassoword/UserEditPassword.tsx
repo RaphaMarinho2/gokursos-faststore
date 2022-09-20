@@ -105,12 +105,16 @@ function UserEditPassword(props: Props) {
           onChange={handleConfirmPassword}
         />
         {showErrorMessage && (
-          <span>
-            Falha ao redefinir senha. Em alguns instantes, tenta novamente.
+          <span className="message-error-request">
+            Falha ao cadastrar senha. Em alguns instantes, tenta novamente.
           </span>
         )}
+
         <div className="password-validate">
+          <h1 className="message-required">Sua nova senha deve ter: </h1>
+
           <p
+            className="password-required"
             style={{
               color:
                 password.length > 0
@@ -120,9 +124,10 @@ function UserEditPassword(props: Props) {
                   : undefined,
             }}
           >
-            ABC Uma letra maiúscula
+            <span>ABC </span> <span>Uma letra maiúscula</span>
           </p>
           <p
+            className="password-required"
             style={{
               color:
                 password.length > 0
@@ -132,9 +137,10 @@ function UserEditPassword(props: Props) {
                   : undefined,
             }}
           >
-            abc Uma letra minúscula
+            <span>abc</span> <span>Uma letra minúscula</span>
           </p>
           <p
+            className="password-required"
             style={{
               color:
                 password.length > 0
@@ -144,9 +150,10 @@ function UserEditPassword(props: Props) {
                   : undefined,
             }}
           >
-            123 Um número
+            <span>123</span> <span>Um número</span>
           </p>
           <p
+            className="password-required"
             style={{
               color:
                 password.length > 0
@@ -156,7 +163,7 @@ function UserEditPassword(props: Props) {
                   : undefined,
             }}
           >
-            *** 8 caracteres
+            <span>***</span> <span>No mínimo 8 caracteres</span>
           </p>
           <p
             style={{

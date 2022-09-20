@@ -32,7 +32,7 @@ function EditPasswordEmail(props: Props) {
         Confirmar
       </button>
 
-      <Link to="/" className="back-text">
+      <Link className="back-text" to="/">
         Voltar
       </Link>
     </div>

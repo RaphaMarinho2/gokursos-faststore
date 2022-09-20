@@ -52,7 +52,7 @@
 
       p {
         margin-bottom: 16px;
-        font-size: 14px;
+        font-size: 16px;
         color: #555555;
         text-align: right;
       }
@@ -60,7 +60,7 @@
 
     .button-login {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
 
       button {
         padding: 12px 46px;
@@ -74,7 +74,7 @@
       }
 
       a {
-        padding: 12px 32px;
+        padding: 12px 22px;
         font-weight: 600;
         line-height: 24px;
         color: #ff3452;
