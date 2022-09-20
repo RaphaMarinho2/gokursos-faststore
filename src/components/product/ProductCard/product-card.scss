@@ -48,7 +48,6 @@
   display: grid;
   grid-template-rows: minmax(0, max-content);
   grid-auto-flow: row;
-  min-width: var(--fs-product-card-min-width);
   max-width: var(--fs-product-card-max-width);
   height: 100%;
   padding: var(--fs-product-card-padding);
@@ -82,8 +81,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    min-width: 156px;
-    height: 156px;
+    min-height: 123px;
     padding: 0;
     overflow: hidden;
     border-radius: var(--fs-product-card-img-radius);
@@ -94,9 +92,9 @@
       border-radius: 0.625rem 0.625rem 0 0;
     }
 
-    @include media(">=notebook") {
-      min-width: 232px;
-      height: 202px;
+    img {
+      display: block;
+      max-width: 100%;
     }
   }
 }
@@ -147,7 +145,7 @@
     z-index: 1;
     width: 100%;
     height: 40px;
-    font-size: var(--fs-text-size-base);
+    font-size: 14px;
     font-weight: 600;
     color: #ff3452;
     cursor: pointer;
@@ -158,6 +156,10 @@
     &:hover {
       color: #fff;
       background: #ff3452;
+    }
+
+    @include media(">=tablet") {
+      font-size: var(--fs-text-size-base);
     }
   }
 }

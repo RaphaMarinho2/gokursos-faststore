@@ -20,6 +20,14 @@
   min-height: var(--fs-product-shelf-min-height);
 }
 
+.plans-shelf {
+  .product-shelf-container {
+    .product-shelf-title {
+      border-bottom: none;
+    }
+  }
+}
+
 .product-shelf-container {
   width: 100%;
 
@@ -53,7 +61,7 @@
 
   .carousel-content {
     position: relative;
-    padding: 0 1rem;
+    padding: 0 10px;
 
     @include media(">=notebook") {
       padding: 0 24px;
