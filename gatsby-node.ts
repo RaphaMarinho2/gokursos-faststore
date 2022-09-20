@@ -1,13 +1,9 @@
-import 'dotenv/config'
 import path from 'path'
 
-import dotenv from 'dotenv'
 import type { GatsbyNode } from 'gatsby'
 import axios from 'axios'
 
 import { apiSchema } from './src/server'
-
-dotenv.config({ path: `.env` })
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }: any) => {
@@ -45,7 +41,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
 
   const resultPDP = await axios.get(
     `${
-      process.env.SERVER_CATALOG_BASE_URL ?? 'https://gde.godigitaledu.com'
+      process.env.GATSBY_CATALOG_BASE_URL ?? 'https://gde.godigitaledu.com'
     }/odata/Catalog/v1/Products?$select=LinkId`
   )
 

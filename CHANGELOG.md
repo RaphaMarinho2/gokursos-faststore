@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **GM-792** - [PDP] Pre-build all PDP
+
 ## [0.17.1] - 2022-09-15
 
 ### Fixed 
