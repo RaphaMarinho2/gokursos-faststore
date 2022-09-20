@@ -8,7 +8,7 @@ import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import ShareIconPlan from 'src/components/icons/ShareIconPlan'
 
 interface BuyBoxProps {
-  location?: string
+  href?: string
   nodes: Array<{
     textoBotao: string | null
     titulo: string | null
@@ -47,10 +47,10 @@ interface BuyBoxModifiedProps {
   }>
 }
 
-const BuyBox = ({ nodes, location }: BuyBoxProps) => {
+const BuyBox = ({ nodes, href }: BuyBoxProps) => {
   const { isTablet } = useWindowDimensions()
   const nodesModifiedProps = nodes as unknown as BuyBoxModifiedProps
-  const planLink = typeof window !== 'undefined' && location
+  const planLink = typeof window !== 'undefined' && href
 
   return (
     <div className="buy-box__container layout__content">

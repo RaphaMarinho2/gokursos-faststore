@@ -82,7 +82,7 @@ function Page(props: Props) {
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
       <BuyBox
-        location={href}
+        href={href}
         nodes={allContentfulPlanos.nodes.filter(
           (node) => node.slug === '/plano-comunicacao-tecnologia-e-negocios'
         )}
