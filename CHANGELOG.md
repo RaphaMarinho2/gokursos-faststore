@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-349** - [HOME] Adjusted Newletter layout on mobile
 - **GM-657** - [Search] Adjusted Search input layout and behaviour
 - **GM-794** - [PDP] Remove lowercase of linkId in shelfs and search results
+- **GM-502** - [PDP] Adjust of redirection to plans page
 
 ## [0.17.1] - 2022-09-15
 
