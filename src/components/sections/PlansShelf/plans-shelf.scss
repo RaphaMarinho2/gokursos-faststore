@@ -1,6 +1,18 @@
 @import "src/styles/scaffold";
 
 .plans-shelf {
+  .layout__content {
+    column-gap: 15px;
+
+    li {
+      width: 48%;
+
+      @include media(">=tablet") {
+        width: 20%;
+      }
+    }
+  }
+
   margin: 1rem 0.5rem;
 
   @include media(">=tablet") {

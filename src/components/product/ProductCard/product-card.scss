@@ -48,7 +48,7 @@
   display: grid;
   grid-template-rows: minmax(0, max-content);
   grid-auto-flow: row;
-  min-width: var(--fs-product-card-min-width);
+  min-width: 143px;
   max-width: var(--fs-product-card-max-width);
   height: 100%;
   padding: var(--fs-product-card-padding);
