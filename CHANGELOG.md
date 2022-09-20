@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-641** - [INSTITUTIONAL] the order of questions in InstitutionalFrequentQuestions
 - **GM-626** - Adjust Mobile title of dropdown pages institutional
 - **GM-503** - Adjust in filters in Info Productor page
 - **GM-406** - [Department/Category] Dropdown List Layout Adjustment
