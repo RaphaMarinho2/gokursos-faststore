@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+### Fixed
+
+### Removed
+
+## [0.18.0] - 2022-09-20
+
+### Added
+
+- **GM-332** - [MyAccount] My orders page
+
 ### Fixed
 
 - **GM-716** - Add banner, fix filters and search page loading
