@@ -216,6 +216,8 @@
   margin-top: var(--fs-spacing-3);
 
   .product-details__title {
+    max-width: 348px;
+
     .product-title {
       &__header {
         [data-tags-container] {
@@ -240,6 +242,7 @@
         .text__title-product {
           font-size: 20px;
           font-weight: var(--fs-text-weight-bold);
+          line-height: 150%;
         }
       }
     }
@@ -548,7 +551,6 @@
   .polygon-icon {
     position: relative;
     top: 0;
-    right: 10px;
     z-index: 2;
   }
 
@@ -640,6 +642,7 @@
 }
 
 .product-details__settings {
+  max-width: 348px;
   height: fit-content;
 
   [data-store-sku-selector] {
