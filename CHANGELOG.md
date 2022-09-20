@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed 
 
 - **GM-503** - Adjust in filters in Info Productor page
+- **GM-406** - [Department/Category] Dropdown List Layout Adjustment
+
 
 ## [0.17.1] - 2022-09-15
 
