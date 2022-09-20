@@ -108,7 +108,7 @@
   padding: var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-2);
   background-color: var(--fs-color-neutral-0);
 
-  [data-element-variant="text"] {
+  [data] [data-element-variant="text"] {
     min-width: rem(225px);
     min-height: var(--fs-spacing-5);
   }

@@ -31,6 +31,10 @@
       color: #666666;
       background-color: #ffffff;
 
+      &:first-child {
+        display: none;
+      }
+
       &[value="score_desc"] {
         display: none;
       }
@@ -84,7 +88,7 @@
 
   svg {
     position: absolute;
-    right: var(--fs-spacing-2);
+    right: var(--fs-spacing-4);
     color: #666666;
     pointer-events: none;
   }

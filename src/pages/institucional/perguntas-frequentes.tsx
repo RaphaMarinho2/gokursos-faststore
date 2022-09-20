@@ -7,8 +7,6 @@ import InstitutionalFrequentQuestions from 'src/components/sections/Institutiona
 
 export type Props = PageProps<InstitutionalFaqQuery>
 function Page(props: Props) {
-  console.info('pagina intitucional', props)
-
   return (
     <>
       <Breadcrumb
