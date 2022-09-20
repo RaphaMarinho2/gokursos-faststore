@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-406** - [Department/Category] Dropdown List Layout Adjustment
 - **GM-519** - [PDP] Adjust in buy box layout
 - **GM-349** - [HOME] Adjusted Newletter layout on mobile
+- **GM-657** - [Search] Adjusted Search input layout and behaviour
 
 ## [0.17.1] - 2022-09-15
 
