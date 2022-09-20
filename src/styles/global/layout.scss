@@ -46,6 +46,20 @@ main,
   max-width: var(--fs-grid-breakpoint-desktop);
   margin-right: auto;
   margin-left: auto;
+
+  &.my-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px;
+    margin-top: 32px;
+
+    @include media(">=notebook") {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-top: 55px;
+    }
+  }
 }
 
 .no-scroll {
