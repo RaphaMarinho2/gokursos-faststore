@@ -17,7 +17,7 @@ interface SearchContextProps {
   slug?: string
   isLoading: boolean
   filteredFacets: Filters[]
-  setAllFilters: Dispatch<SetStateAction<Filters[]>>
+  setAllFilters: (allFilters: Filters[]) => void
   allFilters: Filters[]
   productsCount: number
   products: ProductsProductCard[]
@@ -26,6 +26,8 @@ interface SearchContextProps {
   lastPage: number
   sort: string
   setSort: Dispatch<SetStateAction<string>>
+  filterLoading: boolean
+  setFilterLoading: (filterLoading: boolean) => void
 }
 
 export const SearchContext = createContext<SearchContextProps | undefined>(
@@ -40,6 +42,7 @@ function SearchProvider({
 }: SearchProviderProps) {
   const [allFilters, setAllFilters] = useState<Filters[]>([])
   const [sort, setSort] = useState<string>('')
+  const [filterLoading, setFilterLoading] = useState<boolean>(true)
 
   const filteredFacets = useMemo(
     () =>
@@ -49,7 +52,8 @@ function SearchProvider({
           facets:
             filter.type === 'CHECKBOX'
               ? filter.facets.filter((facet) => facet.selected === true)
-              : [
+              : filter?.facets?.length
+              ? [
                   {
                     value: filter?.facets[0]?.value,
                     label: filter?.facets[0]?.label,
@@ -60,7 +64,8 @@ function SearchProvider({
                       actualMax: filter?.facets[0].others?.actualMax,
                     },
                   },
-                ],
+                ]
+              : [],
         }
       }),
     [allFilters]
@@ -75,37 +80,33 @@ function SearchProvider({
 
   useEffect(() => {
     setIsLoading(true)
-    if (!allFilters.length) return
 
     const searchProducts = async () => {
       const { page } = searchParams
-      const { value, '@odata.count': count } = await axios
-        .post('/api/getProducts', {
-          defaultFilters,
-          term: 'tecnologia',
-          skip: page * ITEMS_PER_PAGE,
-          sort,
-          itemsPerPage: ITEMS_PER_PAGE,
-          filteredFacets: filteredFacets.length ? filteredFacets : undefined,
-        })
-        .then(({ data }) => data)
-        .catch((err) => console.error(err))
-        .finally(() => setIsLoading(false))
 
-      setProductsCount(count)
-      setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
-      setProducts(value)
+      try {
+        const { value, '@odata.count': count } = await axios
+          .post('/api/getProducts', {
+            defaultFilters,
+            skip: page * ITEMS_PER_PAGE,
+            sort,
+            itemsPerPage: ITEMS_PER_PAGE,
+            filteredFacets: filteredFacets.length ? filteredFacets : undefined,
+          })
+          .then(({ data }) => data)
+
+        setProductsCount(count)
+        setLastPage(Math.ceil(count / ITEMS_PER_PAGE))
+        setProducts(value)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     searchProducts()
-  }, [
-    allFilters.length,
-    defaultFilters,
-    filteredFacets,
-    searchParams,
-    slug,
-    sort,
-  ])
+  }, [defaultFilters, filterLoading, filteredFacets, searchParams, sort])
 
   const value = {
     isLoading,
@@ -120,6 +121,8 @@ function SearchProvider({
     allFilters,
     sort,
     setSort,
+    filterLoading,
+    setFilterLoading,
   }
 
   return (
