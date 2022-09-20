@@ -3,10 +3,9 @@ import path from 'path'
 
 import dotenv from 'dotenv'
 import type { GatsbyNode } from 'gatsby'
+import axios from 'axios'
 
 import { apiSchema } from './src/server'
-
-const { dynamicProducts } = require('./dynamicProducts')
 
 dotenv.config({ path: `.env` })
 
@@ -44,9 +43,13 @@ exports.createPages = async ({ graphql, actions }: any) => {
   // Create product pages dynamically
   const productPage = path.resolve(`src/pages/[slug]/p.tsx`)
 
-  const resultPDP = await dynamicProducts()
+  const resultPDP = await axios.get(
+    `${
+      process.env.SERVER_CATALOG_BASE_URL ?? 'https://gde.godigitaledu.com'
+    }/odata/Catalog/v1/Products?$select=LinkId`
+  )
 
-  resultPDP.value.forEach((edge: any) => {
+  resultPDP.data.value.forEach((edge: any) => {
     createPage({
       path: `${edge.LinkId}/p`,
       component: productPage,
