@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **GM-406** - [Department/Category] Dropdown List Layout Adjustment
+
 ## [0.17.1] - 2022-09-15
 
 ### Fixed 
