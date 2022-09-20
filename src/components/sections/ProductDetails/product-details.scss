@@ -391,7 +391,6 @@
     }
 
     .product-details__plan-details {
-      font-weight: var(--fs-text-weight-bold);
       text-decoration: underline;
 
       &:hover {
@@ -463,7 +462,7 @@
         }
 
         .product-details__plan-details {
-          font-weight: var(--fs-text-weight-bold);
+          font-weight: var(--fs-text-weight-regular);
           text-decoration: underline;
 
           @include media(">=tablet") {
