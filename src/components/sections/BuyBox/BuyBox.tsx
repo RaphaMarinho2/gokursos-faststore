@@ -8,6 +8,7 @@ import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import ShareIconPlan from 'src/components/icons/ShareIconPlan'
 
 interface BuyBoxProps {
+  location?: string
   nodes: Array<{
     textoBotao: string | null
     titulo: string | null
@@ -46,27 +47,10 @@ interface BuyBoxModifiedProps {
   }>
 }
 
-const BuyBox = ({ nodes }: BuyBoxProps) => {
+const BuyBox = ({ nodes, location }: BuyBoxProps) => {
   const { isTablet } = useWindowDimensions()
   const nodesModifiedProps = nodes as unknown as BuyBoxModifiedProps
-
-  const iconClose = () => {
-    return <IconClose />
-  }
-
-  const facebookShareIcon = () => {
-    return <FacebookShareIcon />
-  }
-
-  const twitterShareIcon = () => {
-    return <TwitterShareIcon />
-  }
-
-  const pinterestShareIcon = () => {
-    return <PinterestShareIcon />
-  }
-
-  const planLink = typeof window !== 'undefined' && window.location.href
+  const planLink = typeof window !== 'undefined' && location
 
   return (
     <div className="buy-box__container layout__content">
@@ -94,22 +78,22 @@ const BuyBox = ({ nodes }: BuyBoxProps) => {
                     additionalOverlay
                     shareWebSocials="Compartilhe:"
                     productURL="/"
-                    CloseIcon={iconClose}
+                    CloseIcon={() => <IconClose />}
                     shareLinks={[
                       {
                         name: 'Facebook',
                         url: `https://www.facebook.com/sharer/sharer.php?u=${planLink}`,
-                        SocialIcon: facebookShareIcon,
+                        SocialIcon: () => <FacebookShareIcon />,
                       },
                       {
                         name: 'Twitter',
                         url: `https://twitter.com/intent/tweet?url=${planLink}`,
-                        SocialIcon: twitterShareIcon,
+                        SocialIcon: () => <TwitterShareIcon />,
                       },
                       {
                         name: 'Pinterest',
                         url: `https://www.pinterest.com/pin/create/button/?url=${planLink}`,
-                        SocialIcon: pinterestShareIcon,
+                        SocialIcon: () => <PinterestShareIcon />,
                       },
                     ]}
                     ShareIcon={ShareIconPlan}

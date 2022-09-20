@@ -42,6 +42,7 @@ const useSearchParams = ({ href }: Location) => {
 function Page(props: Props) {
   const {
     data: { allContentfulPlanos },
+    location: { href },
   } = props
 
   const searchParams = useSearchParams(props.location)
@@ -80,6 +81,7 @@ function Page(props: Props) {
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
       <BuyBox
+        location={href}
         nodes={allContentfulPlanos.nodes.filter(
           (node) => node.slug === '/plano-tecnologia'
         )}

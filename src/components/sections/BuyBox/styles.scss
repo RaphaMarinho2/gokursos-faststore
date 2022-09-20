@@ -31,7 +31,7 @@
       align-items: center;
       justify-content: space-between;
       height: 48px;
-      margin: 16px 16px 0;
+      margin: 1rem 1rem 0;
       font-size: 16px;
       font-style: normal;
       font-weight: 700;
@@ -52,10 +52,6 @@
           cursor: pointer;
           background: none;
           border: none;
-        }
-
-        [data-open-modal-text] {
-          display: none;
         }
       }
 
@@ -81,18 +77,6 @@
         @include media(">=tablet") {
           right: 225px;
           width: 290px;
-        }
-
-        [data-modal-share-product-text] {
-          display: none;
-        }
-
-        [data-modal-product-link-container] {
-          display: none;
-        }
-
-        [data-modal-copy-link-button] {
-          display: none;
         }
 
         [data-close-modal-button] {
