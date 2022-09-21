@@ -22,7 +22,7 @@ interface ChangeFacetProps {
 }
 
 function Facets({ filterLoading }: PLPFiltersProps) {
-  const { allFilters, setAllFilters } = useSearch()
+  const { allFilters, setAllFilters, searchParams } = useSearch()
 
   const [indicesExpanded, setIndicesExpanded] = useState<Set<number>>(
     new Set([])
@@ -83,7 +83,16 @@ function Facets({ filterLoading }: PLPFiltersProps) {
       <FilterSkeleton loading={filterLoading}>
         {allFilters?.length ? (
           <>
-            <span className="filter__title">Filtros</span>
+            <div className="filter__title-container">
+              {searchParams?.term ? (
+                <span className="filter__search-term">
+                  {searchParams?.term}
+                </span>
+              ) : (
+                <></>
+              )}
+              <span className="filter__title">Filtros</span>
+            </div>
             <Accordion
               expandedIndices={indicesExpanded}
               onChange={onAccordionChange}
@@ -126,7 +135,7 @@ function Facets({ filterLoading }: PLPFiltersProps) {
                       ))}
                     </>
                   )}
-                  {filter.type === 'RANGE' && (
+                  {filter.type === 'RANGE' && filter.facets.length ? (
                     <div className="facet__facet">
                       <MultiRangeSlider
                         min={filter.facets[0].others?.min ?? 0}
@@ -143,6 +152,8 @@ function Facets({ filterLoading }: PLPFiltersProps) {
                         }}
                       />
                     </div>
+                  ) : (
+                    <></>
                   )}
                 </AccordionItem>
               ))}

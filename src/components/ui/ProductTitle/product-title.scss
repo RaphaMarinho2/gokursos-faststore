@@ -1,7 +1,7 @@
 @import "src/styles/scaffold";
 
 .product-title {
-  @include media(">=tablet") { padding: var(--fs-spacing-3) var(--fs-spacing-3); }
+  @include media(">=tablet") { padding: var(--fs-spacing-3) var(--fs-spacing-1); }
 }
 
 .product-title__header {

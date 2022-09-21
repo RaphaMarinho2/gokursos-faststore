@@ -1,6 +1,6 @@
 import { Button as UIButton } from '@faststore/ui'
-import Icon from 'src/components/ui/Icon'
 import type { ButtonProps } from '@faststore/ui'
+import ShoppingCartIcon from 'src/components/icons/ShoppingCart'
 
 type Props = ButtonProps
 
@@ -12,7 +12,7 @@ function ButtonBuy({ children, ...props }: Props) {
       data-fs-button-variant="buy"
       {...props}
     >
-      <Icon name="ShoppingCart" width={24} height={24} weight="bold" />
+      <ShoppingCartIcon />
       {children}
     </UIButton>
   )
