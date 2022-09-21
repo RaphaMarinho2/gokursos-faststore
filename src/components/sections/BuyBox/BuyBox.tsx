@@ -73,7 +73,7 @@ const BuyBox = ({ nodes, href }: BuyBoxProps) => {
             <div key={index} className="component-Buybox__content">
               <div className="titulo-compartilhar">
                 <h2 className="titulo-planos">{titulo}</h2>
-                <div className="share-icon">
+                <div className="share-icon-buy-box">
                   <ShareProduct
                     additionalOverlay
                     shareWebSocials="Compartilhe:"

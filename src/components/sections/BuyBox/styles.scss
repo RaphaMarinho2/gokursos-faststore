@@ -39,7 +39,7 @@
       color: #ffffff;
     }
 
-    .share-icon {
+    .share-icon-buy-box {
       display: flex;
       flex-direction: column;
       align-self: flex-start;
@@ -52,6 +52,10 @@
           cursor: pointer;
           background: none;
           border: none;
+        }
+
+        [data-open-modal-text] {
+          display: none;
         }
       }
 
@@ -77,6 +81,18 @@
         @include media(">=tablet") {
           right: 225px;
           width: 290px;
+        }
+
+        [data-modal-share-product-text] {
+          display: none;
+        }
+
+        [data-modal-product-link-container] {
+          display: none;
+        }
+
+        [data-modal-copy-link-button] {
+          display: none;
         }
 
         [data-close-modal-button] {
