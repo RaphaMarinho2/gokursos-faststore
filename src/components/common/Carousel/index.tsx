@@ -281,7 +281,7 @@ const Carousel = ({
                     style={{
                       minWidth: qtyItems ? `100%` : 'auto',
                       minHeight: '192px',
-                      transition: 'all 1s ease-out',
+                      transition: 'all 0.5 ease-out',
                       paddingRight: `${gapItems ?? 2}px`,
                     }}
                     ref={refitem}
