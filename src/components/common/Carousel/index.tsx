@@ -218,25 +218,28 @@ const Carousel = ({
             justifyContent: 'center',
           }}
         >
-          <div
-            className="carousel-arrow-button-prev"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {arrow?.isVisible ? (
-              <Arrows
-                position="prev"
-                style={style.arrows}
-                iconColor={arrow.iconColor ?? '#ccc'}
-                onClick={() => arrowsNavigation('prev')}
-              />
-            ) : (
-              ''
-            )}
-          </div>
+          {navigation !== 0 && (
+            <div
+              className="carousel-arrow-button-prev"
+              id="arrow-button-prev"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              {arrow?.isVisible ? (
+                <Arrows
+                  position="prev"
+                  style={style.arrows}
+                  iconColor={arrow.iconColor ?? '#ccc'}
+                  onClick={() => arrowsNavigation('prev')}
+                />
+              ) : (
+                ''
+              )}
+            </div>
+          )}
 
           <div
             ref={containerRef}
@@ -278,7 +281,7 @@ const Carousel = ({
                     style={{
                       minWidth: qtyItems ? `100%` : 'auto',
                       minHeight: '192px',
-                      transition: 'all 0.5 ease-out',
+                      transition: 'all 1s ease-out',
                       paddingRight: `${gapItems ?? 2}px`,
                     }}
                     ref={refitem}
@@ -288,26 +291,28 @@ const Carousel = ({
                 )
               })}
           </div>
-
-          <div
-            className="carousel-arrow-button-next"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {arrow?.isVisible ? (
-              <Arrows
-                position="next"
-                style={style.arrows}
-                iconColor={arrow.iconColor ?? '#ccc'}
-                onClick={() => arrowsNavigation('next')}
-              />
-            ) : (
-              ''
-            )}
-          </div>
+          {navigation !== arrayChildren.length - 1 && (
+            <div
+              className="carousel-arrow-button-next"
+              id="arrow-button-next"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              {arrow?.isVisible ? (
+                <Arrows
+                  position="next"
+                  style={style.arrows}
+                  iconColor={arrow.iconColor ?? '#ccc'}
+                  onClick={() => arrowsNavigation('next')}
+                />
+              ) : (
+                ''
+              )}
+            </div>
+          )}
         </div>
 
         {bullet?.numeric && (

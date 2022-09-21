@@ -59,6 +59,7 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
             padding: 0,
             backgroundColor: '#fff',
             boxShadow: '2px 1px 15px rgba(0, 0, 0, 0.15)',
+            cursor: 'pointer',
           },
         }}
         qtyItems={1}
