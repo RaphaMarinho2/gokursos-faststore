@@ -1,6 +1,8 @@
 @import "src/styles/scaffold";
 
 .plans-shelf {
+  margin: 1rem 0.5rem;
+
   .layout__content {
     column-gap: 15px;
 
@@ -13,7 +15,20 @@
     }
   }
 
-  margin: 1rem 0.5rem;
+  [data-fs-product-card] {
+    [data-card-image] {
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      @include media("<=tablet") {
+        max-width: 153px;
+        height: auto;
+        min-height: 102px;
+      }
+    }
+  }
 
   @include media(">=tablet") {
     max-width: var(--fs-grid-breakpoint-desktop);
