@@ -163,6 +163,10 @@
   line-height: 1.25;
   color: var(--fs-product-card-text-title-color);
 
+  @media screen and (max-width: 480px) {
+    max-width: 140px;
+  }
+
   @include truncate-title(var(--fs-product-card-text-max-lines));
 }
 
