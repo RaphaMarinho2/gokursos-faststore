@@ -36,9 +36,13 @@ const plansMock = [
 
 function PlansShelf() {
   const [products, setProducts] = useState<any>()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    axios.get('/api/getDuce').then(({ data: { value } }) => setProducts(value))
+    axios
+      .get('/api/getDuce')
+      .then(({ data: { value } }) => setProducts(value))
+      .finally(() => setIsLoading(false))
   }, [])
 
   const { isMobile, isTablet } = useWindowDimensions()
@@ -77,7 +81,7 @@ function PlansShelf() {
         cardsQuantity={shelfItemQuantity}
         title={<ShelfTitle />}
         products={products}
-        isLoading={products === undefined}
+        isLoading={isLoading}
       />
     </div>
   )
