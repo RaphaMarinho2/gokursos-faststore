@@ -15,6 +15,10 @@ const BannerInfoProdutor = ({
 }: BannerInfoProdutorProps) => {
   const { isTablet } = useWindowDimensions()
 
+  if (title === 'Gilberto') {
+    title = 'Gilberto Augusto'
+  }
+
   return (
     <section className="banner-info-produtor">
       <div className="banner-info-produtor__content">

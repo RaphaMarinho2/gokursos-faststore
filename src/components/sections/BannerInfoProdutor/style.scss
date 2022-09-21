@@ -10,19 +10,16 @@
     width: 100%;
 
     [data-banner-content] {
-      position: absolute;
-      top: 40%;
-      left: 1rem;
+      max-width: 1420px;
+      margin: auto;
       color: #fff;
 
-      @include media(">=notebook") {
-        left: 10rem;
-      }
-
       .banner-info-produtor__title {
+        position: absolute;
+        top: 40%;
         width: 215px;
         max-height: 52px;
-        margin-bottom: 8px;
+        margin-left: 5px;
         overflow: hidden;
         font-size: 20px;
         font-weight: 700;
