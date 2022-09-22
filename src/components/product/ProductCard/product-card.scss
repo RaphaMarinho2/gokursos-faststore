@@ -48,7 +48,7 @@
   display: grid;
   grid-template-rows: minmax(0, max-content);
   grid-auto-flow: row;
-  min-width: var(--fs-product-card-min-width);
+  min-width: 143px;
   max-width: var(--fs-product-card-max-width);
   height: 100%;
   padding: var(--fs-product-card-padding);
@@ -82,7 +82,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    min-width: 156px;
     height: 156px;
     padding: 0;
     overflow: hidden;
@@ -92,11 +91,6 @@
       max-width: unset;
       height: 180px;
       border-radius: 0.625rem 0.625rem 0 0;
-    }
-
-    @include media(">=notebook") {
-      min-width: 232px;
-      height: 202px;
     }
   }
 }
@@ -147,6 +141,7 @@
     z-index: 1;
     width: 100%;
     height: 40px;
+    padding: 0;
     font-size: var(--fs-text-size-base);
     font-weight: 600;
     color: #ff3452;
@@ -167,6 +162,10 @@
   font-weight: 600;
   line-height: 1.25;
   color: var(--fs-product-card-text-title-color);
+
+  @media screen and (max-width: 480px) {
+    max-width: 140px;
+  }
 
   @include truncate-title(var(--fs-product-card-text-max-lines));
 }
