@@ -74,6 +74,21 @@
       display: none;
     }
   }
+
+  .search-icon-mobile {
+    left: 0;
+    padding: 0;
+    margin-right: 0;
+    line-height: 0;
+    color: #fff;
+    background-color: initial;
+    border: 0;
+
+    svg {
+      width: var(--fs-spacing-5);
+      height: var(--fs-spacing-5);
+    }
+  }
 }
 
 .navbar__buttons {

@@ -55,17 +55,13 @@ function Navbar(props: Props) {
                 className="btn-drawer-menu"
                 onClick={() => setIsDrawerOpen(true)}
               />
-              {(isMobile || isTablet) && (
-                <div className="navbar__buttons">
-                  <SearchInput
-                    placeholder=""
-                    ref={searchMobileRef}
-                    testId="store-input-mobile"
-                    buttonTestId="store-input-mobile-button"
-                    onSearchClick={handlerExpandSearch}
-                  />
+
+              {isMobile && isTablet && (
+                <div className="search-icon-mobile">
+                  <Icon name="MagnifyingGlass" onClick={handlerExpandSearch} />
                 </div>
               )}
+
               <Logo />
             </>
           )}
@@ -82,6 +78,14 @@ function Navbar(props: Props) {
                 onClick={() => setSearchExpanded(false)}
               />
             )}
+
+            <SearchInput
+              placeholder=""
+              ref={searchMobileRef}
+              testId="store-input-mobile"
+              buttonTestId="store-input-mobile-button"
+              onSearchClick={handlerExpandSearch}
+            />
 
             <ButtonSignIn setDisplaySidebar={props.setDisplaySidebar} />
             <CartToggle />
