@@ -1,6 +1,25 @@
 @import "src/styles/scaffold";
 
 .filter {
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &__search-term {
+    font-size: 32px;
+    font-weight: var(--fs-text-weight-bold);
+  }
+
+  .accordion[data-store-accordion] {
+    [data-accordion-item] {
+      background-color: #fff;
+      border-bottom: 1px solid #cacbcc;
+      border-radius: unset;
+    }
+  }
+
   &__title {
     font-size: 14px;
     font-weight: 700;

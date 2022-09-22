@@ -33,7 +33,7 @@ const CommonQuestions = ({ nodes }: CommonQuestions) => {
 
   return (
     <div className="common-questions">
-      <h2 className="common-questions__title">Perguntas Frequentes</h2>
+      <h2 className="common-questions__title">Principais Perguntas</h2>
       <div className="common-questions__container">
         <div className="common-questions__row">
           {firstColumn.map((content, idx) => (

@@ -1,7 +1,7 @@
 {
   "name": "gokursos.store",
   "private": true,
-  "version": "0.17.1",
+  "version": "0.18.0",
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
@@ -32,6 +32,8 @@
     "@acctglobal/productdescription": "^0.2.2",
     "@acctglobal/shareproduct": "^0.2.2",
     "@builder.io/partytown": "^0.5.4",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@envelop/core": "^1.2.0",
     "@envelop/graphql-jit": "^1.1.1",
     "@envelop/parser-cache": "^2.2.0",
@@ -39,6 +41,7 @@
     "@faststore/api": "^1.8.40",
     "@faststore/sdk": "^1.8.40",
     "@faststore/ui": "^1.8.40",
+    "@mui/material": "^5.10.6",
     "@vtex/graphql-utils": "^1.8.40",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
@@ -63,6 +66,7 @@
     "react-dom": "^18.1.0",
     "react-helmet-async": "^1.3.0",
     "react-intersection-observer": "^9.1.0",
+    "react-modal": "^3.15.1",
     "react-shadow": "^19.0.3",
     "sass": "^1.44.0",
     "swr": "^1.3.0"
@@ -87,6 +91,7 @@
     "@testing-library/cypress": "^8.0.0",
     "@types/cypress": "^1.1.3",
     "@types/lodash.debounce": "^4.0.7",
+    "@types/react-modal": "^3.13.1",
     "@vtex/lighthouse-config": "^1.8.40",
     "@vtex/prettier-config": "1.0.0",
     "@vtex/tsconfig": "0.6.0",
