@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-### Fixed
+### Fixed 
+
+- **GM-783** - [Planos] Adjust select and options
 
 - **GM-792** - [PDP] Pre-build all PDP
 - **GM-810** - [para-empresas] Removed duplicate word in ContactForm
