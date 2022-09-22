@@ -50,6 +50,8 @@ const Carousel = ({
   const [itemWidth, setItemWidth] = useState<number>(0)
   const [pause, setPause] = useState(false)
   const [navigation, setNavigation] = useState<number>(0)
+  const [showArrowLeft, setShowArrowLeft] = useState<boolean>(true)
+  const [showArrowRight, setShowArrowRight] = useState<boolean>(true)
   const [numericBullet, setNumericBullet] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const refitem = useRef<HTMLDivElement | null>(null)
@@ -66,7 +68,7 @@ const Carousel = ({
     },
   }
 
-  const currentItemDisplayed = () => {
+  const currentItemDisplayed = useCallback(() => {
     if (containerRef.current) {
       const totalScroll = containerRef.current.scrollWidth
       const currentScroll = containerRef.current.scrollLeft
@@ -76,11 +78,16 @@ const Carousel = ({
       const currentItem =
         Math.round(currentScroll / (totalScroll / totalItems) - 0.3) + 1
 
+      currentItem === 1 ? setShowArrowLeft(false) : setShowArrowLeft(true)
+      currentItem === arrayChildren.length
+        ? setShowArrowRight(false)
+        : setShowArrowRight(true)
+
       setNumericBullet(`${currentItem}/${totalItems}`)
     }
 
     return null
-  }
+  }, [arrayChildren.length])
 
   const focusBullets = () => {
     if (containerRef.current && refitem.current) {
@@ -203,7 +210,7 @@ const Carousel = ({
       currentItemDisplayed()
       focusBullets()
     })
-  }, [containerRef, qtyItems, setBullets, fullWidth])
+  }, [containerRef, qtyItems, setBullets, fullWidth, currentItemDisplayed])
 
   return (
     <>
@@ -218,7 +225,7 @@ const Carousel = ({
             justifyContent: 'center',
           }}
         >
-          {navigation !== 0 && (
+          {showArrowLeft && (
             <div
               className="carousel-arrow-button-prev"
               id="arrow-button-prev"
@@ -291,7 +298,7 @@ const Carousel = ({
                 )
               })}
           </div>
-          {navigation !== arrayChildren.length - 1 && (
+          {showArrowRight && (
             <div
               className="carousel-arrow-button-next"
               id="arrow-button-next"
