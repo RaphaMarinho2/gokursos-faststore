@@ -11,7 +11,9 @@
   }
 
   [data-store-select] {
-    padding: 2px var(--fs-spacing-5) 2px var(--fs-spacing-2);
+    max-width: 190px;
+    min-height: var(--fs-control-tap-size);
+    padding: 2px var(--fs-spacing-5) 2px 0;
     margin: 0;
     overflow: hidden;
     font-size: 16px;
@@ -28,6 +30,10 @@
     option {
       color: #666666;
       background-color: #ffffff;
+
+      &:first-child {
+        display: none;
+      }
 
       &[value="score_desc"] {
         display: none;
@@ -70,14 +76,19 @@
       + svg { display: none; }
     }
 
-    @include media("<notebook") { min-height: var(--fs-control-tap-size); }
+    @include media(">=tablet") {
+      max-width: unset;
+    }
 
-    @include media(">=notebook") { height: var(--fs-spacing-6); }
+    @include media(">=notebook") {
+      height: var(--fs-spacing-6);
+      padding: 2px var(--fs-spacing-5) 2px var(--fs-spacing-2);
+    }
   }
 
   svg {
     position: absolute;
-    right: var(--fs-spacing-2);
+    right: var(--fs-spacing-4);
     color: #666666;
     pointer-events: none;
   }

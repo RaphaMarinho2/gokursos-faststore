@@ -1,12 +1,20 @@
-const SuggestionImageFallback = () => (
+interface SuggestionImageFallbackProps {
+  width?: number
+  height?: number
+}
+
+const SuggestionImageFallback = ({
+  width = 77,
+  height = 62,
+}: SuggestionImageFallbackProps) => (
   <svg
-    width="77"
-    height="62"
-    viewBox="0 0 77 62"
+    width={width}
+    height={height}
+    viewBox={`0 0 ${width} ${height}`}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect width="76.7677" height="62" fill="#DDDDDD" />
+    <rect width={`${width}`} height={`${height}`} fill="#DDDDDD" />
   </svg>
 )
 

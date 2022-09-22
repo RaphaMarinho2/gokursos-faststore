@@ -25,13 +25,13 @@ export const useProductLink = ({ index, product }: ProductLinkOptions) => {
       params: {
         items: [
           {
-            item_id: product.ID,
-            item_name: product.Name,
-            item_brand: product.Category.Name,
+            item_id: product?.ID,
+            item_name: product?.Name,
+            item_brand: product?.Category?.Name,
             index,
-            price: product.Price.BasePrice,
-            discount: product.Price.isSale
-              ? product.Price.ListPrice - product.Price.BasePrice
+            price: product?.Price?.BasePrice,
+            discount: product?.Price?.isSale
+              ? product?.Price?.ListPrice - product?.Price?.BasePrice
               : 0,
             currency: code as CurrencyCode,
             item_variant_name: product.Name,
