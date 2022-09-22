@@ -6,7 +6,7 @@ const IconClose: FC = () => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    fill="none"
+    fill="black"
   >
     <path
       d="M20.25 3.75L3.75 20.25"
