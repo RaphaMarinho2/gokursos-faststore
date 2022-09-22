@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-330** - Login integration
+
 ### Fixed 
 
 - **GM-783** - [Planos] Adjust select and options

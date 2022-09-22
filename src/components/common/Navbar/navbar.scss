@@ -70,7 +70,9 @@
   }
 
   [data-fs-button-menu] {
-    @include media(">=notebook") { display: none; }
+    @include media(">=notebook") {
+      display: none;
+    }
   }
 }
 
@@ -79,12 +81,12 @@
   align-items: center;
   justify-content: flex-end;
 
-  [data-fs-button-collapse] {
-    margin-left: calc(-1 * var(--fs-spacing-3));
+  @include media(">=notebook") {
+    justify-content: space-around;
   }
 
-  [data-fs-button-signin-link] {
-    display: none;
+  [data-fs-button-collapse] {
+    margin-left: calc(-1 * var(--fs-spacing-3));
   }
 
   @include media(">=notebook") {
@@ -110,7 +112,9 @@
         padding: 0;
         border-width: 0;
 
-        &:hover, &:focus, &:focus-visible &:hover:focus-visible {
+        &:hover,
+        &:focus,
+        &:focus-visible &:hover:focus-visible {
           border-width: 0;
           box-shadow: 0 0;
         }
@@ -190,12 +194,16 @@
       width: fit-content;
       padding-left: 0;
 
-      @include media(">=notebook") { display: none; }
+      @include media(">=notebook") {
+        display: none;
+      }
     }
   }
 }
 
 .login-message__bold {
+  display: none;
+  margin-left: 8px;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -203,6 +211,7 @@
   color: #fff;
 
   @include media(">=notebook") {
+    display: flex;
     font-size: 14px;
     line-height: 18px;
   }
@@ -237,6 +246,8 @@
 
   @include media("<notebook") {
     border-top: var(--fs-border-width-default) solid var(--fs-color-neutral-2);
-    border-bottom: var(--fs-border-width-default) solid var(--fs-color-neutral-2);
+    border-bottom:
+      var(--fs-border-width-default) solid
+      var(--fs-color-neutral-2);
   }
 }
