@@ -91,16 +91,21 @@ const DropDownTop = ({ location, label }: DropDownTopProps) => {
 const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
   const { isTablet } = useWindowDimensions()
 
-  const label = ArrayMenu.reduce(
-    (labelText: string, item: { text: string; url: string }) => {
-      if (item.url === location) {
-        labelText = item.text
-      }
+  const label = Object.values(ArrayMenu).filter((item) => {
+    let labelText = ''
+    const regex = /\/$/
+    const itemLocation = location.replace(regex, '')
+    const itemUrl = item.url.replace(regex, '')
 
-      return labelText
-    },
-    ''
-  )
+    if (itemUrl === itemLocation) {
+      labelText = item.text
+    }
+
+    return labelText
+  })
+
+  const textLabel = label[0]?.text
+  const valueDefault = ArrayMenu[0]?.text
 
   const [isOpen, setOpen] = useState(false)
 
@@ -114,7 +119,7 @@ const InstitutionalMenu = ({ location }: InstitutionalMenuProps) => {
         <ListMenuDesk />
       ) : (
         <Dropdown isOpen={isOpen} onDismiss={onDismiss} id="institutional-menu">
-          <DropDownTop location={location} label={label} />
+          <DropDownTop location={location} label={textLabel ?? valueDefault} />
           <DropDownMenu location={location} />
         </Dropdown>
       )}

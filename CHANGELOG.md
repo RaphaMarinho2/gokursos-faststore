@@ -7,13 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed 
+### Added
 
+### Fixed
+
+- **GM-792** - [PDP] Pre-build all PDP
 - **GM-452** - [PLAN] Adjust in share icons
+
+### Removed
+
+
+## [0.18.0] - 2022-09-20
+
+### Added
+
+- **GM-332** - [MyAccount] My orders page
+
+### Fixed
+
+- **GM-716** - Add banner, fix filters and search page loading
+- **GM-641** - [INSTITUTIONAL] the order of questions in InstitutionalFrequentQuestions
+- **GM-626** - Adjust Mobile title of dropdown pages institutional
+- **GM-503** - Adjust in filters in Info Productor page
+- **GM-406** - [Department/Category] Dropdown List Layout Adjustment
+- **GM-519** - [PDP] Adjust in buy box layout
+- **GM-349** - [HOME] Adjusted Newletter layout on mobile
+- **GM-657** - [Search] Adjusted Search input layout and behaviour
+- **GM-794** - [PDP] Remove lowercase of linkId in shelfs and search results
+
 
 ## [0.17.1] - 2022-09-15
 
-### Fixed 
+### Fixed
 
 - **GM-635** - [INSTITUTIONAL] Adjust font-size of inputs and labels
 - **GM-272** - [HOME] Adjust shelf titles and loading

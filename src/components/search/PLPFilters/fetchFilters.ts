@@ -26,7 +26,18 @@ async function fetchFilters({ slug, term, selectedFacets }: Props) {
     })
 
   if (!minMaxPriceFetch || !Object.keys(minMaxPriceFetch).length) {
-    return
+    return [
+      {
+        filterlabel: 'Categorias',
+        type: 'CHECKBOX',
+        facets: [],
+      },
+      {
+        filterlabel: 'Carga horária',
+        type: 'CHECKBOX',
+        facets: [],
+      },
+    ] as Filters[]
   }
 
   const categoriesFetch = await axios
