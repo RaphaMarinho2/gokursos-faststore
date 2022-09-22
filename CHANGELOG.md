@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed 
 
 - **GM-783** - [Planos] Adjust select and options
-
+- **GM-495** - Adjust banner in infoprodutor page
 - **GM-792** - [PDP] Pre-build all PDP
 - **GM-810** - [para-empresas] Removed duplicate word in ContactForm
 - **GM-452** - [PLAN] Adjust in share icons

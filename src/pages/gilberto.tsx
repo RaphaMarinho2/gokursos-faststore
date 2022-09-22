@@ -8,12 +8,12 @@ import {
 } from '@faststore/sdk'
 import { applySearchState } from 'src/sdk/search/state'
 import { ITEMS_PER_PAGE } from 'src/constants'
-import BannerCategory from 'src/components/sections/BannerCategory'
 import type { PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import type { InfoprodutorPageQueryQuery } from '@generated/graphql'
 import AccordionUp from 'src/components/icons/AccordionUp'
 import AccordionDown from 'src/components/icons/AccordionDown'
+import BannerInfoProdutor from 'src/components/sections/BannerInfoProdutor'
 import { SearchProvider } from 'src/contexts/SearchContext/SearchContext'
 
 export type Props = PageProps<InfoprodutorPageQueryQuery>
@@ -52,7 +52,7 @@ function Page(props: Props) {
   const itemListElement: ItemListType[] = [
     {
       item: '/gilberto',
-      name: 'Gilberto augusto',
+      name: 'Gilberto Augusto',
       position: 1,
     },
   ]
@@ -64,9 +64,8 @@ function Page(props: Props) {
       {...searchParams}
     >
       <Breadcrumb breadcrumbList={itemListElement} name={title} />
-      <BannerCategory
+      <BannerInfoProdutor
         title={bannerInfo.title ?? ''}
-        subtitle=" "
         imageBannerDesktop={bannerInfo.bannerImageDesktop?.url ?? ''}
         imageBannerMobile={bannerInfo.bannerImageMobile?.url ?? ''}
       />
