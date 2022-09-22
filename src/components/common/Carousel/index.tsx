@@ -32,6 +32,7 @@ export interface CarouselProps {
   hasAutomaticNavigation?: boolean
   timeoutNavigationAutomatic?: number
   fullWidth?: boolean
+  hideArrows?: boolean
 }
 
 const Carousel = ({
@@ -43,6 +44,7 @@ const Carousel = ({
   hasAutomaticNavigation = false,
   timeoutNavigationAutomatic = 5000,
   fullWidth = false,
+  hideArrows = false,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   const [bulletsQtd, setBulletsQtd] = useState<number>(0)
@@ -78,16 +80,21 @@ const Carousel = ({
       const currentItem =
         Math.round(currentScroll / (totalScroll / totalItems) - 0.3) + 1
 
-      currentItem === 1 ? setShowArrowLeft(false) : setShowArrowLeft(true)
-      currentItem === arrayChildren.length
-        ? setShowArrowRight(false)
-        : setShowArrowRight(true)
+      if (hideArrows === true) {
+        currentItem === 1 ? setShowArrowLeft(false) : setShowArrowLeft(true)
+
+        currentItem === arrayChildren.length
+          ? setShowArrowRight(false)
+          : setShowArrowRight(true)
+      } else {
+        setShowArrowLeft(true)
+      }
 
       setNumericBullet(`${currentItem}/${totalItems}`)
     }
 
     return null
-  }, [arrayChildren.length])
+  }, [arrayChildren.length, hideArrows])
 
   const focusBullets = () => {
     if (containerRef.current && refitem.current) {
