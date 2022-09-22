@@ -11,9 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-792** - [PDP] Pre-build all PDP
 - **GM-810** - [para-empresas] Removed duplicate word in ContactForm
+- **GM-452** - [PLAN] Adjust in share icons
 
 ### Removed
+
 
 ## [0.18.0] - 2022-09-20
 
@@ -32,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-349** - [HOME] Adjusted Newletter layout on mobile
 - **GM-657** - [Search] Adjusted Search input layout and behaviour
 - **GM-794** - [PDP] Remove lowercase of linkId in shelfs and search results
+
 
 ## [0.17.1] - 2022-09-15
 
