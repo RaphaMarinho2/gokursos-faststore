@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-674** - [HOME] Adjust in video section for cursor pointer
+
 ### Removed
 
 ## [0.18.0] - 2022-09-20
