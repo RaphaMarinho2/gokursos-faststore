@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-796** - Integration with GoogleAnalytics 4 and Partytown
+
 ### Fixed
 
 ### Removed
