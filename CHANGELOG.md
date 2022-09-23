@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-274** - Resolved bug Common Questions in Homapage
+
 ### Removed
 
 ## [0.18.0] - 2022-09-20

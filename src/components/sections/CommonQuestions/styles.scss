@@ -4,6 +4,14 @@
   width: 100%;
   padding: 1rem;
 
+  .common-questions__row {
+    @include media(">=notebook") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 32px;
+    }
+  }
+
   @include media(">=notebook") {
     min-height: 418px;
     padding: 2.5rem;
