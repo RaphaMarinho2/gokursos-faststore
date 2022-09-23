@@ -1,0 +1,128 @@
+@import "src/styles/scaffold";
+
+.title-container {
+  width: 100%;
+  padding: 62px 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #ffffff;
+  background: #004e98;
+
+  @include media(">=notebook") {
+    padding: 92px 152px;
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+.my-courses__content {
+  max-width: 1144px;
+  padding: 0 20px;
+  margin: 40px auto;
+
+  img {
+    display: block;
+    max-width: 100%;
+    min-height: 190px;
+  }
+
+  [data-fs-product-card-title] {
+    max-width: 100%;
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+
+  [data-fs-product-active],
+  [data-fs-product-inactive] {
+    font-size: 16px;
+    font-weight: 400;
+    color: #41a201;
+  }
+
+  [data-fs-product-inactive] {
+    color: #d72424;
+  }
+
+  .certificate {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    margin: 20px 0;
+
+    p {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #ff3452;
+      text-decoration-line: underline;
+    }
+
+    &.inactive {
+      p {
+        color: #dddddd;
+      }
+    }
+  }
+
+  .my-courses__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media("<=tablet") {
+      flex-direction: column;
+    }
+
+    .my-courses__card {
+      flex-basis: 25%;
+      max-width: 260px;
+      padding: 10px;
+
+      @include media("<=tablet") {
+        max-width: 100%;
+      }
+
+      &.inactive {
+        img {
+          pointer-events: none;
+          filter: grayscale(1);
+        }
+
+        [data-fs-product-card-title] {
+          color: #dddddd;
+        }
+
+        [data-fs-product-card-actions] {
+          button {
+            color: #555555;
+            background: #dddddd;
+            border: 1px solid #dddddd;
+          }
+        }
+
+        .certificate {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  [data-fs-product-card-actions] {
+    button {
+      color: #fff;
+      background: #ff3452;
+      border: 1px solid #ff3452;
+      transition: ease-in-out .2s;
+
+      &:hover {
+        color: #ff3452;
+        background: transparent;
+      }
+    }
+  }
+}
