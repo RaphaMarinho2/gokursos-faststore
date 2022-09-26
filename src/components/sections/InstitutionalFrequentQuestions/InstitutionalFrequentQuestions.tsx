@@ -18,6 +18,7 @@ const InstitutionalFrequentQuestions = ({
       <div className="institutional-frequent-questions">
         <InstitutionalMenu location={location} />
         <CommonQuestions
+          title="Principais Perguntas"
           nodes={[
             {
               answer: {

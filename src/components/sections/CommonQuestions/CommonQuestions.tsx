@@ -10,16 +10,17 @@ type CommonQuestions = {
       answer: string | null
     } | null
   }>
+  title?: string
 }
 
-const CommonQuestions = ({ nodes }: CommonQuestions) => {
+const CommonQuestions = ({ nodes, title }: CommonQuestions) => {
   if (!nodes || nodes.length < 1) {
     return null
   }
 
   return (
     <div className="common-questions">
-      <h2 className="common-questions__title">Principais Perguntas</h2>
+      <h2 className="common-questions__title">{title}</h2>
       <div className="common-questions__container">
         <div className="common-questions__row">
           {nodes.map((content, idx) => (

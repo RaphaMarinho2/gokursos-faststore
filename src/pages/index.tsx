@@ -129,7 +129,10 @@ function Page(props: Props) {
         title="Em caráter especial"
       />
 
-      <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
+      <CommonQuestions
+        title="Perguntas Frequentes"
+        nodes={allContentfulCommonQuestions.nodes}
+      />
     </>
   )
 }
