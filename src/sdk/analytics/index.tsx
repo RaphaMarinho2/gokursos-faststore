@@ -9,8 +9,6 @@ export const AnalyticsHandler = () => {
     //
     // source: https://developers.google.com/tag-manager/ecommerce-ga4?hl=pt-br#clearing_the_ecommerce_object
 
-    // developers.google.com/analytics/devguides/collection/ga4/ecommerce
-
     if (typeof window.gtag === 'function') {
       window.gtag('event', event.name, event.params)
     }
