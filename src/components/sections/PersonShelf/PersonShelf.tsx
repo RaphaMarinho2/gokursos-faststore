@@ -1,13 +1,15 @@
 import './styles.scss'
 import Carousel from 'src/components/common/Carousel'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import { Image } from 'src/components/ui/Image'
 
 type PersonShelfType = {
   nodes: Array<{
     name?: string | null
     curso?: string | null
     imagem: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
   }>
   withDivisor?: boolean
@@ -92,7 +94,14 @@ const PersonShelf = ({
 
           return (
             <div key={index} className="component-shelf__content">
-              {imagem?.url && <img src={imagem?.url} alt={name ?? ''} />}
+              {imagem && (
+                <Image
+                  className="person-image"
+                  image={imagem.gatsbyImageData}
+                  alt={name ?? ''}
+                  loading="lazy"
+                />
+              )}
               <h3>{name}</h3>
               <p>{curso}</p>
             </div>

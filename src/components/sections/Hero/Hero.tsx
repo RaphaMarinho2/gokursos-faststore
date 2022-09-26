@@ -5,7 +5,7 @@ import UIHero, {
   HeroLink,
 } from 'src/components/ui/Hero'
 import Icon from 'src/components/ui/Icon'
-import Image from 'src/components/ui/Image/Image'
+import Image from 'src/components/ui/Image/VTEXImage'
 
 import Section from '../Section'
 

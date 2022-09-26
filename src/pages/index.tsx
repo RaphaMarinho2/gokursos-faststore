@@ -156,10 +156,10 @@ export const querySSG = graphql`
         title
         subtitle
         imageDesktop {
-          url
+          gatsbyImageData(width: 1920)
         }
         imageMobile {
-          url
+          gatsbyImageData
         }
         slug
         buttonLabel
@@ -195,14 +195,14 @@ export const querySSG = graphql`
         name
         curso
         imagem {
-          url
+          gatsbyImageData(quality: 100)
         }
       }
     }
     allContentfulParceiros {
       nodes {
         imagem {
-          url
+          gatsbyImageData(quality: 100)
         }
       }
     }
@@ -211,7 +211,7 @@ export const querySSG = graphql`
         name
         slug
         image {
-          url
+          gatsbyImageData(formats: JPG, quality: 100)
         }
       }
     }

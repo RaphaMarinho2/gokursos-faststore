@@ -1,18 +1,19 @@
 import { Banner, BannerImage, BannerContent, Button, Link } from '@faststore/ui'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import Carousel from 'src/components/common/Carousel'
-
 import './main-banner.scss'
+import { Image } from 'src/components/ui/Image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
 type MainBannerProps = {
   nodes: Array<{
     title: string | null
     subtitle: string | null
     imageDesktop: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
     imageMobile: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
     slug: string | null
     buttonLabel: string | null
@@ -64,53 +65,48 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
         qtyItems={1}
         gapItems={0}
       >
-        {nodes.map((banner, idx) => (
-          <div key={idx} className="main-banner__content">
-            <Banner>
-              {banner.slug &&
-                banner.imageMobile?.url &&
-                banner.imageDesktop?.url && (
-                  <Link href={banner.slug}>
-                    <BannerImage>
-                      <img
-                        className="main-banner__image"
-                        alt="Imagem do Banner"
-                        src={
-                          isTablet
-                            ? banner.imageMobile.url
-                            : banner.imageDesktop.url
-                        }
-                        width="100%"
-                      />
-                    </BannerImage>
-                  </Link>
-                )}
+        {nodes.map((banner, idx) => {
+          const image = isTablet
+            ? banner?.imageMobile?.gatsbyImageData
+            : banner?.imageDesktop?.gatsbyImageData
 
-              <BannerContent>
-                <div>
-                  <h2 className="main-banner__title">{banner.title}</h2>
-                  <p className="main-banner__subtitle">{banner.subtitle}</p>
-                </div>
-                {banner.slug && banner.buttonColor && banner.buttonTextColor && (
-                  <Link href={banner.slug}>
-                    <Button
-                      style={{
-                        backgroundColor: banner.buttonColor,
-                      }}
-                    >
-                      <p
-                        className="main-banner__button-label"
-                        style={{ color: banner.buttonTextColor }}
+          if (!image) return <></>
+
+          return (
+            <div key={idx} className="main-banner__content">
+              <Banner>
+                <Link href={banner.slug ?? ''}>
+                  <BannerImage>
+                    <Image image={image} alt="Imagem do Banner" />
+                  </BannerImage>
+                </Link>
+
+                <BannerContent>
+                  <div>
+                    <h2 className="main-banner__title">{banner.title}</h2>
+                    <p className="main-banner__subtitle">{banner.subtitle}</p>
+                  </div>
+                  {banner.slug && banner.buttonColor && banner.buttonTextColor && (
+                    <Link href={banner.slug}>
+                      <Button
+                        style={{
+                          backgroundColor: banner.buttonColor,
+                        }}
                       >
-                        {banner.buttonLabel}
-                      </p>
-                    </Button>
-                  </Link>
-                )}
-              </BannerContent>
-            </Banner>
-          </div>
-        ))}
+                        <p
+                          className="main-banner__button-label"
+                          style={{ color: banner.buttonTextColor }}
+                        >
+                          {banner.buttonLabel}
+                        </p>
+                      </Button>
+                    </Link>
+                  )}
+                </BannerContent>
+              </Banner>
+            </div>
+          )
+        })}
       </Carousel>
     </div>
   )
