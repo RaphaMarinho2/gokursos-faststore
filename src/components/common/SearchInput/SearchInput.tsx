@@ -11,11 +11,11 @@ import type {
   SearchInputRef,
 } from '@faststore/ui'
 import SearchIcon from 'src/components/icons/SearchIcon'
-import Icon from 'src/components/ui/Icon'
 import SearchDropdown from 'src/components/search/SearchDropdown'
 import useOnClickOutside from 'src/hooks/useOnClickOutside'
 import { formatSearchState } from 'src/sdk/search/formatSearchState'
 import { initSearchState } from 'src/sdk/search/initSearchState'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
 declare type SearchInputProps = {
   onSearchClick?: () => void
@@ -65,25 +65,22 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
       handleChangeDeferredTerm.current(event.target.value)
     }
 
+    const { isMobile, isTablet } = useWindowDimensions()
+
     return (
       <div className="search-input-container" ref={searchRef}>
         <UISearchInput
           ref={ref}
           icon={
             <>
-              <SearchIcon
-                className="search-icon-desktop"
-                name="searchIcon"
-                onClick={onSearchClick}
-                data-testid={buttonTestId}
-              />
-              <div className="search-icon-mobile">
-                <Icon
-                  name="MagnifyingGlass"
+              {!isMobile && !isTablet && (
+                <SearchIcon
+                  className="search-icon-desktop"
+                  name="searchIcon"
                   onClick={onSearchClick}
                   data-testid={buttonTestId}
                 />
-              </div>
+              )}
             </>
           }
           placeholder="O que você quer aprender?"
