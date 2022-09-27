@@ -90,12 +90,12 @@ function ProductCard({
     >
       {img ? (
         <UICardImage>
-          {/* <img
+          <img
             src={img}
             alt={name}
             sizes="(max-width: 768px) 25vw, 30vw"
             loading="lazy"
-          /> */}
+          />
         </UICardImage>
       ) : (
         <div className="product-image__skeleton" />

@@ -1,5 +1,5 @@
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
-import { Image } from 'src/components/ui/Image'
+// import { Image } from 'src/components/ui/Image'
 import ImageShelf from 'src/components/common/ImageShelf'
 
 import './styles.scss'
@@ -18,18 +18,18 @@ const PersonShelf = ({ nodes }: Props) => {
   return (
     <ImageShelf title="Confiam na GoKursos" pretitle="Grandes Parceiros">
       {nodes.map((node, index) => {
-        const { name, curso, imagem } = node
+        const { name, curso } = node
 
         return (
           <div key={index} className="person-content">
-            {imagem && (
+            {/* {imagem && (
               <Image
                 className="person-image"
                 image={imagem.gatsbyImageData}
                 alt={name ?? ''}
                 loading="lazy"
               />
-            )}
+            )} */}
             <div>
               <h3>{name}</h3>
               <p>{curso}</p>
