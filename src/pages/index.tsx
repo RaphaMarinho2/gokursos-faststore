@@ -5,16 +5,16 @@ import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
 import 'src/styles/pages/homepage.scss'
-// import HomeProductShelf from 'src/components/sections/HomeProductShelf'
-// import BlockDesktop from 'src/components/sections/ShelfWithFilter'
+import HomeProductShelf from 'src/components/sections/HomeProductShelf'
+import BlockDesktop from 'src/components/sections/ShelfWithFilter'
 import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
 import PersonShelf from 'src/components/sections/PersonShelf'
 import BestCourses from 'src/components/sections/BestCourses'
-// import selectedTabs from 'src/mocks/bestSellerList.json'
-// import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
+import selectedTabs from 'src/mocks/bestSellerList.json'
+import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
 import PartnersShelf from 'src/components/sections/PartnersShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
@@ -87,30 +87,30 @@ function Page(props: Props) {
         subtitle="Categorias de Cursos"
         nodes={allContentfulBestCourses.nodes}
       />
-      {/* 
+
       <BlockDesktop
         title="Vendidos"
         pretitle="Mais"
         navigattionTabs={selectedTabs.data}
-      /> */}
+      />
 
       <VideoSection nodes={allContentfulVideoSection.nodes} />
 
-      {/* <NewReleasesShelf
+      <NewReleasesShelf
         pretitle="Confira os cursos"
         title="Lançados recentemente"
-      /> */}
+      />
 
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
 
       <PartnersShelf nodes={allContentfulParceiros.nodes} />
 
       <PersonShelf nodes={allContentfulPersons.nodes} />
-      {/* 
+
       <HomeProductShelf
         pretitle="Disciplina Universitária"
         title="Em caráter especial"
-      /> */}
+      />
 
       <CommonQuestions nodes={allContentfulCommonQuestions.nodes} />
     </>
