@@ -11,7 +11,7 @@ import CommonQuestions from 'src/components/sections/CommonQuestions'
 import MainBanner from 'src/components/sections/MainBanner'
 import BannerMedium from 'src/components/sections/BannerMedium'
 import VideoSection from 'src/components/sections/videosection'
-import PersonShelf from 'src/components/sections/PersonShelf'
+// import PersonShelf from 'src/components/sections/PersonShelf'
 import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
 import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
@@ -26,7 +26,7 @@ function Page(props: Props) {
       allContentfulCommonQuestions,
       allContentfulVideoSection,
       allContentfulBannerMedium,
-      allContentfulPersons,
+      // allContentfulPersons,
       allContentfulParceiros,
       allContentfulBestCourses,
       allContentfulMainBanner,
@@ -105,7 +105,7 @@ function Page(props: Props) {
 
       <PartnersShelf nodes={allContentfulParceiros.nodes} />
 
-      <PersonShelf nodes={allContentfulPersons.nodes} />
+      {/* <PersonShelf nodes={allContentfulPersons.nodes} /> */}
 
       <HomeProductShelf
         pretitle="Disciplina Universitária"
