@@ -16,8 +16,8 @@ type CommonQuestions = {
 const columnDivider = (nodes: CommonQuestions['nodes']) => {
   const middleIndex = Math.ceil(nodes.length / 2)
 
-  const firstColumn = nodes.splice(0, middleIndex)
-  const secondColumn = nodes.splice(-middleIndex)
+  const firstColumn = nodes.slice(0, middleIndex)
+  const secondColumn = nodes.slice(-middleIndex)
 
   return {
     firstColumn,
