@@ -13,10 +13,24 @@ type CommonQuestions = {
   title?: string
 }
 
+const columnDivider = (nodes: CommonQuestions['nodes']) => {
+  const middleIndex = Math.ceil(nodes.length / 2)
+
+  const firstColumn = nodes.splice(0, middleIndex)
+  const secondColumn = nodes.splice(-middleIndex)
+
+  return {
+    firstColumn,
+    secondColumn,
+  }
+}
+
 const CommonQuestions = ({ nodes, title }: CommonQuestions) => {
   if (!nodes || nodes.length < 1) {
     return null
   }
+
+  const { firstColumn, secondColumn } = columnDivider(nodes)
 
   return (
     <div className="common-questions">
@@ -24,7 +38,18 @@ const CommonQuestions = ({ nodes, title }: CommonQuestions) => {
         <h2 className="common-questions__title">{title}</h2>
         <div className="common-questions__container">
           <div className="common-questions__row">
-            {nodes.map((content, idx) => (
+            {firstColumn.map((content, idx) => (
+              <Accordion
+                key={idx}
+                title={content.question ?? ''}
+                content={content.answer?.answer ?? ''}
+                iconDefault={<Plus size={20} color="#004E98" />}
+                iconClicked={<Minus size={20} color="#004E98" />}
+              />
+            ))}
+          </div>
+          <div className="common-questions__row">
+            {secondColumn.map((content, idx) => (
               <Accordion
                 key={idx}
                 title={content.question ?? ''}
