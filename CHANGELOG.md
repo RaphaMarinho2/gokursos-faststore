@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-820** - [MENU] Adjust in margin of popouver
 - **GM-674** - [HOME] Adjust in video section for cursor pointer
 - **GM-274** - Resolved bug Common Questions
 
