@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-330** - Login integration
-- **GM-742** - Page My Courses
+- **GM-742** - Page My Courses and integrations with truechange
 
 ### Fixed 
 
