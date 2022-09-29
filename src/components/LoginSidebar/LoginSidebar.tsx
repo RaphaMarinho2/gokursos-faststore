@@ -40,10 +40,10 @@ function LoginSidebar(props: any) {
           <p>Olá, {userData?.name ?? userData?.email ?? ''}</p>
         </div>
         <div className="infos-sidebar">
-          <a href="/">
+          <a href="/meus-cursos">
             <p className="courses-link">Meus cursos</p>
           </a>
-          <a href="/">
+          <a href="/pedidos">
             <p className="requests-link">Meus pedidos</p>
           </a>
           <button onClick={handleClick} className="exit-link">
