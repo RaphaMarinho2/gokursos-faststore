@@ -1,0 +1,1069 @@
+[
+  {
+    "Name": "Pacientes Lucrativos",
+    "Title": "Pacientes Lucrativos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/49120"
+    },
+    "BrandCore": {
+      "Name": "Institute Hof"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "UnitId": 8,
+    "SKUs": [
+      {
+        "_Id": 13558
+      }
+    ],
+    "_Id": 13539
+  },
+  {
+    "Name": "Pacientes lucrativos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/39808"
+    },
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "180"
+      }
+    },
+    "UnitId": 8,
+    "SKUs": [
+      {
+        "_Id": 13548
+      }
+    ],
+    "_Id": 13539
+  },
+  {
+    "Name": "Evento Teste",
+    "Title": "Evento Teste",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10169
+      }
+    ],
+    "_Id": 13539
+  },
+  {
+    "Name": "Evento Teste 1",
+    "Title": "Evento Teste 1",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10492
+      }
+    ],
+    "_Id": 10474
+  },
+  {
+    "Name": "Evento Teste 2",
+    "Title": "Evento Teste 2",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10493
+      }
+    ],
+    "_Id": 10475
+  },
+  {
+    "Name": "Evento Teste 3",
+    "Title": "Evento Teste 3",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31595"
+    },
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10494
+      }
+    ],
+    "_Id": 10476
+  },
+  {
+    "Name": "Evento Teste 4",
+    "Title": "Evento Teste 4",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31596"
+    },
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10495
+      }
+    ],
+    "_Id": 10477
+  },
+  {
+    "Name": "Marketing Digital do Zero",
+    "Title": "Curso Marketing Digital do Zero",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/34648"
+    },
+    "BrandCore": {
+      "Name": "Gilberto Augusto"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "90"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 7157
+      }
+    ],
+    "_Id": 7169
+  },
+  {
+    "Name": "Nutrição e Interferência de Fármacos",
+    "Title": "Curso Online de Nutrição e Interferência de Fármacos",
+    "IsActive": true,
+    "BrandCore": {
+      "Name": "GoKursos"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 2220
+      }
+    ],
+    "_Id": 2217
+  },
+  {
+    "Name": "Introdução e Fundamentos da Estética e Cosmética",
+    "Title": "Curso Online de Introdução e Fundamentos da Estética e Cosmética",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/56489"
+    },
+    "BrandCore": {
+      "Name": "GoKursos"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "50"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 442
+      }
+    ],
+    "_Id": 440
+  },
+  {
+    "Name": "Plano Básico",
+    "Title": "Plano de Assinatura - Básico - GoKursos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/47616"
+    },
+    "BrandCore": {
+      "Name": "GoKursos"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 1073
+      }
+    ],
+    "_Id": 1070
+  },
+  {
+    "Name": "Técnicas de Tratamento Dermatológico a Laser com Dr. Emmanuel França",
+    "Title": "Técnicas de Tratamento Dermatológico a Laser com Dr. Emmanuel França",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31698"
+    },
+    "BrandCore": {
+      "Name": "Emmanuel França"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10322
+      }
+    ],
+    "_Id": 10309
+  },
+  {
+    "Name": "Universo Digital",
+    "Title": "Curso Online Universo Digital",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/32939"
+    },
+    "BrandCore": {
+      "Name": "Gilberto Augusto"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 9022
+      }
+    ],
+    "_Id": 9034
+  },
+  {
+    "Name": "Especialização em Docência da Educação Superior",
+    "Title": "Pós Digital Especialização em Docência da Educação Superior",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/34491"
+    },
+    "BrandCore": {
+      "Name": "UNINABUCO"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 7300
+      }
+    ],
+    "_Id": 7313
+  },
+  {
+    "Name": "MBA em Gestão Hospitalar (UNAMA)",
+    "Title": "MBA em Gestão Hospitalar Copy",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/34341"
+    },
+    "BrandCore": {
+      "Name": "UNAMA"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 7450
+      }
+    ],
+    "_Id": 7463
+  },
+  {
+    "Name": "Circuitos Elétricos (DISCIPLINA UNINASSAU)",
+    "Title": "Curso Online Circuitos Elétricos (DISCIPLINA UNINASSAU) - GoKursos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/43225"
+    },
+    "BrandCore": {
+      "Name": "Uninassau"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 5715
+      }
+    ],
+    "_Id": 5725
+  },
+  {
+    "Name": "Empreendedorismo - Com Janguiê Diniz",
+    "Title": "Curso Online de Empreendedorismo - Com Janguiê Diniz",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/56306"
+    },
+    "BrandCore": {
+      "Name": "Janguiê Diniz"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 266
+      }
+    ],
+    "_Id": 264
+  },
+  {
+    "Name": "1º Overdrives Summit - 2021",
+    "Title": "1º Overdrives Summit - 2021",
+    "IsActive": false,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/42378"
+    },
+    "BrandCore": {
+      "Name": "Overdrives"
+    },
+    "Especificacao": {},
+    "SKUs": [
+      {
+        "_Id": 8175
+      }
+    ],
+    "_Id": 8189
+  },
+  {
+    "Name": "Gestão por Competências no Negócio",
+    "Title": "Curso Online Gestão por Competências no Negócio - GoKursos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/45145"
+    },
+    "BrandCore": {
+      "Name": "Sagah"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "90"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 3704
+      }
+    ],
+    "_Id": 3711
+  },
+  {
+    "Name": "Fitoterapia, Automedicação e Avaliação Laboratoriais",
+    "Title": "Curso Online de Fitoterapia, Automedicação e Avaliação Laboratoriais",
+    "IsActive": true,
+    "BrandCore": {
+      "Name": "GoKursos"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "45"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 2261
+      }
+    ],
+    "_Id": 2258
+  },
+  {
+    "Name": "8 Truques Para Bombar Suas Lives",
+    "Title": "Curso Online 8 Truques Para Bombar  Suas Lives",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/33802"
+    },
+    "BrandCore": {
+      "Name": "Gilberto Augusto"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "UnitId": 2,
+    "SKUs": [
+      {
+        "_Id": 8040
+      }
+    ],
+    "_Id": 8053
+  },
+  {
+    "Name": "Universo Digital - Plano 18 Meses",
+    "Title": "Curso Online Universo Digital Plano",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/32917"
+    },
+    "BrandCore": {
+      "Name": "Gilberto Augusto"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 9049
+      }
+    ],
+    "_Id": 9061
+  },
+  {
+    "Name": "Administração de Marketing",
+    "Title": "Curso Online de Administração de Marketing",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/56058"
+    },
+    "BrandCore": {
+      "Name": "GoKursos"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "90"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 6
+      }
+    ],
+    "_Id": 6
+  },
+  {
+    "Name": "TESTE DE KIT",
+    "Title": "TESTE DE KIT",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Alyne"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "150"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10643
+      }
+    ],
+    "_Id": 10625
+  },
+  {
+    "Name": "O Melhor Tempo da Sua Vida",
+    "Title": "O Melhor Tempo da Sua Vida",
+    "IsActive": false,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31275"
+    },
+    "BrandCore": {
+      "Name": "Andreza Carício"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "548"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11325
+      }
+    ],
+    "_Id": 11305
+  },
+  {
+    "Name": "Curso Teste 1",
+    "Title": "Curso Teste 1",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11443
+      }
+    ],
+    "_Id": 11394
+  },
+  {
+    "Name": "Métodos e Técnicas de Vendas",
+    "Title": "Curso Online Métodos e Técnicas de Vendas - GoKursos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/43921"
+    },
+    "BrandCore": {
+      "Name": "Sagah"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "90"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 5026
+      }
+    ],
+    "_Id": 5036
+  },
+  {
+    "Name": "Gestão de Departamento",
+    "Title": "",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "90"
+      }
+    },
+    "UnitId": 4,
+    "SKUs": [
+      {
+        "_Id": 11492
+      }
+    ],
+    "_Id": 11443
+  },
+  {
+    "Name": "PROJETOS",
+    "Title": "",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "ASS"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11554
+      }
+    ],
+    "_Id": 11506
+  },
+  {
+    "Name": "AFF",
+    "Title": "",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "AFF"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "150"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11561
+      }
+    ],
+    "_Id": 11513
+  },
+  {
+    "Name": "Reportagens especiais",
+    "Title": "",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Nathan"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "180"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11563
+      }
+    ],
+    "_Id": 11515
+  },
+  {
+    "Name": "Jornalismo para TV",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Caroline"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11565
+      }
+    ],
+    "_Id": 11517
+  },
+  {
+    "Name": "Método M.U.D.E",
+    "Title": "Método M.U.D.E",
+    "IsActive": false,
+    "BrandCore": {
+      "Name": "We Launch"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "150"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11545
+      }
+    ],
+    "_Id": 11497
+  },
+  {
+    "Name": "XI Maratona Internacional Mauricio de Nassau - 5KM",
+    "Title": "XI Maratona Internacional Mauricio de Nassau - 5KM",
+    "IsActive": false,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31299"
+    },
+    "BrandCore": {
+      "Name": "Maratona Uninassau"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11299
+      },
+      {
+        "_Id": 11300
+      },
+      {
+        "_Id": 11301
+      },
+      {
+        "_Id": 11302
+      },
+      {
+        "_Id": 11303
+      },
+      {
+        "_Id": 11304
+      },
+      {
+        "_Id": 11305
+      }
+    ],
+    "_Id": 10750
+  },
+  {
+    "Name": "teste teste",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11617
+      }
+    ],
+    "_Id": 11569
+  },
+  {
+    "Name": "Evento Teste 5",
+    "Title": "Evento Teste 5",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31297"
+    },
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11347
+      }
+    ],
+    "_Id": 11327
+  },
+  {
+    "Name": "Curso Teste 2",
+    "Title": "Curso Teste 2",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "548"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11638
+      }
+    ],
+    "_Id": 11590
+  },
+  {
+    "Name": "EMPREENDEDORISMO",
+    "Title": "",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11668
+      }
+    ],
+    "_Id": 11620
+  },
+  {
+    "Name": "A Alquimia Interior - Cura e Transformação através do ENEAGRAMA",
+    "Title": "A Alquimia Interior - Cura e Transformação através do ENEAGRAMA",
+    "IsActive": false,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/41400"
+    },
+    "BrandCore": {
+      "Name": "YOU"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11693
+      }
+    ],
+    "_Id": 11645
+  },
+  {
+    "Name": "Odontologia",
+    "Title": "",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11702
+      }
+    ],
+    "_Id": 11654
+  },
+  {
+    "Name": "teste56",
+    "Title": "",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11704
+      }
+    ],
+    "_Id": 11656
+  },
+  {
+    "Name": "Contabilidade",
+    "Title": "",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "50"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11765
+      }
+    ],
+    "_Id": 11717
+  },
+  {
+    "Name": "Congresso Multidisciplinar de Saúde",
+    "Title": "Congresso Multidisciplinar de Saúde",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Amanda"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "180"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11794
+      }
+    ],
+    "_Id": 11746
+  },
+  {
+    "Name": "Formação de Analistas de Investimento em Startups",
+    "Title": "Formação de Analistas de Investimento em Startups",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Bossa Academy"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "548"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11782
+      }
+    ],
+    "_Id": 11734
+  },
+  {
+    "Name": "O Delivery Perfeito",
+    "Title": "O Delivery Perfeito",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31135"
+    },
+    "BrandCore": {
+      "Name": "Rafael Abath"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "360"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11661
+      }
+    ],
+    "_Id": 11613
+  },
+  {
+    "Name": "I CONGRESSO PROCESSO, CONSTITUIÇÃO E TECNOLOGIA",
+    "Title": "",
+    "IsActive": true,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "Congressos"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11802
+      }
+    ],
+    "_Id": 11754
+  },
+  {
+    "Name": "Marketing: Uso Estratégico de Storytelling",
+    "Title": "Curso Online Marketing: Uso Estratégico de Storytelling - GoKursos",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/34567"
+    },
+    "BrandCore": {
+      "Name": "Sagah"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "30"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 7226
+      }
+    ],
+    "_Id": 7238
+  },
+  {
+    "Name": "A Reinvenção do Marketing - Ingresso Presencial",
+    "Title": "A Reinvenção do Marketing - Ingresso Presencial",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://gde.godigitaledu.com/rest/productimage/v1/images/31097"
+    },
+    "BrandCore": {
+      "Name": "Gilberto Augusto"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 11699
+      }
+    ],
+    "_Id": 11651
+  },
+  {
+    "Name": "Praticando na Odontologia",
+    "Title": "Praticando na Odontologia",
+    "IsActive": true,
+    "ProductImage": {
+      "ProductImageURL": "https://www.godigitaledu.com/rest/productimage/v1/images/42013"
+    },
+    "BrandCore": {
+      "Name": "CDO"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "120"
+      }
+    },
+    "SKUs": [
+      {
+        "_Id": 10737
+      }
+    ],
+    "_Id": 10719
+  },
+  {
+    "Name": "Administração Pública - AOCP",
+    "Title": "Administração Pública - AOCP",
+    "IsActive": false,
+    "ProductImage": {},
+    "BrandCore": {
+      "Name": "AOCP"
+    },
+    "Especificacao": {
+      "DisponibilidadeDias": {
+        "Text": "180"
+      }
+    },
+    "UnitId": 5,
+    "SKUs": [
+      {
+        "_Id": 11673
+      }
+    ],
+    "_Id": 11625
+  }
+]
