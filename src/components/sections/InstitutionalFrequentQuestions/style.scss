@@ -35,6 +35,12 @@
     gap: unset;
   }
 
+  .common-questions__row {
+    @include media (">=notebook") {
+      grid-template-columns: unset;
+    }
+  }
+
   .common-questions {
     background: #ffffff;
 

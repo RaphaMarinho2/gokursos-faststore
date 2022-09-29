@@ -2,6 +2,7 @@
  * More info at: https://www.notion.so/vtexhandbook/Event-API-Documentation-48eee26730cf4d7f80f8fd7262231f84
  */
 import type { AnalyticsEvent } from '@faststore/sdk'
+import { windowGlobal } from 'src/constants'
 
 import config from '../../../../../store.config'
 import type { SearchSelectItemEvent } from '../../types'
@@ -18,14 +19,14 @@ const createStorage = (key: string, expiresSecond: number) => {
   const timelapsed = (past: number) => (Date.now() - past) / 1e3
 
   return () => {
-    const item = JSON.parse(localStorage.getItem(key) ?? 'null')
+    const item = JSON.parse(windowGlobal?.localStorage.getItem(key) ?? 'null')
     const isExpired = !item || timelapsed(item.createdAt) > expiresSecond
     const payload: string = isExpired ? randomUUID() : item.payload
 
     if (isExpired) {
       const data = { payload, createdAt: Date.now() }
 
-      localStorage.setItem(key, JSON.stringify(data))
+      windowGlobal?.localStorage.setItem(key, JSON.stringify(data))
     }
 
     return payload

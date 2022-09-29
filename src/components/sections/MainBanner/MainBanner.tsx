@@ -66,23 +66,35 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
         gapItems={0}
       >
         {nodes.map((banner, idx) => (
-          <div key={idx} className="main-banner__content">
+          <div
+            key={idx}
+            className={
+              isTablet
+                ? 'main-banner__content mobile'
+                : 'main-banner__content desktop'
+            }
+          >
             <Banner>
               {banner.slug &&
                 banner.imageMobile?.url &&
                 banner.imageDesktop?.url && (
                   <Link href={banner.slug}>
                     <BannerImage>
-                      <img
-                        className="main-banner__image"
-                        alt="Imagem do Banner"
-                        src={
-                          isTablet
-                            ? banner.imageMobile.url
-                            : banner.imageDesktop.url
-                        }
-                        width="100%"
-                      />
+                      {isTablet ? (
+                        <img
+                          className="main-banner__image mobile"
+                          alt="Imagem do Banner"
+                          src={banner.imageMobile.url}
+                          width="100%"
+                        />
+                      ) : (
+                        <img
+                          className="main-banner__image desktop"
+                          alt="Imagem do Banner"
+                          src={banner.imageDesktop.url}
+                          width="100%"
+                        />
+                      )}
                     </BannerImage>
                   </Link>
                 )}
