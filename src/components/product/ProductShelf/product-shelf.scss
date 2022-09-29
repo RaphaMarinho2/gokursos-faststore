@@ -61,7 +61,7 @@
 
   .carousel-content {
     position: relative;
-    padding: 0 10px;
+    padding: 0 1rem;
 
     @include media(">=notebook") {
       padding: 0 24px;
