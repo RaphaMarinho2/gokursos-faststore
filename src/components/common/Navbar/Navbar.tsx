@@ -14,7 +14,11 @@ import MenuDesktop from 'src/components/common/Menu/MenuDesktop/MenuDesktop'
 import menuItems from 'src/components/common/Menu/mocks/menuItems.json'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
-function Navbar() {
+interface Props {
+  setDisplaySidebar: (param: boolean) => void
+}
+
+function Navbar(props: Props) {
   const { onModalClose } = useModal()
   const searchMobileRef = useRef<SearchInputRef>(null)
   const [value, setValue] = useState(false)
@@ -51,6 +55,13 @@ function Navbar() {
                 className="btn-drawer-menu"
                 onClick={() => setIsDrawerOpen(true)}
               />
+
+              {isMobile && isTablet && (
+                <div className="search-icon-mobile">
+                  <Icon name="MagnifyingGlass" onClick={handlerExpandSearch} />
+                </div>
+              )}
+
               <Logo />
             </>
           )}
@@ -67,6 +78,7 @@ function Navbar() {
                 onClick={() => setSearchExpanded(false)}
               />
             )}
+
             <SearchInput
               placeholder=""
               ref={searchMobileRef}
@@ -74,7 +86,8 @@ function Navbar() {
               buttonTestId="store-input-mobile-button"
               onSearchClick={handlerExpandSearch}
             />
-            <ButtonSignIn />
+
+            <ButtonSignIn setDisplaySidebar={props.setDisplaySidebar} />
             <CartToggle />
           </div>
         </section>

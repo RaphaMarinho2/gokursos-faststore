@@ -4,6 +4,12 @@
   width: 100%;
   padding: 1rem;
 
+  .common-questions__content {
+    max-width: var(--fs-grid-breakpoint-desktop);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   @include media(">=notebook") {
     min-height: 418px;
     padding: 2.5rem;
