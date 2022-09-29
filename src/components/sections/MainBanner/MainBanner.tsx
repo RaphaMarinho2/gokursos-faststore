@@ -36,6 +36,7 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
         fullWidth
         hasAutomaticNavigation
         timeoutNavigationAutomatic={5000}
+        hideArrows
         bullet={{
           isVisible: true,
           bulletEnableColor: '#004e98',

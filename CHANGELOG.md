@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-672** - Adjust arrows Carousel in main banner
 - **GM-820** - [MENU] Adjust in margin of popouver
 - **GM-674** - [HOME] Adjust in video section for cursor pointer
 - **GM-274** - Resolved bug Common Questions
@@ -32,7 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-452** - [PLAN] Adjust in share icons
 - **GM-773** Hide banner desktop on mobile resolution on loading
 - **GM-502** - [PDP] Adjust of redirection to plans page
-
 
 ### Removed
 

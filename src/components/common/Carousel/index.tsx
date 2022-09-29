@@ -32,6 +32,7 @@ export interface CarouselProps {
   hasAutomaticNavigation?: boolean
   timeoutNavigationAutomatic?: number
   fullWidth?: boolean
+  hideArrows?: boolean
 }
 
 const Carousel = ({
@@ -43,6 +44,7 @@ const Carousel = ({
   hasAutomaticNavigation = false,
   timeoutNavigationAutomatic = 5000,
   fullWidth = false,
+  hideArrows = false,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   const [bulletsQtd, setBulletsQtd] = useState<number>(0)
@@ -50,6 +52,8 @@ const Carousel = ({
   const [itemWidth, setItemWidth] = useState<number>(0)
   const [pause, setPause] = useState(false)
   const [navigation, setNavigation] = useState<number>(0)
+  const [showArrowLeft, setShowArrowLeft] = useState<boolean>(false)
+  const [showArrowRight, setShowArrowRight] = useState<boolean>(true)
   const [numericBullet, setNumericBullet] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const refitem = useRef<HTMLDivElement | null>(null)
@@ -66,7 +70,7 @@ const Carousel = ({
     },
   }
 
-  const currentItemDisplayed = () => {
+  const currentItemDisplayed = useCallback(() => {
     if (containerRef.current) {
       const totalScroll = containerRef.current.scrollWidth
       const currentScroll = containerRef.current.scrollLeft
@@ -76,11 +80,21 @@ const Carousel = ({
       const currentItem =
         Math.round(currentScroll / (totalScroll / totalItems) - 0.3) + 1
 
+      if (hideArrows === true) {
+        currentItem === 1 ? setShowArrowLeft(false) : setShowArrowLeft(true)
+
+        currentItem === arrayChildren.length
+          ? setShowArrowRight(false)
+          : setShowArrowRight(true)
+      } else {
+        setShowArrowLeft(true)
+      }
+
       setNumericBullet(`${currentItem}/${totalItems}`)
     }
 
     return null
-  }
+  }, [arrayChildren.length, hideArrows])
 
   const focusBullets = () => {
     if (containerRef.current && refitem.current) {
@@ -203,7 +217,7 @@ const Carousel = ({
       currentItemDisplayed()
       focusBullets()
     })
-  }, [containerRef, qtyItems, setBullets, fullWidth])
+  }, [containerRef, qtyItems, setBullets, fullWidth, currentItemDisplayed])
 
   return (
     <>
@@ -218,25 +232,28 @@ const Carousel = ({
             justifyContent: 'center',
           }}
         >
-          <div
-            className="carousel-arrow-button-prev"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {arrow?.isVisible ? (
-              <Arrows
-                position="prev"
-                style={style.arrows}
-                iconColor={arrow.iconColor ?? '#ccc'}
-                onClick={() => arrowsNavigation('prev')}
-              />
-            ) : (
-              ''
-            )}
-          </div>
+          {showArrowLeft && (
+            <div
+              className="carousel-arrow-button-prev"
+              id="arrow-button-prev"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              {arrow?.isVisible ? (
+                <Arrows
+                  position="prev"
+                  style={style.arrows}
+                  iconColor={arrow.iconColor ?? '#ccc'}
+                  onClick={() => arrowsNavigation('prev')}
+                />
+              ) : (
+                ''
+              )}
+            </div>
+          )}
 
           <div
             ref={containerRef}
@@ -288,26 +305,28 @@ const Carousel = ({
                 )
               })}
           </div>
-
-          <div
-            className="carousel-arrow-button-next"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {arrow?.isVisible ? (
-              <Arrows
-                position="next"
-                style={style.arrows}
-                iconColor={arrow.iconColor ?? '#ccc'}
-                onClick={() => arrowsNavigation('next')}
-              />
-            ) : (
-              ''
-            )}
-          </div>
+          {showArrowRight && (
+            <div
+              className="carousel-arrow-button-next"
+              id="arrow-button-next"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              {arrow?.isVisible ? (
+                <Arrows
+                  position="next"
+                  style={style.arrows}
+                  iconColor={arrow.iconColor ?? '#ccc'}
+                  onClick={() => arrowsNavigation('next')}
+                />
+              ) : (
+                ''
+              )}
+            </div>
+          )}
         </div>
 
         {bullet?.numeric && (
