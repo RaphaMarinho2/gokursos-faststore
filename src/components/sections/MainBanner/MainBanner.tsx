@@ -80,7 +80,6 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
                     <Image image={image} alt="Imagem do Banner" />
                   </BannerImage>
                 </Link>
-
                 <BannerContent>
                   <div>
                     <h2 className="main-banner__title">{banner.title}</h2>

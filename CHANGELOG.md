@@ -13,6 +13,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.19.0] - 2022-09-22
+
+### Added
+
+- **GM-330** - Login integration
+
+### Fixed
+
+- **GM-783** - [Planos] Adjust select and options
+- **GM-495** - Adjust banner in infoprodutor page
+- **GM-792** - [PDP] Pre-build all PDP
+- **GM-810** - [para-empresas] Removed duplicate word in ContactForm
+- **GM-452** - [PLAN] Adjust in share icons
+- **GM-773** Hide banner desktop on mobile resolution on loading
+- **GM-502** - [PDP] Adjust of redirection to plans page
+
+### Removed
+
 ## [0.18.0] - 2022-09-20
 
 ### Added

@@ -391,6 +391,8 @@
     }
 
     .product-details__plan-details {
+      text-decoration: underline;
+
       &:hover {
         text-decoration: none;
       }
@@ -399,12 +401,12 @@
 
   .product-details__plan {
     display: flex;
-    font-size: var(--fs-text-size-0);
+    font-size: var(--fs-text-size-1);
     font-weight: var(--fs-text-weight-bold);
     color: #004e98;
 
     @include media(">=notebook") {
-      font-size: var(--fs-text-size-1);
+      font-size: var(--fs-text-size-2);
       line-height: 18px;
     }
   }
@@ -460,7 +462,7 @@
         }
 
         .product-details__plan-details {
-          font-weight: var(--fs-text-weight-bold);
+          font-weight: var(--fs-text-weight-regular);
           text-decoration: underline;
 
           @include media(">=tablet") {

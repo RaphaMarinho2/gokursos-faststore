@@ -130,11 +130,9 @@ export const querySSG = graphql`
   }
 `
 
-export const getServerData = async ({
-  params: { slug },
-}: {
-  params: Record<string, string>
-}) => {
+export const getServerData = async ({ pageContext }: Props) => {
+  const { slug } = pageContext
+
   try {
     const response =
       await axios.get(`${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Installments,Brand,
