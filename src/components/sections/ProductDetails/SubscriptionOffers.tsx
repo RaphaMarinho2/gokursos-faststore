@@ -66,7 +66,7 @@ export default function SubscriptionOffers({
           <span className="product-details__plan">
             Conheça todos nossos planos de assinatura
           </span>
-          <Link className="product-details__plan-details" to="/#">
+          <Link className="product-details__plan-details" to="/planos">
             Ver detalhes
           </Link>
         </div>

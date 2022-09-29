@@ -1,5 +1,5 @@
 import Icon from 'src/components/ui/Icon'
-import { ButtonIcon, ButtonSignIn } from 'src/components/ui/Button'
+import { ButtonIcon } from 'src/components/ui/Button'
 import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 
@@ -40,7 +40,7 @@ const MenuHeader: FC<IMenuHeader> = ({
   return (
     <header className="navbar__modal-header">
       {menuStatus.length === 0 ? (
-        <ButtonSignIn />
+        <></>
       ) : (
         <div className="navbar__modal-submenu-header">
           <ButtonIcon

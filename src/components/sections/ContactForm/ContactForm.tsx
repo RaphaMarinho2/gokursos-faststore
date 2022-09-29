@@ -33,7 +33,7 @@ function ContactForm({ nodes }: ContactFormProps) {
           />
 
           <span className="contact-form__privacy-policy">
-            Ao informar meus dados eu eu concordo com a{' '}
+            Ao informar meus dados eu concordo com a{' '}
             <a href="/">Política de Privacidade</a>.
           </span>
 
