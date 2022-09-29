@@ -89,6 +89,10 @@
             width: 143px;
           }
 
+          @media screen and (min-width: 375px) and (max-width: 425px) {
+            width: 163px;
+          }
+
           h3 {
             min-height: 80px;
 

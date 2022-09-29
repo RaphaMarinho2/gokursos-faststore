@@ -17,9 +17,10 @@
 }
 
 .person-content {
+  display: flex;
+  justify-content: center;
   width: 220px;
   height: auto;
-  padding: 0 5px;
 
   h3,
   p {
