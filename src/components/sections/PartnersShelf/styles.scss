@@ -1,3 +1,10 @@
+@import "src/styles/scaffold";
+
 .partner-image {
-  width: 220px;
+  width: 100%;
+  height: auto;
+
+  @include media(">=tablet") {
+    width: 298px;
+  }
 }

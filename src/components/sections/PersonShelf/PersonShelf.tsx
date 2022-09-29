@@ -16,13 +16,18 @@ interface Props {
 
 const PersonShelf = ({ nodes }: Props) => {
   return (
-    <ImageShelf title="Confiam na GoKursos" pretitle="Grandes Parceiros">
+    <ImageShelf
+      title="Você irá aprender"
+      pretitle="Com quem"
+      qtyDesk={5}
+      qtyMobile={2}
+    >
       {nodes.map((node, index) => {
         const { name, curso, imagem } = node
 
         return (
           <div key={index} className="person-content">
-            {imagem && (
+            {imagem?.gatsbyImageData && (
               <Image
                 className="person-image"
                 image={imagem.gatsbyImageData}
@@ -30,10 +35,8 @@ const PersonShelf = ({ nodes }: Props) => {
                 loading="lazy"
               />
             )}
-            <div>
-              <h3>{name}</h3>
-              <p>{curso}</p>
-            </div>
+            <h3>{name}</h3>
+            <p>{curso}</p>
           </div>
         )
       })}

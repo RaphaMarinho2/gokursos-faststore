@@ -1,7 +1,13 @@
 @import "src/styles/scaffold";
 
 .person-image {
-  width: 100%;
+  width: 163px;
+  height: 246px;
+
+  @include media(">=tablet") {
+    width: 100%;
+    height: 216px;
+  }
 }
 
 .container-item {
@@ -12,6 +18,8 @@
 
 .person-content {
   width: 220px;
+  height: auto;
+  padding: 0 5px;
 
   h3,
   p {

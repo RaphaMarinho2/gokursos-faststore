@@ -15,7 +15,12 @@ interface Props {
 
 function PartnersShelf({ nodes }: Props) {
   return (
-    <ImageShelf title="Você irá aprender" pretitle="Com quem">
+    <ImageShelf
+      title="Confiam na GoKursos"
+      pretitle="Grandes Parceiros"
+      qtyDesk={4}
+      qtyMobile={1}
+    >
       {nodes.map((node, index) => {
         const { name, imagem } = node
 

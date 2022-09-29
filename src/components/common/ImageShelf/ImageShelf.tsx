@@ -66,7 +66,6 @@ function ImageShelf({
         timeoutNavigationAutomatic={timeoutAutoPlay}
         arrow={arrowStyle}
         qtyItems={shelfItemQuantity}
-        gapItems={5}
       >
         {children}
       </Carousel>
