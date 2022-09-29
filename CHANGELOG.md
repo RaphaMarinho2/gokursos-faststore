@@ -13,6 +13,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.20.0] - 2022-09-29
+
+### Added
+
+- **GM-796** - Integration with GoogleAnalytics 4 and Partytown
+
+### Fixed
+
+- **GM-672** - Adjust arrows Carousel in main banner
+- **GM-820** - [MENU] Adjust in margin of popouver
+- **GM-674** - [HOME] Adjust in video section for cursor pointer
+- **GM-274** - Resolved bug Common Questions
+
+### Removed
+
 ## [0.19.0] - 2022-09-22
 
 ### Added

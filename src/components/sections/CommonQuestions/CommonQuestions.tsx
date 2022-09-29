@@ -10,13 +10,14 @@ type CommonQuestions = {
       answer: string | null
     } | null
   }>
+  title?: string
 }
 
 const columnDivider = (nodes: CommonQuestions['nodes']) => {
   const middleIndex = Math.ceil(nodes.length / 2)
 
-  const firstColumn = nodes.splice(0, middleIndex)
-  const secondColumn = nodes.splice(-middleIndex)
+  const firstColumn = nodes.slice(0, middleIndex)
+  const secondColumn = nodes.slice(-middleIndex)
 
   return {
     firstColumn,
@@ -24,7 +25,7 @@ const columnDivider = (nodes: CommonQuestions['nodes']) => {
   }
 }
 
-const CommonQuestions = ({ nodes }: CommonQuestions) => {
+const CommonQuestions = ({ nodes, title }: CommonQuestions) => {
   if (!nodes || nodes.length < 1) {
     return null
   }
@@ -33,29 +34,31 @@ const CommonQuestions = ({ nodes }: CommonQuestions) => {
 
   return (
     <div className="common-questions">
-      <h2 className="common-questions__title">Principais Perguntas</h2>
-      <div className="common-questions__container">
-        <div className="common-questions__row">
-          {firstColumn.map((content, idx) => (
-            <Accordion
-              key={idx}
-              title={content.question ?? ''}
-              content={content.answer?.answer ?? ''}
-              iconDefault={<Plus size={20} color="#004E98" />}
-              iconClicked={<Minus size={20} color="#004E98" />}
-            />
-          ))}
-        </div>
-        <div className="common-questions__row">
-          {secondColumn.map((content, idx) => (
-            <Accordion
-              key={idx}
-              title={content.question ?? ''}
-              content={content.answer?.answer ?? ''}
-              iconDefault={<Plus size={20} color="#004E98" />}
-              iconClicked={<Minus size={20} color="#004E98" />}
-            />
-          ))}
+      <div className="common-questions__content">
+        <h2 className="common-questions__title">{title}</h2>
+        <div className="common-questions__container">
+          <div className="common-questions__row">
+            {firstColumn.map((content, idx) => (
+              <Accordion
+                key={idx}
+                title={content.question ?? ''}
+                content={content.answer?.answer ?? ''}
+                iconDefault={<Plus size={20} color="#004E98" />}
+                iconClicked={<Minus size={20} color="#004E98" />}
+              />
+            ))}
+          </div>
+          <div className="common-questions__row">
+            {secondColumn.map((content, idx) => (
+              <Accordion
+                key={idx}
+                title={content.question ?? ''}
+                content={content.answer?.answer ?? ''}
+                iconDefault={<Plus size={20} color="#004E98" />}
+                iconClicked={<Minus size={20} color="#004E98" />}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
