@@ -1,7 +1,7 @@
-export {}
+import type { Gtag } from './gtag.js/index.d'
 
 declare global {
   interface Window {
-    gtag: function
+    gtag: Gtag
   }
 }
