@@ -1,8 +1,6 @@
 import type { AnalyticsEvent } from '@faststore/sdk'
 import { useAnalyticsEvent } from '@faststore/sdk'
 
-import storeConfig from '../../../store.config'
-
 export const AnalyticsHandler = () => {
   useAnalyticsEvent((event: AnalyticsEvent) => {
     // Cleans the ecommerce object before pushing a new one
@@ -11,11 +9,9 @@ export const AnalyticsHandler = () => {
     //
     // source: https://developers.google.com/tag-manager/ecommerce-ga4?hl=pt-br#clearing_the_ecommerce_object
 
-    import(`./platform/${storeConfig.platform}`).then(
-      ({ default: sendEvent }) => {
-        sendEvent(event)
-      }
-    )
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', event.name, event.params)
+    }
   })
 
   return null

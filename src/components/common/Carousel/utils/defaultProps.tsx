@@ -14,6 +14,7 @@ export const DefaultProps = {
       borderStyle: 'none',
       borderRadius: '30px',
       margin: '10px',
+      cursor: 'pointer',
     },
   },
 }
