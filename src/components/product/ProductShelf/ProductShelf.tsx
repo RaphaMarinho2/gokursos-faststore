@@ -8,6 +8,7 @@ interface ProductShelfProps {
   title?: string | JSX.Element
   cardsQuantity: number
   withDivisor?: boolean
+  relatedProduct?: boolean
   pretitle?: string
   products: any
   isLoading?: boolean
@@ -19,12 +20,17 @@ function ProductShelf({
   pretitle,
   withDivisor = false,
   products,
+  relatedProduct = false,
   isLoading,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
 
   if (products?.length === 0) {
     return null
+  }
+
+  if (relatedProduct) {
+    relatedProduct = false
   }
 
   const styleArrowMobile = {

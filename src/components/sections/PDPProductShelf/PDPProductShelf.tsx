@@ -42,6 +42,7 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
           products={products}
           cardsQuantity={shelfItemQuantity}
           title={title}
+          relatedProduct
           pretitle={pretitle}
           withDivisor
         />
