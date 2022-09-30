@@ -18,6 +18,8 @@ function PartnersShelf({ nodes }: Props) {
     <ImageShelf
       title="Confiam na GoKursos"
       pretitle="Grandes Parceiros"
+      autoPlay
+      timeoutAutoPlay={3000}
       qtyDesk={4}
       qtyMobile={1}
     >
