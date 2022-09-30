@@ -733,6 +733,7 @@
     place-content: center;
     align-items: center;
     max-width: 848px;
+    text-align: justify;
 
     &:last-child {
       [data-sf-nav-container] {
@@ -845,11 +846,11 @@
 
   [data-sf-description-text],
   [data-sf-description-text-desk] {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 24px;
     color: #000000;
-    text-align: left;
+    text-align: justify;
     white-space: break-spaces;
 
     @include media(">=notebook") {
