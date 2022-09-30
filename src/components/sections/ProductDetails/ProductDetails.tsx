@@ -245,21 +245,20 @@ function ProductDetails({ product }: Props) {
 
         <section className="product-details__content">
           <article className="product-details__description">
-            <div className="divisor-product-details">
-              {typeof window !== 'undefined' && (
+            {typeof window !== 'undefined' && (
+              <div className="divisor-product-details">
                 <ProductDescription
                   descriptionTabs={tabSpecification}
                   maxHeight={100}
                 />
-              )}
-              {/* <ProductRating /> */}
-              {/* <div className="product-questions__container">
+                <ProductBrand NameOfBrand={product.Brand.Name} />
+              </div>
+            )}
+            {/* <ProductRating /> */}
+            {/* <div className="product-questions__container">
               <LatestQuestions productQuestions={productQuestions} />
               <QuestionForm />
             </div> */}
-              <ProductBrand NameOfBrand={product.Brand.Name} />
-            </div>
-
             {/* <ProductRating /> */}
             {/* <div className="product-questions__container">
               <LatestQuestions productQuestions={productQuestions} />

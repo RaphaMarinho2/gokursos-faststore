@@ -1,6 +1,7 @@
 @import "src/styles/scaffold";
 
 .text-brand-custom {
+  padding-left: 1rem;
   font-size: 16px;
 
   @include media("<=tablet") {

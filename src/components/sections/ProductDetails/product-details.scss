@@ -588,18 +588,6 @@
       width: 267px;
     }
 
-    [data-modal-share-product-text] {
-      display: none;
-    }
-
-    [data-modal-product-link-container] {
-      display: none;
-    }
-
-    [data-modal-copy-link-button] {
-      display: none;
-    }
-
     [data-close-modal-button] {
       display: none;
     }
@@ -840,15 +828,12 @@
 
   [data-sf-description-button],
   [data-sf-description-button-desk] {
+    display: none;
     width: 142px;
     height: 38px;
     background-color: #ffffff;
     border: 1px solid #000000;
     border-radius: 4px;
-  }
-
-  [data-sf-description-button-desk] {
-    display: none;
   }
 
   [data-sf-description-container-active="false"] {
@@ -926,6 +911,11 @@
     @include media(">=notebook") {
       font-size: 20px;
     }
+  }
+
+  .divisor-product-details {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #dddddd;
   }
 }
 

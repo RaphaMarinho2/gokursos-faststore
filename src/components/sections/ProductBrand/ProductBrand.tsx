@@ -9,7 +9,6 @@ function ProductBrand({ NameOfBrand }: ProductBrandsProps) {
     <p className="text-brand-custom">
       Curso produzido por:
       <span className="name-of-brand">{NameOfBrand}</span>
-      {/* <a href={} className="name-of-brand">{NameOfBrand}</a> */}
     </p>
   )
 }
