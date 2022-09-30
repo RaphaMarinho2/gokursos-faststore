@@ -56,23 +56,30 @@ export default function MyCourses({
       const userData =
         typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
 
-      axios
-        .post('/api/getCourseList', userData ? JSON.parse(userData) : null)
-        .then((resp) => setCoursesData(resp.data))
-        .catch((error) => {
-          console.error(error)
-          setOpenError(true)
-        })
-        .finally(() => setLoading(false))
+      if (userData) {
+        console.warn('userData', userData)
+        axios
+          .post('/api/getCourseList', userData ? JSON.parse(userData) : null)
+          .then((resp) => setCoursesData(resp.data))
+          .catch((error) => {
+            console.error(error)
+            setOpenError(true)
+          })
+          .finally(() => setLoading(false))
+      } else {
+        setLoading(false)
+        typeof window !== 'undefined' ? (window.location.href = '/login') : ''
+      }
     }
   }, [])
 
   // Redirection request to the course via id
   const handleGoCourses = async (id: string | number) => {
-    setOpen(true)
     const userData =
       typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
 
+    console.warn('funçãoo de buscar lista')
+    setOpen(true)
     const infoUser = JSON.parse(userData ?? '')
 
     await axios
