@@ -41,12 +41,13 @@ const ProductGalleryPaginator = ({
       </Button>
       <div className="product-listing__current-page">{currentPage + 1}</div>
       <span className="product-listing__page-separator">de</span>
-      <button
+      <Button
         className="product-listing__last-page"
         onClick={() => pageNavigation(lastPage - 1)}
+        disabled={checkPage(lastPage)}
       >
         {lastPage}
-      </button>
+      </Button>
       <Button
         className="product-listing__pagination-button"
         variant="tertiary"
