@@ -14,16 +14,18 @@
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 0;
+      bottom: 15vw;
       left: 0;
       width: 100%;
-      max-width: 548px;
-      margin: 3% auto;
-      overflow-y: scroll;
+      max-width: 314px;
+      height: 355px;
+      margin: 0 auto;
       background-color: #fff;
 
-      @include media("<=tablet") {
-        max-width: 310px;
+      @include media(">=notebook") {
+        top: 10vw;
+        max-width: 548px;
+        height: 680px;
       }
     }
 
@@ -35,14 +37,11 @@
         line-height: 130%;
         color: #ff3452;
         text-decoration: underline;
-        cursor: pointer;
         background-color: #fff;
         border: 0;
       }
 
       &--top {
-        position: sticky;
-        top: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -54,7 +53,6 @@
         }
 
         button {
-          cursor: pointer;
           background: #ff3452;
           border: 0;
 
@@ -282,8 +280,8 @@
     height: auto;
 
     @include media(">=notebook") {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 780px;
+      max-height: 400px;
     }
   }
 }
@@ -301,7 +299,6 @@
     margin-top: 24px;
 
     @include media (">=notebook") {
-      flex-basis: 50%;
       padding: 0 0 0 32px;
       margin-top: 0;
       border: 0;
@@ -309,13 +306,8 @@
   }
 
   .product-details__description {
-    flex-basis: 50%;
-    padding-top: 24px;
-    border-top: 1px solid #dddddd;
-
-    @include media (">=notebook") {
-      border: unset;
-    }
+    width: 100%;
+    max-width: 780px;
   }
 
   @include media(">=tablet") {
@@ -561,7 +553,6 @@
     max-height: 28px;
 
     [data-open-modal-button] {
-      cursor: pointer;
       background: none;
       border: none;
     }
@@ -594,7 +585,7 @@
 
     @include media(">=tablet") {
       right: 225px;
-      width: 290px;
+      width: 267px;
     }
 
     [data-modal-share-product-text] {
@@ -610,18 +601,7 @@
     }
 
     [data-close-modal-button] {
-      position: absolute;
-      top: 7px;
-      right: 1px;
-      cursor: pointer;
-      background: none;
-      border: 0;
-
-      svg {
-        path {
-          stroke: #555;
-        }
-      }
+      display: none;
     }
 
     [data-modal-share-links-container] {
@@ -834,7 +814,7 @@
   [data-sf-product-description-item-desk] {
     &::after {
       @include media(">=tablet") {
-        width: 35px;
+        width: 56px;
         height: 12px;
         content: "";
         background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 6L15 12L9 18' stroke='%23666666' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
