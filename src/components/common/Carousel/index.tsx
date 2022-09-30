@@ -32,7 +32,7 @@ export interface CarouselProps {
   hasAutomaticNavigation?: boolean
   timeoutNavigationAutomatic?: number
   fullWidth?: boolean
-  hideArrows?: boolean
+  automaticHideArrows?: boolean
 }
 
 const Carousel = ({
@@ -44,7 +44,7 @@ const Carousel = ({
   hasAutomaticNavigation = false,
   timeoutNavigationAutomatic = 5000,
   fullWidth = false,
-  hideArrows = false,
+  automaticHideArrows = false,
 }: CarouselProps) => {
   const arrayChildren = Children.toArray(children)
   const [bulletsQtd, setBulletsQtd] = useState<number>(0)
@@ -80,12 +80,9 @@ const Carousel = ({
       const currentItem =
         Math.round(currentScroll / (totalScroll / totalItems) - 0.3) + 1
 
-      if (hideArrows === true) {
-        currentItem === 1 ? setShowArrowLeft(false) : setShowArrowLeft(true)
-
-        currentItem === arrayChildren.length
-          ? setShowArrowRight(false)
-          : setShowArrowRight(true)
+      if (automaticHideArrows) {
+        setShowArrowLeft(currentItem !== 1)
+        setShowArrowRight(currentItem !== arrayChildren.length)
       } else {
         setShowArrowLeft(true)
       }
@@ -94,7 +91,7 @@ const Carousel = ({
     }
 
     return null
-  }, [arrayChildren.length, hideArrows])
+  }, [arrayChildren.length, automaticHideArrows])
 
   const focusBullets = () => {
     if (containerRef.current && refitem.current) {
@@ -242,15 +239,13 @@ const Carousel = ({
                 alignItems: 'center',
               }}
             >
-              {arrow?.isVisible ? (
+              {arrow?.isVisible && (
                 <Arrows
                   position="prev"
                   style={style.arrows}
                   iconColor={arrow.iconColor ?? '#ccc'}
                   onClick={() => arrowsNavigation('prev')}
                 />
-              ) : (
-                ''
               )}
             </div>
           )}
@@ -315,15 +310,13 @@ const Carousel = ({
                 alignItems: 'center',
               }}
             >
-              {arrow?.isVisible ? (
+              {arrow?.isVisible && (
                 <Arrows
                   position="next"
                   style={style.arrows}
                   iconColor={arrow.iconColor ?? '#ccc'}
                   onClick={() => arrowsNavigation('next')}
                 />
-              ) : (
-                ''
               )}
             </div>
           )}
