@@ -12,12 +12,12 @@
 
 .container-item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .person-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 220px;
   height: auto;

@@ -19,6 +19,7 @@ const PersonShelf = ({ nodes }: Props) => {
     <ImageShelf
       title="Você irá aprender"
       pretitle="Com quem"
+      hasArrows
       qtyDesk={5}
       qtyMobile={2}
     >
