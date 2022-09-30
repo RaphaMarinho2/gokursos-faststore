@@ -1,6 +1,9 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
+import type { ViewItemListEvent } from '@faststore/sdk'
+import { sendAnalyticsEvent } from '@faststore/sdk'
+import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
 import ProductCard from '../ProductCard'
 
@@ -45,6 +48,29 @@ function ProductShelf({
     margin: 0,
     padding: 0,
     width: 32,
+  }
+
+  if (relatedProduct) {
+    products.map((item: any) => {
+      return sendAnalyticsEvent<ViewItemListEvent<AnalyticsItem>>({
+        name: 'view_item_list',
+        params: {
+          items: [
+            {
+              item_id: item.id,
+              item_name: item.itemOffered.isVariantOf.name,
+              item_brand: item.itemOffered.brand.name,
+              item_variant: item.itemOffered.sku,
+              quantity: item.quantity,
+              price: item.price,
+              discount: item.listPrice - item.price,
+              item_variant_name: item.itemOffered.name,
+              product_reference_id: item.itemOffered.gtin,
+            },
+          ],
+        },
+      })
+    })
   }
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
