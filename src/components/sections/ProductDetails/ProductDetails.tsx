@@ -248,7 +248,6 @@ function ProductDetails({ product }: Props) {
             <div className="divisor-product-details">
               {typeof window !== 'undefined' && (
                 <ProductDescription
-                  loadMore="Load More"
                   descriptionTabs={tabSpecification}
                   maxHeight={100}
                 />
