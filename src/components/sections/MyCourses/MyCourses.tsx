@@ -145,66 +145,63 @@ export default function MyCourses({
                     </span>{' '}
                   </div>
                 )}
-            {currentItems.length > 0 && (
-              <ul className="my-courses__list">
-                <ProductGridSkeleton loading={isLoading}>
-                  {currentItems &&
-                    currentItems.map((item: any, index: number) => {
-                      return (
-                        <li
-                          key={index}
-                          className={`my-courses__card ${
-                            item?.IsActive ? 'active' : 'inactive'
-                          }`}
-                        >
-                          <UICardImage>
-                            <img
-                              src={item?.ProductImage?.ProductImageURL}
-                              alt={item?.Name}
-                              sizes="(max-width: 768px) 25vw, 30vw"
-                              loading="lazy"
-                            />
-                          </UICardImage>
-                          <UICardContent data-fs-product-card-content>
-                            <div data-fs-product-card-heading>
-                              <div className="content-title">
-                                <h3 data-fs-product-card-title>{item.Name}</h3>
-                              </div>
-                              {item.IsActive ? (
-                                <h4 data-fs-product-active>Acesso ativo</h4>
-                              ) : (
-                                <h4 data-fs-product-inactive>
-                                  Acesso expirado
-                                </h4>
-                              )}
+            <ul className="my-courses__list">
+              <ProductGridSkeleton loading={isLoading}>
+                {currentItems &&
+                  currentItems.length > 0 &&
+                  currentItems.map((item: any, index: number) => {
+                    return (
+                      <li
+                        key={index}
+                        className={`my-courses__card ${
+                          item?.IsActive ? 'active' : 'inactive'
+                        }`}
+                      >
+                        <UICardImage>
+                          <img
+                            src={item?.ProductImage?.ProductImageURL}
+                            alt={item?.Name}
+                            sizes="(max-width: 768px) 25vw, 30vw"
+                            loading="lazy"
+                          />
+                        </UICardImage>
+                        <UICardContent data-fs-product-card-content>
+                          <div data-fs-product-card-heading>
+                            <div className="content-title">
+                              <h3 data-fs-product-card-title>{item.Name}</h3>
                             </div>
-                          </UICardContent>
-                          {item.IsActive ? (
-                            <p className="certificate active">
-                              <CertificateActive />
-                              <p>Certificado disponível</p>
-                            </p>
-                          ) : (
-                            <p className="certificate inactive">
-                              <CertificateInactive />
-                              <p>Certificado indisponível</p>
-                            </p>
-                          )}
-                          <UICardActions data-fs-product-card-actions>
-                            <button
-                              onClick={() => {
-                                handleGoCourses(item._Id)
-                              }}
-                            >
-                              Acessar curso
-                            </button>
-                          </UICardActions>
-                        </li>
-                      )
-                    })}
-                </ProductGridSkeleton>
-              </ul>
-            )}
+                            {item.IsActive ? (
+                              <h4 data-fs-product-active>Acesso ativo</h4>
+                            ) : (
+                              <h4 data-fs-product-inactive>Acesso expirado</h4>
+                            )}
+                          </div>
+                        </UICardContent>
+                        {item.IsActive ? (
+                          <p className="certificate active">
+                            <CertificateActive />
+                            <p>Certificado disponível</p>
+                          </p>
+                        ) : (
+                          <p className="certificate inactive">
+                            <CertificateInactive />
+                            <p>Certificado indisponível</p>
+                          </p>
+                        )}
+                        <UICardActions data-fs-product-card-actions>
+                          <button
+                            onClick={() => {
+                              handleGoCourses(item._Id)
+                            }}
+                          >
+                            Acessar curso
+                          </button>
+                        </UICardActions>
+                      </li>
+                    )
+                  })}
+              </ProductGridSkeleton>
+            </ul>
           </div>
           {qtyCourses > 8 && (
             <Pagination
