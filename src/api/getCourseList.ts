@@ -8,8 +8,6 @@ interface OrderRequest {
   token: string
 }
 
-console.warn('entrei no courselist')
-
 export default async function getCourseList(
   req: GatsbyFunctionRequest<OrderRequest | null>,
   res: GatsbyFunctionResponse<MyCourseData[] | string>
@@ -17,14 +15,11 @@ export default async function getCourseList(
   if (req.method !== 'POST') {
     res.status(405)
     res.send('Request method must be POST')
-    console.warn('entrei no req.method')
 
     return
   }
 
   if (!req?.body) {
-    console.warn('!req?.body')
-
     res.status(400)
     res.send('Missing data')
 
@@ -34,10 +29,8 @@ export default async function getCourseList(
   const { email, token } = req.body
 
   try {
-    console.warn('!try ')
     const { data } = await axios.post(
-      // setado via hardcode temporariamente para testes
-      `https://pre-gde.godigitaledu.com/rest/clientcoremycourses/v1/product/courselist`,
+      `${process.env.GATSBY_CATALOG_BASE_URL}/rest/clientcoremycourses/v1/product/courselist`,
       { email, token },
       {
         headers: {
@@ -49,7 +42,6 @@ export default async function getCourseList(
       }
     )
 
-    console.warn('data', data)
     res.json(data)
   } catch (error) {
     res.status(error.response.status)

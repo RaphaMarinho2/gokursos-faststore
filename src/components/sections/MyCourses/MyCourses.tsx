@@ -16,8 +16,7 @@ import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton/Pr
 import { Pagination } from '../../Pagination/Pagination'
 import Section from '../Section'
 import './my-courses.scss'
-import mockCourses from './mock.json'
-// import { MyCourseData } from './typings'
+import type { MyCourseData } from './typings'
 
 type Variant = 'wide' | 'default'
 export interface MyCoursesProps {
@@ -30,9 +29,7 @@ export default function MyCourses({
   variant = 'default',
   bordered = false,
 }: MyCoursesProps) {
-  // const [coursesData, setCoursesData] = useState<MyCourseData[] | []>([])
-
-  const [coursesData, setCoursesData] = useState([{}])
+  const [coursesData, setCoursesData] = useState<MyCourseData[] | []>([])
   const [isLoading, setLoading] = useState<boolean>(true)
   const [itemsPerPage] = useState<number>(8)
   const [currentPage, setCurrentPage] = useState<number>(0)
@@ -45,31 +42,21 @@ export default function MyCourses({
   const [openError, setOpenError] = useState<boolean>(false)
 
   useEffect(() => {
-    if (
-      typeof window !== 'undefined'
-        ? window.location.href.includes('?dev=true')
-        : ''
-    ) {
-      setCoursesData(mockCourses)
-      setLoading(false)
-    } else {
-      const userData =
-        typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
+    const userData =
+      typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
 
-      if (userData) {
-        console.warn('userData', userData)
-        axios
-          .post('/api/getCourseList', userData ? JSON.parse(userData) : null)
-          .then((resp) => setCoursesData(resp.data))
-          .catch((error) => {
-            console.error(error)
-            setOpenError(true)
-          })
-          .finally(() => setLoading(false))
-      } else {
-        setLoading(false)
-        typeof window !== 'undefined' ? (window.location.href = '/login') : ''
-      }
+    if (userData) {
+      axios
+        .post('/api/getCourseList', userData ? JSON.parse(userData) : null)
+        .then((resp) => setCoursesData(resp.data))
+        .catch((error) => {
+          console.error(error)
+          setOpenError(true)
+        })
+        .finally(() => setLoading(false))
+    } else {
+      setLoading(false)
+      typeof window !== 'undefined' ? (window.location.href = '/login') : ''
     }
   }, [])
 
@@ -78,7 +65,6 @@ export default function MyCourses({
     const userData =
       typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
 
-    console.warn('funçãoo de buscar lista')
     setOpen(true)
     const infoUser = JSON.parse(userData ?? '')
 
@@ -90,8 +76,7 @@ export default function MyCourses({
         if (resp.data) {
           window.open(urlCourse, '_blank')
         } else {
-          console.error('data empty', resp.data)
-          alert('Base não atualizada')
+          console.error(resp.data)
         }
 
         setOpen(false)
@@ -147,7 +132,7 @@ export default function MyCourses({
                   <div className="my-courses__count">
                     Mostrando{' '}
                     <strong>
-                      {currentItems.length !== 0 ? currentItems.length : 0} de{' '}
+                      {currentItems.length !== 0 ? currentItems.length : ''} de{' '}
                       {qtyCourses} produtos
                     </strong>{' '}
                   </div>
@@ -160,62 +145,66 @@ export default function MyCourses({
                     </span>{' '}
                   </div>
                 )}
-            <ul className="my-courses__list">
-              <ProductGridSkeleton loading={isLoading}>
-                {currentItems &&
-                  currentItems.map((item: any, index: number) => {
-                    return (
-                      <li
-                        key={index}
-                        className={`my-courses__card ${
-                          item?.IsActive ? 'active' : 'inactive'
-                        }`}
-                      >
-                        <UICardImage>
-                          <img
-                            src={item?.ProductImage?.ProductImageURL}
-                            alt={item?.Name}
-                            sizes="(max-width: 768px) 25vw, 30vw"
-                            loading="lazy"
-                          />
-                        </UICardImage>
-                        <UICardContent data-fs-product-card-content>
-                          <div data-fs-product-card-heading>
-                            <div className="content-title">
-                              <h3 data-fs-product-card-title>{item.Name}</h3>
+            {currentItems.length > 0 && (
+              <ul className="my-courses__list">
+                <ProductGridSkeleton loading={isLoading}>
+                  {currentItems &&
+                    currentItems.map((item: any, index: number) => {
+                      return (
+                        <li
+                          key={index}
+                          className={`my-courses__card ${
+                            item?.IsActive ? 'active' : 'inactive'
+                          }`}
+                        >
+                          <UICardImage>
+                            <img
+                              src={item?.ProductImage?.ProductImageURL}
+                              alt={item?.Name}
+                              sizes="(max-width: 768px) 25vw, 30vw"
+                              loading="lazy"
+                            />
+                          </UICardImage>
+                          <UICardContent data-fs-product-card-content>
+                            <div data-fs-product-card-heading>
+                              <div className="content-title">
+                                <h3 data-fs-product-card-title>{item.Name}</h3>
+                              </div>
+                              {item.IsActive ? (
+                                <h4 data-fs-product-active>Acesso ativo</h4>
+                              ) : (
+                                <h4 data-fs-product-inactive>
+                                  Acesso expirado
+                                </h4>
+                              )}
                             </div>
-                            {item.IsActive ? (
-                              <h4 data-fs-product-active>Acesso ativo</h4>
-                            ) : (
-                              <h4 data-fs-product-inactive>Acesso expirado</h4>
-                            )}
-                          </div>
-                        </UICardContent>
-                        {item.IsActive ? (
-                          <p className="certificate active">
-                            <CertificateActive />
-                            <p>Certificado disponível</p>
-                          </p>
-                        ) : (
-                          <p className="certificate inactive">
-                            <CertificateInactive />
-                            <p>Certificado indisponível</p>
-                          </p>
-                        )}
-                        <UICardActions data-fs-product-card-actions>
-                          <button
-                            onClick={() => {
-                              handleGoCourses(item._Id)
-                            }}
-                          >
-                            Acessar curso
-                          </button>
-                        </UICardActions>
-                      </li>
-                    )
-                  })}
-              </ProductGridSkeleton>
-            </ul>
+                          </UICardContent>
+                          {item.IsActive ? (
+                            <p className="certificate active">
+                              <CertificateActive />
+                              <p>Certificado disponível</p>
+                            </p>
+                          ) : (
+                            <p className="certificate inactive">
+                              <CertificateInactive />
+                              <p>Certificado indisponível</p>
+                            </p>
+                          )}
+                          <UICardActions data-fs-product-card-actions>
+                            <button
+                              onClick={() => {
+                                handleGoCourses(item._Id)
+                              }}
+                            >
+                              Acessar curso
+                            </button>
+                          </UICardActions>
+                        </li>
+                      )
+                    })}
+                </ProductGridSkeleton>
+              </ul>
+            )}
           </div>
           {qtyCourses > 8 && (
             <Pagination

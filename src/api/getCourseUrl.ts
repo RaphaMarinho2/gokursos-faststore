@@ -31,8 +31,7 @@ export default async function getCourseUrl(
 
   try {
     const { data } = await axios.post(
-      // setado via hardcode temporariamente para testes
-      `https://pre-gde.godigitaledu.com/rest/clientcoremycourses/v1/product/courseurl`,
+      `${process.env.GATSBY_CATALOG_BASE_URL}/rest/clientcoremycourses/v1/product/courseurl`,
       { email, token, _id },
       {
         headers: {
