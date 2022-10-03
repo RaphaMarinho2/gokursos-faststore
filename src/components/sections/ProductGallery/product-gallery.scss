@@ -252,8 +252,6 @@
   }
 
   [data-store-button] {
-    width: 100%;
-
     &.product-listing__pagination-button {
       max-width: 40px;
       border: 1px solid #ddd;
@@ -290,7 +288,9 @@
 .product-listing__current-page {
   display: flex;
   align-items: center;
-  height: 40px;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
   padding:
     calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2))
     var(--fs-spacing-3);
@@ -302,7 +302,9 @@
 .product-listing__last-page {
   display: flex;
   align-items: center;
-  height: 40px;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
   padding:
     calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2))
     var(--fs-spacing-3);
