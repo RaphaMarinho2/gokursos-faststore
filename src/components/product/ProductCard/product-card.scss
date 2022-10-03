@@ -5,51 +5,58 @@
   // Design Tokens for Product Card
   // --------------------------------------------------------
 
-  --fs-product-card-padding                  : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-1);
-  --fs-product-card-gap                      : var(--fs-grid-gap-2);
-  --fs-product-card-min-width                : 232px;
-  --fs-product-card-max-width                : 250px;
+  --fs-product-card-padding:
+    var(--fs-spacing-1) var(--fs-spacing-1)
+    var(--fs-spacing-2) var(--fs-spacing-1);
+  --fs-product-card-gap: var(--fs-grid-gap-2);
+  --fs-product-card-min-width: 232px;
+  --fs-product-card-max-width: 260px;
+  --fs-product-card-max-width-mobile: 143px;
 
-  --fs-product-card-shadow                   : none;
-  --fs-product-card-shadow-hover             : var(--fs-shadow-hover);
+  --fs-product-card-shadow: none;
+  --fs-product-card-shadow-hover: var(--fs-shadow-hover);
 
-  --fs-product-card-bkg-color                : var(--fs-color-body-bkg);
-  --fs-product-card-bkg-color-hover          : var(--fs-product-card-bkg-color);
-  --fs-product-card-bkg-color-focus          : var(--fs-product-card-bkg-color-hover);
+  --fs-product-card-bkg-color: var(--fs-color-body-bkg);
+  --fs-product-card-bkg-color-hover: var(--fs-product-card-bkg-color);
+  --fs-product-card-bkg-color-focus: var(--fs-product-card-bkg-color-hover);
 
-  --fs-product-card-img-radius               : var(--fs-border-radius-default) var(--fs-border-radius-default) 0 0;
-  --fs-product-card-content-padding          : var(--fs-spacing-2) var(--fs-spacing-1) var(--fs-spacing-4);
+  --fs-product-card-img-radius:
+    var(--fs-border-radius-default)
+    var(--fs-border-radius-default) 0 0;
+  --fs-product-card-content-padding:
+    var(--fs-spacing-2) var(--fs-spacing-1)
+    var(--fs-spacing-4);
 
-  --fs-product-card-border-radius            : var(--fs-border-radius-default);
-  --fs-product-card-border-width             : var(--fs-border-width-default);
+  --fs-product-card-border-radius: var(--fs-border-radius-default);
+  --fs-product-card-border-width: var(--fs-border-width-default);
 
-  --fs-product-card-border-color             : var(--fs-border-color-light);
-  --fs-product-card-border-color-hover       : var(--fs-border-color-light-hover);
+  --fs-product-card-border-color: var(--fs-border-color-light);
+  --fs-product-card-border-color-hover: var(--fs-border-color-light-hover);
 
-  --fs-product-card-text-title-color         : var(--fs-color-text);
-  --fs-product-card-text-title-size          : var(--fs-text-size-base);
-  --fs-product-card-text-title-weight        : var(--fs-text-weight-regular);
-  --fs-product-card-text-price-color         : var(--fs-color-text);
-  --fs-product-card-text-price-size          : var(--fs-text-size-base);
-  --fs-product-card-text-price-listing-color : var(--fs-color-text-light);
-  --fs-product-card-text-price-listing-size  : var(--fs-text-size-legend);
-  --fs-product-card-text-description-color   : var(--fs-color-text);
-  --fs-product-card-text-description-size    : var(--fs-text-size-legend);
-  --fs-product-card-text-subtitle-color      : var(--fs-color-text-light);
-  --fs-product-card-text-subtitle-size       : var(--fs-text-size-tiny);
+  --fs-product-card-text-title-color: var(--fs-color-text);
+  --fs-product-card-text-title-size: var(--fs-text-size-base);
+  --fs-product-card-text-title-weight: var(--fs-text-weight-regular);
+  --fs-product-card-text-price-color: var(--fs-color-text);
+  --fs-product-card-text-price-size: var(--fs-text-size-base);
+  --fs-product-card-text-price-listing-color: var(--fs-color-text-light);
+  --fs-product-card-text-price-listing-size: var(--fs-text-size-legend);
+  --fs-product-card-text-description-color: var(--fs-color-text);
+  --fs-product-card-text-description-size: var(--fs-text-size-legend);
+  --fs-product-card-text-subtitle-color: var(--fs-color-text-light);
+  --fs-product-card-text-subtitle-size: var(--fs-text-size-tiny);
 
-  --fs-product-card-text-max-lines           : var(--fs-text-max-lines);
+  --fs-product-card-text-max-lines: var(--fs-text-max-lines);
 
-  --fs-product-card-transition-function      : var(--fs-transition-function);
-  --fs-product-card-transition-property      : var(--fs-transition-property);
-  --fs-product-card-transition-timing        : var(--fs-transition-timing);
+  --fs-product-card-transition-function: var(--fs-transition-function);
+  --fs-product-card-transition-property: var(--fs-transition-property);
+  --fs-product-card-transition-timing: var(--fs-transition-timing);
 
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, max-content);
   grid-auto-flow: row;
   min-width: 143px;
-  max-width: var(--fs-product-card-max-width);
+  max-width: var(--fs-product-card-max-width-mobile);
   height: 100%;
   padding: var(--fs-product-card-padding);
 
@@ -65,9 +72,13 @@
   border-radius: var(--fs-product-card-border-radius);
   box-shadow: var(--fs-product-card-shadow);
   box-shadow: var(--fs-product-card-shadow-hover);
-  transition: var(--fs-product-card-transition-property) var(--fs-product-card-transition-timing) var(--fs-product-card-transition-function);
+  transition:
+    var(--fs-product-card-transition-property)
+    var(--fs-product-card-transition-timing)
+    var(--fs-product-card-transition-function);
 
   @include media(">=tablet") {
+    max-width: var(--fs-product-card-max-width);
     border-radius: 0.625rem;
   }
 
@@ -130,7 +141,9 @@
   }
 
   [data-store-badge],
-  [data-fs-product-card-actions] { margin-top: var(--fs-spacing-2); }
+  [data-fs-product-card-actions] {
+    margin-top: var(--fs-spacing-2);
+  }
 }
 
 [data-fs-product-card-actions] {
@@ -228,7 +241,9 @@
 // --------------------------------------------------------
 
 [data-fs-product-card-bordered="true"] {
-  border: var(--fs-product-card-border-width) solid var(--fs-product-card-border-color);
+  border:
+    var(--fs-product-card-border-width) solid
+    var(--fs-product-card-border-color);
 }
 
 [data-fs-product-card-variant="wide"] {
@@ -265,7 +280,9 @@
   }
 
   [data-card-image] {
-    border-radius: var(--fs-product-card-border-radius) var(--fs-product-card-border-radius) 0 0;
+    border-radius:
+      var(--fs-product-card-border-radius)
+      var(--fs-product-card-border-radius) 0 0;
   }
 
   [data-store-badge] {
@@ -284,7 +301,9 @@
   gap: var(--fs-product-card-gap);
   min-width: calc(var(--fs-product-card-min-width) * 1.5);
 
-  [data-card-image] { grid-row: span 2; }
+  [data-card-image] {
+    grid-row: span 2;
+  }
 
   [data-fs-product-card-content] {
     display: grid;
@@ -292,8 +311,13 @@
     gap: calc(var(--fs-product-card-gap) / 2);
   }
 
-  [data-store-badge] { align-self: end; }
-  [data-fs-product-card-prices] { margin-bottom: 0; }
+  [data-store-badge] {
+    align-self: end;
+  }
+
+  [data-fs-product-card-prices] {
+    margin-bottom: 0;
+  }
 }
 
 .product-image__skeleton {

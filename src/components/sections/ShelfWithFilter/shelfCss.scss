@@ -182,12 +182,6 @@
 }
 
 .navigattionTabs-content {
-  .product-shelf-container {
-    @include media(">=notebook") {
-      padding-left: 20px;
-    }
-  }
-
   .product-shelf-title {
     display: none;
   }

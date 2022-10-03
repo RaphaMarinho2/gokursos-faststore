@@ -19,7 +19,7 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
     const link1 = nodes[nodes.length - 1].link
 
     return (
-      <div className="Container-imagem-banner-medium">
+      <div className="container-imagem-banner-medium">
         {link1 && url1 && (
           <a href={link1}>
             <img src={url1} alt="teste" className="imagem-banner-medium" />
@@ -33,7 +33,7 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
   const [{ link }] = nodes
 
   return (
-    <div className="Container-imagem-banner-medium">
+    <div className="container-imagem-banner-medium layout__content">
       {link && url && (
         <a href={link}>
           <img src={url} alt="teste" className="imagem-banner-medium" />
