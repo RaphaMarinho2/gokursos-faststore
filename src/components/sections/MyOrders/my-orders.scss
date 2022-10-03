@@ -192,6 +192,14 @@
     color: #41a201;
   }
 
+  &__cancel {
+    margin: 0 5px;
+    font-size: var(--fs-text-size-2);
+    font-weight: var(--fs-text-weight-regular);
+    line-height: 24px;
+    color: #d72424;
+  }
+
   &__text {
     margin: 0 5px;
     font-size: var(--fs-text-size-2);

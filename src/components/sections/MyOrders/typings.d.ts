@@ -39,7 +39,13 @@ export interface Order {
 }
 
 export interface StatusCore {
-  Status: string
+  Status:
+    | 'PAGAMENTO APROVADO'
+    | 'PAGAMENTO PENDENTE'
+    | 'FATURADO'
+    | 'CANCELAMENTO SOLICITADO'
+    | 'CANCELADO'
+    | 'PAGAMENTO NÃO FINALIZADO'
   TipoPagamento: string
 }
 
