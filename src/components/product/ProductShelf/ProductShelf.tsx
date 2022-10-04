@@ -1,9 +1,8 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
-import type { ViewItemListEvent } from '@faststore/sdk'
-import { sendAnalyticsEvent } from '@faststore/sdk'
-import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import UseViewItemList from 'src/sdk/analytics/hooks/useViewItemList'
+import UseViewPromotion from 'src/sdk/analytics/hooks/useViewPromotion'
 
 import ProductCard from '../ProductCard'
 
@@ -32,10 +31,6 @@ function ProductShelf({
     return null
   }
 
-  if (relatedProduct) {
-    relatedProduct = false
-  }
-
   const styleArrowMobile = {
     height: 30,
     margin: 0,
@@ -50,27 +45,12 @@ function ProductShelf({
     width: 32,
   }
 
+  const viewPromotionEvent = (product: any) => {
+    UseViewPromotion(product)
+  }
+
   if (relatedProduct) {
-    products.map((item: any) => {
-      return sendAnalyticsEvent<ViewItemListEvent<AnalyticsItem>>({
-        name: 'view_item_list',
-        params: {
-          items: [
-            {
-              item_id: item.id,
-              item_name: item.itemOffered.isVariantOf.name,
-              item_brand: item.itemOffered.brand.name,
-              item_variant: item.itemOffered.sku,
-              quantity: item.quantity,
-              price: item.price,
-              discount: item.listPrice - item.price,
-              item_variant_name: item.itemOffered.name,
-              product_reference_id: item.itemOffered.gtin,
-            },
-          ],
-        },
-      })
-    })
+    UseViewItemList(products)
   }
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
@@ -99,6 +79,7 @@ function ProductShelf({
           {products?.map((product: any, idx: number) => (
             <div key={idx} className="product-shelf__content">
               <ProductCard product={product} index={idx + 1} />
+              {product.Price?.ListPrice && viewPromotionEvent(product)}
             </div>
           ))}
         </Carousel>
