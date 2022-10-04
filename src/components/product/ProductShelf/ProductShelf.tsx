@@ -1,8 +1,13 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
-import UseViewItemList from 'src/sdk/analytics/hooks/useViewItemList'
-import UseViewPromotion from 'src/sdk/analytics/hooks/useViewPromotion'
+import type {
+  SelectItemEvent,
+  ViewItemListEvent,
+  ViewPromotionEvent,
+} from '@faststore/sdk'
+import { sendAnalyticsEvent } from '@faststore/sdk'
+import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
 import ProductCard from '../ProductCard'
 
@@ -46,11 +51,53 @@ function ProductShelf({
   }
 
   const viewPromotionEvent = (product: any) => {
-    UseViewPromotion(product)
+    sendAnalyticsEvent<ViewPromotionEvent<AnalyticsItem>>({
+      name: 'view_promotion',
+      params: {
+        items: [
+          {
+            item_id: product.ID,
+            item_name: product.Name,
+            item_variant_name: product.Name,
+            product_reference_id: product.ID,
+          },
+        ],
+      },
+    })
   }
 
   if (relatedProduct) {
-    UseViewItemList(products)
+    sendAnalyticsEvent<ViewItemListEvent<AnalyticsItem>>({
+      name: 'view_item_list',
+      params: {
+        item_list_name: 'related products',
+        item_list_id: 'related-products',
+        items: products.map((product: any) => ({
+          item_id: product.ID,
+          item_name: product.Name,
+          item_variant_name: product.Name,
+          product_reference_id: product.ID,
+        })),
+      },
+    })
+  }
+
+  const selectItemListEvent = (product: any) => {
+    sendAnalyticsEvent<SelectItemEvent<AnalyticsItem>>({
+      name: 'select_item',
+      params: {
+        item_list_name: 'related products',
+        item_list_id: 'related-products',
+        items: [
+          {
+            item_id: product.ID,
+            item_name: product.Name,
+            item_variant_name: product.Name,
+            product_reference_id: product.ID,
+          },
+        ],
+      },
+    })
   }
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
@@ -77,7 +124,13 @@ function ProductShelf({
           qtyItems={cardsQuantity}
         >
           {products?.map((product: any, idx: number) => (
-            <div key={idx} className="product-shelf__content">
+            <div
+              aria-hidden
+              onKeyDown={() => selectItemListEvent(product)}
+              onClick={() => selectItemListEvent(product)}
+              key={idx}
+              className="product-shelf__content"
+            >
               <ProductCard product={product} index={idx + 1} />
               {product.Price?.ListPrice && viewPromotionEvent(product)}
             </div>

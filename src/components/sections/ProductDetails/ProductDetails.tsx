@@ -1,7 +1,7 @@
 import ProductTags from '@acctglobal/product-tags'
 import ProductDescription from '@acctglobal/productdescription'
 import ShareProduct from '@acctglobal/shareproduct'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import PolygonIcon from 'src/components/icons/PolygonIcon'
@@ -16,8 +16,13 @@ import productQueryDetails from 'src/mocks/productQueryDetails.json'
 import IconClose from 'src/components/icons/IconClose'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
-import UseSelectPromotion from 'src/sdk/analytics/hooks/useSelectPromotion'
-import UseViewItem from 'src/sdk/analytics/hooks/useViewItem'
+import type {
+  CurrencyCode,
+  SelectPromotionEvent,
+  ViewItemEvent,
+} from '@faststore/sdk'
+import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
+import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
 import Section from '../Section'
@@ -71,13 +76,44 @@ function ProductDetails({ product }: Props) {
     },
   ]
 
-  useEffect(() => {
-    if (product.Price.ListPrice) {
-      UseSelectPromotion(product)
-    }
+  const {
+    currency: { code },
+  } = useSession()
 
-    UseViewItem(product)
-  }, [product])
+  if (product.Price.ListPrice) {
+    sendAnalyticsEvent<SelectPromotionEvent<AnalyticsItem>>({
+      name: 'select_promotion',
+      params: {
+        items: [
+          {
+            item_id: product.ID,
+            item_name: product.Name,
+            item_brand: product.Brand.Name,
+            discount: product.Price.ListPrice - product.Price.BasePrice,
+            item_category: product.Department.Name,
+            currency: code as CurrencyCode,
+            price: product.Price.BasePrice,
+            item_variant_name: product.Name,
+            product_reference_id: product.ID,
+          },
+        ],
+      },
+    })
+  }
+
+  sendAnalyticsEvent<ViewItemEvent<AnalyticsItem>>({
+    name: 'view_item',
+    params: {
+      items: [
+        {
+          item_id: product.ID,
+          item_name: product.Name,
+          item_variant_name: product.Name,
+          product_reference_id: product.ID,
+        },
+      ],
+    },
+  })
 
   const buyProps = useBuyButton({
     id: ID,
