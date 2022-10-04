@@ -211,6 +211,7 @@
 .my-order__details {
   display: flex;
   flex-direction: column;
+  max-width: 780px;
   min-height: 220px;
 
   @include media(">=notebook") {
@@ -280,6 +281,8 @@
 
           @include media(">=notebook") {
             margin-bottom: 8px;
+            font-size: 16px;
+            line-height: 24px;
           }
         }
 
@@ -301,6 +304,7 @@
   &-preferences {
     display: flex;
     flex-direction: column;
+    max-height: 211px;
     padding: 24px 16px;
     margin-top: 40px;
     border: 1px solid #dddddd;
@@ -354,6 +358,7 @@
   &-summary {
     display: flex;
     flex-direction: column;
+    max-height: 211px;
     margin-top: 40px;
     border: 1px solid #dddddd;
     border-radius: 4px;
