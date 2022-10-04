@@ -1,3 +1,4 @@
+import { paymentIcons } from './paymentMethods'
 import type { OrderData } from './typings'
 
 import './my-orders.scss'
@@ -9,9 +10,9 @@ interface OrderPreferencesProps {
 export default function OrderPreferences({
   orderDetails,
 }: OrderPreferencesProps) {
-  const paymentMethod = orderDetails.PaymentMethodCore?.Name
+  const paymentName = orderDetails.PaymentMethodCore?.Name
 
-  if (!paymentMethod) {
+  if (!paymentName) {
     return <></>
   }
 
@@ -19,7 +20,7 @@ export default function OrderPreferences({
     <div className="my-order__details-preferences">
       <h4 className="title">Preferências</h4>
       <span className="subtitle">Método de pagamento</span>
-      <span className="text">{paymentMethod}</span>
+      {paymentIcons[`${paymentName.toLocaleUpperCase()}`]}
     </div>
   )
 }
