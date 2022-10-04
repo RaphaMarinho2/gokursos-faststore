@@ -86,15 +86,17 @@ function ProductDetails({ product }: Props) {
       params: {
         items: [
           {
-            item_id: product.ID,
-            item_name: product.Name,
-            item_brand: product.Brand.Name,
-            discount: product.Price.ListPrice - product.Price.BasePrice,
-            item_category: product.Department.Name,
+            item_id: product?.ID,
+            item_name: product?.Name,
+            discount: product?.Price?.isSale
+              ? product?.Price?.ListPrice - product?.Price?.BasePrice
+              : 0,
+            item_brand: product?.Department?.Name,
+            item_category: product?.Category?.Name,
+            price: product?.Price.BasePrice,
             currency: code as CurrencyCode,
-            price: product.Price.BasePrice,
-            item_variant_name: product.Name,
-            product_reference_id: product.ID,
+            item_variant_name: product?.Name,
+            product_reference_id: null,
           },
         ],
       },
@@ -104,12 +106,20 @@ function ProductDetails({ product }: Props) {
   sendAnalyticsEvent<ViewItemEvent<AnalyticsItem>>({
     name: 'view_item',
     params: {
+      value: product?.Price.BasePrice,
       items: [
         {
-          item_id: product.ID,
-          item_name: product.Name,
-          item_variant_name: product.Name,
-          product_reference_id: product.ID,
+          item_id: product?.ID,
+          item_name: product?.Name,
+          discount: product?.Price?.isSale
+            ? product?.Price?.ListPrice - product?.Price?.BasePrice
+            : 0,
+          item_brand: product?.Department?.Name,
+          item_category: product?.Category?.Name,
+          price: product?.Price.BasePrice,
+          currency: code as CurrencyCode,
+          item_variant_name: product?.Name,
+          product_reference_id: null,
         },
       ],
     },
