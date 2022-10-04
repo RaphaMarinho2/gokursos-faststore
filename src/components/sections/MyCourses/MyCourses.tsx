@@ -71,13 +71,16 @@ export default function MyCourses({
     axios
       .post('/api/getCourseUrl', infoUser ? { ...infoUser, _id: id } : null)
       .then((resp) => {
+        if (!resp.data) {
+          console.error(resp.data)
+          setOpen(false)
+
+          return
+        }
+
         const urlCourse = resp.data.UrlToLms
 
-        if (resp.data) {
-          window.open(urlCourse, '_blank')
-        } else {
-          setOpenError(true)
-        }
+        window.open(urlCourse, '_blank')
 
         setOpen(false)
       })
