@@ -14,6 +14,10 @@ export default function OrderStatus({ orderData }: OrderStatusProps) {
     StatusCore: { Status: statusDescription },
   } = orderData
 
+  if (!statusDescription) {
+    return <></>
+  }
+
   const status = statusDescription.toLocaleUpperCase()
 
   const isPaymentApproved =
