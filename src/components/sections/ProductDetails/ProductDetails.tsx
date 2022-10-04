@@ -1,7 +1,7 @@
 import ProductTags from '@acctglobal/product-tags'
 import ProductDescription from '@acctglobal/productdescription'
 import ShareProduct from '@acctglobal/shareproduct'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import PolygonIcon from 'src/components/icons/PolygonIcon'
@@ -71,11 +71,13 @@ function ProductDetails({ product }: Props) {
     },
   ]
 
-  if (product.Price.ListPrice) {
-    UseSelectPromotion(product)
-  }
+  useEffect(() => {
+    if (product.Price.ListPrice) {
+      UseSelectPromotion(product)
+    }
 
-  UseViewItem(product)
+    UseViewItem(product)
+  }, [product])
 
   const buyProps = useBuyButton({
     id: ID,
