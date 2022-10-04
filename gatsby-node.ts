@@ -2,6 +2,7 @@ import path from 'path'
 
 import type { GatsbyNode } from 'gatsby'
 import axios from 'axios'
+import { copyLibFiles } from '@builder.io/partytown/utils'
 
 import { apiSchema } from './src/server'
 
@@ -112,3 +113,9 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
     actions.addThirdPartySchema({ schema })
   }
+
+export const onPreInit: GatsbyNode['onPreInit'] = async ({ reporter }) => {
+  reporter.info('Copying Partytown Files')
+
+  await copyLibFiles(path.resolve('./public/~partytown'))
+}

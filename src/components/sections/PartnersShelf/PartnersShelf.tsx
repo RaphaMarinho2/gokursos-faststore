@@ -1,7 +1,6 @@
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
-import { Image } from 'src/components/ui/Image'
 import ImageShelf from 'src/components/common/ImageShelf'
-
+import { Image } from 'src/components/ui/Image'
 import './styles.scss'
 
 interface Props {
@@ -14,30 +13,29 @@ interface Props {
   }>
 }
 
-const PersonShelf = ({ nodes }: Props) => {
+function PartnersShelf({ nodes }: Props) {
   return (
     <ImageShelf
-      title="Você irá aprender"
-      pretitle="Com quem"
-      hasArrows
-      qtyDesk={5}
-      qtyMobile={2}
+      title="Confiam na GoKursos"
+      pretitle="Grandes Parceiros"
+      autoPlay
+      timeoutAutoPlay={3000}
+      qtyDesk={4}
+      qtyMobile={1}
     >
       {nodes.map((node, index) => {
-        const { name, curso, imagem } = node
+        const { name, imagem } = node
 
         return (
-          <div key={index} className="person-content">
-            {imagem?.gatsbyImageData && (
+          <div key={index}>
+            {imagem && (
               <Image
-                className="person-image"
+                className="partner-image"
                 image={imagem.gatsbyImageData}
                 alt={name ?? ''}
                 loading="lazy"
               />
             )}
-            <h3>{name}</h3>
-            <p>{curso}</p>
           </div>
         )
       })}
@@ -45,4 +43,4 @@ const PersonShelf = ({ nodes }: Props) => {
   )
 }
 
-export default PersonShelf
+export default PartnersShelf

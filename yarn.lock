@@ -21,10 +21,10 @@
     "@testing-library/react" "^13.3.0"
     jest "^28.1.1"
 
-"@acctglobal/productdescription@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@acctglobal/productdescription/-/productdescription-0.2.2.tgz#4ed673e7e0dd683c63b88a96e5b6240bae460ab7"
-  integrity sha512-t6MXKmEuTkLxawx94X+YufiwCZLQ7rONK/EOrfRh1tmAVtlspqnaOb6p3WHTQlzxgXCn6URwehRfMgA3m+7yPg==
+"@acctglobal/productdescription@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@acctglobal/productdescription/-/productdescription-0.2.3.tgz#6cc72013e72205536be627978c9324d13690dda6"
+  integrity sha512-JSC3TrBjglJ/xr0nx89sHtQMnxZqP9h+AiwLetkRDECT/DBgcL1QDCqPvLFwPc4JqVlx3Cm3L03mJQOE8u8VUQ==
 
 "@acctglobal/shareproduct@^0.2.2":
   version "0.2.2"
@@ -1923,10 +1923,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@builder.io/partytown@^0.5.4":
-  version "0.5.4"
-  resolved "https://registry.npmjs.org/@builder.io/partytown/-/partytown-0.5.4.tgz"
-  integrity sha512-qnikpQgi30AS01aFlNQV6l8/qdZIcP76mp90ti+u4rucXHsn4afSKivQXApqxvrQG9+Ibv45STyvHizvxef/7A==
+"@builder.io/partytown@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.7.0.tgz#2794cbab3fead03605b368c42f9826cdb01aba14"
+  integrity sha512-Mw2KeiPglCZujE99ntbJfZq52dJktzhfifWav4UJYgDx81L/hWMQXg/bNqsYlz9cnopDBqYewy+6qbv3b1DcyQ==
 
 "@bundle-stats/cli-utils@^3.3.0":
   version "3.3.0"
@@ -6520,6 +6520,9 @@
   version "17.0.3"
   resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
   integrity sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-modal@^3.13.1":
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/@types/react-modal/-/react-modal-3.13.1.tgz#5b9845c205fccc85d9a77966b6e16dc70a60825a"
