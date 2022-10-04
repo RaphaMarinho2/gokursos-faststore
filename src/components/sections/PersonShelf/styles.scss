@@ -1,175 +1,77 @@
 @import "src/styles/scaffold";
 
-.component-shelf-container {
-  width: 100%;
+.person-image {
+  width: 163px;
+  height: 246px;
 
-  @media (max-width: 767px) {
-    padding: 0 15px;
+  @include media(">=tablet") {
+    width: 100%;
+  }
+}
+
+.container-item {
+  display: flex;
+  justify-content: center;
+}
+
+.person-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 270px;
+  height: auto;
+
+  h3,
+  p {
+    position: absolute;
+    z-index: 999;
+    padding: 0 13px;
+
+    @media screen and (min-width: 380px) {
+      padding: 0;
+      font-size: 20px;
+    }
   }
 
-  .title {
-    padding-bottom: 8px;
-    margin-bottom: 8px;
+  h3 {
+    bottom: 58px;
     font-size: 16px;
+    font-style: normal;
     font-weight: 600;
-    color: #000;
-    border-bottom: 1px solid #dddddd;
-  }
+    line-height: 150%;
+    color: #fff;
 
-  .pretitle {
-    font-size: 14px;
-    color: #ff3452;
-  }
-
-  &.teachers {
-    .carousel-content {
-      .carousel-arrow-button-prev,
-      .carousel-arrow-button-next {
-        top: calc(50% - 15px);
-
-        @include media(">=tablet") {
-          top: calc(50% - 45px);
-        }
-      }
+    @include media(">=tablet") {
+      color: #000;
     }
 
-    img {
-      height: 246px;
-      object-fit: cover;
-    }
-
-    .component-shelf__content {
-      position: relative;
+    @media (max-width: 380px) {
+      font-size: 14px;
     }
   }
 
-  &.partner {
-    @media screen and (max-width: 767px) {
-      img {
-        height: 128px;
-        object-fit: cover;
-      }
-    }
-  }
+  p {
+    bottom: 30px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    color: #f5f5f5;
 
-  .carousel-content {
-    position: relative;
-    padding-top: 16px;
-    margin: 0 -16px;
-
-    .carousel-arrow-button-prev,
-    .carousel-arrow-button-next {
-      position: absolute;
-      top: calc(50% - 32px);
-      z-index: 2;
-      cursor: pointer;
+    @include media(">=tablet") {
+      font-weight: normal;
+      font-weight: 700;
+      color: #555555;
     }
 
-    .carousel-arrow-button-prev {
-      left: 8px;
-
-      @include media(">=phonemid") {
-        left: 2px;
-      }
-
-      @include media(">=notebook") {
-        left: -4px;
-      }
-    }
-
-    .carousel-arrow-button-next {
-      right: 8px;
-
-      @include media(">=phonemid") {
-        right: 2px;
-      }
-
-      @include media(">=notebook") {
-        right: -4px;
-      }
+    @media (max-width: 380px) {
+      font-size: 10px;
     }
   }
 
   @include media(">=tablet") {
-    max-width: var(--fs-grid-breakpoint-desktop);
-    margin: 2rem auto;
-  }
-
-  .carousel-container {
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    > div {
-      .component-shelf__content {
-        padding: 0 8px;
-      }
-
-      @include media(">=tablet") {
-        .component-shelf__content {
-          padding: 0 12px;
-        }
-      }
-    }
-  }
-
-  .component-shelf__content {
     h3,
     p {
-      position: absolute;
-      z-index: 999;
-      padding: 0 13px;
-
-      @media screen and (min-width: 380px) {
-        padding: 0;
-        font-size: 20px;
-      }
+      position: unset;
     }
-
-    h3 {
-      bottom: 58px;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 150%;
-      color: #fff;
-
-      @include media(">=tablet") {
-        color: #000;
-      }
-
-      @media (max-width: 380px) {
-        font-size: 14px;
-      }
-    }
-
-    p {
-      bottom: 30px;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      color: #f5f5f5;
-
-      @include media(">=tablet") {
-        font-weight: normal;
-        font-weight: 700;
-        color: #555555;
-      }
-
-      @media (max-width: 380px) {
-        font-size: 10px;
-      }
-    }
-
-    @include media(">=tablet") {
-      h3,
-      p {
-        position: unset;
-      }
-    }
-  }
-
-  img {
-    width: 100%;
   }
 }

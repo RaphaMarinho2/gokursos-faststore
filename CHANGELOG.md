@@ -9,9 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-781** - [HOME] Contentful images optimization
+
 ### Fixed
 
 - **GM-675** - Paginator go to last page
+- **GM-784** - [MENU] Adjust in banner menu filters
+- **GM-611** - Change product description component 
 
 ### Removed
 
@@ -27,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-820** - [MENU] Adjust in margin of popouver
 - **GM-674** - [HOME] Adjust in video section for cursor pointer
 - **GM-274** - Resolved bug Common Questions
+
 
 ### Removed
 
