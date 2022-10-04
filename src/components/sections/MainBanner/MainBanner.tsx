@@ -29,7 +29,7 @@ type MainBannerProps = {
  * @since 0.2.0
  */
 const MainBanner = ({ nodes }: MainBannerProps) => {
-  const { isTablet } = useWindowDimensions()
+  const { isTablet, isMobile } = useWindowDimensions()
 
   return (
     <div className="main-banner layout__content">
@@ -67,7 +67,7 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
         gapItems={0}
       >
         {nodes.map((banner, idx) => {
-          const image = isTablet
+          const image = isMobile
             ? banner?.imageMobile?.gatsbyImageData
             : banner?.imageDesktop?.gatsbyImageData
 
