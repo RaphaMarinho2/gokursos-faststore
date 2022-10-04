@@ -34,19 +34,15 @@ export const Pagination = ({
         data-fs-button
         value={currentPage + 1}
         className="pagination__current-page"
-        onClick={(e: any) => {
-          setCurrentPage(Number(e.target.value))
-        }}
         disabled={lastPage}
       >
         {currentPage + 1}
       </button>
       <h5 className="ofTo">de</h5>
       <button
-        value={pages - 1}
         className="pagination__last-page"
-        onClick={(e: any) => {
-          setCurrentPage(Number(e.target.value))
+        onClick={() => {
+          setCurrentPage(pages - 1)
         }}
         disabled={lastPage}
       >

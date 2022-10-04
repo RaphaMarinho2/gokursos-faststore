@@ -1,40 +1,17 @@
-import React, { memo } from 'react'
-import { Helmet } from 'react-helmet-async'
+import type { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-import type { ImageOptions } from './useImage'
-import './image.scss'
-
-interface Props extends ImageOptions {
-  preload?: boolean
-  fallbackImage?: React.ReactNode
+interface Props extends GatsbyImageProps {
+  image: IGatsbyImageData
+  alt: string
 }
 
-function Image({ preload = false, fallbackImage, ...otherProps }: Props) {
-  const { src, width, height } = otherProps
+function Image({ alt, image, ...otherProps }: Props) {
+  const gatsbyImage = getImage(image)
 
-  return (
-    <>
-      {preload && (
-        <Helmet
-          link={[
-            {
-              as: 'image',
-              rel: 'preload',
-              href: src,
-              imagesrcset: src,
-              imagesizes: width && height ? `${width}x${height}` : '',
-            } as any,
-          ]}
-        />
-      )}
-      {!src && fallbackImage ? (
-        fallbackImage
-      ) : (
-        <img data-store-image {...otherProps} alt={otherProps.alt} />
-      )}
-    </>
-  )
+  if (!gatsbyImage) return <></>
+
+  return <GatsbyImage alt={alt} image={gatsbyImage} {...otherProps} />
 }
 
-Image.displayName = 'Image'
-export default memo(Image)
+export default Image

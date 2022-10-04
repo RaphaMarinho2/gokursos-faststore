@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import SlideOver from 'src/components/ui/SlideOver'
 import { windowGlobal } from 'src/constants'
 
@@ -40,12 +41,15 @@ function LoginSidebar(props: any) {
           <p>Olá, {userData?.name ?? userData?.email ?? ''}</p>
         </div>
         <div className="infos-sidebar">
-          <a href="/meus-cursos">
+          <Link to="/meus-cursos" onClick={() => setDisplaySidebar(false)}>
             <p className="courses-link">Meus cursos</p>
-          </a>
-          <a href="/pedidos">
+          </Link>
+          <Link
+            to="/minha-conta/pedidos"
+            onClick={() => setDisplaySidebar(false)}
+          >
             <p className="requests-link">Meus pedidos</p>
-          </a>
+          </Link>
           <button onClick={handleClick} className="exit-link">
             Sair desta loja
           </button>

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardImage } from '@faststore/ui'
 import SuggestionImageFallback from 'src/components/icons/SuggestionImageFallback'
-import { Image } from 'src/components/ui/Image'
+import VTEXImage from 'src/components/ui/Image/VTEXImage'
 import { SUGGESTION_IMG_HEIGHT, SUGGESTION_IMG_WIDTH } from 'src/constants'
 
 import './suggestion-product-card.scss'
@@ -19,7 +19,7 @@ function SuggestionProductCard({ product }: SuggestionProductCardProps) {
     >
       <CardContent>
         <CardImage>
-          <Image
+          <VTEXImage
             src={imageURL}
             alt={name}
             width={SUGGESTION_IMG_WIDTH}

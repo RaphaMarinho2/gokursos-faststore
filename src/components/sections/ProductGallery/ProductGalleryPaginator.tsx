@@ -13,32 +13,17 @@ const ProductGalleryPaginator = ({
   currentPage,
   lastPage,
 }: ProductGalleryPaginatorProps) => {
-  const addPage = () => {
-    const { search, pathname } = window.location
-    const urlParams = new URLSearchParams(search)
+  const { search, pathname } = window.location
+  const urlParams = new URLSearchParams(search)
+  const upCurrent = parseInt(urlParams.get('page') ?? '0', 10)
 
-    const current = parseInt(urlParams.get('page') ?? '0', 10)
-
-    urlParams.set('page', `${current + 1}`)
-
-    navigate(`${pathname}?${urlParams.toString()}`)
-  }
-
-  const backPage = () => {
-    const { search, pathname } = window.location
-    const urlParams = new URLSearchParams(search)
-
-    const current = parseInt(urlParams.get('page') ?? '0', 10)
-
-    urlParams.set('page', `${current - 1}`)
+  const pageNavigation = (to: number) => {
+    urlParams.set('page', `${to}`)
 
     navigate(`${pathname}?${urlParams.toString()}`)
   }
 
   const checkPage = (page: number) => {
-    const { search } = window.location
-    const urlParams = new URLSearchParams(search)
-
     const current = parseInt(urlParams.get('page') ?? '0', 10)
 
     return current === page - 1
@@ -49,18 +34,24 @@ const ProductGalleryPaginator = ({
       <Button
         className="product-listing__pagination-button"
         variant="tertiary"
-        onClick={backPage}
+        onClick={() => pageNavigation(upCurrent - 1)}
         disabled={checkPage(1)}
       >
         <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
       </Button>
       <div className="product-listing__current-page">{currentPage + 1}</div>
       <span className="product-listing__page-separator">de</span>
-      <div className="product-listing__last-page">{lastPage}</div>
+      <Button
+        className="product-listing__last-page"
+        onClick={() => pageNavigation(lastPage - 1)}
+        disabled={checkPage(lastPage)}
+      >
+        {lastPage}
+      </Button>
       <Button
         className="product-listing__pagination-button"
         variant="tertiary"
-        onClick={addPage}
+        onClick={() => pageNavigation(upCurrent + 1)}
         disabled={checkPage(lastPage)}
       >
         <HorizontalArrowIcon

@@ -77,7 +77,7 @@ const BuyBox = ({ nodes, href }: BuyBoxProps) => {
                   <ShareProduct
                     additionalOverlay
                     shareWebSocials="Compartilhe:"
-                    productURL="/"
+                    productURL={href ?? ''}
                     CloseIcon={() => <IconClose />}
                     shareLinks={[
                       {

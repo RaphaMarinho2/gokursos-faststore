@@ -71,7 +71,7 @@ As of Dec, 22, 2021, this starter is still far from covering most basic cases fo
 
 4. **Open the source code and start editing!**
 
-   Your site is now running at `http://localhost:8000`!
+   Your site is now running at `http://localhost:8000`
 
 > Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries). Also, if you want to query for dynamic data (allProducts, allCollections, search etc), you can use tools like [GraphQL Playground](https://github.com/graphql/graphql-playground) and configure it to query `http://localhost:8000/api/graphql`
 
