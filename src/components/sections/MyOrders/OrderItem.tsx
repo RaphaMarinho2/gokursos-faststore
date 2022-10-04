@@ -10,8 +10,8 @@ interface OrdersProps {
 }
 
 export default function OrderItem({ orderData }: OrdersProps) {
-  const orderValue = useFormattedPrice(orderData.Pedidos[0].ValorTransacionado)
-  const orderDate = new Date(orderData.Pedidos[0].DataHora)
+  const orderValue = useFormattedPrice(orderData.TransacionadoTotal)
+  const orderDate = new Date(orderData.DataHora)
 
   const redirectForOrderDetails = (orderId: string) => () => {
     navigate(`/minha-conta/pedidos/${orderId}`)
@@ -20,7 +20,7 @@ export default function OrderItem({ orderData }: OrdersProps) {
   return (
     <li className="my-orders__list-item">
       <div className="my-orders__list-item-info">
-        <span className="title">{`Pedido #${orderData.Pedidos[0].OrderID}`}</span>
+        <span className="title">{`Pedido #${orderData.OrderID}`}</span>
         <span className="order-date">{`${orderDate.toLocaleDateString(
           'pt-Br'
         )} às ${orderDate.toLocaleTimeString('pt-Br')}`}</span>
@@ -31,7 +31,7 @@ export default function OrderItem({ orderData }: OrdersProps) {
       </div>
       <button
         className="my-orders__list-item-button"
-        onClick={redirectForOrderDetails(orderData.Pedidos[0].OrderID)}
+        onClick={redirectForOrderDetails(orderData.OrderID)}
       >
         Ver detalhes do pedido
       </button>

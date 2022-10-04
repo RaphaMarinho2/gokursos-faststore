@@ -1,11 +1,11 @@
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 
-import type { OrderItemData } from './typings'
+import type { Item } from './typings'
 
 import './my-orders.scss'
 
 interface ProductItemProps {
-  item: OrderItemData
+  item: Item
 }
 
 export default function ProductItem({ item }: ProductItemProps) {

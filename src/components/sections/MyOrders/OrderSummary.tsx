@@ -9,8 +9,8 @@ interface OrderSummaryProps {
 }
 
 export default function OrderSummary({ orderDetails }: OrderSummaryProps) {
-  const subtotal = useFormattedPrice(orderDetails.Pedidos[0].ValorLiquido)
-  const total = useFormattedPrice(orderDetails.Pedidos[0].ValorTransacionado)
+  const subtotal = useFormattedPrice(orderDetails.LiquidoTotal)
+  const total = useFormattedPrice(orderDetails.TransacionadoTotal)
 
   return (
     <div className="my-order__details-summary">
