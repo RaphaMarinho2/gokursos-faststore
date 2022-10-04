@@ -3,7 +3,7 @@ import './pagination.scss'
 import HorizontalArrowIcon from '../icons/HorizontalArrow'
 
 interface PaginationProps {
-  setCurrentPage: any
+  setCurrentPage: (currentPage: number) => void
   pages: number
   currentPage: number
 }

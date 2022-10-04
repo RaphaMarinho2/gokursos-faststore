@@ -9,9 +9,11 @@ import Backdrop from '@mui/material/Backdrop'
 import CircularProgress from '@mui/material/CircularProgress'
 import Dialog from '@mui/material/Dialog'
 import axios from 'axios'
+import { ITEMS_PER_PAGE_COURSES } from 'src/constants'
 import CertificateActive from 'src/components/icons/CertificateActive'
 import CertificateInactive from 'src/components/icons/CertificateInactive'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton/ProductGridSkeleton'
+import { navigate } from 'gatsby'
 
 import { Pagination } from '../../Pagination/Pagination'
 import Section from '../Section'
@@ -31,12 +33,10 @@ export default function MyCourses({
 }: MyCoursesProps) {
   const [coursesData, setCoursesData] = useState<MyCourseData[] | []>([])
   const [isLoading, setLoading] = useState<boolean>(true)
-  const [itemsPerPage] = useState<number>(8)
   const [currentPage, setCurrentPage] = useState<number>(0)
-
-  const pages = Math.ceil(coursesData.length / itemsPerPage)
-  const startIndex = currentPage * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
+  const pages = Math.ceil(coursesData.length / ITEMS_PER_PAGE_COURSES)
+  const startIndex = currentPage * ITEMS_PER_PAGE_COURSES
+  const endIndex = startIndex + ITEMS_PER_PAGE_COURSES
   const currentItems = coursesData.slice(startIndex, endIndex)
   const [open, setOpen] = useState<boolean>(false)
   const [openError, setOpenError] = useState<boolean>(false)
@@ -56,19 +56,19 @@ export default function MyCourses({
         .finally(() => setLoading(false))
     } else {
       setLoading(false)
-      typeof window !== 'undefined' ? (window.location.href = '/login') : ''
+      navigate('/login')
     }
   }, [])
 
   // Redirection request to the course via id
-  const handleGoCourses = async (id: string | number) => {
+  const handleGoCourses = (id: string | number) => () => {
     const userData =
       typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
 
     setOpen(true)
     const infoUser = JSON.parse(userData ?? '')
 
-    await axios
+    axios
       .post('/api/getCourseUrl', infoUser ? { ...infoUser, _id: id } : null)
       .then((resp) => {
         const urlCourse = resp.data.UrlToLms
@@ -76,7 +76,7 @@ export default function MyCourses({
         if (resp.data) {
           window.open(urlCourse, '_blank')
         } else {
-          console.error(resp.data)
+          setOpenError(true)
         }
 
         setOpen(false)
@@ -189,11 +189,7 @@ export default function MyCourses({
                           </p>
                         )}
                         <UICardActions data-fs-product-card-actions>
-                          <button
-                            onClick={() => {
-                              handleGoCourses(item._Id)
-                            }}
-                          >
+                          <button onClick={handleGoCourses(item._Id)}>
                             Acessar curso
                           </button>
                         </UICardActions>
