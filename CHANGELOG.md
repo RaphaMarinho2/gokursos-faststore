@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-781** - [HOME] Contentful images optimization
+
 ### Fixed
 
-- **GM-781** - [HOME] Contentful images optimization
+- **GM-611** - Change product description component 
 
 ### Removed
 

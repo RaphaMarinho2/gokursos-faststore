@@ -21,10 +21,10 @@
     "@testing-library/react" "^13.3.0"
     jest "^28.1.1"
 
-"@acctglobal/productdescription@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@acctglobal/productdescription/-/productdescription-0.2.2.tgz#4ed673e7e0dd683c63b88a96e5b6240bae460ab7"
-  integrity sha512-t6MXKmEuTkLxawx94X+YufiwCZLQ7rONK/EOrfRh1tmAVtlspqnaOb6p3WHTQlzxgXCn6URwehRfMgA3m+7yPg==
+"@acctglobal/productdescription@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@acctglobal/productdescription/-/productdescription-0.2.3.tgz#6cc72013e72205536be627978c9324d13690dda6"
+  integrity sha512-JSC3TrBjglJ/xr0nx89sHtQMnxZqP9h+AiwLetkRDECT/DBgcL1QDCqPvLFwPc4JqVlx3Cm3L03mJQOE8u8VUQ==
 
 "@acctglobal/shareproduct@^0.2.2":
   version "0.2.2"
