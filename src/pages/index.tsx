@@ -15,6 +15,7 @@ import PersonShelf from 'src/components/sections/PersonShelf'
 import BestCourses from 'src/components/sections/BestCourses'
 import selectedTabs from 'src/mocks/bestSellerList.json'
 import NewReleasesShelf from 'src/components/sections/NewReleasesShelf'
+import PartnersShelf from 'src/components/sections/PartnersShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -102,27 +103,9 @@ function Page(props: Props) {
 
       <BannerMedium nodes={allContentfulBannerMedium.nodes} />
 
-      <PersonShelf
-        nodes={allContentfulParceiros.nodes}
-        classNameShelf="partner"
-        qtyMobile={1}
-        qtyDesk={4}
-        hasArrows={false}
-        title="Confiam na GoKursos"
-        pretitle="Grandes Parceiros"
-        navigationAutomatic
-        timeoutNavigationAutomatic={6500}
-      />
+      <PartnersShelf nodes={allContentfulParceiros.nodes} />
 
-      <PersonShelf
-        nodes={allContentfulPersons.nodes}
-        classNameShelf="teachers"
-        qtyMobile={2}
-        qtyDesk={5}
-        hasArrows
-        title="Você irá aprender"
-        pretitle="Com quem"
-      />
+      <PersonShelf nodes={allContentfulPersons.nodes} />
 
       <HomeProductShelf
         pretitle="Disciplina Universitária"
@@ -159,10 +142,10 @@ export const querySSG = graphql`
         title
         subtitle
         imageDesktop {
-          url
+          gatsbyImageData(width: 1920, quality: 100)
         }
         imageMobile {
-          url
+          gatsbyImageData
         }
         slug
         buttonLabel
@@ -189,7 +172,7 @@ export const querySSG = graphql`
       nodes {
         link
         imagemBannerMedium {
-          url
+          gatsbyImageData(width: 1920, quality: 100)
         }
       }
     }
@@ -198,14 +181,14 @@ export const querySSG = graphql`
         name
         curso
         imagem {
-          url
+          gatsbyImageData(quality: 100)
         }
       }
     }
     allContentfulParceiros {
       nodes {
         imagem {
-          url
+          gatsbyImageData(quality: 100)
         }
       }
     }
@@ -214,7 +197,7 @@ export const querySSG = graphql`
         name
         slug
         image {
-          url
+          gatsbyImageData(formats: JPG, quality: 100)
         }
       }
     }
