@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-845** - [LOGIN] Password creation regex and verification
 - **GM-827** - fix orders to use the new API data
 - **GM-865** - Adjust products endpoint
 - **GM-675** - Paginator go to last page

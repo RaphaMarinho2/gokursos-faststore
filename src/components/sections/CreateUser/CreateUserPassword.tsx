@@ -19,8 +19,43 @@ function CreateUserPassword(props: Props) {
     hasOneLowLetter: false,
     hasNumber: false,
     hasEightCarc: false,
+    hasSpecialCharacter: false,
     isEqual: false,
   })
+
+  const validations = [
+    {
+      label: 'Uma letra maiúscula',
+      example: 'ABC',
+      verification: validate.hasOneUpLetter,
+    },
+    {
+      label: 'Uma letra minúscula',
+      example: 'abc',
+      verification: validate.hasOneLowLetter,
+    },
+    {
+      label: 'Um número',
+      example: '123',
+      verification: validate.hasNumber,
+    },
+
+    {
+      label: 'Um caracter especial',
+      example: '@#%',
+      verification: validate.hasSpecialCharacter,
+    },
+    {
+      label: 'No mínimo 8 caracteres',
+      example: '***',
+      verification: validate.hasEightCarc,
+    },
+    {
+      label: 'As senhas devem ser iguais',
+      example: '',
+      verification: validate.isEqual,
+    },
+  ]
 
   const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
@@ -44,6 +79,7 @@ function CreateUserPassword(props: Props) {
       hasOneLowLetter: false,
       hasNumber: false,
       hasEightCarc: false,
+      hasSpecialCharacter: false,
       isEqual: false,
     }
 
@@ -57,6 +93,10 @@ function CreateUserPassword(props: Props) {
 
     if (/[A-Z]/.test(value)) {
       passwordValidate = { ...passwordValidate, hasOneUpLetter: true }
+    }
+
+    if (/\W|_/.test(value)) {
+      passwordValidate = { ...passwordValidate, hasSpecialCharacter: true }
     }
 
     if (value.length >= 8) {
@@ -111,70 +151,23 @@ function CreateUserPassword(props: Props) {
         <div className="password-validate">
           <h1 className="message-required">Sua nova senha deve ter: </h1>
 
-          <p
-            className="password-required"
-            style={{
-              color:
-                password.length > 0
-                  ? validate.hasOneUpLetter
-                    ? 'green'
-                    : 'red'
-                  : undefined,
-            }}
-          >
-            <span>ABC </span> <span>Uma letra maiúscula</span>
-          </p>
-          <p
-            className="password-required"
-            style={{
-              color:
-                password.length > 0
-                  ? validate.hasOneLowLetter
-                    ? 'green'
-                    : 'red'
-                  : undefined,
-            }}
-          >
-            <span>abc</span> <span>Uma letra minúscula</span>
-          </p>
-          <p
-            className="password-required"
-            style={{
-              color:
-                password.length > 0
-                  ? validate.hasNumber
-                    ? 'green'
-                    : 'red'
-                  : undefined,
-            }}
-          >
-            <span>123</span> <span>Um número</span>
-          </p>
-          <p
-            className="password-required"
-            style={{
-              color:
-                password.length > 0
-                  ? validate.hasEightCarc
-                    ? 'green'
-                    : 'red'
-                  : undefined,
-            }}
-          >
-            <span>***</span> <span>No mínimo 8 caracteres</span>
-          </p>
-          <p
-            style={{
-              color:
-                password.length > 0
-                  ? validate.isEqual
-                    ? 'green'
-                    : 'red'
-                  : undefined,
-            }}
-          >
-            As senhas devem ser iguais
-          </p>
+          {validations.map((validation) => (
+            <p
+              key={validation.label}
+              className="password-required"
+              style={{
+                color:
+                  password.length > 0
+                    ? validation.verification
+                      ? 'green'
+                      : 'red'
+                    : undefined,
+              }}
+            >
+              <span>{validation.example}</span>
+              <span>{validation.label}</span>
+            </p>
+          ))}
         </div>
         <button
           type="button"
