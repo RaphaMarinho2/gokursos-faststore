@@ -7,7 +7,7 @@ import SpinnerIcon from 'src/components/icons/Spinner'
 
 import ProductItem from './ProductItem'
 import OrderStatus from './OrderStatus'
-import type { OrderData, OrderItemData } from './typings'
+import type { OrderData, Item } from './typings'
 import OrderPreferences from './OrdersPreferences'
 import OrderSummary from './OrderSummary'
 
@@ -42,7 +42,7 @@ export default function OrderDetails() {
           selectedOrder: OrderData | Record<string, never>,
           order: OrderData
         ) => {
-          if (order.Pedidos?.length && order.Pedidos[0].OrderID === orderId) {
+          if (order.OrderID === orderId) {
             selectedOrder = order
           }
 
@@ -86,15 +86,15 @@ export default function OrderDetails() {
   return (
     <section className="my-order__details">
       <h3 className="my-order__details-title">Detalhes do Pedido</h3>
-      <div className="my-order__details-id">{`Pedido #${orderDetails.Pedidos[0].OrderID}`}</div>
+      <div className="my-order__details-id">{`Pedido #${orderDetails.OrderID}`}</div>
       <span className="my-order__details-text">
-        {new Date(orderDetails.Pedidos[0].Data).toLocaleDateString('pt-Br')}
+        {new Date(orderDetails.Data).toLocaleDateString('pt-Br')}
       </span>
       <span className="my-order__details-text my-order__details-status">
         Status: <OrderStatus orderData={orderDetails as OrderData} />
       </span>
       <ul className="my-order__details-list">
-        {orderDetails.Pedidos[0].Items.map((item: OrderItemData) => (
+        {orderDetails.Items.map((item: Item) => (
           <ProductItem item={item} key={item.Product.LinkId} />
         ))}
       </ul>

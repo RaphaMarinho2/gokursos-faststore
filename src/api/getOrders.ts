@@ -44,7 +44,7 @@ export default async function getOrders(
 
     res.json(data)
   } catch (error) {
-    res.status(error.response.status)
-    res.send('')
+    res.status(error?.response?.status ?? 500)
+    res.json([])
   }
 }

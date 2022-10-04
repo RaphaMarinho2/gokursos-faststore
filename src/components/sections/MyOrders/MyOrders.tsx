@@ -42,15 +42,9 @@ export default function MyOrders() {
       {ordersData?.length ? (
         <div className="my-orders__content">
           <ul className="my-orders__list">
-            {ordersData.map((order: OrderData) => {
-              if (!order.Pedidos?.length) {
-                return
-              }
-
-              return (
-                <OrderItem orderData={order} key={order.Pedidos[0].OrderID} />
-              )
-            })}
+            {ordersData.map((order: OrderData) => (
+              <OrderItem orderData={order} key={order.OrderID} />
+            ))}
           </ul>
         </div>
       ) : (

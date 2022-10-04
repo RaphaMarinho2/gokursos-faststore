@@ -5,9 +5,19 @@ export default async function getNewReleases(
   _: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
+  const expand = `SKU, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria`
+
+  const orderBy = `ReleaseDate desc`
+
+  const filter = `IsActive eq true and IsVisible eq true`
+
+  const select = `Name, ProductImageURL,  Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, LinkId`
+
+  const top = `20`
+
   try {
     const { data } = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=SKU, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria&$orderby=ReleaseDate desc&$top=20&$skip=0&$select=Name, ProductImageURL,  Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, LinkId`
+      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$orderby=${orderBy}&$filter=${filter}&$top=${top}&$select=${select}`
     )
 
     res.json(data)
