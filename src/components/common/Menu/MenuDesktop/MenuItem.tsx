@@ -73,10 +73,6 @@ const MenuItem = ({
               setValue(false)
               setMenuStatus([])
             }}
-            onBlur={() => {
-              setValue(false)
-              setMenuStatus([])
-            }}
           >
             <div className="popover-container">
               {currentMenu.map((submenuItem: ObjectItem, index: number) => {
