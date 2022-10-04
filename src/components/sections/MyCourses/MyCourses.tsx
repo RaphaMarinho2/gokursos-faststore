@@ -81,7 +81,6 @@ export default function MyCourses({
         const urlCourse = resp.data.UrlToLms
 
         window.open(urlCourse, '_blank')
-
         setOpen(false)
       })
       .catch((error) => {
