@@ -11,9 +11,11 @@ export default async function getDuce(
 
   const select = `Name, ProductImageURL,  Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, LinkId`
 
+  const top = `20`
+
   try {
     const { data } = await axios.get(
-      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${filter}&$top=20&$skip=0&$select=${select}`
+      `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${filter}&$top=${top}&$select=${select}`
     )
 
     res.json(data)
