@@ -12,8 +12,8 @@ import axios from 'axios'
 import { ITEMS_PER_PAGE_COURSES } from 'src/constants'
 import CertificateActive from 'src/components/icons/CertificateActive'
 import CertificateInactive from 'src/components/icons/CertificateInactive'
-import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton/ProductGridSkeleton'
 import { navigate } from 'gatsby'
+import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 
 import { Pagination } from '../../Pagination/Pagination'
 import Section from '../Section'
@@ -120,7 +120,9 @@ export default function MyCourses({
         <CircularProgress color="inherit" />
       </Backdrop>
       <div className="title-container">
-        <p className="layout__content">Meus Cursos</p>
+        <div className="layout__content">
+          <p>Meus Cursos</p>
+        </div>
       </div>
       <Section className="layout__content my-courses__content">
         <UICard
@@ -148,7 +150,10 @@ export default function MyCourses({
                   </div>
                 )}
             <ul className="my-courses__list">
-              <ProductGridSkeleton loading={isLoading}>
+              <ProductShelfSkeleton
+                cardsQuantity={ITEMS_PER_PAGE_COURSES}
+                loading={isLoading}
+              >
                 {currentItems &&
                   currentItems.length > 0 &&
                   currentItems.map((item: any, index: number) => {
@@ -198,7 +203,7 @@ export default function MyCourses({
                       </li>
                     )
                   })}
-              </ProductGridSkeleton>
+              </ProductShelfSkeleton>
             </ul>
           </div>
           {qtyCourses > 8 && (

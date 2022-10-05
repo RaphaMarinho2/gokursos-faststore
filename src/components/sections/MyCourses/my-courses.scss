@@ -2,7 +2,7 @@
 
 .title-container {
   width: 100%;
-  padding: 62px 16px;
+  padding: 60px 5px;
   font-size: 20px;
   font-weight: 700;
   line-height: 26px;
@@ -10,7 +10,7 @@
   background: #004e98;
 
   @include media(">=notebook") {
-    padding: 92px 152px;
+    padding: 92px 5px;
     font-size: 32px;
     line-height: 48px;
   }
@@ -25,11 +25,10 @@
 }
 
 .my-courses__content {
-  max-width: 1144px;
-  padding: 0 20px;
   margin: 40px auto;
 
-  .product-grid {
+  .product-grid,
+  [data-fs-product-shelf-items] {
     grid-template-columns: 1fr;
 
     @include media(">=tablet") {
@@ -38,6 +37,10 @@
 
     @include media(">=notebook") {
       grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include media(">=desktop") {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 
@@ -53,11 +56,15 @@
 
   [data-card-image] {
     @include media(">=tablet") {
-      min-height: 355px;
+      min-height: 414px;
     }
 
     @include media(">=notebook") {
-      min-height: 200px;
+      min-height: 255px;
+    }
+
+    @include media(">=desktop") {
+      min-height: 194px;
     }
   }
 
@@ -77,7 +84,7 @@
   [data-fs-product-card-title] {
     display: -webkit-box;
     max-width: 100%;
-    margin: 10px 0;
+    margin: 16px 0;
     overflow: hidden;
     font-size: 20px;
     font-weight: 600;
@@ -102,7 +109,7 @@
     display: flex;
     column-gap: 10px;
     align-items: center;
-    margin: 20px 0;
+    margin: 30px 0;
 
     p {
       margin-bottom: 10px;
@@ -119,18 +126,23 @@
     }
   }
 
-  .my-courses__list {
+  .my-courses__list,
+  [data-fs-product-shelf-items] {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 24px;
     align-items: center;
 
     @include media(">=tablet") {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include media(">=desktop") {
+    @include media(">=notebook") {
       grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include media(">=desktop") {
+      grid-template-columns: repeat(5, 1fr);
     }
 
     .my-courses__card {
@@ -139,7 +151,8 @@
       padding: 10px;
 
       @include media(">=desktop") {
-        max-width: 260px;
+        max-width: 232px;
+        padding: 0;
       }
 
       &.inactive {
@@ -163,6 +176,11 @@
 
         .certificate {
           pointer-events: none;
+
+          svg {
+            width: 25px;
+            height: 25px;
+          }
         }
       }
     }
@@ -176,16 +194,16 @@
       padding: 0;
       font-size: var(--fs-text-size-base);
       font-weight: 600;
-      color: #fff;
+      color: #ff3452;
       cursor: pointer;
-      background: #ff3452;
+      background: transparent;
       border: 1px solid #ff3452;
       border-radius: 4px;
       transition: ease-in-out .2s;
 
       &:hover {
-        color: #ff3452;
-        background: transparent;
+        color: #fff;
+        background: #ff3452;
       }
     }
   }

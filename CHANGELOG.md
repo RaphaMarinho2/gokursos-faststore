@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-781** - [HOME] Contentful images optimization
+- **GM-742** - Page My Courses and integrations with truechange
 
 ### Fixed
 
@@ -19,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-675** - Paginator go to last page
 - **GM-784** - [MENU] Adjust in banner menu filters
 - **GM-611** - Change product description component 
+- **GM-892** - Adjusts my courses
+
 
 ### Removed
 
@@ -43,7 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-330** - Login integration
-- **GM-742** - Page My Courses and integrations with truechange
 
 ### Fixed
 
