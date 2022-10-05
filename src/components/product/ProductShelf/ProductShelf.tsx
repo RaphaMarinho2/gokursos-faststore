@@ -2,9 +2,10 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
 import { sendAnalyticsEvent } from '@faststore/sdk'
-import type { SelectItemEvent, ViewPromotionEvent } from '@faststore/sdk'
+import type { SelectItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import { ViewItemList } from 'src/sdk/analytics/hooks/ViewItemListEvent'
+import { ViewPromotion } from 'src/sdk/analytics/hooks/ViewPromotionEvent'
 
 import ProductCard from '../ProductCard'
 
@@ -29,10 +30,6 @@ function ProductShelf({
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
 
-  if (relatedProduct) {
-    ViewItemList(products)
-  }
-
   if (products?.length === 0) {
     return null
   }
@@ -51,26 +48,12 @@ function ProductShelf({
     width: 32,
   }
 
+  if (relatedProduct) {
+    ViewItemList(products)
+  }
+
   const viewPromotionEvent = (product: any) => {
-    sendAnalyticsEvent<ViewPromotionEvent<AnalyticsItem>>({
-      name: 'view_promotion',
-      params: {
-        items: [
-          {
-            item_id: product?.ID,
-            item_name: product?.Name,
-            discount: product?.Price?.isSale
-              ? product?.Price?.ListPrice - product?.Price?.BasePrice
-              : 0,
-            item_brand: product?.Department?.Name,
-            item_category: product?.Category?.Name,
-            price: product?.Price.BasePrice,
-            item_variant_name: product?.Name,
-            product_reference_id: null,
-          },
-        ],
-      },
-    })
+    ViewPromotion(product)
   }
 
   const selectItemListEvent = (product: any) => {
