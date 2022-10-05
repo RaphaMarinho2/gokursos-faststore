@@ -13,6 +13,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.21.0] - 2022-10-04
+
+### Added
+
+- **GM-781** - [HOME] Contentful images optimization
+
+### Fixed
+
+- **GM-845** - [LOGIN] Password creation regex and verification
+- **GM-827** - fix orders to use the new API data
+- **GM-865** - Adjust products endpoint
+- **GM-675** - Paginator go to last page
+- **GM-784** - [MENU] Adjust in banner menu filters
+- **GM-611** - Change product description component
+
+### Removed
+
 ## [0.20.0] - 2022-09-29
 
 ### Added

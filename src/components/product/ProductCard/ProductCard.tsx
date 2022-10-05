@@ -88,7 +88,7 @@ function ProductCard({
       data-fs-product-card-actionabled
       {...otherProps}
     >
-      {img !== '' ? (
+      {img ? (
         <UICardImage>
           <img
             src={img}

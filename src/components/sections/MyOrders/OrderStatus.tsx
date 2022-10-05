@@ -6,7 +6,9 @@ interface OrderStatusProps {
 }
 
 export default function OrderStatus({ orderData }: OrderStatusProps) {
-  const { StatusDescription: statusDescription } = orderData
+  const {
+    StatusCore: { Status: statusDescription },
+  } = orderData
 
   return <span className="order-status__text">{statusDescription}</span>
 }

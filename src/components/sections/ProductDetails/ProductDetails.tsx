@@ -17,6 +17,7 @@ import IconClose from 'src/components/icons/IconClose'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 
+import ProductBrand from '../ProductBrand'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
 import Section from '../Section'
 import Instalments from '../Instalments'
@@ -50,21 +51,19 @@ function ProductDetails({ product }: Props) {
 
   const tabSpecification = [
     {
-      name: Description ? 'Sobre o curso' : '',
+      name: 'Sobre o curso',
       description: Description ?? '',
     },
     {
-      name: Especificacao?.Conteudo ? 'Conteúdo do curso' : '',
+      name: 'Conteúdo do curso',
       description: Especificacao?.Conteudo ?? '',
     },
     {
-      name: Especificacao?.Objetivos ? 'Objetivos' : '',
+      name: 'Objetivos',
       description: Especificacao?.Objetivos ?? '',
     },
     {
-      name: Especificacao?.TipoCurso?.DescriptionCertificate
-        ? 'Certificados'
-        : '',
+      name: 'Certificados',
       description: Especificacao?.TipoCurso?.DescriptionCertificate ?? '',
     },
   ]
@@ -166,7 +165,6 @@ function ProductDetails({ product }: Props) {
                     urlCategory={`/${Category?.Slug}`}
                   />
                 )}
-                {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
                 {Especificacao?.CargaHoraria?.Text && (
                   <Workload workload={Especificacao?.CargaHoraria?.Text} />
                 )}
@@ -247,18 +245,14 @@ function ProductDetails({ product }: Props) {
         <section className="product-details__content">
           <article className="product-details__description">
             {typeof window !== 'undefined' && (
-              <ProductDescription
-                loadMore="Load More"
-                descriptionTabs={tabSpecification}
-                maxHeight={100}
-              />
+              <div className="divisor-product-details">
+                <ProductDescription
+                  descriptionTabs={tabSpecification}
+                  maxHeight={100}
+                />
+                <ProductBrand NameOfBrand={product.Brand.Name} />
+              </div>
             )}
-
-            {/* <ProductRating /> */}
-            {/* <div className="product-questions__container">
-              <LatestQuestions productQuestions={productQuestions} />
-              <QuestionForm />
-            </div> */}
           </article>
           <div className="product-details__content-right">
             <article className="product-details__description">
