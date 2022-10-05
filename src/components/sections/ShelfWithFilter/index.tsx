@@ -112,7 +112,7 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
   }, [selectedTab])
 
   return (
-    <Section className="navigattionTabs-container section">
+    <Section className="navigattionTabs-container">
       <div className="navigattionTabs-headers">
         <div className="product-shelf-titles">
           {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}

@@ -1,4 +1,6 @@
 import BubbleLinks from '@acctglobal/bubblelinks'
+
+import Section from '../Section'
 import './style.scss'
 
 interface BestCoursesProps {
@@ -30,25 +32,27 @@ const BestCourses = ({ title, subtitle, nodes }: BestCoursesProps) => {
   const nodesModified = nodes as unknown as BestCoursesModifyProps
 
   return (
-    <section className="best-courses layout__content">
-      {title && subtitle && (
-        <>
-          <h2 className="best-courses__title">{title}</h2>
-          <h3 className="best-courses__subtitle">{subtitle}</h3>
-        </>
-      )}
-      <div className="best-courses__content">
-        <BubbleLinks
-          bubbleLinks={nodesModified.map((category) => {
-            return {
-              name: category.name,
-              link: category.slug,
-              img: category.image?.url,
-            }
-          })}
-        />
+    <Section>
+      <div className="best-courses layout__content">
+        {title && subtitle && (
+          <>
+            <h2 className="best-courses__title">{title}</h2>
+            <h3 className="best-courses__subtitle">{subtitle}</h3>
+          </>
+        )}
+        <div className="best-courses__content">
+          <BubbleLinks
+            bubbleLinks={nodesModified.map((category) => {
+              return {
+                name: category.name,
+                link: category.slug,
+                img: category.image?.url,
+              }
+            })}
+          />
+        </div>
       </div>
-    </section>
+    </Section>
   )
 }
 

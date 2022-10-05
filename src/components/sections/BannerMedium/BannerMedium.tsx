@@ -1,6 +1,8 @@
 import './styles.scss'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
+import Section from '../Section'
+
 type BannerMediumType = {
   nodes: Array<{
     link: string | null
@@ -33,13 +35,15 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
   const [{ link }] = nodes
 
   return (
-    <div className="container-imagem-banner-medium layout__content">
-      {link && url && (
-        <a href={link}>
-          <img src={url} alt="teste" className="imagem-banner-medium" />
-        </a>
-      )}
-    </div>
+    <Section>
+      <div className="container-imagem-banner-medium layout__content">
+        {link && url && (
+          <a href={link}>
+            <img src={url} alt="teste" className="imagem-banner-medium" />
+          </a>
+        )}
+      </div>
+    </Section>
   )
 }
 

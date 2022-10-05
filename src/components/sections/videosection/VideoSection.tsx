@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
+import Section from '../Section'
 import './styles.scss'
 
 type VideoSectionType = {
@@ -27,7 +28,7 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
   const [{ buttonUrl, buttonText, title, content, miniText }] = nodes
 
   return (
-    <div className="vd-section-container">
+    <Section className="vd-section-container">
       <div className="vd-section-content">
         <div className="vd-section-video-container">
           <div className="vd-section-video-mold" />
@@ -53,7 +54,7 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
           )}
         </div>
       </div>
-    </div>
+    </Section>
   )
 }
 
