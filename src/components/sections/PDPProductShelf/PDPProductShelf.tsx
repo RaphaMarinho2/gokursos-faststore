@@ -26,8 +26,6 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
         ? slugify(productDepartment).toLowerCase()
         : null
 
-    console
-
     axios
       .get('/api/getTopSellers', {
         params: {
