@@ -1,5 +1,7 @@
 import './styles.scss'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import { Image } from 'src/components/ui/Image'
 
 import Section from '../Section'
 
@@ -7,7 +9,7 @@ type BannerMediumType = {
   nodes: Array<{
     link: string | null
     imagemBannerMedium: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
   }>
 }
@@ -16,30 +18,42 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
   const { isMobile } = useWindowDimensions()
 
   if (isMobile === true) {
-    const url1 = nodes[nodes.length - 1].imagemBannerMedium?.url
+    const imageMobile =
+      nodes[nodes.length - 1].imagemBannerMedium?.gatsbyImageData
+
     // eslint-disable-next-line prefer-destructuring
     const link1 = nodes[nodes.length - 1].link
 
     return (
-      <div className="container-imagem-banner-medium">
-        {link1 && url1 && (
+      <div className="Container-imagem-banner-medium">
+        {link1 && imageMobile && (
           <a href={link1}>
-            <img src={url1} alt="teste" className="imagem-banner-medium" />
+            <Image
+              className="imagem-banner-medium"
+              image={imageMobile}
+              alt=""
+              loading="lazy"
+            />
           </a>
         )}
       </div>
     )
   }
 
-  const url = nodes[0].imagemBannerMedium?.url
+  const imageDesktop = nodes[0].imagemBannerMedium?.gatsbyImageData
   const [{ link }] = nodes
 
   return (
     <Section>
-      <div className="container-imagem-banner-medium layout__content">
-        {link && url && (
+      <div className="Container-imagem-banner-medium">
+        {link && imageDesktop && (
           <a href={link}>
-            <img src={url} alt="teste" className="imagem-banner-medium" />
+            <Image
+              className="imagem-banner-medium"
+              image={imageDesktop}
+              alt=""
+              loading="lazy"
+            />
           </a>
         )}
       </div>

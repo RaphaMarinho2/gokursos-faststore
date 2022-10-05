@@ -10,8 +10,7 @@
     var(--fs-spacing-2) var(--fs-spacing-1);
   --fs-product-card-gap: var(--fs-grid-gap-2);
   --fs-product-card-min-width: 232px;
-  --fs-product-card-max-width: 260px;
-  --fs-product-card-max-width-mobile: 143px;
+  --fs-product-card-max-width: 250px;
 
   --fs-product-card-shadow: none;
   --fs-product-card-shadow-hover: var(--fs-shadow-hover);
@@ -100,7 +99,7 @@
 
     @include media(">=tablet") {
       max-width: unset;
-      height: 180px;
+      height: 202px;
       border-radius: 0.625rem 0.625rem 0 0;
     }
   }
@@ -155,7 +154,7 @@
     width: 100%;
     height: 40px;
     padding: 0;
-    font-size: var(--fs-text-size-base);
+    font-size: 14px;
     font-weight: 600;
     color: #ff3452;
     cursor: pointer;
@@ -166,6 +165,10 @@
     &:hover {
       color: #fff;
       background: #ff3452;
+    }
+
+    @include media(">=tablet") {
+      font-size: 16px;
     }
   }
 }
@@ -321,7 +324,11 @@
 }
 
 .product-image__skeleton {
-  width: 232px;
-  height: 202px;
+  width: 100%;
+  height: 156px;
   background-color: #e2e2e2;
+
+  @include media(">=tablet") {
+    height: 202px;
+  }
 }

@@ -76,6 +76,14 @@
           padding: 0;
           border: 0;
 
+          @media screen and (max-width: 350px) {
+            width: 143px;
+          }
+
+          @media screen and (min-width: 351px) and (max-width: 425px) {
+            width: 153px;
+          }
+
           h3 {
             min-height: 80px;
 

@@ -1,34 +1,22 @@
 export interface OrderData {
-  Pedidos: OrderDetails[]
-  Status: string
-  StatusDescription: string
-  StatusCore: StatusCore
-}
-
-export interface OrderDetails {
   OrderID: string
-  ValorLiquido: number
-  ValorTransacionado: number
   Data: string
   DataHora: string
+  LiquidoTotal: number
+  TransacionadoTotal: number
+  NovoLiquidoTotal: number
   Quantidade: number
   Estado: string
   Campanha: boolean
-  qtdItens: number
-  NewVLiquido: number
-  Items: OrderItemData[]
-  Order: ShippingInfo
-  PaymentMethodCore: PaymentMethod
+  Items: Item[]
+  Order: Order
+  StatusCore: StatusCore
+  PaymentMethodCore: PaymentMethodCore
 }
 
-export interface PaymentMethod {
-  Name: string
-}
-
-export interface OrderItemData {
-  ValorTransacionadoItem: number
-  VTransicionadoPorItem: number
+export interface Item {
   Quantidade: number
+  ValorTransacionadoItem: number
   Product: Product
 }
 
@@ -36,31 +24,25 @@ export interface Product {
   Name: string
   LinkId: string
   Description: string
-  BrandCore: BrandCore
   ProductURL: string
   ProductImageURL: string
+  BrandCore: BrandCore
 }
 
 export interface BrandCore {
   Name: string
 }
 
-export interface ShippingInfo {
-  Addresss: Addresss[]
-}
-
-export interface Addresss {
-  ReceiverName: string
-  Street: string
-  Number: string
-  Complement: string
-  Neighborhood: string
-  PostalCode: string
-  City: string
-  State: string
-  Country: string
+export interface Order {
+  Status: string
+  StatusDescription: string
 }
 
 export interface StatusCore {
   Status: string
+  TipoPagamento: string
+}
+
+export interface PaymentMethodCore {
+  Name: string
 }

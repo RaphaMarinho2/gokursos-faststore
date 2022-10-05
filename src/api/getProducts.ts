@@ -52,7 +52,7 @@ async function getProducts(
       ? ` and (${formatedFilters?.priceRangeFilter})`
       : 'and Price/BasePrice gt 0'
 
-    const allFilters = `${defaultFilters}${categoryFilter}${workloadFilter}${priceFilter}`
+    const allFilters = `IsActive eq true and IsVisible eq true and ${defaultFilters}${categoryFilter}${workloadFilter}${priceFilter}`
 
     const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${allFilters}&$top=${itemsPerPage}&$skip=${skip}&$select=${select}&$orderby=${sort}&$count=true`
 

@@ -1,4 +1,6 @@
 import BubbleLinks from '@acctglobal/bubblelinks'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import { getSrc } from 'gatsby-plugin-image'
 
 import Section from '../Section'
 import './style.scss'
@@ -10,7 +12,7 @@ interface BestCoursesProps {
     name: string | null
     slug: string | null
     image: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
   }>
 }
@@ -23,7 +25,7 @@ interface BestCoursesModifyProps {
     name: string
     slug: string
     image: {
-      url: string
+      gatsbyImageData: IGatsbyImageData
     }
   }>
 }
@@ -43,10 +45,12 @@ const BestCourses = ({ title, subtitle, nodes }: BestCoursesProps) => {
         <div className="best-courses__content">
           <BubbleLinks
             bubbleLinks={nodesModified.map((category) => {
+              const imageSrc = getSrc(category.image.gatsbyImageData)
+
               return {
                 name: category.name,
                 link: category.slug,
-                img: category.image?.url,
+                img: imageSrc ?? '',
               }
             })}
           />
