@@ -165,7 +165,6 @@ function ProductDetails({ product }: Props) {
                     urlCategory={`/${Category?.Slug}`}
                   />
                 )}
-                {/* <RatingSummary rates={[1, 3, 5, 3, 2, 1, 1, 2, 4, 2]} /> */}
                 {Especificacao?.CargaHoraria?.Text && (
                   <Workload workload={Especificacao?.CargaHoraria?.Text} />
                 )}
@@ -254,16 +253,6 @@ function ProductDetails({ product }: Props) {
                 <ProductBrand NameOfBrand={product.Brand.Name} />
               </div>
             )}
-            {/* <ProductRating /> */}
-            {/* <div className="product-questions__container">
-              <LatestQuestions productQuestions={productQuestions} />
-              <QuestionForm />
-            </div> */}
-            {/* <ProductRating /> */}
-            {/* <div className="product-questions__container">
-              <LatestQuestions productQuestions={productQuestions} />
-              <QuestionForm />
-            </div> */}
           </article>
           <div className="product-details__content-right">
             <article className="product-details__description">
