@@ -142,7 +142,7 @@ export const querySSG = graphql`
         title
         subtitle
         imageDesktop {
-          gatsbyImageData(quality: 100)
+          gatsbyImageData(width: 1920, quality: 100)
         }
         imageMobile {
           gatsbyImageData(width: 343, quality: 100)
