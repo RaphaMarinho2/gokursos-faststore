@@ -7,7 +7,7 @@
 
   .main-banner-image {
     @media screen and (max-width: 700px) {
-      width: 100%;
+      width: calc(100% - 32px);
       height: auto;
       min-height: 224px;
     }
@@ -43,7 +43,7 @@
     }
 
     .carousel-arrow-button-prev {
-      left: -12px;
+      left: 0;
 
       @include media(">=notebook") {
         left: -16px;
@@ -51,7 +51,7 @@
     }
 
     .carousel-arrow-button-next {
-      right: -12px;
+      right: 0;
 
       @include media(">=notebook") {
         right: -16px;
@@ -144,4 +144,9 @@
       }
     }
   }
+}
+
+[data-banner-image] {
+  display: flex;
+  justify-content: center;
 }
