@@ -2,14 +2,15 @@
 
 .main-banner {
   display: block;
-  width: calc(100% - 32px);
+  max-width: calc(100% - 32px);
   margin-top: 24px;
   margin-bottom: 24px;
 
   .main-banner-image {
     @media screen and (max-width: 700px) {
-      width: 334px;
-      height: 224px;
+      width: 100%;
+      height: auto;
+      min-height: 224px;
     }
   }
 

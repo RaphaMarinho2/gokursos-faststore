@@ -145,7 +145,7 @@ export const querySSG = graphql`
           gatsbyImageData(quality: 100)
         }
         imageMobile {
-          gatsbyImageData
+          gatsbyImageData(width: 343, quality: 100)
         }
         slug
         buttonLabel
