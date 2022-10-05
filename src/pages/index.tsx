@@ -142,10 +142,10 @@ export const querySSG = graphql`
         title
         subtitle
         imageDesktop {
-          gatsbyImageData(width: 1920, quality: 100, placeholder: TRACED_SVG)
+          gatsbyImageData(quality: 100)
         }
         imageMobile {
-          gatsbyImageData(quality: 100, placeholder: TRACED_SVG)
+          gatsbyImageData
         }
         slug
         buttonLabel
