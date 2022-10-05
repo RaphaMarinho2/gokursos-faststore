@@ -2,12 +2,9 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
 import { sendAnalyticsEvent } from '@faststore/sdk'
-import type {
-  SelectItemEvent,
-  ViewItemListEvent,
-  ViewPromotionEvent,
-} from '@faststore/sdk'
+import type { SelectItemEvent, ViewPromotionEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import { ViewItemList } from 'src/sdk/analytics/hooks/ViewItemListEvent'
 
 import ProductCard from '../ProductCard'
 
@@ -31,6 +28,10 @@ function ProductShelf({
   isLoading,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
+
+  if (relatedProduct) {
+    ViewItemList(products)
+  }
 
   if (products?.length === 0) {
     return null
@@ -68,30 +69,6 @@ function ProductShelf({
             product_reference_id: null,
           },
         ],
-      },
-    })
-  }
-
-  if (relatedProduct) {
-    sendAnalyticsEvent<ViewItemListEvent<AnalyticsItem>>({
-      name: 'view_item_list',
-      params: {
-        item_list_name: 'Related Products',
-        item_list_id: 'related-products',
-        items: products.map((product: any) => ({
-          item_id: product?.ID,
-          item_name: product?.Name,
-          discount: product?.Price?.isSale
-            ? product?.Price?.ListPrice - product?.Price?.BasePrice
-            : 0,
-          item_list_name: `Related products from ${product.Category.Name}`,
-          item_list_id: 'related-products',
-          item_brand: product?.Department?.Name,
-          item_category: product?.Category?.Name,
-          price: product?.Price.BasePrice,
-          item_variant_name: product?.Name,
-          product_reference_id: null,
-        })),
       },
     })
   }
