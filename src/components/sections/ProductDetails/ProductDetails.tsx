@@ -16,13 +16,8 @@ import productQueryDetails from 'src/mocks/productQueryDetails.json'
 import IconClose from 'src/components/icons/IconClose'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
-import type {
-  CurrencyCode,
-  SelectPromotionEvent,
-  ViewItemEvent,
-} from '@faststore/sdk'
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
-import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import { SelectPromotion } from 'src/sdk/analytics/hooks/SelectPromotionEvent'
+import { ViewItem } from 'src/sdk/analytics/hooks/ViewItemEvent'
 
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
 import Section from '../Section'
@@ -76,54 +71,11 @@ function ProductDetails({ product }: Props) {
     },
   ]
 
-  const {
-    currency: { code },
-  } = useSession()
-
   if (product.Price.ListPrice) {
-    sendAnalyticsEvent<SelectPromotionEvent<AnalyticsItem>>({
-      name: 'select_promotion',
-      params: {
-        items: [
-          {
-            item_id: product?.ID,
-            item_name: product?.Name,
-            discount: product?.Price?.isSale
-              ? product?.Price?.ListPrice - product?.Price?.BasePrice
-              : 0,
-            item_brand: product?.Department?.Name,
-            item_category: product?.Category?.Name,
-            price: product?.Price.BasePrice,
-            currency: code as CurrencyCode,
-            item_variant_name: product?.Name,
-            product_reference_id: null,
-          },
-        ],
-      },
-    })
+    SelectPromotion(product)
   }
 
-  sendAnalyticsEvent<ViewItemEvent<AnalyticsItem>>({
-    name: 'view_item',
-    params: {
-      value: product?.Price.BasePrice,
-      items: [
-        {
-          item_id: product?.ID,
-          item_name: product?.Name,
-          discount: product?.Price?.isSale
-            ? product?.Price?.ListPrice - product?.Price?.BasePrice
-            : 0,
-          item_brand: product?.Department?.Name,
-          item_category: product?.Category?.Name,
-          price: product?.Price.BasePrice,
-          currency: code as CurrencyCode,
-          item_variant_name: product?.Name,
-          product_reference_id: null,
-        },
-      ],
-    },
-  })
+  ViewItem(product)
 
   const buyProps = useBuyButton({
     id: ID,
