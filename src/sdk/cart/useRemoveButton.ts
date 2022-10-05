@@ -27,7 +27,7 @@ export const useRemoveButton = (item: CartItem | null) => {
           value: item.price * item.quantity, // TODO: In the future, we can explore more robust ways of calculating the value (gift items, discounts, etc.).
           items: [
             {
-              item_id: item.itemOffered.isVariantOf.productGroupID,
+              item_id: item.id,
               item_name: item.itemOffered.isVariantOf.name,
               item_brand: item.itemOffered.brand.name,
               item_variant: item.itemOffered.sku,

@@ -56,7 +56,6 @@ function ProductCard({
   const price = product.Price?.BasePrice
   const listPrice = product.Price?.ListPrice
   const categoryName = product.Category?.Name
-
   const linkProps = useProductLink({ product, index })
 
   const buyProps = useBuyButton({

@@ -31,7 +31,7 @@ export const useBuyButton = (item: CartItem | null) => {
           value: item.price * item.quantity,
           items: [
             {
-              item_id: item.itemOffered.isVariantOf.productGroupID,
+              item_id: item?.id,
               item_name: item.itemOffered.isVariantOf.name,
               item_brand: item.itemOffered.brand.name,
               item_variant: item.itemOffered.sku,
