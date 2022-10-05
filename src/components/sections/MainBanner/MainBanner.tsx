@@ -2,8 +2,8 @@ import { Banner, BannerImage, BannerContent, Button, Link } from '@faststore/ui'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import Carousel from 'src/components/common/Carousel'
 import './main-banner.scss'
-import { Image } from 'src/components/ui/Image'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import ImageWithArtDirection from 'src/components/ui/Image/ImageWithArtDirection'
 
 type MainBannerProps = {
   nodes: Array<{
@@ -67,18 +67,24 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
         gapItems={0}
       >
         {nodes.map((banner, idx) => {
-          const image = isTablet
-            ? banner?.imageMobile?.gatsbyImageData
-            : banner?.imageDesktop?.gatsbyImageData
-
-          if (!image) return <></>
+          if (
+            !banner?.imageDesktop?.gatsbyImageData ||
+            !banner?.imageMobile?.gatsbyImageData
+          ) {
+            return <></>
+          }
 
           return (
             <div key={idx} className="main-banner__content">
               <Banner>
                 <Link href={banner.slug ?? ''}>
                   <BannerImage>
-                    <Image image={image} alt="Imagem do Banner" />
+                    <ImageWithArtDirection
+                      imageDesktop={banner?.imageDesktop?.gatsbyImageData}
+                      imageMobile={banner?.imageMobile?.gatsbyImageData}
+                      alt="Imagem do Banner"
+                      className="main-banner-image"
+                    />
                   </BannerImage>
                 </Link>
                 <BannerContent>
