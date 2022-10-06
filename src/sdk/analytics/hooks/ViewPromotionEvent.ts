@@ -4,11 +4,7 @@ import type { ProductData } from 'src/components/sections/ProductDetails/typings
 
 import type { AnalyticsItem } from '../types'
 
-type Props = {
-  product: ProductData
-}
-
-export const ViewPromotion = ({ product }: Props) => {
+export const ViewPromotion = (product: ProductData) => {
   sendAnalyticsEvent<ViewPromotionEvent<AnalyticsItem>>({
     name: 'view_promotion',
     params: {

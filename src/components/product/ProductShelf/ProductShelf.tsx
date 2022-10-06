@@ -1,7 +1,6 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
-import { ViewItemList } from 'src/sdk/analytics/hooks/ViewItemListEvent'
 import { ViewPromotion } from 'src/sdk/analytics/hooks/ViewPromotionEvent'
 import { SelectItem } from 'src/sdk/analytics/hooks/SelectItemEvent'
 
@@ -11,7 +10,6 @@ interface ProductShelfProps {
   title?: string | JSX.Element
   cardsQuantity: number
   withDivisor?: boolean
-  relatedProduct?: boolean
   pretitle?: string
   products: any
   isLoading?: boolean
@@ -23,7 +21,6 @@ function ProductShelf({
   pretitle,
   withDivisor = false,
   products,
-  relatedProduct = false,
   isLoading,
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
@@ -44,10 +41,6 @@ function ProductShelf({
     margin: 0,
     padding: 0,
     width: 32,
-  }
-
-  if (relatedProduct) {
-    ViewItemList(products)
   }
 
   const viewPromotionEvent = (product: any) => {

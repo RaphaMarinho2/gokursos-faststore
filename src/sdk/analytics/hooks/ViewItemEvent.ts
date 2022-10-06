@@ -1,9 +1,10 @@
+import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 import type { ViewItemEvent } from '@faststore/sdk'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 
 import type { AnalyticsItem } from '../types'
 
-export const ViewItem = ({ product }: any) => {
+export const ViewItem = (product: ProductData) => {
   sendAnalyticsEvent<ViewItemEvent<AnalyticsItem>>({
     name: 'view_item',
     params: {

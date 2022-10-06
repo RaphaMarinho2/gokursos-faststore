@@ -4,11 +4,7 @@ import type { ProductData } from 'src/components/sections/ProductDetails/typings
 
 import type { AnalyticsItem } from '../types'
 
-type Props = {
-  product: ProductData
-}
-
-export const SelectItem = ({ product }: Props) => {
+export const SelectItem = (product: ProductData) => {
   sendAnalyticsEvent<SelectItemEvent<AnalyticsItem>>({
     name: 'select_item',
     params: {
