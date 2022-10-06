@@ -1,16 +1,19 @@
-import type { CurrencyCode, ViewItemListEvent } from '@faststore/sdk'
+import type {
+  ViewItemListEvent as ViewItemListEventType,
+  CurrencyCode,
+} from '@faststore/sdk'
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
 import type { AnalyticsItem } from '../types'
 
-export const ViewItemList = (products: ProductData[]) => {
+export const ViewItemListEvent = (products: ProductData[]) => {
   const {
     currency: { code },
   } = useSession()
 
   if (products) {
-    sendAnalyticsEvent<ViewItemListEvent<AnalyticsItem>>({
+    sendAnalyticsEvent<ViewItemListEventType<AnalyticsItem>>({
       name: 'view_item_list',
       params: {
         item_list_name: 'Related Products',

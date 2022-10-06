@@ -1,11 +1,11 @@
-import type { SelectPromotionEvent } from '@faststore/sdk'
+import type { SelectPromotionEvent as SelectPromotionEventType } from '@faststore/sdk'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
 import type { AnalyticsItem } from '../types'
 
-export const SelectPromotion = (product: ProductData) => {
-  sendAnalyticsEvent<SelectPromotionEvent<AnalyticsItem>>({
+export const SelectPromotionEvent = (product: ProductData) => {
+  sendAnalyticsEvent<SelectPromotionEventType<AnalyticsItem>>({
     name: 'select_promotion',
     params: {
       items: [

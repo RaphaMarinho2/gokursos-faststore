@@ -1,8 +1,8 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
-import { ViewPromotion } from 'src/sdk/analytics/hooks/ViewPromotionEvent'
-import { SelectItem } from 'src/sdk/analytics/hooks/SelectItemEvent'
+import { ViewPromotionEvent } from 'src/sdk/analytics/hooks/ViewPromotionEvent'
+import { SelectItemEvent } from 'src/sdk/analytics/hooks/SelectItemEvent'
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
 import ProductCard from '../ProductCard'
@@ -45,11 +45,11 @@ function ProductShelf({
   }
 
   const viewPromotionEvent = (product: ProductData) => {
-    ViewPromotion(product)
+    ViewPromotionEvent(product)
   }
 
   const selectItemListEvent = (product: ProductData) => {
-    SelectItem(product)
+    SelectItemEvent(product)
   }
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
