@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import HiddenPasswordIcon from 'src/components/icons/HiddenPassword'
+import PasswordInput from 'src/components/common/PasswordInput'
 import './style.scss'
 
 interface Props {
@@ -13,10 +12,6 @@ interface Props {
 function EmailLogin(props: Props) {
   const { handleEmailChange, handlePasswordLoginChange, showErrorMessage } =
     props
-
-  const [isPasswordHidden, setPasswordHidden] = useState<boolean>(true)
-
-  const handlePasswordHidden = () => setPasswordHidden(!isPasswordHidden)
 
   return (
     <div className="container-login">
@@ -35,21 +30,14 @@ function EmailLogin(props: Props) {
           onChange={handleEmailChange}
         />
         <p>Senha</p>
-        <div className="login-input__password">
-          <input
-            type={isPasswordHidden ? 'password' : 'text'}
-            name="password"
-            id="password"
-            style={{
-              borderColor: showErrorMessage ? '#D72424' : undefined,
-            }}
-            placeholder="Digite sua senha"
-            onChange={handlePasswordLoginChange}
-          />
-          <button className="hide-button" onClick={handlePasswordHidden}>
-            <HiddenPasswordIcon isHidden={isPasswordHidden} />
-          </button>
-        </div>
+        <PasswordInput
+          name="password"
+          style={{
+            border: showErrorMessage ? '1px solid #D72424' : undefined,
+          }}
+          placeholder="Digite sua senha"
+          onChange={handlePasswordLoginChange}
+        />
       </div>
     </div>
   )
