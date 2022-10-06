@@ -25,12 +25,12 @@
       font-size: 14px;
       color: #707070;
 
-      &p {
+      &__label {
         margin-bottom: 11px;
         line-height: 19px;
       }
 
-      &input {
+      &__email {
         display: flex;
         width: 100%;
         padding: 12px 16px;
