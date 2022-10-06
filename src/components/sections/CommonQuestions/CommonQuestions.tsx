@@ -1,6 +1,8 @@
 import { Plus, Minus } from 'phosphor-react'
 import Accordion from 'src/components/common/Molecules/Accordion'
 
+import Section from '../Section'
+
 import './styles.scss'
 
 type CommonQuestions = {
@@ -33,35 +35,37 @@ const CommonQuestions = ({ nodes, title }: CommonQuestions) => {
   const { firstColumn, secondColumn } = columnDivider(nodes)
 
   return (
-    <div className="common-questions">
-      <div className="common-questions__content">
-        <h2 className="common-questions__title">{title}</h2>
-        <div className="common-questions__container">
-          <div className="common-questions__row">
-            {firstColumn.map((content, idx) => (
-              <Accordion
-                key={idx}
-                title={content.question ?? ''}
-                content={content.answer?.answer ?? ''}
-                iconDefault={<Plus size={20} color="#004E98" />}
-                iconClicked={<Minus size={20} color="#004E98" />}
-              />
-            ))}
-          </div>
-          <div className="common-questions__row">
-            {secondColumn.map((content, idx) => (
-              <Accordion
-                key={idx}
-                title={content.question ?? ''}
-                content={content.answer?.answer ?? ''}
-                iconDefault={<Plus size={20} color="#004E98" />}
-                iconClicked={<Minus size={20} color="#004E98" />}
-              />
-            ))}
+    <Section>
+      <div className="common-questions">
+        <div className="common-questions__content">
+          <h2 className="common-questions__title">{title}</h2>
+          <div className="common-questions__container">
+            <div className="common-questions__row">
+              {firstColumn.map((content, idx) => (
+                <Accordion
+                  key={idx}
+                  title={content.question ?? ''}
+                  content={content.answer?.answer ?? ''}
+                  iconDefault={<Plus size={20} color="#004E98" />}
+                  iconClicked={<Minus size={20} color="#004E98" />}
+                />
+              ))}
+            </div>
+            <div className="common-questions__row">
+              {secondColumn.map((content, idx) => (
+                <Accordion
+                  key={idx}
+                  title={content.question ?? ''}
+                  content={content.answer?.answer ?? ''}
+                  iconDefault={<Plus size={20} color="#004E98" />}
+                  iconClicked={<Minus size={20} color="#004E98" />}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Section>
   )
 }
 
