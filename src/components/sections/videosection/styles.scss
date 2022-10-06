@@ -1,3 +1,5 @@
+@import "src/styles/scaffold";
+
 .vd-section-container {
   display: flex;
   align-items: center;
@@ -11,8 +13,12 @@
     grid-template-columns: 1fr;
     width: 100%;
     max-width: var(--fs-grid-breakpoint-desktop);
-    padding: 35px 0;
+    padding: 35px 1rem;
     color: #f5f5f5;
+
+    @include media(">=tablet") {
+      padding: 35px 0;
+    }
 
     .vd-section-video-container {
       position: relative;

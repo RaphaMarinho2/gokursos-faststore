@@ -25,7 +25,7 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
     const link1 = nodes[nodes.length - 1].link
 
     return (
-      <div className="Container-imagem-banner-medium">
+      <div className="container-imagem-banner-medium layout__content">
         {link1 && imageMobile && (
           <a href={link1}>
             <Image
@@ -45,7 +45,7 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
 
   return (
     <Section>
-      <div className="Container-imagem-banner-medium">
+      <div className="container-imagem-banner-medium layout__content">
         {link && imageDesktop && (
           <a href={link}>
             <Image
