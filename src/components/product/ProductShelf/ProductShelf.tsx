@@ -3,6 +3,7 @@ import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/
 import Carousel from 'src/components/common/Carousel'
 import { ViewPromotion } from 'src/sdk/analytics/hooks/ViewPromotionEvent'
 import { SelectItem } from 'src/sdk/analytics/hooks/SelectItemEvent'
+import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
 import ProductCard from '../ProductCard'
 
@@ -43,11 +44,11 @@ function ProductShelf({
     width: 32,
   }
 
-  const viewPromotionEvent = (product: any) => {
+  const viewPromotionEvent = (product: ProductData) => {
     ViewPromotion(product)
   }
 
-  const selectItemListEvent = (product: any) => {
+  const selectItemListEvent = (product: ProductData) => {
     SelectItem(product)
   }
 
