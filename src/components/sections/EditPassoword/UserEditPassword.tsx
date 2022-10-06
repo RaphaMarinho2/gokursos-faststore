@@ -119,7 +119,7 @@ function UserEditPassword(props: Props) {
       <h1>Cadastrar uma nova senha</h1>
 
       <div className="password-input">
-        <p>Nova senha</p>
+        <p className="password-input__label">Nova senha</p>
         <PasswordInput
           name="password"
           style={{
@@ -129,7 +129,7 @@ function UserEditPassword(props: Props) {
           value={password}
           onChange={handlePasswordChange}
         />
-        <p>Confirmar senha</p>
+        <p className="password-input__label">Confirmar senha</p>
         <PasswordInput
           name="password"
           style={{
@@ -167,6 +167,7 @@ function UserEditPassword(props: Props) {
           ))}
         </div>
         <button
+          className="password-input__button"
           type="button"
           onClick={handleClick}
           disabled={!Object.values(validate).every((rule) => !!rule)}
