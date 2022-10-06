@@ -10,6 +10,10 @@
   margin: auto;
   background-color: #014c98;
 
+  @media screen and (min-width: 1920px) {
+    max-width: var(--fs-grid-breakpoint-desktop);
+  }
+
   .vd-section-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -19,10 +23,6 @@
 
     @include media(">=tablet") {
       padding: 35px 4rem;
-    }
-
-    @media screen and (min-width: 1920px) {
-      max-width: var(--fs-grid-breakpoint-desktop);
     }
 
     .vd-section-video-container {
