@@ -29,16 +29,14 @@ const NewReleasesShelf = ({ title, pretitle }: ShelfProps) => {
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
 
   return (
-    <Section>
-      <div className="layout__content new-releases-shelf">
-        <ProductShelf
-          cardsQuantity={shelfItemQuantity}
-          title={title}
-          pretitle={pretitle}
-          products={products}
-          isLoading={isLoading}
-        />
-      </div>
+    <Section className="layout__content new-releases-shelf">
+      <ProductShelf
+        cardsQuantity={shelfItemQuantity}
+        title={title}
+        pretitle={pretitle}
+        products={products}
+        isLoading={isLoading}
+      />
     </Section>
   )
 }
