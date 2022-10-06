@@ -71,7 +71,7 @@ function ProductDetails({ product }: Props) {
     },
   ]
 
-  if (product.Price.ListPrice) {
+  if (product.Price.ListPrice && product.Price.isSale) {
     SelectPromotion(product)
   }
 
