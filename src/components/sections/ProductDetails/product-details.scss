@@ -541,18 +541,14 @@
 .share-icon {
   display: flex;
   flex-direction: column;
-
-  .polygon-icon {
-    position: relative;
-    top: 0;
-    z-index: 2;
-  }
+  align-self: flex-start;
 
   [data-open-modal-container] {
     max-width: 28px;
     max-height: 28px;
 
     [data-open-modal-button] {
+      cursor: pointer;
       background: none;
       border: none;
     }
@@ -561,8 +557,6 @@
       display: none;
     }
   }
-
-  // Style modal open
 
   [data-additional-overlay] {
     position: fixed;
@@ -585,11 +579,34 @@
 
     @include media(">=tablet") {
       right: 225px;
-      width: 267px;
+      width: 290px;
+    }
+
+    [data-modal-share-product-text] {
+      display: none;
+    }
+
+    [data-modal-product-link-container] {
+      display: none;
+    }
+
+    [data-modal-copy-link-button] {
+      display: none;
     }
 
     [data-close-modal-button] {
-      display: none;
+      position: absolute;
+      top: 7px;
+      right: 1px;
+      cursor: pointer;
+      background: none;
+      border: 0;
+
+      svg {
+        path {
+          stroke: #555;
+        }
+      }
     }
 
     [data-modal-share-links-container] {
