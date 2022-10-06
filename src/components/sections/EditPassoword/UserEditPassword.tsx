@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PasswordInput from 'src/components/common/PasswordInput'
 
 import BackLink from '../BackLink'
 
@@ -119,10 +120,8 @@ function UserEditPassword(props: Props) {
 
       <div className="password-input">
         <p>Nova senha</p>
-        <input
-          type="password"
+        <PasswordInput
           name="password"
-          id="password"
           style={{
             borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
@@ -131,11 +130,8 @@ function UserEditPassword(props: Props) {
           onChange={handlePasswordChange}
         />
         <p>Confirmar senha</p>
-        <input
-          className="input-user-password"
-          type="password"
+        <PasswordInput
           name="password"
-          id="password"
           style={{
             borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
