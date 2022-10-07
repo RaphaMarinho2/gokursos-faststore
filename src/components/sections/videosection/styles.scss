@@ -84,7 +84,8 @@
         color: #004e98;
         cursor: pointer;
         background: white;
-        border: none;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
         transition: all 0.2s ease-in-out;
 
         :hover {
