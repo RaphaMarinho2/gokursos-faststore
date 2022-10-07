@@ -43,13 +43,10 @@ function LoginSidebar(props: any) {
           <p>Olá, {userData?.name ?? userData?.email ?? ''}</p>
         </div>
         <div className="infos-sidebar">
-          <Link to="/meus-cursos" onClick={() => setDisplaySidebar(false)}>
+          <Link to="/meus-cursos" onClick={onModalClose}>
             <p className="courses-link">Meus cursos</p>
           </Link>
-          <Link
-            to="/minha-conta/pedidos"
-            onClick={() => setDisplaySidebar(false)}
-          >
+          <Link to="/minha-conta/pedidos" onClick={onModalClose}>
             <p className="requests-link">Meus pedidos</p>
           </Link>
           <button onClick={handleClick} className="exit-link">
