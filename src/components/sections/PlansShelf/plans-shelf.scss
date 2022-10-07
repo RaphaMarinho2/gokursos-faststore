@@ -24,7 +24,7 @@
 
       @include media("<=tablet") {
         max-width: 153px;
-        height: 140px;
+        height: 156px;
         min-height: 102px;
       }
     }
@@ -134,7 +134,9 @@
 
 .MuiPaper-root {
   &.MuiPaper-elevation {
-    filter: drop-shadow(4px 4px 4px rgb(0 0 0 / 20%)) drop-shadow(-1px -1px 4px rgb(0 0 0 / 20%));
+    filter:
+      drop-shadow(4px 4px 4px rgb(0 0 0 / 20%))
+      drop-shadow(-1px -1px 4px rgb(0 0 0 / 20%));
     transform-origin: 135px 0;
   }
 }
