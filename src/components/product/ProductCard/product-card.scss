@@ -68,7 +68,7 @@
   background-color: var(--fs-product-card-bkg-color-hover);
   border: var(--fs-product-card-border-width) solid transparent;
   border-color: var(--fs-product-card-border-color-hover);
-  border-radius: var(--fs-product-card-border-radius);
+  border-radius: 0.625rem;
   box-shadow: var(--fs-product-card-shadow);
   box-shadow: var(--fs-product-card-shadow-hover);
   transition:
@@ -76,9 +76,12 @@
     var(--fs-product-card-transition-timing)
     var(--fs-product-card-transition-function);
 
-  @include media(">=tablet") {
+  @include media(">=tablet", "<desktop") {
+    max-width: 230px;
+  }
+
+  @include media(">=desktop") {
     max-width: var(--fs-product-card-max-width);
-    border-radius: 0.625rem;
   }
 
   &:focus-within {

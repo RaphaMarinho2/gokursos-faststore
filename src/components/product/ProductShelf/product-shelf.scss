@@ -35,8 +35,15 @@
 
   @include media(">=tablet") {
     width: 100%;
-    max-width: var(--fs-grid-breakpoint-desktop);
     margin: 2rem auto;
+  }
+
+  @include media(">=tablet", "<desktop") {
+    max-width: var(--fs-grid-breakpoint-notebook);
+  }
+
+  @include media(">=desktop") {
+    max-width: var(--fs-grid-breakpoint-desktop);
   }
 
   .product-shelf-title {

@@ -20,7 +20,11 @@
   justify-content: center;
   height: auto;
 
-  @include media(">=tablet") {
+  @include media(">=tablet", "<desktop") {
+    width: 220px;
+  }
+
+  @include media(">=desktop") {
     width: 270px;
   }
 
