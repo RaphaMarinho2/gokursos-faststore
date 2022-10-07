@@ -1,12 +1,14 @@
 import { Link } from 'gatsby'
 import SlideOver from 'src/components/ui/SlideOver'
 import { windowGlobal } from 'src/constants'
+import { useModal } from 'src/sdk/ui/modal/Provider'
 
 import ArrowRight from './Icons'
 import './style.scss'
 
 function LoginSidebar(props: any) {
   const { displaySidebar, setDisplaySidebar } = props
+  const { onModalClose } = useModal()
 
   const handleClick = () => {
     windowGlobal?.localStorage.removeItem('user')
@@ -34,7 +36,7 @@ function LoginSidebar(props: any) {
             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             data-testid="login-sidebar-button-close"
             aria-label="Close login"
-            onClick={() => setDisplaySidebar(false)}
+            onClick={onModalClose}
           />
         </div>
         <div className="container-title-login">
