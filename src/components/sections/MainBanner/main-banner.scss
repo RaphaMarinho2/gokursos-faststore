@@ -2,18 +2,16 @@
 
 .main-banner {
   display: block;
-  width: calc(100% - 32px);
   margin-top: 24px;
   margin-bottom: 24px;
 
-  // &__image {
-  //   @include media('>=tablet') {
-  //     div {
-  //       width: 1920px;
-  //       height: auto;
-  //     }
-  //   }
-  // }
+  .main-banner-image {
+    @media screen and (max-width: 700px) {
+      width: calc(100% - 32px);
+      height: auto;
+      min-height: 224px;
+    }
+  }
 
   @include media(">=notebook") {
     width: calc(100% - 80px);
@@ -45,7 +43,7 @@
     }
 
     .carousel-arrow-button-prev {
-      left: -12px;
+      left: 0;
 
       @include media(">=notebook") {
         left: -16px;
@@ -53,7 +51,7 @@
     }
 
     .carousel-arrow-button-next {
-      right: -12px;
+      right: 0;
 
       @include media(">=notebook") {
         right: -16px;

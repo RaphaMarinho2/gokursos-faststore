@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import type { ImageOptions } from './useImage'
-import { useImage } from './useImage'
 import './image.scss'
 
 interface Props extends ImageOptions {
@@ -11,8 +10,7 @@ interface Props extends ImageOptions {
 }
 
 function VTEXImage({ preload = false, fallbackImage, ...otherProps }: Props) {
-  const imgProps = useImage(otherProps)
-  const { src, sizes = '100vw', srcSet } = imgProps
+  const { src, width, height } = otherProps
 
   return (
     <>
@@ -23,8 +21,8 @@ function VTEXImage({ preload = false, fallbackImage, ...otherProps }: Props) {
               as: 'image',
               rel: 'preload',
               href: src,
-              imagesrcset: srcSet,
-              imagesizes: sizes,
+              imagesrcset: src,
+              imagesizes: width && height ? `${width}x${height}` : '',
             } as any,
           ]}
         />
@@ -32,12 +30,7 @@ function VTEXImage({ preload = false, fallbackImage, ...otherProps }: Props) {
       {!src && fallbackImage ? (
         fallbackImage
       ) : (
-        <img
-          data-store-image
-          {...imgProps}
-          src={imgProps.src}
-          alt={imgProps.alt}
-        />
+        <img data-store-image {...otherProps} alt={otherProps.alt} />
       )}
     </>
   )

@@ -18,8 +18,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 270px;
   height: auto;
+
+  @include media(">=tablet") {
+    width: 270px;
+  }
 
   h3,
   p {

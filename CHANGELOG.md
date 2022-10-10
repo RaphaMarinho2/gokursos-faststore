@@ -9,8 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **GM-781** - [HOME] Contentful images optimization
+### Fixed
+
 - **GM-742** - Page My Courses and integrations with truechange
+
+### Removed
+
+## [0.21.0] - 2022-10-04
+
+### Added
+
+- **GM-781** - [HOME] Contentful images optimization
 
 ### Fixed
 
@@ -21,7 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-784** - [MENU] Adjust in banner menu filters
 - **GM-611** - Change product description component 
 - **GM-892** - Adjusts my courses
-
 
 ### Removed
 
@@ -37,7 +45,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-820** - [MENU] Adjust in margin of popouver
 - **GM-674** - [HOME] Adjust in video section for cursor pointer
 - **GM-274** - Resolved bug Common Questions
-
 
 ### Removed
 
