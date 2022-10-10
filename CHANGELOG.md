@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Fixed
+
+### Removed
+
+## [0.22.0] - 2022-10-10
+
+### Added
+
 - **GM-866** - Events for GoogleAnalytics 4
 
 ### Fixed
@@ -33,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-865** - Adjust products endpoint
 - **GM-675** - Paginator go to last page
 - **GM-784** - [MENU] Adjust in banner menu filters
-- **GM-611** - Change product description component 
+- **GM-611** - Change product description component
 - **GM-892** - Adjusts my courses
 
 ### Removed
