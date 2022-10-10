@@ -76,7 +76,7 @@ export const querySSG = graphql`
         }
       }
     }
-    allContentfulPlanos {
+    allContentfulPlanos(sort: { order: DESC, fields: createdAt }) {
       nodes {
         texto {
           texto
