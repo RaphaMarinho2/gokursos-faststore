@@ -7,16 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
-- **GM-832** - [LOGIN] Password visualization button
-
 ### Added
 
 - **GM-866** - Events for GoogleAnalytics 4
 
 ### Fixed
 
+- **GM-832** - [LOGIN] Password visualization button
+- **GM-868** - [HOME] Components alignment to layout container
 - **GM-894** - [ACCOUNT] Scroll at page
 - **GM-742** - Page My Courses and integrations with truechange
 

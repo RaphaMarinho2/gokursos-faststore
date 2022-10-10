@@ -55,7 +55,10 @@
   .carousel-content {
     position: relative;
     padding-top: 16px;
-    margin: 0 -16px;
+
+    @include media(">=desktop") {
+      margin: 0 -16px;
+    }
 
     .carousel-arrow-button-prev,
     .carousel-arrow-button-next {
@@ -91,8 +94,15 @@
   }
 
   @include media(">=tablet") {
-    max-width: var(--fs-grid-breakpoint-desktop);
     margin: 2rem auto;
+  }
+
+  @include media(">=tablet", "<desktop") {
+    max-width: var(--fs-grid-breakpoint-notebook);
+  }
+
+  @include media(">=desktop") {
+    max-width: var(--fs-grid-breakpoint-desktop);
   }
 
   .carousel-container {
