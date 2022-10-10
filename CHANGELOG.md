@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-894** - [ACCOUNT] Scroll at page
 - **GM-742** - Page My Courses and integrations with truechange
 
 ### Removed
