@@ -81,6 +81,7 @@
   }
 
   @include media(">=desktop") {
+    min-width: 232px;
     max-width: var(--fs-product-card-max-width);
   }
 
