@@ -1,16 +1,23 @@
-@import 'src/styles/scaffold';
+@import "src/styles/scaffold";
 
 .main-banner {
   display: block;
-  width: calc(100% - 32px);
   margin-top: 24px;
   margin-bottom: 24px;
 
-  @include media('>=notebook') {
+  .main-banner-image {
+    @media screen and (max-width: 700px) {
+      width: calc(100% - 32px);
+      height: auto;
+      min-height: 224px;
+    }
+  }
+
+  @include media(">=notebook") {
     width: calc(100% - 80px);
   }
 
-  @include media('<=tablet') {
+  @include media("<=tablet") {
     .main-banner__image.desktop,
     .main-banner__content.desktop {
       display: none;
@@ -36,17 +43,17 @@
     }
 
     .carousel-arrow-button-prev {
-      left: -12px;
+      left: 0;
 
-      @include media('>=notebook') {
+      @include media(">=notebook") {
         left: -16px;
       }
     }
 
     .carousel-arrow-button-next {
-      right: -12px;
+      right: 0;
 
-      @include media('>=notebook') {
+      @include media(">=notebook") {
         right: -16px;
       }
     }
@@ -63,15 +70,15 @@
           left: 37px;
           color: #fff;
 
-          @include media('>=phonemid') {
+          @include media(">=phonemid") {
             top: 15%;
           }
 
-          @include media('>=tablet') {
+          @include media(">=tablet") {
             top: 30%;
           }
 
-          @include media('>=notebook') {
+          @include media(">=notebook") {
             top: 20%;
             left: 110px;
           }
@@ -81,7 +88,7 @@
             font-weight: 700;
             line-height: 36px;
 
-            @include media('>=notebook') {
+            @include media(">=notebook") {
               font-size: 32px;
               line-height: 48px;
             }
@@ -94,11 +101,11 @@
             font-weight: 500;
             line-height: 18px;
 
-            @include media('>=tablet') {
+            @include media(">=tablet") {
               width: 275px;
             }
 
-            @include media('>=notebook') {
+            @include media(">=notebook") {
               width: 407px;
               height: 60px;
               font-size: 20px;
@@ -115,7 +122,7 @@
               border: 0;
               border-radius: 4px;
 
-              @include media('>=notebook') {
+              @include media(">=notebook") {
                 min-width: 188px;
                 max-width: 200px;
                 padding: 8px 35px;
@@ -126,7 +133,7 @@
                 font-weight: 600;
                 line-height: 18px;
 
-                @include media('>=notebook') {
+                @include media(">=notebook") {
                   font-size: 16px;
                   line-height: 24px;
                 }
@@ -137,4 +144,9 @@
       }
     }
   }
+}
+
+[data-banner-image] {
+  display: flex;
+  justify-content: center;
 }

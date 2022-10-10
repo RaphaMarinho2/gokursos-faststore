@@ -1,18 +1,19 @@
 import { Banner, BannerImage, BannerContent, Button, Link } from '@faststore/ui'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import Carousel from 'src/components/common/Carousel'
-
 import './main-banner.scss'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import ImageWithArtDirection from 'src/components/ui/Image/ImageWithArtDirection'
 
 type MainBannerProps = {
   nodes: Array<{
     title: string | null
     subtitle: string | null
     imageDesktop: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
     imageMobile: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
     slug: string | null
     buttonLabel: string | null
@@ -65,65 +66,53 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
         qtyItems={1}
         gapItems={0}
       >
-        {nodes.map((banner, idx) => (
-          <div
-            key={idx}
-            className={
-              isTablet
-                ? 'main-banner__content mobile'
-                : 'main-banner__content desktop'
-            }
-          >
-            <Banner>
-              {banner.slug &&
-                banner.imageMobile?.url &&
-                banner.imageDesktop?.url && (
-                  <Link href={banner.slug}>
-                    <BannerImage>
-                      {isTablet ? (
-                        <img
-                          className="main-banner__image mobile"
-                          alt="Imagem do Banner"
-                          src={banner.imageMobile.url}
-                          width="100%"
-                        />
-                      ) : (
-                        <img
-                          className="main-banner__image desktop"
-                          alt="Imagem do Banner"
-                          src={banner.imageDesktop.url}
-                          width="100%"
-                        />
-                      )}
-                    </BannerImage>
-                  </Link>
-                )}
+        {nodes.map((banner, idx) => {
+          if (
+            !banner?.imageDesktop?.gatsbyImageData ||
+            !banner?.imageMobile?.gatsbyImageData
+          ) {
+            return <></>
+          }
 
-              <BannerContent>
-                <div>
-                  <h2 className="main-banner__title">{banner.title}</h2>
-                  <p className="main-banner__subtitle">{banner.subtitle}</p>
-                </div>
-                {banner.slug && banner.buttonColor && banner.buttonTextColor && (
-                  <Link href={banner.slug}>
-                    <Button
-                      style={{
-                        backgroundColor: banner.buttonColor,
-                      }}
-                    >
-                      <p
-                        className="main-banner__button-label"
-                        style={{ color: banner.buttonTextColor }}
+          return (
+            <div key={idx} className="main-banner__content">
+              <Banner>
+                <Link href={banner.slug ?? ''}>
+                  <BannerImage>
+                    <ImageWithArtDirection
+                      imageDesktop={banner?.imageDesktop?.gatsbyImageData}
+                      imageMobile={banner?.imageMobile?.gatsbyImageData}
+                      alt="Imagem do Banner"
+                      className="main-banner-image"
+                    />
+                  </BannerImage>
+                </Link>
+                <BannerContent>
+                  <div>
+                    <h2 className="main-banner__title">{banner.title}</h2>
+                    <p className="main-banner__subtitle">{banner.subtitle}</p>
+                  </div>
+                  {banner.slug && banner.buttonColor && banner.buttonTextColor && (
+                    <Link href={banner.slug}>
+                      <Button
+                        style={{
+                          backgroundColor: banner.buttonColor,
+                        }}
                       >
-                        {banner.buttonLabel}
-                      </p>
-                    </Button>
-                  </Link>
-                )}
-              </BannerContent>
-            </Banner>
-          </div>
-        ))}
+                        <p
+                          className="main-banner__button-label"
+                          style={{ color: banner.buttonTextColor }}
+                        >
+                          {banner.buttonLabel}
+                        </p>
+                      </Button>
+                    </Link>
+                  )}
+                </BannerContent>
+              </Banner>
+            </div>
+          )
+        })}
       </Carousel>
     </div>
   )

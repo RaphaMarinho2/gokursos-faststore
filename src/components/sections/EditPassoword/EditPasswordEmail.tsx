@@ -25,7 +25,7 @@ function EditPasswordEmail(props: Props) {
         />
       </div>
       <button
-        disabled={!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(user)}
+        disabled={!/^[\w-.]+@([\w-]+\.)+[\w-]{2,6}$/g.test(user)}
         type="button"
         onClick={nextStep}
       >
