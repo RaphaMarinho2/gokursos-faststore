@@ -10,7 +10,7 @@
     var(--fs-spacing-2) var(--fs-spacing-1);
   --fs-product-card-gap: var(--fs-grid-gap-2);
   --fs-product-card-min-width: 232px;
-  --fs-product-card-width: 250px;
+  --fs-product-card-max-width: 250px;
 
   --fs-product-card-shadow: none;
   --fs-product-card-shadow-hover: var(--fs-shadow-hover);
@@ -81,7 +81,8 @@
   }
 
   @include media(">=desktop") {
-    width: var(--fs-product-card-width);
+    min-width: 232px;
+    max-width: var(--fs-product-card-max-width);
   }
 
   &:focus-within {
@@ -332,6 +333,7 @@
   background-color: #e2e2e2;
 
   @include media(">=tablet") {
+    width: 250px;
     height: 202px;
   }
 }
