@@ -31,7 +31,7 @@ export default function MyCourses({
   variant = 'default',
   bordered = false,
 }: MyCoursesProps) {
-  const [coursesData, setCoursesData] = useState<MyCourseData[] | []>([])
+  const [coursesData, setCoursesData] = useState<MyCourseData[]>([])
   const [isLoading, setLoading] = useState<boolean>(true)
   const [currentPage, setCurrentPage] = useState<number>(0)
   const pages = Math.ceil(coursesData.length / ITEMS_PER_PAGE_COURSES)
@@ -62,8 +62,7 @@ export default function MyCourses({
 
   // Redirection request to the course via id
   const handleGoCourses = (id: string | number) => () => {
-    const userData =
-      typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
+    const userData = window?.localStorage.getItem('user') ?? ''
 
     setOpen(true)
     const infoUser = JSON.parse(userData ?? '')
