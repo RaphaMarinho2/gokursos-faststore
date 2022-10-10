@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import type { FC } from 'react'
 
 const Certificate: FC = () => (

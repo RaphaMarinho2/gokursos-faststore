@@ -69,11 +69,7 @@
     }
 
     .carousel-arrow-button-prev {
-      left: 8px;
-
-      @include media(">=phonemid") {
-        left: 2px;
-      }
+      left: -8px;
 
       @include media(">=notebook") {
         left: -4px;
@@ -81,11 +77,7 @@
     }
 
     .carousel-arrow-button-next {
-      right: 8px;
-
-      @include media(">=phonemid") {
-        right: 2px;
-      }
+      right: -8px;
 
       @include media(">=notebook") {
         right: -4px;
