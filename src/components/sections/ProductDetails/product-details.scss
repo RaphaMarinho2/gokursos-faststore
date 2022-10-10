@@ -543,6 +543,12 @@
   flex-direction: column;
   align-self: flex-start;
 
+  .polygon-icon {
+    position: relative;
+    top: 0;
+    z-index: 2;
+  }
+
   [data-open-modal-container] {
     max-width: 28px;
     max-height: 28px;
