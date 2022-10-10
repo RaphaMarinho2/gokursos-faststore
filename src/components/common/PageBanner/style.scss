@@ -1,0 +1,61 @@
+@import "src/styles/scaffold";
+
+[data-banner-image] {
+  max-width: var(--fs-grid-breakpoint-desktop);
+  margin: auto;
+}
+
+[data-banner-content] {
+  max-width: calc(var(--fs-grid-breakpoint-desktop) - 20px);
+  margin: auto;
+  color: #fff;
+
+  .page-banner__description {
+    position: absolute;
+    top: 15%;
+    margin-left: 1rem;
+
+    @include media(">=notebook") {
+      top: 10%;
+    }
+
+    .page-banner__title {
+      width: 215px;
+      max-height: 52px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+
+      @include media(">=notebook") {
+        width: 430px;
+        max-height: 96px;
+        font-size: 32px;
+        line-height: 48px;
+      }
+    }
+
+    .page-banner__subtitle {
+      width: 270px;
+      max-height: 54px;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 18px;
+
+      @include media(">=notebook") {
+        width: 430px;
+        max-height: 48px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.page-banner__image {
+  width: 100%;
+  max-width: var(--fs-grid-breakpoint-desktop);
+  margin: auto;
+}
