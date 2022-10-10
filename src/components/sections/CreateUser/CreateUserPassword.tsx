@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PasswordInput from 'src/components/common/PasswordInput'
 
 import BackLink from '../BackLink'
 
@@ -117,11 +118,9 @@ function CreateUserPassword(props: Props) {
       <h1>Cadastrar uma nova senha</h1>
 
       <div className="password-input">
-        <p>Nova senha</p>
-        <input
-          type="password"
+        <p className="password-input__label">Nova senha</p>
+        <PasswordInput
           name="password"
-          id="password"
           style={{
             borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
@@ -129,12 +128,9 @@ function CreateUserPassword(props: Props) {
           value={password}
           onChange={handlePasswordChange}
         />
-        <p>Confirmar senha</p>
-        <input
-          className="input-user-password"
-          type="password"
+        <p className="password-input__label">Confirmar senha</p>
+        <PasswordInput
           name="password"
-          id="password"
           style={{
             borderColor: showErrorMessage ? '#D72424' : undefined,
           }}
@@ -170,6 +166,7 @@ function CreateUserPassword(props: Props) {
           ))}
         </div>
         <button
+          className="password-input__button"
           type="button"
           onClick={handleClick}
           disabled={!Object.values(validate).every((rule) => !!rule)}

@@ -9,9 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-866** - Events for GoogleAnalytics 4
+
 ### Fixed
 
+- **GM-832** - [LOGIN] Password visualization button
 - **GM-868** - [HOME] Components alignment to layout container
+- **GM-894** - [ACCOUNT] Scroll at page
+- **GM-742** - Page My Courses and integrations with truechange
 
 ### Removed
 
@@ -28,7 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-865** - Adjust products endpoint
 - **GM-675** - Paginator go to last page
 - **GM-784** - [MENU] Adjust in banner menu filters
-- **GM-611** - Change product description component
+- **GM-611** - Change product description component 
+- **GM-892** - Adjusts my courses
 
 ### Removed
 
