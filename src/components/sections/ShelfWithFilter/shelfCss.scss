@@ -110,7 +110,9 @@
       display: flex;
       justify-content: center;
       min-width: 91px;
+      height: 32px;
       padding: 10px;
+      font-size: 14px;
       font-weight: 600;
       color: #ff3452;
       background: #fff;
@@ -119,7 +121,9 @@
 
       @include media(">=notebook") {
         width: 140px;
+        height: 41px;
         padding: 10px 0;
+        font-size: 16px;
 
         &:hover {
           cursor: pointer;
@@ -182,12 +186,6 @@
 }
 
 .navigattionTabs-content {
-  .product-shelf-container {
-    @include media(">=notebook") {
-      padding-left: 20px;
-    }
-  }
-
   .product-shelf-title {
     display: none;
   }

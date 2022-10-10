@@ -16,6 +16,8 @@ import productQueryDetails from 'src/mocks/productQueryDetails.json'
 import IconClose from 'src/components/icons/IconClose'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
+import { SelectPromotionEvent } from 'src/sdk/analytics/hooks/SelectPromotionEvent'
+import { ViewItemEvent } from 'src/sdk/analytics/hooks/ViewItemEvent'
 
 import ProductBrand from '../ProductBrand'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
@@ -67,6 +69,12 @@ function ProductDetails({ product }: Props) {
       description: Especificacao?.TipoCurso?.DescriptionCertificate ?? '',
     },
   ]
+
+  if (product.Price.ListPrice && product.Price.isSale) {
+    SelectPromotionEvent(product)
+  }
+
+  ViewItemEvent(product)
 
   const buyProps = useBuyButton({
     id: ID,

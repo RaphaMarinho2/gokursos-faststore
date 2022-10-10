@@ -9,7 +9,7 @@ import FooterLinks from './FooterLinks'
 
 function Footer() {
   return (
-    <footer className="footer layout__content-full">
+    <footer className="footer layout__content">
       <div className="footer__section layout__content">
         <FooterLinks />
 

@@ -47,6 +47,10 @@ main,
   margin-right: auto;
   margin-left: auto;
 
+  @include media(">=tablet", "<=desktop") {
+    max-width: 1286px;
+  }
+
   &.my-account {
     display: flex;
     flex-direction: column;

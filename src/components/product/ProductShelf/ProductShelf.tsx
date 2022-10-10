@@ -1,6 +1,9 @@
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
 import Carousel from 'src/components/common/Carousel'
+import { ViewPromotionEvent } from 'src/sdk/analytics/hooks/ViewPromotionEvent'
+import { SelectItemEvent } from 'src/sdk/analytics/hooks/SelectItemEvent'
+import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
 import ProductCard from '../ProductCard'
 
@@ -41,6 +44,14 @@ function ProductShelf({
     width: 32,
   }
 
+  const viewPromotionEvent = (product: ProductData) => {
+    ViewPromotionEvent(product)
+  }
+
+  const selectItemListEvent = (product: ProductData) => {
+    SelectItemEvent(product)
+  }
+
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
 
   return (
@@ -65,8 +76,15 @@ function ProductShelf({
           qtyItems={cardsQuantity}
         >
           {products?.map((product: any, idx: number) => (
-            <div key={idx} className="product-shelf__content">
+            <div
+              aria-hidden
+              onKeyDown={() => selectItemListEvent(product)}
+              onClick={() => selectItemListEvent(product)}
+              key={idx}
+              className="product-shelf__content"
+            >
               <ProductCard product={product} index={idx + 1} />
+              {product.Price?.ListPrice && viewPromotionEvent(product)}
             </div>
           ))}
         </Carousel>

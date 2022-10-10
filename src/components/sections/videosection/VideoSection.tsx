@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
+import Section from '../Section'
 import './styles.scss'
 
 type VideoSectionType = {
@@ -27,33 +28,35 @@ const VideoSection = ({ nodes }: VideoSectionType) => {
   const [{ buttonUrl, buttonText, title, content, miniText }] = nodes
 
   return (
-    <div className="vd-section-container">
-      <div className="vd-section-content">
-        <div className="vd-section-video-container">
-          <div className="vd-section-video-mold" />
-          {videoUrl && (
-            <video
-              className="vd-section-video"
-              src={videoUrl}
-              controls
-              playsInline
-            />
-          )}
-        </div>
-        <h2 className="vd-section-title">{title}</h2>
-        <div className="vd-section-description">
-          <p>{content}</p>
-          <p>{miniText}</p>
-        </div>
-        <div className="vd-section-button">
-          {buttonUrl && (
-            <a href={buttonUrl}>
-              <button>{buttonText}</button>
-            </a>
-          )}
+    <Section>
+      <div className="vd-section-container">
+        <div className="vd-section-content">
+          <div className="vd-section-video-container">
+            <div className="vd-section-video-mold" />
+            {videoUrl && (
+              <video
+                className="vd-section-video"
+                src={videoUrl}
+                controls
+                playsInline
+              />
+            )}
+          </div>
+          <h2 className="vd-section-title">{title}</h2>
+          <div className="vd-section-description">
+            <p>{content}</p>
+            <p>{miniText}</p>
+          </div>
+          <div className="vd-section-button">
+            {buttonUrl && (
+              <a href={buttonUrl}>
+                <button>{buttonText}</button>
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </Section>
   )
 }
 
