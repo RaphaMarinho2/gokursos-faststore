@@ -9,7 +9,7 @@ import Backdrop from '@mui/material/Backdrop'
 import CircularProgress from '@mui/material/CircularProgress'
 import Dialog from '@mui/material/Dialog'
 import axios from 'axios'
-import { ITEMS_PER_PAGE_COURSES } from 'src/constants'
+import { ITEMS_PER_PAGE_COURSES, windowGlobal } from 'src/constants'
 import CertificateActive from 'src/components/icons/CertificateActive'
 import CertificateInactive from 'src/components/icons/CertificateInactive'
 import { navigate } from 'gatsby'
@@ -42,8 +42,7 @@ export default function MyCourses({
   const [openError, setOpenError] = useState<boolean>(false)
 
   useEffect(() => {
-    const userData =
-      typeof window !== 'undefined' ? window.localStorage.getItem('user') : ''
+    const userData = windowGlobal?.localStorage.getItem('user')
 
     if (userData) {
       axios
@@ -62,7 +61,7 @@ export default function MyCourses({
 
   // Redirection request to the course via id
   const handleGoCourses = (id: string | number) => () => {
-    const userData = window?.localStorage.getItem('user') ?? ''
+    const userData = windowGlobal?.localStorage.getItem('user')
 
     setOpen(true)
     const infoUser = JSON.parse(userData ?? '')

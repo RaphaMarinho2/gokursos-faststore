@@ -1,4 +1,5 @@
-const desktop = window?.innerWidth > 1440
+const desktop =
+  typeof window !== 'undefined' ? window.innerWidth > 1440 : undefined
 
 export const ITEMS_PER_PAGE = 12
 export const ITEMS_PER_SECTION = 5
