@@ -4,6 +4,7 @@ import './pdp-product-shelf.scss'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { slugify } from 'src/sdk/utils/slugify'
+import { ViewItemListEvent } from 'src/sdk/analytics/hooks/ViewItemListEvent'
 
 import Section from '../Section'
 
@@ -34,6 +35,8 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
       })
       .then(({ data: { value } }) => setProducts(value))
   }, [productDepartment])
+
+  ViewItemListEvent(products)
 
   return (
     <Section className="layout__content pdp-shelf-container">
