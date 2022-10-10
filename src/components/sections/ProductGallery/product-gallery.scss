@@ -15,8 +15,10 @@
   display: flex;
   align-items: center;
   width: 100%;
+  max-width: var(--fs-grid-breakpoint-desktop);
   height: 149px;
   padding: 0 8px;
+  margin: auto;
   margin-bottom: 24px;
   background-color: #004e98;
 
@@ -31,8 +33,7 @@
     display: flex;
     width: 100%;
     max-width: var(--fs-grid-breakpoint-desktop);
-    margin-right: auto;
-    margin-left: auto;
+    margin-left: 1rem;
     font-size: 20px;
     font-weight: 700;
     color: #fff;
