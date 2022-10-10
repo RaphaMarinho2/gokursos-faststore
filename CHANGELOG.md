@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-896** - [PLANS] Shelf card height
+
 ### Removed
 
 ## [0.21.0] - 2022-10-04
