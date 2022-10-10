@@ -22,8 +22,6 @@ const CardPlanos = ({ nodes, path }: PlanosType) => {
         const { titulo, preco, texto, textoBotao, saibaMais, promocao, slug } =
           node
 
-        console.info(slug)
-
         return (
           <div
             key={index}
