@@ -3,6 +3,8 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Image } from 'src/components/ui/Image'
 
+import Section from '../Section'
+
 type BannerMediumType = {
   nodes: Array<{
     link: string | null
@@ -12,6 +14,7 @@ type BannerMediumType = {
   }>
 }
 
+// TODO: refactor this component and the "BannerMedium" content model at Contentful
 const BannerMedium = ({ nodes }: BannerMediumType) => {
   const { isMobile } = useWindowDimensions()
 
@@ -23,7 +26,7 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
     const link1 = nodes[nodes.length - 1].link
 
     return (
-      <div className="Container-imagem-banner-medium">
+      <div className="container-imagem-banner-medium layout__content">
         {link1 && imageMobile && (
           <a href={link1}>
             <Image
@@ -42,18 +45,20 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
   const [{ link }] = nodes
 
   return (
-    <div className="Container-imagem-banner-medium">
-      {link && imageDesktop && (
-        <a href={link}>
-          <Image
-            className="imagem-banner-medium"
-            image={imageDesktop}
-            alt=""
-            loading="lazy"
-          />
-        </a>
-      )}
-    </div>
+    <Section>
+      <div className="container-imagem-banner-medium layout__content">
+        {link && imageDesktop && (
+          <a href={link}>
+            <Image
+              className="imagem-banner-medium"
+              image={imageDesktop}
+              alt=""
+              loading="lazy"
+            />
+          </a>
+        )}
+      </div>
+    </Section>
   )
 }
 

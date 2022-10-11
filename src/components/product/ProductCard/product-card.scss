@@ -55,7 +55,7 @@
   grid-template-rows: minmax(0, max-content);
   grid-auto-flow: row;
   min-width: 143px;
-  max-width: var(--fs-product-card-max-width);
+  max-width: var(--fs-product-card-max-width-mobile);
   height: 100%;
   min-height: 382px;
 
@@ -68,7 +68,7 @@
   background-color: var(--fs-product-card-bkg-color-hover);
   border: var(--fs-product-card-border-width) solid transparent;
   border-color: var(--fs-product-card-border-color-hover);
-  border-radius: var(--fs-product-card-border-radius);
+  border-radius: 0.625rem;
   box-shadow: var(--fs-product-card-shadow);
   box-shadow: var(--fs-product-card-shadow-hover);
   transition:
@@ -76,16 +76,13 @@
     var(--fs-product-card-transition-timing)
     var(--fs-product-card-transition-function);
 
-  @media screen and (max-width: 350px) {
-    width: 143px;
+  @include media(">=tablet", "<desktop") {
+    max-width: 230px;
   }
 
-  @media screen and (min-width: 351px) and (max-width: 425px) {
-    width: 153px;
-  }
-
-  @include media(">=tablet") {
-    border-radius: 0.625rem;
+  @include media(">=desktop") {
+    min-width: 232px;
+    max-width: var(--fs-product-card-max-width);
   }
 
   &:focus-within {
@@ -336,6 +333,7 @@
   background-color: #e2e2e2;
 
   @include media(">=tablet") {
+    width: 250px;
     height: 202px;
   }
 }

@@ -1,21 +1,18 @@
 @import "src/styles/scaffold";
 
-.Container-imagem-banner-medium {
+.container-imagem-banner-medium {
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+
+  @include media("<=tablet") {
+    max-width: calc(100% - 32px);
+  }
 
   .imagem-banner-medium {
     width: 100%;
-    max-width: 1920px;
-    min-height: 129px;
   }
 
   a {
-    width: 97%;
-    max-width: 1920px;
-    height: 100%;
-    margin: auto;
+    width: 100%;
   }
 }

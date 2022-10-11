@@ -43,18 +43,24 @@
         [data-bubble-links-wrapper] {
           display: flex;
           align-items: center;
-          min-width: 112px;
+          min-width: 99px;
           height: 70px;
-          padding: 0 2px;
           margin: 0 5px;
           border: 1px solid #dddddd;
           border-radius: 8px;
+
+          &:first-of-type {
+            margin: 0 5px 0 0;
+          }
+
+          &:last-of-type {
+            margin: 0 0 0 5px;
+          }
 
           @include media(">=notebook") {
             min-width: 120px;
             max-width: 126px;
             height: 107px;
-            margin: 0 11px;
           }
 
           [data-bubble-links-link] {

@@ -1,3 +1,4 @@
+import PasswordInput from 'src/components/common/PasswordInput'
 import './style.scss'
 
 interface Props {
@@ -16,9 +17,10 @@ function EmailLogin(props: Props) {
     <div className="container-login">
       <h1>Entrar com e-mail e senha</h1>
       <div className="login-input">
-        <p>E-mail</p>
+        <p className="login-input__label">E-mail</p>
 
         <input
+          className="login-input__email"
           type="text"
           name="email"
           id="email"
@@ -28,14 +30,11 @@ function EmailLogin(props: Props) {
           placeholder="Digite seu e-mail"
           onChange={handleEmailChange}
         />
-        <p>Senha</p>
-
-        <input
-          type="password"
+        <p className="login-input___label">Senha</p>
+        <PasswordInput
           name="password"
-          id="password"
           style={{
-            borderColor: showErrorMessage ? '#D72424' : undefined,
+            border: showErrorMessage ? '1px solid #D72424' : undefined,
           }}
           placeholder="Digite sua senha"
           onChange={handlePasswordLoginChange}

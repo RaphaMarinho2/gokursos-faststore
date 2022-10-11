@@ -1,7 +1,6 @@
 @import "src/styles/scaffold";
 
 .footer {
-  padding: 20px 16px;
   background-color: #ffffff;
   content-visibility: auto;
   contain-intrinsic-size: rem(860px);
@@ -164,7 +163,8 @@
   }
 }
 
-.footer__links, .footer__links-columns {
+.footer__links,
+.footer__links-columns {
   .parceiros {
     [data-store-list] {
       display: flex;
