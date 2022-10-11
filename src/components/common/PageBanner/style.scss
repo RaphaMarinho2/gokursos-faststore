@@ -12,8 +12,12 @@
 
   .page-banner__description {
     position: absolute;
-    top: 25%;
+    top: 20%;
     margin-left: 1rem;
+
+    @include media(">=notebook") {
+      top: 25%;
+    }
 
     .page-banner__title {
       width: 215px;
