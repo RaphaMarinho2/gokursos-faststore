@@ -27,6 +27,7 @@
   "dependencies": {
     "@acctglobal/bubblelinks": "^1.0.1",
     "@acctglobal/carousel-universal": "^1.2.0",
+    "@acctglobal/image-gallery": "^0.4.3",
     "@acctglobal/product-tags": "^0.3.2",
     "@acctglobal/productdescription": "^0.2.3",
     "@acctglobal/shareproduct": "^0.2.2",

@@ -18,6 +18,7 @@ import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { SelectPromotionEvent } from 'src/sdk/analytics/hooks/SelectPromotionEvent'
 import { ViewItemEvent } from 'src/sdk/analytics/hooks/ViewItemEvent'
+import ProductImage from 'src/components/ui/ProductImage'
 
 import ProductBrand from '../ProductBrand'
 import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
@@ -182,16 +183,10 @@ function ProductDetails({ product }: Props) {
         </header>
 
         <section className="product-details__image">
-          {product?.ProductImageURL ? (
-            <img
-              loading="eager"
-              src={product?.ProductImageURL}
-              alt={product?.Name}
-              sizes="(max-width: 768px) 25vw, 50vw"
-            />
-          ) : (
-            <h4 className="image-not-found">imagem indisponível</h4>
-          )}
+          <ProductImage
+            imageUrl={product?.ProductImageURL}
+            alt={product?.Name}
+          />
         </section>
 
         <section className="product-details__settings">

@@ -12,6 +12,11 @@
   resolved "https://registry.npmjs.org/@acctglobal/carousel-universal/-/carousel-universal-1.2.0.tgz"
   integrity sha512-i4YxAB0AUrlwJ3htldPy4rOz7rVSvlIFHspRvY1xXv+Cx+JQESV/chak/fwkes6LFdFyHZ2Q+dvpmpSeh6HH1A==
 
+"@acctglobal/image-gallery@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@acctglobal/image-gallery/-/image-gallery-0.4.3.tgz#78f7555cf29fadc769a30ab1595e3737b28bfe17"
+  integrity sha512-I6T1oh4pQmZXm9gjkuX1EYdmsC3LQDuBYiM4naD7NjR5aamk5QtdLBtUWD0FE/HfwbnNRqTJBrBaX4Gzvn2vfg==
+
 "@acctglobal/product-tags@^0.3.2":
   version "0.3.2"
   resolved "https://registry.npmjs.org/@acctglobal/product-tags/-/product-tags-0.3.2.tgz"

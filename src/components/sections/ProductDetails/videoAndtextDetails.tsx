@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import type { ProductQueryDetails } from './TypeProductDetails'
 
 type VideoAndTextProps = {
@@ -60,15 +59,14 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            {urlVideo && (
-              <video
-                className="vd-section-video"
-                src={urlVideo}
-                controls
-                playsInline
-                title={nameVideo}
-              />
-            )}
+            <iframe
+              loading="lazy"
+              src={urlVideo}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title={nameVideo}
+            />
           </div>
         </div>
 
