@@ -15,21 +15,6 @@
     }
   }
 
-  [data-fs-product-card] {
-    [data-card-image] {
-      img {
-        display: block;
-        max-width: 100%;
-      }
-
-      @include media("<=tablet") {
-        max-width: 153px;
-        height: 156px;
-        min-height: 102px;
-      }
-    }
-  }
-
   @include media(">=tablet") {
     max-width: var(--fs-grid-breakpoint-desktop);
     margin: 2rem auto;
