@@ -6,7 +6,6 @@ import MenuItem from '@mui/material/MenuItem'
 import type { SelectChangeEvent } from '@mui/material/Select'
 import Select from '@mui/material/Select'
 
-import Section from '../Section'
 import './plans-shelf.scss'
 
 const plansMock = [
@@ -78,14 +77,14 @@ function PlansShelf() {
   }
 
   return (
-    <Section className="layout__content plans-shelf">
+    <div className="plans-shelf">
       <ProductShelf
         cardsQuantity={shelfItemQuantity}
         title={<ShelfTitle />}
         products={products}
         isLoading={isLoading}
       />
-    </Section>
+    </div>
   )
 }
 
