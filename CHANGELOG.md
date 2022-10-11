@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-781** - [ShareProduct] Adjust in share product style
 - **GM-870** - [API] Adjust order in allContentfulPlanosForCompanies API
 - **GM-869** - [API]Adjust order in allContentfulPlanos API
-- **GM-873** - [Banner] Adjust in margin for banners
+- **GM-873** - [Banners] Adjust in margin for banners
 
 ### Removed
 
