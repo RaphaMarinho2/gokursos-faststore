@@ -42,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-868** - [HOME] Components alignment to layout container
 - **GM-894** - [ACCOUNT] Scroll at page
 - **GM-742** - Page My Courses and integrations with truechange
-- **GM-781** - [API] Adjust order in allContentfulPlanosForCompanies API
+- **GM-870** - [API] Adjust order in allContentfulPlanosForCompanies API
 
 ### Removed
 
