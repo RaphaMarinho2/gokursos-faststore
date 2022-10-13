@@ -93,7 +93,7 @@ export const querySSG = graphql`
         }
       }
     }
-    allContentfulPlanosForCompanies {
+    allContentfulPlanosForCompanies(sort: { fields: id }) {
       nodes {
         texto {
           texto

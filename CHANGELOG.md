@@ -12,21 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **GM-781** - [ShareProduct] Adjust in share product style
-
-### Removed
-
-## [0.22.0] - 2022-10-10
-
-### Added
-
-- **GM-866** - Events for GoogleAnalytics 4
-
-### Fixed
-
-- **GM-832** - [LOGIN] Password visualization button
-- **GM-868** - [HOME] Components alignment to layout container
-- **GM-894** - [ACCOUNT] Scroll at page
-- **GM-742** - Page My Courses and integrations with truechange
+- **GM-870** - [API] Adjust order in allContentfulPlanosForCompanies API
 
 ### Removed
 
