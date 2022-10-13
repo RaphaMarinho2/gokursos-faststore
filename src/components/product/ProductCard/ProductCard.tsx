@@ -15,6 +15,7 @@ import './product-card.scss'
 type Variant = 'wide' | 'default'
 
 export interface ProductsProductCard {
+  _Id: string
   ID: string
   Name: string
   Category: {
@@ -59,7 +60,7 @@ function ProductCard({
   const linkProps = useProductLink({ product, index })
 
   const buyProps = useBuyButton({
-    id: product.ID,
+    id: product._Id,
     price,
     listPrice,
     seller: { identifier: '' },

@@ -1,6 +1,7 @@
 // import aes from 'js-crypto-aes'
 import { List } from '@faststore/ui'
 import { useState } from 'react'
+import CryptoJS from 'crypto-js'
 import { Badge } from 'src/components/ui/Badge'
 import Button, { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -38,10 +39,37 @@ function CartSidebar() {
     setTimeout(() => {
       setIsValidating(false)
     }, 3000)
-  }
 
-  // eslint-disable-next-line no-console
-  console.log('cartData -->', cartData)
+    const serializedCartData = JSON.stringify(cartData)
+    const iv = { words: [0, 0, 0, 0], sigBytes: 16 } as CryptoJS.lib.WordArray
+    const key = CryptoJS.enc.Utf8.parse(process.env.GATSBY_CART_KEY ?? '')
+
+    const encrypted = CryptoJS.AES.encrypt(serializedCartData, key, {
+      padding: CryptoJS.pad.Pkcs7,
+      mode: CryptoJS.mode.CBC,
+      iv,
+    })
+
+    // eslint-disable-next-line no-console
+    console.log('IV -->', iv)
+
+    // eslint-disable-next-line no-console
+    console.log('ENC -->', encrypted.toString())
+    const decrypted = CryptoJS.AES.decrypt(encrypted, key, {
+      padding: CryptoJS.pad.Pkcs7,
+      mode: CryptoJS.mode.CBC,
+      iv,
+    })
+
+    // eslint-disable-next-line no-console
+    console.log('DEC -->', decrypted.toString(CryptoJS.enc.Utf8))
+
+    if (!windowGlobal) {
+      return
+    }
+
+    windowGlobal.location.href = `https://www.gokursos.com.br/checkout?cart=${encrypted.toString()}`
+  }
 
   return (
     <SlideOver
