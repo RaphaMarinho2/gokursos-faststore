@@ -27,7 +27,6 @@
   "dependencies": {
     "@acctglobal/bubblelinks": "^1.0.1",
     "@acctglobal/carousel-universal": "^1.2.0",
-    "@acctglobal/image-gallery": "^0.4.3",
     "@acctglobal/product-tags": "^0.3.2",
     "@acctglobal/productdescription": "^0.2.3",
     "@acctglobal/shareproduct": "^0.2.2",
@@ -41,6 +40,7 @@
     "@faststore/api": "^1.8.40",
     "@faststore/sdk": "^1.8.40",
     "@faststore/ui": "^1.8.40",
+    "@loadable/component": "^5.15.2",
     "@mui/material": "^5.10.6",
     "@vtex/graphql-utils": "^1.8.40",
     "axios": "^0.27.2",
@@ -91,6 +91,7 @@
     "@storybook/react": "^6.4.20",
     "@testing-library/cypress": "^8.0.0",
     "@types/cypress": "^1.1.3",
+    "@types/loadable__component": "^5.13.4",
     "@types/lodash.debounce": "^4.0.7",
     "@types/react-modal": "^3.13.1",
     "@vtex/lighthouse-config": "^1.8.40",
