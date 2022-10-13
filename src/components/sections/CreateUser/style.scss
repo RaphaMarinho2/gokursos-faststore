@@ -7,6 +7,7 @@
   width: 100%;
   height: 100%;
   margin-top: 80px;
+  margin-bottom: 248px;
 
   // Login Step
 
@@ -98,12 +99,12 @@
       font-size: 14px;
       color: #707070;
 
-      p {
+      &__label {
         margin-bottom: 11px;
         line-height: 19px;
       }
 
-      input {
+      &input {
         display: flex;
         width: 100%;
         padding: 12px 16px;
@@ -112,6 +113,22 @@
         background: #f5f5f5;
         border: 1px solid transparent;
         border-radius: 4px;
+      }
+
+      &__button {
+        width: 100%;
+        padding: 12px 32px;
+        font-weight: 600;
+        line-height: 24px;
+        color: #ffffff;
+        cursor: pointer;
+        background: #ff3452;
+        border: none;
+        border-radius: 4px;
+
+        &:disabled {
+          opacity: 0.4;
+        }
       }
     }
 
@@ -142,22 +159,6 @@
       font-size: 14px;
       line-height: 20px;
       color: #d72424;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px 32px;
-      font-weight: 600;
-      line-height: 24px;
-      color: #ffffff;
-      cursor: pointer;
-      background: #ff3452;
-      border: none;
-      border-radius: 4px;
-
-      &:disabled {
-        opacity: 0.4;
-      }
     }
 
     .back-link {

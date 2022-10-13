@@ -97,7 +97,7 @@
   justify-content: flex-end;
 
   @include media(">=notebook") {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   [data-fs-button-collapse] {
