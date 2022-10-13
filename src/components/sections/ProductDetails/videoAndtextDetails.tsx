@@ -1,3 +1,5 @@
+import ReactPlayer from 'react-player/lazy'
+
 import type { ProductQueryDetails } from './TypeProductDetails'
 
 type VideoAndTextProps = {
@@ -59,17 +61,7 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            {urlVideo && (
-              // <iframe
-              //   src={urlVideo}
-              //   frameBorder="0"
-              //   allow="autoplay; encrypted-media"
-              //   allowFullScreen
-              //   title={nameVideo}
-              // />
-              // eslint-disable-next-line jsx-a11y/media-has-caption
-              <video src={urlVideo} title={nameVideo} />
-            )}
+            {urlVideo && <ReactPlayer url={urlVideo} />}
           </div>
         </div>
 
