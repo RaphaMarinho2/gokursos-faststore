@@ -1,5 +1,3 @@
-import { YoutubeLite } from '@lite-embed/react'
-
 import type { ProductQueryDetails } from './TypeProductDetails'
 
 type VideoAndTextProps = {
@@ -61,7 +59,17 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            {urlVideo && <YoutubeLite title={nameVideo} urlOrId={urlVideo} />}
+            {urlVideo && (
+              // <iframe
+              //   src={urlVideo}
+              //   frameBorder="0"
+              //   allow="autoplay; encrypted-media"
+              //   allowFullScreen
+              //   title={nameVideo}
+              // />
+              // eslint-disable-next-line jsx-a11y/media-has-caption
+              <video src={urlVideo} title={nameVideo} />
+            )}
           </div>
         </div>
 
