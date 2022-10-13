@@ -161,7 +161,7 @@ export const getServerData = async ({ pageContext }: Props) => {
       status: 200,
       props: {
         productData: {
-          ID: response.data.value[0]?.ID,
+          ID: response.data.value[0]?._Id,
           Name: response.data.value[0]?.Name,
           Description: response.data.value[0]?.Description,
           Especificacao: response.data.value[0]?.Especificacao,
