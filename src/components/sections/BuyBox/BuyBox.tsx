@@ -70,7 +70,7 @@ const BuyBox = ({ nodes, href }: BuyBoxProps) => {
               alt={titulo}
               src={isTablet ? bannerImageMobile?.url : bannerImageDesktop?.url}
             />
-            <div className="test">
+            <div className="buy-box__section">
               <div key={index} className="component-Buybox__content">
                 <div className="titulo-compartilhar">
                   <h2 className="titulo-planos">{titulo}</h2>
