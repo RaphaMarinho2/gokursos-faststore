@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-781** - [ShareProduct] Adjust in share product style
 - **GM-870** - [API] Adjust order in allContentfulPlanosForCompanies API
+- **GM-869** - [API]Adjust order in allContentfulPlanos API
 
 ### Removed
 
@@ -28,7 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-868** - [HOME] Components alignment to layout container
 - **GM-894** - [ACCOUNT] Scroll at page
 - **GM-742** - Page My Courses and integrations with truechange
-- **GM-869** - [API]Adjust order in allContentfulPlanos API
 
 ### Removed
 
