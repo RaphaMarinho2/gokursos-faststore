@@ -61,11 +61,11 @@ export const VideoAndText = ({
             }`}
           >
             {urlVideo && (
-              <video
-                className="vd-section-video"
+              <iframe
                 src={urlVideo}
-                controls
-                playsInline
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
                 title={nameVideo}
               />
             )}
