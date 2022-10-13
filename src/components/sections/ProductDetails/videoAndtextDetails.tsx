@@ -1,6 +1,4 @@
-import type { YouTubeProps } from 'react-youtube'
-import YouTube from 'react-youtube'
-
+/* eslint-disable jsx-a11y/media-has-caption */
 import type { ProductQueryDetails } from './TypeProductDetails'
 
 type VideoAndTextProps = {
@@ -20,15 +18,10 @@ export const VideoAndText = ({
   const { node } = product
   const { image, video, productInfos } = node
 
-  const opts: YouTubeProps['opts'] = {
-    height: '390',
-    width: '640',
-  }
-
   const urlImage = image[image.length - 1]?.url
   const nameImg = image[image.length - 1]?.alternateName
 
-  // const nameVideo = video[image.length - 1]?.alternateName
+  const nameVideo = video[image.length - 1]?.alternateName
   const urlVideo = video[video.length - 1]?.url
 
   const InfoElement = productInfos.map(
@@ -67,7 +60,7 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            {urlVideo && <YouTube videoId="2g811Eo7K8U" opts={opts} />}
+            {urlVideo && <video src={urlVideo} title={nameVideo} />}
           </div>
         </div>
 
