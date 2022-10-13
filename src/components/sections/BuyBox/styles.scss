@@ -1,5 +1,13 @@
 @import "src/styles/scaffold";
 
+.test {
+  position: absolute;
+  top: 10%;
+  left: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
 .buy-box__container {
   display: flex;
   flex-direction: column;
@@ -8,11 +16,6 @@
     position: relative;
 
     .component-Buybox__content {
-      position: absolute;
-      top: 10%;
-      left: 16px;
-      display: flex;
-      flex-direction: column;
       width: 271px;
       height: 160px;
       background: rgb(255 255 255 / 20%);
@@ -37,96 +40,6 @@
       font-weight: 700;
       line-height: 150%;
       color: #ffffff;
-    }
-
-    .share-icon-buy-box {
-      display: flex;
-      flex-direction: column;
-      align-self: flex-start;
-
-      [data-open-modal-container] {
-        max-width: 28px;
-        max-height: 28px;
-
-        [data-open-modal-button] {
-          cursor: pointer;
-          background: none;
-          border: none;
-        }
-
-        [data-open-modal-text] {
-          display: none;
-        }
-      }
-
-      [data-additional-overlay] {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(0 0 0 / 50%);
-      }
-
-      [data-modal-background] {
-        position: relative;
-        top: 0;
-        right: 175px;
-        z-index: 2;
-        width: 211.37px;
-        height: 96px;
-        background-color: white;
-
-        @include media(">=tablet") {
-          right: 225px;
-          width: 290px;
-        }
-
-        [data-modal-share-product-text] {
-          display: none;
-        }
-
-        [data-modal-product-link-container] {
-          display: none;
-        }
-
-        [data-modal-copy-link-button] {
-          display: none;
-        }
-
-        [data-close-modal-button] {
-          position: absolute;
-          top: 7px;
-          right: 1px;
-          cursor: pointer;
-          background: none;
-          border: 0;
-
-          svg {
-            path {
-              stroke: #555;
-            }
-          }
-        }
-
-        [data-modal-share-links-container] {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 10px;
-          margin-top: 10px;
-          font-weight: 600;
-          color: #000000;
-
-          [data-modal-links-social] {
-            display: flex;
-            justify-content: space-evenly;
-            width: 70%;
-            margin-top: 20px;
-          }
-        }
-      }
     }
 
     .titulo-planos {
@@ -173,6 +86,98 @@
   }
 }
 
+.share-icon-buy-box {
+  position: relative;
+  top: 18px;
+  left: -15%;
+  z-index: 1;
+  fill: #000000;
+
+  [data-open-modal-container] {
+    max-width: 28px;
+    max-height: 28px;
+
+    [data-open-modal-button] {
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    [data-open-modal-text] {
+      display: none;
+    }
+  }
+
+  [data-additional-overlay] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0 0 0 / 50%);
+  }
+
+  [data-modal-background] {
+    position: relative;
+    top: 0;
+    right: 175px;
+    z-index: 2;
+    width: 211.37px;
+    height: 96px;
+    background-color: white;
+
+    @include media(">=tablet") {
+      right: 225px;
+      width: 290px;
+    }
+
+    [data-modal-share-product-text] {
+      display: none;
+    }
+
+    [data-modal-product-link-container] {
+      display: none;
+    }
+
+    [data-modal-copy-link-button] {
+      display: none;
+    }
+
+    [data-close-modal-button] {
+      position: absolute;
+      top: 7px;
+      right: 1px;
+      cursor: pointer;
+      background: none;
+      border: 0;
+
+      svg {
+        path {
+          stroke: #555;
+        }
+      }
+    }
+
+    [data-modal-share-links-container] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #000000;
+
+      [data-modal-links-social] {
+        display: flex;
+        justify-content: space-evenly;
+        width: 70%;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .buy-box__container {
     display: flex;
@@ -182,17 +187,11 @@
       position: relative;
 
       .component-Buybox__content {
-        position: absolute;
-        top: 35px;
-        left: 156px;
-        display: flex;
-        flex-direction: column;
         width: 432px;
         height: 222px;
         background: rgb(255 255 255 / 20%);
         border: 1px solid rgb(255 255 255 / 20%);
         border-radius: 8px;
-        backdrop-filter: blur(35px);
 
         .titulo-compartilhar {
           display: flex;
@@ -245,5 +244,15 @@
         }
       }
     }
+  }
+
+  .share-icon-buy-box {
+    top: 20px;
+    left: -10%;
+  }
+
+  .test {
+    top: 35px;
+    left: 156px;
   }
 }

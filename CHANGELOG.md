@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-867** - Adjust in share option in buybox style
+
 ### Removed
 
 ## [0.22.0] - 2022-10-10
