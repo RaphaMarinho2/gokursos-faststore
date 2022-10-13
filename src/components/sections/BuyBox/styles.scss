@@ -1,13 +1,5 @@
 @import "src/styles/scaffold";
 
-.buy-box__section {
-  position: absolute;
-  top: 10%;
-  left: 16px;
-  display: flex;
-  flex-direction: row;
-}
-
 .buy-box__container {
   display: flex;
   flex-direction: column;
@@ -44,6 +36,7 @@
 
     .titulo-planos {
       align-self: flex-start;
+      max-width: 370px;
       font-size: 16px;
       font-style: normal;
       font-weight: 700;
@@ -84,6 +77,14 @@
       border-radius: 4px;
     }
   }
+}
+
+.buy-box__section {
+  position: absolute;
+  top: 10%;
+  left: 16px;
+  display: flex;
+  flex-direction: row;
 }
 
 .share-icon-buy-box {
@@ -246,13 +247,13 @@
     }
   }
 
-  .share-icon-buy-box {
-    top: 20px;
-    left: -10%;
-  }
-
   .buy-box__section {
     top: 35px;
     left: 156px;
+  }
+
+  .share-icon-buy-box {
+    top: 20px;
+    left: -10%;
   }
 }
