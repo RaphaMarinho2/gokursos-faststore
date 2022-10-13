@@ -1,4 +1,5 @@
-import ReactPlayer from 'react-player/lazy'
+import type { YouTubeProps } from 'react-youtube'
+import YouTube from 'react-youtube'
 
 import type { ProductQueryDetails } from './TypeProductDetails'
 
@@ -18,6 +19,11 @@ export const VideoAndText = ({
   const { product } = ProductQueryDetails
   const { node } = product
   const { image, video, productInfos } = node
+
+  const opts: YouTubeProps['opts'] = {
+    height: '390',
+    width: '640',
+  }
 
   const urlImage = image[image.length - 1]?.url
   const nameImg = image[image.length - 1]?.alternateName
@@ -61,7 +67,7 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            {urlVideo && <ReactPlayer url={urlVideo} />}
+            {urlVideo && <YouTube videoId="2g811Eo7K8U" opts={opts} />}
           </div>
         </div>
 
