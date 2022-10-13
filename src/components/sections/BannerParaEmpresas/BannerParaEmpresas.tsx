@@ -1,7 +1,7 @@
 import './style.scss'
 import PageBanner from '../../common/PageBanner'
 
-interface BannerPlanosDeAssinaturaProps {
+interface BannerParaEmpresasProps {
   nodes: Array<{
     title: string | null
     subtitle: string | null
@@ -14,7 +14,7 @@ interface BannerPlanosDeAssinaturaProps {
   }>
 }
 
-interface BannerPlanosDeAssinaturaModifiedProps {
+interface BannerParaEmpresasMinifiedProps {
   map(
     arg0: (banner: any, index: number) => JSX.Element
   ): import('react').ReactNode
@@ -30,14 +30,13 @@ interface BannerPlanosDeAssinaturaModifiedProps {
   }>
 }
 
-const BannerPlanos = ({ nodes }: BannerPlanosDeAssinaturaProps) => {
-  const nodesModified =
-    nodes as unknown as BannerPlanosDeAssinaturaModifiedProps
+const BannerParaEmpresas = ({ nodes }: BannerParaEmpresasProps) => {
+  const nodesModified = nodes as unknown as BannerParaEmpresasMinifiedProps
 
   return (
-    <section className="banner-planos ">
+    <section className="banner-para-empresas ">
       {nodesModified.map((banner, index) => (
-        <div key={index} className="banner-planos__content">
+        <div key={index} className="banner-para-empresas__content">
           <PageBanner
             title={banner.title}
             subtitle={banner.subtitle}
@@ -50,4 +49,4 @@ const BannerPlanos = ({ nodes }: BannerPlanosDeAssinaturaProps) => {
   )
 }
 
-export default BannerPlanos
+export default BannerParaEmpresas

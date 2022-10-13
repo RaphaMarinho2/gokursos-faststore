@@ -2,7 +2,9 @@
 
 .title-container {
   width: 100%;
+  max-width: var(--fs-grid-breakpoint-desktop);
   padding: 62px 16px;
+  margin: auto;
   font-size: 20px;
   font-weight: 700;
   line-height: 26px;
@@ -10,7 +12,6 @@
   background: #004e98;
 
   @include media(">=notebook") {
-    padding: 92px 0;
     font-size: 32px;
     line-height: 48px;
   }

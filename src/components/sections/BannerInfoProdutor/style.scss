@@ -8,34 +8,5 @@
   .banner-info-produtor__content {
     position: relative;
     width: 100%;
-
-    [data-banner-content] {
-      max-width: 1420px;
-      margin: auto;
-      color: #fff;
-
-      .banner-info-produtor__title {
-        position: absolute;
-        top: 40%;
-        width: 215px;
-        max-height: 52px;
-        margin-left: 5px;
-        overflow: hidden;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 26px;
-
-        @include media(">=notebook") {
-          width: 430px;
-          max-height: 96px;
-          font-size: 32px;
-          line-height: 48px;
-        }
-      }
-    }
-
-    .banner-info-produtor__image {
-      width: 100%;
-    }
   }
 }
