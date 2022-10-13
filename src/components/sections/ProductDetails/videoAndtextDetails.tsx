@@ -22,7 +22,7 @@ export const VideoAndText = ({
   const urlImage = image[image.length - 1]?.url
   const nameImg = image[image.length - 1]?.alternateName
 
-  const nameVideo = video[image.length - 1]?.alternateName
+  // const nameVideo = video[image.length - 1]?.alternateName
   const urlVideo = video[video.length - 1]?.url
 
   const InfoElement = productInfos.map(
