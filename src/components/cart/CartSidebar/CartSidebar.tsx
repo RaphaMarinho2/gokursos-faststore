@@ -31,7 +31,7 @@ function CartSidebar() {
 
   const cartData = {
     email,
-    products: [items],
+    products: items,
   }
 
   const handleSendItemCheckout = () => {
