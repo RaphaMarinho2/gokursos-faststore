@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+### Removed
+
+## [0.22.1] - 2022-10-13
+
+### Added
+
+### Fixed
+
 - **GM-781** - [ShareProduct] Adjust in share product style
 - **GM-870** - [API] Adjust order in allContentfulPlanosForCompanies API
 - **GM-869** - [API]Adjust order in allContentfulPlanos API
