@@ -4,7 +4,6 @@ import ShareProduct from '@acctglobal/shareproduct'
 import { useState } from 'react'
 import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
-import PolygonIcon from 'src/components/icons/PolygonIcon'
 import ShareIcon from 'src/components/icons/ShareIcon'
 import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import { DiscountBadge } from 'src/components/ui/Badge'
@@ -159,9 +158,6 @@ function ProductDetails({ product }: Props) {
                     ]}
                     ShareIcon={ShareIcon}
                   />
-                  <div className="polygon-icon">
-                    <PolygonIcon />
-                  </div>
                 </div>
               </div>
             }
