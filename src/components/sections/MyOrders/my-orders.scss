@@ -329,12 +329,18 @@
     }
 
     .subtitle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       margin-bottom: 12px;
       font-size: var(--fs-text-size-2);
       line-height: 24px;
     }
 
     .text {
+      display: flex;
+      column-gap: 16px;
+      align-items: center;
       margin-bottom: 21px;
       font-size: var(--fs-text-size-2);
       font-weight: 600;

@@ -16,7 +16,8 @@ export interface OrderData {
 
 export interface Item {
   Quantidade: number
-  ValorTransacionadoItem: number
+  TransacionadoItem: number
+  TransacionadoTotal: number
   Product: Product
 }
 
@@ -30,12 +31,19 @@ export interface Product {
 }
 
 export interface BrandCore {
-  Name: string
+  Name?: string
 }
 
 export interface Order {
   Status: string
   StatusDescription: string
+  PaymentMethod: PaymentMethod
+}
+
+export interface PaymentMethod {
+  numeroCartao?: string
+  metodoPagamento: 'cartaoCredito' | 'gratuidade' | 'boleto' | 'pix'
+  parcelas: number
 }
 
 export interface StatusCore {
