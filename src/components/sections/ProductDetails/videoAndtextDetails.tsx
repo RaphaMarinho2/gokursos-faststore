@@ -1,4 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
+import VTEXImage from 'src/components/ui/Image/VTEXImage'
+import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+
 import type { ProductQueryDetails } from './TypeProductDetails'
 
 type VideoAndTextProps = {
@@ -17,6 +20,7 @@ export const VideoAndText = ({
   const { product } = ProductQueryDetails
   const { node } = product
   const { image, video, productInfos } = node
+  const { isMobile } = useWindowDimensions()
 
   const urlImage = image[image.length - 1]?.url
   const nameImg = image[image.length - 1]?.alternateName
@@ -74,7 +78,13 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            <img src={urlImage} alt={nameImg} />
+            <VTEXImage
+              src={urlImage}
+              width={isMobile ? 99 : 150}
+              height={isMobile ? 99 : 150}
+              alt={nameImg}
+              loading="lazy"
+            />
           </div>
           <div>
             <h3>Tecnologia</h3>
