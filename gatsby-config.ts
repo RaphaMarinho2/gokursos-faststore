@@ -22,6 +22,7 @@ const gatsbyConfig: GatsbyConfig = {
     PARALLEL_SOURCING: true,
   },
   plugins: [
+    'gatsby-plugin-loadable-components-ssr',
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
