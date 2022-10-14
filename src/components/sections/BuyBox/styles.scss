@@ -119,6 +119,27 @@
     background-color: rgb(0 0 0 / 50%);
   }
 
+  [data-modal-container]::after {
+    position: absolute;
+    top: -29px;
+    right: 2px;
+    width: 0;
+    height: 0;
+    content: "";
+    border: 15px solid transparent;
+    border-bottom-color: #fff;
+
+    @include media(">=tablet") {
+      top: -29px;
+      right: 30px;
+    }
+
+    @include media(">=notebook") {
+      top: -29px;
+      right: 30px;
+    }
+  }
+
   [data-modal-background] {
     position: relative;
     top: 0;
