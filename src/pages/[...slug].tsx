@@ -181,12 +181,12 @@ query DepartmentCategoryPageQuery($slug: String!) {
       seoDescription
       slug
       bannerImageDesktop {
-        url
+        url(transform: {format:WEBP, quality: 100})
         width
         height
       }
       bannerImageMobile {
-        url
+        url(transform: {format:WEBP, quality: 100})
         width
         height
       }
