@@ -12,8 +12,8 @@ export default function OrderPreferences({
 }: OrderPreferencesProps) {
   const paymentName = orderDetails.PaymentMethodCore?.Name
   const cardLastNumbers =
-    orderDetails.Order.PaymentMethod.metodoPagamento === 'cartaoCredito'
-      ? orderDetails.Order.PaymentMethod.numeroCartao
+    orderDetails.Order?.PaymentMethod?.metodoPagamento === 'cartaoCredito'
+      ? orderDetails.Order?.PaymentMethod?.numeroCartao
       : ''
 
   if (!paymentName) {
