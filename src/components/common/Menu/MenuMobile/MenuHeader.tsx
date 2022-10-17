@@ -2,6 +2,7 @@ import Icon from 'src/components/ui/Icon'
 import { ButtonIcon } from 'src/components/ui/Button'
 import type { FC } from 'react'
 import { useEffect, useState } from 'react'
+import { windowGlobal } from 'src/constants'
 
 import type { SubMenuItemType } from './types/types'
 
@@ -19,6 +20,10 @@ const MenuHeader: FC<IMenuHeader> = ({
   setMenuStatus,
 }) => {
   const [currentMenuLabel, setCurrentMenuLabel] = useState('')
+
+  const userData = JSON.parse(
+    windowGlobal?.localStorage.getItem('user') ?? '{}'
+  )
 
   useEffect(() => {
     let newCurrentMenu = json
@@ -40,7 +45,12 @@ const MenuHeader: FC<IMenuHeader> = ({
   return (
     <header className="navbar__modal-header">
       {menuStatus.length === 0 ? (
-        <></>
+        <div className="navbar__modal-header-greetings">
+          Olá, Bem-vindo!{' '}
+          <span className="username">
+            {userData?.name ?? userData?.email ?? ''}
+          </span>
+        </div>
       ) : (
         <div className="navbar__modal-submenu-header">
           <ButtonIcon
