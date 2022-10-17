@@ -223,7 +223,7 @@ function ProductDetails({ product }: Props) {
         </section>
 
         <section className="product-details__content">
-          <BelowPDP product={product} fallback={<div>Loading...</div>} />
+          <BelowPDP product={product} fallback={<></>} />
         </section>
       </section>
     </Section>
