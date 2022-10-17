@@ -1,11 +1,19 @@
 import './style.scss'
-import PageBanner from '../../common/PageBanner'
+import ArtDirectedPageBanner from '../../common/ArtDirectedPageBanner'
 
 interface BannerCategoryProps {
   title: string
   subtitle: string
-  imageBannerDesktop: string
-  imageBannerMobile: string
+  imageBannerDesktop: {
+    url: string
+    width: number
+    height: number
+  }
+  imageBannerMobile: {
+    url: string
+    width: number
+    height: number
+  }
 }
 
 const BannerCategory = ({
@@ -17,7 +25,7 @@ const BannerCategory = ({
   return (
     <section className="banner-category">
       <div className="banner-category__content">
-        <PageBanner
+        <ArtDirectedPageBanner
           title={title}
           subtitle={subtitle}
           imageBannerDesktop={imageBannerDesktop}

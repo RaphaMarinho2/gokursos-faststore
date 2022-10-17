@@ -20,12 +20,6 @@ const PageBanner = ({
   return (
     <Banner>
       <BannerImage>
-        {/* <ImageWithArtDirection
-          className="page-banner__image"
-          imageDesktop={imageBannerDesktop}
-          imageMobile={imageBannerMobile}
-          alt="Banner de categoria"
-        /> */}
         <img
           className="page-banner__image"
           alt=""
