@@ -1,5 +1,4 @@
-import loadable from '@loadable/component'
-
+import ProductCard from '../ProductCard'
 import type { ProductsProductCard } from '../ProductCard/ProductCard'
 import './product-grid.scss'
 
@@ -8,8 +7,6 @@ interface Props {
   page: number
   pageSize: number
 }
-
-const ProductCard = loadable(() => import('../ProductCard'))
 
 function ProductGrid({ products, page, pageSize }: Props) {
   return (
@@ -21,7 +18,6 @@ function ProductGrid({ products, page, pageSize }: Props) {
             // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
             index={pageSize * page + idx + 1}
             bordered
-            fallback={<></>}
           />
         </li>
       ))}
