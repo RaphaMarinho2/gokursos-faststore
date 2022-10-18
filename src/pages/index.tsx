@@ -171,8 +171,11 @@ export const querySSG = graphql`
     allContentfulBannerMedium {
       nodes {
         link
-        imagemBannerMedium {
+        imageDesktop {
           gatsbyImageData(width: 1920, quality: 100)
+        }
+        imageMobile {
+          gatsbyImageData(width: 343, quality: 100)
         }
       }
     }

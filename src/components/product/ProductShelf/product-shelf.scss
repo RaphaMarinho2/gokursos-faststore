@@ -69,42 +69,6 @@
     div {
       .carousel-container {
         overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
-
-        .product-shelf__content {
-          display: flex;
-          justify-content: center;
-          padding-bottom: 5px;
-        }
-
-        article {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-          min-height: 382px;
-          padding: 0;
-          border: 0;
-
-          @media screen and (max-width: 350px) {
-            width: 143px;
-          }
-
-          @media screen and (min-width: 351px) and (max-width: 425px) {
-            width: 153px;
-          }
-
-          h3 {
-            min-height: 80px;
-
-            @include media(">=notebook") {
-              min-height: 40px;
-            }
-          }
-
-          div {
-            min-width: 100px;
-          }
-        }
       }
     }
 
@@ -130,6 +94,13 @@
         right: 0;
       }
     }
+  }
+
+  .product-shelf__content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 5px;
   }
 
   [data-fs-product-shelf-items] {
