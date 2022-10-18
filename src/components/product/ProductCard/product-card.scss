@@ -61,6 +61,7 @@
   min-height: 382px;
 
   @include media(">=phonemid") {
+    min-width: 165px;
     max-width: 165px;
   }
 
