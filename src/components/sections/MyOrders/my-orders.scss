@@ -192,6 +192,14 @@
     color: #41a201;
   }
 
+  &__cancel {
+    margin: 0 5px;
+    font-size: var(--fs-text-size-2);
+    font-weight: var(--fs-text-weight-regular);
+    line-height: 24px;
+    color: #d72424;
+  }
+
   &__text {
     margin: 0 5px;
     font-size: var(--fs-text-size-2);
@@ -203,6 +211,7 @@
 .my-order__details {
   display: flex;
   flex-direction: column;
+  max-width: 780px;
   min-height: 220px;
 
   @include media(">=notebook") {
@@ -215,6 +224,11 @@
     font-weight: 600;
     line-height: 30px;
     color: #000;
+
+    @include media(">=notebook") {
+      font-size: 24px;
+      line-height: 36px;
+    }
   }
 
   &-id {
@@ -223,6 +237,11 @@
     font-weight: 600;
     line-height: 30px;
     color: #555;
+
+    @include media(">=notebook") {
+      font-size: 24px;
+      line-height: 36px;
+    }
   }
 
   &-status {
@@ -272,6 +291,8 @@
 
           @include media(">=notebook") {
             margin-bottom: 8px;
+            font-size: 16px;
+            line-height: 24px;
           }
         }
 
@@ -293,6 +314,7 @@
   &-preferences {
     display: flex;
     flex-direction: column;
+    max-height: 211px;
     padding: 24px 16px;
     margin-top: 40px;
     border: 1px solid #dddddd;
@@ -307,12 +329,18 @@
     }
 
     .subtitle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       margin-bottom: 12px;
       font-size: var(--fs-text-size-2);
       line-height: 24px;
     }
 
     .text {
+      display: flex;
+      column-gap: 16px;
+      align-items: center;
       margin-bottom: 21px;
       font-size: var(--fs-text-size-2);
       font-weight: 600;
@@ -346,6 +374,7 @@
   &-summary {
     display: flex;
     flex-direction: column;
+    max-height: 211px;
     margin-top: 40px;
     border: 1px solid #dddddd;
     border-radius: 4px;
