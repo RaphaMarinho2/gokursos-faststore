@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-896** - [PLANS] Shelf card height
 - **GM-925** - [Banner] Banner medium adjust in mobile and desktop
 - **GM-942** - Remove deprecated parameter from shelfs' queries
+- **GM-856** - [VIDEO] Adjust in button border radius
 
 ### Removed
 
