@@ -3,6 +3,8 @@ import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Image } from 'src/components/ui/Image'
 
+import Section from '../Section'
+
 type BannerMediumType = {
   nodes: Array<{
     link: string | null
@@ -23,18 +25,20 @@ const BannerMedium = ({ nodes }: BannerMediumType) => {
   const { link } = nodes[0]
 
   return (
-    <div className="container-imagem-banner-medium layout__content">
+    <Section>
       {link && imageDesktop && imageMobile && (
-        <a href={link}>
-          <Image
-            className="imagem-banner-medium"
-            image={isMobile ? imageMobile : imageDesktop}
-            alt=""
-            loading="lazy"
-          />
-        </a>
+        <div className="container-imagem-banner-medium layout__content">
+          <a href={link}>
+            <Image
+              className="imagem-banner-medium"
+              image={isMobile ? imageMobile : imageDesktop}
+              alt=""
+              loading="lazy"
+            />
+          </a>
+        </div>
       )}
-    </div>
+    </Section>
   )
 }
 
