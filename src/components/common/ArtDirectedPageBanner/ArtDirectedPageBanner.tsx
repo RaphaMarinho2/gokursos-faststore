@@ -19,6 +19,7 @@ interface PageBannerProps {
   }
 }
 
+// In the future, all page banners will use this component
 const ArtDirectedPageBanner = ({
   title,
   subtitle,
@@ -31,6 +32,7 @@ const ArtDirectedPageBanner = ({
       width: imageBannerDesktop.width,
       height: imageBannerDesktop.height,
       toFormat: 'webp',
+      quality: 100,
     },
   })
 
@@ -39,7 +41,8 @@ const ArtDirectedPageBanner = ({
       url: imageBannerMobile.url.replace(/^https?:/, ''),
       width: imageBannerMobile.width,
       height: imageBannerMobile.height,
-      // toFormat: 'webp',
+      toFormat: 'webp',
+      quality: 100,
     },
   })
 
