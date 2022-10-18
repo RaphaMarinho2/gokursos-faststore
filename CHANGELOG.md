@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+**GM-925** - [Banner] Banner medium adjust in mobile and desktop
+
 ### Removed
 
 ## [0.22.1] - 2022-10-13

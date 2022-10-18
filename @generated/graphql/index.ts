@@ -15814,7 +15814,8 @@ export type HomePageQueryQuery = {
   allContentfulBannerMedium: {
     nodes: Array<{
       link: string | null
-      imagemBannerMedium: { gatsbyImageData: any | null } | null
+      imageDesktop: { gatsbyImageData: any | null } | null
+      imageMobile: { gatsbyImageData: any | null } | null
     }>
   }
   allContentfulPersons: {
