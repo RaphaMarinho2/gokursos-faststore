@@ -39,9 +39,12 @@ const ArtDirectedPageBanner = ({
       url: imageBannerMobile.url.replace(/^https?:/, ''),
       width: imageBannerMobile.width,
       height: imageBannerMobile.height,
-      toFormat: 'webp',
+      // toFormat: 'webp',
     },
   })
+
+  console.log(imageBannerMobile)
+  console.log(mobileImage)
 
   return (
     <Banner>
@@ -50,7 +53,7 @@ const ArtDirectedPageBanner = ({
           className="page-banner__image"
           imageDesktop={desktopImage}
           imageMobile={mobileImage}
-          alt="Banner de categoria"
+          alt={`Banner da categoria de ${title}`}
         />
       </BannerImage>
       <BannerContent>

@@ -12,7 +12,7 @@
 
   .page-banner__description {
     position: absolute;
-    top: 20%;
+    top: 15%;
     margin-left: 1rem;
 
     @include media(">=notebook") {
@@ -58,4 +58,9 @@
   width: 100%;
   max-width: var(--fs-grid-breakpoint-desktop);
   margin: auto;
+
+  @media screen and (max-width: 700px) {
+    height: auto;
+    min-height: 149px;
+  }
 }
