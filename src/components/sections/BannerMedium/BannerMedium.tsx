@@ -15,6 +15,7 @@ type BannerMediumType = {
   }>
 }
 
+// TODO: refactor this component and the "BannerMedium" content model at Contentful
 const BannerMedium = ({ nodes }: BannerMediumType) => {
   const { isMobile } = useWindowDimensions()
   const imageMobile = nodes[0].imageMobile?.gatsbyImageData
