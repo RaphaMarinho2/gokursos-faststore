@@ -27,7 +27,7 @@ const ArtDirectedPageBanner = ({
 }: PageBannerProps) => {
   const desktopImage = useContentfulImage({
     image: {
-      url: imageBannerDesktop.url.replace(/^https?:\/\//, ''),
+      url: imageBannerDesktop.url.replace(/^https?:/, ''),
       width: imageBannerDesktop.width,
       height: imageBannerDesktop.height,
       toFormat: 'webp',
@@ -42,9 +42,6 @@ const ArtDirectedPageBanner = ({
       toFormat: 'webp',
     },
   })
-
-  console.log(imageBannerDesktop)
-  console.log(desktopImage)
 
   return (
     <Banner>
