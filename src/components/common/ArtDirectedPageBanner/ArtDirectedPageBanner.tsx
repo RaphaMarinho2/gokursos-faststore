@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import './style.scss'
 import { Banner, BannerImage, BannerContent } from '@faststore/ui'
 import { useContentfulImage } from 'gatsby-source-contentful/hooks'
@@ -41,6 +42,9 @@ const ArtDirectedPageBanner = ({
       toFormat: 'webp',
     },
   })
+
+  console.log(imageBannerDesktop)
+  console.log(desktopImage)
 
   return (
     <Banner>
