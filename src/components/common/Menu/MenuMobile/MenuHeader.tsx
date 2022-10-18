@@ -3,6 +3,7 @@ import { ButtonIcon } from 'src/components/ui/Button'
 import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import { windowGlobal } from 'src/constants'
+import User from 'src/components/icons/user'
 
 import type { SubMenuItemType } from './types/types'
 
@@ -46,10 +47,13 @@ const MenuHeader: FC<IMenuHeader> = ({
     <header className="navbar__modal-header">
       {menuStatus.length === 0 ? (
         <div className="navbar__modal-header-greetings">
-          Olá, Bem-vindo!{' '}
-          <span className="username">
-            {userData?.name ?? userData?.email ?? ''}
-          </span>
+          <User />
+          <div className="username-container">
+            Olá, Bem-vindo!{' '}
+            <span className="username">
+              {userData?.name ?? userData?.email ?? ''}
+            </span>
+          </div>
         </div>
       ) : (
         <div className="navbar__modal-submenu-header">
