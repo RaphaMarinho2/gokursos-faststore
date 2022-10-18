@@ -36,7 +36,7 @@ const ArtDirectedPageBanner = ({
 
   const mobileImage = useContentfulImage({
     image: {
-      url: imageBannerMobile.url.replace(/^https?:\/\//, ''),
+      url: imageBannerMobile.url.replace(/^https?:/, ''),
       width: imageBannerMobile.width,
       height: imageBannerMobile.height,
       toFormat: 'webp',
