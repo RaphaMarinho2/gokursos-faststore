@@ -46,9 +46,6 @@ const ArtDirectedPageBanner = ({
     },
   })
 
-  console.log(imageBannerMobile)
-  console.log(mobileImage)
-
   return (
     <Banner>
       <BannerImage>
@@ -60,16 +57,17 @@ const ArtDirectedPageBanner = ({
         />
       </BannerImage>
       <BannerContent>
-        {subtitle ? (
-          <div className="page-banner__description">
-            <h2 className="page-banner__title">{title}</h2>
+        <div
+          style={!subtitle ? { top: '40%' } : {}}
+          className="page-banner__description"
+        >
+          <h2 className="page-banner__title">{title}</h2>
+          {subtitle ? (
             <h3 className="page-banner__subtitle">{subtitle}</h3>
-          </div>
-        ) : (
-          <div style={{ top: '40%' }} className="page-banner__description">
-            <h2 className="page-banner__title">{title}</h2>
-          </div>
-        )}
+          ) : (
+            <></>
+          )}
+        </div>
       </BannerContent>
     </Banner>
   )
