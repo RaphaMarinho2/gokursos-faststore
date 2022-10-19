@@ -15,10 +15,14 @@ export default function OrderSummary({ orderDetails }: OrderSummaryProps) {
   return (
     <div className="my-order__details-summary">
       <h4 className="title">Resumo</h4>
-      <div className="subtotal">
-        <span className="text">Subtotal</span>
-        <span className="text">{subtotal}</span>
-      </div>
+      {orderDetails.LiquidoTotal ? (
+        <div className="subtotal">
+          <span className="text">Subtotal</span>
+          <span className="text">{subtotal}</span>
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="total">
         <span className="text">Total</span>
         <span className="text">{total}</span>

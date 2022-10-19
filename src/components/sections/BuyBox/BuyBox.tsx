@@ -70,39 +70,41 @@ const BuyBox = ({ nodes, href }: BuyBoxProps) => {
               alt={titulo}
               src={isTablet ? bannerImageMobile?.url : bannerImageDesktop?.url}
             />
-            <div key={index} className="component-Buybox__content">
-              <div className="titulo-compartilhar">
-                <h2 className="titulo-planos">{titulo}</h2>
-                <div className="share-icon-buy-box">
-                  <ShareProduct
-                    additionalOverlay
-                    shareWebSocials="Compartilhe:"
-                    productURL={href ?? ''}
-                    CloseIcon={() => <IconClose />}
-                    shareLinks={[
-                      {
-                        name: 'Facebook',
-                        url: `https://www.facebook.com/sharer/sharer.php?u=${planLink}`,
-                        SocialIcon: () => <FacebookShareIcon />,
-                      },
-                      {
-                        name: 'Twitter',
-                        url: `https://twitter.com/intent/tweet?url=${planLink}`,
-                        SocialIcon: () => <TwitterShareIcon />,
-                      },
-                      {
-                        name: 'Pinterest',
-                        url: `https://www.pinterest.com/pin/create/button/?url=${planLink}`,
-                        SocialIcon: () => <PinterestShareIcon />,
-                      },
-                    ]}
-                    ShareIcon={ShareIconPlan}
-                  />
+            <div className="buy-box__section">
+              <div className="component-Buybox__content">
+                <div className="titulo-compartilhar">
+                  <h2 className="titulo-planos">{titulo}</h2>
+                </div>
+                <h3 className="preco">{preco}</h3>
+                <div className="botao">
+                  <button className="texto-botao">{textoBotao}</button>
                 </div>
               </div>
-              <h3 className="preco">{preco}</h3>
-              <div className="botao">
-                <button className="texto-botao">{textoBotao}</button>
+              <div className="share-icon-buy-box">
+                <ShareProduct
+                  additionalOverlay
+                  shareWebSocials="Compartilhe:"
+                  productURL={href ?? ''}
+                  CloseIcon={() => <IconClose />}
+                  shareLinks={[
+                    {
+                      name: 'Facebook',
+                      url: `https://www.facebook.com/sharer/sharer.php?u=${planLink}`,
+                      SocialIcon: () => <FacebookShareIcon />,
+                    },
+                    {
+                      name: 'Twitter',
+                      url: `https://twitter.com/intent/tweet?url=${planLink}`,
+                      SocialIcon: () => <TwitterShareIcon />,
+                    },
+                    {
+                      name: 'Pinterest',
+                      url: `https://www.pinterest.com/pin/create/button/?url=${planLink}`,
+                      SocialIcon: () => <PinterestShareIcon />,
+                    },
+                  ]}
+                  ShareIcon={ShareIconPlan}
+                />
               </div>
             </div>
           </div>
