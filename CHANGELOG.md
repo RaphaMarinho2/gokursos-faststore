@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+### Removed
+
+## [0.22.2] - 2022-10-18
+
+### Added
+
+### Fixed
+
 - **GM-867** - Adjust in share option in buybox style
 - **GM-896** - [PLANS] Shelf card height
 - **GM-925** - [Banner] Banner medium adjust in mobile and desktop

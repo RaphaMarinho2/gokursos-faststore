@@ -11,6 +11,7 @@
   --fs-product-card-gap: var(--fs-grid-gap-2);
   --fs-product-card-min-width: 232px;
   --fs-product-card-max-width: 250px;
+  --fs-product-card-max-width-mobile: 143px;
 
   --fs-product-card-shadow: none;
   --fs-product-card-shadow-hover: var(--fs-shadow-hover);
@@ -58,6 +59,11 @@
   max-width: var(--fs-product-card-max-width-mobile);
   height: 100%;
   min-height: 382px;
+
+  @media (min-width: 360px) {
+    min-width: 160px;
+    max-width: 165px;
+  }
 
   // --------------------------------------------------------
   // Structural Styles
