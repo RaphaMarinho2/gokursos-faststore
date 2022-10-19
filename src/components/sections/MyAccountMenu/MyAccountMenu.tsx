@@ -47,7 +47,7 @@ export default function MyAccountMenu() {
       : '{}'
   )
 
-  const userName = userData?.name ?? userData?.email
+  const userName = userData?.name ?? userData?.email ?? ''
 
   if (isTablet) {
     return (

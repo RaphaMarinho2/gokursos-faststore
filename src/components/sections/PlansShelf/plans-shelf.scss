@@ -1,35 +1,6 @@
 @import "src/styles/scaffold";
 
 .plans-shelf {
-  margin: 1rem 0.5rem;
-
-  .layout__content {
-    column-gap: 15px;
-
-    li {
-      width: 48%;
-
-      @include media(">=tablet") {
-        width: 20%;
-      }
-    }
-  }
-
-  [data-fs-product-card] {
-    [data-card-image] {
-      img {
-        display: block;
-        max-width: 100%;
-      }
-
-      @include media("<=tablet") {
-        max-width: 153px;
-        height: 140px;
-        min-height: 102px;
-      }
-    }
-  }
-
   @include media(">=tablet") {
     max-width: var(--fs-grid-breakpoint-desktop);
     margin: 2rem auto;
@@ -52,7 +23,7 @@
         position: absolute;
         right: 15px;
         right: 30px;
-        z-index: 99999;
+        z-index: 2;
         pointer-events: none;
         content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDE0IDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNyA3TDEzIDEiIHN0cm9rZT0iIzAwNEU5OCIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
       }
@@ -134,7 +105,9 @@
 
 .MuiPaper-root {
   &.MuiPaper-elevation {
-    filter: drop-shadow(4px 4px 4px rgb(0 0 0 / 20%)) drop-shadow(-1px -1px 4px rgb(0 0 0 / 20%));
+    filter:
+      drop-shadow(4px 4px 4px rgb(0 0 0 / 20%))
+      drop-shadow(-1px -1px 4px rgb(0 0 0 / 20%));
     transform-origin: 135px 0;
   }
 }

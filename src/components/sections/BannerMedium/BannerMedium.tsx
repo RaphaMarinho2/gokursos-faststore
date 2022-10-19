@@ -8,7 +8,10 @@ import Section from '../Section'
 type BannerMediumType = {
   nodes: Array<{
     link: string | null
-    imagemBannerMedium: {
+    imageDesktop: {
+      gatsbyImageData: IGatsbyImageData
+    } | null
+    imageMobile: {
       gatsbyImageData: IGatsbyImageData
     } | null
   }>
@@ -17,47 +20,24 @@ type BannerMediumType = {
 // TODO: refactor this component and the "BannerMedium" content model at Contentful
 const BannerMedium = ({ nodes }: BannerMediumType) => {
   const { isMobile } = useWindowDimensions()
-
-  if (isMobile === true) {
-    const imageMobile =
-      nodes[nodes.length - 1].imagemBannerMedium?.gatsbyImageData
-
-    // eslint-disable-next-line prefer-destructuring
-    const link1 = nodes[nodes.length - 1].link
-
-    return (
-      <div className="container-imagem-banner-medium layout__content">
-        {link1 && imageMobile && (
-          <a href={link1}>
-            <Image
-              className="imagem-banner-medium"
-              image={imageMobile}
-              alt=""
-              loading="lazy"
-            />
-          </a>
-        )}
-      </div>
-    )
-  }
-
-  const imageDesktop = nodes[0].imagemBannerMedium?.gatsbyImageData
-  const [{ link }] = nodes
+  const imageMobile = nodes[0].imageMobile?.gatsbyImageData
+  const imageDesktop = nodes[0].imageDesktop?.gatsbyImageData
+  const { link } = nodes[0]
 
   return (
     <Section>
-      <div className="container-imagem-banner-medium layout__content">
-        {link && imageDesktop && (
+      {link && imageDesktop && imageMobile && (
+        <div className="container-imagem-banner-medium layout__content">
           <a href={link}>
             <Image
               className="imagem-banner-medium"
-              image={imageDesktop}
+              image={isMobile ? imageMobile : imageDesktop}
               alt=""
               loading="lazy"
             />
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </Section>
   )
 }

@@ -30,7 +30,6 @@ const gatsbyConfig: GatsbyConfig = {
       options: {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
         accessToken: process.env.GATSBY_CONTENTFUL_CDAPI_TOKEN,
-        forceFullSync: true,
       },
     },
     {

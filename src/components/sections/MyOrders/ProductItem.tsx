@@ -9,7 +9,7 @@ interface ProductItemProps {
 }
 
 export default function ProductItem({ item }: ProductItemProps) {
-  const value = useFormattedPrice(item.ValorTransacionadoItem)
+  const value = useFormattedPrice(item.TransacionadoItem)
 
   return (
     <li className="my-order__details-item">
