@@ -1,16 +1,19 @@
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
+import { useSession } from '@faststore/sdk'
 import { useCallback } from 'react'
-import type { CurrencyCode, RemoveFromCartEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
 import { useCart } from './useCart'
 import type { CartItem } from './validate'
+import { sendAnalyticsEvent } from '../analytics/sendAnalyticsEvent'
+import type { RemoveFromCartEvent } from '../analytics/events/remove_from_cart'
+import type { CurrencyCode } from '../analytics/events/common'
 
 export const useRemoveButton = (item: CartItem | null) => {
   const { removeItem } = useCart()
-  const {
-    currency: { code },
-  } = useSession()
+
+  // TODO: change this to use our own hook
+  const session = useSession()
+  const code = session?.currency?.code
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -23,7 +26,7 @@ export const useRemoveButton = (item: CartItem | null) => {
       sendAnalyticsEvent<RemoveFromCartEvent<AnalyticsItem>>({
         name: 'remove_from_cart',
         params: {
-          currency: code as CurrencyCode,
+          currency: (code as CurrencyCode) ?? 'BRL',
           value: item.price * item.quantity, // TODO: In the future, we can explore more robust ways of calculating the value (gift items, discounts, etc.).
           items: [
             {
@@ -34,7 +37,7 @@ export const useRemoveButton = (item: CartItem | null) => {
               quantity: item?.quantity,
               price: item?.price,
               discount: item?.listPrice - item?.price,
-              currency: code as CurrencyCode,
+              currency: (code as CurrencyCode) ?? 'BRL',
               item_variant_name: item?.itemOffered?.name,
               product_reference_id: item?.itemOffered?.gtin,
             },

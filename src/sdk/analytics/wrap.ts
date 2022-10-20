@@ -1,4 +1,5 @@
 import type { AddToCartEvent } from './events/add_to_cart'
+import type { RemoveFromCartEvent } from './events/remove_from_cart'
 import type { SearchEvent } from './events/search'
 import type { SelectItemEvent } from './events/select_item'
 import type { SelectPromotionEvent } from './events/select_promotion'
@@ -17,6 +18,7 @@ export type AnalyticsEvent =
   | ViewPromotionEvent
   | AddToCartEvent
   | SearchEvent
+  | RemoveFromCartEvent
 
 export interface UnknownEvent {
   name: string
