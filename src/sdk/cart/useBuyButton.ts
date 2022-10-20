@@ -1,18 +1,20 @@
 import { useCallback } from 'react'
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
-import type { CurrencyCode, AddToCartEvent } from '@faststore/sdk'
+import { useSession } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import type { CartItem } from 'src/sdk/cart/validate'
 
 import { useUI } from '../ui'
 import { useCart } from './useCart'
+import type { AddToCartEvent } from '../analytics/events/add_to_cart'
+import type { CurrencyCode } from '../analytics/events/common'
+import { sendAnalyticsEvent } from '../analytics/sendAnalyticsEvent'
 
 export const useBuyButton = (item: CartItem | null) => {
   const { addItem } = useCart()
   const { openMinicart } = useUI()
-  const {
-    currency: { code },
-  } = useSession()
+  // TODO: change this to use our own hook
+  const session = useSession()
+  const code = session?.currency?.code
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -25,7 +27,7 @@ export const useBuyButton = (item: CartItem | null) => {
       sendAnalyticsEvent<AddToCartEvent<AnalyticsItem>>({
         name: 'add_to_cart',
         params: {
-          currency: code as CurrencyCode,
+          currency: (code as CurrencyCode) ?? 'BRL',
           // TODO: In the future, we can explore more robust ways of
           // calculating the value (gift items, discounts, etc.).
           value: item.price * item.quantity,
@@ -38,7 +40,7 @@ export const useBuyButton = (item: CartItem | null) => {
               quantity: item?.quantity,
               price: item?.price,
               discount: item?.listPrice - item?.price,
-              currency: code as CurrencyCode,
+              currency: (code as CurrencyCode) ?? 'BRL',
               item_variant_name: item?.itemOffered?.name,
               product_reference_id: item?.itemOffered?.gtin,
             },
