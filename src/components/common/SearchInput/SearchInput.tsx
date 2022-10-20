@@ -1,11 +1,9 @@
-import { sendAnalyticsEvent } from '@faststore/sdk'
 import { SearchInput as UISearchInput } from '@faststore/ui'
 import { navigate } from 'gatsby'
 import type { ChangeEvent } from 'react'
 import { forwardRef, Suspense, useState, useRef } from 'react'
 import debounce from 'lodash.debounce'
 import useSearchHistory from 'src/sdk/search/useSearchHistory'
-import type { SearchEvent } from '@faststore/sdk'
 import type {
   SearchInputProps as UISearchInputProps,
   SearchInputRef,
@@ -16,6 +14,8 @@ import useOnClickOutside from 'src/hooks/useOnClickOutside'
 import { formatSearchState } from 'src/sdk/search/formatSearchState'
 import { initSearchState } from 'src/sdk/search/initSearchState'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import { sendAnalyticsEvent } from 'src/sdk/analytics/sendAnalyticsEvent'
+import type { SearchEvent } from 'src/sdk/analytics/events/search'
 
 declare type SearchInputProps = {
   onSearchClick?: () => void
