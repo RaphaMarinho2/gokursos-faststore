@@ -7,6 +7,8 @@ import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import ShareIconPlan from 'src/components/icons/ShareIconPlan'
 
+import Section from '../Section'
+
 interface BuyBoxProps {
   href?: string
   nodes: Array<{
@@ -53,64 +55,68 @@ const BuyBox = ({ nodes, href }: BuyBoxProps) => {
   const planLink = typeof window !== 'undefined' && href
 
   return (
-    <div className="buy-box__container layout__content">
-      {nodesModifiedProps.map((node, index) => {
-        const {
-          titulo,
-          preco,
-          textoBotao,
-          bannerImageDesktop,
-          bannerImageMobile,
-        } = node
+    <Section>
+      <div className="buy-box__container layout__content">
+        {nodesModifiedProps.map((node, index) => {
+          const {
+            titulo,
+            preco,
+            textoBotao,
+            bannerImageDesktop,
+            bannerImageMobile,
+          } = node
 
-        return (
-          <div key={index} className="buy-box__content">
-            <img
-              className="banner-planos__image"
-              alt={titulo}
-              src={isTablet ? bannerImageMobile?.url : bannerImageDesktop?.url}
-            />
-            <div className="buy-box__section">
-              <div className="component-Buybox__content">
-                <div className="titulo-compartilhar">
-                  <h2 className="titulo-planos">{titulo}</h2>
+          return (
+            <div key={index} className="buy-box__content">
+              <img
+                className="banner-planos__image"
+                alt={titulo}
+                src={
+                  isTablet ? bannerImageMobile?.url : bannerImageDesktop?.url
+                }
+              />
+              <div className="buy-box__section">
+                <div className="component-Buybox__content">
+                  <div className="titulo-compartilhar">
+                    <h2 className="titulo-planos">{titulo}</h2>
+                  </div>
+                  <h3 className="preco">{preco}</h3>
+                  <div className="botao">
+                    <button className="texto-botao">{textoBotao}</button>
+                  </div>
                 </div>
-                <h3 className="preco">{preco}</h3>
-                <div className="botao">
-                  <button className="texto-botao">{textoBotao}</button>
+                <div className="share-icon-buy-box">
+                  <ShareProduct
+                    additionalOverlay
+                    shareWebSocials="Compartilhe:"
+                    productURL={href ?? ''}
+                    CloseIcon={() => <IconClose />}
+                    shareLinks={[
+                      {
+                        name: 'Facebook',
+                        url: `https://www.facebook.com/sharer/sharer.php?u=${planLink}`,
+                        SocialIcon: () => <FacebookShareIcon />,
+                      },
+                      {
+                        name: 'Twitter',
+                        url: `https://twitter.com/intent/tweet?url=${planLink}`,
+                        SocialIcon: () => <TwitterShareIcon />,
+                      },
+                      {
+                        name: 'Pinterest',
+                        url: `https://www.pinterest.com/pin/create/button/?url=${planLink}`,
+                        SocialIcon: () => <PinterestShareIcon />,
+                      },
+                    ]}
+                    ShareIcon={ShareIconPlan}
+                  />
                 </div>
-              </div>
-              <div className="share-icon-buy-box">
-                <ShareProduct
-                  additionalOverlay
-                  shareWebSocials="Compartilhe:"
-                  productURL={href ?? ''}
-                  CloseIcon={() => <IconClose />}
-                  shareLinks={[
-                    {
-                      name: 'Facebook',
-                      url: `https://www.facebook.com/sharer/sharer.php?u=${planLink}`,
-                      SocialIcon: () => <FacebookShareIcon />,
-                    },
-                    {
-                      name: 'Twitter',
-                      url: `https://twitter.com/intent/tweet?url=${planLink}`,
-                      SocialIcon: () => <TwitterShareIcon />,
-                    },
-                    {
-                      name: 'Pinterest',
-                      url: `https://www.pinterest.com/pin/create/button/?url=${planLink}`,
-                      SocialIcon: () => <PinterestShareIcon />,
-                    },
-                  ]}
-                  ShareIcon={ShareIconPlan}
-                />
               </div>
             </div>
-          </div>
-        )
-      })}
-    </div>
+          )
+        })}
+      </div>
+    </Section>
   )
 }
 
