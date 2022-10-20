@@ -1,6 +1,6 @@
 @import "src/styles/scaffold";
 
-.title-container {
+.courses-banner {
   width: 100%;
   padding: 60px 5px;
   font-size: 20px;
@@ -199,7 +199,7 @@
       background: transparent;
       border: 1px solid #ff3452;
       border-radius: 4px;
-      transition: ease-in-out .2s;
+      transition: ease-in-out 0.2s;
 
       &:hover {
         color: #fff;

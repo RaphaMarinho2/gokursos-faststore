@@ -14,6 +14,7 @@ import CertificateActive from 'src/components/icons/CertificateActive'
 import CertificateInactive from 'src/components/icons/CertificateInactive'
 import { navigate } from 'gatsby'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
+import ProductNotFound from 'src/components/common/ProductNotFound/ProductNotFound'
 
 import { Pagination } from '../../Pagination/Pagination'
 import Section from '../Section'
@@ -117,7 +118,7 @@ export default function MyCourses({
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-      <div className="title-container">
+      <div className="courses-banner">
         <div className="layout__content">
           <p>Meus Cursos</p>
         </div>
@@ -140,12 +141,11 @@ export default function MyCourses({
                   </div>
                 )
               : !isLoading && (
-                  <div className="my-courses__count">
-                    Nenhum produto encontrado{' '}
-                    <span role="img" aria-label="emoji">
-                      😢
-                    </span>{' '}
-                  </div>
+                  <ProductNotFound
+                    title="OPS!!!!!"
+                    subtitle="Você ainda não possui cursos"
+                    showIcon={false}
+                  />
                 )}
             <ul className="my-courses__list">
               <ProductShelfSkeleton
