@@ -2,7 +2,9 @@
 
 .courses-banner {
   width: 100%;
-  padding: 60px 5px;
+  max-width: var(--fs-grid-breakpoint-desktop);
+  padding: 60px 15px;
+  margin: auto;
   font-size: 20px;
   font-weight: 700;
   line-height: 26px;
@@ -10,7 +12,7 @@
   background: #004e98;
 
   @include media(">=notebook") {
-    padding: 92px 5px;
+    padding: 92px 20px;
     font-size: 32px;
     line-height: 48px;
   }
