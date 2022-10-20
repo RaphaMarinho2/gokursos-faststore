@@ -1,4 +1,4 @@
-import type { Item } from '@faststore/sdk'
+import type { Item } from './events/common'
 
 type AdditionalItemProperties = {
   product_reference_id: string | null
