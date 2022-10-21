@@ -1,8 +1,10 @@
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
-import type { ViewItemEvent as ViewItemEventType } from '../events/view_item'
 import { sendAnalyticsEvent } from '../sendAnalyticsEvent'
-import type { AnalyticsItem } from '../types'
+import type {
+  AnalyticsItem,
+  ViewItemEvent as ViewItemEventType,
+} from '../types'
 
 export const ViewItemEvent = (product: ProductData) => {
   sendAnalyticsEvent<ViewItemEventType<AnalyticsItem>>({

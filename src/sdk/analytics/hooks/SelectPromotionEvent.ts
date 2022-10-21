@@ -1,8 +1,10 @@
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
-import type { SelectPromotionEvent as SelectPromotionEventType } from '../events/select_promotion'
 import { sendAnalyticsEvent } from '../sendAnalyticsEvent'
-import type { AnalyticsItem } from '../types'
+import type {
+  AnalyticsItem,
+  SelectPromotionEvent as SelectPromotionEventType,
+} from '../types'
 
 export const SelectPromotionEvent = (product: ProductData) => {
   sendAnalyticsEvent<SelectPromotionEventType<AnalyticsItem>>({

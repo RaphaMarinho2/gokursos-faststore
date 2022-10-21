@@ -15,7 +15,7 @@ import { formatSearchState } from 'src/sdk/search/formatSearchState'
 import { initSearchState } from 'src/sdk/search/initSearchState'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import { sendAnalyticsEvent } from 'src/sdk/analytics/sendAnalyticsEvent'
-import type { SearchEvent } from 'src/sdk/analytics/events/search'
+import type { SearchEvent } from 'src/sdk/analytics/types'
 
 declare type SearchInputProps = {
   onSearchClick?: () => void

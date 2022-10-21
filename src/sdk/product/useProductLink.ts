@@ -3,10 +3,13 @@ import { useSession } from '@faststore/sdk'
 import { useLocation } from '@reach/router'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 
-import type { AnalyticsItem, SearchSelectItemEvent } from '../analytics/types'
+import type {
+  AnalyticsItem,
+  CurrencyCode,
+  SearchSelectItemEvent,
+  SelectItemEvent,
+} from '../analytics/types'
 import { sendAnalyticsEvent } from '../analytics/sendAnalyticsEvent'
-import type { SelectItemEvent } from '../analytics/events/select_item'
-import type { CurrencyCode } from '../analytics/events/common'
 
 export type ProductLinkOptions = {
   index: number

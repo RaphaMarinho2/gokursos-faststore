@@ -1,12 +1,14 @@
 import { useCallback } from 'react'
 import { useSession } from '@faststore/sdk'
-import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import type {
+  AddToCartEvent,
+  AnalyticsItem,
+  CurrencyCode,
+} from 'src/sdk/analytics/types'
 import type { CartItem } from 'src/sdk/cart/validate'
 
 import { useUI } from '../ui'
 import { useCart } from './useCart'
-import type { AddToCartEvent } from '../analytics/events/add_to_cart'
-import type { CurrencyCode } from '../analytics/events/common'
 import { sendAnalyticsEvent } from '../analytics/sendAnalyticsEvent'
 
 export const useBuyButton = (item: CartItem | null) => {

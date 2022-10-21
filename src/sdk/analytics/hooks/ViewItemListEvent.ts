@@ -1,10 +1,12 @@
 import { useSession } from '@faststore/sdk'
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
-import type { CurrencyCode } from '../events/common'
-import type { ViewItemListEvent as ViewItemListEventType } from '../events/view_item_list'
 import { sendAnalyticsEvent } from '../sendAnalyticsEvent'
-import type { AnalyticsItem } from '../types'
+import type {
+  AnalyticsItem,
+  CurrencyCode,
+  ViewItemListEvent as ViewItemListEventType,
+} from '../types'
 
 export const ViewItemListEvent = (products: ProductData[]) => {
   // TODO: change this to use our own hook
