@@ -130,31 +130,24 @@ export default function MyCourses({
           data-fs-product-card-actionabled
         >
           <div className="my-courses__wrapper">
-            {currentItems.length
-              ? !isLoading && (
-                  <div className="my-courses__count">
-                    Mostrando{' '}
-                    <strong>
-                      {currentItems.length !== 0 ? currentItems.length : ''} de{' '}
-                      {qtyCourses} produtos
-                    </strong>{' '}
-                  </div>
-                )
-              : !isLoading && (
-                  <ProductNotFound
-                    title="OPS!!!!!"
-                    subtitle="Você ainda não possui cursos"
-                    showIcon={false}
-                  />
-                )}
-            <ul className="my-courses__list">
-              <ProductShelfSkeleton
-                cardsQuantity={ITEMS_PER_PAGE_COURSES}
-                loading={isLoading}
-              >
-                {currentItems &&
-                  currentItems.length > 0 &&
-                  currentItems.map((item: any, index: number) => {
+            {currentItems.length && !isLoading ? (
+              <div className="my-courses__count">
+                Mostrando{' '}
+                <strong>
+                  {currentItems.length !== 0 ? currentItems.length : ''} de{' '}
+                  {qtyCourses} produtos
+                </strong>{' '}
+              </div>
+            ) : (
+              <></>
+            )}
+            <ProductShelfSkeleton
+              cardsQuantity={ITEMS_PER_PAGE_COURSES}
+              loading={isLoading}
+            >
+              {currentItems?.length ? (
+                <ul className="my-courses__list">
+                  {currentItems.map((item: any, index: number) => {
                     return (
                       <li
                         key={index}
@@ -201,8 +194,15 @@ export default function MyCourses({
                       </li>
                     )
                   })}
-              </ProductShelfSkeleton>
-            </ul>
+                </ul>
+              ) : (
+                <ProductNotFound
+                  title="OPS!!!!!"
+                  subtitle="Você ainda não possui cursos"
+                  showIcon={false}
+                />
+              )}
+            </ProductShelfSkeleton>
           </div>
           {qtyCourses > 8 && (
             <Pagination
