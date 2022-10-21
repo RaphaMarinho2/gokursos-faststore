@@ -1,11 +1,12 @@
 import './styles.scss'
-import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 import ShareProduct from '@acctglobal/shareproduct'
 import IconClose from 'src/components/icons/IconClose'
 import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import TwitterShareIcon from 'src/components/icons/TwitterShareIcon'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import ShareIconPlan from 'src/components/icons/ShareIconPlan'
+import ImageWithArtDirection from 'src/components/ui/Image/ImageWithArtDirection'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
 interface BuyBoxProps {
   href?: string
@@ -15,10 +16,10 @@ interface BuyBoxProps {
     preco: string | null
     slug: string | null
     bannerImageMobile: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
     bannerImageDesktop: {
-      url: string | null
+      gatsbyImageData: IGatsbyImageData
     } | null
     compartilhar: {
       url: string | null
@@ -36,10 +37,10 @@ interface BuyBoxModifiedProps {
     preco: string | null
     slug: string | null
     bannerImageMobile: {
-      url: string
+      gatsbyImageData: IGatsbyImageData
     }
     bannerImageDesktop: {
-      url: string
+      gatsbyImageData: IGatsbyImageData
     }
     compartilhar: {
       url: string
@@ -48,7 +49,6 @@ interface BuyBoxModifiedProps {
 }
 
 const BuyBox = ({ nodes, href }: BuyBoxProps) => {
-  const { isTablet } = useWindowDimensions()
   const nodesModifiedProps = nodes as unknown as BuyBoxModifiedProps
   const planLink = typeof window !== 'undefined' && href
 
@@ -65,10 +65,11 @@ const BuyBox = ({ nodes, href }: BuyBoxProps) => {
 
         return (
           <div key={index} className="buy-box__content">
-            <img
-              className="banner-planos__image"
+            <ImageWithArtDirection
+              imageDesktop={bannerImageDesktop?.gatsbyImageData}
+              imageMobile={bannerImageMobile?.gatsbyImageData}
               alt={titulo}
-              src={isTablet ? bannerImageMobile?.url : bannerImageDesktop?.url}
+              className="banner-planos__image"
             />
             <div className="buy-box__section">
               <div className="component-Buybox__content">
