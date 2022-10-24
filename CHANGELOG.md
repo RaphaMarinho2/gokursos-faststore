@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-953** - [PLANS] Banner margin
+
 ### Removed
 
 ## [0.22.2] - 2022-10-18
