@@ -1,3 +1,5 @@
+import InstitucionalBanner from 'src/pages/institucional/components'
+
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
 
@@ -8,9 +10,7 @@ interface AboutUsProps {
 const InstitutionalAboutUs = ({ location }: AboutUsProps) => {
   return (
     <>
-      <div className="title-container">
-        <p className="layout__content">Quem somos</p>
-      </div>
+      <InstitucionalBanner text="Quem somos" />
 
       <div className="institutional-about-us">
         <InstitutionalMenu location={location} />
