@@ -58,7 +58,7 @@ function CartSidebar() {
       return
     }
 
-    windowGlobal.location.href = `https://www.gokursos.com.br/checkout?cart=${encrypted}`
+    windowGlobal.location.href = `${process.env.GATSBY_CHECKOUT_URL}?Data=${encrypted}`
   }
 
   const handleSendItemCheckout = () => {
