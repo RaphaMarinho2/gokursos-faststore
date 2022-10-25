@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import './styles.scss'
 
 type PlanosType = {
@@ -45,9 +46,9 @@ const CardPlanos = ({ nodes, path }: PlanosType) => {
             </div>
             <p className="texto">{texto?.texto}</p>
             <div className="botoes">
-              <a href={`/${path}${slug}`} className="saiba-mais">
+              <Link to={`/${path}${slug}`} className="saiba-mais">
                 {saibaMais}
-              </a>
+              </Link>
               <button className="texto-botao">{textoBotao}</button>
             </div>
           </div>

@@ -143,8 +143,8 @@ function Page(props: Props) {
       <BannerCategory
         title={title}
         subtitle={subtitle}
-        imageBannerDesktop={bannerImageDesktop?.url}
-        imageBannerMobile={bannerImageMobile?.url}
+        imageBannerDesktop={bannerImageDesktop}
+        imageBannerMobile={bannerImageMobile}
       />
       <SearchProvider
         slug={slug}
