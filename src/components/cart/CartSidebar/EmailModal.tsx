@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
 import { useState } from 'react'
 import ReactModal from 'react-modal'
 import './cart-sidebar.scss'
@@ -39,7 +39,8 @@ export default function EmailModal({
     setEmail(event.target.value)
   }
 
-  const submit = () => {
+  const submit = (event: FormEvent) => {
+    event.preventDefault()
     if (!email.trim()) {
       setIsValidEmail(false)
 
