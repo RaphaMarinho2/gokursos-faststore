@@ -76,16 +76,31 @@
   }
 
   &__content {
+    @include media(">=notebook") {
+      padding: 0 48px;
+    }
+
     &-title {
       font-size: 20px;
       font-weight: 500;
       line-height: 30px;
       text-align: center;
       text-transform: uppercase;
+
+      @include media(">=notebook") {
+        margin-bottom: 16px;
+      }
     }
 
     .input-container {
       margin: 16px 0;
+
+      @include media(">=notebook") {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-top: 0;
+      }
     }
 
     .input {
@@ -98,9 +113,17 @@
       &:focus-visible {
         outline: none;
       }
+
+      @include media(">=notebook") {
+        border-right: none;
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+      }
     }
 
     .error {
+      font-size: 14px;
+      line-height: 18px;
       color: #d72424;
     }
 
@@ -118,11 +141,23 @@
       background-color: #ff3452;
       border: 1px solid #ff3452;
       border-radius: 4px;
+
+      @include media(">=notebook") {
+        max-width: 158px;
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+      }
     }
 
     &-fieldset {
       display: flex;
       flex-direction: column;
+
+      @include media(">=notebook") {
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+      }
     }
   }
 }
