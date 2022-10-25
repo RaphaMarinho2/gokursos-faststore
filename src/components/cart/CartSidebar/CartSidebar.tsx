@@ -1,6 +1,6 @@
 // import aes from 'js-crypto-aes'
 import { List } from '@faststore/ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CryptoJS from 'crypto-js'
 import { Badge } from 'src/components/ui/Badge'
 import Button, { ButtonIcon } from 'src/components/ui/Button'
@@ -11,10 +11,12 @@ import { useCart } from 'src/sdk/cart/useCart'
 // import { useCheckoutButton } from 'src/sdk/cart/useCheckoutButton'
 import { useUI } from 'src/sdk/ui'
 import { useModal } from 'src/sdk/ui/modal/Provider'
+import type { CartItem as CartItemType } from 'src/sdk/cart/validate'
 
 import CartItem from '../CartItem'
 import EmptyCart from '../EmptyCart'
 import OrderSummary from '../OrderSummary'
+import EmailModal from './EmailModal'
 
 function CartSidebar() {
   // const btnProps = useCheckoutButton()
@@ -24,14 +26,39 @@ function CartSidebar() {
 
   const { items, totalItems, subTotal, total } = cart
   const [isValidating, setIsValidating] = useState<boolean>(false)
+  const [isModalOpen, setModalOpen] = useState<boolean>(false)
+  const [userEmail, setUserEmail] = useState<string>('')
 
   const isEmpty = items.length === 0
 
-  const { email } = JSON.parse(windowGlobal?.localStorage.getItem('user') ?? '')
+  useEffect(() => {
+    const { email } = JSON.parse(
+      windowGlobal?.localStorage.getItem('user') ?? '{"email": ""}'
+    )
 
-  const cartData = {
-    email,
-    products: items,
+    if (!userEmail) {
+      setUserEmail(email)
+    }
+  }, [userEmail])
+
+  const redirectToCheckout = (email: string, products: CartItemType[]) => {
+    const cartData = {
+      email,
+      products,
+    }
+
+    const serializedCartData = JSON.stringify(cartData)
+
+    const encrypted = CryptoJS.AES.encrypt(
+      serializedCartData,
+      process.env.GATSBY_CART_KEY ?? ''
+    ).toString()
+
+    if (!windowGlobal) {
+      return
+    }
+
+    windowGlobal.location.href = `https://www.gokursos.com.br/checkout?cart=${encrypted}`
   }
 
   const handleSendItemCheckout = () => {
@@ -40,71 +67,75 @@ function CartSidebar() {
       setIsValidating(false)
     }, 3000)
 
-    const serializedCartData = JSON.stringify(cartData)
+    if (!userEmail) {
+      setModalOpen(true)
 
-    const encrypted = CryptoJS.AES.encrypt(
-      serializedCartData,
-      process.env.GATSBY_CART_KEY ?? ''
-    )
-
-    if (!windowGlobal) {
       return
     }
 
-    windowGlobal.location.href = `https://www.gokursos.com.br/checkout?cart=${encrypted.toString()}`
+    redirectToCheckout(userEmail, items)
   }
 
   return (
-    <SlideOver
-      isOpen={displayMinicart}
-      onDismiss={closeMinicart}
-      size="partial"
-      direction="rightSide"
-      className="cart-sidebar"
-    >
-      <header data-testid="cart-sidebar">
-        <div className="cart-sidebar__title">
-          <p className="text__lead">Meu carrinho</p>
-          <Badge variant="info">{totalItems}</Badge>
-        </div>
-        <ButtonIcon
-          data-testid="cart-sidebar-button-close"
-          aria-label="Close Cart"
-          icon={<Icon name="X" width={19} height={19} />}
-          onClick={onModalClose}
-        />
-      </header>
+    <>
+      <EmailModal
+        email={userEmail}
+        setEmail={setUserEmail}
+        isOpen={isModalOpen}
+        onRequestClose={() => setModalOpen(false)}
+        submitFn={() => redirectToCheckout(userEmail, items)}
+      />
+      <SlideOver
+        isOpen={displayMinicart}
+        onDismiss={closeMinicart}
+        size="partial"
+        direction="rightSide"
+        className="cart-sidebar"
+      >
+        <header data-testid="cart-sidebar">
+          <div className="cart-sidebar__title">
+            <p className="text__lead">Meu carrinho</p>
+            <Badge variant="info">{totalItems}</Badge>
+          </div>
+          <ButtonIcon
+            data-testid="cart-sidebar-button-close"
+            aria-label="Close Cart"
+            icon={<Icon name="X" width={19} height={19} />}
+            onClick={onModalClose}
+          />
+        </header>
 
-      {isEmpty ? (
-        <EmptyCart onDismiss={onModalClose} />
-      ) : (
-        <>
-          <List>
-            {items.map((item) => (
-              <li key={item.id}>
-                <CartItem item={item} />
-              </li>
-            ))}
-          </List>
+        {isEmpty ? (
+          <EmptyCart onDismiss={onModalClose} />
+        ) : (
+          <>
+            <List>
+              {items.map((item) => (
+                <li key={item.id}>
+                  <CartItem item={item} />
+                </li>
+              ))}
+            </List>
 
-          <footer>
-            <OrderSummary
-              subTotal={subTotal}
-              total={total}
-              numberOfItems={totalItems}
-              checkoutButton={
-                <Button
-                  variant="finalizarCompra"
-                  onClick={handleSendItemCheckout}
-                >
-                  {isValidating ? 'Carregando...' : 'Finalizar compra'}
-                </Button>
-              }
-            />
-          </footer>
-        </>
-      )}
-    </SlideOver>
+            <footer>
+              <OrderSummary
+                subTotal={subTotal}
+                total={total}
+                numberOfItems={totalItems}
+                checkoutButton={
+                  <Button
+                    variant="finalizarCompra"
+                    onClick={handleSendItemCheckout}
+                  >
+                    {isValidating ? 'Carregando...' : 'Finalizar compra'}
+                  </Button>
+                }
+              />
+            </footer>
+          </>
+        )}
+      </SlideOver>
+    </>
   )
 }
 
