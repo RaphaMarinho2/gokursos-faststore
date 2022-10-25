@@ -1,6 +1,7 @@
 import type { ChangeEvent } from 'react'
 import { useState } from 'react'
 import ReactModal from 'react-modal'
+import './cart-sidebar.scss'
 
 interface EmailModalProps extends ReactModal.Props {
   email: string
@@ -61,12 +62,26 @@ export default function EmailModal({
         </div>
         <div className="email-modal__content">
           <h2 className="email-modal__content-title">
-            PARA FINALIZAR A COMPRA, INFORME SEU E-MAIL
+            Para finalizar a compra, informe seu e-mail
           </h2>
-          <div className="email-modal__content-input">
-            <input value={email} onChange={onChangeEmail} />
-            {!isValidEmail ? <span>*Campo obrigatório</span> : <></>}
-            <button onClick={submit}>Continuar</button>
+          <div className="email-modal__content-fieldset">
+            <div className="input-container">
+              <input
+                type="email"
+                className={isValidEmail ? 'input' : 'input invalid-email'}
+                value={email}
+                placeholder="email@email.com"
+                onChange={onChangeEmail}
+              />
+              {!isValidEmail ? (
+                <span className="error">*Campo obrigatório</span>
+              ) : (
+                <></>
+              )}
+            </div>
+            <button className="button" onClick={submit}>
+              Continuar
+            </button>
           </div>
         </div>
       </div>
