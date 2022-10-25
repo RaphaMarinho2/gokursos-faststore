@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-934** - [Department] Score improvement, banner image treatment
 - **GM-951** - Responsivity at institucional pages
 
 ### Removed
