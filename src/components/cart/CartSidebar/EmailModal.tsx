@@ -50,7 +50,12 @@ export default function EmailModal({
   }
 
   return (
-    <ReactModal style={CUSTOM_STYLES} {...props}>
+    <ReactModal
+      style={CUSTOM_STYLES}
+      {...props}
+      shouldCloseOnEsc={false}
+      shouldCloseOnOverlayClick={false}
+    >
       <div className="email-modal">
         <div className="email-modal__header">
           <button
@@ -60,7 +65,7 @@ export default function EmailModal({
             X
           </button>
         </div>
-        <div className="email-modal__content">
+        <form className="email-modal__content" onSubmit={submit}>
           <h2 className="email-modal__content-title">
             Para finalizar a compra, informe seu e-mail
           </h2>
@@ -79,11 +84,11 @@ export default function EmailModal({
                 <></>
               )}
             </div>
-            <button className="button" onClick={submit}>
+            <button className="button" type="submit">
               Continuar
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </ReactModal>
   )
