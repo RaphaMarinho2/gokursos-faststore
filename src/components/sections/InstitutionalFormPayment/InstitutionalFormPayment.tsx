@@ -1,3 +1,5 @@
+import InstitucionalBanner from 'src/pages/institucional/components'
+
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
 
@@ -10,9 +12,7 @@ const InstitutionalFormpayment = ({
 }: InstitutionalFormpaymentProps) => {
   return (
     <>
-      <div className="title-container">
-        <p className="layout__content">Formas de pagamento</p>
-      </div>
+      <InstitucionalBanner text="Formas de pagamento" />
 
       <div className="institucional-form-payment">
         <InstitutionalMenu location={location} />

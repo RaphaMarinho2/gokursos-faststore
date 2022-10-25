@@ -1,4 +1,5 @@
 import { useFormik } from 'formik'
+import InstitucionalBanner from 'src/pages/institucional/components'
 
 import InstutionalMenu from '../InstutionalMenu'
 import Section from '../Section'
@@ -27,9 +28,8 @@ export default function ContactUs({ location }: ContactUsProps) {
 
   return (
     <>
-      <div className="title-container">
-        <p className="layout__content">Fale Conosco</p>
-      </div>
+      <InstitucionalBanner text="Fale Conosco" />
+
       <Section className="layout__content contact-us__content">
         <InstutionalMenu location={location} />
         <div className="contact-us__form-content">

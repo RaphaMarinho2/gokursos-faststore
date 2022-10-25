@@ -14,6 +14,7 @@ import CertificateActive from 'src/components/icons/CertificateActive'
 import CertificateInactive from 'src/components/icons/CertificateInactive'
 import { navigate } from 'gatsby'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton/ProductShelfSkeleton'
+import ProductNotFound from 'src/components/common/ProductNotFound/ProductNotFound'
 
 import { Pagination } from '../../Pagination/Pagination'
 import Section from '../Section'
@@ -117,7 +118,7 @@ export default function MyCourses({
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-      <div className="title-container">
+      <div className="courses-banner">
         <div className="layout__content">
           <p>Meus Cursos</p>
         </div>
@@ -129,32 +130,24 @@ export default function MyCourses({
           data-fs-product-card-actionabled
         >
           <div className="my-courses__wrapper">
-            {currentItems.length
-              ? !isLoading && (
-                  <div className="my-courses__count">
-                    Mostrando{' '}
-                    <strong>
-                      {currentItems.length !== 0 ? currentItems.length : ''} de{' '}
-                      {qtyCourses} produtos
-                    </strong>{' '}
-                  </div>
-                )
-              : !isLoading && (
-                  <div className="my-courses__count">
-                    Nenhum produto encontrado{' '}
-                    <span role="img" aria-label="emoji">
-                      😢
-                    </span>{' '}
-                  </div>
-                )}
-            <ul className="my-courses__list">
-              <ProductShelfSkeleton
-                cardsQuantity={ITEMS_PER_PAGE_COURSES}
-                loading={isLoading}
-              >
-                {currentItems &&
-                  currentItems.length > 0 &&
-                  currentItems.map((item: any, index: number) => {
+            {currentItems.length && !isLoading ? (
+              <div className="my-courses__count">
+                Mostrando{' '}
+                <strong>
+                  {currentItems.length !== 0 ? currentItems.length : ''} de{' '}
+                  {qtyCourses} produtos
+                </strong>{' '}
+              </div>
+            ) : (
+              <></>
+            )}
+            <ProductShelfSkeleton
+              cardsQuantity={ITEMS_PER_PAGE_COURSES}
+              loading={isLoading}
+            >
+              {currentItems?.length ? (
+                <ul className="my-courses__list">
+                  {currentItems.map((item: any, index: number) => {
                     return (
                       <li
                         key={index}
@@ -201,8 +194,15 @@ export default function MyCourses({
                       </li>
                     )
                   })}
-              </ProductShelfSkeleton>
-            </ul>
+                </ul>
+              ) : (
+                <ProductNotFound
+                  title="OPS!!!!!"
+                  subtitle="Você ainda não possui cursos"
+                  showIcon={false}
+                />
+              )}
+            </ProductShelfSkeleton>
           </div>
           {qtyCourses > 8 && (
             <Pagination

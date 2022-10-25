@@ -12,7 +12,7 @@ interface ShelfProps {
   pretitle?: string
 }
 
-const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
+const HomeProductShelf = ({ title = '', pretitle = '' }: ShelfProps) => {
   const [products, setProducts] = useState<any>()
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -36,6 +36,7 @@ const HomeProductShelf = ({ title, pretitle }: ShelfProps) => {
         pretitle={pretitle}
         products={products}
         isLoading={isLoading}
+        shelfName={pretitle ? `${pretitle} ${title}` : `${title}`}
       />
     </Section>
   )
