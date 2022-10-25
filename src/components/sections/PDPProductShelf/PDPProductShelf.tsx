@@ -43,7 +43,7 @@ const PDPProductShelf = ({
   ViewItemListEvent(products)
 
   return (
-    <Section className="layout__content pdp-shelf-container">
+    <Section>
       {products && (
         <ProductShelf
           products={products}

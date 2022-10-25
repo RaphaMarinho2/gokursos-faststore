@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-871** - Plans page responsivity
 - **GM-846** - [HOME] Person shelf card gradient
 - **GM-948** - Edit Password page pre-render
 - **GM-947** - Login return function

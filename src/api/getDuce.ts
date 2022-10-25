@@ -5,7 +5,6 @@ export default async function getDuce(
   _: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
-
   const expand = `SKU, Category, Price, Checkout, Especificacao, Brand, TradePolicy, Stock, Rank, Especificacao/CargaHoraria`
 
   const filter = `IsActive eq true and IsVisible eq true and contains(Department/Name, 'DUCE')`
