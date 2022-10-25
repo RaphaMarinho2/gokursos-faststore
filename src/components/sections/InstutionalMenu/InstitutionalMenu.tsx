@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Section from 'src/components/sections/Section'
 import DropDownIcon from 'src/components/icons/DropDownIcon'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import { Link } from 'gatsby'
 
 import './style.scss'
 
@@ -38,7 +39,7 @@ const ListMenuDesk = () => {
 
             return (
               <li className={selectedClass} key={index}>
-                <a href={url}>{text}</a>
+                <Link to={url}>{text}</Link>
               </li>
             )
           })}
@@ -64,7 +65,7 @@ const DropDownMenu = ({ location }: DropDownMenuProps) => {
         if (url !== location) {
           return (
             <DropdownItem key={index}>
-              <a href={url}>{text}</a>
+              <Link to={url}>{text}</Link>
             </DropdownItem>
           )
         }
