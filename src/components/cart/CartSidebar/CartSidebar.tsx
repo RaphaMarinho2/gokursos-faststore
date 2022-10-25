@@ -19,7 +19,6 @@ import OrderSummary from '../OrderSummary'
 import EmailModal from './EmailModal'
 
 function CartSidebar() {
-  // const btnProps = useCheckoutButton()
   const cart = useCart()
   const { displayMinicart, closeMinicart } = useUI()
   const { onModalClose } = useModal()
