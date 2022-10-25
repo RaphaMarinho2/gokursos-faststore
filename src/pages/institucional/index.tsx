@@ -8,8 +8,6 @@ import InstitutionalMenu from 'src/components/sections/InstutionalMenu/Instituti
 export type Props = PageProps<InstitutionalQuery>
 
 function Page(props: Props) {
-  console.info('pagina intitucional', props)
-
   return (
     <Section>
       <InstitutionalMenu location={props.location.pathname} />

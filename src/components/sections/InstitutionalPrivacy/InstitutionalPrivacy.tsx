@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LoadMore from 'src/components/ui/LoadMore'
+import InstitucionalBanner from 'src/pages/institucional/components'
 
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
@@ -13,9 +14,7 @@ const InstitutionalPrivacy = ({ location }: InstitutionalPrivacyProps) => {
 
   return (
     <>
-      <div className="title-container-privacy ">
-        <p className="layout__content">Segurança e Privacidade</p>
-      </div>
+      <InstitucionalBanner text="Segurança e Privacidade" />
 
       <div className="institucional-privacy">
         <InstitutionalMenu location={location} />

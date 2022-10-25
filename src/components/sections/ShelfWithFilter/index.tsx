@@ -22,7 +22,7 @@ type Props = {
   pretitle?: string
 }
 
-function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
+function BlockDesktop({ navigattionTabs, title = '', pretitle = '' }: Props) {
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -183,6 +183,7 @@ function BlockDesktop({ navigattionTabs, title, pretitle }: Props) {
                     cardsQuantity={shelfItemQuantity}
                     products={products}
                     isLoading={isLoading}
+                    shelfName={pretitle ? `${pretitle} ${title}` : `${title}}`}
                   />
                 </Section>
               </article>

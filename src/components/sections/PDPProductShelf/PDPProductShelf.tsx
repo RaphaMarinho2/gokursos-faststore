@@ -14,7 +14,11 @@ interface Props {
   productDepartment?: string
 }
 
-const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
+const PDPProductShelf = ({
+  title,
+  pretitle = '',
+  productDepartment,
+}: Props) => {
   const { isMobile, isTablet } = useWindowDimensions()
 
   const shelfItemQuantity = isMobile ? 2 : isTablet ? 4 : 5
@@ -46,6 +50,7 @@ const PDPProductShelf = ({ title, pretitle, productDepartment }: Props) => {
           cardsQuantity={shelfItemQuantity}
           title={title}
           pretitle={pretitle}
+          shelfName={pretitle ? `${pretitle} ${title}` : `${title}`}
         />
       )}
     </Section>
