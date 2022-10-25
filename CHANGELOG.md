@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-941** - No products warning at "My Courses" page
+
 ### Fixed
 
 - **GM-951** - Responsivity at institucional pages
