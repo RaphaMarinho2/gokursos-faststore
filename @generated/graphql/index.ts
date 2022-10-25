@@ -15922,6 +15922,20 @@ export type ProductPageQueryQuery = {
   } | null
 }
 
+export type EditPasswordPageQueryQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type EditPasswordPageQueryQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
 export type InfoprodutorPageQueryQueryVariables = Exact<{
   [key: string]: never
 }>
@@ -16102,6 +16116,18 @@ export type InstitutionalPrivacyQuery = {
 export type InstitutionalTermsQueryVariables = Exact<{ [key: string]: never }>
 
 export type InstitutionalTermsQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
+export type LoginPageQueryQueryVariables = Exact<{ [key: string]: never }>
+
+export type LoginPageQueryQuery = {
   site: {
     siteMetadata: {
       title: string | null
@@ -16450,6 +16476,18 @@ export type PlanoTecnologiaQuery = {
   allContentfulPlanosTextoSimples: {
     nodes: Array<{ text: { text: string | null } | null }>
   }
+}
+
+export type RegisterPageQueryQueryVariables = Exact<{ [key: string]: never }>
+
+export type RegisterPageQueryQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
 }
 
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>
