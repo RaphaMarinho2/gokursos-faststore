@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-941** - No products warning at "My Courses" page
+
 ### Removed
 
 ## [0.22.2] - 2022-10-18
