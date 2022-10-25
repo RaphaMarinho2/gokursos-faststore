@@ -76,14 +76,21 @@ function CartSidebar() {
     redirectToCheckout(userEmail, items)
   }
 
+  const handleCloseModal = () => {
+    setUserEmail('')
+    setModalOpen(false)
+  }
+
+  const handleSubmitEmail = () => redirectToCheckout(userEmail, items)
+
   return (
     <>
       <EmailModal
         email={userEmail}
         setEmail={setUserEmail}
         isOpen={isModalOpen}
-        onRequestClose={() => setModalOpen(false)}
-        submitFn={() => redirectToCheckout(userEmail, items)}
+        onRequestClose={handleCloseModal}
+        submitFn={handleSubmitEmail}
       />
       <SlideOver
         isOpen={displayMinicart}
