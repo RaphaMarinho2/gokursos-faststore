@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-947** - Login return function
 - **GM-858** - Adjust banner loading on the plans pages
 - **GM-872** - Menu user identification
 - **GM-934** - [Department] Score improvement, banner image treatment
