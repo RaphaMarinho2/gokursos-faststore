@@ -18,6 +18,11 @@
 
     .banner-planos__image {
       width: 100%;
+
+      @media screen and (max-width: 700px) {
+        height: auto;
+        min-height: 224px;
+      }
     }
 
     .titulo-compartilhar {

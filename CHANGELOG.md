@@ -9,9 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-950** - Add shelf name on productClick event data
+- **GM-941** - No products warning at "My Courses" page
+
 ### Fixed
 
 - **GM-871** - Plans page responsivity
+- **GM-846** - [HOME] Person shelf card gradient
+- **GM-948** - Edit Password page pre-render
+- **GM-947** - Login return function
+- **GM-858** - Adjust banner loading on the plans pages
+- **GM-872** - Menu user identification
+- **GM-934** - [Department] Score improvement, banner image treatment
+- **GM-951** - Responsivity at institucional pages
 
 ### Removed
 

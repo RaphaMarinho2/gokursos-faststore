@@ -38,8 +38,10 @@ const PersonShelf = ({ nodes }: Props) => {
                   loading="lazy"
                 />
               )}
-              <h3>{name}</h3>
-              <p>{curso}</p>
+              <div className="person-description">
+                <h3>{name}</h3>
+                <p>{curso}</p>
+              </div>
             </div>
           )
         })}

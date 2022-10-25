@@ -53,9 +53,9 @@ function Login() {
         {showErrorMessage && (
           <span className="error-message">Email ou senha incorretos</span>
         )}
-        <a className="forget-password" href="/edit-password">
+        <Link className="forget-password" to="/edit-password">
           <p>Esqueceu a senha?</p>
-        </a>
+        </Link>
         <div className="button-login">
           <button type="button" onClick={handleSubmitLogin}>
             Entrar
