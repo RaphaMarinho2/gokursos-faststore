@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-flow: column-reverse wrap;
-  margin: 45px;
+  width: calc(100% - 80px);
 
   .component-CardPlanos__content {
     position: relative;

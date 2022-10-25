@@ -30,7 +30,7 @@ function EditPassword() {
   return (
     <>
       <div className="container-form">
-        <StepWizard>
+        <StepWizard isLazyMount>
           <EditPasswordEmail handleUserChange={handleUserChange} user={user} />
           <UserEditPassword
             handleSubmit={handleSubmit}

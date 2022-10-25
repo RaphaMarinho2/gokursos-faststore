@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LoadMore from 'src/components/ui/LoadMore'
+import InstitucionalBanner from 'src/pages/institucional/components'
 
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
@@ -13,9 +14,7 @@ const InstitutionalTerms = ({ location }: InstitutionalTermsProps) => {
 
   return (
     <>
-      <div className="title-container">
-        <p className="layout__content">Termos de uso</p>
-      </div>
+      <InstitucionalBanner text="Termos de uso" />
 
       <div className="institucional-terms">
         <InstitutionalMenu location={location} />

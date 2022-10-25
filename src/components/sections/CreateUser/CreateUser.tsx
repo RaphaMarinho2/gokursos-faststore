@@ -29,7 +29,7 @@ function CreateUser() {
   return (
     <>
       <div className="container-form">
-        <StepWizard>
+        <StepWizard isLazyMount>
           <CreateUserEmail handleUserChange={handleUserChange} user={user} />
           <CreateUserPassword
             handleSubmit={handleSubmit}
