@@ -1,6 +1,7 @@
 import type { ChangeEvent, FormEvent } from 'react'
 import { useState } from 'react'
 import ReactModal from 'react-modal'
+import IconClose from 'src/components/icons/IconClose'
 import './cart-sidebar.scss'
 
 interface EmailModalProps extends ReactModal.Props {
@@ -63,7 +64,7 @@ export default function EmailModal({
             className="email-modal__close-button"
             onClick={props.onRequestClose}
           >
-            X
+            <IconClose stroke="black" />
           </button>
         </div>
         <form className="email-modal__content" onSubmit={submit}>
