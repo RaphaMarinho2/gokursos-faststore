@@ -40,7 +40,7 @@ export default function EmailModal({
   }
 
   const submit = () => {
-    if (!email) {
+    if (!email.trim()) {
       setIsValidEmail(false)
 
       return

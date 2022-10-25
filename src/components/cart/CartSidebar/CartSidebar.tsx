@@ -67,7 +67,7 @@ function CartSidebar() {
       setIsValidating(false)
     }, 3000)
 
-    if (!userEmail) {
+    if (!userEmail.trim()) {
       setModalOpen(true)
 
       return
