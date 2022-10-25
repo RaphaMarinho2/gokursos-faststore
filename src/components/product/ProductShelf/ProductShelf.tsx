@@ -14,6 +14,7 @@ interface ProductShelfProps {
   pretitle?: string
   products: any
   isLoading?: boolean
+  shelfName?: string
 }
 
 function ProductShelf({
@@ -23,6 +24,7 @@ function ProductShelf({
   withDivisor = false,
   products,
   isLoading,
+  shelfName = '',
 }: ProductShelfProps) {
   const { isTablet } = useWindowDimensions()
 
@@ -49,7 +51,7 @@ function ProductShelf({
   }
 
   const selectItemListEvent = (product: ProductData) => {
-    SelectItemEvent(product)
+    SelectItemEvent({ ...product, shelfName })
   }
 
   const sizeArrowCarousel = isTablet ? styleArrowMobile : styleArrowDesktop
@@ -62,7 +64,7 @@ function ProductShelf({
     >
       {pretitle && <h3 className="product-shelf-pretitle">{pretitle}</h3>}
       <h2 className="product-shelf-title">{title}</h2>
-      <ProductShelfSkeleton cardsQuantity={cardsQuantity!} loading={isLoading}>
+      <ProductShelfSkeleton cardsQuantity={cardsQuantity} loading={isLoading}>
         <Carousel
           arrow={{
             isVisible: !isLoading,

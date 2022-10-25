@@ -83,6 +83,7 @@ function PlansShelf() {
         title={<ShelfTitle />}
         products={products}
         isLoading={isLoading}
+        shelfName={`Cursos que você encontra no ${plans}`}
       />
     </div>
   )
