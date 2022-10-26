@@ -34,21 +34,37 @@ export default function EmailModal({
   submitFn,
   ...props
 }: EmailModalProps) {
-  const [isEmptyEmail, setIsEmptyEmail] = useState<boolean>(true)
+  const [isEmptyEmail, setIsEmptyEmail] = useState<boolean>(false)
+  const [isValidEmail, setIsValidEmail] = useState<boolean>(true)
   const onChangeEmail = (event: ChangeEvent<{ value: string }>) => {
-    setIsEmptyEmail(true)
+    setIsEmptyEmail(false)
+    setIsValidEmail(true)
     setEmail(event.target.value)
   }
 
   const submit = (event: FormEvent) => {
     event.preventDefault()
     if (!email.trim()) {
-      setIsEmptyEmail(false)
+      setIsEmptyEmail(true)
+
+      return
+    }
+
+    const isValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,6}$/g.test(email)
+
+    if (!isValid) {
+      setIsValidEmail(false)
 
       return
     }
 
     submitFn()
+  }
+
+  const handleAfterClose = () => {
+    setEmail('')
+    setIsEmptyEmail(false)
+    setIsValidEmail(true)
   }
 
   return (
@@ -57,6 +73,7 @@ export default function EmailModal({
       {...props}
       shouldCloseOnEsc={false}
       shouldCloseOnOverlayClick={false}
+      onAfterClose={handleAfterClose}
     >
       <div className="email-modal">
         <div className="email-modal__header">
@@ -74,14 +91,22 @@ export default function EmailModal({
           <div className="email-modal__content-fieldset">
             <div className="input-container">
               <input
-                type="email"
-                className={isEmptyEmail ? 'input' : 'input invalid-email'}
+                className={
+                  isEmptyEmail || !isValidEmail
+                    ? 'input invalid-email'
+                    : 'input'
+                }
                 value={email}
                 placeholder="email@email.com"
                 onChange={onChangeEmail}
               />
-              {!isEmptyEmail ? (
+              {isEmptyEmail ? (
                 <span className="error">*Campo obrigatório</span>
+              ) : (
+                <></>
+              )}
+              {!isValidEmail ? (
+                <span className="error">*E-mail inválido</span>
               ) : (
                 <></>
               )}

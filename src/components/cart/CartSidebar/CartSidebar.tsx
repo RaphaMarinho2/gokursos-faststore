@@ -74,7 +74,6 @@ function CartSidebar() {
   }
 
   const handleCloseModal = () => {
-    setUserEmail('')
     setModalOpen(false)
   }
 
