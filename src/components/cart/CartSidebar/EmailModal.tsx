@@ -34,16 +34,16 @@ export default function EmailModal({
   submitFn,
   ...props
 }: EmailModalProps) {
-  const [isValidEmail, setIsValidEmail] = useState<boolean>(true)
+  const [isEmptyEmail, setIsEmptyEmail] = useState<boolean>(true)
   const onChangeEmail = (event: ChangeEvent<{ value: string }>) => {
-    setIsValidEmail(true)
+    setIsEmptyEmail(true)
     setEmail(event.target.value)
   }
 
   const submit = (event: FormEvent) => {
     event.preventDefault()
     if (!email.trim()) {
-      setIsValidEmail(false)
+      setIsEmptyEmail(false)
 
       return
     }
@@ -75,12 +75,12 @@ export default function EmailModal({
             <div className="input-container">
               <input
                 type="email"
-                className={isValidEmail ? 'input' : 'input invalid-email'}
+                className={isEmptyEmail ? 'input' : 'input invalid-email'}
                 value={email}
                 placeholder="email@email.com"
                 onChange={onChangeEmail}
               />
-              {!isValidEmail ? (
+              {!isEmptyEmail ? (
                 <span className="error">*Campo obrigatório</span>
               ) : (
                 <></>
