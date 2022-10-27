@@ -7,8 +7,6 @@ import BoletoIcon from 'src/components/icons/Boleto'
 import PixIcon from 'src/components/icons/Pix'
 import TwoCardsIcon from 'src/components/icons/TwoCards'
 import AcctIcon from 'src/components/icons/Acct'
-import PciIcon from 'src/components/icons/Pci'
-import EncryptIcon from 'src/components/icons/Encrypt'
 import EshopIcon from 'src/components/icons/Eshop'
 
 const links = [
@@ -153,19 +151,9 @@ const links = [
         icon: <AcctIcon />,
       },
       {
-        href: 'https://secure.vtex.com/?an=t42748',
-        name: 'Lets Encrypt',
-        icon: <EncryptIcon />,
-      },
-      {
         href: 'https://varejo.myeshop.com.br/',
         name: 'Eshop',
         icon: <EshopIcon />,
-      },
-      {
-        href: 'https://secure.vtex.com/?an=t42748',
-        name: 'PCI',
-        icon: <PciIcon />,
       },
     ],
   },
