@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-886** - Add redirect encrypted data for checkout from minicard
+
 ### Fixed
 
 - **GM-939** - [PLANS] Select component
