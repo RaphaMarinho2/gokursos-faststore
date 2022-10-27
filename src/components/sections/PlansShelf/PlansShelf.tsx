@@ -1,10 +1,8 @@
 import axios from 'axios'
+import type { ChangeEvent } from 'react'
 import { useEffect, useState } from 'react'
 import ProductShelf from 'src/components/product/ProductShelf'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
-import MenuItem from '@mui/material/MenuItem'
-import type { SelectChangeEvent } from '@mui/material/Select'
-import Select from '@mui/material/Select'
 
 import './plans-shelf.scss'
 
@@ -52,7 +50,7 @@ function PlansShelf() {
 
   const [plans, setPlans] = useState(plansMock[0].name)
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setPlans(event.target.value as string)
   }
 
@@ -60,18 +58,18 @@ function PlansShelf() {
     return (
       <h2 className="plans-shelf__title">
         Cursos que você encontra no{' '}
-        <Select
-          labelId="select-label"
-          id="simple-select"
+        <select
+          label-id="select-label"
+          className="plans-select"
           onChange={handleChange}
           value={plans}
         >
           {plansMock.map((plan, index) => (
-            <MenuItem key={index} value={plan.name}>
+            <option key={index} value={plan.name}>
               {plan.name}
-            </MenuItem>
+            </option>
           ))}
-        </Select>
+        </select>
       </h2>
     )
   }

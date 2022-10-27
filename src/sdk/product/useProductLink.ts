@@ -1,10 +1,15 @@
 import { useCallback } from 'react'
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
+import { useSession } from '@faststore/sdk'
 import { useLocation } from '@reach/router'
-import type { CurrencyCode, SelectItemEvent } from '@faststore/sdk'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 
-import type { AnalyticsItem, SearchSelectItemEvent } from '../analytics/types'
+import type {
+  AnalyticsItem,
+  CurrencyCode,
+  SearchSelectItemEvent,
+  SelectItemEvent,
+} from '../analytics/types'
+import { sendAnalyticsEvent } from '../analytics/sendAnalyticsEvent'
 
 export type ProductLinkOptions = {
   index: number
@@ -15,9 +20,10 @@ export const useProductLink = ({ index, product }: ProductLinkOptions) => {
   const { LinkId: slug } = product
 
   const { href } = useLocation()
-  const {
-    currency: { code },
-  } = useSession()
+
+  // TODO: change this to use our own hook
+  const session = useSession()
+  const code = session?.currency?.code
 
   const onClick = useCallback(() => {
     sendAnalyticsEvent<SelectItemEvent<AnalyticsItem>>({
@@ -33,7 +39,7 @@ export const useProductLink = ({ index, product }: ProductLinkOptions) => {
             discount: product?.Price?.isSale
               ? product?.Price?.ListPrice - product?.Price?.BasePrice
               : 0,
-            currency: code as CurrencyCode,
+            currency: (code as CurrencyCode) ?? 'BRL',
             item_variant_name: product.Name,
             product_reference_id: null,
           },

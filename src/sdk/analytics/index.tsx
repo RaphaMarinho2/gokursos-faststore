@@ -1,5 +1,5 @@
-import type { AnalyticsEvent } from '@faststore/sdk'
-import { useAnalyticsEvent } from '@faststore/sdk'
+import { useAnalyticsEvent } from './useAnalyticsEvent'
+import type { AnalyticsEvent } from './wrap'
 
 export const AnalyticsHandler = () => {
   useAnalyticsEvent((event: AnalyticsEvent) => {

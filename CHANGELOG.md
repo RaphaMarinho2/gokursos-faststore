@@ -13,11 +13,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.24.0] - 2022-10-27
+
+### Added
+
+- **GM-886** - Add redirect encrypted data for checkout from minicard
+- **GM-960** - Change Technology and Development icons from the footer
+- **GM-950** - Add shelf name on productClick event data
+
+### Fixed
+
+- **GM-939** - [PLANS] Select component
+
+### Removed
+
 ## [0.23.0] - 2022-10-25
 
 ### Added
 
-- **GM-950** - Add shelf name on productClick event data
 - **GM-941** - No products warning at "My Courses" page
 
 ### Fixed

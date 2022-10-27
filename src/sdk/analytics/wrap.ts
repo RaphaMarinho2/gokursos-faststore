@@ -1,9 +1,26 @@
-import type { SelectItemEvent } from './events/select_item'
+import type {
+  AddToCartEvent,
+  RemoveFromCartEvent,
+  SearchEvent,
+  SelectItemEvent,
+  SelectPromotionEvent,
+  ViewItemEvent,
+  ViewItemListEvent,
+  ViewPromotionEvent,
+} from './types'
 
 /**
  * All these events are based on the official GA4 docs. https://developers.google.com/gtagjs/reference/ga4-events
  */
-export type AnalyticsEvent = SelectItemEvent
+export type AnalyticsEvent =
+  | SelectItemEvent
+  | SelectPromotionEvent
+  | ViewItemEvent
+  | ViewItemListEvent
+  | ViewPromotionEvent
+  | AddToCartEvent
+  | SearchEvent
+  | RemoveFromCartEvent
 
 export interface UnknownEvent {
   name: string
