@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **GM-886** - Add redirect encrypted data for checkout from minicard
+- **GM-960** - Change Technology and Development icons from the footer
 
 ### Fixed
 
