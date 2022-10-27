@@ -1,3 +1,24 @@
+type AdditionalItemProperties = {
+  product_reference_id: string | null
+  item_variant_name: string | null
+}
+
+export type AnalyticsItem = Item & AdditionalItemProperties
+
+export interface SearchSelectItemParams {
+  url: string
+  items: Array<{
+    item_id?: string
+    item_variant?: string
+    index: number
+  }>
+}
+
+export interface SearchSelectItemEvent {
+  name: 'search_select_item'
+  params: SearchSelectItemParams
+}
+
 export interface ItemId {
   item_id: string
 }
@@ -39,6 +60,95 @@ export interface PromotionParams {
 }
 
 export type PromotionItem = Item & PromotionParams
+
+export interface AddToCartParams<T extends Item = Item> {
+  currency?: CurrencyCode
+  value?: number
+  items?: T[]
+}
+
+export interface AddToCartEvent<T extends Item = Item> {
+  name: 'add_to_cart'
+  params: AddToCartParams<T>
+}
+
+export interface RemoveFromCartParams<T extends Item = Item> {
+  currency?: CurrencyCode
+  value?: number
+  items?: T[]
+}
+
+export interface RemoveFromCartEvent<T extends Item = Item> {
+  name: 'remove_from_cart'
+  params: RemoveFromCartParams<T>
+}
+
+export interface SearchParams {
+  search_term: string
+}
+
+export interface SearchEvent {
+  name: 'search'
+  params: SearchParams
+}
+
+export interface SelectItemParams<T extends Item = Item> {
+  item_list_id?: string
+  item_list_name?: string
+  shelf_name?: string
+  items?: T[]
+}
+
+export interface SelectItemEvent<T extends Item = Item> {
+  name: 'select_item'
+  params: SelectItemParams<T>
+}
+
+export interface SelectPromotionItems<T extends PromotionItem = PromotionItem> {
+  items?: T[]
+}
+
+export type SelectPromotionParams<T extends PromotionItem = PromotionItem> =
+  PromotionParams & SelectPromotionItems<T>
+
+export interface SelectPromotionEvent<T extends PromotionItem = PromotionItem> {
+  name: 'select_promotion'
+  params: SelectPromotionParams<T>
+}
+
+export interface ViewItemListParams<T extends Item = Item> {
+  item_list_id?: string
+  item_list_name?: string
+  items?: T[]
+}
+
+export interface ViewItemListEvent<T extends Item = Item> {
+  name: 'view_item_list'
+  params: ViewItemListParams<T>
+}
+
+export interface ViewItemParams<T extends Item = Item> {
+  currency?: CurrencyCode
+  value?: number
+  items?: T[]
+}
+
+export interface ViewItemEvent<T extends Item = Item> {
+  name: 'view_item'
+  params: ViewItemParams<T>
+}
+
+export interface ViewPromotionItems<T extends PromotionItem = PromotionItem> {
+  items?: T[]
+}
+
+export type ViewPromotionParams<T extends PromotionItem = PromotionItem> =
+  PromotionParams & ViewPromotionItems<T>
+
+export interface ViewPromotionEvent<T extends PromotionItem = PromotionItem> {
+  name: 'view_promotion'
+  params: ViewPromotionParams<T>
+}
 
 /**
  * The values for this type were taken from https://github.com/freeall/currency-codes/blob/master/iso-4217-list-one.xml
