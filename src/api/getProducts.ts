@@ -3,6 +3,7 @@ import axios from 'axios'
 import type { Filters } from 'src/components/search/PLPFilters/Filters'
 
 import { formatQueryFilters } from '../utils/formatQueryFilters'
+import { LMS_FILTERS } from '../constants'
 
 interface ProductsRequest {
   sort?: string
@@ -52,7 +53,7 @@ async function getProducts(
       ? ` and (${formatedFilters?.priceRangeFilter})`
       : 'and Price/BasePrice gt 0'
 
-    const allFilters = `IsActive eq true and IsVisible eq true and ${defaultFilters}${categoryFilter}${workloadFilter}${priceFilter}`
+    const allFilters = `IsActive eq true and IsVisible eq true and ${defaultFilters}${categoryFilter}${workloadFilter}${priceFilter} and (Stock/HasUnlimitedQuantity or Stock/TotalQuantity ge 1 or ShowWithoutStock)${LMS_FILTERS}`
 
     const URL = `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$filter=${allFilters}&$top=${itemsPerPage}&$skip=${skip}&$select=${select}&$orderby=${sort}&$count=true`
 
