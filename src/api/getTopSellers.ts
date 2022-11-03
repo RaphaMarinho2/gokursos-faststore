@@ -13,7 +13,7 @@ export default async function getTopSellers(
         ? `Department/Slug eq '${departmentName}' and `
         : ''
 
-    const expand = `SKU, Department, Category, Price, Checkout, Especificacao, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria`
+    const expand = `SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria`
 
     const orderBy = `Rank/Score desc`
 

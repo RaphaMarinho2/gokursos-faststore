@@ -64,7 +64,15 @@ export const VideoAndText = ({
               className ? `${className}` : ''
             }`}
           >
-            {urlVideo && <video src={urlVideo} title={nameVideo} />}
+            {urlVideo && (
+              <iframe
+                src={urlVideo}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title={nameVideo}
+              />
+            )}
           </div>
         </div>
 

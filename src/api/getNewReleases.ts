@@ -5,7 +5,7 @@ export default async function getNewReleases(
   _: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
-  const expand = `SKU, Category, Brand, Price, Checkout, Especificacao, TradePolicy, Stock, Rank, Especificacao/CargaHoraria`
+  const expand = `SKU, Category, Brand, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria`
 
   const orderBy = `ReleaseDate desc`
 

@@ -10,7 +10,7 @@ async function getSuggestions(
 
     const encodedTerm = encodeURI(term)
     const expand =
-      'SKU, Department, Category, Price, Checkout, Especificacao, TradePolicy, Stock, Rank, Especificacao/CargaHoraria'
+      'SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria'
 
     const filter = `IsActive eq true and IsVisible eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}'))`
 
