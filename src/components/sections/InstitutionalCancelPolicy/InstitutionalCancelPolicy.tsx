@@ -1,3 +1,5 @@
+import InstitucionalBanner from 'src/pages/institucional/components'
+
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
 
@@ -11,9 +13,7 @@ const InstitutionalCancelPolicy = ({
 }: InstitutionalCancelPolicyProps) => {
   return (
     <>
-      <div className="title-container">
-        <p className="layout__content">Política de Cancelamento</p>
-      </div>
+      <InstitucionalBanner text="Política de Cancelamento" />
 
       <div className="institucional-cancel-policy">
         <InstitutionalMenu location={location} />

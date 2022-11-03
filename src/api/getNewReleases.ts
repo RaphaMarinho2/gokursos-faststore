@@ -5,13 +5,13 @@ export default async function getNewReleases(
   _: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
-  const expand = `SKU, Category, Brand, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Especificacao/CargaHoraria`
+  const expand = `SKU, Category, Brand, Price, Checkout, Especificacao, TradePolicy, Stock, Rank, Especificacao/CargaHoraria`
 
   const orderBy = `ReleaseDate desc`
 
   const filter = `IsActive eq true and IsVisible eq true`
 
-  const select = `ID, Brand/Name, Name, ProductImageURL,  Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, LinkId`
+  const select = `ID, _Id, Brand/Name, Name, ProductImageURL,  Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, LinkId`
 
   const top = `20`
 

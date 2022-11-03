@@ -18,6 +18,7 @@ export interface ProductData {
   Brand: Brand
   BreadCrumbs: BreadCrumb[]
   Installments: Installment[]
+  shelfName?: string
 }
 
 export interface Department {

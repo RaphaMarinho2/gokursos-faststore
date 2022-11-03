@@ -1,8 +1,10 @@
-import type { SelectItemEvent as SelectItemEventType } from '@faststore/sdk'
-import { sendAnalyticsEvent } from '@faststore/sdk'
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
-import type { AnalyticsItem } from '../types'
+import { sendAnalyticsEvent } from '../sendAnalyticsEvent'
+import type {
+  AnalyticsItem,
+  SelectItemEvent as SelectItemEventType,
+} from '../types'
 
 export const SelectItemEvent = (product: ProductData) => {
   sendAnalyticsEvent<SelectItemEventType<AnalyticsItem>>({
@@ -10,6 +12,7 @@ export const SelectItemEvent = (product: ProductData) => {
     params: {
       item_list_name: 'related products',
       item_list_id: 'related-products',
+      shelf_name: product?.shelfName ?? '',
       items: [
         {
           item_id: product?.ID,

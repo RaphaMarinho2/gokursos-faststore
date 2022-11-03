@@ -123,10 +123,10 @@ export const querySSG = graphql`
         preco
         slug
         bannerImageMobile {
-          url
+          gatsbyImageData(width: 343, quality: 100)
         }
         bannerImageDesktop {
-          url
+          gatsbyImageData(width: 1920, quality: 100)
         }
         compartilhar {
           url

@@ -1,5 +1,4 @@
-import { Banner, BannerImage, BannerContent } from '@faststore/ui'
-import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import PageBanner from '../../common/PageBanner'
 import './style.scss'
 
 interface BannerInfoProdutorProps {
@@ -13,27 +12,14 @@ const BannerInfoProdutor = ({
   imageBannerDesktop,
   imageBannerMobile,
 }: BannerInfoProdutorProps) => {
-  const { isTablet } = useWindowDimensions()
-
-  if (title === 'Gilberto') {
-    title = 'Gilberto Augusto'
-  }
-
   return (
     <section className="banner-info-produtor">
       <div className="banner-info-produtor__content">
-        <Banner>
-          <BannerImage>
-            <img
-              className="banner-info-produtor__image"
-              alt=""
-              src={isTablet ? imageBannerMobile : imageBannerDesktop}
-            />
-          </BannerImage>
-          <BannerContent>
-            <h2 className="banner-info-produtor__title">{title}</h2>
-          </BannerContent>
-        </Banner>
+        <PageBanner
+          title={title}
+          imageBannerDesktop={imageBannerDesktop}
+          imageBannerMobile={imageBannerMobile}
+        />
       </div>
     </section>
   )

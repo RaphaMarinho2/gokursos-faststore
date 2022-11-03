@@ -74,7 +74,7 @@ const MainBanner = ({ nodes }: MainBannerProps) => {
               !banner?.imageDesktop?.gatsbyImageData ||
               !banner?.imageMobile?.gatsbyImageData
             ) {
-              return <></>
+              return null
             }
 
             return (

@@ -13,7 +13,7 @@ export default async function getTopSellers(
         ? `Department/Slug eq '${departmentName}' and `
         : ''
 
-    const expand = `SKU, Department, Category, Price, Checkout, Especificacao, CommercialCondition, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria`
+    const expand = `SKU, Department, Category, Price, Checkout, Especificacao, TradePolicy, Stock, Rank, Brand, Especificacao/CargaHoraria`
 
     const orderBy = `Rank/Score desc`
 
@@ -21,7 +21,7 @@ export default async function getTopSellers(
 
     const top = `20`
 
-    const select = `ID,Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Department/Name, Category/Name, Especificacao/CargaHoraria/Text, LinkId`
+    const select = `ID, _Id, Name, ProductImageURL, Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Department/Name, Category/Name, Especificacao/CargaHoraria/Text, LinkId`
 
     const { data } = await axios.get(
       `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=${expand}&$orderby=${orderBy}&$filter=${allFilters}&$top=${top}&$select=${select}`

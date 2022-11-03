@@ -1,12 +1,19 @@
 import './style.scss'
-import { Banner, BannerImage, BannerContent } from '@faststore/ui'
-import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
+import ArtDirectedPageBanner from '../../common/ArtDirectedPageBanner'
 
 interface BannerCategoryProps {
   title: string
   subtitle: string
-  imageBannerDesktop: string
-  imageBannerMobile: string
+  imageBannerDesktop: {
+    url: string
+    width: number
+    height: number
+  }
+  imageBannerMobile: {
+    url: string
+    width: number
+    height: number
+  }
 }
 
 const BannerCategory = ({
@@ -15,24 +22,15 @@ const BannerCategory = ({
   imageBannerDesktop,
   imageBannerMobile,
 }: BannerCategoryProps) => {
-  const { isTablet } = useWindowDimensions()
-
   return (
     <section className="banner-category">
       <div className="banner-category__content">
-        <Banner>
-          <BannerImage>
-            <img
-              className="banner-category__image"
-              alt=""
-              src={isTablet ? imageBannerMobile : imageBannerDesktop}
-            />
-          </BannerImage>
-          <BannerContent>
-            <h2 className="banner-category__title">{title}</h2>
-            <h3 className="banner-category__subtitle">{subtitle}</h3>
-          </BannerContent>
-        </Banner>
+        <ArtDirectedPageBanner
+          title={title}
+          subtitle={subtitle}
+          imageBannerDesktop={imageBannerDesktop}
+          imageBannerMobile={imageBannerMobile}
+        />
       </div>
     </section>
   )

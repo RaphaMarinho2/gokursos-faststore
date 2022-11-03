@@ -8,14 +8,24 @@
   color: #ffffff;
   background-color: #004e98;
 
-  @include media(">=notebook") {
+  @include media(">full-desktop") {
+    max-width: var(--fs-grid-breakpoint-desktop);
+    padding: 2rem;
+    margin: auto;
+  }
+
+  @include media(">=notebook", "<=full-desktop") {
     padding: 5rem;
   }
 
   &__form-section {
     padding: 2rem;
 
-    @include media(">=notebook") {
+    @include media(">full-desktop") {
+      padding: 5rem;
+    }
+
+    @include media(">=notebook", "<=full-desktop") {
       flex: 1;
       padding: 0 10rem;
     }

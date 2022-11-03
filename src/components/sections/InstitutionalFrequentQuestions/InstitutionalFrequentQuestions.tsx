@@ -1,3 +1,5 @@
+import InstitucionalBanner from 'src/pages/institucional/components'
+
 import CommonQuestions from '../CommonQuestions'
 import InstitutionalMenu from '../InstutionalMenu/InstitutionalMenu'
 import './style.scss'
@@ -11,9 +13,7 @@ const InstitutionalFrequentQuestions = ({
 }: InstitutionalFrequentQuestionsProps) => {
   return (
     <>
-      <div className="title-container">
-        <p className="layout__content">Perguntas Frequentes</p>
-      </div>
+      <InstitucionalBanner text="Perguntas Frequentes" />
 
       <div className="institutional-frequent-questions">
         <InstitutionalMenu location={location} />

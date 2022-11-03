@@ -8,6 +8,7 @@ import SimpleText from 'src/components/sections/SimpleText/SimpleText'
 import BannerPlanos from 'src/components/sections/BannerPlanos'
 import CardPlanos from 'src/components/sections/CardPlanos/CardPlanos'
 import PlansShelf from 'src/components/sections/PlansShelf'
+import 'src/styles/pages/planspage.scss'
 
 export type Props = PageProps<PlanosQuery>
 function Page(props: Props) {
@@ -76,7 +77,7 @@ export const querySSG = graphql`
         }
       }
     }
-    allContentfulPlanos {
+    allContentfulPlanos(sort: { order: DESC, fields: createdAt }) {
       nodes {
         texto {
           texto

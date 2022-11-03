@@ -9,6 +9,75 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Fixed
+
+### Removed
+
+## [0.24.0] - 2022-10-27
+
+### Added
+
+- **GM-886** - Add redirect encrypted data for checkout from minicard
+- **GM-960** - Change Technology and Development icons from the footer
+- **GM-950** - Add shelf name on productClick event data
+
+### Fixed
+
+- **GM-939** - [PLANS] Select component
+
+### Removed
+
+## [0.23.0] - 2022-10-25
+
+### Added
+
+- **GM-941** - No products warning at "My Courses" page
+
+### Fixed
+
+- **GM-871** - Plans page responsivity
+- **GM-846** - [HOME] Person shelf card gradient
+- **GM-948** - Edit Password page pre-render
+- **GM-947** - Login return function
+- **GM-858** - Adjust banner loading on the plans pages
+- **GM-872** - Menu user identification
+- **GM-934** - [Department] Score improvement, banner image treatment
+- **GM-951** - Responsivity at institucional pages
+
+### Removed
+
+## [0.22.2] - 2022-10-18
+
+### Added
+
+### Fixed
+
+- **GM-867** - Adjust in share option in buybox style
+- **GM-896** - [PLANS] Shelf card height
+- **GM-925** - [Banner] Banner medium adjust in mobile and desktop
+- **GM-942** - Remove deprecated parameter from shelfs' queries
+- **GM-856** - [VIDEO] Adjust in button border radius
+- **GM-800** - Adjust styles on product status and payment methods
+
+### Removed
+
+## [0.22.1] - 2022-10-13
+
+### Added
+
+### Fixed
+
+- **GM-781** - [ShareProduct] Adjust in share product style
+- **GM-870** - [API] Adjust order in allContentfulPlanosForCompanies API
+- **GM-869** - [API]Adjust order in allContentfulPlanos API
+- **GM-873** - [Banners] Adjust in margin for banners
+
+### Removed
+
+## [0.22.0] - 2022-10-10
+
+### Added
+
 - **GM-866** - Events for GoogleAnalytics 4
 
 ### Fixed

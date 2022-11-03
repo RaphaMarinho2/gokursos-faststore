@@ -2,74 +2,10 @@
 
 .banner-planos {
   width: 100%;
-  margin-bottom: 24px;
+  margin: 24px 0;
 
   .banner-planos__content {
     position: relative;
     width: 100%;
-
-    [data-banner-content] {
-      position: absolute;
-      top: 1%;
-      left: 16px;
-      color: #fff;
-
-      @include media(">=phonemid") {
-        top: 1%;
-      }
-
-      @include media(">=tablet") {
-        top: 1%;
-      }
-
-      @include media(">=notebook") {
-        top: 15%;
-        left: 156px;
-      }
-
-      @include media(">=desktop") {
-        top: 15%;
-      }
-
-      .banner-planos__title {
-        display: flex;
-        flex-wrap: nowrap;
-        width: 215px;
-        max-height: 215px;
-        margin-top: 35px;
-        margin-bottom: 8px;
-        overflow: hidden;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 26px;
-
-        @include media(">=notebook") {
-          width: 430px;
-          max-height: 215px;
-          font-size: 32px;
-          line-height: 48px;
-        }
-      }
-
-      .banner-planos__subtitle {
-        width: 200px;
-        max-height: 215px;
-        overflow: hidden;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 18px;
-
-        @include media(">=notebook") {
-          width: 430px;
-          max-height: 200px;
-          font-size: 16px;
-          line-height: 24px;
-        }
-      }
-    }
-
-    .banner-planos__image {
-      width: 100%;
-    }
   }
 }
