@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-901** - [PDP] Score Improvement
+
 ### Removed
 
 ## [0.24.0] - 2022-10-27
@@ -82,7 +84,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **GM-901** - [PDP] Score Improvement
 - **GM-832** - [LOGIN] Password visualization button
 - **GM-868** - [HOME] Components alignment to layout container
 - **GM-894** - [ACCOUNT] Scroll at page
