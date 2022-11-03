@@ -97,7 +97,7 @@ export type ContentfulAssetGatsbyImageDataArgs = {
   layout: InputMaybe<GatsbyImageLayout>
   outputPixelDensities: InputMaybe<Array<InputMaybe<Scalars['Float']>>>
   placeholder: InputMaybe<GatsbyImagePlaceholder>
-  quality?: InputMaybe<Scalars['Int']>
+  quality: InputMaybe<Scalars['Int']>
   resizingBehavior: InputMaybe<ImageResizingBehavior>
   sizes: InputMaybe<Scalars['String']>
   width: InputMaybe<Scalars['Int']>
