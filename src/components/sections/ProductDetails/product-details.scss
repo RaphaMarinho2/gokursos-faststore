@@ -298,7 +298,7 @@
   &-right {
     margin-top: 24px;
 
-    @include media (">=notebook") {
+    @include media(">=notebook") {
       padding: 0 0 0 32px;
       margin-top: 0;
       border: 0;
