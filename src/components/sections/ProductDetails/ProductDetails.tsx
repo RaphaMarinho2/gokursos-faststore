@@ -19,12 +19,10 @@ import { SelectPromotionEvent } from 'src/sdk/analytics/hooks/SelectPromotionEve
 import { ViewItemEvent } from 'src/sdk/analytics/hooks/ViewItemEvent'
 
 import ProductBrand from '../ProductBrand'
-import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
 import Section from '../Section'
 import Instalments from '../Instalments'
 import Workload from '../Workload'
 import { InstalmentList } from './InstalmentList/InstalmentList'
-import SubscriptionOffers from './SubscriptionOffers'
 import { VideoAndText } from './videoAndtextDetails'
 import type { ProductData } from './typings'
 
@@ -262,10 +260,11 @@ function ProductDetails({ product }: Props) {
             <article className="product-details__description">
               <VideoAndText ProductQueryDetails={productQueryDetails} />
             </article>
-            <SubscriptionOffers
+            {/* TODO: Uncomment this code when the plan pages are integrate */}
+            {/* <SubscriptionOffers
               firstOffer={mockedSubscriptionOffers.firstOffer}
               secondOffer={mockedSubscriptionOffers.secondOffer}
-            />
+            /> */}
           </div>
         </section>
       </section>

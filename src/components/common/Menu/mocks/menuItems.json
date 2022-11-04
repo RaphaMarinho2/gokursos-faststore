@@ -588,16 +588,6 @@
       ]
     },
     {
-      "label": "Planos de assinatura",
-      "link": "/planos",
-      "submenu": []
-    },
-    {
-      "label": "Para empresas",
-      "link": "/para-empresas",
-      "submenu": []
-    },
-    {
       "label": "Blog",
       "link": "https://blog.gokursos.com/",
       "submenu": []
