@@ -38,7 +38,7 @@ export const formatQueryFilters = (filteredFacets?: Filters[]) => {
     .join('')
 
   const priceRangeFilter = priceRangeFacet?.facets?.length
-    ? `Price/BasePrice gt ${priceRangeFacet.facets[0].others?.actualMin} and Price/BasePrice lt ${priceRangeFacet.facets[0].others?.actualMax}`
+    ? `Price/BasePrice gt 0 and Price/BasePrice ge ${priceRangeFacet.facets[0].others?.actualMin} and Price/BasePrice le ${priceRangeFacet.facets[0].others?.actualMax}`
     : ''
 
   return {

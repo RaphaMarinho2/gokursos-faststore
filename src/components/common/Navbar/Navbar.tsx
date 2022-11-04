@@ -86,8 +86,11 @@ function Navbar(props: Props) {
               buttonTestId="store-input-mobile-button"
               onSearchClick={handlerExpandSearch}
             />
-
-            <ButtonSignIn setDisplaySidebar={props.setDisplaySidebar} />
+            {!searchExpanded ? (
+              <ButtonSignIn setDisplaySidebar={props.setDisplaySidebar} />
+            ) : (
+              <></>
+            )}
             <CartToggle />
           </div>
         </section>

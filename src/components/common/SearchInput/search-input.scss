@@ -52,15 +52,11 @@
   }
 
   [data-store-button] {
-    .search-icon-desktop {
-      display: none;
-    }
-
     .search-icon-mobile {
       display: inline-block;
     }
 
-    left: 0;
+    left: 12px;
     padding: 0;
     background-color: transparent;
     border: 0;
