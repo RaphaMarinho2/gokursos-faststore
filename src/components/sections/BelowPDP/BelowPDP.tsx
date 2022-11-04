@@ -1,9 +1,7 @@
 import ProductDescription from '@acctglobal/productdescription'
 import productQueryDetails from 'src/mocks/productQueryDetails.json'
-import mockedSubscriptionOffers from 'src/mocks/subscriptionOffers.json'
 
 import ProductBrand from '../ProductBrand'
-import SubscriptionOffers from '../ProductDetails/SubscriptionOffers'
 import type { ProductData } from '../ProductDetails/typings'
 import { VideoAndText } from '../ProductDetails/videoAndtextDetails'
 
@@ -50,10 +48,11 @@ function BelowPDP({ product }: Props) {
         <article className="product-details__description">
           <VideoAndText ProductQueryDetails={productQueryDetails} />
         </article>
-        <SubscriptionOffers
+        {/* TODO: Uncomment this line when the plan pages are integrate */}
+        {/* <SubscriptionOffers
           firstOffer={mockedSubscriptionOffers.firstOffer}
           secondOffer={mockedSubscriptionOffers.secondOffer}
-        />
+        /> */}
       </div>
     </>
   )
