@@ -16,7 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-962** - [My courses] Fix responsivity to larger screens
 - **GM-981** - [Search] Fix search icon position 
-- **GM-961** - [Search/Category/Department] Arrow icon from the sort selector is over one of the options
+- **GM-961** - [Search/Category/Department] Arrow icon from the sort selector is above one of the options
+- **GM-972** - [Search/Category/Department] Fix sort selector spacing
 
 ### Removed
 
