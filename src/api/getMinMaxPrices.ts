@@ -1,6 +1,8 @@
 import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 
+import { LMS_FILTERS } from '../constants'
+
 export default async function getMinMaxPrices(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
@@ -14,14 +16,16 @@ export default async function getMinMaxPrices(
       ? ` and Department/Slug eq '${departmentSlug}'`
       : categorySlug
       ? ` and Category/Slug eq '${categorySlug}'`
-      : ` and IsActive eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}') or contains(Description, '${encodedTerm}') or contains(DescriptionShort, '${encodedTerm}') or contains(Especificacao/Conteudo, '${encodedTerm}') or contains(Especificacao/Objetivos, '${encodedTerm}'))`
+      : ` and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}') or contains(Description, '${encodedTerm}') or contains(DescriptionShort, '${encodedTerm}') or contains(Especificacao/Conteudo, '${encodedTerm}') or contains(Especificacao/Objetivos, '${encodedTerm}'))`
+
+    const filter = `Price/BasePrice ne ''${filterParam} and IsActive eq true and IsVisible eq true and (Stock/HasUnlimitedQuantity or Stock/TotalQuantity ge 1 or ShowWithoutStock)${LMS_FILTERS}`
 
     const [maxPriceData, minPriceData] = await Promise.all([
       axios.get(
-        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne ''${filterParam}`
+        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice desc&$select=Price/BasePrice&$top=1&$filter=${filter}`
       ),
       axios.get(
-        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=Price/BasePrice ne ''${filterParam}`
+        `${process.env.GATSBY_CATALOG_BASE_URL}/odata/Catalog/v1/Products?$expand=Price&$orderby=Price/BasePrice asc&$select=Price/BasePrice&$top=1&$filter=${filter}`
       ),
     ])
 

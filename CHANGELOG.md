@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-970** - Add LMS filters on the product OData queries
+
 ### Fixed
 
 - **GM-962** - [My courses] Fix responsivity to larger screens 
