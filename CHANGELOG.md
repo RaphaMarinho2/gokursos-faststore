@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **GM-962** - [My courses] Fix responsivity to larger screens 
+- **GM-962** - [My courses] Fix responsivity to larger screens
+- **GM-981** - [Search] Fix search icon position 
 
 ### Removed
 
