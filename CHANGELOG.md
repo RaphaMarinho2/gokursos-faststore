@@ -13,6 +13,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.25.0] - 2022-11-04
+
+### Added
+
+- **GM-970** - Add LMS filters on the product OData queries
+- **GM-983** - Hide links to the plans page
+
+### Fixed
+
+- **GM-901** - [PDP] Score Improvement
+- **GM-962** - [My courses] Fix responsivity to larger screens
+- **GM-981** - [Search] Fix search icon position
+- **GM-961** - [Search/Category/Department] Arrow icon from the sort selector is above one of the options
+- **GM-972** - [Search/Category/Department] Fix sort selector spacing
+
+### Removed
+
 ## [0.24.0] - 2022-10-27
 
 ### Added

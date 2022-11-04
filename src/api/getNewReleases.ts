@@ -1,6 +1,8 @@
 import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 
+import { LMS_FILTERS } from '../constants'
+
 export default async function getNewReleases(
   _: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
@@ -9,7 +11,7 @@ export default async function getNewReleases(
 
   const orderBy = `ReleaseDate desc`
 
-  const filter = `IsActive eq true and IsVisible eq true`
+  const filter = `IsActive eq true and IsVisible eq true and (Stock/HasUnlimitedQuantity or Stock/TotalQuantity ge 1 or ShowWithoutStock)${LMS_FILTERS}`
 
   const select = `ID, _Id, Brand/Name, Name, ProductImageURL,  Price/BasePrice, Price/ListPrice, Price/CommisionedPrice, Price/isSale, Category/Name, LinkId`
 

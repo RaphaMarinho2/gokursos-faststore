@@ -1,6 +1,8 @@
 import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 
+import { LMS_FILTERS } from '../constants'
+
 export default async function getTopSellers(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
@@ -17,7 +19,7 @@ export default async function getTopSellers(
 
     const orderBy = `Rank/Score desc`
 
-    const allFilters = `${filterParam} IsActive eq true and IsVisible eq true and Rank ne null`
+    const allFilters = `${filterParam} IsActive eq true and IsVisible eq true and Rank ne null and (Stock/HasUnlimitedQuantity or Stock/TotalQuantity ge 1 or ShowWithoutStock)${LMS_FILTERS}`
 
     const top = `20`
 

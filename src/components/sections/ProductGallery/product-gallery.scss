@@ -57,7 +57,7 @@
     display: grid;
     grid-template-rows: var(--product-listing-row-height) auto;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: var(--fs-spacing-0);
+    row-gap: var(--fs-spacing-4);
     column-gap: var(--fs-spacing-4);
   }
 }

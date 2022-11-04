@@ -1,7 +1,7 @@
 import ProductTags from '@acctglobal/product-tags'
-import ProductDescription from '@acctglobal/productdescription'
 import ShareProduct from '@acctglobal/shareproduct'
 import { useState } from 'react'
+import loadable from '@loadable/component'
 import FacebookShareIcon from 'src/components/icons/FacebookShare'
 import PinterestShareIcon from 'src/components/icons/PinterestShareIcon'
 import ShareIcon from 'src/components/icons/ShareIcon'
@@ -11,22 +11,20 @@ import Breadcrumb from 'src/components/ui/Breadcrumb'
 import { ButtonBuy } from 'src/components/ui/Button'
 import Prices from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
-import productQueryDetails from 'src/mocks/productQueryDetails.json'
 import IconClose from 'src/components/icons/IconClose'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { SelectPromotionEvent } from 'src/sdk/analytics/hooks/SelectPromotionEvent'
 import { ViewItemEvent } from 'src/sdk/analytics/hooks/ViewItemEvent'
+import ProductImage from 'src/components/ui/ProductImage'
 
-import ProductBrand from '../ProductBrand'
-import mockedSubscriptionOffers from '../../../mocks/subscriptionOffers.json'
 import Section from '../Section'
 import Instalments from '../Instalments'
 import Workload from '../Workload'
 import { InstalmentList } from './InstalmentList/InstalmentList'
-import SubscriptionOffers from './SubscriptionOffers'
-import { VideoAndText } from './videoAndtextDetails'
 import type { ProductData } from './typings'
+
+const BelowPDP = loadable(() => import('../BelowPDP'))
 
 interface Props {
   product: ProductData
@@ -38,7 +36,6 @@ function ProductDetails({ product }: Props) {
   const {
     ID,
     Name,
-    Description,
     Especificacao,
     ProductImageURL,
     Price,
@@ -49,25 +46,6 @@ function ProductDetails({ product }: Props) {
   } = product
 
   const priceVaritation = Installments
-
-  const tabSpecification = [
-    {
-      name: 'Sobre o curso',
-      description: Description ?? '',
-    },
-    {
-      name: 'Conteúdo do curso',
-      description: Especificacao?.Conteudo ?? '',
-    },
-    {
-      name: 'Objetivos',
-      description: Especificacao?.Objetivos ?? '',
-    },
-    {
-      name: 'Certificados',
-      description: Especificacao?.TipoCurso?.DescriptionCertificate ?? '',
-    },
-  ]
 
   if (product.Price.ListPrice && product.Price.isSale) {
     SelectPromotionEvent(product)
@@ -178,16 +156,10 @@ function ProductDetails({ product }: Props) {
         </header>
 
         <section className="product-details__image">
-          {product?.ProductImageURL ? (
-            <img
-              loading="eager"
-              src={product?.ProductImageURL}
-              alt={product?.Name}
-              sizes="(max-width: 768px) 25vw, 50vw"
-            />
-          ) : (
-            <h4 className="image-not-found">imagem indisponível</h4>
-          )}
+          <ProductImage
+            imageUrl={product?.ProductImageURL}
+            alt={product?.Name}
+          />
         </section>
 
         <section className="product-details__settings">
@@ -247,26 +219,7 @@ function ProductDetails({ product }: Props) {
         </section>
 
         <section className="product-details__content">
-          <article className="product-details__description">
-            {typeof window !== 'undefined' && (
-              <div className="divisor-product-details">
-                <ProductDescription
-                  descriptionTabs={tabSpecification}
-                  maxHeight={100}
-                />
-                <ProductBrand NameOfBrand={product.Brand.Name} />
-              </div>
-            )}
-          </article>
-          <div className="product-details__content-right">
-            <article className="product-details__description">
-              <VideoAndText ProductQueryDetails={productQueryDetails} />
-            </article>
-            <SubscriptionOffers
-              firstOffer={mockedSubscriptionOffers.firstOffer}
-              secondOffer={mockedSubscriptionOffers.secondOffer}
-            />
-          </div>
+          <BelowPDP product={product} fallback={<></>} />
         </section>
       </section>
     </Section>

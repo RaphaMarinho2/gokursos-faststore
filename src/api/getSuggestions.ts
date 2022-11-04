@@ -1,6 +1,8 @@
 import type { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 
+import { LMS_FILTERS } from '../constants'
+
 async function getSuggestions(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
@@ -12,7 +14,7 @@ async function getSuggestions(
     const expand =
       'SKU, Department, Category, Price, Checkout, Especificacao, TradePolicy, Stock, Rank, Especificacao/CargaHoraria'
 
-    const filter = `IsActive eq true and IsVisible eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}'))`
+    const filter = `IsActive eq true and IsVisible eq true and (contains(Name, '${encodedTerm}') or contains(Department/Name, '${encodedTerm}') or contains(Category/Name, '${encodedTerm}') or contains(KeyWords, '${encodedTerm}') or contains(Brand/Name, '${encodedTerm}'))  and (Stock/HasUnlimitedQuantity or Stock/TotalQuantity ge 1 or ShowWithoutStock)${LMS_FILTERS}`
 
     const top = `8`
 
