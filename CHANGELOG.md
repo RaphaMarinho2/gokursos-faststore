@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-962** - [My courses] Fix responsivity to larger screens 
+
 ### Removed
 
 ## [0.24.0] - 2022-10-27
