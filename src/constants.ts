@@ -8,3 +8,10 @@ export const windowGlobal = typeof window !== 'undefined' ? window : undefined
 export const SUGGESTION_IMG_WIDTH = 56
 export const SUGGESTION_IMG_HEIGHT = 56
 export const LMS_FILTERS = ' and Especificacao/TipoCurso/_Id eq 333'
+export const sessionVars = {
+  locale: 'pt-BR',
+  currency: {
+    code: 'BRL',
+    symbol: 'R$',
+  },
+}
