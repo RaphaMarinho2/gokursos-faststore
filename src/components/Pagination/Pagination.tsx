@@ -19,6 +19,21 @@ export const Pagination = ({
     <div className="content-pagination">
       <button
         data-fs-button
+        className="pagination__jump-button"
+        onClick={() => {
+          setCurrentPage(0)
+        }}
+        disabled={currentPage === 0}
+      >
+        <HorizontalArrowIcon
+          color={currentPage === 0 ? undefined : '#FF3452'}
+        />
+        <HorizontalArrowIcon
+          color={currentPage === 0 ? undefined : '#FF3452'}
+        />
+      </button>
+      <button
+        data-fs-button
         className="pagination__button"
         onClick={() => {
           setCurrentPage(currentPage - 1)
@@ -56,6 +71,23 @@ export const Pagination = ({
         }}
         disabled={lastPage}
       >
+        <HorizontalArrowIcon
+          direction="right"
+          color={lastPage ? undefined : '#FF3452'}
+        />
+      </button>
+      <button
+        data-fs-button
+        className="pagination__jump-button"
+        onClick={() => {
+          setCurrentPage(pages - 1)
+        }}
+        disabled={lastPage}
+      >
+        <HorizontalArrowIcon
+          direction="right"
+          color={lastPage ? undefined : '#FF3452'}
+        />
         <HorizontalArrowIcon
           direction="right"
           color={lastPage ? undefined : '#FF3452'}
