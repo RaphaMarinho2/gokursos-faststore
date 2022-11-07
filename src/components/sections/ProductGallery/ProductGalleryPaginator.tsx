@@ -32,6 +32,15 @@ const ProductGalleryPaginator = ({
   return (
     <div className="product-listing__pagination product-listing__pagination--bottom">
       <Button
+        className="product-listing__pagination-jump-button"
+        variant="tertiary"
+        onClick={() => pageNavigation(0)}
+        disabled={checkPage(1)}
+      >
+        <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
+        <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
+      </Button>
+      <Button
         className="product-listing__pagination-button"
         variant="tertiary"
         onClick={() => pageNavigation(upCurrent - 1)}
@@ -54,6 +63,21 @@ const ProductGalleryPaginator = ({
         onClick={() => pageNavigation(upCurrent + 1)}
         disabled={checkPage(lastPage)}
       >
+        <HorizontalArrowIcon
+          direction="right"
+          color={checkPage(lastPage) ? undefined : '#FF3452'}
+        />
+      </Button>
+      <Button
+        className="product-listing__pagination-jump-button"
+        variant="tertiary"
+        onClick={() => pageNavigation(lastPage - 1)}
+        disabled={checkPage(lastPage)}
+      >
+        <HorizontalArrowIcon
+          direction="right"
+          color={checkPage(lastPage) ? undefined : '#FF3452'}
+        />
         <HorizontalArrowIcon
           direction="right"
           color={checkPage(lastPage) ? undefined : '#FF3452'}
