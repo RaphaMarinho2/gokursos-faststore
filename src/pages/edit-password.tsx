@@ -1,4 +1,3 @@
-import { useSession } from '@faststore/sdk'
 import type { PageProps } from 'gatsby'
 import { graphql, navigate } from 'gatsby'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
@@ -6,6 +5,8 @@ import { useEffect } from 'react'
 import EditPassoword from 'src/components/sections/EditPassoword'
 import type { EditPasswordPageQueryQuery } from '@generated/graphql'
 import { windowGlobal } from 'src/constants'
+
+import { locale } from '../../store.config'
 
 export type Props = PageProps<EditPasswordPageQueryQuery>
 
@@ -21,7 +22,6 @@ function Page(props: Props) {
     if (windowGlobal?.localStorage.getItem('user')) navigate('/')
   }, [])
 
-  const { locale } = useSession()
   const siteUrl = `https://${host}${pathname}`
 
   return (
