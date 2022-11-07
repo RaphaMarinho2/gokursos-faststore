@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- **GM-992** - Removed unused components
+
 ## [0.25.0] - 2022-11-04
 
 ### Added
