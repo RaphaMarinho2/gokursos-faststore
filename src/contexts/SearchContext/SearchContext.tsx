@@ -1,8 +1,8 @@
-import type { SearchState } from '@faststore/sdk'
 import axios from 'axios'
 import type { Dispatch, SetStateAction } from 'react'
 import { useMemo, createContext, useEffect, useState } from 'react'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
+import type { SearchState } from 'src/components/search/Filter/typings'
 import type { Filters } from 'src/components/search/PLPFilters/Filters'
 import { ITEMS_PER_PAGE } from 'src/constants'
 
