@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-import { useSession } from '@faststore/sdk'
 import type {
   AddToCartEvent,
   AnalyticsItem,
@@ -10,13 +9,12 @@ import type { CartItem } from 'src/sdk/cart/validate'
 import { useUI } from '../ui'
 import { useCart } from './useCart'
 import { sendAnalyticsEvent } from '../analytics/sendAnalyticsEvent'
+import { currency } from '../../../store.config'
 
 export const useBuyButton = (item: CartItem | null) => {
   const { addItem } = useCart()
   const { openMinicart } = useUI()
-  // TODO: change this to use our own hook
-  const session = useSession()
-  const code = session?.currency?.code
+  const { code } = currency
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
