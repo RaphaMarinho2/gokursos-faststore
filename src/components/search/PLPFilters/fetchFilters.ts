@@ -1,6 +1,6 @@
-import type { Facet } from '@faststore/sdk/dist/search/useSearchState'
 import axios from 'axios'
 
+import type { Facet } from '../Filter/typings'
 import type { Filters } from './Filters'
 
 type CategoryFilterType = Array<{ Name: string; Slug: string }>

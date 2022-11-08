@@ -1,4 +1,3 @@
-import type { Facet } from '@faststore/sdk/dist/search/useSearchState'
 import { useEffect } from 'react'
 import { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -7,6 +6,7 @@ import useSearch from 'src/contexts/SearchContext/useSearch'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 import useWindowDimensions from 'src/sdk/utils/useWindowDimensions'
 
+import type { Facet } from '../Filter/typings'
 import Facets from './Facets'
 import fetchFilters from './fetchFilters'
 import './plp-filters.scss'
