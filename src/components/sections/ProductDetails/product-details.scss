@@ -14,16 +14,29 @@
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 15vw;
+      bottom: 0;
       left: 0;
       width: 100%;
-      max-width: 314px;
-      height: 355px;
-      margin: 0 auto;
+      max-width: 90vw;
+      height: 75vh;
+      margin: auto;
+      overflow-y: scroll;
       background-color: #fff;
 
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: darkgrey;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #004e98;
+        border-radius: 10px;
+      }
+
       @include media(">=notebook") {
-        top: 10vw;
         max-width: 548px;
         height: 680px;
       }
@@ -42,6 +55,8 @@
       }
 
       &--top {
+        position: sticky;
+        top: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -49,7 +64,7 @@
         background: #ff3452;
 
         @include media(">=notebook") {
-          padding: 22px 40px;
+          padding: 15px 30px;
         }
 
         button {
