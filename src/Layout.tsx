@@ -1,7 +1,6 @@
 import { lazy, Suspense, useState } from 'react'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
-import Toast from 'src/components/common/Toast'
 import { useUI } from 'src/sdk/ui'
 import type { PropsWithChildren } from 'react'
 import 'src/styles/pages/layout.scss'
@@ -28,8 +27,6 @@ function Layout({ children }: PropsWithChildren<unknown>) {
         <Newletter />
 
         <Footer />
-
-        <Toast />
 
         <LoginSidebar
           displaySidebar={displaySidebar}
