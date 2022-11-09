@@ -5,7 +5,8 @@ import { useEffect } from 'react'
 import Login from 'src/components/sections/Login'
 import { windowGlobal } from 'src/constants'
 import type { LoginPageQueryQuery } from '@generated/graphql'
-import { useSession } from '@faststore/sdk'
+
+import { locale } from '../../store.config'
 
 export type Props = PageProps<LoginPageQueryQuery>
 
@@ -21,7 +22,6 @@ function Page(props: Props) {
     if (windowGlobal?.localStorage.getItem('user')) navigate('/')
   }, [])
 
-  const { locale } = useSession()
   const siteUrl = `https://${host}${pathname}`
 
   return (
