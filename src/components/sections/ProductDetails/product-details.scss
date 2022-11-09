@@ -22,17 +22,19 @@
       margin: auto;
       overflow-y: scroll;
       background-color: #fff;
+      scrollbar-width: thin;
+      scrollbar-color: #666 #ddd;
 
       &::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
       }
 
       &::-webkit-scrollbar-track {
-        background-color: darkgrey;
+        background-color: #ddd;
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: #004e98;
+        background-color: #666;
         border-radius: 10px;
       }
 
@@ -545,9 +547,7 @@
     grid-row: 1;
     grid-column: 8 / span 4;
     border: 1px solid var(--fs-border-color-light);
-    border-radius:
-      var(--fs-border-radius-default)
-      var(--fs-border-radius-default) 0 0;
+    border-radius: var(--fs-border-radius-default) var(--fs-border-radius-default) 0 0;
   }
 }
 
@@ -703,9 +703,7 @@
     padding: var(--fs-spacing-3);
     border: 1px solid var(--fs-border-color-light);
     border-top: 0;
-    border-radius:
-      0 0 var(--fs-border-radius-default)
-      var(--fs-border-radius-default);
+    border-radius: 0 0 var(--fs-border-radius-default) var(--fs-border-radius-default);
   }
 }
 
