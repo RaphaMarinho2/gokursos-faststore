@@ -1,6 +1,6 @@
-import { useSession } from '@faststore/sdk'
 import type { ProductData } from 'src/components/sections/ProductDetails/typings'
 
+import { currency } from '../../../../store.config'
 import { sendAnalyticsEvent } from '../sendAnalyticsEvent'
 import type {
   AnalyticsItem,
@@ -9,9 +9,7 @@ import type {
 } from '../types'
 
 export const ViewItemListEvent = (products: ProductData[]) => {
-  // TODO: change this to use our own hook
-  const session = useSession()
-  const code = session?.currency?.code
+  const { code } = currency
 
   if (products) {
     sendAnalyticsEvent<ViewItemListEventType<AnalyticsItem>>({
