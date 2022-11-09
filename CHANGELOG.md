@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GM-996** - Get locale from the store config on the login, register and changing password flows
 - **GM-997** - Use currency code from the store config on events
 - **GM-1000** - Create our Facet tyope to use on the filters
+- **GM-1001** - Remove faststore/sdk hook from the ProductGallerPage
 
 ### Fixed
 

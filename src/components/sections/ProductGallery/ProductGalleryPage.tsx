@@ -1,9 +1,9 @@
-import { useSearch } from '@faststore/sdk'
 import { navigate } from 'gatsby'
 import ProductNotFound from 'src/components/common/ProductNotFound/ProductNotFound'
 import type { ProductsProductCard } from 'src/components/product/ProductCard/ProductCard'
 import ProductGrid from 'src/components/product/ProductGrid'
 import Button from 'src/components/ui/Button'
+import { ITEMS_PER_PAGE } from 'src/constants'
 import './product-gallery.scss'
 
 /* If showSponsoredProducts is true, a ProductTiles will be displayed in between two blocks of ProductGrid on the page 0 */
@@ -16,8 +16,6 @@ interface Props {
 }
 
 function GalleryPage({ page, products }: Props) {
-  const { itemsPerPage } = useSearch()
-
   const urlParams = new URLSearchParams(window.location.search)
   const searchTerm = urlParams.get('q')
 
@@ -36,7 +34,9 @@ function GalleryPage({ page, products }: Props) {
     )
   }
 
-  return <ProductGrid products={products} page={page} pageSize={itemsPerPage} />
+  return (
+    <ProductGrid products={products} page={page} pageSize={ITEMS_PER_PAGE} />
+  )
 }
 
 function EmptySearchLayout({ searchTerm }: { searchTerm: string }) {
