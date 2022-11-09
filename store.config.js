@@ -11,7 +11,13 @@ module.exports = {
 
   // Default channel
   channel: '{"salesChannel":"1"}',
+
+  // Session variables
   locale: 'pt-BR',
+  currency: {
+    code: 'BRL',
+    symbol: 'R$',
+  },
 
   // Production URLs
   storeUrl: 'https://vtexfaststore.com',
