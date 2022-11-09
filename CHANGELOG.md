@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **GM-982** - [Home] Fix background of the category icons
 - **GM-1002** - Created type `SearchState` for search
+- **GM-1014** - Adjust styles modal installments
 
 ### Removed
 
