@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Fixed
+
+### Removed
+
+## [0.26.0] - 2022-11-09
+
+### Added
+
 - **GM-989** - Add "back to the first page" and "go to the last page" buttons on the paginator
 - **GM-994** - Add currency data on the store config
 - **GM-995** - Remove dependence useSession
