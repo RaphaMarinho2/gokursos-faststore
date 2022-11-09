@@ -2,8 +2,6 @@ export interface Facet {
   key: string
   value: string
 }
-<<<<<<< HEAD
-=======
 
 export declare type SearchSort =
   | 'price_desc'
@@ -33,4 +31,3 @@ export interface SearchState {
    */
   page: number
 }
->>>>>>> ac6cb24c (fix: changelog)
