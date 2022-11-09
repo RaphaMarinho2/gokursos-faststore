@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **GM-982** - [Home] Fix background of the category icons
+
 ### Removed
 
 ## [0.25.0] - 2022-11-04
