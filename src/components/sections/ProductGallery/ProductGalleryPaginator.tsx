@@ -17,8 +17,8 @@ const ProductGalleryPaginator = ({
   const urlParams = new URLSearchParams(search)
   const upCurrent = parseInt(urlParams.get('page') ?? '0', 10)
 
-  const pageNavigation = (to: number) => {
-    urlParams.set('page', `${to}`)
+  const navigateTo = (pageIndex: number) => () => {
+    urlParams.set('page', `${pageIndex}`)
 
     navigate(`${pathname}?${urlParams.toString()}`)
   }
@@ -32,9 +32,18 @@ const ProductGalleryPaginator = ({
   return (
     <div className="product-listing__pagination product-listing__pagination--bottom">
       <Button
+        className="product-listing__pagination-jump-button"
+        variant="tertiary"
+        onClick={navigateTo(0)}
+        disabled={checkPage(1)}
+      >
+        <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
+        <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
+      </Button>
+      <Button
         className="product-listing__pagination-button"
         variant="tertiary"
-        onClick={() => pageNavigation(upCurrent - 1)}
+        onClick={navigateTo(upCurrent - 1)}
         disabled={checkPage(1)}
       >
         <HorizontalArrowIcon color={checkPage(1) ? undefined : '#FF3452'} />
@@ -43,7 +52,7 @@ const ProductGalleryPaginator = ({
       <span className="product-listing__page-separator">de</span>
       <Button
         className="product-listing__last-page"
-        onClick={() => pageNavigation(lastPage - 1)}
+        onClick={navigateTo(lastPage - 1)}
         disabled={checkPage(lastPage)}
       >
         {lastPage}
@@ -51,9 +60,24 @@ const ProductGalleryPaginator = ({
       <Button
         className="product-listing__pagination-button"
         variant="tertiary"
-        onClick={() => pageNavigation(upCurrent + 1)}
+        onClick={navigateTo(upCurrent + 1)}
         disabled={checkPage(lastPage)}
       >
+        <HorizontalArrowIcon
+          direction="right"
+          color={checkPage(lastPage) ? undefined : '#FF3452'}
+        />
+      </Button>
+      <Button
+        className="product-listing__pagination-jump-button"
+        variant="tertiary"
+        onClick={navigateTo(lastPage - 1)}
+        disabled={checkPage(lastPage)}
+      >
+        <HorizontalArrowIcon
+          direction="right"
+          color={checkPage(lastPage) ? undefined : '#FF3452'}
+        />
         <HorizontalArrowIcon
           direction="right"
           color={checkPage(lastPage) ? undefined : '#FF3452'}

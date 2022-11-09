@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GM-989** - Add "back to the first page" and "go to the last page" buttons on the paginator
+
 ### Fixed
 
 - **GM-982** - [Home] Fix background of the category icons
