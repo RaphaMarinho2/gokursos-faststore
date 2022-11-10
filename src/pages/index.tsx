@@ -200,7 +200,7 @@ export const querySSG = graphql`
         name
         slug
         image {
-          gatsbyImageData(formats: JPG, quality: 100)
+          gatsbyImageData(formats: [AUTO, WEBP], quality: 100)
         }
       }
     }

@@ -1,15 +1,14 @@
 import { useMemo } from 'react'
-import { useSession } from '@faststore/sdk'
+
+import { locale } from '../../../store.config'
 
 export const useFormattedPrice = (price: number) => {
-  const { locale } = useSession()
-
   return useMemo(
     () =>
       Intl.NumberFormat(locale, {
         style: 'currency',
         currency: 'BRL',
       }).format(price),
-    [locale, price]
+    [price]
   )
 }

@@ -13,6 +13,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.26.0] - 2022-11-09
+
+### Added
+
+- **GM-989** - Add "back to the first page" and "go to the last page" buttons on the paginator
+- **GM-994** - Add currency data on the store config
+- **GM-995** - Remove dependence useSession
+- **GM-996** - Get locale from the store config on the login, register and changing password flows
+- **GM-997** - Use currency code from the store config on events
+- **GM-1000** - Create our Facet tyope to use on the filters
+- **GM-1001** - Remove faststore/sdk hook from the ProductGallerPage
+
+### Fixed
+
+- **GM-982** - [Home] Fix background of the category icons
+- **GM-1002** - Created type `SearchState` for search
+- **GM-1014** - Adjust styles modal installments
+
+### Removed
+
+- **GM-992** - Removed unused components
+
 ## [0.25.0] - 2022-11-04
 
 ### Added

@@ -248,11 +248,25 @@
   &--bottom {
     display: flex;
     flex-direction: row;
-    column-gap: 20px;
+    column-gap: 7px;
     margin-top: var(--padding);
+
+    @include media(">=tablet") {
+      column-gap: 20px;
+    }
   }
 
   [data-store-button] {
+    &.product-listing__pagination-jump-button {
+      column-gap: 0;
+      max-width: 40px;
+      border: 1px solid #ddd;
+
+      &:disabled {
+        background-color: #fff;
+      }
+    }
+
     &.product-listing__pagination-button {
       max-width: 40px;
       border: 1px solid #ddd;
@@ -292,9 +306,7 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  padding:
-    calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2))
-    var(--fs-spacing-3);
+  padding: calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2)) var(--fs-spacing-3);
   color: #fff;
   background-color: #ff3452;
   border-radius: 4px;
@@ -306,9 +318,7 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  padding:
-    calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2))
-    var(--fs-spacing-3);
+  padding: calc(var(--fs-spacing-1) - (var(--fs-border-width-thick) * 2)) var(--fs-spacing-3);
   color: #ff3452;
   border: 1px solid #ff3452;
   border-radius: 4px;

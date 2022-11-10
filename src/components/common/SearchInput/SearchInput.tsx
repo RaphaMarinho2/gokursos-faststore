@@ -3,7 +3,6 @@ import { navigate } from 'gatsby'
 import type { ChangeEvent } from 'react'
 import { forwardRef, Suspense, useState, useRef } from 'react'
 import debounce from 'lodash.debounce'
-import useSearchHistory from 'src/sdk/search/useSearchHistory'
 import type {
   SearchInputProps as UISearchInputProps,
   SearchInputRef,
@@ -46,9 +45,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
     const [searchQuery, setSearchQuery] = useState<string>('')
     const [deferredTerm, setDeferredTerm] = useState<string>('')
     const searchRef = useRef<HTMLDivElement>(null)
-    const { addToSearchHistory } = useSearchHistory()
     const handleSearch = (term: string) => {
-      addToSearchHistory(term)
       doSearch(term)
       setSearchDropdownOpen(false)
     }
