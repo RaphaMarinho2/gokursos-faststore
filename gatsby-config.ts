@@ -25,6 +25,7 @@ const gatsbyConfig: GatsbyConfig = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-fastify`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
